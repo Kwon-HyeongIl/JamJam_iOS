@@ -11,7 +11,7 @@ import SwiftUI
 struct JamjamApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationBaseView()
         }
     }
 }
