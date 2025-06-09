@@ -18,6 +18,7 @@
 		CA09155B2DF12CF700E272F8 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09155A2DF12CF700E272F8 /* NavigationRouter.swift */; };
 		CA09155D2DF12D6A00E272F8 /* NavigationDestinationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09155C2DF12D6A00E272F8 /* NavigationDestinationPath.swift */; };
 		CA0915642DF12F0600E272F8 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0915632DF12F0600E272F8 /* TempView.swift */; };
+		CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB13BD2DF69261007C9E35 /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		CA09155A2DF12CF700E272F8 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		CA09155C2DF12D6A00E272F8 /* NavigationDestinationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestinationPath.swift; sourceTree = "<group>"; };
 		CA0915632DF12F0600E272F8 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
+		CABB13BD2DF69261007C9E35 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				CABB13BB2DF690BE007C9E35 /* View Model (VM) */,
 				CA09155E2DF12E8600E272F8 /* Model (M) */,
 				CA0915602DF12EDC00E272F8 /* Component */,
+				CA0915612DF12EE800E272F8 /* Enum */,
 				CA09154F2DF129C900E272F8 /* Config.xcconfig */,
 				CA0915512DF129EC00E272F8 /* .gitignore */,
 			);
@@ -108,7 +111,7 @@
 		CA0915602DF12EDC00E272F8 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				CA0915612DF12EE800E272F8 /* Enum */,
+				CABB13BC2DF6923A007C9E35 /* Splash */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -134,6 +137,14 @@
 			children = (
 			);
 			path = "View Model (VM)";
+			sourceTree = "<group>";
+		};
+		CABB13BC2DF6923A007C9E35 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				CABB13BD2DF69261007C9E35 /* SplashView.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 				CA0915562DF12B9400E272F8 /* AisleView.swift in Sources */,
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,
 				CA09155D2DF12D6A00E272F8 /* NavigationDestinationPath.swift in Sources */,
+				CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
