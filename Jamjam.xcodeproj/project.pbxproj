@@ -72,8 +72,9 @@
 				CA0915492DF128A400E272F8 /* ContentView.swift */,
 				CA0915572DF12BBF00E272F8 /* MainTabView.swift */,
 				CA0915592DF12CE600E272F8 /* Navigation */,
-				CA09155F2DF12EBD00E272F8 /* VVM */,
-				CA09155E2DF12E8600E272F8 /* M */,
+				CA09155F2DF12EBD00E272F8 /* View (V) */,
+				CABB13BB2DF690BE007C9E35 /* View Model (VM) */,
+				CA09155E2DF12E8600E272F8 /* Model (M) */,
 				CA0915602DF12EDC00E272F8 /* Component */,
 				CA09154F2DF129C900E272F8 /* Config.xcconfig */,
 				CA0915512DF129EC00E272F8 /* .gitignore */,
@@ -89,19 +90,19 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		CA09155E2DF12E8600E272F8 /* M */ = {
+		CA09155E2DF12E8600E272F8 /* Model (M) */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = M;
+			path = "Model (M)";
 			sourceTree = "<group>";
 		};
-		CA09155F2DF12EBD00E272F8 /* VVM */ = {
+		CA09155F2DF12EBD00E272F8 /* View (V) */ = {
 			isa = PBXGroup;
 			children = (
 				CA0915632DF12F0600E272F8 /* TempView.swift */,
 			);
-			path = VVM;
+			path = "View (V)";
 			sourceTree = "<group>";
 		};
 		CA0915602DF12EDC00E272F8 /* Component */ = {
@@ -126,6 +127,13 @@
 				CA09155C2DF12D6A00E272F8 /* NavigationDestinationPath.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		CABB13BB2DF690BE007C9E35 /* View Model (VM) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model (VM)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
