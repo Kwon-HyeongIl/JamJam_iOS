@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var viewModel = HomeViewModel()
+    @State private var carouselCurrentIndex: Int? = 0
     
     var body: some View {
         VStack {
@@ -23,8 +24,9 @@ struct HomeView: View {
             .frame(height: 100)
             .background(.white)
             
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack {
+                    // MARK: Main Text
                     HStack {
                         Text("경험이 있는 손,\n지금 필요한 일에 연결해보세요")
                             .font(.system(size: 23))
@@ -36,6 +38,7 @@ struct HomeView: View {
                         Spacer()
                     }
                     
+                    // MARK: Search Bar
                     Button {
                         // navigate searching view
                     } label: {
@@ -55,7 +58,7 @@ struct HomeView: View {
                                     Image(systemName: "magnifyingglass")
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 15)
+                                        .frame(height: 15)
                                         .foregroundStyle(.gray)
                                         .padding(.trailing)
                                 }
@@ -64,44 +67,66 @@ struct HomeView: View {
                             .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                     }
                     
+                    // MARK: Carousel
                     GeometryReader { proxy in
                         let size = proxy.size
                         
-                        ScrollView(.horizontal) {
-                            HStack(spacing: 0) {
-                                ForEach(viewModel.carouselCards) { card in
-                                    GeometryReader { innerProxy in
-                                        let cardSize = innerProxy.size
+                        ZStack {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 0) {
+                                    ForEach(viewModel.carouselCards.indices, id: \.self) { index in
+                                        let card = viewModel.carouselCards[index]
                                         
-                                        let scrollCenterX = proxy.size.width / 2
-                                        let cardCenterX = innerProxy.frame(in: .scrollView).midX
-                                        let distance = cardCenterX - scrollCenterX
-                                        let parallax = distance * 0.7 // 0.6 ~ 0.7 사이로 설정
-                                        
-                                        Image(card.image)
-                                            .resizable()
-                                            .scaledToFill()
-                                            .offset(x: -parallax)
-                                            .frame(width: cardSize.width * 1.5)
-                                            .frame(width: cardSize.width,
-                                                   height: cardSize.height)
-                                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                                            .shadow(color: .gray.opacity(0.2),
-                                                    radius: 5, x: 5, y: 5)
+                                        GeometryReader { innerProxy in
+                                            let cardSize = innerProxy.size
+                                            
+                                            let scrollCenterX = proxy.size.width / 2
+                                            let cardCenterX = innerProxy.frame(in: .scrollView).midX
+                                            let distance = cardCenterX - scrollCenterX
+                                            let parallax = distance * 0.7
+                                            
+                                            Image(card.image)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .offset(x: -parallax)
+                                                .frame(width: cardSize.width * 1.5)
+                                                .frame(width: cardSize.width,
+                                                       height: cardSize.height)
+                                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                                                .shadow(color: .gray.opacity(0.2),
+                                                        radius: 5, x: 5, y: 5)
+                                                .id(index)
+                                        }
+                                        .frame(width: size.width - 100,
+                                               height: size.height - 50)
+                                        .scrollTransition(.interactive, axis: .horizontal) { view, phase in
+                                            view.scaleEffect(phase.isIdentity ? 1 : 0.9)
+                                        }
                                     }
-                                    .frame(width: size.width - 100,
-                                           height: size.height - 50)
-                                    .scrollTransition(.interactive, axis: .horizontal) { view, phase in
-                                        view.scaleEffect(phase.isIdentity ? 1 : 0.9)
+                                }
+                                .padding(.horizontal, 50)
+                                .scrollTargetLayout()
+                                .frame(height: size.height, alignment: .top)
+                            }
+                            .scrollTargetBehavior(.viewAligned)
+                            .scrollPosition(id: $carouselCurrentIndex, anchor: .center)
+                            
+                            VStack {
+                                Spacer()
+                                
+                                HStack {
+                                    ForEach(0..<viewModel.carouselCards.count, id: \.self) { index in
+                                        Circle()
+                                            .scaledToFit()
+                                            .frame(height: 5)
+                                            .foregroundStyle(index == carouselCurrentIndex ? .white : .gray)
+                                            .scaleEffect(index == carouselCurrentIndex ? 1.25 : 1)
+                                            .animation(.default, value: carouselCurrentIndex)
+                                            .padding(.bottom, 60)
                                     }
                                 }
                             }
-                            .padding(.horizontal, 50)
-                            .scrollTargetLayout()
-                            .frame(height: size.height, alignment: .top)
                         }
-                        .scrollTargetBehavior(.viewAligned)
-                        .scrollIndicators(.hidden)
                     }
                     .frame(height: 300)
                     .padding(.horizontal, -15)
@@ -109,7 +134,6 @@ struct HomeView: View {
 
                 }
             }
-            .scrollIndicators(.hidden)
         }
         .background(.gray.opacity(0.15))
         .ignoresSafeArea(edges: .top)
