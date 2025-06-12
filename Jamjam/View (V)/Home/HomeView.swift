@@ -219,53 +219,11 @@ struct HomeView: View {
                         }
                         .padding(.horizontal, 35)
                         
-                        HStack(spacing: 10) {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                        }
-                        .padding(.horizontal, 35)
-                        
                         VStack(spacing: 5) {
                             Text("스크롤")
                                 .font(.system(size: 12))
                                 
-                            Image(systemName: "chevron.down")
+                            Image(systemName: "chevron.down.2")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 10)
