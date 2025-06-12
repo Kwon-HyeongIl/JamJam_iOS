@@ -10,9 +10,10 @@ import SwiftUI
 struct HomeView: View {
     @State private var viewModel = HomeViewModel()
     @State private var carouselCurrentIndex: Int? = 0
+    @State private var scrollToDown = false
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             VStack {
                 HStack {
 //                    Text("logo")
@@ -24,13 +25,15 @@ struct HomeView: View {
             .frame(height: 100)
             .background(.white)
             
+            Divider()
+            
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0) {
                     // MARK: Main Text
                     HStack {
                         Text("경험이 있는 손,\n지금 필요한 일에 연결해보세요")
                             .font(.system(size: 23))
-                            .bold()
+                            .fontWeight(.black)
                             .multilineTextAlignment(.leading)
                             .padding(.top)
                             .padding(.leading, 35)
@@ -123,7 +126,7 @@ struct HomeView: View {
                                             .foregroundStyle(index == carouselCurrentIndex ? .white : .gray)
                                             .scaleEffect(index == carouselCurrentIndex ? 1.25 : 1)
                                             .animation(.default, value: carouselCurrentIndex)
-                                            .padding(.bottom, 60)
+                                            .padding(.bottom, 40)
                                     }
                                 }
                             }
@@ -148,7 +151,6 @@ struct HomeView: View {
                                         .font(.system(size: 12))
                                 }
                                 
-                            
                             RoundedRectangle(cornerRadius: 10)
                                 .foregroundStyle(.white)
                                 .frame(height: 60)
@@ -219,67 +221,129 @@ struct HomeView: View {
                         }
                         .padding(.horizontal, 35)
                         
+                        if scrollToDown {
+                            HStack(spacing: 10) {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                                    
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                            }
+                            .padding(.horizontal, 35)
+                            
+                            HStack(spacing: 10) {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                            }
+                            .padding(.horizontal, 35)
+                        }
+                        
                         HStack {
                             RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.gray.opacity(0.3))
+                                .foregroundStyle(.gray.opacity(0.2))
                                 .frame(height: 20)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("ctgr")
                                         .font(.system(size: 12))
                                 }
                             
                             RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.gray.opacity(0.3))
+                                .foregroundStyle(.gray.opacity(0.2))
                                 .frame(height: 20)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("ctgr")
                                         .font(.system(size: 12))
                                 }
                             
                             RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.gray.opacity(0.3))
+                                .foregroundStyle(.gray.opacity(0.2))
                                 .frame(height: 20)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("ctgr")
                                         .font(.system(size: 12))
                                 }
                             
                             RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.gray.opacity(0.3))
+                                .foregroundStyle(.gray.opacity(0.2))
                                 .frame(height: 20)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("ctgr")
                                         .font(.system(size: 12))
                                 }
                             
                             RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.gray.opacity(0.3))
+                                .foregroundStyle(.gray.opacity(0.2))
                                 .frame(height: 20)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("ctgr")
                                         .font(.system(size: 12))
@@ -288,17 +352,65 @@ struct HomeView: View {
                         .padding(.horizontal, 60)
                         .padding(.top, 10)
                         
-                        VStack(spacing: 5) {
-                            Text("스크롤")
-                                .font(.system(size: 12))
+                        if scrollToDown {
+                            HStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.gray.opacity(0.2))
+                                    .frame(height: 20)
+                                    .overlay {
+                                        Text("ctgr")
+                                            .font(.system(size: 12))
+                                    }
                                 
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.gray.opacity(0.2))
+                                    .frame(height: 20)
+                                    .overlay {
+                                        Text("ctgr")
+                                            .font(.system(size: 12))
+                                    }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.gray.opacity(0.2))
+                                    .frame(height: 20)
+                                    .overlay {
+                                        Text("ctgr")
+                                            .font(.system(size: 12))
+                                    }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.gray.opacity(0.2))
+                                    .frame(height: 20)
+                                    .overlay {
+                                        Text("ctgr")
+                                            .font(.system(size: 12))
+                                    }
+                            }
+                            .padding(.horizontal, 85)
+                        }
+                        
+                        if !scrollToDown {
                             Image(systemName: "chevron.down.2")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 10)
+                                .frame(width: 12)
+                                .foregroundStyle(.gray)
+                                .padding(.top)
                         }
-                        .foregroundStyle(.gray)
-                        .padding(.top)
+                        
+                        VStack {
+                            
+                        }
+                        .frame(height: 200)
+                    }
+                }
+            }
+            .onScrollGeometryChange(for: CGFloat.self) { geometry in
+                geometry.contentOffset.y
+            } action: { oldValue, newValue in
+                if !scrollToDown && newValue > 70 {
+                    withAnimation {
+                        scrollToDown = true
                     }
                 }
             }
