@@ -20,6 +20,7 @@
 		CA0915642DF12F0600E272F8 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0915632DF12F0600E272F8 /* TempView.swift */; };
 		CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38D82DFA5D3500AE12DD /* HomeView.swift */; };
 		CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */; };
+		CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */; };
 		CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB13BD2DF69261007C9E35 /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		CA0915632DF12F0600E272F8 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 		CA9E38D82DFA5D3500AE12DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard.swift; sourceTree = "<group>"; };
 		CABB13BD2DF69261007C9E35 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,7 +73,6 @@
 		CA09154B2DF128A400E272F8 /* Jamjam */ = {
 			isa = PBXGroup;
 			children = (
-				CA0915482DF128A400E272F8 /* Assets.xcassets */,
 				CA09154A2DF128A400E272F8 /* JamjamApp.swift */,
 				CA0915532DF12B7E00E272F8 /* NavigationBaseView.swift */,
 				CA0915552DF12B9400E272F8 /* AisleView.swift */,
@@ -83,6 +84,7 @@
 				CA09155E2DF12E8600E272F8 /* Model (M) */,
 				CA0915602DF12EDC00E272F8 /* Component */,
 				CA0915612DF12EE800E272F8 /* Enum */,
+				CA0915482DF128A400E272F8 /* Assets.xcassets */,
 				CA09154F2DF129C900E272F8 /* Config.xcconfig */,
 				CA0915512DF129EC00E272F8 /* .gitignore */,
 			);
@@ -116,6 +118,7 @@
 		CA0915602DF12EDC00E272F8 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				CA9E38DD2DFA664B00AE12DD /* Carousel */,
 				CABB13BC2DF6923A007C9E35 /* Splash */,
 			);
 			path = Component;
@@ -151,6 +154,14 @@
 				CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		CA9E38DD2DFA664B00AE12DD /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */,
+			);
+			path = Carousel;
 			sourceTree = "<group>";
 		};
 		CABB13BB2DF690BE007C9E35 /* View Model (VM) */ = {
@@ -244,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA09154D2DF128A400E272F8 /* ContentView.swift in Sources */,
+				CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */,
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
 				CA0915642DF12F0600E272F8 /* TempView.swift in Sources */,
