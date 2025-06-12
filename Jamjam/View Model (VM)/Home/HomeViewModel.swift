@@ -9,5 +9,9 @@ import Foundation
 
 @Observable
 class HomeViewModel {
-    
+    @ObservationIgnored var carouselCards: [CarouselCard] = [
+        .init(image: "image1",),
+        .init(image: "image2",),
+        .init(image: "image3",)
+    ]
 }

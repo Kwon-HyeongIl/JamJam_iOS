@@ -10,7 +10,6 @@
 		CA09154C2DF128A400E272F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA0915482DF128A400E272F8 /* Assets.xcassets */; };
 		CA09154D2DF128A400E272F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0915492DF128A400E272F8 /* ContentView.swift */; };
 		CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09154A2DF128A400E272F8 /* JamjamApp.swift */; };
-		CA0915502DF129C900E272F8 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = CA09154F2DF129C900E272F8 /* Config.xcconfig */; };
 		CA0915522DF129EC00E272F8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CA0915512DF129EC00E272F8 /* .gitignore */; };
 		CA0915542DF12B7E00E272F8 /* NavigationBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0915532DF12B7E00E272F8 /* NavigationBaseView.swift */; };
 		CA0915562DF12B9400E272F8 /* AisleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0915552DF12B9400E272F8 /* AisleView.swift */; };
@@ -210,7 +209,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1630;
-				LastUpgradeCheck = 1630;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					CA0915392DF1289A00E272F8 = {
 						CreatedOnToolsVersion = 16.3;
@@ -241,7 +240,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA0915502DF129C900E272F8 /* Config.xcconfig in Resources */,
 				CA0915522DF129EC00E272F8 /* .gitignore in Resources */,
 				CA09154C2DF128A400E272F8 /* Assets.xcassets in Resources */,
 			);

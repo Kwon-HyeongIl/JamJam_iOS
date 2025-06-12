@@ -68,8 +68,8 @@ struct HomeView: View {
                         let size = proxy.size
                         
                         ScrollView(.horizontal) {
-                            HStack(spacing: 5) {
-                                ForEach(carouselCards) { card in
+                            HStack(spacing: 0) {
+                                ForEach(viewModel.carouselCards) { card in
                                     GeometryReader { innerProxy in
                                         let cardSize = innerProxy.size
                                         let minX = min((innerProxy.frame(in: .scrollView).minX * 1.4), proxy.size.width * 1.4)
@@ -80,21 +80,18 @@ struct HomeView: View {
                                             .offset(x: -minX)
                                             .frame(width: innerProxy.size.width * 2.5)
                                             .frame(width: cardSize.width, height: cardSize.height)
-                                            .overlay {
-                                                CarouselOverlaylView(card)
-                                            }
                                             .clipShape(.rect(cornerRadius: 15))
                                             .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                     }
-                                    .frame(width: size.width - 70, height: size.height - 50)
+                                    .frame(width: size.width - 100, height: size.height - 50)
                                     .scrollTransition(.interactive, axis: .horizontal) {
                                         view, phase in
                                         view
-                                            .scaleEffect(phase.isIdentity ? 1 : 0.95)
+                                            .scaleEffect(phase.isIdentity ? 1 : 0.9)
                                     }
                                 }
                             }
-                            .padding(.horizontal, 35)
+                            .padding(.horizontal, 50)
                             .scrollTargetLayout()
                             .frame(height: size.height, alignment: .top)
                         }
@@ -110,34 +107,6 @@ struct HomeView: View {
         }
         .background(.gray.opacity(0.15))
         .ignoresSafeArea(edges: .top)
-    }
-    
-    @ViewBuilder
-    func CarouselOverlaylView(_ card: CarouselCard) -> some View {
-        ZStack(alignment: .bottomLeading) {
-            LinearGradient(colors: [
-                .clear,
-                .clear,
-                .clear,
-                .clear,
-                .clear,
-                .black.opacity(0.1),
-                .black.opacity(0.5),
-                .black
-            ], startPoint: .top, endPoint: .bottom)
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(card.title)
-                    .font(.title2)
-                    .fontWeight(.black)
-                    .foregroundStyle(.white)
-                
-                Text(card.subtitle)
-                    .font(.callout)
-                    .foregroundStyle(.white.opacity(0.8))
-            }
-            .padding(20)
-        }
     }
 }
 
