@@ -72,22 +72,27 @@ struct HomeView: View {
                                 ForEach(viewModel.carouselCards) { card in
                                     GeometryReader { innerProxy in
                                         let cardSize = innerProxy.size
-                                        let minX = min((innerProxy.frame(in: .scrollView).minX * 1.4), proxy.size.width * 1.4)
+                                        
+                                        let scrollCenterX = proxy.size.width / 2
+                                        let cardCenterX = innerProxy.frame(in: .scrollView).midX
+                                        let distance = cardCenterX - scrollCenterX
+                                        let parallax = distance * 0.7 // 0.6 ~ 0.7 사이로 설정
                                         
                                         Image(card.image)
                                             .resizable()
                                             .scaledToFill()
-                                            .offset(x: -minX)
-                                            .frame(width: innerProxy.size.width * 2.5)
-                                            .frame(width: cardSize.width, height: cardSize.height)
-                                            .clipShape(.rect(cornerRadius: 15))
-                                            .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                            .offset(x: -parallax)
+                                            .frame(width: cardSize.width * 1.5)
+                                            .frame(width: cardSize.width,
+                                                   height: cardSize.height)
+                                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                                            .shadow(color: .gray.opacity(0.2),
+                                                    radius: 5, x: 5, y: 5)
                                     }
-                                    .frame(width: size.width - 100, height: size.height - 50)
-                                    .scrollTransition(.interactive, axis: .horizontal) {
-                                        view, phase in
-                                        view
-                                            .scaleEffect(phase.isIdentity ? 1 : 0.9)
+                                    .frame(width: size.width - 100,
+                                           height: size.height - 50)
+                                    .scrollTransition(.interactive, axis: .horizontal) { view, phase in
+                                        view.scaleEffect(phase.isIdentity ? 1 : 0.9)
                                     }
                                 }
                             }
@@ -101,6 +106,7 @@ struct HomeView: View {
                     .frame(height: 300)
                     .padding(.horizontal, -15)
                     .padding(.top, 10)
+
                 }
             }
             .scrollIndicators(.hidden)
