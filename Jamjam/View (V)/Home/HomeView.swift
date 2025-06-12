@@ -25,7 +25,7 @@ struct HomeView: View {
             .background(.white)
             
             ScrollView(showsIndicators: false) {
-                VStack {
+                VStack(spacing: 0) {
                     // MARK: Main Text
                     HStack {
                         Text("경험이 있는 손,\n지금 필요한 일에 연결해보세요")
@@ -37,6 +37,7 @@ struct HomeView: View {
                         
                         Spacer()
                     }
+                    .padding(.bottom, 17)
                     
                     // MARK: Search Bar
                     Button {
@@ -106,7 +107,7 @@ struct HomeView: View {
                                 }
                                 .padding(.horizontal, 50)
                                 .scrollTargetLayout()
-                                .frame(height: size.height, alignment: .top)
+                                .frame(height: size.height)
                             }
                             .scrollTargetBehavior(.viewAligned)
                             .scrollPosition(id: $carouselCurrentIndex, anchor: .center)
@@ -130,8 +131,138 @@ struct HomeView: View {
                     }
                     .frame(height: 300)
                     .padding(.horizontal, -15)
-                    .padding(.top, 10)
 
+                    // MARK: Category
+                    VStack(spacing: 10) {
+                        HStack(spacing: 10) {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                        }
+                        .padding(.horizontal, 35)
+                        
+                        HStack(spacing: 10) {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                        }
+                        .padding(.horizontal, 35)
+                        
+                        HStack(spacing: 10) {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                        }
+                        .padding(.horizontal, 35)
+                        
+                        VStack(spacing: 5) {
+                            Text("더보기")
+                                .font(.system(size: 12))
+                                
+                            Image(systemName: "chevron.down")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 10)
+                        }
+                        .foregroundStyle(.gray)
+                        .padding(.top)
+                    }
                 }
             }
         }
