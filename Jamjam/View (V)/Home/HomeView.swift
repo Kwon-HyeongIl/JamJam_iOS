@@ -219,6 +219,75 @@ struct HomeView: View {
                         }
                         .padding(.horizontal, 35)
                         
+                        HStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.gray.opacity(0.3))
+                                .frame(height: 20)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    Text("ctgr")
+                                        .font(.system(size: 12))
+                                }
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.gray.opacity(0.3))
+                                .frame(height: 20)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    Text("ctgr")
+                                        .font(.system(size: 12))
+                                }
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.gray.opacity(0.3))
+                                .frame(height: 20)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    Text("ctgr")
+                                        .font(.system(size: 12))
+                                }
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.gray.opacity(0.3))
+                                .frame(height: 20)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    Text("ctgr")
+                                        .font(.system(size: 12))
+                                }
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.gray.opacity(0.3))
+                                .frame(height: 20)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    Text("ctgr")
+                                        .font(.system(size: 12))
+                                }
+                        }
+                        .padding(.horizontal, 60)
+                        .padding(.top, 10)
+                        
                         VStack(spacing: 5) {
                             Text("스크롤")
                                 .font(.system(size: 12))
