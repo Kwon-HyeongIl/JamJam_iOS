@@ -15,8 +15,8 @@ struct HomeView: View {
         VStack {
             VStack {
                 HStack {
-                    Text("logo")
-                        .padding(.leading)
+//                    Text("logo")
+//                        .padding(.leading)
                     
                     Spacer()
                 }
@@ -142,6 +142,21 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                                
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -154,18 +169,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -181,6 +185,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -193,6 +198,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -205,6 +211,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -220,6 +227,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -232,6 +240,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -244,6 +253,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -252,7 +262,7 @@ struct HomeView: View {
                         .padding(.horizontal, 35)
                         
                         VStack(spacing: 5) {
-                            Text("더보기")
+                            Text("스크롤")
                                 .font(.system(size: 12))
                                 
                             Image(systemName: "chevron.down")
