@@ -234,7 +234,7 @@ struct HomeView: View {
                 }
             }
         }
-        .background(.gray.opacity(0.15))
+        .background(Color.mainBackground)
         .ignoresSafeArea(edges: .top)
     }
 }
