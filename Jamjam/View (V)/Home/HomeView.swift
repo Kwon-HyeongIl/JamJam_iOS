@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(NavigationRouter.self) var navRouter
+    
     @State private var viewModel = HomeViewModel()
     @State private var carouselCurrentIndex: Int? = 0
     @State private var scrollToDown = false
@@ -44,7 +46,7 @@ struct HomeView: View {
                     
                     // MARK: Search Bar
                     Button {
-                        // navigate searching view
+                        navRouter.navigate(.searchView)
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
                             .frame(height: 42)
@@ -422,4 +424,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environment(NavigationRouter())
 }

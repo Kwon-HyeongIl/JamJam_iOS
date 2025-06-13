@@ -8,5 +8,6 @@
 import Foundation
 
 enum NavigationDestinationPath: Hashable {
-    case TempView
+    // Home
+    case searchView
 }

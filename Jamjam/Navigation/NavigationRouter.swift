@@ -13,9 +13,10 @@ class NavigationRouter {
     
     @ViewBuilder
     func destinationNavigate(to view: NavigationDestinationPath) -> some View {
+        // Home
         switch view {
-        case .TempView:
-            TempView()
+        case .searchView:
+            SearchView()
         }
     }
     

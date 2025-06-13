@@ -19,6 +19,12 @@
 		CA0915642DF12F0600E272F8 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0915632DF12F0600E272F8 /* TempView.swift */; };
 		CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E42DFAF788005377E6 /* Color+Hex.swift */; };
 		CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */; };
+		CA9609932DFBDE9B00B878C6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609922DFBDE9B00B878C6 /* SearchView.swift */; };
+		CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */; };
+		CA96099A2DFBE06400B878C6 /* NavigationBackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609992DFBE06400B878C6 /* NavigationBackModifier.swift */; };
+		CA96099C2DFBE08A00B878C6 /* NavigationBackAndHomeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96099B2DFBE08A00B878C6 /* NavigationBackAndHomeModifier.swift */; };
+		CA96099E2DFBE0F500B878C6 /* NavigationBackAndTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96099D2DFBE0F500B878C6 /* NavigationBackAndTitleModifier.swift */; };
+		CA9609A22DFBE1E100B878C6 /* NavigationBackGestureEnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609A12DFBE1E100B878C6 /* NavigationBackGestureEnable.swift */; };
 		CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38D82DFA5D3500AE12DD /* HomeView.swift */; };
 		CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */; };
 		CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */; };
@@ -40,6 +46,12 @@
 		CA0915632DF12F0600E272F8 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 		CA83F6E42DFAF788005377E6 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+MainBackground.swift"; sourceTree = "<group>"; };
+		CA9609922DFBDE9B00B878C6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		CA9609992DFBE06400B878C6 /* NavigationBackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackModifier.swift; sourceTree = "<group>"; };
+		CA96099B2DFBE08A00B878C6 /* NavigationBackAndHomeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackAndHomeModifier.swift; sourceTree = "<group>"; };
+		CA96099D2DFBE0F500B878C6 /* NavigationBackAndTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackAndTitleModifier.swift; sourceTree = "<group>"; };
+		CA9609A12DFBE1E100B878C6 /* NavigationBackGestureEnable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackGestureEnable.swift; sourceTree = "<group>"; };
 		CA9E38D82DFA5D3500AE12DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard.swift; sourceTree = "<group>"; };
@@ -121,6 +133,8 @@
 		CA0915602DF12EDC00E272F8 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				CA96099F2DFBE1B400B878C6 /* Gesture */,
+				CA9609972DFBE05300B878C6 /* Modifier */,
 				CA83F6E32DFAF77D005377E6 /* Color */,
 				CA9E38DD2DFA664B00AE12DD /* Carousel */,
 				CABB13BC2DF6923A007C9E35 /* Splash */,
@@ -153,10 +167,61 @@
 			path = Color;
 			sourceTree = "<group>";
 		};
+		CA9609912DFBDE0100B878C6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609922DFBDE9B00B878C6 /* SearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CA9609942DFBDF1C00B878C6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CA9609972DFBE05300B878C6 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609982DFBE05B00B878C6 /* Navigation */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		CA9609982DFBE05B00B878C6 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609992DFBE06400B878C6 /* NavigationBackModifier.swift */,
+				CA96099B2DFBE08A00B878C6 /* NavigationBackAndHomeModifier.swift */,
+				CA96099D2DFBE0F500B878C6 /* NavigationBackAndTitleModifier.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		CA96099F2DFBE1B400B878C6 /* Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609A02DFBE1BB00B878C6 /* Navigation */,
+			);
+			path = Gesture;
+			sourceTree = "<group>";
+		};
+		CA9609A02DFBE1BB00B878C6 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609A12DFBE1E100B878C6 /* NavigationBackGestureEnable.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		CA9E38D72DFA5D2300AE12DD /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				CA9E38D82DFA5D3500AE12DD /* HomeView.swift */,
+				CA9609912DFBDE0100B878C6 /* Search */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -165,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */,
+				CA9609942DFBDF1C00B878C6 /* Search */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -266,19 +332,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA96099A2DFBE06400B878C6 /* NavigationBackModifier.swift in Sources */,
 				CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */,
 				CA09154D2DF128A400E272F8 /* ContentView.swift in Sources */,
+				CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */,
 				CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */,
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
+				CA96099E2DFBE0F500B878C6 /* NavigationBackAndTitleModifier.swift in Sources */,
 				CA0915642DF12F0600E272F8 /* TempView.swift in Sources */,
 				CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */,
 				CA09155B2DF12CF700E272F8 /* NavigationRouter.swift in Sources */,
 				CA0915542DF12B7E00E272F8 /* NavigationBaseView.swift in Sources */,
 				CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */,
+				CA9609932DFBDE9B00B878C6 /* SearchView.swift in Sources */,
 				CA0915562DF12B9400E272F8 /* AisleView.swift in Sources */,
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,
 				CA09155D2DF12D6A00E272F8 /* NavigationDestinationPath.swift in Sources */,
+				CA9609A22DFBE1E100B878C6 /* NavigationBackGestureEnable.swift in Sources */,
+				CA96099C2DFBE08A00B878C6 /* NavigationBackAndHomeModifier.swift in Sources */,
 				CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
