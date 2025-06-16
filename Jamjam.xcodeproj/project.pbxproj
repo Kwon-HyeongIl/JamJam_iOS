@@ -37,6 +37,7 @@
 		CA9609C22DFFE3C500B878C6 /* ExpertSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609C12DFFE3C500B878C6 /* ExpertSignUpView.swift */; };
 		CA9609C42DFFE3D100B878C6 /* ClientSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609C32DFFE3D100B878C6 /* ClientSignUpView.swift */; };
 		CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609C62E0018D800B878C6 /* TextFieldFocusField.swift */; };
+		CA9609CA2E00225500B878C6 /* MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609C92E00225500B878C6 /* MainBackground.swift */; };
 		CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38D82DFA5D3500AE12DD /* HomeView.swift */; };
 		CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */; };
 		CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */; };
@@ -76,6 +77,7 @@
 		CA9609C12DFFE3C500B878C6 /* ExpertSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertSignUpView.swift; sourceTree = "<group>"; };
 		CA9609C32DFFE3D100B878C6 /* ClientSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSignUpView.swift; sourceTree = "<group>"; };
 		CA9609C62E0018D800B878C6 /* TextFieldFocusField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFocusField.swift; sourceTree = "<group>"; };
+		CA9609C92E00225500B878C6 /* MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackground.swift; sourceTree = "<group>"; };
 		CA9E38D82DFA5D3500AE12DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		CA0915602DF12EDC00E272F8 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				CA9609C82E00222A00B878C6 /* Background */,
 				CA9609AE2DFFD14200B878C6 /* View Editor */,
 				CA9609A82DFFCFEA00B878C6 /* Capsule */,
 				CA9609A52DFFCF6200B878C6 /* TabBar */,
@@ -340,6 +343,14 @@
 			path = FocusField;
 			sourceTree = "<group>";
 		};
+		CA9609C82E00222A00B878C6 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609C92E00225500B878C6 /* MainBackground.swift */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
 		CA9E38D72DFA5D2300AE12DD /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +493,7 @@
 				CA9609BB2DFFDA6100B878C6 /* LoginViewModel.swift in Sources */,
 				CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */,
 				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,
+				CA9609CA2E00225500B878C6 /* MainBackground.swift in Sources */,
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,
 				CA09155D2DF12D6A00E272F8 /* NavigationDestinationPath.swift in Sources */,
 				CA9609A22DFBE1E100B878C6 /* NavigationBackGestureEnable.swift in Sources */,

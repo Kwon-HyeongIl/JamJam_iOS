@@ -14,311 +14,312 @@ struct HomeView: View {
     @State private var carouselCurrentIndex: Int? = 0
     
     var body: some View {
-        VStack(spacing: 0) {
-            // MARK: Tool Bar
-            VStack {
-                HStack {
-                    Image("jamjam_main_text_logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 85)
-                        .padding(.leading, 35)
-                        .padding(.top, 40)
-                    
-                    Spacer()
-                    
-                    Button {
-                        navRouter.navigate(.loginView)
-                    } label: {
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 80, height: 32)
-                            .foregroundStyle(Color.JJTitle)
-                            .overlay {
-                                Text("로그인")
-                                    .font(.system(size: 15))
-                                    .foregroundStyle(.white)
-                                    .fontWeight(.bold)
-                            }
-                            .padding(.top, 40)
-                            .padding(.trailing, 35)
-                    }
-                }
-            }
-            .frame(height: 100)
-            .background(.white)
-            
-            Divider()
-            
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 0) {
-                    // MARK: Main Text
+        MainBackground {
+            VStack(spacing: 0) {
+                // MARK: Tool Bar
+                VStack {
                     HStack {
-                        Text("경험이 있는 손,\n지금 필요한 일에 연결해보세요")
-                            .font(.system(size: 23))
-                            .fontWeight(.black)
-                            .multilineTextAlignment(.leading)
-                            .padding(.top)
+                        Image("jamjam_main_text_logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 85)
                             .padding(.leading, 35)
+                            .padding(.top, 40)
                         
                         Spacer()
+                        
+                        Button {
+                            navRouter.navigate(.loginView)
+                        } label: {
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 80, height: 32)
+                                .foregroundStyle(Color.JJTitle)
+                                .overlay {
+                                    Text("로그인")
+                                        .font(.system(size: 15))
+                                        .foregroundStyle(.white)
+                                        .fontWeight(.bold)
+                                }
+                                .padding(.top, 40)
+                                .padding(.trailing, 35)
+                        }
                     }
-                    .padding(.bottom, 17)
-                    
-                    // MARK: Search Bar
-                    Button {
-                        navRouter.navigate(.searchView)
-                    } label: {
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(height: 42)
-                            .padding(.horizontal, 35)
-                            .foregroundStyle(.white)
-                            .overlay {
-                                HStack {
-                                    Text("필요한 손길을 찾아보세요")
-                                        .font(.system(size: 12))
-                                        .foregroundStyle(.gray)
-                                        .padding(.leading)
-                                    
+                }
+                .frame(height: 100)
+                .background(.white)
+                
+                Divider()
+                
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 0) {
+                        // MARK: Main Text
+                        HStack {
+                            Text("경험이 있는 손,\n지금 필요한 일에 연결해보세요")
+                                .font(.system(size: 23))
+                                .fontWeight(.black)
+                                .multilineTextAlignment(.leading)
+                                .padding(.top)
+                                .padding(.leading, 35)
+                            
+                            Spacer()
+                        }
+                        .padding(.bottom, 17)
+                        
+                        // MARK: Search Bar
+                        Button {
+                            navRouter.navigate(.searchView)
+                        } label: {
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(height: 42)
+                                .padding(.horizontal, 35)
+                                .foregroundStyle(.white)
+                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    HStack {
+                                        Text("필요한 손길을 찾아보세요")
+                                            .font(.system(size: 12))
+                                            .foregroundStyle(.gray)
+                                            .padding(.leading)
+                                        
+                                        Spacer()
+                                        
+                                        Image(systemName: "magnifyingglass")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 15)
+                                            .foregroundStyle(Color.JJTitle)
+                                            .padding(.trailing)
+                                    }
+                                    .padding(.horizontal, 35)
+                                }
+                        }
+                        
+                        // MARK: Carousel
+                        GeometryReader { proxy in
+                            let size = proxy.size
+                            
+                            ZStack {
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    HStack(spacing: 0) {
+                                        ForEach(viewModel.carouselCards.indices, id: \.self) { index in
+                                            let card = viewModel.carouselCards[index]
+                                            
+                                            GeometryReader { innerProxy in
+                                                let cardSize = innerProxy.size
+                                                
+                                                let scrollCenterX = proxy.size.width / 2
+                                                let cardCenterX = innerProxy.frame(in: .scrollView).midX
+                                                let distance = cardCenterX - scrollCenterX
+                                                let parallax = distance * 0.7
+                                                
+                                                Image(card.image)
+                                                    .resizable()
+                                                    .scaledToFill()
+                                                    .offset(x: -parallax)
+                                                    .frame(width: cardSize.width * 1.5)
+                                                    .frame(width: cardSize.width,
+                                                           height: cardSize.height)
+                                                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                                                    .shadow(color: .gray.opacity(0.3), radius: 5, x: 5, y: 5)
+                                                    .id(index)
+                                            }
+                                            .frame(width: size.width - 100,
+                                                   height: size.height - 50)
+                                            .scrollTransition(.interactive, axis: .horizontal) { view, phase in
+                                                view.scaleEffect(phase.isIdentity ? 1 : 0.9)
+                                            }
+                                        }
+                                    }
+                                    .padding(.horizontal, 50)
+                                    .scrollTargetLayout()
+                                    .frame(height: size.height)
+                                }
+                                .scrollTargetBehavior(.viewAligned)
+                                .scrollPosition(id: $carouselCurrentIndex, anchor: .center)
+                                
+                                VStack {
                                     Spacer()
                                     
-                                    Image(systemName: "magnifyingglass")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 15)
-                                        .foregroundStyle(Color.JJTitle)
-                                        .padding(.trailing)
-                                }
-                                .padding(.horizontal, 35)
-                            }
-                            .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
-                    }
-                    
-                    // MARK: Carousel
-                    GeometryReader { proxy in
-                        let size = proxy.size
-                        
-                        ZStack {
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                HStack(spacing: 0) {
-                                    ForEach(viewModel.carouselCards.indices, id: \.self) { index in
-                                        let card = viewModel.carouselCards[index]
-                                        
-                                        GeometryReader { innerProxy in
-                                            let cardSize = innerProxy.size
-                                            
-                                            let scrollCenterX = proxy.size.width / 2
-                                            let cardCenterX = innerProxy.frame(in: .scrollView).midX
-                                            let distance = cardCenterX - scrollCenterX
-                                            let parallax = distance * 0.7
-                                            
-                                            Image(card.image)
-                                                .resizable()
-                                                .scaledToFill()
-                                                .offset(x: -parallax)
-                                                .frame(width: cardSize.width * 1.5)
-                                                .frame(width: cardSize.width,
-                                                       height: cardSize.height)
-                                                .clipShape(RoundedRectangle(cornerRadius: 15))
-                                                .shadow(color: .gray.opacity(0.3), radius: 5, x: 5, y: 5)
-                                                .id(index)
-                                        }
-                                        .frame(width: size.width - 100,
-                                               height: size.height - 50)
-                                        .scrollTransition(.interactive, axis: .horizontal) { view, phase in
-                                            view.scaleEffect(phase.isIdentity ? 1 : 0.9)
+                                    HStack {
+                                        ForEach(0..<viewModel.carouselCards.count, id: \.self) { index in
+                                            Circle()
+                                                .scaledToFit()
+                                                .frame(height: 5)
+                                                .foregroundStyle(index == carouselCurrentIndex ? .white : .gray)
+                                                .scaleEffect(index == carouselCurrentIndex ? 1.25 : 1)
+                                                .animation(.default, value: carouselCurrentIndex)
+                                                .padding(.bottom, 40)
                                         }
                                     }
                                 }
-                                .padding(.horizontal, 50)
-                                .scrollTargetLayout()
-                                .frame(height: size.height)
                             }
-                            .scrollTargetBehavior(.viewAligned)
-                            .scrollPosition(id: $carouselCurrentIndex, anchor: .center)
-                            
-                            VStack {
-                                Spacer()
-                                
-                                HStack {
-                                    ForEach(0..<viewModel.carouselCards.count, id: \.self) { index in
-                                        Circle()
-                                            .scaledToFit()
-                                            .frame(height: 5)
-                                            .foregroundStyle(index == carouselCurrentIndex ? .white : .gray)
-                                            .scaleEffect(index == carouselCurrentIndex ? 1.25 : 1)
-                                            .animation(.default, value: carouselCurrentIndex)
-                                            .padding(.bottom, 40)
+                        }
+                        .frame(height: 300)
+                        .padding(.horizontal, -15)
+                        
+                        // MARK: Category
+                        VStack(spacing: 10) {
+                            HStack(spacing: 10) {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
                                     }
-                                }
-                            }
-                        }
-                    }
-                    .frame(height: 300)
-                    .padding(.horizontal, -15)
-
-                    // MARK: Category
-                    VStack(spacing: 10) {
-                        HStack(spacing: 10) {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
                                 
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                            }
+                            .padding(.horizontal, 35)
                             
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
+                            HStack(spacing: 10) {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                            }
+                            .padding(.horizontal, 35)
+                            
+                            HStack(spacing: 10) {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                            }
+                            .padding(.horizontal, 35)
+                            
+                            HStack(spacing: 10) {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 60)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("category")
+                                            .font(.system(size: 12))
+                                    }
+                            }
+                            .padding(.horizontal, 35)
                         }
-                        .padding(.horizontal, 35)
-                        
-                        HStack(spacing: 10) {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                        }
-                        .padding(.horizontal, 35)
-                        
-                        HStack(spacing: 10) {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                        }
-                        .padding(.horizontal, 35)
-                        
-                        HStack(spacing: 10) {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.white)
-                                .frame(height: 60)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("category")
-                                        .font(.system(size: 12))
-                                }
-                        }
-                        .padding(.horizontal, 35)
                     }
                 }
             }
+            .ignoresSafeArea(edges: .top)
         }
-        .background(Color.mainBackground)
-        .ignoresSafeArea(edges: .top)
     }
 }
 

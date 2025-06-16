@@ -17,6 +17,8 @@ class NavigationRouter {
             // Auth
         case .loginView:
             LoginView()
+        case .signUpView:
+            SignUpView()
             
             // Home
         case .searchView:
