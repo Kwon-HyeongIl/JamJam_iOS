@@ -16,14 +16,11 @@ struct ContentView: View {
             
             if isSplashVisible {
                 SplashView()
-                    .animation(.easeOut(duration: 0.4), value: isSplashVisible)
             }
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                withAnimation {
-                    isSplashVisible = false
-                }
+                isSplashVisible = false
             }
         }
     }
