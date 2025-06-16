@@ -18,6 +18,10 @@
 		CA09155D2DF12D6A00E272F8 /* NavigationDestinationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09155C2DF12D6A00E272F8 /* NavigationDestinationPath.swift */; };
 		CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E42DFAF788005377E6 /* Color+Hex.swift */; };
 		CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */; };
+		CA87FF6F2E00305600C8C830 /* CarouselStack in Frameworks */ = {isa = PBXBuildFile; productRef = CA87FF6E2E00305600C8C830 /* CarouselStack */; };
+		CA87FF712E00305600C8C830 /* ShuffleDeck in Frameworks */ = {isa = PBXBuildFile; productRef = CA87FF702E00305600C8C830 /* ShuffleDeck */; };
+		CA87FF732E00305600C8C830 /* ShuffleIt in Frameworks */ = {isa = PBXBuildFile; productRef = CA87FF722E00305600C8C830 /* ShuffleIt */; };
+		CA87FF752E00305600C8C830 /* ShuffleStack in Frameworks */ = {isa = PBXBuildFile; productRef = CA87FF742E00305600C8C830 /* ShuffleStack */; };
 		CA9609932DFBDE9B00B878C6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609922DFBDE9B00B878C6 /* SearchView.swift */; };
 		CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */; };
 		CA96099A2DFBE06400B878C6 /* NavigationBackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609992DFBE06400B878C6 /* NavigationBackModifier.swift */; };
@@ -89,6 +93,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA87FF6F2E00305600C8C830 /* CarouselStack in Frameworks */,
+				CA87FF712E00305600C8C830 /* ShuffleDeck in Frameworks */,
+				CA87FF732E00305600C8C830 /* ShuffleIt in Frameworks */,
+				CA87FF752E00305600C8C830 /* ShuffleStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +419,10 @@
 			);
 			name = Jamjam;
 			packageProductDependencies = (
+				CA87FF6E2E00305600C8C830 /* CarouselStack */,
+				CA87FF702E00305600C8C830 /* ShuffleDeck */,
+				CA87FF722E00305600C8C830 /* ShuffleIt */,
+				CA87FF742E00305600C8C830 /* ShuffleStack */,
 			);
 			productName = Jamjam;
 			productReference = CA09153A2DF1289A00E272F8 /* Jamjam.app */;
@@ -440,6 +452,9 @@
 			);
 			mainGroup = CA0915312DF1289A00E272F8;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CA87FF6D2E00305600C8C830 /* XCRemoteSwiftPackageReference "ShuffleIt" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CA09153B2DF1289A00E272F8 /* Products */;
 			projectDirPath = "";
@@ -723,6 +738,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CA87FF6D2E00305600C8C830 /* XCRemoteSwiftPackageReference "ShuffleIt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dscyrescotti/ShuffleIt";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CA87FF6E2E00305600C8C830 /* CarouselStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA87FF6D2E00305600C8C830 /* XCRemoteSwiftPackageReference "ShuffleIt" */;
+			productName = CarouselStack;
+		};
+		CA87FF702E00305600C8C830 /* ShuffleDeck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA87FF6D2E00305600C8C830 /* XCRemoteSwiftPackageReference "ShuffleIt" */;
+			productName = ShuffleDeck;
+		};
+		CA87FF722E00305600C8C830 /* ShuffleIt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA87FF6D2E00305600C8C830 /* XCRemoteSwiftPackageReference "ShuffleIt" */;
+			productName = ShuffleIt;
+		};
+		CA87FF742E00305600C8C830 /* ShuffleStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA87FF6D2E00305600C8C830 /* XCRemoteSwiftPackageReference "ShuffleIt" */;
+			productName = ShuffleStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CA0915322DF1289A00E272F8 /* Project object */;
 }

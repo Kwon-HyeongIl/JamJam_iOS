@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import Combine
+import ShuffleStack
 
 struct HomeView: View {
     @Environment(NavigationRouter.self) var navRouter
     
     @State private var viewModel = HomeViewModel()
-    @State private var carouselCurrentIndex: Int? = 0
+    
+    private let shufflePublisher = PassthroughSubject<ShuffleDirection, Never>()
+    private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
     var body: some View {
         MainBackground {
@@ -94,68 +98,21 @@ struct HomeView: View {
                                 }
                         }
                         
-                        // MARK: Carousel
-                        GeometryReader { proxy in
-                            let size = proxy.size
-                            
-                            ZStack {
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    HStack(spacing: 0) {
-                                        ForEach(viewModel.carouselCards.indices, id: \.self) { index in
-                                            let card = viewModel.carouselCards[index]
-                                            
-                                            GeometryReader { innerProxy in
-                                                let cardSize = innerProxy.size
-                                                
-                                                let scrollCenterX = proxy.size.width / 2
-                                                let cardCenterX = innerProxy.frame(in: .scrollView).midX
-                                                let distance = cardCenterX - scrollCenterX
-                                                let parallax = distance * 0.7
-                                                
-                                                Image(card.image)
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .offset(x: -parallax)
-                                                    .frame(width: cardSize.width * 1.5)
-                                                    .frame(width: cardSize.width,
-                                                           height: cardSize.height)
-                                                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                                                    .shadow(color: .gray.opacity(0.3), radius: 5, x: 5, y: 5)
-                                                    .id(index)
-                                            }
-                                            .frame(width: size.width - 100,
-                                                   height: size.height - 50)
-                                            .scrollTransition(.interactive, axis: .horizontal) { view, phase in
-                                                view.scaleEffect(phase.isIdentity ? 1 : 0.9)
-                                            }
-                                        }
-                                    }
-                                    .padding(.horizontal, 50)
-                                    .scrollTargetLayout()
-                                    .frame(height: size.height)
-                                }
-                                .scrollTargetBehavior(.viewAligned)
-                                .scrollPosition(id: $carouselCurrentIndex, anchor: .center)
+                        // MARK: Shuffle Stack
+                        ShuffleStack(viewModel.carouselCards) { card in
+                            Image("\(card.image)")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 200)
+                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                                .shadow(color: .gray.opacity(0.3), radius: 5, x: 5, y: 5)
                                 
-                                VStack {
-                                    Spacer()
-                                    
-                                    HStack {
-                                        ForEach(0..<viewModel.carouselCards.count, id: \.self) { index in
-                                            Circle()
-                                                .scaledToFit()
-                                                .frame(height: 5)
-                                                .foregroundStyle(index == carouselCurrentIndex ? .white : .gray)
-                                                .scaleEffect(index == carouselCurrentIndex ? 1.25 : 1)
-                                                .animation(.default, value: carouselCurrentIndex)
-                                                .padding(.bottom, 40)
-                                        }
-                                    }
-                                }
-                            }
                         }
-                        .frame(height: 300)
-                        .padding(.horizontal, -15)
+                        .shuffleTrigger(on: shufflePublisher)
+                        .padding(.vertical, 30)
+                        .onReceive(timer) { _ in
+                            shufflePublisher.send(.right)
+                        }
                         
                         // MARK: Category
                         VStack(spacing: 10) {

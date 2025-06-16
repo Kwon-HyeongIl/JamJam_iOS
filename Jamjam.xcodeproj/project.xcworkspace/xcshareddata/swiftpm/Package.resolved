@@ -1,0 +1,15 @@
+{
+  "originHash" : "aad7c328937cc1c9d8bcdd0a9580dce6f569ce1ffedab8034935684cdd185b25",
+  "pins" : [
+    {
+      "identity" : "shuffleit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dscyrescotti/ShuffleIt",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e0e70737c1f32f72aec305036484b737ef9d0467"
+      }
+    }
+  ],
+  "version" : 3
+}
