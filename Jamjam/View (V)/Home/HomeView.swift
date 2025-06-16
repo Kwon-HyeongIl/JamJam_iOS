@@ -12,7 +12,6 @@ struct HomeView: View {
     
     @State private var viewModel = HomeViewModel()
     @State private var carouselCurrentIndex: Int? = 0
-    @State private var scrollToDown = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -152,7 +151,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -165,7 +164,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -178,7 +177,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -194,7 +193,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -207,7 +206,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -220,7 +219,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
+                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -228,115 +227,89 @@ struct HomeView: View {
                         }
                         .padding(.horizontal, 35)
                         
-                        if scrollToDown {
-                            HStack(spacing: 10) {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 60)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                    }
-                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
-                                    .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
-                                    }
-                                    
-                                
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 60)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                    }
-                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
-                                    .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
-                                    }
-                                
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 60)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                    }
-                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
-                                    .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
-                                    }
-                            }
-                            .padding(.horizontal, 35)
+                        HStack(spacing: 10) {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
                             
-                            HStack(spacing: 10) {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 60)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                    }
-                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
-                                    .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
-                                    }
-                                
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 60)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                    }
-                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
-                                    .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
-                                    }
-                                
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 60)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                    }
-                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
-                                    .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
-                                    }
-                            }
-                            .padding(.horizontal, 35)
-                        }
-                        
-                        if !scrollToDown {
-                            Image(systemName: "chevron.down.2")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 12)
-                                .foregroundStyle(.gray)
-                                .padding(.top)
-                        }
-                        
-                        VStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
                             
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
                         }
-                        .frame(height: 200)
-                    }
-                }
-            }
-            .onScrollGeometryChange(for: CGFloat.self) { geometry in
-                geometry.contentOffset.y
-            } action: { oldValue, newValue in
-                if !scrollToDown && newValue > 70 {
-                    withAnimation {
-                        scrollToDown = true
+                        .padding(.horizontal, 35)
+                        
+                        HStack(spacing: 10) {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.white)
+                                .frame(height: 60)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                }
+                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
+                                .overlay {
+                                    Text("category")
+                                        .font(.system(size: 12))
+                                }
+                        }
+                        .padding(.horizontal, 35)
                     }
                 }
             }
