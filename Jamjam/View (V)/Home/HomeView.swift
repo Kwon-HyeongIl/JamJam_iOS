@@ -98,13 +98,14 @@ struct HomeView: View {
                         ShuffleStack(viewModel.carouselCards) { card in
                             Image("\(card.image)")
                                 .resizable()
-                                .scaledToFit()
+                                .scaledToFill()
                                 .frame(height: 200)
                                 .clipShape(RoundedRectangle(cornerRadius: 25))
                                 .shadow(color: .gray.opacity(0.3), radius: 5, x: 5, y: 5)
                                 
                         }
-                        .shuffleOffset(28)
+                        .shuffleOffset(32)
+                        .shuffleScale(0.1)
                         .shuffleTrigger(on: viewModel.shufflePublisher)
                         .padding(.vertical, 25)
                         
