@@ -16,10 +16,15 @@ struct HomeView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            // MARK: Tool Bar
             VStack {
                 HStack {
-//                    Text("logo")
-//                        .padding(.leading)
+                    Image("jamjam_main_logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 85)
+                        .padding(.leading, 35)
+                        .padding(.top, 40)
                     
                     Spacer()
                 }
