@@ -11,11 +11,7 @@ import ShuffleStack
 
 struct HomeView: View {
     @Environment(NavigationRouter.self) var navRouter
-    
     @State private var viewModel = HomeViewModel()
-    
-    private let shufflePublisher = PassthroughSubject<ShuffleDirection, Never>()
-    private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
     var body: some View {
         MainBackground {
@@ -45,7 +41,7 @@ struct HomeView: View {
                                         .fontWeight(.bold)
                                 }
                                 .padding(.top, 40)
-                                .padding(.trailing, 35)
+                                .padding(.trailing, 15)
                         }
                     }
                 }
@@ -108,11 +104,9 @@ struct HomeView: View {
                                 .shadow(color: .gray.opacity(0.3), radius: 5, x: 5, y: 5)
                                 
                         }
-                        .shuffleTrigger(on: shufflePublisher)
+                        .shuffleOffset(30)
+                        .shuffleTrigger(on: viewModel.shufflePublisher)
                         .padding(.vertical, 30)
-                        .onReceive(timer) { _ in
-                            shufflePublisher.send(.right)
-                        }
                         
                         // MARK: Category
                         VStack(spacing: 10) {
@@ -276,6 +270,19 @@ struct HomeView: View {
                 }
             }
             .ignoresSafeArea(edges: .top)
+            // MARK: OnAppear
+            .onAppear {
+                viewModel.timer
+                    .autoconnect()
+                    .sink { _ in
+                        viewModel.shufflePublisher.send(.right)
+                    }
+                    .store(in: &viewModel.subscriptions)
+            }
+            // MARK: OnDisappear
+            .onDisappear {
+                viewModel.subscriptions.removeAll()
+            }
         }
     }
 }

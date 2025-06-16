@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Combine
+import ShuffleStack
 
 @Observable
 class HomeViewModel {
@@ -14,4 +16,9 @@ class HomeViewModel {
         .init(image: "image2",),
         .init(image: "image3",)
     ]
+    
+    @ObservationIgnored var subscriptions = Set<AnyCancellable>()
+    
+    @ObservationIgnored let shufflePublisher = PassthroughSubject<ShuffleDirection, Never>()
+    @ObservationIgnored let timer = Timer.publish(every: 3, on: .main, in: .common)
 }
