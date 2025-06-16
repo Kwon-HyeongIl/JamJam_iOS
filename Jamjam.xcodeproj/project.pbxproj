@@ -36,6 +36,7 @@
 		CA9609BE2DFFE36300B878C6 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609BD2DFFE36300B878C6 /* SignUpView.swift */; };
 		CA9609C22DFFE3C500B878C6 /* ExpertSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609C12DFFE3C500B878C6 /* ExpertSignUpView.swift */; };
 		CA9609C42DFFE3D100B878C6 /* ClientSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609C32DFFE3D100B878C6 /* ClientSignUpView.swift */; };
+		CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609C62E0018D800B878C6 /* TextFieldFocusField.swift */; };
 		CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38D82DFA5D3500AE12DD /* HomeView.swift */; };
 		CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */; };
 		CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */; };
@@ -74,6 +75,7 @@
 		CA9609BD2DFFE36300B878C6 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		CA9609C12DFFE3C500B878C6 /* ExpertSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertSignUpView.swift; sourceTree = "<group>"; };
 		CA9609C32DFFE3D100B878C6 /* ClientSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSignUpView.swift; sourceTree = "<group>"; };
+		CA9609C62E0018D800B878C6 /* TextFieldFocusField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFocusField.swift; sourceTree = "<group>"; };
 		CA9E38D82DFA5D3500AE12DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		CA0915612DF12EE800E272F8 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				CA9609C52E0018BE00B878C6 /* FocusField */,
 				CA9609AB2DFFD01800B878C6 /* TabBar */,
 				CA0915622DF12EF000E272F8 /* Navigation */,
 			);
@@ -329,6 +332,14 @@
 			path = Expert;
 			sourceTree = "<group>";
 		};
+		CA9609C52E0018BE00B878C6 /* FocusField */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609C62E0018D800B878C6 /* TextFieldFocusField.swift */,
+			);
+			path = FocusField;
+			sourceTree = "<group>";
+		};
 		CA9E38D72DFA5D2300AE12DD /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA96099A2DFBE06400B878C6 /* NavigationBackModifier.swift in Sources */,
+				CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */,
 				CA9609C42DFFE3D100B878C6 /* ClientSignUpView.swift in Sources */,
 				CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */,
 				CA09154D2DF128A400E272F8 /* ContentView.swift in Sources */,

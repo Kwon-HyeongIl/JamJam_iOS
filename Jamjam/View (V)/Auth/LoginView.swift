@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Environment(NavigationRouter.self) var navRouter
     @State private var viewModel = LoginViewModel()
+    
+    @FocusState private var focus: TextFieldFocusField?
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -32,6 +35,7 @@ struct LoginView: View {
                     }
                     
                     TextField("아이디를 입력하세요", text: $viewModel.id)
+                        .focused($focus, equals: .first)
                         .font(.system(size: 14))
                         .padding(.horizontal)
                         .frame(height: 50)
@@ -39,7 +43,7 @@ struct LoginView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .overlay {
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
                         }
                         .padding(.horizontal, 35)
                 }
@@ -56,6 +60,7 @@ struct LoginView: View {
                     }
                     
                     SecureField("비밀번호를 입력하세요", text: $viewModel.password)
+                        .focused($focus, equals: .second)
                         .font(.system(size: 14))
                         .padding(.horizontal)
                         .frame(height: 50)
@@ -63,7 +68,7 @@ struct LoginView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .overlay {
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
                         }
                         .padding(.horizontal, 35)
                 }
@@ -126,6 +131,12 @@ struct LoginView: View {
             
         }
         .modifier(NavigationBackModifier())
+        .onAppear {
+            focus = .first
+        }
+        .onTapGesture {
+            focus = nil
+        }
     }
 }
 
