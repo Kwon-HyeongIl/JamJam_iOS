@@ -29,7 +29,6 @@ struct MainTabBar: View {
                             .font(.system(size: 19))
                             .fontWeight(.medium)
                             .padding(.bottom, 1)
-                            .padding(.top, 10)
                     }
                     .padding(.top, 10)
                     .onTapGesture {
@@ -52,7 +51,7 @@ struct MainTabBar: View {
         .frame(height: 150)
         .background(.regularMaterial)
         .cornerRadius(20, corners: [.topLeft, .topRight])
-        .shadow(color: .gray.opacity(0.1), radius: 2, x: 0, y: -2)
+        .shadow(color: .gray.opacity(0.15), radius: 3, x: 0, y: -3)
     }
 }
 

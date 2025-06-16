@@ -104,47 +104,71 @@ struct HomeView: View {
                                 .shadow(color: .gray.opacity(0.3), radius: 5, x: 5, y: 5)
                                 
                         }
-                        .shuffleOffset(30)
+                        .shuffleOffset(28)
                         .shuffleTrigger(on: viewModel.shufflePublisher)
-                        .padding(.vertical, 30)
+                        .padding(.vertical, 25)
                         
                         // MARK: Category
                         VStack(spacing: 10) {
                             HStack(spacing: 10) {
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
-                                    .frame(height: 60)
+                                    .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
                                     }
                                     .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
+                                        VStack(spacing: 7) {
+                                            Image("business_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32)
+                                            
+                                            Text("경영•기획")
+                                                .font(.system(size: 12))
+                                                .fontWeight(.semibold)
+                                        }
                                     }
                                 
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
-                                    .frame(height: 60)
+                                    .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
                                     }
                                     .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
+                                        VStack(spacing: 7) {
+                                            Image("consulting_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32)
+                                            
+                                            Text("컨설팅•멘토링")
+                                                .font(.system(size: 12))
+                                                .fontWeight(.semibold)
+                                        }
                                     }
                                 
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
-                                    .frame(height: 60)
+                                    .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
                                     }
                                     .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
+                                        VStack(spacing: 7) {
+                                            Image("marketing_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32)
+                                            
+                                            Text("마케팅•홍보")
+                                                .font(.system(size: 12))
+                                                .fontWeight(.semibold)
+                                        }
                                     }
                             }
                             .padding(.horizontal, 35)
@@ -152,38 +176,62 @@ struct HomeView: View {
                             HStack(spacing: 10) {
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
-                                    .frame(height: 60)
+                                    .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
                                     }
                                     .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
+                                        VStack(spacing: 7) {
+                                            Image("development_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32)
+                                            
+                                            Text("개발•IT")
+                                                .font(.system(size: 12))
+                                                .fontWeight(.semibold)
+                                        }
                                     }
                                 
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
-                                    .frame(height: 60)
+                                    .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
                                     }
                                     .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
+                                        VStack(spacing: 7) {
+                                            Image("design_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32)
+                                            
+                                            Text("디자인•편집")
+                                                .font(.system(size: 12))
+                                                .fontWeight(.semibold)
+                                        }
                                     }
                                 
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
-                                    .frame(height: 60)
+                                    .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
                                     }
                                     .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
+                                        VStack(spacing: 7) {
+                                            Image("write_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32)
+                                            
+                                            Text("문서•작문")
+                                                .font(.system(size: 12))
+                                                .fontWeight(.semibold)
+                                        }
                                     }
                             }
                             .padding(.horizontal, 35)
@@ -191,38 +239,62 @@ struct HomeView: View {
                             HStack(spacing: 10) {
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
-                                    .frame(height: 60)
+                                    .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
                                     }
                                     .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
+                                        VStack(spacing: 7) {
+                                            Image("translation_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32)
+                                            
+                                            Text("번역•통역")
+                                                .font(.system(size: 12))
+                                                .fontWeight(.semibold)
+                                        }
                                     }
                                 
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
-                                    .frame(height: 60)
+                                    .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
                                     }
                                     .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
+                                        VStack(spacing: 7) {
+                                            Image("photograph_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32)
+                                            
+                                            Text("사진•영상")
+                                                .font(.system(size: 12))
+                                                .fontWeight(.semibold)
+                                        }
                                     }
                                 
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
-                                    .frame(height: 60)
+                                    .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
                                     }
                                     .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
+                                        VStack(spacing: 7) {
+                                            Image("education_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32)
+                                            
+                                            Text("교육•강의")
+                                                .font(.system(size: 12))
+                                                .fontWeight(.semibold)
+                                        }
                                     }
                             }
                             .padding(.horizontal, 35)
@@ -230,38 +302,62 @@ struct HomeView: View {
                             HStack(spacing: 10) {
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
-                                    .frame(height: 60)
+                                    .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
                                     }
                                     .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
+                                        VStack(spacing: 7) {
+                                            Image("craft_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32)
+                                            
+                                            Text("주문 제작")
+                                                .font(.system(size: 12))
+                                                .fontWeight(.semibold)
+                                        }
                                     }
                                 
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
-                                    .frame(height: 60)
+                                    .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
                                     }
                                     .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
+                                        VStack(spacing: 7) {
+                                            Image("hobby_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32)
+                                            
+                                            Text("취미 레슨")
+                                                .font(.system(size: 12))
+                                                .fontWeight(.semibold)
+                                        }
                                     }
                                 
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
-                                    .frame(height: 60)
+                                    .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
                                     }
                                     .overlay {
-                                        Text("category")
-                                            .font(.system(size: 12))
+                                        VStack(spacing: 7) {
+                                            Image("living_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32)
+                                            
+                                            Text("생활 서비스")
+                                                .font(.system(size: 12))
+                                                .fontWeight(.semibold)
+                                        }
                                     }
                             }
                             .padding(.horizontal, 35)
