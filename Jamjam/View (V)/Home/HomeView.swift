@@ -26,6 +26,22 @@ struct HomeView: View {
                         .padding(.top, 40)
                     
                     Spacer()
+                    
+                    Button {
+                        
+                    } label: {
+                        RoundedRectangle(cornerRadius: 10)
+                            .frame(width: 80, height: 32)
+                            .foregroundStyle(Color.JJTitle)
+                            .overlay {
+                                Text("로그인")
+                                    .font(.system(size: 15))
+                                    .foregroundStyle(.white)
+                                    .fontWeight(.bold)
+                            }
+                            .padding(.top, 40)
+                            .padding(.trailing, 35)
+                    }
                 }
             }
             .frame(height: 100)
@@ -69,7 +85,7 @@ struct HomeView: View {
                                         .resizable()
                                         .scaledToFit()
                                         .frame(height: 15)
-                                        .foregroundStyle(.gray)
+                                        .foregroundStyle(Color.JJTitle)
                                         .padding(.trailing)
                                 }
                                 .padding(.horizontal, 35)
