@@ -27,6 +27,7 @@ struct MainTabBar: View {
                             .scaleEffect(mainTabBarCapsule.selectedTab == tab ? 1.25 : 1.0)
                             .foregroundStyle(mainTabBarCapsule.selectedTab == tab ? Color.JJTitle : .black)
                             .font(.system(size: 19))
+                            .fontWeight(.medium)
                             .padding(.bottom, 1)
                             .padding(.top, 10)
                     }

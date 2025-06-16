@@ -18,7 +18,7 @@ struct HomeView: View {
             // MARK: Tool Bar
             VStack {
                 HStack {
-                    Image("jamjam_main_logo")
+                    Image("jamjam_main_text_logo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 85)
@@ -28,7 +28,7 @@ struct HomeView: View {
                     Spacer()
                     
                     Button {
-                        
+                        navRouter.navigate(.loginView)
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: 80, height: 32)
@@ -84,7 +84,7 @@ struct HomeView: View {
                                     Image(systemName: "magnifyingglass")
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: 15)
+                                        .frame(width: 15)
                                         .foregroundStyle(Color.JJTitle)
                                         .padding(.trailing)
                                 }
@@ -119,8 +119,7 @@ struct HomeView: View {
                                                 .frame(width: cardSize.width,
                                                        height: cardSize.height)
                                                 .clipShape(RoundedRectangle(cornerRadius: 15))
-                                                .shadow(color: .gray.opacity(0.2),
-                                                        radius: 5, x: 5, y: 5)
+                                                .shadow(color: .gray.opacity(0.3), radius: 5, x: 5, y: 5)
                                                 .id(index)
                                         }
                                         .frame(width: size.width - 100,
@@ -167,7 +166,6 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -180,7 +178,6 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -193,7 +190,6 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -209,7 +205,6 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -222,7 +217,6 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -235,7 +229,6 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -251,7 +244,6 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -264,7 +256,6 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -277,7 +268,6 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -293,7 +283,6 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -306,7 +295,6 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))
@@ -319,7 +307,6 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                                 }
-                                .shadow(color: .gray.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     Text("category")
                                         .font(.system(size: 12))

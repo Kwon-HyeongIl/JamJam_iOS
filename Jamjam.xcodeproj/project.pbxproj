@@ -31,6 +31,8 @@
 		CA9609B02DFFD17900B878C6 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609AF2DFFD17900B878C6 /* CornerRadius.swift */; };
 		CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609B12DFFD2BF00B878C6 /* RoundedCorner.swift */; };
 		CA9609B52DFFD50400B878C6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609B42DFFD50400B878C6 /* ProfileView.swift */; };
+		CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609B72DFFD85D00B878C6 /* LoginView.swift */; };
+		CA9609BB2DFFDA6100B878C6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609BA2DFFDA6100B878C6 /* LoginViewModel.swift */; };
 		CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38D82DFA5D3500AE12DD /* HomeView.swift */; };
 		CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */; };
 		CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */; };
@@ -64,6 +66,8 @@
 		CA9609AF2DFFD17900B878C6 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		CA9609B12DFFD2BF00B878C6 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		CA9609B42DFFD50400B878C6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		CA9609B72DFFD85D00B878C6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		CA9609BA2DFFDA6100B878C6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CA9E38D82DFA5D3500AE12DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				CABB13BC2DF6923A007C9E35 /* Splash */,
+				CA9609B62DFFD7EB00B878C6 /* Auth */,
 				CA9E38D72DFA5D2300AE12DD /* Home */,
 			);
 			path = "View (V)";
@@ -275,6 +280,22 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		CA9609B62DFFD7EB00B878C6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609B72DFFD85D00B878C6 /* LoginView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CA9609B92DFFDA5700B878C6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609BA2DFFDA6100B878C6 /* LoginViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		CA9E38D72DFA5D2300AE12DD /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +325,7 @@
 		CABB13BB2DF690BE007C9E35 /* View Model (VM) */ = {
 			isa = PBXGroup;
 			children = (
+				CA9609B92DFFDA5700B878C6 /* Auth */,
 				CA9E38DA2DFA5FC800AE12DD /* Home */,
 			);
 			path = "View Model (VM)";
@@ -410,7 +432,9 @@
 				CA9609932DFBDE9B00B878C6 /* SearchView.swift in Sources */,
 				CA0915562DF12B9400E272F8 /* AisleView.swift in Sources */,
 				CA9609AD2DFFD02300B878C6 /* MainTab.swift in Sources */,
+				CA9609BB2DFFDA6100B878C6 /* LoginViewModel.swift in Sources */,
 				CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */,
+				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,
 				CA09155D2DF12D6A00E272F8 /* NavigationDestinationPath.swift in Sources */,
 				CA9609A22DFBE1E100B878C6 /* NavigationBackGestureEnable.swift in Sources */,

@@ -13,8 +13,12 @@ class NavigationRouter {
     
     @ViewBuilder
     func destinationNavigate(to view: NavigationDestinationPath) -> some View {
-        // Home
         switch view {
+            // Auth
+        case .loginView:
+            LoginView()
+            
+            // Home
         case .searchView:
             SearchView()
         }
