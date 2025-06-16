@@ -104,14 +104,14 @@ struct HomeView: View {
                                 .shadow(color: .gray.opacity(0.3), radius: 5, x: 5, y: 5)
                                 
                         }
-                        .shuffleOffset(32)
+                        .shuffleOffset(31)
                         .shuffleScale(0.1)
                         .shuffleTrigger(on: viewModel.shufflePublisher)
                         .padding(.vertical, 25)
                         
                         // MARK: Category
                         VStack(spacing: 10) {
-                            HStack(spacing: 10) {
+                            HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
                                     .frame(height: 80)
@@ -124,10 +124,10 @@ struct HomeView: View {
                                             Image("business_icon")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 32)
+                                                .frame(width: 33)
                                             
                                             Text("경영•기획")
-                                                .font(.system(size: 12))
+                                                .font(.system(size: 14))
                                                 .fontWeight(.semibold)
                                         }
                                     }
@@ -144,14 +144,17 @@ struct HomeView: View {
                                             Image("consulting_icon")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 32)
+                                                .frame(width: 33)
                                             
                                             Text("컨설팅•멘토링")
-                                                .font(.system(size: 12))
+                                                .font(.system(size: 14))
                                                 .fontWeight(.semibold)
                                         }
                                     }
-                                
+                            }
+                            .padding(.horizontal, 35)
+                            
+                            HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
                                     .frame(height: 80)
@@ -164,33 +167,10 @@ struct HomeView: View {
                                             Image("marketing_icon")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 32)
+                                                .frame(width: 33)
                                             
                                             Text("마케팅•홍보")
-                                                .font(.system(size: 12))
-                                                .fontWeight(.semibold)
-                                        }
-                                    }
-                            }
-                            .padding(.horizontal, 35)
-                            
-                            HStack(spacing: 10) {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("development_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 32)
-                                            
-                                            Text("개발•IT")
-                                                .font(.system(size: 12))
+                                                .font(.system(size: 14))
                                                 .fontWeight(.semibold)
                                         }
                                     }
@@ -204,13 +184,36 @@ struct HomeView: View {
                                     }
                                     .overlay {
                                         VStack(spacing: 7) {
+                                            Image("development_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 33)
+                                            
+                                            Text("개발•IT")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.semibold)
+                                        }
+                                    }
+                            }
+                            .padding(.horizontal, 35)
+                            
+                            HStack(spacing: 15) {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 80)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        VStack(spacing: 7) {
                                             Image("design_icon")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 32)
+                                                .frame(width: 33)
                                             
                                             Text("디자인•편집")
-                                                .font(.system(size: 12))
+                                                .font(.system(size: 14))
                                                 .fontWeight(.semibold)
                                         }
                                     }
@@ -227,17 +230,17 @@ struct HomeView: View {
                                             Image("write_icon")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 32)
+                                                .frame(width: 33)
                                             
                                             Text("문서•작문")
-                                                .font(.system(size: 12))
+                                                .font(.system(size: 14))
                                                 .fontWeight(.semibold)
                                         }
                                     }
                             }
                             .padding(.horizontal, 35)
                             
-                            HStack(spacing: 10) {
+                            HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
                                     .frame(height: 80)
@@ -250,10 +253,10 @@ struct HomeView: View {
                                             Image("translation_icon")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 32)
+                                                .frame(width: 33)
                                             
                                             Text("번역•통역")
-                                                .font(.system(size: 12))
+                                                .font(.system(size: 14))
                                                 .fontWeight(.semibold)
                                         }
                                     }
@@ -270,14 +273,17 @@ struct HomeView: View {
                                             Image("photograph_icon")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 32)
+                                                .frame(width: 33)
                                             
                                             Text("사진•영상")
-                                                .font(.system(size: 12))
+                                                .font(.system(size: 14))
                                                 .fontWeight(.semibold)
                                         }
                                     }
-                                
+                            }
+                            .padding(.horizontal, 35)
+                            
+                            HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)
                                     .frame(height: 80)
@@ -290,33 +296,10 @@ struct HomeView: View {
                                             Image("education_icon")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 32)
+                                                .frame(width: 33)
                                             
                                             Text("교육•강의")
-                                                .font(.system(size: 12))
-                                                .fontWeight(.semibold)
-                                        }
-                                    }
-                            }
-                            .padding(.horizontal, 35)
-                            
-                            HStack(spacing: 10) {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("craft_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 32)
-                                            
-                                            Text("주문 제작")
-                                                .font(.system(size: 12))
+                                                .font(.system(size: 14))
                                                 .fontWeight(.semibold)
                                         }
                                     }
@@ -330,13 +313,36 @@ struct HomeView: View {
                                     }
                                     .overlay {
                                         VStack(spacing: 7) {
+                                            Image("craft_icon")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 33)
+                                            
+                                            Text("주문 제작")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.semibold)
+                                        }
+                                    }
+                            }
+                            .padding(.horizontal, 35)
+                            
+                            HStack(spacing: 15) {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white)
+                                    .frame(height: 80)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        VStack(spacing: 7) {
                                             Image("hobby_icon")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 32)
+                                                .frame(width: 33)
                                             
                                             Text("취미 레슨")
-                                                .font(.system(size: 12))
+                                                .font(.system(size: 14))
                                                 .fontWeight(.semibold)
                                         }
                                     }
@@ -353,10 +359,10 @@ struct HomeView: View {
                                             Image("living_icon")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 32)
+                                                .frame(width: 33)
                                             
                                             Text("생활 서비스")
-                                                .font(.system(size: 12))
+                                                .font(.system(size: 14))
                                                 .fontWeight(.semibold)
                                         }
                                     }
