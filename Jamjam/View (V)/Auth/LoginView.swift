@@ -134,9 +134,9 @@ struct LoginView: View {
                     }
                     .frame(height: 50)
                 }
-                
             }
             .modifier(NavigationBackAndTitleModifier(title: "로그인"))
+            .background(Color.mainBackground)
             .onTapGesture {
                 focus = nil
             }
