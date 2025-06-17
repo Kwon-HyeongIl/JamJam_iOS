@@ -219,20 +219,51 @@ struct SignUpView: View {
                                     
                                     Spacer()
                                 }
-                                
-                                SecureField("영문과 숫자를 포함한 최소 8자", text: $viewModel.password)
-                                    .focused($focus, equals: .third)
-                                    .font(.system(size: 14))
-                                    .padding(.horizontal)
-                                    .frame(height: 50)
-                                    .background(.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
+                                ZStack {
+                                    if viewModel.isPasswordSecured {
+                                        SecureField("영문과 숫자를 포함한 최소 8자", text: $viewModel.password)
+                                            .focused($focus, equals: .third)
+                                            .font(.system(size: 14))
+                                            .padding(.horizontal)
+                                            .frame(height: 50)
+                                            .background(.white)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
+                                            }
+                                            .padding(.horizontal, 35)
+                                        
+                                    } else {
+                                        TextField("영문과 숫자를 포함한 최소 8자", text: $viewModel.password)
+                                            .focused($focus, equals: .third)
+                                            .font(.system(size: 14))
+                                            .padding(.horizontal)
+                                            .frame(height: 50)
+                                            .background(.white)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
+                                            }
+                                            .padding(.horizontal, 35)
                                     }
-                                    .padding(.horizontal, 35)
-                                
+                                    
+                                    HStack {
+                                        Spacer()
+                                        
+                                        Button {
+                                            viewModel.isPasswordSecured.toggle()
+                                        } label: {
+                                            Image(systemName: viewModel.isPasswordSecured ? "eye" : "eye.slash")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 20)
+                                                .foregroundColor(.gray)
+                                                .padding(.trailing, 50)
+                                        }
+                                    }
+                                }
                             }
                             .padding(.bottom)
                             
@@ -246,19 +277,51 @@ struct SignUpView: View {
                                     Spacer()
                                 }
                                 
-                                SecureField("비밀번호를 한번 더 입력해 주세요", text: $viewModel.confirmPassword)
-                                    .focused($focus, equals: .fourth)
-                                    .font(.system(size: 14))
-                                    .padding(.horizontal)
-                                    .frame(height: 50)
-                                    .background(.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
+                                ZStack {
+                                    if viewModel.isConfrimPasswordSecured {
+                                        SecureField("비밀번호를 한번 더 입력해 주세요", text: $viewModel.confirmPassword)
+                                            .focused($focus, equals: .fourth)
+                                            .font(.system(size: 14))
+                                            .padding(.horizontal)
+                                            .frame(height: 50)
+                                            .background(.white)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
+                                            }
+                                            .padding(.horizontal, 35)
+                                        
+                                    } else {
+                                        TextField("비밀번호를 한번 더 입력해 주세요", text: $viewModel.confirmPassword)
+                                            .focused($focus, equals: .fourth)
+                                            .font(.system(size: 14))
+                                            .padding(.horizontal)
+                                            .frame(height: 50)
+                                            .background(.white)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
+                                            }
+                                            .padding(.horizontal, 35)
                                     }
-                                    .padding(.horizontal, 35)
-                                
+                                    
+                                    HStack {
+                                        Spacer()
+                                        
+                                        Button {
+                                            viewModel.isConfrimPasswordSecured.toggle()
+                                        } label: {
+                                            Image(systemName: viewModel.isConfrimPasswordSecured ? "eye" : "eye.slash")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 20)
+                                                .foregroundColor(.gray)
+                                                .padding(.trailing, 50)
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

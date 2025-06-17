@@ -16,4 +16,7 @@ class SignUpViewModel {
     var id = ""
     var password = ""
     var confirmPassword = ""
+    
+    var isPasswordSecured = true
+    var isConfrimPasswordSecured = true
 }
