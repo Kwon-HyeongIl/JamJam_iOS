@@ -323,6 +323,42 @@ struct SignUpView: View {
                                     }
                                 }
                             }
+                            .padding(.bottom, 30)
+                            
+                            HStack(spacing: 15) {
+                                Button {
+                                    
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(height: 50)
+                                        .foregroundStyle(.white)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                        }
+                                        .overlay {
+                                            Text("이전")
+                                                .font(.system(size: 17))
+                                                .foregroundStyle(.gray)
+                                                .fontWeight(.semibold)
+                                        }
+                                }
+                                
+                                Button {
+                                    
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(height: 50)
+                                        .foregroundStyle(Color.JJTitle)
+                                        .overlay {
+                                            Text("다음")
+                                                .font(.system(size: 17))
+                                                .foregroundStyle(.white)
+                                                .fontWeight(.semibold)
+                                        }
+                                }
+                            }
+                            .padding(.horizontal, 35)
                         }
                     }
                     
