@@ -53,14 +53,16 @@ struct SignUpView: View {
                                 HStack(spacing: 15) {
                                     Button {
                                         withAnimation {
-                                            viewModel.pageIndex = 1
+                                            if viewModel.isClientButtonTapped {
+                                                viewModel.isClientButtonTapped = false
+                                            }
+                                            viewModel.isExpertButtonTapped.toggle()
                                         }
                                         viewModel.signUpUserType = .expert
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(viewModel.isExpertButtonTapped ? .red.opacity(0.1) : .white)
                                             .scaledToFit()
-                                            .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                             .overlay {
                                                 VStack {
                                                     RoundedRectangle(cornerRadius: 10)
@@ -80,19 +82,25 @@ struct SignUpView: View {
                                                         .foregroundStyle(.gray)
                                                 }
                                             }
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(viewModel.isExpertButtonTapped ? Color.JJTitle : .gray.opacity(0.5), lineWidth: 1.5)
+                                            }
                                             .padding(.leading, 35)
                                     }
                                     
                                     Button {
                                         withAnimation {
-                                            viewModel.pageIndex = 1
+                                            if viewModel.isExpertButtonTapped {
+                                                viewModel.isExpertButtonTapped = false
+                                            }
+                                            viewModel.isClientButtonTapped.toggle()
                                         }
                                         viewModel.signUpUserType = .client
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(viewModel.isClientButtonTapped ? .red.opacity(0.1) : .white)
                                             .scaledToFit()
-                                            .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                             .overlay {
                                                 VStack {
                                                     RoundedRectangle(cornerRadius: 10)
@@ -112,13 +120,17 @@ struct SignUpView: View {
                                                         .foregroundStyle(.gray)
                                                 }
                                             }
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(viewModel.isClientButtonTapped ? Color.JJTitle : .gray.opacity(0.5), lineWidth: 1.5)
+                                            }
                                             .padding(.trailing, 35)
                                         
                                     }
                                 }
                             }
                             
-                            // MARK: Page 2
+                        // MARK: Page 2
                         } else if viewModel.pageIndex == 1 {
                             VStack {
                                 Text("계정 정보를 입력하고,\n이어서 진행해 주세요.")
@@ -326,6 +338,10 @@ struct SignUpView: View {
                                 }
                                 .padding(.bottom, 30)
                             }
+                            
+                        // MARK: Page 3
+                        } else if viewModel.pageIndex == 2 {
+                            
                         }
                         
                         VStack {
@@ -338,28 +354,11 @@ struct SignUpView: View {
                 VStack {
                     Spacer()
                     
-                    HStack(spacing: 15) {
+                    if viewModel.pageIndex == 0 {
                         Button {
-                            
-                        } label: {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(height: 50)
-                                .foregroundStyle(.white)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                }
-                                .overlay {
-                                    Text("이전")
-                                        .font(.system(size: 17))
-                                        .foregroundStyle(.gray)
-                                        .fontWeight(.semibold)
-                                }
-                                .padding(.leading, 35)
-                        }
-                        
-                        Button {
-                            
+                            withAnimation {
+                                viewModel.pageIndex = 1
+                            }
                         } label: {
                             RoundedRectangle(cornerRadius: 10)
                                 .frame(height: 50)
@@ -370,10 +369,66 @@ struct SignUpView: View {
                                         .foregroundStyle(.white)
                                         .fontWeight(.semibold)
                                 }
-                                .padding(.trailing, 35)
+                                .opacity((viewModel.isExpertButtonTapped || viewModel.isClientButtonTapped) ? 1 : 0.4)
+                                .padding(.horizontal, 35)
                         }
+                        .disabled(!(viewModel.isExpertButtonTapped || viewModel.isClientButtonTapped))
+                        
+                    } else {
+                        HStack(spacing: 15) {
+                            Button {
+                                if viewModel.pageIndex == 1 {
+                                    withAnimation {
+                                        viewModel.pageIndex = 0
+                                    }
+                                    viewModel.signUpUserType = nil
+                                    
+                                } else if viewModel.pageIndex == 2 {
+                                    withAnimation {
+                                        viewModel.pageIndex = 1
+                                    }
+                                }
+                            } label: {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(height: 50)
+                                    .foregroundStyle(.white)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("이전")
+                                            .font(.system(size: 17))
+                                            .foregroundStyle(.gray)
+                                            .fontWeight(.semibold)
+                                    }
+                                    .padding(.leading, 35)
+                            }
+                            
+                            Button {
+                                if viewModel.pageIndex == 1 {
+                                    withAnimation {
+                                        viewModel.pageIndex = 2
+                                    }
+                                    
+                                } else if viewModel.pageIndex == 2 {
+                                    // 완료
+                                }
+                            } label: {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(height: 50)
+                                    .foregroundStyle(Color.JJTitle)
+                                    .overlay {
+                                        Text(viewModel.pageIndex == 2 ? "완료" : "다음")
+                                            .font(.system(size: 17))
+                                            .foregroundStyle(.white)
+                                            .fontWeight(.semibold)
+                                    }
+                                    .padding(.trailing, 35)
+                            }
+                        }
+                        .frame(height: 80)
                     }
-                    .frame(height: 80)
                 }
             }
             .modifier(NavigationBackAndTitleModifier(title: "회원 가입"))

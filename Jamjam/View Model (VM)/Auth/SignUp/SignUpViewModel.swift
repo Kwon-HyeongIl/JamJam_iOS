@@ -9,8 +9,11 @@ import Foundation
 
 @Observable
 class SignUpViewModel {
-    var pageIndex = 1
+    var pageIndex = 0
     var signUpUserType: JJUser?
+    
+    var isExpertButtonTapped = false
+    var isClientButtonTapped = false
     
     var nickname = ""
     var id = ""
