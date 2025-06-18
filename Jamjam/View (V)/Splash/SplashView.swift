@@ -14,6 +14,7 @@ struct SplashView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100)
+                .padding(.bottom, 30)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white.ignoresSafeArea())
