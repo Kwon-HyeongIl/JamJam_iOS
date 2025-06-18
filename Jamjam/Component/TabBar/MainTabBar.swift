@@ -49,7 +49,7 @@ struct MainTabBar: View {
             Spacer()
         }
         .frame(height: 150)
-        .background(.regularMaterial)
+        .background(.ultraThinMaterial)
         .cornerRadius(20, corners: [.topLeft, .topRight])
         .shadow(color: .gray.opacity(0.15), radius: 3, x: 0, y: -3)
     }

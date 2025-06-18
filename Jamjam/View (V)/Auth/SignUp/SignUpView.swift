@@ -579,73 +579,84 @@ struct SignUpView: View {
                 VStack {
                     Spacer()
                     
-                    if viewModel.pageIndex == 0 {
-                        Button {
-                            viewModel.pageIndex = 1
-                        } label: {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(height: 50)
-                                .foregroundStyle(Color.JJTitle)
-                                .overlay {
-                                    Text("다음")
-                                        .font(.system(size: 17))
-                                        .foregroundStyle(.white)
-                                        .fontWeight(.semibold)
-                                }
-                                .opacity((viewModel.isExpertButtonTapped || viewModel.isClientButtonTapped) ? 1 : 0.4)
-                                .padding(.horizontal, 35)
-                        }
-                        .disabled(!(viewModel.isExpertButtonTapped || viewModel.isClientButtonTapped))
+                    ZStack {
+                        VStack {}
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(.ultraThinMaterial)
                         
-                    } else {
-                        HStack(spacing: 15) {
+                        if viewModel.pageIndex == 0 {
                             Button {
-                                if viewModel.pageIndex == 1 {
-                                    viewModel.pageIndex = 0
-                                    viewModel.signUpUserType = nil
-                                    
-                                } else if viewModel.pageIndex == 2 {
-                                    viewModel.pageIndex = 1
-                                }
-                            } label: {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(height: 50)
-                                    .foregroundStyle(.white)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        Text("이전")
-                                            .font(.system(size: 17))
-                                            .foregroundStyle(.gray)
-                                            .fontWeight(.semibold)
-                                    }
-                                    .padding(.leading, 35)
-                            }
-                            
-                            Button {
-                                if viewModel.pageIndex == 1 {
-                                    viewModel.pageIndex = 2
-                                    
-                                } else if viewModel.pageIndex == 2 {
-                                    // 완료
-                                }
+                                viewModel.pageIndex = 1
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 50)
                                     .foregroundStyle(Color.JJTitle)
                                     .overlay {
-                                        Text(viewModel.pageIndex == 2 ? "완료" : "다음")
+                                        Text("다음")
                                             .font(.system(size: 17))
                                             .foregroundStyle(.white)
                                             .fontWeight(.semibold)
                                     }
-                                    .padding(.trailing, 35)
+                                    .opacity((viewModel.isExpertButtonTapped || viewModel.isClientButtonTapped) ? 1 : 0.4)
+                                    .padding(.horizontal, 35)
                             }
+                            .disabled(!(viewModel.isExpertButtonTapped || viewModel.isClientButtonTapped))
+                            .padding(.bottom, 75)
+                            
+                        } else {
+                            HStack(spacing: 15) {
+                                Button {
+                                    if viewModel.pageIndex == 1 {
+                                        viewModel.pageIndex = 0
+                                        viewModel.signUpUserType = nil
+                                        
+                                    } else if viewModel.pageIndex == 2 {
+                                        viewModel.pageIndex = 1
+                                    }
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(height: 50)
+                                        .foregroundStyle(.white)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                        }
+                                        .overlay {
+                                            Text("이전")
+                                                .font(.system(size: 17))
+                                                .foregroundStyle(.gray)
+                                                .fontWeight(.semibold)
+                                        }
+                                        .padding(.leading, 35)
+                                }
+                                
+                                Button {
+                                    if viewModel.pageIndex == 1 {
+                                        viewModel.pageIndex = 2
+                                        
+                                    } else if viewModel.pageIndex == 2 {
+                                        // 완료
+                                    }
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(height: 50)
+                                        .foregroundStyle(Color.JJTitle)
+                                        .overlay {
+                                            Text(viewModel.pageIndex == 2 ? "완료" : "다음")
+                                                .font(.system(size: 17))
+                                                .foregroundStyle(.white)
+                                                .fontWeight(.semibold)
+                                        }
+                                        .padding(.trailing, 35)
+                                }
+                            }
+                            .frame(height: 80)
+                            .padding(.bottom, 81)
                         }
-                        .frame(height: 80)
                     }
+                    .frame(height: 150)
+                    .cornerRadius(20, corners: [.topLeft, .topRight])
+                    .offset(y: 79)
                 }
             }
             .modifier(NavigationBackAndTitleModifier(title: "회원 가입"))

@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 class SignUpViewModel {
-    var pageIndex = 2
+    var pageIndex = 0
     var signUpUserType: JJUser?
     
     var isExpertButtonTapped = false
