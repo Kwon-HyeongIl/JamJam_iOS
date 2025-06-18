@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-// 뒤로가기 + 제목
+// 뒤로가기 + 타이틀
 struct NavigationBackAndTitleModifier: ViewModifier {
     @Environment(NavigationRouter.self) var navRouter
+    
     let title: String
     
     func body(content: Content) -> some View {
