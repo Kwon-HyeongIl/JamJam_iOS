@@ -12,7 +12,7 @@ struct SearchView: View {
         ScrollView(showsIndicators: false) {
             
         }
-        .modifier(NavigationBackAndTitleModifier(title: "검색"))
+        .modifier(NavigationBarBackAndTitleModifier(title: "검색"))
     }
 }
 

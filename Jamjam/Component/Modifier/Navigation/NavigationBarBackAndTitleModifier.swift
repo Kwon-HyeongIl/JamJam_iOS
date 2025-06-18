@@ -1,5 +1,5 @@
 //
-//  NavigationBackAndHomeModifier.swift
+//  NavigationBackAndTitleModifier.swift
 //  Jamjam
 //
 //  Created by 권형일 on 6/13/25.
@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-// 뒤로가기 + 홈 이동
-struct NavigationBackAndHomeModifier: ViewModifier {
+// 뒤로가기 + 타이틀
+struct NavigationBarBackAndTitleModifier: ViewModifier {
     @Environment(NavigationRouter.self) var navRouter
-    @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
+    
+    let title: String
     
     func body(content: Content) -> some View {
         content
@@ -29,17 +30,10 @@ struct NavigationBackAndHomeModifier: ViewModifier {
                     }
                 }
                 
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        navRouter.popToRoot()
-                        mainTabBarCapsule.selectedTab = .home
-                    } label: {
-                        Image(systemName: "house")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 25)
-                            .foregroundStyle(Color.JJTitle)
-                    }
+                ToolbarItem(placement: .principal) {
+                    Text(title)
+                        .font(.system(size: 18))
+                        .fontWeight(.semibold)
                 }
             }
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 // 뒤로가기
-struct NavigationBackModifier: ViewModifier {
+struct NavigationBarBackModifier: ViewModifier {
     @Environment(NavigationRouter.self) var navRouter
     
     func body(content: Content) -> some View {
