@@ -608,6 +608,7 @@ struct SignUpView: View {
                     Spacer()
                     
                     VStack {
+                        // MARK: Bottom Button Page 1
                         if viewModel.pageIndex == 0 {
                             Button {
                                 viewModel.pageIndex = 1
@@ -627,16 +628,14 @@ struct SignUpView: View {
                             .disabled(!(viewModel.isExpertButtonTapped || viewModel.isClientButtonTapped))
                             .padding(.bottom, 75)
                             
-                        } else {
+                            // MARK: Bottom Button Page 2
+                        } else if viewModel.pageIndex == 1 {
                             HStack(spacing: 15) {
                                 Button {
-                                    if viewModel.pageIndex == 1 {
-                                        viewModel.pageIndex = 0
-                                        viewModel.signUpUserType = nil
-                                        
-                                    } else if viewModel.pageIndex == 2 {
-                                        viewModel.pageIndex = 1
-                                    }
+                                    viewModel.pageIndex = 0
+                                    viewModel.signUpUserType = nil
+                                    viewModel.isExpertButtonTapped = false
+                                    viewModel.isClientButtonTapped = false
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .frame(height: 50)
@@ -655,22 +654,61 @@ struct SignUpView: View {
                                 }
                                 
                                 Button {
-                                    if viewModel.pageIndex == 1 {
-                                        viewModel.pageIndex = 2
-                                        
-                                    } else if viewModel.pageIndex == 2 {
-                                        // 완료
-                                    }
+                                    viewModel.pageIndex = 2
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .frame(height: 50)
                                         .foregroundStyle(Color.JJTitle)
                                         .overlay {
-                                            Text(viewModel.pageIndex == 2 ? "완료" : "다음")
+                                            Text("다음")
                                                 .font(.system(size: 17))
                                                 .foregroundStyle(.white)
                                                 .fontWeight(.semibold)
                                         }
+                                        .opacity(viewModel.isAllValidatedPage2 ? 1 : 0.4)
+                                        .disabled(!viewModel.isAllValidatedPage2)
+                                        .padding(.trailing, 35)
+                                }
+                            }
+                            .frame(height: 80)
+                            .padding(.bottom, 81)
+                            
+                            // MARK: Bottom Button Page 3
+                        } else if viewModel.pageIndex == 2 {
+                            HStack(spacing: 15) {
+                                Button {
+                                    viewModel.pageIndex = 1
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(height: 50)
+                                        .foregroundStyle(.white)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                        }
+                                        .overlay {
+                                            Text("이전")
+                                                .font(.system(size: 17))
+                                                .foregroundStyle(.gray)
+                                                .fontWeight(.semibold)
+                                        }
+                                        .padding(.leading, 35)
+                                }
+                                
+                                Button {
+                                    // 완료
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(height: 50)
+                                        .foregroundStyle(Color.JJTitle)
+                                        .overlay {
+                                            Text("완료")
+                                                .font(.system(size: 17))
+                                                .foregroundStyle(.white)
+                                                .fontWeight(.semibold)
+                                        }
+                                        .opacity(viewModel.isAllValidatedPage3 ? 1 : 0.4)
+                                        .disabled(!viewModel.isAllValidatedPage3)
                                         .padding(.trailing, 35)
                                 }
                             }
@@ -697,4 +735,5 @@ struct SignUpView: View {
 #Preview {
     SignUpView()
         .environment(NavigationRouter())
+        .environment(MainTabBarCapsule())
 }
