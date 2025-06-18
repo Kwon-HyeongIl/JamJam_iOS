@@ -65,11 +65,11 @@ struct SignUpView: View {
                                             .scaledToFit()
                                             .overlay {
                                                 VStack {
-                                                    RoundedRectangle(cornerRadius: 10)
+                                                    Image(viewModel.isExpertButtonTapped ? "expert_tint_icon" : "expert_icon")
+                                                        .resizable()
                                                         .scaledToFit()
-                                                        .frame(width: 30)
-                                                        .foregroundStyle(Color.JJTitle)
-                                                        .padding(.bottom)
+                                                        .frame(width: 35)
+                                                        .padding(.bottom, 8)
                                                     
                                                     Text("경험을 나누고 싶은 분")
                                                         .font(.system(size: 16))
@@ -77,10 +77,11 @@ struct SignUpView: View {
                                                         .foregroundStyle(.black)
                                                         .padding(.bottom)
                                                     
-                                                    Text("내가 잘해온 분야를 살려\n서비스를 등록하고 활동하고 싶어요.")
+                                                    Text("내가 잘해온 분야를 살려\n서비스를 등록하고\n활동하고 싶어요.")
                                                         .font(.system(size: 10))
                                                         .foregroundStyle(.gray)
                                                 }
+                                                .padding(5)
                                             }
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
@@ -103,11 +104,11 @@ struct SignUpView: View {
                                             .scaledToFit()
                                             .overlay {
                                                 VStack {
-                                                    RoundedRectangle(cornerRadius: 10)
+                                                    Image(viewModel.isClientButtonTapped ? "client_tint_icon" : "client_icon")
+                                                        .resizable()
                                                         .scaledToFit()
-                                                        .frame(width: 30)
-                                                        .foregroundStyle(Color.JJTitle)
-                                                        .padding(.bottom)
+                                                        .frame(width: 35)
+                                                        .padding(.bottom, 8)
                                                     
                                                     Text("도움을 받고 싶은 분")
                                                         .font(.system(size: 16))
@@ -119,6 +120,7 @@ struct SignUpView: View {
                                                         .font(.system(size: 10))
                                                         .foregroundStyle(.gray)
                                                 }
+                                                .padding(5)
                                             }
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
