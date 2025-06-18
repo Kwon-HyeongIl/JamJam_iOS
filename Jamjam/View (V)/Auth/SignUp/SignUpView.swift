@@ -46,11 +46,27 @@ struct SignUpView: View {
                         // MARK: Page 1
                         if viewModel.pageIndex == 0 {
                             VStack {
-                                Text("잼잼에 오신 걸 환영해요.\n어떤 역할로 함께 하시겠어요?")
-                                    .font(.system(size: 23))
-                                    .fontWeight(.black)
-                                    .multilineTextAlignment(.center)
-                                    .padding(.bottom, 25)
+                                if !viewModel.isExpertButtonTappedNoAni && !viewModel.isClientButtonTappedNoAni {
+                                    Text("잼잼에 오신 걸 환영해요.\n어떤 역할로 함께 하시겠어요?")
+                                        .font(.system(size: 23))
+                                        .fontWeight(.black)
+                                        .multilineTextAlignment(.center)
+                                        .padding(.bottom, 25)
+                                    
+                                } else if viewModel.isExpertButtonTappedNoAni {
+                                    Text("잼잼 전문가로 가입하고\n당신의 경험을 다시 연결해보세요")
+                                        .font(.system(size: 23))
+                                        .fontWeight(.black)
+                                        .multilineTextAlignment(.center)
+                                        .padding(.bottom, 25)
+                                    
+                                } else if viewModel.isClientButtonTappedNoAni {
+                                    Text("잼잼 의뢰인으로 가입하고\n당신에게 꼭 맞는 손길을 만나보세요")
+                                        .font(.system(size: 23))
+                                        .fontWeight(.black)
+                                        .multilineTextAlignment(.center)
+                                        .padding(.bottom, 25)
+                                }
                                 
                                 HStack(spacing: 15) {
                                     Button {
@@ -60,6 +76,12 @@ struct SignUpView: View {
                                             }
                                             viewModel.isExpertButtonTapped.toggle()
                                         }
+                                        
+                                        if viewModel.isClientButtonTappedNoAni {
+                                            viewModel.isClientButtonTappedNoAni = false
+                                        }
+                                        viewModel.isExpertButtonTappedNoAni.toggle()
+                                        
                                         viewModel.signUpUserType = .expert
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
@@ -99,6 +121,12 @@ struct SignUpView: View {
                                             }
                                             viewModel.isClientButtonTapped.toggle()
                                         }
+                                        
+                                        if viewModel.isExpertButtonTappedNoAni {
+                                            viewModel.isExpertButtonTappedNoAni = false
+                                        }
+                                        viewModel.isClientButtonTappedNoAni.toggle()
+                                        
                                         viewModel.signUpUserType = .client
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)

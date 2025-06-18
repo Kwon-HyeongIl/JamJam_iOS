@@ -14,6 +14,8 @@ class SignUpViewModel {
     
     var isExpertButtonTapped = false
     var isClientButtonTapped = false
+    var isExpertButtonTappedNoAni = false
+    var isClientButtonTappedNoAni = false
     
     var nickname = ""
     var id = ""
