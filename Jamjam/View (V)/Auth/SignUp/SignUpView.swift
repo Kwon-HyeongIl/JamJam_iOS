@@ -579,11 +579,7 @@ struct SignUpView: View {
                 VStack {
                     Spacer()
                     
-                    ZStack {
-                        VStack {}
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .background(.ultraThinMaterial)
-                        
+                    VStack {
                         if viewModel.pageIndex == 0 {
                             Button {
                                 viewModel.pageIndex = 1
@@ -655,6 +651,7 @@ struct SignUpView: View {
                         }
                     }
                     .frame(height: 150)
+                    .background(.ultraThinMaterial)
                     .cornerRadius(20, corners: [.topLeft, .topRight])
                     .offset(y: 79)
                 }
