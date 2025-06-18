@@ -389,6 +389,8 @@ struct SignUpView: View {
                                                         
                                                         if viewModel.validatePasswordLocal() {
                                                             viewModel.isPasswordFinalValidated = true
+                                                            focus = nil
+                                                            
                                                         } else {
                                                             viewModel.isPasswordFinalValidated = false
                                                         }
@@ -417,6 +419,8 @@ struct SignUpView: View {
                                                         
                                                         if viewModel.validatePasswordLocal() {
                                                             viewModel.isPasswordFinalValidated = true
+                                                            focus = nil
+                                                            
                                                         } else {
                                                             viewModel.isPasswordFinalValidated = false
                                                         }
@@ -471,7 +475,7 @@ struct SignUpView: View {
                                     }
                                     
                                     ZStack {
-                                        if viewModel.isConfrimPasswordSecured {
+                                        if viewModel.isConfirmPasswordSecured {
                                             SecureField("비밀번호를 한번 더 입력해 주세요", text: $viewModel.confirmPassword)
                                                 .focused($focus, equals: .fourth)
                                                 .font(.system(size: 14))
@@ -482,6 +486,22 @@ struct SignUpView: View {
                                                 .overlay {
                                                     RoundedRectangle(cornerRadius: 10)
                                                         .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
+                                                }
+                                                .onChange(of: viewModel.confirmPassword) {
+                                                    if viewModel.confirmPassword.count == 0 {
+                                                        viewModel.isConfirmPasswordNotification = false
+                                                        
+                                                    } else {
+                                                        viewModel.isConfirmPasswordNotification = true
+                                                        
+                                                        if viewModel.validateConfrimPasswordLocal() {
+                                                            viewModel.isConfirmPasswordFinalValidated = true
+                                                            focus = nil
+                                                            
+                                                        } else {
+                                                            viewModel.isConfirmPasswordFinalValidated = false
+                                                        }
+                                                    }
                                                 }
                                                 .padding(.horizontal, 35)
                                             
@@ -497,6 +517,22 @@ struct SignUpView: View {
                                                     RoundedRectangle(cornerRadius: 10)
                                                         .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
                                                 }
+                                                .onChange(of: viewModel.confirmPassword) {
+                                                    if viewModel.confirmPassword.count == 0 {
+                                                        viewModel.isConfirmPasswordNotification = false
+                                                        
+                                                    } else {
+                                                        viewModel.isConfirmPasswordNotification = true
+                                                        
+                                                        if viewModel.validateConfrimPasswordLocal() {
+                                                            viewModel.isConfirmPasswordFinalValidated = true
+                                                            focus = nil
+                                                            
+                                                        } else {
+                                                            viewModel.isConfirmPasswordFinalValidated = false
+                                                        }
+                                                    }
+                                                }
                                                 .padding(.horizontal, 35)
                                         }
                                         
@@ -504,9 +540,9 @@ struct SignUpView: View {
                                             Spacer()
                                             
                                             Button {
-                                                viewModel.isConfrimPasswordSecured.toggle()
+                                                viewModel.isConfirmPasswordSecured.toggle()
                                             } label: {
-                                                Image(systemName: viewModel.isConfrimPasswordSecured ? "eye" : "eye.slash")
+                                                Image(systemName: viewModel.isConfirmPasswordSecured ? "eye" : "eye.slash")
                                                     .resizable()
                                                     .scaledToFit()
                                                     .frame(width: 20)
@@ -515,6 +551,23 @@ struct SignUpView: View {
                                             }
                                         }
                                     }
+                                    
+                                    HStack {
+                                        if viewModel.isConfirmPasswordNotification {
+                                            if viewModel.isConfirmPasswordFinalValidated {
+                                                Text("비밀번호가 일치합니다.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.green)
+                                            } else {
+                                                Text("비밀번호가 일치하지 않습니다.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.red)
+                                            }
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                                    .padding(.leading, 40)
                                 }
                                 .padding(.bottom, 30)
                             }

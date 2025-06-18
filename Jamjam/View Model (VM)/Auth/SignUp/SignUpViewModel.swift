@@ -37,10 +37,11 @@ class SignUpViewModel {
     var isPasswordFinalValidated = false
     
     var confirmPassword = ""
-    var isConfirmPasswordValidated = false
+    var isConfirmPasswordNotification = false
+    var isConfirmPasswordFinalValidated = false
     
     var isPasswordSecured = true
-    var isConfrimPasswordSecured = true
+    var isConfirmPasswordSecured = true
     
     var isAllValidatedPage2 = false
     

@@ -19,16 +19,15 @@ extension SignUpViewModel {
         return true
     }
     
-    
-    func validateIdRemote() -> Bool {
-        // 백엔드 통신
-        return true
-    }
-    
     func validateIdLocal() -> Bool {
         let pattern = "^[a-z][a-z0-9]{3,}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
         return predicate.evaluate(with: self.id)
+    }
+    
+    func validateIdRemote() -> Bool {
+        // 백엔드 통신
+        return true
     }
     
     func validatePasswordLocal() -> Bool {
@@ -36,6 +35,10 @@ extension SignUpViewModel {
         let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
         
         return predicate.evaluate(with: self.password)
+    }
+    
+    func validateConfrimPasswordLocal() -> Bool {
+        return self.password == self.confirmPassword
     }
 }
 
