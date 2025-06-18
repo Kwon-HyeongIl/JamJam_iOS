@@ -684,7 +684,11 @@ struct SignUpView: View {
                     .offset(y: 79)
                 }
             }
-            .modifier(NavigationBackAndTitleModifier(title: "회원 가입"))
+            .modifierIf(viewModel.pageIndex == 0, then: {
+                NavigationBackAndTitleModifier(title: "회원 가입")
+            }, else: {
+                NavigationTitleAndHomeModifier(title: "회원 가입")
+            })
             .background(Color.mainBackground)
         }
     }
