@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 class SignUpViewModel {
-    var pageIndex = 1
+    var pageIndex = 0
     
     // Page 1
     var signUpUserType: JJUser?
@@ -22,19 +22,19 @@ class SignUpViewModel {
     // Page 2
     var nickname = ""
     var isNicknameNotification = false
-    var isNicknameValidated = false
+    var isNicknameRemoteNotification = false
+    var isNicknameLocalValidated = false
+    var isNicknameFinalValidated = false
     
     var id = ""
     var isIdNotification = false
     var isIdRemoteNotification = false
     var isIdLocalValidated = false
-    var isIdDuplicated = false
-    var isIdInvalidFormat = false
-    var isIdValidated = false
+    var isIdFinalValidated = false
     
     var password = ""
     var isPasswordNotification = false
-    var isPasswordValidated = false
+    var isPasswordFinalValidated = false
     
     var confirmPassword = ""
     var isConfirmPasswordValidated = false

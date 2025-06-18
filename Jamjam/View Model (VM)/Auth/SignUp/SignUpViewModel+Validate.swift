@@ -8,10 +8,17 @@
 import Foundation
 
 extension SignUpViewModel {
+    func validateNicknameLocal() -> Bool {
+        let pattern = "^(?=.*[가-힣])(?=.*[A-Za-z])(?=.*\\d)[가-힣A-Za-z\\d]{1,10}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
+        return predicate.evaluate(with: self.nickname)
+    }
+    
     func validateNicknameRemote() -> Bool {
         // 백엔드 통신
         return true
     }
+    
     
     func validateIdRemote() -> Bool {
         // 백엔드 통신

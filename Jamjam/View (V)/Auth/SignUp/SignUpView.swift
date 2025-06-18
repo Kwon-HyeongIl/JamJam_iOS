@@ -194,19 +194,31 @@ struct SignUpView: View {
                                                     .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
                                             }
                                             .onChange(of: viewModel.nickname) {
-                                                viewModel.isNicknameNotification = false
-                                                viewModel.isNicknameValidated = false
+                                                if viewModel.nickname.count == 0 {
+                                                    viewModel.isNicknameNotification = false
+                                                    
+                                                } else {
+                                                    viewModel.isNicknameNotification = true
+                                                    viewModel.isNicknameRemoteNotification = false
+                                                    
+                                                    if viewModel.validateNicknameLocal() {
+                                                        viewModel.isNicknameLocalValidated = true
+                                                    } else {
+                                                        viewModel.isNicknameLocalValidated = false
+                                                    }
+                                                }
                                             }
                                         
                                         Button {
                                             if viewModel.validateNicknameRemote() {
-                                                viewModel.isNicknameValidated = true
                                                 viewModel.isNicknameNotification = true
+                                                viewModel.isNicknameRemoteNotification = true
+                                                viewModel.isNicknameFinalValidated = true
                                                 focus = nil
                                                 
                                             } else {
-                                                viewModel.isNicknameValidated = false
                                                 viewModel.isNicknameNotification = true
+                                                viewModel.isNicknameRemoteNotification = true
                                             }
                                         } label: {
                                             RoundedRectangle(cornerRadius: 10)
@@ -226,21 +238,24 @@ struct SignUpView: View {
                                     
                                     HStack {
                                         if viewModel.isNicknameNotification {
-                                            if viewModel.isNicknameValidated {
-                                                Text("사용 가능한 닉네임 입니다.")
-                                                    .font(.system(size: 12))
-                                                    .foregroundStyle(.green)
-                                                
-                                            } else {
-                                                Text("중복된 닉네임 입니다.")
+                                            if !viewModel.isNicknameLocalValidated {
+                                                Text("10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요.")
                                                     .font(.system(size: 12))
                                                     .foregroundStyle(.red)
                                             }
                                             
-                                        } else if viewModel.nickname.count == 1 {
-                                            Text("닉네임은 2자 이상이어야 합니다.")
-                                                .font(.system(size: 12))
-                                                .foregroundStyle(.red)
+                                            if viewModel.isNicknameRemoteNotification {
+                                                if viewModel.isNicknameFinalValidated {
+                                                    Text("사용 가능한 닉네임 입니다.")
+                                                        .font(.system(size: 12))
+                                                        .foregroundStyle(.green)
+                                                    
+                                                } else {
+                                                    Text("중복된 닉네임 입니다.")
+                                                        .font(.system(size: 12))
+                                                        .foregroundStyle(.red)
+                                                }
+                                            }
                                         }
                                         
                                         Spacer()
@@ -291,7 +306,7 @@ struct SignUpView: View {
                                             if viewModel.validateIdRemote() {
                                                 viewModel.isIdNotification = true
                                                 viewModel.isIdRemoteNotification = true
-                                                viewModel.isIdValidated = true
+                                                viewModel.isIdFinalValidated = true
                                                 focus = nil
                                                 
                                             } else {
@@ -317,13 +332,13 @@ struct SignUpView: View {
                                     HStack {
                                         if viewModel.isIdNotification {
                                             if !viewModel.isIdLocalValidated {
-                                                Text("소문자.")
+                                                Text("소문자로 시작하고, 소문자와 숫자만 입력해주세요.")
                                                     .font(.system(size: 12))
                                                     .foregroundStyle(.red)
                                             }
                                             
                                             if viewModel.isIdRemoteNotification {
-                                                if viewModel.isIdValidated {
+                                                if viewModel.isIdFinalValidated {
                                                     Text("사용 가능한 아이디 입니다.")
                                                         .font(.system(size: 12))
                                                         .foregroundStyle(.green)
@@ -373,9 +388,9 @@ struct SignUpView: View {
                                                         viewModel.isPasswordNotification = true
                                                         
                                                         if viewModel.validatePasswordLocal() {
-                                                            viewModel.isPasswordValidated = true
+                                                            viewModel.isPasswordFinalValidated = true
                                                         } else {
-                                                            viewModel.isPasswordValidated = false
+                                                            viewModel.isPasswordFinalValidated = false
                                                         }
                                                     }
                                                 }
@@ -401,9 +416,9 @@ struct SignUpView: View {
                                                         viewModel.isPasswordNotification = true
                                                         
                                                         if viewModel.validatePasswordLocal() {
-                                                            viewModel.isPasswordValidated = true
+                                                            viewModel.isPasswordFinalValidated = true
                                                         } else {
-                                                            viewModel.isPasswordValidated = false
+                                                            viewModel.isPasswordFinalValidated = false
                                                         }
                                                     }
                                                 }
@@ -428,7 +443,7 @@ struct SignUpView: View {
                                     
                                     HStack {
                                         if viewModel.isPasswordNotification {
-                                            if viewModel.isPasswordValidated {
+                                            if viewModel.isPasswordFinalValidated {
                                                 Text("사용 가능한 비밀번호 입니다.")
                                                     .font(.system(size: 12))
                                                     .foregroundStyle(.green)
