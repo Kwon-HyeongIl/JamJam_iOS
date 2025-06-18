@@ -17,4 +17,12 @@ extension SignUpViewModel {
         // 백엔드 통신
         return true
     }
+    
+    func validatePassword() -> Bool {
+        let pattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
+        
+        return predicate.evaluate(with: self.password)
+    }
 }
+

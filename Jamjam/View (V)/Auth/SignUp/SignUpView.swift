@@ -342,6 +342,7 @@ struct SignUpView: View {
                                         
                                         Spacer()
                                     }
+                                    
                                     ZStack {
                                         if viewModel.isPasswordSecured {
                                             SecureField("영문과 숫자를 포함한 최소 8자", text: $viewModel.password)
@@ -354,6 +355,20 @@ struct SignUpView: View {
                                                 .overlay {
                                                     RoundedRectangle(cornerRadius: 10)
                                                         .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
+                                                }
+                                                .onChange(of: viewModel.password) {
+                                                    if viewModel.password.count == 0 {
+                                                        viewModel.isPasswordNotification = false
+                                                        
+                                                    } else {
+                                                        viewModel.isPasswordNotification = true
+                                                        
+                                                        if viewModel.validatePassword() {
+                                                            viewModel.isPasswordValidated = true
+                                                        } else {
+                                                            viewModel.isPasswordValidated = false
+                                                        }
+                                                    }
                                                 }
                                                 .padding(.horizontal, 35)
                                             
@@ -368,6 +383,20 @@ struct SignUpView: View {
                                                 .overlay {
                                                     RoundedRectangle(cornerRadius: 10)
                                                         .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
+                                                }
+                                                .onChange(of: viewModel.password) {
+                                                    if viewModel.password.count == 0 {
+                                                        viewModel.isPasswordNotification = false
+                                                        
+                                                    } else {
+                                                        viewModel.isPasswordNotification = true
+                                                        
+                                                        if viewModel.validatePassword() {
+                                                            viewModel.isPasswordValidated = true
+                                                        } else {
+                                                            viewModel.isPasswordValidated = false
+                                                        }
+                                                    }
                                                 }
                                                 .padding(.horizontal, 35)
                                         }
@@ -387,6 +416,23 @@ struct SignUpView: View {
                                             }
                                         }
                                     }
+                                    
+                                    HStack {
+                                        if viewModel.isPasswordNotification {
+                                            if viewModel.isPasswordValidated {
+                                                Text("사용 가능한 비밀번호 입니다.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.green)
+                                            } else {
+                                                Text("영문과 숫자를 포함하여 8자 이상이어야 합니다.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.red)
+                                            }
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                                    .padding(.leading, 40)
                                 }
                                 .padding(.bottom)
                                 

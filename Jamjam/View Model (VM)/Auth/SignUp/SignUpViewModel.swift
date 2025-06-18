@@ -31,8 +31,11 @@ class SignUpViewModel {
     var isIdInvalidFormat = false
     
     var password = ""
-    var confirmPassword = ""
+    var isPasswordNotification = false
     var isPasswordValidated = false
+    
+    var confirmPassword = ""
+    var isConfirmPasswordValidated = false
     
     var isPasswordSecured = true
     var isConfrimPasswordSecured = true
