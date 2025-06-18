@@ -12,4 +12,9 @@ extension SignUpViewModel {
         // 백엔드 통신
         return true
     }
+    
+    func validateId() -> Bool {
+        // 백엔드 통신
+        return true
+    }
 }

@@ -271,9 +271,23 @@ struct SignUpView: View {
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
                                             }
+                                            .onChange(of: viewModel.id) {
+                                                viewModel.isIdNotification = false
+                                                viewModel.isIdValidated = false
+                                                viewModel.isIdDuplicated = false
+                                                viewModel.isIdInvalidFormat = false
+                                            }
                                         
                                         Button {
-                                            
+                                            if viewModel.validateId() {
+                                                viewModel.isIdValidated = true
+                                                viewModel.isIdNotification = true
+                                                focus = nil
+                                                
+                                            } else {
+                                                viewModel.isIdValidated = false
+                                                viewModel.isIdNotification = true
+                                            }
                                         } label: {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .frame(maxWidth: 80)
@@ -288,6 +302,34 @@ struct SignUpView: View {
                                         }
                                     }
                                     .padding(.horizontal, 35)
+                                    
+                                    HStack {
+                                        if viewModel.isIdNotification {
+                                            if viewModel.isIdValidated {
+                                                Text("사용 가능한 아이디 입니다.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.green)
+                                                
+                                            } else if viewModel.isIdDuplicated {
+                                                Text("중복된 아이디 입니다.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.red)
+                                                
+                                            } else if viewModel.isIdInvalidFormat {
+                                                Text("잘못된 형식의 아이디 입니다.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.red)
+                                            }
+                                            
+                                        } else if viewModel.id.count != 0 && viewModel.id.count < 4 {
+                                            Text("아이디는 4자 이상이어야 합니다.")
+                                                .font(.system(size: 12))
+                                                .foregroundStyle(.red)
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                                    .padding(.leading, 40)
                                 }
                                 .padding(.bottom)
                                 

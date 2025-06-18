@@ -25,7 +25,10 @@ class SignUpViewModel {
     var isNicknameValidated = false
     
     var id = ""
+    var isIdNotification = false
     var isIdValidated = false
+    var isIdDuplicated = false
+    var isIdInvalidFormat = false
     
     var password = ""
     var confirmPassword = ""
