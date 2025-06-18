@@ -369,6 +369,9 @@ struct HomeView: View {
                             }
                             .padding(.horizontal, 35)
                         }
+                        
+                        VStack {}
+                        .frame(height: 70)
                     }
                 }
             }

@@ -129,9 +129,7 @@ struct LoginView: View {
                         }
                     }
                     
-                    VStack {
-                        
-                    }
+                    VStack {}
                     .frame(height: 50)
                 }
             }
