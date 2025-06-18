@@ -581,9 +581,7 @@ struct SignUpView: View {
                     
                     if viewModel.pageIndex == 0 {
                         Button {
-                            withAnimation {
-                                viewModel.pageIndex = 1
-                            }
+                            viewModel.pageIndex = 1
                         } label: {
                             RoundedRectangle(cornerRadius: 10)
                                 .frame(height: 50)
@@ -603,15 +601,11 @@ struct SignUpView: View {
                         HStack(spacing: 15) {
                             Button {
                                 if viewModel.pageIndex == 1 {
-                                    withAnimation {
-                                        viewModel.pageIndex = 0
-                                    }
+                                    viewModel.pageIndex = 0
                                     viewModel.signUpUserType = nil
                                     
                                 } else if viewModel.pageIndex == 2 {
-                                    withAnimation {
-                                        viewModel.pageIndex = 1
-                                    }
+                                    viewModel.pageIndex = 1
                                 }
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
@@ -632,9 +626,7 @@ struct SignUpView: View {
                             
                             Button {
                                 if viewModel.pageIndex == 1 {
-                                    withAnimation {
-                                        viewModel.pageIndex = 2
-                                    }
+                                    viewModel.pageIndex = 2
                                     
                                 } else if viewModel.pageIndex == 2 {
                                     // 완료
