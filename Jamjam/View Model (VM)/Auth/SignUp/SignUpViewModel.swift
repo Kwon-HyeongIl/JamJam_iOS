@@ -21,6 +21,7 @@ class SignUpViewModel {
     
     // Page 2
     var nickname = ""
+    var isNicknameNotification = false
     var isNicknameValidated = false
     
     var id = ""

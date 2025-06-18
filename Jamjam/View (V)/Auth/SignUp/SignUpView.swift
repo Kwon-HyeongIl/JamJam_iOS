@@ -193,9 +193,21 @@ struct SignUpView: View {
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
                                             }
+                                            .onChange(of: viewModel.nickname) {
+                                                viewModel.isNicknameNotification = false
+                                                viewModel.isNicknameValidated = false
+                                            }
                                         
                                         Button {
-                                            
+                                            if viewModel.validateNickname() {
+                                                viewModel.isNicknameValidated = true
+                                                viewModel.isNicknameNotification = true
+                                                focus = nil
+                                                
+                                            } else {
+                                                viewModel.isNicknameValidated = false
+                                                viewModel.isNicknameNotification = true
+                                            }
                                         } label: {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .frame(maxWidth: 80)
@@ -206,10 +218,34 @@ struct SignUpView: View {
                                                         .fontWeight(.semibold)
                                                         .foregroundStyle(.white)
                                                 }
-                                                .opacity(viewModel.nickname.isEmpty ? 0.4 : 1)
+                                                .opacity((viewModel.nickname.isEmpty || viewModel.nickname.count == 1) ? 0.4 : 1)
                                         }
+                                        .disabled(viewModel.nickname.isEmpty || viewModel.nickname.count == 1)
                                     }
                                     .padding(.horizontal, 35)
+                                    
+                                    HStack {
+                                        if viewModel.isNicknameNotification {
+                                            if viewModel.isNicknameValidated {
+                                                Text("사용 가능한 닉네임 입니다.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.green)
+                                                
+                                            } else {
+                                                Text("중복된 닉네임 입니다.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.red)
+                                            }
+                                            
+                                        } else if viewModel.nickname.count == 1 {
+                                            Text("닉네임은 2자 이상이어야 합니다.")
+                                                .font(.system(size: 12))
+                                                .foregroundStyle(.red)
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                                    .padding(.leading, 40)
                                 }
                                 .padding(.bottom)
                                 
