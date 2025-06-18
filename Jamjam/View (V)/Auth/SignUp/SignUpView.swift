@@ -199,7 +199,7 @@ struct SignUpView: View {
                                             }
                                         
                                         Button {
-                                            if viewModel.validateNickname() {
+                                            if viewModel.validateNicknameRemote() {
                                                 viewModel.isNicknameValidated = true
                                                 viewModel.isNicknameNotification = true
                                                 focus = nil
@@ -272,21 +272,31 @@ struct SignUpView: View {
                                                     .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
                                             }
                                             .onChange(of: viewModel.id) {
-                                                viewModel.isIdNotification = false
-                                                viewModel.isIdValidated = false
-                                                viewModel.isIdDuplicated = false
-                                                viewModel.isIdInvalidFormat = false
+                                                if viewModel.id.count == 0 {
+                                                    viewModel.isIdNotification = false
+                                                    
+                                                } else {
+                                                    viewModel.isIdNotification = true
+                                                    viewModel.isIdRemoteNotification = false
+                                                    
+                                                    if viewModel.validateIdLocal() {
+                                                        viewModel.isIdLocalValidated = true
+                                                    } else {
+                                                        viewModel.isIdLocalValidated = false
+                                                    }
+                                                }
                                             }
                                         
                                         Button {
-                                            if viewModel.validateId() {
-                                                viewModel.isIdValidated = true
+                                            if viewModel.validateIdRemote() {
                                                 viewModel.isIdNotification = true
+                                                viewModel.isIdRemoteNotification = true
+                                                viewModel.isIdValidated = true
                                                 focus = nil
                                                 
                                             } else {
-                                                viewModel.isIdValidated = false
                                                 viewModel.isIdNotification = true
+                                                viewModel.isIdRemoteNotification = true
                                             }
                                         } label: {
                                             RoundedRectangle(cornerRadius: 10)
@@ -298,33 +308,32 @@ struct SignUpView: View {
                                                         .fontWeight(.semibold)
                                                         .foregroundStyle(.white)
                                                 }
-                                                .opacity(viewModel.id.isEmpty ? 0.4 : 1)
+                                                .opacity(viewModel.isIdLocalValidated ? 1 : 0.4)
                                         }
+                                        .disabled(!viewModel.isIdLocalValidated)
                                     }
                                     .padding(.horizontal, 35)
                                     
                                     HStack {
                                         if viewModel.isIdNotification {
-                                            if viewModel.isIdValidated {
-                                                Text("사용 가능한 아이디 입니다.")
-                                                    .font(.system(size: 12))
-                                                    .foregroundStyle(.green)
-                                                
-                                            } else if viewModel.isIdDuplicated {
-                                                Text("중복된 아이디 입니다.")
-                                                    .font(.system(size: 12))
-                                                    .foregroundStyle(.red)
-                                                
-                                            } else if viewModel.isIdInvalidFormat {
-                                                Text("잘못된 형식의 아이디 입니다.")
+                                            if !viewModel.isIdLocalValidated {
+                                                Text("소문자.")
                                                     .font(.system(size: 12))
                                                     .foregroundStyle(.red)
                                             }
                                             
-                                        } else if viewModel.id.count != 0 && viewModel.id.count < 4 {
-                                            Text("아이디는 4자 이상이어야 합니다.")
-                                                .font(.system(size: 12))
-                                                .foregroundStyle(.red)
+                                            if viewModel.isIdRemoteNotification {
+                                                if viewModel.isIdValidated {
+                                                    Text("사용 가능한 아이디 입니다.")
+                                                        .font(.system(size: 12))
+                                                        .foregroundStyle(.green)
+                                                    
+                                                } else {
+                                                    Text("중복된 아이디 입니다.")
+                                                        .font(.system(size: 12))
+                                                        .foregroundStyle(.red)
+                                                }
+                                            }
                                         }
                                         
                                         Spacer()
@@ -363,7 +372,7 @@ struct SignUpView: View {
                                                     } else {
                                                         viewModel.isPasswordNotification = true
                                                         
-                                                        if viewModel.validatePassword() {
+                                                        if viewModel.validatePasswordLocal() {
                                                             viewModel.isPasswordValidated = true
                                                         } else {
                                                             viewModel.isPasswordValidated = false
@@ -391,7 +400,7 @@ struct SignUpView: View {
                                                     } else {
                                                         viewModel.isPasswordNotification = true
                                                         
-                                                        if viewModel.validatePassword() {
+                                                        if viewModel.validatePasswordLocal() {
                                                             viewModel.isPasswordValidated = true
                                                         } else {
                                                             viewModel.isPasswordValidated = false

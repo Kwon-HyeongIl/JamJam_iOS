@@ -8,17 +8,23 @@
 import Foundation
 
 extension SignUpViewModel {
-    func validateNickname() -> Bool {
+    func validateNicknameRemote() -> Bool {
         // 백엔드 통신
         return true
     }
     
-    func validateId() -> Bool {
+    func validateIdRemote() -> Bool {
         // 백엔드 통신
         return true
     }
     
-    func validatePassword() -> Bool {
+    func validateIdLocal() -> Bool {
+        let pattern = "^[a-z][a-z0-9]{3,}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
+        return predicate.evaluate(with: self.id)
+    }
+    
+    func validatePasswordLocal() -> Bool {
         let pattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
         
