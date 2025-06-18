@@ -10,6 +10,8 @@ import SwiftUI
 struct SignUpView: View {
     @State private var viewModel = SignUpViewModel()
     
+    @State private var position = ScrollPosition()
+    
     @FocusState private var focus: TextFieldFocusField?
     
     var body: some View {
@@ -343,15 +345,236 @@ struct SignUpView: View {
                             
                         // MARK: Page 3
                         } else if viewModel.pageIndex == 2 {
-                            
+                            VStack {
+                                Text("잼잼 서비스 이용을 위해\n개인 정보를 입력해 주세요.")
+                                    .font(.system(size: 23))
+                                    .fontWeight(.black)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.bottom, 25)
+                                
+                                VStack {
+                                    HStack {
+                                        Text("이름")
+                                            .font(.system(size: 17))
+                                            .fontWeight(.semibold)
+                                            .padding(.leading, 35)
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                    TextField("홍길동", text: $viewModel.name)
+                                        .focused($focus, equals: .first)
+                                        .font(.system(size: 14))
+                                        .padding(.horizontal)
+                                        .frame(height: 50)
+                                        .background(.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
+                                        }
+                                        .padding(.horizontal, 35)
+                                }
+                                .padding(.bottom)
+                                
+                                VStack {
+                                    HStack {
+                                        Text("생년월일")
+                                            .font(.system(size: 17))
+                                            .fontWeight(.semibold)
+                                            .padding(.leading, 35)
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                    HStack {
+                                        TextField("년도", text: $viewModel.birthYear)
+                                            .focused($focus, equals: .second)
+                                            .font(.system(size: 14))
+                                            .padding(.horizontal)
+                                            .frame(height: 50)
+                                            .background(.white)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
+                                            }
+                                            
+                                        TextField("월", text: $viewModel.birthMonth)
+                                            .focused($focus, equals: .third)
+                                            .font(.system(size: 14))
+                                            .padding(.horizontal)
+                                            .frame(height: 50)
+                                            .frame(maxWidth: 75)
+                                            .background(.white)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
+                                            }
+                                        
+                                        TextField("일", text: $viewModel.birthDay)
+                                            .focused($focus, equals: .fourth)
+                                            .font(.system(size: 14))
+                                            .padding(.horizontal)
+                                            .frame(height: 50)
+                                            .frame(maxWidth: 75)
+                                            .background(.white)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
+                                            }
+                                    }
+                                    .padding(.horizontal, 35)
+                                    .padding(.bottom)
+                                    
+                                    VStack {
+                                        HStack {
+                                            Text("성별")
+                                                .font(.system(size: 17))
+                                                .fontWeight(.semibold)
+                                                .padding(.leading, 35)
+                                            
+                                            Spacer()
+                                        }
+                                        
+                                        HStack {
+                                            Button {
+                                                withAnimation {
+                                                    if viewModel.isGenderWomanButtonTapped {
+                                                        viewModel.isGenderWomanButtonTapped = false
+                                                    }
+                                                    viewModel.isGenderManButtonTapped.toggle()
+                                                }
+                                                viewModel.gender = .man
+                                            } label: {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .frame(height: 50)
+                                                    .foregroundStyle(viewModel.isGenderManButtonTapped ? .red.opacity(0.1) : .white)
+                                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                    .overlay {
+                                                        Image(viewModel.isGenderManButtonTapped ? "man_tint_icon" : "man_icon")
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 20)
+                                                    }
+                                                    .overlay {
+                                                        RoundedRectangle(cornerRadius: 10)
+                                                            .stroke(viewModel.isGenderManButtonTapped ? Color.JJTitle : .gray.opacity(0.5), lineWidth: viewModel.isGenderManButtonTapped ? 1.5 : 1)
+                                                    }
+                                            }
+                                            
+                                            Button {
+                                                withAnimation {
+                                                    if viewModel.isGenderManButtonTapped {
+                                                        viewModel.isGenderManButtonTapped = false
+                                                    }
+                                                    viewModel.isGenderWomanButtonTapped.toggle()
+                                                }
+                                                viewModel.gender = .woman
+                                            } label: {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .frame(height: 50)
+                                                    .foregroundStyle(viewModel.isGenderWomanButtonTapped ? .red.opacity(0.1) : .white)
+                                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                    .overlay {
+                                                        Image(viewModel.isGenderWomanButtonTapped ? "woman_tint_icon" : "woman_icon")
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 20)
+                                                    }
+                                                    .overlay {
+                                                        RoundedRectangle(cornerRadius: 10)
+                                                            .stroke(viewModel.isGenderWomanButtonTapped ? Color.JJTitle : .gray.opacity(0.5), lineWidth: viewModel.isGenderWomanButtonTapped ? 1.5 : 1)
+                                                    }
+                                            }
+                                        }
+                                        .padding(.horizontal, 35)
+                                    }
+                                    .padding(.bottom)
+                                    
+                                    VStack {
+                                        HStack {
+                                            Text("휴대폰 번호")
+                                                .font(.system(size: 17))
+                                                .fontWeight(.semibold)
+                                                .padding(.leading, 35)
+                                            
+                                            Spacer()
+                                        }
+                                        
+                                        HStack {
+                                            TextField("하이픈(-) 제외하고 입력", text: $viewModel.phoneNumber)
+                                                .focused($focus, equals: .fifth)
+                                                .font(.system(size: 14))
+                                                .padding(.horizontal)
+                                                .frame(height: 50)
+                                                .background(.white)
+                                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                .overlay {
+                                                    RoundedRectangle(cornerRadius: 10)
+                                                        .stroke(focus == .fifth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fifth ? 1.5 : 1)
+                                                }
+                                            
+                                            Button {
+                                                withAnimation {
+                                                    viewModel.isIdentifiedButtonTapped = true
+                                                    position.scrollTo(edge: .bottom)
+                                                }
+                                            } label: {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .frame(maxWidth: 100)
+                                                    .foregroundStyle(Color.JJTitle)
+                                                    .overlay {
+                                                        Text("인증번호 받기")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.semibold)
+                                                            .foregroundStyle(.white)
+                                                    }
+                                                    .opacity(viewModel.phoneNumber.count == 11 ? 1 : 0.4)
+                                            }
+                                        }
+                                        .padding(.horizontal, 35)
+                                    }
+                                    .padding(.bottom)
+                                    
+                                    if viewModel.isIdentifiedButtonTapped {
+                                        VStack {
+                                            HStack {
+                                                Text("인증번호")
+                                                    .font(.system(size: 17))
+                                                    .fontWeight(.semibold)
+                                                    .padding(.leading, 35)
+                                                
+                                                Spacer()
+                                            }
+                                            
+                                            TextField("인증번호 6자리를 입력해 주세요", text: $viewModel.identifiedNumber)
+                                                .focused($focus, equals: .sixth)
+                                                .font(.system(size: 14))
+                                                .padding(.horizontal)
+                                                .frame(height: 50)
+                                                .background(.white)
+                                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                .overlay {
+                                                    RoundedRectangle(cornerRadius: 10)
+                                                        .stroke(focus == .sixth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .sixth ? 1.5 : 1)
+                                                }
+                                                .padding(.horizontal, 35)
+                                        }
+                                    }
+                                }
+                            }
                         }
                         
                         VStack {
                             
                         }
-                        .frame(height: 50)
+                        .frame(height: viewModel.pageIndex == 2 ? 90 : 50)
                     }
                 }
+                .scrollPosition($position)
                 
                 VStack {
                     Spacer()

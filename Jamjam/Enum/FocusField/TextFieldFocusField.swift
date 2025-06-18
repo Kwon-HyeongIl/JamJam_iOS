@@ -12,4 +12,6 @@ enum TextFieldFocusField {
     case second
     case third
     case fourth
+    case fifth
+    case sixth
 }

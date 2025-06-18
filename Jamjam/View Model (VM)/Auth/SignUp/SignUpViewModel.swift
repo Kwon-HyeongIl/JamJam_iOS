@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 class SignUpViewModel {
-    var pageIndex = 0
+    var pageIndex = 2
     var signUpUserType: JJUser?
     
     var isExpertButtonTapped = false
@@ -22,4 +22,16 @@ class SignUpViewModel {
     
     var isPasswordSecured = true
     var isConfrimPasswordSecured = true
+    
+    var name = ""
+    var birthYear = ""
+    var birthMonth = ""
+    var birthDay = ""
+    var gender: Gender?
+    var phoneNumber = ""
+    var isIdentifiedButtonTapped = false
+    var identifiedNumber = ""
+    
+    var isGenderManButtonTapped = false
+    var isGenderWomanButtonTapped = false
 }
