@@ -99,7 +99,7 @@ struct SignUpView: View {
                                                         .font(.system(size: 15))
                                                         .fontWeight(.bold)
                                                         .foregroundStyle(.black)
-                                                        .padding(.bottom)
+                                                        .padding(.bottom, 10)
                                                     
                                                     Text("내가 잘해온 분야를 살려\n서비스를 등록하고\n활동하고 싶어요.")
                                                         .font(.system(size: 9))
@@ -144,7 +144,7 @@ struct SignUpView: View {
                                                         .font(.system(size: 15))
                                                         .fontWeight(.bold)
                                                         .foregroundStyle(.black)
-                                                        .padding(.bottom)
+                                                        .padding(.bottom, 10)
                                                     
                                                     Text("지금 필요한 일에\n경험 있는 분의 손길을\n받아보고 싶어요.")
                                                         .font(.system(size: 9))
@@ -385,14 +385,16 @@ struct SignUpView: View {
                                                         viewModel.isPasswordNotification = false
                                                         
                                                     } else {
-                                                        viewModel.isPasswordNotification = true
-                                                        
-                                                        if viewModel.validatePasswordLocal() {
-                                                            viewModel.isPasswordFinalValidated = true
-                                                            focus = nil
+                                                        if viewModel.password.count >= 8 {
+                                                            viewModel.isPasswordNotification = true
                                                             
-                                                        } else {
-                                                            viewModel.isPasswordFinalValidated = false
+                                                            if viewModel.validatePasswordLocal() {
+                                                                viewModel.isPasswordFinalValidated = true
+                                                                focus = nil
+                                                                
+                                                            } else {
+                                                                viewModel.isPasswordFinalValidated = false
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -417,12 +419,14 @@ struct SignUpView: View {
                                                     } else {
                                                         viewModel.isPasswordNotification = true
                                                         
-                                                        if viewModel.validatePasswordLocal() {
-                                                            viewModel.isPasswordFinalValidated = true
-                                                            focus = nil
-                                                            
-                                                        } else {
-                                                            viewModel.isPasswordFinalValidated = false
+                                                        if viewModel.password.count >= 8 {
+                                                            if viewModel.validatePasswordLocal() {
+                                                                viewModel.isPasswordFinalValidated = true
+                                                                focus = nil
+                                                                
+                                                            } else {
+                                                                viewModel.isPasswordFinalValidated = false
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -837,8 +841,8 @@ struct SignUpView: View {
                                                 .foregroundStyle(.white)
                                                 .fontWeight(.semibold)
                                         }
-                                        .opacity(viewModel.isAllValidatedPage2 ? 1 : 0.4)
-                                        .disabled(!viewModel.isAllValidatedPage2)
+                                        .opacity(viewModel.isAllValidatedInPage2 ? 1 : 0.4)
+                                        .disabled(!viewModel.isAllValidatedInPage2)
                                         .padding(.trailing, 35)
                                 }
                             }
@@ -879,8 +883,8 @@ struct SignUpView: View {
                                                 .foregroundStyle(.white)
                                                 .fontWeight(.semibold)
                                         }
-                                        .opacity(viewModel.isAllValidatedPage3 ? 1 : 0.4)
-                                        .disabled(!viewModel.isAllValidatedPage3)
+                                        .opacity(viewModel.isAllValidatedInPage3 ? 1 : 0.4)
+                                        .disabled(!viewModel.isAllValidatedInPage3)
                                         .padding(.trailing, 35)
                                 }
                             }

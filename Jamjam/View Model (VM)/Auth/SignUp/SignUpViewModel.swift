@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 class SignUpViewModel {
-    var pageIndex = 0
+    var pageIndex = 2
     
     // Page 1
     var signUpUserType: JJUser?
@@ -43,7 +43,9 @@ class SignUpViewModel {
     var isPasswordSecured = true
     var isConfirmPasswordSecured = true
     
-    var isAllValidatedPage2 = false
+    var isAllValidatedInPage2: Bool {
+        isNicknameFinalValidated && isIdFinalValidated && isPasswordFinalValidated && isConfirmPasswordFinalValidated
+    }
     
     // Page 3
     var name = ""
@@ -55,5 +57,5 @@ class SignUpViewModel {
     var isIdentifiedButtonTapped = false
     var identifiedNumber = ""
     
-    var isAllValidatedPage3 = false
+    var isAllValidatedInPage3 = false
 }
