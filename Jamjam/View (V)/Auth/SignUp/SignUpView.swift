@@ -195,10 +195,10 @@ struct SignUpView: View {
                                             }
                                             .onChange(of: viewModel.nickname) {
                                                 if viewModel.nickname.count == 0 {
-                                                    viewModel.isNicknameNotification = false
+                                                    viewModel.isNicknameLocalNotification = false
                                                     
                                                 } else {
-                                                    viewModel.isNicknameNotification = true
+                                                    viewModel.isNicknameLocalNotification = true
                                                     viewModel.isNicknameRemoteNotification = false
                                                     
                                                     if viewModel.validateNicknameLocal() {
@@ -211,13 +211,13 @@ struct SignUpView: View {
                                         
                                         Button {
                                             if viewModel.validateNicknameRemote() {
-                                                viewModel.isNicknameNotification = true
+                                                viewModel.isNicknameLocalNotification = false
                                                 viewModel.isNicknameRemoteNotification = true
                                                 viewModel.isNicknameFinalValidated = true
                                                 focus = nil
                                                 
                                             } else {
-                                                viewModel.isNicknameNotification = true
+                                                viewModel.isNicknameLocalNotification = false
                                                 viewModel.isNicknameRemoteNotification = true
                                             }
                                         } label: {
@@ -237,24 +237,24 @@ struct SignUpView: View {
                                     .padding(.horizontal, 35)
                                     
                                     HStack {
-                                        if viewModel.isNicknameNotification {
+                                        if viewModel.isNicknameLocalNotification {
                                             if !viewModel.isNicknameLocalValidated {
                                                 Text("10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요.")
                                                     .font(.system(size: 12))
                                                     .foregroundStyle(.red)
                                             }
-                                            
-                                            if viewModel.isNicknameRemoteNotification {
-                                                if viewModel.isNicknameFinalValidated {
-                                                    Text("사용 가능한 닉네임 입니다.")
-                                                        .font(.system(size: 12))
-                                                        .foregroundStyle(.green)
-                                                    
-                                                } else {
-                                                    Text("중복된 닉네임 입니다.")
-                                                        .font(.system(size: 12))
-                                                        .foregroundStyle(.red)
-                                                }
+                                        }
+                                        
+                                        if viewModel.isNicknameRemoteNotification {
+                                            if viewModel.isNicknameFinalValidated {
+                                                Text("사용 가능한 닉네임 입니다.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.green)
+                                                
+                                            } else {
+                                                Text("중복된 닉네임 입니다.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.red)
                                             }
                                         }
                                         
