@@ -52,7 +52,17 @@ class SignUpViewModel {
     var isRealNameNotification = false
     var isRealNameFinalValidated = false
     
-    var birth = Date()
+    var birthYear = ""
+    var isBirthYearLocalValidated = false
+    var birthMonth = ""
+    var isBirthMonthLocalValidated = false
+    var birthDay = ""
+    var isBirthDayLocalValidated = false
+    var isBirthNotification = false
+    var isBirthFinalValidated: Bool {
+        isBirthYearLocalValidated && isBirthMonthLocalValidated && isBirthDayLocalValidated
+    }
+    
     var gender: Gender?
     var isGenderManButtonTapped = false
     var isGenderWomanButtonTapped = false

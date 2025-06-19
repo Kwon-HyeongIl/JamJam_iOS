@@ -46,5 +46,23 @@ extension SignUpViewModel {
         let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
         return predicate.evaluate(with: self.realName)
     }
+    
+    func validateBirthYearLocal() -> Bool {
+        let pattern = "^\\d{4}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
+        return predicate.evaluate(with: self.birthYear)
+    }
+    
+    func validateBirthMonthLocal() -> Bool {
+        let pattern = "^(0?[1-9]|1[0-2])$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
+        return predicate.evaluate(with: self.birthMonth)
+    }
+    
+    func validateBirthDayLocal() -> Bool {
+        let pattern = "^(0?[1-9]|[12][0-9]|3[01])$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
+        return predicate.evaluate(with: self.birthDay)
+    }
 }
 
