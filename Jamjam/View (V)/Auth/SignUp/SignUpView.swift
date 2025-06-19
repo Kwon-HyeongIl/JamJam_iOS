@@ -182,7 +182,7 @@ struct SignUpView: View {
                                     }
                                     
                                     HStack {
-                                        TextField("10자 이내의 한글, 영문, 숫자 조합", text: $viewModel.nickname)
+                                        TextField("2자 이상 입력해주세요", text: $viewModel.nickname)
                                             .focused($focus, equals: .first)
                                             .font(.system(size: 14))
                                             .padding(.horizontal)
@@ -198,7 +198,7 @@ struct SignUpView: View {
                                                     viewModel.isNicknameLocalNotification = false
                                                     
                                                 } else {
-                                                    viewModel.isNicknameLocalNotification = true
+//                                                    viewModel.isNicknameLocalNotification = true
                                                     viewModel.isNicknameRemoteNotification = false
                                                     
                                                     if viewModel.validateNicknameLocal() {
@@ -239,9 +239,9 @@ struct SignUpView: View {
                                     HStack {
                                         if viewModel.isNicknameLocalNotification {
                                             if !viewModel.isNicknameLocalValidated {
-                                                Text("10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요.")
-                                                    .font(.system(size: 12))
-                                                    .foregroundStyle(.red)
+//                                                Text("10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요.")
+//                                                    .font(.system(size: 12))
+//                                                    .foregroundStyle(.red)
                                             }
                                         }
                                         
@@ -527,6 +527,7 @@ struct SignUpView: View {
                                                         
                                                         if viewModel.validateConfrimPasswordLocal() {
                                                             viewModel.isConfirmPasswordFinalValidated = true
+                                                            focus = nil
                                                             
                                                         } else {
                                                             viewModel.isConfirmPasswordFinalValidated = false
@@ -885,6 +886,8 @@ struct SignUpView: View {
                                                     if viewModel.checkIdentifyNumber() {
                                                         viewModel.isIdentifiedNumberNotification = true
                                                         viewModel.isIdentifiedNumberFinalValidated = true
+                                                        focus = nil
+                                                        
                                                     } else {
                                                         viewModel.isIdentifiedNumberNotification = true
                                                         viewModel.isIdentifiedNumberFinalValidated = false
