@@ -804,11 +804,26 @@ struct SignUpView: View {
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .stroke(focus == .fifth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fifth ? 1.5 : 1)
                                             }
+                                            .onChange(of: viewModel.phoneNumber) {
+                                                viewModel.isPhoneNumberNotification = false
+                                                
+                                                if viewModel.validatePhoneNumberLocal() {
+                                                    viewModel.isPhoneNumberFinalValidated = true
+                                                } else {
+                                                    viewModel.isPhoneNumberFinalValidated = false
+                                                }
+                                            }
                                         
                                         Button {
-                                            withAnimation {
-                                                viewModel.isIdentifiedButtonTapped = true
-                                                position.scrollTo(edge: .bottom)
+                                            if viewModel.isPhoneNumberFinalValidated {
+                                                withAnimation {
+                                                    viewModel.identifyPhoneNumber()
+                                                    viewModel.isIdentifiedButtonTapped = true
+                                                    position.scrollTo(edge: .bottom)
+                                                }
+                                                
+                                            } else {
+                                                viewModel.isPhoneNumberNotification = true
                                             }
                                         } label: {
                                             RoundedRectangle(cornerRadius: 10)
@@ -820,10 +835,23 @@ struct SignUpView: View {
                                                         .fontWeight(.semibold)
                                                         .foregroundStyle(.white)
                                                 }
-                                                .opacity(viewModel.phoneNumber.count == 11 ? 1 : 0.4)
+                                                .opacity(viewModel.isPhoneNumberFinalValidated ? 1 : 0.4)
                                         }
                                     }
                                     .padding(.horizontal, 35)
+                                    
+                                    HStack {
+                                        if viewModel.isPhoneNumberNotification {
+                                            if !viewModel.isPhoneNumberFinalValidated {
+                                                Text("하이픈(-)을 제외하고 11자로 입력해주세요")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.red)
+                                            }
+                                        }
+                                            
+                                        Spacer()
+                                    }
+                                    .padding(.leading, 40)
                                 }
                                 .padding(.bottom)
                                 

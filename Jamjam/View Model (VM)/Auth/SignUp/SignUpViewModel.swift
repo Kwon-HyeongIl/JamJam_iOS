@@ -66,9 +66,17 @@ class SignUpViewModel {
     var gender: Gender?
     var isGenderManButtonTapped = false
     var isGenderWomanButtonTapped = false
+    
     var phoneNumber = ""
+    var isPhoneNumberNotification = false
+    var isPhoneNumberFinalValidated = false
+    
     var isIdentifiedButtonTapped = false
     var identifiedNumber = ""
     
     var isAllValidatedInPage3 = false
+    
+    func identifyPhoneNumber() {
+        // 백엔드 http 통신
+    }
 }
