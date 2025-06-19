@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
+    @Environment(NavigationRouter.self) var navRouter
     @State private var viewModel = SignUpViewModel()
     
     @State private var position = ScrollPosition()
@@ -1032,7 +1033,8 @@ struct SignUpView: View {
                                 }
                                 
                                 Button {
-                                    // 완료
+                                    viewModel.completeSignUp()
+                                    navRouter.popToRoot()
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .frame(height: 50)
