@@ -658,6 +658,11 @@ struct SignUpView: View {
                                                     viewModel.isBirthYearLocalValidated = false
                                                 }
                                             }
+                                            .onChange(of: viewModel.birthYear) { oldValue, newValue in
+                                                if newValue.count > 4 {
+                                                    viewModel.birthYear = String(newValue.prefix(4))
+                                                }
+                                            }
                                         
                                         TextField("월", text: $viewModel.birthMonth)
                                             .focused($focus, equals: .third)
@@ -679,6 +684,11 @@ struct SignUpView: View {
                                                     viewModel.isBirthMonthLocalValidated = false
                                                 }
                                             }
+                                            .onChange(of: viewModel.birthMonth) { oldValue, newValue in
+                                                if newValue.count > 2 {
+                                                    viewModel.birthMonth = String(newValue.prefix(4))
+                                                }
+                                            }
                                         
                                         TextField("일", text: $viewModel.birthDay)
                                             .focused($focus, equals: .fourth)
@@ -698,6 +708,11 @@ struct SignUpView: View {
                                                     
                                                 } else {
                                                     viewModel.isBirthDayLocalValidated = false
+                                                }
+                                            }
+                                            .onChange(of: viewModel.birthDay) { oldValue, newValue in
+                                                if newValue.count > 2 {
+                                                    viewModel.birthDay = String(newValue.prefix(4))
                                                 }
                                             }
                                     }
@@ -1038,8 +1053,7 @@ struct SignUpView: View {
                         }
                     }
                     .frame(height: 150)
-                    .background(.ultraThinMaterial)
-                    .cornerRadius(20, corners: [.topLeft, .topRight])
+                    .background(Color.mainBackground)
                     .offset(y: 79)
                 }
             }
