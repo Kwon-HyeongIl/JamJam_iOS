@@ -28,6 +28,7 @@
 		CA87FF7F2E02829D00C8C830 /* NavigationBarTitleAndHomeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87FF7E2E02829D00C8C830 /* NavigationBarTitleAndHomeModifier.swift */; };
 		CA87FF822E0284EB00C8C830 /* ModifierIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87FF812E0284EB00C8C830 /* ModifierIf.swift */; };
 		CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87FF892E02B66600C8C830 /* SignUpViewModel+Validate.swift */; };
+		CA87FF922E03DA8600C8C830 /* SignUpViewModel+IdentifyPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87FF912E03DA8600C8C830 /* SignUpViewModel+IdentifyPhoneNumber.swift */; };
 		CA9609932DFBDE9B00B878C6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609922DFBDE9B00B878C6 /* SearchView.swift */; };
 		CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */; };
 		CA96099A2DFBE06400B878C6 /* NavigationBarBackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609992DFBE06400B878C6 /* NavigationBarBackModifier.swift */; };
@@ -72,6 +73,7 @@
 		CA87FF7E2E02829D00C8C830 /* NavigationBarTitleAndHomeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleAndHomeModifier.swift; sourceTree = "<group>"; };
 		CA87FF812E0284EB00C8C830 /* ModifierIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierIf.swift; sourceTree = "<group>"; };
 		CA87FF892E02B66600C8C830 /* SignUpViewModel+Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Validate.swift"; sourceTree = "<group>"; };
+		CA87FF912E03DA8600C8C830 /* SignUpViewModel+IdentifyPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+IdentifyPhoneNumber.swift"; sourceTree = "<group>"; };
 		CA9609922DFBDE9B00B878C6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		CA9609992DFBE06400B878C6 /* NavigationBarBackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackModifier.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				CA87FF772E014B7A00C8C830 /* SignUpViewModel.swift */,
 				CA87FF892E02B66600C8C830 /* SignUpViewModel+Validate.swift */,
+				CA87FF912E03DA8600C8C830 /* SignUpViewModel+IdentifyPhoneNumber.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
 				CA96099E2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift in Sources */,
+				CA87FF922E03DA8600C8C830 /* SignUpViewModel+IdentifyPhoneNumber.swift in Sources */,
 				CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */,
 				CA09155B2DF12CF700E272F8 /* NavigationRouter.swift in Sources */,
 				CA0915542DF12B7E00E272F8 /* NavigationBaseView.swift in Sources */,

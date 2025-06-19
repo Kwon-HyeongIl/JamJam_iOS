@@ -66,6 +66,9 @@ class SignUpViewModel {
     var gender: Gender?
     var isGenderManButtonTapped = false
     var isGenderWomanButtonTapped = false
+    var isGenderFinalValidated: Bool {
+        gender != nil
+    }
     
     var phoneNumber = ""
     var isPhoneNumberNotification = false
@@ -73,10 +76,12 @@ class SignUpViewModel {
     
     var isIdentifiedButtonTapped = false
     var identifiedNumber = ""
+    var isIdentifiedNumberNotification = false
+    var isIdentifiedNumberFinalValidated = false
     
-    var isAllValidatedInPage3 = false
-    
-    func identifyPhoneNumber() {
-        // 백엔드 http 통신
+    var isAllValidatedInPage3: Bool {
+        isRealNameFinalValidated && isBirthFinalValidated && isGenderFinalValidated && isPhoneNumberFinalValidated && isIdentifiedNumberFinalValidated
     }
+    
+    
 }

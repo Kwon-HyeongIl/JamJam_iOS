@@ -877,7 +877,38 @@ struct SignUpView: View {
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .stroke(focus == .sixth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .sixth ? 1.5 : 1)
                                             }
+                                            .onChange(of: viewModel.identifiedNumber) {
+                                                viewModel.isIdentifiedNumberNotification = false
+                                                viewModel.isIdentifiedNumberFinalValidated = false
+                                                
+                                                if viewModel.identifiedNumber.count == 6 {
+                                                    if viewModel.checkIdentifyNumber() {
+                                                        viewModel.isIdentifiedNumberNotification = true
+                                                        viewModel.isIdentifiedNumberFinalValidated = true
+                                                    } else {
+                                                        viewModel.isIdentifiedNumberNotification = true
+                                                        viewModel.isIdentifiedNumberFinalValidated = false
+                                                    }
+                                                }
+                                            }
                                             .padding(.horizontal, 35)
+                                        
+                                        HStack {
+                                            if viewModel.isIdentifiedNumberNotification {
+                                                if viewModel.isIdentifiedNumberFinalValidated {
+                                                    Text("확인되었습니다.")
+                                                        .font(.system(size: 12))
+                                                        .foregroundStyle(.green)
+                                                } else {
+                                                    Text("잘못된 인증번호입니다.")
+                                                        .font(.system(size: 12))
+                                                        .foregroundStyle(.red)
+                                                }
+                                            }
+                                                
+                                            Spacer()
+                                        }
+                                        .padding(.leading, 40)
                                     }
                                 }
                             }
