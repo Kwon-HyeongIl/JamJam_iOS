@@ -390,7 +390,6 @@ struct SignUpView: View {
                                                             
                                                             if viewModel.validatePasswordLocal() {
                                                                 viewModel.isPasswordFinalValidated = true
-                                                                focus = nil
                                                                 
                                                             } else {
                                                                 viewModel.isPasswordFinalValidated = false
@@ -422,7 +421,6 @@ struct SignUpView: View {
                                                         if viewModel.password.count >= 8 {
                                                             if viewModel.validatePasswordLocal() {
                                                                 viewModel.isPasswordFinalValidated = true
-                                                                focus = nil
                                                                 
                                                             } else {
                                                                 viewModel.isPasswordFinalValidated = false
@@ -500,7 +498,6 @@ struct SignUpView: View {
                                                         
                                                         if viewModel.validateConfrimPasswordLocal() {
                                                             viewModel.isConfirmPasswordFinalValidated = true
-                                                            focus = nil
                                                             
                                                         } else {
                                                             viewModel.isConfirmPasswordFinalValidated = false
@@ -530,7 +527,6 @@ struct SignUpView: View {
                                                         
                                                         if viewModel.validateConfrimPasswordLocal() {
                                                             viewModel.isConfirmPasswordFinalValidated = true
-                                                            focus = nil
                                                             
                                                         } else {
                                                             viewModel.isConfirmPasswordFinalValidated = false
@@ -615,7 +611,6 @@ struct SignUpView: View {
                                                 
                                                 if viewModel.validateRealNameLocal() {
                                                     viewModel.isRealNameFinalValidated = true
-                                                    focus = nil
                                                     
                                                 } else {
                                                     viewModel.isRealNameFinalValidated = false
