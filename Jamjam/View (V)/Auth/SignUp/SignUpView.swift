@@ -96,13 +96,13 @@ struct SignUpView: View {
                                                         .padding(.bottom, 8)
                                                     
                                                     Text("경험을 나누고 싶은 분")
-                                                        .font(.system(size: 16))
+                                                        .font(.system(size: 15))
                                                         .fontWeight(.bold)
                                                         .foregroundStyle(.black)
                                                         .padding(.bottom)
                                                     
                                                     Text("내가 잘해온 분야를 살려\n서비스를 등록하고\n활동하고 싶어요.")
-                                                        .font(.system(size: 10))
+                                                        .font(.system(size: 9))
                                                         .foregroundStyle(.gray)
                                                 }
                                                 .padding(5)
@@ -141,13 +141,13 @@ struct SignUpView: View {
                                                         .padding(.bottom, 8)
                                                     
                                                     Text("도움을 받고 싶은 분")
-                                                        .font(.system(size: 16))
+                                                        .font(.system(size: 15))
                                                         .fontWeight(.bold)
                                                         .foregroundStyle(.black)
                                                         .padding(.bottom)
                                                     
-                                                    Text("지금 필요한 일에\n경험 있는 분의 손길을 받아보고 싶어요.")
-                                                        .font(.system(size: 10))
+                                                    Text("지금 필요한 일에\n경험 있는 분의 손길을\n받아보고 싶어요.")
+                                                        .font(.system(size: 9))
                                                         .foregroundStyle(.gray)
                                                 }
                                                 .padding(5)
@@ -616,47 +616,18 @@ struct SignUpView: View {
                                         Spacer()
                                     }
                                     
-                                    HStack {
-                                        TextField("년도", text: $viewModel.birthYear)
-                                            .focused($focus, equals: .second)
-                                            .font(.system(size: 14))
-                                            .padding(.horizontal)
-                                            .frame(height: 50)
-                                            .background(.white)
-                                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                                            .overlay {
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
-                                            }
-                                            
-                                        TextField("월", text: $viewModel.birthMonth)
-                                            .focused($focus, equals: .third)
-                                            .font(.system(size: 14))
-                                            .padding(.horizontal)
-                                            .frame(height: 50)
-                                            .frame(maxWidth: 75)
-                                            .background(.white)
-                                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                                            .overlay {
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
-                                            }
-                                        
-                                        TextField("일", text: $viewModel.birthDay)
-                                            .focused($focus, equals: .fourth)
-                                            .font(.system(size: 14))
-                                            .padding(.horizontal)
-                                            .frame(height: 50)
-                                            .frame(maxWidth: 75)
-                                            .background(.white)
-                                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                                            .overlay {
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
-                                            }
-                                    }
-                                    .padding(.horizontal, 35)
-                                    .padding(.bottom)
+                                    DatePicker("", selection: $viewModel.birth, in: viewModel.signUpUserType == .expert ? ...Calendar.current.date(byAdding: .year, value: -60, to: Date())! : ...Date(), displayedComponents: [.date])
+                                        .datePickerStyle(.wheel)
+                                        .labelsHidden()
+                                        .environment(\.locale, Locale(identifier: "ko_KR"))
+                                        .background(.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
+                                        }
+                                        .padding(.horizontal, 35)
+                                        .padding(.bottom)
                                     
                                     VStack {
                                         HStack {

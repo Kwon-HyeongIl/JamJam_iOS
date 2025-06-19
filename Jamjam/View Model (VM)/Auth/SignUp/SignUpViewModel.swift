@@ -47,9 +47,7 @@ class SignUpViewModel {
     
     // Page 3
     var name = ""
-    var birthYear = ""
-    var birthMonth = ""
-    var birthDay = ""
+    var birth = Date()
     var gender: Gender?
     var isGenderManButtonTapped = false
     var isGenderWomanButtonTapped = false
