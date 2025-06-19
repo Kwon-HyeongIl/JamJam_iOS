@@ -40,5 +40,11 @@ extension SignUpViewModel {
     func validateConfrimPasswordLocal() -> Bool {
         return self.password == self.confirmPassword
     }
+    
+    func validateRealNameLocal() -> Bool {
+        let pattern = "^[가-힣]{2,}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
+        return predicate.evaluate(with: self.realName)
+    }
 }
 

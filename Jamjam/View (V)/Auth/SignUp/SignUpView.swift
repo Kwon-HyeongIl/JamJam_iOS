@@ -595,7 +595,7 @@ struct SignUpView: View {
                                         Spacer()
                                     }
                                     
-                                    TextField("홍길동", text: $viewModel.name)
+                                    TextField("홍길동", text: $viewModel.realName)
                                         .focused($focus, equals: .first)
                                         .font(.system(size: 14))
                                         .padding(.horizontal)
@@ -606,7 +606,40 @@ struct SignUpView: View {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
                                         }
+                                        .onChange(of: viewModel.realName) {
+                                            if viewModel.realName.count == 0 {
+                                                viewModel.isRealNameNotification = false
+                                                
+                                            } else {
+                                                viewModel.isRealNameNotification = true
+                                                
+                                                if viewModel.validateRealNameLocal() {
+                                                    viewModel.isRealNameFinalValidated = true
+                                                    focus = nil
+                                                    
+                                                } else {
+                                                    viewModel.isRealNameFinalValidated = false
+                                                }
+                                            }
+                                        }
                                         .padding(.horizontal, 35)
+                                    
+                                    HStack {
+                                        if viewModel.isRealNameNotification {
+                                            if viewModel.isRealNameFinalValidated {
+                                                Text("올바른 형식입니다.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.green)
+                                            } else {
+                                                Text("한글로 2자 이상으로 입력해주세요.")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(.red)
+                                            }
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                                    .padding(.leading, 40)
                                 }
                                 .padding(.bottom)
                                 

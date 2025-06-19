@@ -48,7 +48,10 @@ class SignUpViewModel {
     }
     
     // Page 3
-    var name = ""
+    var realName = ""
+    var isRealNameNotification = false
+    var isRealNameFinalValidated = false
+    
     var birth = Date()
     var gender: Gender?
     var isGenderManButtonTapped = false
