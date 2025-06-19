@@ -931,11 +931,6 @@ struct SignUpView: View {
                             }
                         }
                     }
-                    
-                    VStack {
-                        
-                    }
-                    .frame(height: viewModel.pageIndex == 2 ? 90 : 50)
                 }
             }
             .scrollPosition($position)
@@ -957,7 +952,7 @@ struct SignUpView: View {
                                         .foregroundStyle(.white)
                                         .fontWeight(.semibold)
                                 }
-                                .opacity((viewModel.isExpertButtonTapped || viewModel.isClientButtonTapped) ? 1 : 0.4)
+                                .opacity((viewModel.isExpertButtonTappedNoAni || viewModel.isClientButtonTappedNoAni) ? 1 : 0.4)
                                 .padding(.horizontal, 35)
                         }
                         .disabled(!(viewModel.isExpertButtonTapped || viewModel.isClientButtonTapped))
