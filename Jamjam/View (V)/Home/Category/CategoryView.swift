@@ -11,14 +11,6 @@ struct CategoryView: View {
     @Environment(NavigationRouter.self) var navRouter
     @State private var viewModel = CategoryViewModel()
     
-    @State private var lastOffset: CGFloat = 0
-    @State private var downAccum: CGFloat = 0
-    @State private var upAccum: CGFloat = 0
-    @State private var phase: ScrollPhase = .idle
-    
-    @State private var isSearchBarVisible = true
-    @State private var isTabBarVisible = true
-    
     var body: some View {
         MainBackground {
             VStack {
@@ -31,7 +23,7 @@ struct CategoryView: View {
                             } label: {
                                 Image(systemName: "chevron.left")
                                     .scaledToFit()
-                                    .frame(width: 24, height: isSearchBarVisible ? 24 : 12)
+                                    .frame(width: 24, height: viewModel.isSearchBarVisible ? 24 : 12)
                                     .fontWeight(.medium)
                                     .foregroundStyle(.black)
                                     .padding(.leading, 18)
@@ -43,7 +35,7 @@ struct CategoryView: View {
                                 navRouter.navigate(.loginView)
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 80, height: isSearchBarVisible ? 32 : 16)
+                                    .frame(width: 80, height: viewModel.isSearchBarVisible ? 32 : 16)
                                     .foregroundStyle(Color.JJTitle)
                                     .overlay {
                                         Text("로그인")
@@ -58,17 +50,17 @@ struct CategoryView: View {
                         Image("jamjam_main_logo")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 45, height: isSearchBarVisible ? 45 : 22)
+                            .frame(width: 45, height: viewModel.isSearchBarVisible ? 45 : 22)
                     }
                 }
-                .frame(height: isSearchBarVisible ? 45 : 0)
-                .opacity(isSearchBarVisible ? 1 : 0)
+                .frame(height: viewModel.isSearchBarVisible ? 45 : 0)
+                .opacity(viewModel.isSearchBarVisible ? 1 : 0)
                 
                 Button {
                     navRouter.navigate(.searchView)
                 } label: {
                     RoundedRectangle(cornerRadius: 10)
-                        .frame(height: isSearchBarVisible ? 42 : 1)
+                        .frame(height: viewModel.isSearchBarVisible ? 42 : 1)
                         .overlay {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.gray.opacity(0.5), lineWidth: 1)
@@ -93,9 +85,9 @@ struct CategoryView: View {
                             }
                             .padding(.horizontal, 35)
                         }
-                        .opacity(isSearchBarVisible ? 1 : 0)
+                        .opacity(viewModel.isSearchBarVisible ? 1 : 0)
                 }
-                .frame(height: isSearchBarVisible ? 42 : 0)
+                .frame(height: viewModel.isSearchBarVisible ? 42 : 0)
                 
                 // MARK: Category
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -142,7 +134,7 @@ struct CategoryView: View {
                             .fontWeight(.medium)
                     }
                 }
-                .padding(.top, isSearchBarVisible ? 7 : 0)
+                .padding(.top, viewModel.isSearchBarVisible ? 7 : 0)
                 
                 Divider()
                 
@@ -164,68 +156,68 @@ struct CategoryView: View {
                 }
                 .coordinateSpace(name: "SCROLLER")
                 .onScrollPhaseChange { _, newPhase in
-                    phase = newPhase
+                    viewModel.phase = newPhase
                 }
                 .onPreferenceChange(ScrollOffsetKey.self) { current in
                     if current >= -5 {
-                        if !isSearchBarVisible {
+                        if !viewModel.isSearchBarVisible {
                             withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
-                                isSearchBarVisible = true
+                                viewModel.isSearchBarVisible = true
                             }
                         }
                         
-                        downAccum = 0
-                        upAccum = 0
-                        lastOffset = current
+                        viewModel.downAccum = 0
+                        viewModel.upAccum = 0
+                        viewModel.lastOffset = current
                         
                         return
                     }
                     
-                    guard phase == .interacting else {
-                        lastOffset = current; return
+                    guard viewModel.phase == .interacting else {
+                        viewModel.lastOffset = current; return
                     }
                     
-                    let delta = current - lastOffset
+                    let delta = current - viewModel.lastOffset
                     
                     // 아래로 스크롤
                     if delta < 0 {
-                        downAccum += delta
-                        upAccum   = 0
+                        viewModel.downAccum += delta
+                        viewModel.upAccum   = 0
                         
-                        if downAccum < -60 {
-                            if isSearchBarVisible {
+                        if viewModel.downAccum < -60 {
+                            if viewModel.isSearchBarVisible {
                                 withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
-                                    isSearchBarVisible = false
+                                    viewModel.isSearchBarVisible = false
                                 }
                             }
                             
-                            if isTabBarVisible {
+                            if viewModel.isTabBarVisible {
                                 withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
-                                    isTabBarVisible = false
+                                    viewModel.isTabBarVisible = false
                                 }
                             }
                             
-                            downAccum = 0
+                            viewModel.downAccum = 0
                         }
                         
                     // 위로 스크롤
                     } else if delta > 0 {
-                        upAccum += delta
-                        downAccum = 0
+                        viewModel.upAccum += delta
+                        viewModel.downAccum = 0
                         
-                        if upAccum > 40 && !isTabBarVisible {
+                        if viewModel.upAccum > 40 && !viewModel.isTabBarVisible {
                             withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
-                                isTabBarVisible = true
+                                viewModel.isTabBarVisible = true
                             }
-                            upAccum = 0
+                            viewModel.upAccum = 0
                         }
                     }
                     
-                    lastOffset = current
+                    viewModel.lastOffset = current
                 }
                 .safeAreaInset(edge: .bottom) {
                     MainTabBar(isCategoryView: true)
-                        .offset(y: isTabBarVisible ? 97 : 200)
+                        .offset(y: viewModel.isTabBarVisible ? 97 : 200)
                 }
             }
             .navigationBarBackButtonHidden()
