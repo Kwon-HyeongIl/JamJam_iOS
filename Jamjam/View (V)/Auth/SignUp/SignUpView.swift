@@ -934,6 +934,7 @@ struct SignUpView: View {
                 }
             }
             .scrollPosition($position)
+            .safeAreaPadding(.bottom, 30)
             .safeAreaInset(edge: .bottom) {
                 VStack(spacing: 0) {
                     Divider()
