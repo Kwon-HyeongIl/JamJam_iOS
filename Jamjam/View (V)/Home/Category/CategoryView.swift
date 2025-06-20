@@ -23,7 +23,7 @@ struct CategoryView: View {
         MainBackground {
             VStack {
                 // MARK: Self Toolbar
-                VStack {
+                VStack(spacing: 0) {
                     ZStack {
                         HStack {
                             Button {
@@ -61,6 +61,7 @@ struct CategoryView: View {
                             .frame(width: 45, height: isSearchBarVisible ? 45 : 22)
                     }
                 }
+                .frame(height: isSearchBarVisible ? 45 : 0)
                 .opacity(isSearchBarVisible ? 1 : 0)
                 
                 Button {
@@ -94,7 +95,7 @@ struct CategoryView: View {
                         }
                         .opacity(isSearchBarVisible ? 1 : 0)
                 }
-                .padding(.bottom, 7)
+                .frame(height: isSearchBarVisible ? 42 : 0)
                 
                 // MARK: Category
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -141,6 +142,7 @@ struct CategoryView: View {
                             .fontWeight(.medium)
                     }
                 }
+                .padding(.top, isSearchBarVisible ? 7 : 0)
                 
                 Divider()
                 
