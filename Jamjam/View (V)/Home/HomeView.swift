@@ -112,25 +112,29 @@ struct HomeView: View {
                         // MARK: Category
                         VStack(spacing: 10) {
                             HStack(spacing: 15) {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("business_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 33)
-                                            
-                                            Text("경영•기획")
-                                                .font(.system(size: 14))
-                                                .fontWeight(.semibold)
+                                Button {
+                                    navRouter.navigate(.categoryView)
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.white)
+                                        .frame(height: 80)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.3), lineWidth: 1)
                                         }
-                                    }
+                                        .overlay {
+                                            VStack(spacing: 7) {
+                                                Image("business_icon")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 33)
+                                                
+                                                Text("경영•기획")
+                                                    .font(.system(size: 14))
+                                                    .fontWeight(.semibold)
+                                            }
+                                        }
+                                }
                                 
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundStyle(.white)

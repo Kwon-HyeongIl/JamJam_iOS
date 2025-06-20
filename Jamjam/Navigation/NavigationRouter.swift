@@ -23,6 +23,8 @@ class NavigationRouter {
             // Home
         case .searchView:
             SearchView()
+        case .categoryView:
+            CategoryView()
         }
     }
     
