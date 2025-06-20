@@ -157,7 +157,6 @@ struct SignUpView: View {
                                                 .stroke(viewModel.isClientButtonTapped ? Color.JJTitle : .gray.opacity(0.5), lineWidth: 1.5)
                                         }
                                         .padding(.trailing, 35)
-                                    
                                 }
                             }
                         }
@@ -570,7 +569,6 @@ struct SignUpView: View {
                                 }
                                 .padding(.leading, 40)
                             }
-                            .padding(.bottom, 30)
                         }
                         
                         // MARK: Page 3

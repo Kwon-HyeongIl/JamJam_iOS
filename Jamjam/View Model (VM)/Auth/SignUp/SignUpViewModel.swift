@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 class SignUpViewModel {
-    var pageIndex = 1
+    var pageIndex = 0
     
     // Page 1
     var signUpUserType: JJUser?
