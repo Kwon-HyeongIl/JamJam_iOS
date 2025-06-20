@@ -12,9 +12,11 @@ struct CategoryView: View {
     @State private var viewModel = CategoryViewModel()
     
     @State private var lastOffset: CGFloat = 0
-    @State private var isScrollUp = true
-    @State private var isSCrollDown = false
+    @State private var accumulated: CGFloat = 0
+    @State private var phase: ScrollPhase = .idle
     @State private var isSearchBarVisible = true
+    
+    private let threshold: CGFloat = 60
         
     
     var body: some View {
@@ -33,7 +35,6 @@ struct CategoryView: View {
                                     .font(.system(size: 12))
                                     .foregroundStyle(.gray)
                                     .padding(.leading)
-                                    .opacity(isSearchBarVisible ? 1 : 0)
                                 
                                 Spacer()
                                 
@@ -44,6 +45,7 @@ struct CategoryView: View {
                                     .foregroundStyle(Color.JJTitle)
                                     .padding(.trailing)
                             }
+                            .opacity(isSearchBarVisible ? 1 : 0)
                             .padding(.horizontal, 35)
                         }
                 }
@@ -79,34 +81,36 @@ struct CategoryView: View {
                         Color.red.opacity(0.1)
                             .frame(width: 10)
                     }
-                    .frame(height: 900)
+                    .frame(height: 1200)
                 }
                 .coordinateSpace(name: "SCROLLER")
+                .onScrollPhaseChange { _, newPhase in
+                                phase = newPhase
+                }
                 .onPreferenceChange(ScrollOffsetKey.self) { current in
-                    if current < lastOffset {
-                        if isScrollUp {
-                            withAnimation {
-                                isSearchBarVisible = false
-                            }
-                            isScrollUp = false
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                isSCrollDown = true
-                            }
-                        }
-                        
-                    } else if current > lastOffset {
-                        if isSCrollDown {
-                            withAnimation {
-                                isSearchBarVisible = true
-                            }
-                            isSCrollDown = false
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                isScrollUp = true
-                            }
-                        }
+                    guard phase == .interacting else { return }
+                    
+                    let delta = current - lastOffset
+                    
+                    if delta.sign == accumulated.sign {
+                        accumulated += delta
+                    } else {
+                        accumulated = delta
                     }
+                    
+                    if accumulated < -threshold && isSearchBarVisible {
+                        withAnimation {
+                            isSearchBarVisible = false
+                        }
+                        accumulated = 0
+                    }
+                    if accumulated >  threshold && !isSearchBarVisible {
+                        withAnimation {
+                            isSearchBarVisible = true
+                        }
+                        accumulated = 0
+                    }
+                    
                     lastOffset = current
                 }
                 .safeAreaInset(edge: .bottom) {
@@ -125,9 +129,4 @@ struct CategoryView: View {
         .environment(MainTabBarCapsule())
 }
 
-private struct ScrollOffsetKey: PreferenceKey {
-    static var defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = nextValue()
-    }
-}
+

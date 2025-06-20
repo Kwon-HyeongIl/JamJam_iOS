@@ -19,6 +19,7 @@
 		CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35935B2E0511C70069FAF8 /* CategoryView.swift */; };
 		CA35935F2E0514AE0069FAF8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */; };
 		CA3593612E05154D0069FAF8 /* NavigationBarBackAndTitleLogoModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3593602E05154D0069FAF8 /* NavigationBarBackAndTitleLogoModifier.swift */; };
+		CA3593642E0565750069FAF8 /* ScrollOffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3593632E0565750069FAF8 /* ScrollOffsetKey.swift */; };
 		CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E42DFAF788005377E6 /* Color+Hex.swift */; };
 		CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */; };
 		CA87FF6F2E00305600C8C830 /* CarouselStack in Frameworks */ = {isa = PBXBuildFile; productRef = CA87FF6E2E00305600C8C830 /* CarouselStack */; };
@@ -72,6 +73,7 @@
 		CA35935B2E0511C70069FAF8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		CA3593602E05154D0069FAF8 /* NavigationBarBackAndTitleLogoModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndTitleLogoModifier.swift; sourceTree = "<group>"; };
+		CA3593632E0565750069FAF8 /* ScrollOffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffsetKey.swift; sourceTree = "<group>"; };
 		CA83F6E42DFAF788005377E6 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+MainBackground.swift"; sourceTree = "<group>"; };
 		CA87FF772E014B7A00C8C830 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		CA0915602DF12EDC00E272F8 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				CA3593622E0565600069FAF8 /* PreferenceKey */,
 				CA9609C82E00222A00B878C6 /* Background */,
 				CA9609AE2DFFD14200B878C6 /* View Editor */,
 				CA9609A82DFFCFEA00B878C6 /* Capsule */,
@@ -240,6 +243,14 @@
 				CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		CA3593622E0565600069FAF8 /* PreferenceKey */ = {
+			isa = PBXGroup;
+			children = (
+				CA3593632E0565750069FAF8 /* ScrollOffsetKey.swift */,
+			);
+			path = PreferenceKey;
 			sourceTree = "<group>";
 		};
 		CA83F6E32DFAF77D005377E6 /* Color */ = {
@@ -562,6 +573,7 @@
 				CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */,
 				CA09155B2DF12CF700E272F8 /* NavigationRouter.swift in Sources */,
 				CA0915542DF12B7E00E272F8 /* NavigationBaseView.swift in Sources */,
+				CA3593642E0565750069FAF8 /* ScrollOffsetKey.swift in Sources */,
 				CA9609B52DFFD50400B878C6 /* ProfileView.swift in Sources */,
 				CA87FF7D2E024B5000C8C830 /* Gender.swift in Sources */,
 				CA9609B02DFFD17900B878C6 /* CornerRadius.swift in Sources */,
