@@ -29,7 +29,7 @@ struct MainTabView: View {
             VStack {
                 Spacer()
                 
-                MainTabBar()
+                MainTabBar(isCategoryView: false)
                     .offset(y: 97)
             }
         }

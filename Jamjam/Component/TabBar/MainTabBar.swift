@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct MainTabBar: View {
+    @Environment(NavigationRouter.self) var navRouter
     @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
+    
+    let isCategoryView: Bool
     
     private var fillImage: String {
         mainTabBarCapsule.selectedTab.rawValue + ".fill"
@@ -37,6 +40,9 @@ struct MainTabBar: View {
                         UIImpactFeedbackGenerator(style: .light, view: view).impactOccurred()
                         
                         withAnimation(.easeInOut(duration: 0.05)) {
+                            if isCategoryView {
+                                navRouter.popToRoot()
+                            }
                             mainTabBarCapsule.selectedTab = tab
                         }
                     }
@@ -56,6 +62,7 @@ struct MainTabBar: View {
 }
 
 #Preview {
-    MainTabBar()
+    MainTabBar(isCategoryView: false)
+        .environment(NavigationRouter())
         .environment(MainTabBarCapsule())
 }
