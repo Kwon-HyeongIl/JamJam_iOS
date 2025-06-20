@@ -120,7 +120,7 @@ struct CategoryView: View {
                 .onPreferenceChange(ScrollOffsetKey.self) { current in
                     if current >= -5 {
                         if !isSearchBarVisible {
-                            withAnimation {
+                            withAnimation(.spring(duration: 0.2)) {
                                 isSearchBarVisible = true
                             }
                         }
@@ -145,13 +145,13 @@ struct CategoryView: View {
                         
                         if downAccum < -60 {
                             if isSearchBarVisible {
-                                withAnimation {
+                                withAnimation(.spring(duration: 0.2)) {
                                     isSearchBarVisible = false
                                 }
                             }
                             
                             if isTabBarVisible {
-                                withAnimation {
+                                withAnimation(.spring(duration: 0.2)) {
                                     isTabBarVisible = false
                                 }
                             }
@@ -165,7 +165,9 @@ struct CategoryView: View {
                         downAccum = 0
                         
                         if upAccum > 40 && !isTabBarVisible {
-                            withAnimation { isTabBarVisible = true }
+                            withAnimation(.spring(duration: 0.2)) {
+                                isTabBarVisible = true
+                            }
                             upAccum = 0
                         }
                     }

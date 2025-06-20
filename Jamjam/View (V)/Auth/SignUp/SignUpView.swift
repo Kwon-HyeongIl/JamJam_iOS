@@ -70,7 +70,7 @@ struct SignUpView: View {
                             
                             HStack(spacing: 15) {
                                 Button {
-                                    withAnimation {
+                                    withAnimation(.spring(duration: 0.2)) {
                                         if viewModel.isClientButtonTapped {
                                             viewModel.isClientButtonTapped = false
                                         }
@@ -115,7 +115,7 @@ struct SignUpView: View {
                                 }
                                 
                                 Button {
-                                    withAnimation {
+                                    withAnimation(.spring(duration: 0.2)) {
                                         if viewModel.isExpertButtonTapped {
                                             viewModel.isExpertButtonTapped = false
                                         }
@@ -743,7 +743,7 @@ struct SignUpView: View {
                                 
                                 HStack {
                                     Button {
-                                        withAnimation {
+                                        withAnimation(.spring(duration: 0.2)) {
                                             if viewModel.isGenderWomanButtonTapped {
                                                 viewModel.isGenderWomanButtonTapped = false
                                             }
@@ -768,7 +768,7 @@ struct SignUpView: View {
                                     }
                                     
                                     Button {
-                                        withAnimation {
+                                        withAnimation(.spring(duration: 0.2)) {
                                             if viewModel.isGenderManButtonTapped {
                                                 viewModel.isGenderManButtonTapped = false
                                             }
@@ -830,7 +830,7 @@ struct SignUpView: View {
                                     
                                     Button {
                                         if viewModel.isPhoneNumberFinalValidated {
-                                            withAnimation {
+                                            withAnimation(.spring(duration: 0.2)) {
                                                 viewModel.identifyPhoneNumber()
                                                 viewModel.isIdentifiedButtonTapped = true
                                                 position.scrollTo(edge: .bottom)

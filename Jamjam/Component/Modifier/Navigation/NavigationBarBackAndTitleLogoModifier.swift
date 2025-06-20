@@ -48,7 +48,6 @@ struct NavigationBarBackAndTitleLogoModifier: ViewModifier {
                                     .foregroundStyle(.white)
                                     .fontWeight(.bold)
                             }
-//                            .padding(.top, 40)
                     }
                 }
             }
