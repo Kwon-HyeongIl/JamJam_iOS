@@ -12,12 +12,13 @@ struct CategoryView: View {
     @State private var viewModel = CategoryViewModel()
     
     @State private var lastOffset: CGFloat = 0
-    @State private var accumulated: CGFloat = 0
+    @State private var downAccum: CGFloat = 0
     @State private var phase: ScrollPhase = .idle
     @State private var isSearchBarVisible = true
     
-    private let threshold: CGFloat = 60
-        
+    private let hideThreshold: CGFloat = 60
+    private let topTolerance: CGFloat = -5
+    
     
     var body: some View {
         MainBackground {
@@ -85,32 +86,40 @@ struct CategoryView: View {
                 }
                 .coordinateSpace(name: "SCROLLER")
                 .onScrollPhaseChange { _, newPhase in
-                                phase = newPhase
+                    phase = newPhase
                 }
                 .onPreferenceChange(ScrollOffsetKey.self) { current in
-                    guard phase == .interacting else { return }
+                    if current >= topTolerance {
+                        if !isSearchBarVisible {
+                            withAnimation {
+                                isSearchBarVisible = true
+                            }
+                        }
+                        
+                        downAccum  = 0
+                        lastOffset = current
+                        return
+                    }
+                    
+                    guard phase == .interacting else {
+                        lastOffset = current
+                        return
+                    }
                     
                     let delta = current - lastOffset
-                    
-                    if delta.sign == accumulated.sign {
-                        accumulated += delta
+                    if delta < 0 {
+                        downAccum += delta
+                        
+                        if downAccum < -hideThreshold && isSearchBarVisible {
+                            withAnimation {
+                                isSearchBarVisible = false
+                            }
+                            downAccum = 0
+                        }
+                        
                     } else {
-                        accumulated = delta
+                        downAccum = 0
                     }
-                    
-                    if accumulated < -threshold && isSearchBarVisible {
-                        withAnimation {
-                            isSearchBarVisible = false
-                        }
-                        accumulated = 0
-                    }
-                    if accumulated >  threshold && !isSearchBarVisible {
-                        withAnimation {
-                            isSearchBarVisible = true
-                        }
-                        accumulated = 0
-                    }
-                    
                     lastOffset = current
                 }
                 .safeAreaInset(edge: .bottom) {
