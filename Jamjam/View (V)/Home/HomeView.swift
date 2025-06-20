@@ -41,7 +41,7 @@ struct HomeView: View {
                                         .fontWeight(.bold)
                                 }
                                 .padding(.top, 40)
-                                .padding(.trailing, 15)
+                                .padding(.trailing, 18)
                         }
                     }
                 }
