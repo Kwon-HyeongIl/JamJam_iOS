@@ -26,7 +26,7 @@ struct CategoryView: View {
                     navRouter.navigate(.searchView)
                 } label: {
                     RoundedRectangle(cornerRadius: 10)
-                        .frame(height: isSearchBarVisible ? 42 : 0)
+                        .frame(height: isSearchBarVisible ? 42 : 1)
                         .padding(.horizontal, 35)
                         .foregroundStyle(.white)
                         .overlay {
@@ -45,9 +45,9 @@ struct CategoryView: View {
                                     .foregroundStyle(Color.JJTitle)
                                     .padding(.trailing)
                             }
-                            .opacity(isSearchBarVisible ? 1 : 0)
                             .padding(.horizontal, 35)
                         }
+                        .opacity(isSearchBarVisible ? 1 : 0)
                 }
                 
                 ScrollView(.horizontal, showsIndicators: false) {
