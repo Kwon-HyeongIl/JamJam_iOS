@@ -120,7 +120,7 @@ struct CategoryView: View {
                 .onPreferenceChange(ScrollOffsetKey.self) { current in
                     if current >= -5 {
                         if !isSearchBarVisible {
-                            withAnimation(.spring(duration: 0.2)) {
+                            withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
                                 isSearchBarVisible = true
                             }
                         }
@@ -145,13 +145,13 @@ struct CategoryView: View {
                         
                         if downAccum < -60 {
                             if isSearchBarVisible {
-                                withAnimation(.spring(duration: 0.2)) {
+                                withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
                                     isSearchBarVisible = false
                                 }
                             }
                             
                             if isTabBarVisible {
-                                withAnimation(.spring(duration: 0.2)) {
+                                withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
                                     isTabBarVisible = false
                                 }
                             }
@@ -165,7 +165,7 @@ struct CategoryView: View {
                         downAccum = 0
                         
                         if upAccum > 40 && !isTabBarVisible {
-                            withAnimation(.spring(duration: 0.2)) {
+                            withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
                                 isTabBarVisible = true
                             }
                             upAccum = 0
@@ -177,7 +177,6 @@ struct CategoryView: View {
                 .safeAreaInset(edge: .bottom) {
                     MainTabBar(isCategoryView: true)
                         .offset(y: isTabBarVisible ? 97 : 200)
-                        .animation(.easeInOut, value: isTabBarVisible)
                 }
             }
             .modifier(NavigationBarBackAndTitleLogoModifier())
