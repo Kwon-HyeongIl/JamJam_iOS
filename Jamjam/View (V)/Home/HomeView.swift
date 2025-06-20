@@ -55,8 +55,7 @@ struct HomeView: View {
                         // MARK: Main Text
                         HStack {
                             Text("경험이 있는 손,\n지금 필요한 일에 연결해보세요")
-                                .font(.system(size: 23))
-                                .fontWeight(.black)
+                                .font(.custom("Pretendard-Bold", size: 23))
                                 .multilineTextAlignment(.leading)
                                 .padding(.top)
                                 .padding(.leading, 35)
@@ -102,9 +101,8 @@ struct HomeView: View {
                                 .frame(height: 200)
                                 .clipShape(RoundedRectangle(cornerRadius: 25))
                                 .shadow(color: .gray.opacity(0.3), radius: 5, x: 5, y: 5)
-                                
                         }
-                        .shuffleOffset(31)
+                        .shuffleOffset(27)
                         .shuffleScale(0.1)
                         .shuffleTrigger(on: viewModel.shufflePublisher)
                         .padding(.vertical, 25)
@@ -132,6 +130,7 @@ struct HomeView: View {
                                                 Text("경영•기획")
                                                     .font(.system(size: 14))
                                                     .fontWeight(.semibold)
+                                                    .foregroundStyle(.black)
                                             }
                                         }
                                 }
@@ -153,6 +152,7 @@ struct HomeView: View {
                                             Text("컨설팅•멘토링")
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
                                         }
                                     }
                             }
@@ -176,6 +176,7 @@ struct HomeView: View {
                                             Text("마케팅•홍보")
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
                                         }
                                     }
                                 
@@ -196,6 +197,7 @@ struct HomeView: View {
                                             Text("개발•IT")
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
                                         }
                                     }
                             }
@@ -219,6 +221,7 @@ struct HomeView: View {
                                             Text("디자인•편집")
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
                                         }
                                     }
                                 
@@ -239,6 +242,7 @@ struct HomeView: View {
                                             Text("문서•작문")
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
                                         }
                                     }
                             }
@@ -262,6 +266,7 @@ struct HomeView: View {
                                             Text("번역•통역")
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
                                         }
                                     }
                                 
@@ -282,6 +287,7 @@ struct HomeView: View {
                                             Text("사진•영상")
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
                                         }
                                     }
                             }
@@ -305,6 +311,7 @@ struct HomeView: View {
                                             Text("교육•강의")
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
                                         }
                                     }
                                 
@@ -325,6 +332,7 @@ struct HomeView: View {
                                             Text("주문 제작")
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
                                         }
                                     }
                             }
@@ -348,6 +356,7 @@ struct HomeView: View {
                                             Text("취미 레슨")
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
                                         }
                                     }
                                 
@@ -368,6 +377,7 @@ struct HomeView: View {
                                             Text("생활 서비스")
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
                                         }
                                     }
                             }

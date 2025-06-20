@@ -16,6 +16,15 @@
 		CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0915572DF12BBF00E272F8 /* MainTabView.swift */; };
 		CA09155B2DF12CF700E272F8 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09155A2DF12CF700E272F8 /* NavigationRouter.swift */; };
 		CA09155D2DF12D6A00E272F8 /* NavigationDestinationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09155C2DF12D6A00E272F8 /* NavigationDestinationPath.swift */; };
+		CA0BAD972E05BC6400595A80 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0BAD8F2E05BC6400595A80 /* Pretendard-Bold.otf */; };
+		CA0BAD982E05BC6400595A80 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0BAD962E05BC6400595A80 /* Pretendard-Thin.otf */; };
+		CA0BAD992E05BC6400595A80 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0BAD942E05BC6400595A80 /* Pretendard-Regular.otf */; };
+		CA0BAD9A2E05BC6400595A80 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0BAD932E05BC6400595A80 /* Pretendard-Medium.otf */; };
+		CA0BAD9B2E05BC6400595A80 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0BAD902E05BC6400595A80 /* Pretendard-ExtraBold.otf */; };
+		CA0BAD9C2E05BC6400595A80 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0BAD912E05BC6400595A80 /* Pretendard-ExtraLight.otf */; };
+		CA0BAD9D2E05BC6400595A80 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0BAD922E05BC6400595A80 /* Pretendard-Light.otf */; };
+		CA0BAD9E2E05BC6400595A80 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0BAD952E05BC6400595A80 /* Pretendard-SemiBold.otf */; };
+		CA0BAD9F2E05BC6400595A80 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0BAD8E2E05BC6400595A80 /* Pretendard-Black.otf */; };
 		CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35935B2E0511C70069FAF8 /* CategoryView.swift */; };
 		CA35935F2E0514AE0069FAF8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */; };
 		CA3593642E0565750069FAF8 /* ScrollOffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3593632E0565750069FAF8 /* ScrollOffsetKey.swift */; };
@@ -70,6 +79,16 @@
 		CA0915572DF12BBF00E272F8 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		CA09155A2DF12CF700E272F8 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		CA09155C2DF12D6A00E272F8 /* NavigationDestinationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestinationPath.swift; sourceTree = "<group>"; };
+		CA0BAD642E05A27400595A80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CA0BAD8E2E05BC6400595A80 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		CA0BAD8F2E05BC6400595A80 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		CA0BAD902E05BC6400595A80 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		CA0BAD912E05BC6400595A80 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		CA0BAD922E05BC6400595A80 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		CA0BAD932E05BC6400595A80 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		CA0BAD942E05BC6400595A80 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		CA0BAD952E05BC6400595A80 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		CA0BAD962E05BC6400595A80 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		CA35935B2E0511C70069FAF8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		CA3593632E0565750069FAF8 /* ScrollOffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffsetKey.swift; sourceTree = "<group>"; };
@@ -142,6 +161,7 @@
 		CA09154B2DF128A400E272F8 /* Jamjam */ = {
 			isa = PBXGroup;
 			children = (
+				CA0BAD642E05A27400595A80 /* Info.plist */,
 				CA09154A2DF128A400E272F8 /* JamjamApp.swift */,
 				CA0915532DF12B7E00E272F8 /* NavigationBaseView.swift */,
 				CA0915552DF12B9400E272F8 /* AisleView.swift */,
@@ -190,6 +210,7 @@
 		CA0915602DF12EDC00E272F8 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				CA0BAD612E05A23300595A80 /* Font */,
 				CA3593622E0565600069FAF8 /* PreferenceKey */,
 				CA9609C82E00222A00B878C6 /* Background */,
 				CA9609AE2DFFD14200B878C6 /* View Editor */,
@@ -220,6 +241,22 @@
 				CA09155C2DF12D6A00E272F8 /* NavigationDestinationPath.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		CA0BAD612E05A23300595A80 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				CA0BAD8E2E05BC6400595A80 /* Pretendard-Black.otf */,
+				CA0BAD8F2E05BC6400595A80 /* Pretendard-Bold.otf */,
+				CA0BAD902E05BC6400595A80 /* Pretendard-ExtraBold.otf */,
+				CA0BAD912E05BC6400595A80 /* Pretendard-ExtraLight.otf */,
+				CA0BAD922E05BC6400595A80 /* Pretendard-Light.otf */,
+				CA0BAD932E05BC6400595A80 /* Pretendard-Medium.otf */,
+				CA0BAD942E05BC6400595A80 /* Pretendard-Regular.otf */,
+				CA0BAD952E05BC6400595A80 /* Pretendard-SemiBold.otf */,
+				CA0BAD962E05BC6400595A80 /* Pretendard-Thin.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		CA3593592E0511730069FAF8 /* Profile */ = {
@@ -542,6 +579,15 @@
 			files = (
 				CA0915522DF129EC00E272F8 /* .gitignore in Resources */,
 				CA09154C2DF128A400E272F8 /* Assets.xcassets in Resources */,
+				CA0BAD972E05BC6400595A80 /* Pretendard-Bold.otf in Resources */,
+				CA0BAD982E05BC6400595A80 /* Pretendard-Thin.otf in Resources */,
+				CA0BAD992E05BC6400595A80 /* Pretendard-Regular.otf in Resources */,
+				CA0BAD9A2E05BC6400595A80 /* Pretendard-Medium.otf in Resources */,
+				CA0BAD9B2E05BC6400595A80 /* Pretendard-ExtraBold.otf in Resources */,
+				CA0BAD9C2E05BC6400595A80 /* Pretendard-ExtraLight.otf in Resources */,
+				CA0BAD9D2E05BC6400595A80 /* Pretendard-Light.otf in Resources */,
+				CA0BAD9E2E05BC6400595A80 /* Pretendard-SemiBold.otf in Resources */,
+				CA0BAD9F2E05BC6400595A80 /* Pretendard-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,6 +781,7 @@
 				DEVELOPMENT_TEAM = B3TSGMGBBP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Jamjam/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "잼잼";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -771,6 +818,7 @@
 				DEVELOPMENT_TEAM = B3TSGMGBBP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Jamjam/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "잼잼";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

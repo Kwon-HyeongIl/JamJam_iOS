@@ -9,5 +9,6 @@ import Foundation
 
 enum MainTab: String, CaseIterable {
     case home = "house"
+    case temp = "pencil.line"
     case profile = "person"
 }
