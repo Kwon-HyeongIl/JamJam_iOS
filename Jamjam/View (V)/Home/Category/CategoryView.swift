@@ -22,11 +22,56 @@ struct CategoryView: View {
     var body: some View {
         MainBackground {
             VStack {
+                // MARK: Self Toolbar
+                VStack {
+                    ZStack {
+                        HStack {
+                            Button {
+                                navRouter.back()
+                            } label: {
+                                Image(systemName: "chevron.left")
+                                    .scaledToFit()
+                                    .frame(width: 24, height: isSearchBarVisible ? 24 : 12)
+                                    .fontWeight(.medium)
+                                    .foregroundStyle(.black)
+                                    .padding(.leading, 18)
+                            }
+                            
+                            Spacer()
+                            
+                            Button {
+                                navRouter.navigate(.loginView)
+                            } label: {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(width: 80, height: isSearchBarVisible ? 32 : 16)
+                                    .foregroundStyle(Color.JJTitle)
+                                    .overlay {
+                                        Text("로그인")
+                                            .font(.system(size: 15))
+                                            .foregroundStyle(.white)
+                                            .fontWeight(.bold)
+                                    }
+                                    .padding(.trailing, 18)
+                            }
+                        }
+                        
+                        Image("jamjam_main_logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 45, height: isSearchBarVisible ? 45 : 22)
+                    }
+                }
+                .opacity(isSearchBarVisible ? 1 : 0)
+                
                 Button {
                     navRouter.navigate(.searchView)
                 } label: {
                     RoundedRectangle(cornerRadius: 10)
                         .frame(height: isSearchBarVisible ? 42 : 1)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.gray.opacity(0.5), lineWidth: 1)
+                        }
                         .padding(.horizontal, 35)
                         .foregroundStyle(.white)
                         .overlay {
@@ -49,7 +94,9 @@ struct CategoryView: View {
                         }
                         .opacity(isSearchBarVisible ? 1 : 0)
                 }
+                .padding(.bottom, 7)
                 
+                // MARK: Category
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 15) {
                         Text("경영•기획")
@@ -179,7 +226,7 @@ struct CategoryView: View {
                         .offset(y: isTabBarVisible ? 97 : 200)
                 }
             }
-            .modifier(NavigationBarBackAndTitleLogoModifier())
+            .navigationBarBackButtonHidden()
         }
     }
 }
