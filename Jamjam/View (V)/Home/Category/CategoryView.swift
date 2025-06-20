@@ -13,12 +13,11 @@ struct CategoryView: View {
     
     @State private var lastOffset: CGFloat = 0
     @State private var downAccum: CGFloat = 0
+    @State private var upAccum: CGFloat = 0
     @State private var phase: ScrollPhase = .idle
+    
     @State private var isSearchBarVisible = true
-    
-    private let hideThreshold: CGFloat = 60
-    private let topTolerance: CGFloat = -5
-    
+    @State private var isTabBarVisible = true
     
     var body: some View {
         MainBackground {
@@ -89,42 +88,64 @@ struct CategoryView: View {
                     phase = newPhase
                 }
                 .onPreferenceChange(ScrollOffsetKey.self) { current in
-                    if current >= topTolerance {
+                    if current >= -5 {
                         if !isSearchBarVisible {
                             withAnimation {
                                 isSearchBarVisible = true
                             }
                         }
                         
-                        downAccum  = 0
+                        downAccum = 0
+                        upAccum = 0
                         lastOffset = current
+                        
                         return
                     }
                     
                     guard phase == .interacting else {
-                        lastOffset = current
-                        return
+                        lastOffset = current; return
                     }
                     
                     let delta = current - lastOffset
+                    
+                    // 아래로 스크롤
                     if delta < 0 {
                         downAccum += delta
+                        upAccum   = 0
                         
-                        if downAccum < -hideThreshold && isSearchBarVisible {
-                            withAnimation {
-                                isSearchBarVisible = false
+                        if downAccum < -60 {
+                            if isSearchBarVisible {
+                                withAnimation {
+                                    isSearchBarVisible = false
+                                }
                             }
+                            
+                            if isTabBarVisible {
+                                withAnimation {
+                                    isTabBarVisible = false
+                                }
+                            }
+                            
                             downAccum = 0
                         }
                         
-                    } else {
+                    // 위로 스크롤
+                    } else if delta > 0 {
+                        upAccum += delta
                         downAccum = 0
+                        
+                        if upAccum > 40 && !isTabBarVisible {
+                            withAnimation { isTabBarVisible = true }
+                            upAccum = 0
+                        }
                     }
+                    
                     lastOffset = current
                 }
                 .safeAreaInset(edge: .bottom) {
                     MainTabBar(isCategoryView: true)
-                        .offset(y: 97)
+                        .offset(y: isTabBarVisible ? 97 : 200)
+                        .animation(.easeInOut, value: isTabBarVisible)
                 }
             }
             .modifier(NavigationBarBackAndTitleLogoModifier())
