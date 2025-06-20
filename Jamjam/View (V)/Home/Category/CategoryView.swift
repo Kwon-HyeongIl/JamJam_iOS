@@ -11,6 +11,8 @@ struct CategoryView: View {
     @Environment(NavigationRouter.self) var navRouter
     @State private var viewModel = CategoryViewModel()
     
+    @Namespace private var categoryUnderline
+    
     var body: some View {
         MainBackground {
             VStack {
@@ -102,12 +104,19 @@ struct CategoryView: View {
                                                      : .primary)
                                     .padding(.leading,
                                              idx == 0 ? 40 : 0)
+                                    .animation(nil, value: viewModel.selectedIndex)
                                 
-                                Rectangle()
-                                    .fill(idx == viewModel.selectedIndex ? Color.JJTitle : .clear)
-                                    .frame(height: 2)
-                                    .padding(.leading, idx == 0 ? 40 : 0)
-                                    .padding(.horizontal, -5)
+                                if idx == viewModel.selectedIndex {
+                                    Rectangle()
+                                        .fill(idx == viewModel.selectedIndex ? Color.JJTitle : .clear)
+                                        .frame(height: 2)
+                                        .padding(.leading, idx == 0 ? 40 : 0)
+                                        .padding(.horizontal, -3)
+                                        .matchedGeometryEffect(id: "underline", in: categoryUnderline)
+                                    
+                                } else {
+                                    Color.clear.frame(height: 2)
+                                }
                             }
                             .onTapGesture {
                                 withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
@@ -130,6 +139,11 @@ struct CategoryView: View {
                     .frame(height: 0)
                     
                     Text("Content")
+                    
+                    VStack {
+                        Color.red.opacity(0.1)
+                    }
+                    .frame(width: 50, height: 1200)
                     
                     // 내부 뷰
                 }
