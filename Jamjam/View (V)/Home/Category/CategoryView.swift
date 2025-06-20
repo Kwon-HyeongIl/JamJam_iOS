@@ -16,7 +16,7 @@ struct CategoryView: View {
             ScrollView(showsIndicators: false) {
                 
             }
-            .modifier(NavigationBarBackModifier())
+            .modifier(NavigationBarBackAndTitleLogoModifier())
         }
     }
 }
