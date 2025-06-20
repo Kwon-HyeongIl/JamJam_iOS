@@ -51,17 +51,47 @@ struct CategoryView: View {
                 }
                 
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        Text("ABCD")
+                    HStack(spacing: 15) {
+                        Text("경영•기획")
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
                             .padding(.leading, 40)
                         
-                        Text("ABCD")
+                        Text("컨설팅•멘토링")
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
                         
-                        Text("ABCD")
+                        Text("마케팅•홍보")
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
                         
-                        Text("ABCD")
+                        Text("개발•IT")
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
                         
-                        Text("ABCD")
+                        Text("디자인•편집")
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
+                        
+                        Text("문서•작문")
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
+                        
+                        Text("번역•통역")
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
+                        
+                        Text("사진•영상")
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
+                        
+                        Text("교육•강의")
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
+                        
+                        Text("주문 제작")
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
                     }
                 }
                 
