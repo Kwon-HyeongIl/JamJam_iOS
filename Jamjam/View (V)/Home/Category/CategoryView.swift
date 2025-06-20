@@ -15,7 +15,7 @@ struct CategoryView: View {
     
     var body: some View {
         MainBackground {
-            VStack {
+            VStack(spacing: 0) {
                 // MARK: Self Toolbar
                 VStack(spacing: 0) {
                     ZStack {
@@ -57,6 +57,7 @@ struct CategoryView: View {
                 }
                 .frame(height: viewModel.isSearchBarVisible ? 45 : 0)
                 .opacity(viewModel.isSearchBarVisible ? 1 : 0)
+                .padding(.bottom, viewModel.isSearchBarVisible ? 12 : 0)
                 
                 Button {
                     navRouter.navigate(.searchView)
@@ -72,7 +73,7 @@ struct CategoryView: View {
                         .overlay {
                             HStack {
                                 Text("필요한 손길을 찾아보세요")
-                                    .font(.system(size: 12))
+                                    .font(.system(size: 13))
                                     .foregroundStyle(.gray)
                                     .padding(.leading)
                                 
@@ -90,6 +91,7 @@ struct CategoryView: View {
                         .opacity(viewModel.isSearchBarVisible ? 1 : 0)
                 }
                 .frame(height: viewModel.isSearchBarVisible ? 42 : 0)
+                .padding(.bottom, viewModel.isSearchBarVisible ? 12 : 0)
                 
                 // MARK: Category
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -97,7 +99,7 @@ struct CategoryView: View {
                         ForEach(Array(viewModel.categories.enumerated()), id: \.offset) { idx, title in
                             VStack(spacing: 4) {
                                 Text(title)
-                                    .font(.system(size: 14))
+                                    .font(.system(size: 16))
                                     .fontWeight(idx == viewModel.selectedIndex ? .bold : .medium)
                                     .foregroundStyle(idx == viewModel.selectedIndex
                                                      ? Color.JJTitle
@@ -138,12 +140,12 @@ struct CategoryView: View {
                     }
                     .frame(height: 0)
                     
-                    Text("Content")
-                    
-                    VStack {
-                        Color.red.opacity(0.1)
-                    }
-                    .frame(width: 50, height: 1200)
+//                    Text("Content")
+//                    
+//                    VStack {
+//                        Color.red.opacity(0.1)
+//                    }
+//                    .frame(width: 50, height: 1200)
                     
                     // 내부 뷰
                 }

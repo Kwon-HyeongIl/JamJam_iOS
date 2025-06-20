@@ -77,7 +77,7 @@ struct HomeView: View {
                                 .overlay {
                                     HStack {
                                         Text("필요한 손길을 찾아보세요")
-                                            .font(.system(size: 12))
+                                            .font(.system(size: 13))
                                             .foregroundStyle(.gray)
                                             .padding(.leading)
                                         
