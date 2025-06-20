@@ -92,46 +92,29 @@ struct CategoryView: View {
                 // MARK: Category
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 15) {
-                        Text("경영•기획")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                            .padding(.leading, 40)
-                        
-                        Text("컨설팅•멘토링")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                        
-                        Text("마케팅•홍보")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                        
-                        Text("개발•IT")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                        
-                        Text("디자인•편집")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                        
-                        Text("문서•작문")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                        
-                        Text("번역•통역")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                        
-                        Text("사진•영상")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                        
-                        Text("교육•강의")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                        
-                        Text("주문 제작")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
+                        ForEach(Array(viewModel.categories.enumerated()), id: \.offset) { idx, title in
+                            VStack(spacing: 4) {
+                                Text(title)
+                                    .font(.system(size: 14))
+                                    .fontWeight(idx == viewModel.selectedIndex ? .bold : .medium)
+                                    .foregroundStyle(idx == viewModel.selectedIndex
+                                                     ? Color.JJTitle
+                                                     : .primary)
+                                    .padding(.leading,
+                                             idx == 0 ? 40 : 0)
+                                
+                                Rectangle()
+                                    .fill(idx == viewModel.selectedIndex ? Color.JJTitle : .clear)
+                                    .frame(height: 2)
+                                    .padding(.leading, idx == 0 ? 40 : 0)
+                                    .padding(.horizontal, -5)
+                            }
+                            .onTapGesture {
+                                withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                                    viewModel.selectedIndex = idx
+                                }
+                            }
+                        }
                     }
                 }
                 .padding(.top, viewModel.isSearchBarVisible ? 7 : 0)
@@ -148,11 +131,7 @@ struct CategoryView: View {
                     
                     Text("Content")
                     
-                    VStack {
-                        Color.red.opacity(0.1)
-                            .frame(width: 10)
-                    }
-                    .frame(height: 1200)
+                    // 내부 뷰
                 }
                 .coordinateSpace(name: "SCROLLER")
                 .onScrollPhaseChange { _, newPhase in
