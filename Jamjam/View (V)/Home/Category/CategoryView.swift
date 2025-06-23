@@ -72,7 +72,7 @@ struct CategoryView: View {
                         .overlay {
                             HStack {
                                 Text("필요한 손길을 찾아보세요")
-                                    .font(.pretendard(size: 13))
+                                    .font(.pretendard(size: 14))
                                     .foregroundStyle(.gray)
                                     .padding(.leading)
                                 
@@ -81,7 +81,7 @@ struct CategoryView: View {
                                 Image(systemName: "magnifyingglass")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 15)
+                                    .frame(width: 16)
                                     .foregroundStyle(Color.JJTitle)
                                     .padding(.trailing)
                             }
@@ -89,7 +89,7 @@ struct CategoryView: View {
                         }
                         .opacity(viewModel.isSearchBarVisible ? 1 : 0)
                 }
-                .frame(height: viewModel.isSearchBarVisible ? 42 : 0)
+                .frame(height: viewModel.isSearchBarVisible ? 44 : 0)
                 .padding(.bottom, viewModel.isSearchBarVisible ? 12 : 0)
                 
                 // MARK: Category

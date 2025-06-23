@@ -175,7 +175,6 @@
 				CA0915572DF12BBF00E272F8 /* MainTabView.swift */,
 				CA0915592DF12CE600E272F8 /* Navigation */,
 				CA09155F2DF12EBD00E272F8 /* View (V) */,
-				CA9609B32DFFD4F300B878C6 /* Profile */,
 				CABB13BB2DF690BE007C9E35 /* View Model (VM) */,
 				CA09155E2DF12E8600E272F8 /* Model (M) */,
 				CA0915602DF12EDC00E272F8 /* Component */,
@@ -208,7 +207,7 @@
 				CABB13BC2DF6923A007C9E35 /* Splash */,
 				CA9609B62DFFD7EB00B878C6 /* Auth */,
 				CA9E38D72DFA5D2300AE12DD /* Home */,
-				CA3593592E0511730069FAF8 /* Profile */,
+				CA9609B32DFFD4F300B878C6 /* Profile */,
 			);
 			path = "View (V)";
 			sourceTree = "<group>";
@@ -258,13 +257,6 @@
 				CA5C5E7D2E096A4600FB1E22 /* RawFile */,
 			);
 			path = Font;
-			sourceTree = "<group>";
-		};
-		CA3593592E0511730069FAF8 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		CA35935A2E05118D0069FAF8 /* Category */ = {
