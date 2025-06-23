@@ -23,7 +23,7 @@ struct HomeView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 85)
-                            .padding(.leading, 35)
+                            .padding(.leading, 25)
                             .padding(.top, 40)
                         
                         Spacer()
@@ -40,14 +40,12 @@ struct HomeView: View {
                                         .foregroundStyle(.white)
                                 }
                                 .padding(.top, 40)
-                                .padding(.trailing, 30)
+                                .padding(.trailing, 25)
                         }
                     }
                 }
                 .frame(height: 100)
                 .background(Color.mainBackground)
-                
-                Divider()
                 
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {
@@ -57,7 +55,7 @@ struct HomeView: View {
                                 .font(.pretendard(Pretendard.bold, size: 23))
                                 .multilineTextAlignment(.leading)
                                 .padding(.top)
-                                .padding(.leading, 30)
+                                .padding(.leading, 25)
                             
                             Spacer()
                         }
@@ -69,7 +67,7 @@ struct HomeView: View {
                         } label: {
                             RoundedRectangle(cornerRadius: 10)
                                 .frame(height: 44)
-                                .padding(.horizontal, 30)
+                                .padding(.horizontal, 25)
                                 .foregroundStyle(.white)
                                 .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
@@ -88,7 +86,7 @@ struct HomeView: View {
                                             .foregroundStyle(Color.JJTitle)
                                             .padding(.trailing)
                                     }
-                                    .padding(.horizontal, 35)
+                                    .padding(.horizontal, 25)
                                 }
                         }
                         
@@ -108,7 +106,7 @@ struct HomeView: View {
                         .padding(.vertical, 32)
                         
                         // MARK: Category
-                        VStack(spacing: 10) {
+                        VStack(spacing: 12) {
                             HStack(spacing: 15) {
                                 Button {
                                     navRouter.navigate(.categoryView)
@@ -154,7 +152,7 @@ struct HomeView: View {
                                         }
                                     }
                             }
-                            .padding(.horizontal, 30)
+                            .padding(.horizontal, 25)
                             
                             HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
@@ -197,7 +195,7 @@ struct HomeView: View {
                                         }
                                     }
                             }
-                            .padding(.horizontal, 30)
+                            .padding(.horizontal, 25)
                             
                             HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
@@ -240,7 +238,7 @@ struct HomeView: View {
                                         }
                                     }
                             }
-                            .padding(.horizontal, 30)
+                            .padding(.horizontal, 25)
                             
                             HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
@@ -283,7 +281,7 @@ struct HomeView: View {
                                         }
                                     }
                             }
-                            .padding(.horizontal, 30)
+                            .padding(.horizontal, 25)
                             
                             HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
@@ -326,7 +324,7 @@ struct HomeView: View {
                                         }
                                     }
                             }
-                            .padding(.horizontal, 30)
+                            .padding(.horizontal, 25)
                             
                             HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
@@ -369,7 +367,7 @@ struct HomeView: View {
                                         }
                                     }
                             }
-                            .padding(.horizontal, 30)
+                            .padding(.horizontal, 25)
                         }
                         
                         VStack {}
@@ -377,7 +375,6 @@ struct HomeView: View {
                     }
                 }
             }
-            .background(Color.mainBackground)
             .ignoresSafeArea(edges: .top)
             // MARK: OnAppear
             .onAppear {

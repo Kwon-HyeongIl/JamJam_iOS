@@ -29,7 +29,7 @@ struct MainTabBar: View {
                         Image(systemName: mainTabBarCapsule.selectedTab == tab ? fillImage : tab.rawValue)
                             .scaleEffect(mainTabBarCapsule.selectedTab == tab ? 1.25 : 1.0)
                             .foregroundStyle(mainTabBarCapsule.selectedTab == tab ? Color.JJTitle : .black)
-                            .font(.system(size: 19))
+                            .frame(width: 15)
                             .fontWeight(.medium)
                             .padding(.bottom, 1)
                     }

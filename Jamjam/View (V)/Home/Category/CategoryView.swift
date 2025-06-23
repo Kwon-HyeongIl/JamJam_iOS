@@ -28,6 +28,7 @@ struct CategoryView: View {
                                     .frame(width: 24, height: viewModel.isSearchBarVisible ? 24 : 12)
                                     .fontWeight(.medium)
                                     .foregroundStyle(.black)
+                                    .scaleEffect(1.12)
                                     .padding(.leading, 18)
                             }
                             
@@ -37,14 +38,14 @@ struct CategoryView: View {
                                 navRouter.navigate(.loginView)
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 80, height: viewModel.isSearchBarVisible ? 32 : 16)
+                                    .frame(width: 64, height: 28)
                                     .foregroundStyle(Color.JJTitle)
                                     .overlay {
                                         Text("로그인")
-                                            .font(.pretendard(Pretendard.bold, size: 15))
+                                            .font(.pretendard(Pretendard.semiBold, size: 14))
                                             .foregroundStyle(.white)
                                     }
-                                    .padding(.trailing, 18)
+                                    .padding(.trailing, 25)
                             }
                         }
                         
@@ -67,7 +68,7 @@ struct CategoryView: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.gray.opacity(0.5), lineWidth: 1)
                         }
-                        .padding(.horizontal, 35)
+                        .padding(.horizontal, 25)
                         .foregroundStyle(.white)
                         .overlay {
                             HStack {
@@ -85,7 +86,7 @@ struct CategoryView: View {
                                     .foregroundStyle(Color.JJTitle)
                                     .padding(.trailing)
                             }
-                            .padding(.horizontal, 35)
+                            .padding(.horizontal, 25)
                         }
                         .opacity(viewModel.isSearchBarVisible ? 1 : 0)
                 }
@@ -94,7 +95,7 @@ struct CategoryView: View {
                 
                 // MARK: Category
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 15) {
+                    HStack(spacing: 13) {
                         ForEach(Array(viewModel.categories.enumerated()), id: \.offset) { idx, title in
                             VStack(spacing: 4) {
                                 Text(title)
@@ -102,17 +103,16 @@ struct CategoryView: View {
                                     .fontWeight(idx == viewModel.selectedIndex ? .bold : .medium)
                                     .foregroundStyle(idx == viewModel.selectedIndex
                                                      ? Color.JJTitle
-                                                     : .primary)
+                                                     : .gray)
                                     .padding(.leading,
-                                             idx == 0 ? 40 : 0)
+                                             idx == 0 ? 25 : 0)
                                     .animation(nil, value: viewModel.selectedIndex)
                                 
                                 if idx == viewModel.selectedIndex {
                                     Rectangle()
                                         .fill(idx == viewModel.selectedIndex ? Color.JJTitle : .clear)
                                         .frame(height: 2)
-                                        .padding(.leading, idx == 0 ? 40 : 0)
-                                        .padding(.horizontal, -3)
+                                        .padding(.leading, idx == 0 ? 25 : 0)
                                         .matchedGeometryEffect(id: "underline", in: categoryUnderline)
                                     
                                 } else {

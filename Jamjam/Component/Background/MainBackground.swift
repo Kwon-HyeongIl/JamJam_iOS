@@ -18,11 +18,9 @@ struct MainBackground<Content: View>: View {
         ZStack {
             Color.mainBackground
             .ignoresSafeArea()
-            .opacity(0.4)
             
             content
         }
-        .preferredColorScheme(.light)
     }
 }
 
