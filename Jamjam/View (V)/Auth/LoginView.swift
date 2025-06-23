@@ -28,8 +28,7 @@ struct LoginView: View {
                     VStack {
                         HStack {
                             Text("아이디")
-                                .font(.system(size: 17))
-                                .fontWeight(.semibold)
+                                .font(.pretendard(Pretendard.semiBold, size: 17))
                                 .padding(.leading, 35)
                             
                             Spacer()
@@ -37,7 +36,7 @@ struct LoginView: View {
                         
                         TextField("아이디를 입력하세요", text: $viewModel.id)
                             .focused($focus, equals: .first)
-                            .font(.system(size: 14))
+                            .font(.pretendard(size: 14))
                             .padding(.horizontal)
                             .frame(height: 50)
                             .background(.white)
@@ -53,8 +52,7 @@ struct LoginView: View {
                     VStack {
                         HStack {
                             Text("비밀번호")
-                                .font(.system(size: 17))
-                                .fontWeight(.semibold)
+                                .font(.pretendard(Pretendard.semiBold, size: 17))
                                 .padding(.leading, 35)
                             
                             Spacer()
@@ -62,7 +60,7 @@ struct LoginView: View {
                         
                         SecureField("비밀번호를 입력하세요", text: $viewModel.password)
                             .focused($focus, equals: .second)
-                            .font(.system(size: 14))
+                            .font(.pretendard(size: 14))
                             .padding(.horizontal)
                             .frame(height: 50)
                             .background(.white)
@@ -84,8 +82,7 @@ struct LoginView: View {
                             .frame(height: 50)
                             .overlay {
                                 Text("로그인")
-                                    .font(.system(size: 17))
-                                    .fontWeight(.semibold)
+                                    .font(.pretendard(Pretendard.semiBold, size: 17))
                                     .foregroundStyle(.white)
                             }
                     }
@@ -96,19 +93,19 @@ struct LoginView: View {
                             
                         } label: {
                             Text("아이디 찾기")
-                                .font(.system(size: 13))
+                                .font(.pretendard(size: 13))
                                 .foregroundStyle(.gray)
                         }
                         
                         Text("|")
-                            .font(.system(size: 13))
+                            .font(.pretendard(size: 13))
                             .foregroundStyle(.gray)
                         
                         Button {
                             
                         } label: {
                             Text("비밀번호 찾기")
-                                .font(.system(size: 13))
+                                .font(.pretendard(size: 13))
                                 .foregroundStyle(.gray)
                         }
                     }
@@ -116,15 +113,13 @@ struct LoginView: View {
                     
                     HStack(spacing: 20) {
                         Text("잼잼이 처음이신가요?")
-                            .font(.system(size: 15))
-                            .fontWeight(.medium)
+                            .font(.pretendard(Pretendard.medium, size: 15))
                         
                         Button {
                             navRouter.navigate(.signUpView)
                         } label: {
                             Text("회원가입")
-                                .font(.system(size: 15))
-                                .fontWeight(.semibold)
+                                .font(.pretendard(Pretendard.semiBold, size: 15))
                                 .foregroundStyle(Color.JJTitle)
                         }
                     }

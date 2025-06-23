@@ -48,22 +48,19 @@ struct SignUpView: View {
                         VStack {
                             if !viewModel.isExpertButtonTappedNoAni && !viewModel.isClientButtonTappedNoAni {
                                 Text("잼잼에 오신 걸 환영해요.\n어떤 역할로 함께 하시겠어요?")
-                                    .font(.system(size: 23))
-                                    .fontWeight(.black)
+                                    .font(.pretendard(Pretendard.extraBold, size: 23))
                                     .multilineTextAlignment(.center)
                                     .padding(.bottom, 25)
                                 
                             } else if viewModel.isExpertButtonTappedNoAni {
                                 Text("잼잼 전문가로 가입하고\n당신의 경험을 다시 연결해보세요")
-                                    .font(.system(size: 23))
-                                    .fontWeight(.black)
+                                    .font(.pretendard(Pretendard.extraBold, size: 23))
                                     .multilineTextAlignment(.center)
                                     .padding(.bottom, 25)
                                 
                             } else if viewModel.isClientButtonTappedNoAni {
                                 Text("잼잼 의뢰인으로 가입하고\n당신에게 꼭 맞는 손길을 만나보세요")
-                                    .font(.system(size: 23))
-                                    .fontWeight(.black)
+                                    .font(.pretendard(Pretendard.extraBold, size: 23))
                                     .multilineTextAlignment(.center)
                                     .padding(.bottom, 25)
                             }
@@ -96,13 +93,12 @@ struct SignUpView: View {
                                                     .padding(.bottom, 8)
                                                 
                                                 Text("경험을 나누고 싶은 분")
-                                                    .font(.system(size: 15))
-                                                    .fontWeight(.bold)
+                                                    .font(.pretendard(Pretendard.bold, size: 15))
                                                     .foregroundStyle(.black)
                                                     .padding(.bottom, 10)
                                                 
                                                 Text("내가 잘해온 분야를 살려\n서비스를 등록하고\n활동하고 싶어요.")
-                                                    .font(.system(size: 9))
+                                                    .font(.pretendard(size: 9))
                                                     .foregroundStyle(.gray)
                                             }
                                             .padding(5)
@@ -141,13 +137,12 @@ struct SignUpView: View {
                                                     .padding(.bottom, 8)
                                                 
                                                 Text("도움을 받고 싶은 분")
-                                                    .font(.system(size: 15))
-                                                    .fontWeight(.bold)
+                                                    .font(.pretendard(Pretendard.bold, size: 15))
                                                     .foregroundStyle(.black)
                                                     .padding(.bottom, 10)
                                                 
                                                 Text("지금 필요한 일에\n경험 있는 분의 손길을\n받아보고 싶어요.")
-                                                    .font(.system(size: 9))
+                                                    .font(.pretendard(size: 9))
                                                     .foregroundStyle(.gray)
                                             }
                                             .padding(5)
@@ -165,16 +160,14 @@ struct SignUpView: View {
                     } else if viewModel.pageIndex == 1 {
                         VStack {
                             Text("계정 정보를 입력하고,\n이어서 진행해 주세요.")
-                                .font(.system(size: 23))
-                                .fontWeight(.black)
+                                .font(.pretendard(Pretendard.extraBold, size: 23))
                                 .multilineTextAlignment(.center)
                                 .padding(.bottom, 25)
                             
                             VStack {
                                 HStack {
                                     Text("닉네임")
-                                        .font(.system(size: 17))
-                                        .fontWeight(.semibold)
+                                        .font(.pretendard(Pretendard.semiBold, size: 17))
                                         .padding(.leading, 35)
                                     
                                     Spacer()
@@ -183,7 +176,7 @@ struct SignUpView: View {
                                 HStack {
                                     TextField("2자 이상 입력해주세요", text: $viewModel.nickname)
                                         .focused($focus, equals: .first)
-                                        .font(.system(size: 14))
+                                        .font(.pretendard(size: 14))
                                         .padding(.horizontal)
                                         .frame(height: 50)
                                         .background(.white)
@@ -225,8 +218,7 @@ struct SignUpView: View {
                                             .foregroundStyle(Color.JJTitle)
                                             .overlay {
                                                 Text("중복 확인")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.semibold)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 14))
                                                     .foregroundStyle(.white)
                                             }
                                             .opacity((viewModel.nickname.isEmpty || viewModel.nickname.count == 1) ? 0.4 : 1)
@@ -247,12 +239,12 @@ struct SignUpView: View {
                                     if viewModel.isNicknameRemoteNotification {
                                         if viewModel.isNicknameFinalValidated {
                                             Text("사용 가능한 닉네임 입니다.")
-                                                .font(.system(size: 12))
+                                                .font(.pretendard(size: 12))
                                                 .foregroundStyle(.green)
                                             
                                         } else {
                                             Text("중복된 닉네임 입니다.")
-                                                .font(.system(size: 12))
+                                                .font(.pretendard(size: 12))
                                                 .foregroundStyle(.red)
                                         }
                                     }
@@ -266,8 +258,7 @@ struct SignUpView: View {
                             VStack {
                                 HStack {
                                     Text("아이디")
-                                        .font(.system(size: 17))
-                                        .fontWeight(.semibold)
+                                        .font(.pretendard(Pretendard.semiBold, size: 17))
                                         .padding(.leading, 35)
                                     
                                     Spacer()
@@ -276,7 +267,7 @@ struct SignUpView: View {
                                 HStack {
                                     TextField("소문자로 시작, 소문자와 숫자만 허용", text: $viewModel.id)
                                         .focused($focus, equals: .second)
-                                        .font(.system(size: 14))
+                                        .font(.pretendard(size: 14))
                                         .padding(.horizontal)
                                         .frame(height: 50)
                                         .background(.white)
@@ -318,8 +309,7 @@ struct SignUpView: View {
                                             .foregroundStyle(Color.JJTitle)
                                             .overlay {
                                                 Text("중복 확인")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.semibold)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 14))
                                                     .foregroundStyle(.white)
                                             }
                                             .opacity(viewModel.isIdLocalValidated ? 1 : 0.4)
@@ -332,19 +322,19 @@ struct SignUpView: View {
                                     if viewModel.isIdNotification {
                                         if !viewModel.isIdLocalValidated {
                                             Text("소문자로 시작하고, 소문자와 숫자만 입력해주세요.")
-                                                .font(.system(size: 12))
+                                                .font(.pretendard(size: 12))
                                                 .foregroundStyle(.red)
                                         }
                                         
                                         if viewModel.isIdRemoteNotification {
                                             if viewModel.isIdFinalValidated {
                                                 Text("사용 가능한 아이디 입니다.")
-                                                    .font(.system(size: 12))
+                                                    .font(.pretendard(size: 12))
                                                     .foregroundStyle(.green)
                                                 
                                             } else {
                                                 Text("중복된 아이디 입니다.")
-                                                    .font(.system(size: 12))
+                                                    .font(.pretendard(size: 12))
                                                     .foregroundStyle(.red)
                                             }
                                         }
@@ -359,8 +349,7 @@ struct SignUpView: View {
                             VStack {
                                 HStack {
                                     Text("비밀번호")
-                                        .font(.system(size: 17))
-                                        .fontWeight(.semibold)
+                                        .font(.pretendard(Pretendard.semiBold, size: 17))
                                         .padding(.leading, 35)
                                     
                                     Spacer()
@@ -370,7 +359,7 @@ struct SignUpView: View {
                                     if viewModel.isPasswordSecured {
                                         SecureField("영문과 숫자를 포함한 최소 8자", text: $viewModel.password)
                                             .focused($focus, equals: .third)
-                                            .font(.system(size: 14))
+                                            .font(.pretendard(size: 14))
                                             .padding(.horizontal)
                                             .frame(height: 50)
                                             .background(.white)
@@ -401,7 +390,7 @@ struct SignUpView: View {
                                     } else {
                                         TextField("영문과 숫자를 포함한 최소 8자", text: $viewModel.password)
                                             .focused($focus, equals: .third)
-                                            .font(.system(size: 14))
+                                            .font(.pretendard(size: 14))
                                             .padding(.horizontal)
                                             .frame(height: 50)
                                             .background(.white)
@@ -450,11 +439,11 @@ struct SignUpView: View {
                                     if viewModel.isPasswordNotification {
                                         if viewModel.isPasswordFinalValidated {
                                             Text("사용 가능한 비밀번호 입니다.")
-                                                .font(.system(size: 12))
+                                                .font(.pretendard(size: 12))
                                                 .foregroundStyle(.green)
                                         } else {
                                             Text("영문과 숫자를 포함하여 8자 이상이어야 합니다.")
-                                                .font(.system(size: 12))
+                                                .font(.pretendard(size: 12))
                                                 .foregroundStyle(.red)
                                         }
                                     }
@@ -468,8 +457,7 @@ struct SignUpView: View {
                             VStack {
                                 HStack {
                                     Text("비밀번호 확인")
-                                        .font(.system(size: 17))
-                                        .fontWeight(.semibold)
+                                        .font(.pretendard(Pretendard.semiBold, size: 17))
                                         .padding(.leading, 35)
                                     
                                     Spacer()
@@ -479,7 +467,7 @@ struct SignUpView: View {
                                     if viewModel.isConfirmPasswordSecured {
                                         SecureField("비밀번호를 한번 더 입력해 주세요", text: $viewModel.confirmPassword)
                                             .focused($focus, equals: .fourth)
-                                            .font(.system(size: 14))
+                                            .font(.pretendard(size: 14))
                                             .padding(.horizontal)
                                             .frame(height: 50)
                                             .background(.white)
@@ -508,7 +496,7 @@ struct SignUpView: View {
                                     } else {
                                         TextField("비밀번호를 한번 더 입력해 주세요", text: $viewModel.confirmPassword)
                                             .focused($focus, equals: .fourth)
-                                            .font(.system(size: 14))
+                                            .font(.pretendard(size: 14))
                                             .padding(.horizontal)
                                             .frame(height: 50)
                                             .background(.white)
@@ -556,11 +544,11 @@ struct SignUpView: View {
                                     if viewModel.isConfirmPasswordNotification {
                                         if viewModel.isConfirmPasswordFinalValidated {
                                             Text("비밀번호가 일치합니다.")
-                                                .font(.system(size: 12))
+                                                .font(.pretendard(size: 12))
                                                 .foregroundStyle(.green)
                                         } else {
                                             Text("비밀번호가 일치하지 않습니다.")
-                                                .font(.system(size: 12))
+                                                .font(.pretendard(size: 12))
                                                 .foregroundStyle(.red)
                                         }
                                     }
@@ -575,16 +563,14 @@ struct SignUpView: View {
                     } else if viewModel.pageIndex == 2 {
                         VStack {
                             Text("잼잼 서비스 이용을 위해\n개인 정보를 입력해 주세요.")
-                                .font(.system(size: 23))
-                                .fontWeight(.black)
+                                .font(.pretendard(Pretendard.extraBold, size: 23))
                                 .multilineTextAlignment(.center)
                                 .padding(.bottom, 25)
                             
                             VStack {
                                 HStack {
                                     Text("이름")
-                                        .font(.system(size: 17))
-                                        .fontWeight(.semibold)
+                                        .font(.pretendard(Pretendard.semiBold, size: 17))
                                         .padding(.leading, 35)
                                     
                                     Spacer()
@@ -592,7 +578,7 @@ struct SignUpView: View {
                                 
                                 TextField("홍길동", text: $viewModel.realName)
                                     .focused($focus, equals: .first)
-                                    .font(.system(size: 14))
+                                    .font(.pretendard(size: 14))
                                     .padding(.horizontal)
                                     .frame(height: 50)
                                     .background(.white)
@@ -615,7 +601,7 @@ struct SignUpView: View {
                                     if viewModel.isRealNameNotification {
                                         if !viewModel.isRealNameFinalValidated {
                                             Text("한글로 2자 이상으로 입력해주세요.")
-                                                .font(.system(size: 12))
+                                                .font(.pretendard(size: 12))
                                                 .foregroundStyle(.red)
                                         }
                                     }
@@ -629,8 +615,7 @@ struct SignUpView: View {
                             VStack {
                                 HStack {
                                     Text("생년월일")
-                                        .font(.system(size: 17))
-                                        .fontWeight(.semibold)
+                                        .font(.pretendard(Pretendard.semiBold, size: 17))
                                         .padding(.leading, 35)
                                     
                                     Spacer()
@@ -639,7 +624,7 @@ struct SignUpView: View {
                                 HStack {
                                     TextField("년도", text: $viewModel.birthYear)
                                         .focused($focus, equals: .second)
-                                        .font(.system(size: 14))
+                                        .font(.pretendard(size: 14))
                                         .padding(.horizontal)
                                         .frame(height: 50)
                                         .background(.white)
@@ -664,7 +649,7 @@ struct SignUpView: View {
                                     
                                     TextField("월", text: $viewModel.birthMonth)
                                         .focused($focus, equals: .third)
-                                        .font(.system(size: 14))
+                                        .font(.pretendard(size: 14))
                                         .padding(.horizontal)
                                         .frame(height: 50)
                                         .frame(maxWidth: 75)
@@ -690,7 +675,7 @@ struct SignUpView: View {
                                     
                                     TextField("일", text: $viewModel.birthDay)
                                         .focused($focus, equals: .fourth)
-                                        .font(.system(size: 14))
+                                        .font(.pretendard(size: 14))
                                         .padding(.horizontal)
                                         .frame(height: 50)
                                         .frame(maxWidth: 75)
@@ -720,7 +705,7 @@ struct SignUpView: View {
                                     if viewModel.isBirthNotification {
                                         if !viewModel.isBirthFinalValidated {
                                             Text("잘못된 날짜 형식입니다.")
-                                                .font(.system(size: 12))
+                                                .font(.pretendard(size: 12))
                                                 .foregroundStyle(.red)
                                         }
                                     }
@@ -734,8 +719,7 @@ struct SignUpView: View {
                             VStack {
                                 HStack {
                                     Text("성별")
-                                        .font(.system(size: 17))
-                                        .fontWeight(.semibold)
+                                        .font(.pretendard(Pretendard.semiBold, size: 17))
                                         .padding(.leading, 35)
                                     
                                     Spacer()
@@ -799,8 +783,7 @@ struct SignUpView: View {
                             VStack {
                                 HStack {
                                     Text("휴대폰 번호")
-                                        .font(.system(size: 17))
-                                        .fontWeight(.semibold)
+                                        .font(.pretendard(Pretendard.semiBold, size: 17))
                                         .padding(.leading, 35)
                                     
                                     Spacer()
@@ -809,7 +792,7 @@ struct SignUpView: View {
                                 HStack {
                                     TextField("하이픈(-) 제외하고 입력", text: $viewModel.phoneNumber)
                                         .focused($focus, equals: .fifth)
-                                        .font(.system(size: 14))
+                                        .font(.pretendard(size: 14))
                                         .padding(.horizontal)
                                         .frame(height: 50)
                                         .background(.white)
@@ -845,8 +828,7 @@ struct SignUpView: View {
                                             .foregroundStyle(Color.JJTitle)
                                             .overlay {
                                                 Text("인증번호 받기")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.semibold)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 14))
                                                     .foregroundStyle(.white)
                                             }
                                             .opacity(viewModel.isPhoneNumberFinalValidated ? 1 : 0.4)
@@ -858,7 +840,7 @@ struct SignUpView: View {
                                     if viewModel.isPhoneNumberNotification {
                                         if !viewModel.isPhoneNumberFinalValidated {
                                             Text("하이픈(-)을 제외하고 11자로 입력해주세요")
-                                                .font(.system(size: 12))
+                                                .font(.pretendard(size: 12))
                                                 .foregroundStyle(.red)
                                         }
                                     }
@@ -873,8 +855,7 @@ struct SignUpView: View {
                                 VStack {
                                     HStack {
                                         Text("인증번호")
-                                            .font(.system(size: 17))
-                                            .fontWeight(.semibold)
+                                            .font(.pretendard(Pretendard.semiBold, size: 17))
                                             .padding(.leading, 35)
                                         
                                         Spacer()
@@ -882,7 +863,7 @@ struct SignUpView: View {
                                     
                                     TextField("인증번호 6자리를 입력해 주세요", text: $viewModel.identifiedNumber)
                                         .focused($focus, equals: .sixth)
-                                        .font(.system(size: 14))
+                                        .font(.pretendard(size: 14))
                                         .padding(.horizontal)
                                         .frame(height: 50)
                                         .background(.white)
@@ -913,11 +894,11 @@ struct SignUpView: View {
                                         if viewModel.isIdentifiedNumberNotification {
                                             if viewModel.isIdentifiedNumberFinalValidated {
                                                 Text("확인되었습니다.")
-                                                    .font(.system(size: 12))
+                                                    .font(.pretendard(size: 12))
                                                     .foregroundStyle(.green)
                                             } else {
                                                 Text("잘못된 인증번호입니다.")
-                                                    .font(.system(size: 12))
+                                                    .font(.pretendard(size: 12))
                                                     .foregroundStyle(.red)
                                             }
                                         }
@@ -947,9 +928,8 @@ struct SignUpView: View {
                                 .foregroundStyle(Color.JJTitle)
                                 .overlay {
                                     Text("다음")
-                                        .font(.system(size: 17))
+                                        .font(.pretendard(Pretendard.semiBold, size: 17))
                                         .foregroundStyle(.white)
-                                        .fontWeight(.semibold)
                                 }
                                 .opacity((viewModel.isExpertButtonTappedNoAni || viewModel.isClientButtonTappedNoAni) ? 1 : 0.4)
                                 .padding(.horizontal, 35)
@@ -975,9 +955,8 @@ struct SignUpView: View {
                                     }
                                     .overlay {
                                         Text("이전")
-                                            .font(.system(size: 17))
+                                            .font(.pretendard(Pretendard.semiBold, size: 17))
                                             .foregroundStyle(.gray)
-                                            .fontWeight(.semibold)
                                     }
                                     .padding(.leading, 35)
                             }
@@ -990,9 +969,8 @@ struct SignUpView: View {
                                     .foregroundStyle(Color.JJTitle)
                                     .overlay {
                                         Text("다음")
-                                            .font(.system(size: 17))
+                                            .font(.pretendard(Pretendard.semiBold, size: 17))
                                             .foregroundStyle(.white)
-                                            .fontWeight(.semibold)
                                     }
                                     .opacity(viewModel.isAllValidatedInPage2 ? 1 : 0.4)
                                     .disabled(!viewModel.isAllValidatedInPage2)
@@ -1016,9 +994,8 @@ struct SignUpView: View {
                                     }
                                     .overlay {
                                         Text("이전")
-                                            .font(.system(size: 17))
+                                            .font(.pretendard(Pretendard.semiBold, size: 17))
                                             .foregroundStyle(.gray)
-                                            .fontWeight(.semibold)
                                     }
                                     .padding(.leading, 35)
                             }
@@ -1032,9 +1009,8 @@ struct SignUpView: View {
                                     .foregroundStyle(Color.JJTitle)
                                     .overlay {
                                         Text("완료")
-                                            .font(.system(size: 17))
+                                            .font(.pretendard(Pretendard.semiBold, size: 17))
                                             .foregroundStyle(.white)
-                                            .fontWeight(.semibold)
                                     }
                                     .opacity(viewModel.isAllValidatedInPage3 ? 1 : 0.4)
                                     .disabled(!viewModel.isAllValidatedInPage3)

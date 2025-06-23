@@ -21,8 +21,7 @@ struct NavigationBarTitleAndHomeModifier: ViewModifier {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text(title)
-                        .font(.system(size: 18))
-                        .fontWeight(.semibold)
+                        .font(.pretendard(Pretendard.semiBold, size: 18))
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {

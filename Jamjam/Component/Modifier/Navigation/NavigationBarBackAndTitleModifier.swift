@@ -32,8 +32,7 @@ struct NavigationBarBackAndTitleModifier: ViewModifier {
                 
                 ToolbarItem(placement: .principal) {
                     Text(title)
-                        .font(.system(size: 18))
-                        .fontWeight(.semibold)
+                        .font(.pretendard(Pretendard.semiBold, size: 18))
                 }
             }
     }

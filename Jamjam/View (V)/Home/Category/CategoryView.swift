@@ -41,9 +41,8 @@ struct CategoryView: View {
                                     .foregroundStyle(Color.JJTitle)
                                     .overlay {
                                         Text("로그인")
-                                            .font(.system(size: 15))
+                                            .font(.pretendard(Pretendard.bold, size: 15))
                                             .foregroundStyle(.white)
-                                            .fontWeight(.bold)
                                     }
                                     .padding(.trailing, 18)
                             }
@@ -73,7 +72,7 @@ struct CategoryView: View {
                         .overlay {
                             HStack {
                                 Text("필요한 손길을 찾아보세요")
-                                    .font(.system(size: 13))
+                                    .font(.pretendard(size: 13))
                                     .foregroundStyle(.gray)
                                     .padding(.leading)
                                 
