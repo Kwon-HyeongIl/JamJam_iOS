@@ -77,6 +77,7 @@
 		CAAB47F22E0AD13E000197E5 /* AuthCenter+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F12E0AD13E000197E5 /* AuthCenter+SignUp.swift */; };
 		CAAB47F42E0ADC1D000197E5 /* CheckNicknameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */; };
 		CAAB47F62E0ADC4B000197E5 /* CheckNicknameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F52E0ADC4B000197E5 /* CheckNicknameResponse.swift */; };
+		CAAB47F82E0B0975000197E5 /* SignUpViewModel+Restore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F72E0B0975000197E5 /* SignUpViewModel+Restore.swift */; };
 		CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB13BD2DF69261007C9E35 /* SplashView.swift */; };
 		CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAD3106D2E09B56200A5FAA4 /* Alamofire */; };
 /* End PBXBuildFile section */
@@ -151,6 +152,7 @@
 		CAAB47F12E0AD13E000197E5 /* AuthCenter+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthCenter+SignUp.swift"; sourceTree = "<group>"; };
 		CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameRequest.swift; sourceTree = "<group>"; };
 		CAAB47F52E0ADC4B000197E5 /* CheckNicknameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameResponse.swift; sourceTree = "<group>"; };
+		CAAB47F72E0B0975000197E5 /* SignUpViewModel+Restore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Restore.swift"; sourceTree = "<group>"; };
 		CABB13BD2DF69261007C9E35 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -401,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				CA87FF772E014B7A00C8C830 /* SignUpViewModel.swift */,
+				CAAB47F72E0B0975000197E5 /* SignUpViewModel+Restore.swift */,
 				CA87FF892E02B66600C8C830 /* SignUpViewModel+Validate.swift */,
 				CA87FF912E03DA8600C8C830 /* SignUpViewModel+IdentifyPhoneNumber.swift */,
 				CA87FF932E040FDE00C8C830 /* SignUpViewModel+Complete.swift */,
@@ -732,6 +735,7 @@
 				CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */,
 				CA87FF782E014B7A00C8C830 /* SignUpViewModel.swift in Sources */,
 				CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */,
+				CAAB47F82E0B0975000197E5 /* SignUpViewModel+Restore.swift in Sources */,
 				CA9609932DFBDE9B00B878C6 /* SearchView.swift in Sources */,
 				CA0915562DF12B9400E272F8 /* AisleView.swift in Sources */,
 				CA9609AD2DFFD02300B878C6 /* MainTab.swift in Sources */,

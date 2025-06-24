@@ -20,12 +20,20 @@ extension SignUpViewModel {
         AuthCenter.shared.checkNickname(request)
             .map { $0.content.available }
             .receive(on: DispatchQueue.main)
-            .sink { completion in
-                if case let .failure(error) = completion {
-                    print("닉네임 검증 에러:", error)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    print("[checkNickname] finished")
+                case .failure(let error):
+                    print("[checkNickname] failed: \(error)")
+                    self?.isNicknameFailedNoti2 = true
                 }
             } receiveValue: { [weak self] available in
-                self?.isNicknameFinalValidated = available
+                if available {
+                    self?.isNicknameFinalValidated = true
+                } else {
+                    self?.isNicknameFailedNoti1 = true
+                }
             }
             .store(in: &self.cancellables)
     }

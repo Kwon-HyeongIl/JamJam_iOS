@@ -186,20 +186,18 @@ struct SignUpView: View {
                                                 .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.nickname) {
-                                            viewModel.isNicknameFinalValidated = false
-                                            viewModel.isNicknameRemoteNotification = false
+                                            viewModel.restoreNicknameRelated()
+                                            
+                                            if viewModel.nickname.count == 1 {
+                                                viewModel.isNicknameFailedNoti3 = true
+                                            }
                                         }
                                     
                                     Button {
                                         if viewModel.validateNicknameLocal() {
                                             viewModel.validateNicknameRemote()
-                                            viewModel.isNicknameLocalValidated = true
-                                            viewModel.isNicknameLocalNotification = false
-                                            viewModel.isNicknameRemoteNotification = true
-                                            
                                         } else {
-                                            viewModel.isNicknameLocalValidated = false
-                                            viewModel.isNicknameLocalNotification = true
+                                            viewModel.isNicknameFailedNoti3 = true
                                         }
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
@@ -222,25 +220,34 @@ struct SignUpView: View {
                                 .padding(.horizontal, 35)
                                 
                                 HStack {
-                                    if viewModel.isNicknameLocalNotification {
-                                        if !viewModel.isNicknameLocalValidated {
-                                            Text("10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요.")
-                                                .font(.system(size: 12))
-                                                .foregroundStyle(.red)
-                                        }
+                                    if viewModel.isNicknameFinalValidated {
+                                        Text("사용 가능한 닉네임 입니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.green)
                                     }
                                     
-                                    if viewModel.isNicknameRemoteNotification {
-                                        if viewModel.isNicknameFinalValidated {
-                                            Text("사용 가능한 닉네임 입니다.")
-                                                .font(.pretendard(size: 12))
-                                                .foregroundStyle(.green)
-                                            
-                                        } else {
-                                            Text("중복된 닉네임 입니다.")
-                                                .font(.pretendard(size: 12))
-                                                .foregroundStyle(.red)
-                                        }
+                                    if viewModel.isNicknameFailedNoti1 {
+                                        Text("중복된 닉네임 입니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
+                                    }
+                                    
+                                    if viewModel.isNicknameFailedNoti2 {
+                                        Text("통신에 문제가 생겼습니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
+                                    }
+                                    
+                                    if viewModel.isNicknameFailedNoti3 {
+                                        Text("10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
+                                    }
+                                    
+                                    if viewModel.isNicknameFailedNoti4 {
+                                        Text("2자 이상으로 입력해주세요.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
                                     }
                                     
                                     Spacer()

@@ -23,10 +23,12 @@ class SignUpViewModel {
     var isClientButtonTappedNoAni = false
     
     // Page 2
-    var nickname = ""
-    var isNicknameLocalNotification = false
-    var isNicknameRemoteNotification = false
-    var isNicknameLocalValidated = false
+    var nickname =  ""
+    
+    var isNicknameFailedNoti1 = false // 중복된 닉네임
+    var isNicknameFailedNoti2 = false // 통신 에러
+    var isNicknameFailedNoti3 = false // 10글자 이내의 한글, 영문, 숫자
+    var isNicknameFailedNoti4 = false // 2자 이상
     var isNicknameFinalValidated = false
     
     var id = ""
