@@ -79,7 +79,7 @@ struct SignUpView: View {
                                     }
                                     viewModel.isExpertButtonTappedNoAni.toggle()
                                     
-                                    viewModel.signUpUserType = .expert
+                                    viewModel.signUpUserType = .provider
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(viewModel.isExpertButtonTapped ? .red.opacity(0.1) : .white)
@@ -194,8 +194,8 @@ struct SignUpView: View {
                                         }
                                     
                                     Button {
-                                        if viewModel.validateNicknameLocal() {
-                                            viewModel.validateNicknameRemote()
+                                        if viewModel.validateNicknameForm() {
+                                            viewModel.checkNickname()
                                         } else {
                                             viewModel.isNicknameFailedNoti3 = true
                                         }
@@ -286,8 +286,8 @@ struct SignUpView: View {
                                         }
                                     
                                     Button {
-                                        if viewModel.validateIdLocal() {
-                                            viewModel.validateIdRemote()
+                                        if viewModel.validateIdForm() {
+                                            viewModel.checkId()
                                         } else {
                                             viewModel.isIdFailedNoti3 = true
                                         }
@@ -378,7 +378,7 @@ struct SignUpView: View {
                                                     if viewModel.password.count >= 8 {
                                                         viewModel.isPasswordNotification = true
                                                         
-                                                        if viewModel.validatePasswordLocal() {
+                                                        if viewModel.validatePasswordForm() {
                                                             viewModel.isPasswordFinalValidated = true
                                                             
                                                         } else {
@@ -409,7 +409,7 @@ struct SignUpView: View {
                                                     viewModel.isPasswordNotification = true
                                                     
                                                     if viewModel.password.count >= 8 {
-                                                        if viewModel.validatePasswordLocal() {
+                                                        if viewModel.validatePasswordForm() {
                                                             viewModel.isPasswordFinalValidated = true
                                                             
                                                         } else {
@@ -485,7 +485,7 @@ struct SignUpView: View {
                                                 } else {
                                                     viewModel.isConfirmPasswordNotification = true
                                                     
-                                                    if viewModel.validateConfrimPasswordLocal() {
+                                                    if viewModel.validateConfrimPassword() {
                                                         viewModel.isConfirmPasswordFinalValidated = true
                                                         
                                                     } else {
@@ -514,7 +514,7 @@ struct SignUpView: View {
                                                 } else {
                                                     viewModel.isConfirmPasswordNotification = true
                                                     
-                                                    if viewModel.validateConfrimPasswordLocal() {
+                                                    if viewModel.validateConfrimPassword() {
                                                         viewModel.isConfirmPasswordFinalValidated = true
                                                         focus = nil
                                                         
@@ -590,7 +590,7 @@ struct SignUpView: View {
                                             .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
                                     }
                                     .onChange(of: viewModel.realName) {
-                                        if viewModel.validateRealNameLocal() {
+                                        if viewModel.validateRealNameForm() {
                                             viewModel.isRealNameFinalValidated = true
                                             
                                         } else {
@@ -636,7 +636,7 @@ struct SignUpView: View {
                                                 .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.birthYear) {
-                                            if viewModel.validateBirthYearLocal() {
+                                            if viewModel.validateBirthYearForm() {
                                                 viewModel.isBirthYearLocalValidated = true
                                                 
                                             } else {
@@ -662,7 +662,7 @@ struct SignUpView: View {
                                                 .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.birthMonth) {
-                                            if viewModel.validateBirthMonthLocal() {
+                                            if viewModel.validateBirthMonthForm() {
                                                 viewModel.isBirthMonthLocalValidated = true
                                                 
                                             } else {
@@ -688,7 +688,7 @@ struct SignUpView: View {
                                                 .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.birthDay) {
-                                            if viewModel.validateBirthDayLocal() {
+                                            if viewModel.validateBirthDayForm() {
                                                 viewModel.isBirthDayLocalValidated = true
                                                 
                                             } else {
@@ -806,7 +806,7 @@ struct SignUpView: View {
                                         .onChange(of: viewModel.phoneNumber) {
                                             viewModel.isPhoneNumberNotification = false
                                             
-                                            if viewModel.validatePhoneNumberLocal() {
+                                            if viewModel.validatePhoneNumberForm() {
                                                 viewModel.isPhoneNumberFinalValidated = true
                                             } else {
                                                 viewModel.isPhoneNumberFinalValidated = false

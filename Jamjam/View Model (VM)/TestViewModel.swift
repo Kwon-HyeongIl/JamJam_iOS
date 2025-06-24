@@ -15,7 +15,7 @@ class TestViewModel {
     func request() {
         let request = SignUpWithExpertRequest(name: "김국자", nickname: "ohMyGod", loginId: "onMyLogin", phoneNumber: "01043452839", password: "12345678a@", birth: "1950-06-23", gender: "MALE")
         
-        AuthCenter.shared.signUpWithExpert(request)
+        AuthCenter.shared.signUpWithProvider(request)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {

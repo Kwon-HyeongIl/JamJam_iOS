@@ -21,7 +21,7 @@ extension AuthCenter {
             .eraseToAnyPublisher()
     }
     
-    func signUpWithExpert(_ request: SignUpWithExpertRequest) -> AnyPublisher<SignUpWithExpertResponse, Error> {
+    func signUpWithProvider(_ request: SignUpWithExpertRequest) -> AnyPublisher<SignUpWithExpertResponse, Error> {
         let url = API.signUpWithExpert.url
         
         return AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)

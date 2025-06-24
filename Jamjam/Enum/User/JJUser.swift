@@ -8,6 +8,6 @@
 import Foundation
 
 enum JJUser {
-    case expert
+    case provider
     case client
 }
