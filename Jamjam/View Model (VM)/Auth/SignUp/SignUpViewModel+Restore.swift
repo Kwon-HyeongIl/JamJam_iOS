@@ -15,4 +15,12 @@ extension SignUpViewModel {
         self.isNicknameFailedNoti4 = false
         self.isNicknameFinalValidated = false
     }
+    
+    func restoreIdRelated() {
+        self.isIdFailedNoti1 = false
+        self.isIdFailedNoti2 = false
+        self.isIdFailedNoti3 = false
+        self.isIdFailedNoti4 = false
+        self.isIdFinalValidated = false
+    }
 }

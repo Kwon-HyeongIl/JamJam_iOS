@@ -278,31 +278,18 @@ struct SignUpView: View {
                                                 .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.id) {
-                                            if viewModel.id.count == 0 {
-                                                viewModel.isIdNotification = false
-                                                
-                                            } else {
-                                                viewModel.isIdNotification = true
-                                                viewModel.isIdRemoteNotification = false
-                                                
-                                                if viewModel.validateIdLocal() {
-                                                    viewModel.isIdLocalValidated = true
-                                                } else {
-                                                    viewModel.isIdLocalValidated = false
-                                                }
+                                            viewModel.restoreIdRelated()
+                                            
+                                            if viewModel.id.count >= 1 && viewModel.id.count < 4 {
+                                                viewModel.isIdFailedNoti4 = false
                                             }
                                         }
                                     
                                     Button {
-                                        if viewModel.validateIdRemote() {
-                                            viewModel.isIdNotification = true
-                                            viewModel.isIdRemoteNotification = true
-                                            viewModel.isIdFinalValidated = true
-                                            focus = nil
-                                            
+                                        if viewModel.validateIdLocal() {
+                                            viewModel.validateIdRemote()
                                         } else {
-                                            viewModel.isIdNotification = true
-                                            viewModel.isIdRemoteNotification = true
+                                            viewModel.isIdFailedNoti3 = true
                                         }
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
@@ -313,32 +300,46 @@ struct SignUpView: View {
                                                     .font(.pretendard(Pretendard.semiBold, size: 14))
                                                     .foregroundStyle(.white)
                                             }
-                                            .opacity(viewModel.isIdLocalValidated ? 1 : 0.4)
+                                            .opacity(viewModel.id.count > 4 ? 1 : 0.4)
                                     }
-                                    .disabled(!viewModel.isIdLocalValidated)
+                                    .disabled(viewModel.id.count < 4)
+                                    .onChange(of: viewModel.isIdFinalValidated) {
+                                        if viewModel.isIdFinalValidated {
+                                            focus = nil
+                                        }
+                                    }
                                 }
                                 .padding(.horizontal, 35)
                                 
                                 HStack {
-                                    if viewModel.isIdNotification {
-                                        if !viewModel.isIdLocalValidated {
-                                            Text("소문자로 시작하고, 소문자와 숫자만 입력해주세요.")
-                                                .font(.pretendard(size: 12))
-                                                .foregroundStyle(.red)
-                                        }
-                                        
-                                        if viewModel.isIdRemoteNotification {
-                                            if viewModel.isIdFinalValidated {
-                                                Text("사용 가능한 아이디 입니다.")
-                                                    .font(.pretendard(size: 12))
-                                                    .foregroundStyle(.green)
-                                                
-                                            } else {
-                                                Text("중복된 아이디 입니다.")
-                                                    .font(.pretendard(size: 12))
-                                                    .foregroundStyle(.red)
-                                            }
-                                        }
+                                    if viewModel.isIdFinalValidated {
+                                        Text("사용 가능한 아이디 입니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.green)
+                                    }
+                                    
+                                    if viewModel.isIdFailedNoti1 {
+                                        Text("중복된 아이디 입니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
+                                    }
+                                    
+                                    if viewModel.isIdFailedNoti2 {
+                                        Text("통신에 문제가 생겼습니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
+                                    }
+                                    
+                                    if viewModel.isIdFailedNoti3 {
+                                        Text("소문자로 시작 및 소문자와 숫자만 허용됩니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
+                                    }
+                                    
+                                    if viewModel.isIdFailedNoti4 {
+                                        Text("4자 이상으로 입력해주세요.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
                                     }
                                     
                                     Spacer()

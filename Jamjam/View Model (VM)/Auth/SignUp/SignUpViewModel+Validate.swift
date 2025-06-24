@@ -38,6 +38,7 @@ extension SignUpViewModel {
             .store(in: &self.cancellables)
     }
     
+    
     func validateIdLocal() -> Bool {
         let pattern = "^[a-z][a-z0-9]{3,}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)

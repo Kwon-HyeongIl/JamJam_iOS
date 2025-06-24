@@ -25,16 +25,17 @@ class SignUpViewModel {
     // Page 2
     var nickname =  ""
     
-    var isNicknameFailedNoti1 = false // 중복된 닉네임
+    var isNicknameFailedNoti1 = false // 중복
     var isNicknameFailedNoti2 = false // 통신 에러
     var isNicknameFailedNoti3 = false // 10글자 이내의 한글, 영문, 숫자
     var isNicknameFailedNoti4 = false // 2자 이상
     var isNicknameFinalValidated = false
     
     var id = ""
-    var isIdNotification = false
-    var isIdRemoteNotification = false
-    var isIdLocalValidated = false
+    var isIdFailedNoti1 = false // 중복
+    var isIdFailedNoti2 = false // 통신 에러
+    var isIdFailedNoti3 = false // 소문자 시작 및 소문자 또는 숫자
+    var isIdFailedNoti4 = false // 4자 이상
     var isIdFinalValidated = false
     
     var password = ""
