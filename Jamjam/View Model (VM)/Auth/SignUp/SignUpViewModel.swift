@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import Combine
 
 @Observable
 class SignUpViewModel {
+    @ObservationIgnored var cancellables = Set<AnyCancellable>()
+    
     var pageIndex = 0
     
     // Page 1

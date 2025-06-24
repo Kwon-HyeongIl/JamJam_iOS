@@ -10,6 +10,17 @@ import Combine
 import Alamofire
 
 extension AuthCenter {
+    func checkNickname(_ request: CheckNicknameRequest) -> AnyPublisher<CheckNicknameResponse, Error> {
+        let url = API.checkNickname.url
+
+        return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
+            .validate()
+            .publishDecodable(type: CheckNicknameResponse.self)
+            .value()
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
+    
     func signUpWithExpert(_ request: SignUpWithExpertRequest) -> AnyPublisher<SignUpWithExpertResponse, Error> {
         let url = API.signUpWithExpert.url
         

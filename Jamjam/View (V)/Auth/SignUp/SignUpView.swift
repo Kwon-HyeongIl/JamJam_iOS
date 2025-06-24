@@ -186,31 +186,20 @@ struct SignUpView: View {
                                                 .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.nickname) {
-                                            if viewModel.nickname.count == 0 {
-                                                viewModel.isNicknameLocalNotification = false
-                                                
-                                            } else {
-                                                //                                                    viewModel.isNicknameLocalNotification = true
-                                                viewModel.isNicknameRemoteNotification = false
-                                                
-                                                if viewModel.validateNicknameLocal() {
-                                                    viewModel.isNicknameLocalValidated = true
-                                                } else {
-                                                    viewModel.isNicknameLocalValidated = false
-                                                }
-                                            }
+                                            viewModel.isNicknameFinalValidated = false
+                                            viewModel.isNicknameRemoteNotification = false
                                         }
                                     
                                     Button {
-                                        if viewModel.validateNicknameRemote() {
+                                        if viewModel.validateNicknameLocal() {
+                                            viewModel.validateNicknameRemote()
+                                            viewModel.isNicknameLocalValidated = true
                                             viewModel.isNicknameLocalNotification = false
                                             viewModel.isNicknameRemoteNotification = true
-                                            viewModel.isNicknameFinalValidated = true
-                                            focus = nil
                                             
                                         } else {
-                                            viewModel.isNicknameLocalNotification = false
-                                            viewModel.isNicknameRemoteNotification = true
+                                            viewModel.isNicknameLocalValidated = false
+                                            viewModel.isNicknameLocalNotification = true
                                         }
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
@@ -221,18 +210,23 @@ struct SignUpView: View {
                                                     .font(.pretendard(Pretendard.semiBold, size: 14))
                                                     .foregroundStyle(.white)
                                             }
-                                            .opacity((viewModel.nickname.isEmpty || viewModel.nickname.count == 1) ? 0.4 : 1)
+                                            .opacity(viewModel.nickname.count < 2 ? 0.4 : 1)
                                     }
-                                    .disabled(viewModel.nickname.isEmpty || viewModel.nickname.count == 1)
+                                    .disabled(viewModel.nickname.count < 2)
+                                    .onChange(of: viewModel.isNicknameFinalValidated) {
+                                        if viewModel.isNicknameFinalValidated {
+                                            focus = nil
+                                        }
+                                    }
                                 }
                                 .padding(.horizontal, 35)
                                 
                                 HStack {
                                     if viewModel.isNicknameLocalNotification {
                                         if !viewModel.isNicknameLocalValidated {
-                                            //                                                Text("10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요.")
-                                            //                                                    .font(.system(size: 12))
-                                            //                                                    .foregroundStyle(.red)
+                                            Text("10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요.")
+                                                .font(.system(size: 12))
+                                                .foregroundStyle(.red)
                                         }
                                     }
                                     

@@ -19,6 +19,7 @@ enum API {
     case login
     case signUpWithExpert
     case signUpWithClient
+    case checkNickname
     
     var urlString: String {
         switch self {
@@ -28,6 +29,8 @@ enum API {
             return "\(API.baseURL)/api/user/join/provider"
         case .signUpWithClient: 
             return "\(API.baseURL)/api/user/join/client"
+        case .checkNickname:
+            return "\(API.baseURL)/api/user/check/nickname"
         }
     }
     

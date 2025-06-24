@@ -14,9 +14,20 @@ extension SignUpViewModel {
         return predicate.evaluate(with: self.nickname)
     }
     
-    func validateNicknameRemote() -> Bool {
-        // 백엔드 통신
-        return true
+    func validateNicknameRemote() {
+        let request = CheckNicknameRequest(nickname: self.nickname)
+        
+        AuthCenter.shared.checkNickname(request)
+            .map { $0.content.available }
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                if case let .failure(error) = completion {
+                    print("닉네임 검증 에러:", error)
+                }
+            } receiveValue: { [weak self] available in
+                self?.isNicknameFinalValidated = available
+            }
+            .store(in: &self.cancellables)
     }
     
     func validateIdLocal() -> Bool {
