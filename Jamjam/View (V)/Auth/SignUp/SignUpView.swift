@@ -231,7 +231,7 @@ struct SignUpView: View {
                                             .foregroundStyle(.red)
                                         
                                     } else if viewModel.isNicknameFailedNoti2 {
-                                        Text("통신에 문제가 생겼습니다.")
+                                        Text("통신에 실패했습니다.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
                                         
@@ -319,7 +319,7 @@ struct SignUpView: View {
                                             .foregroundStyle(.red)
                                         
                                     }else if viewModel.isloginIdFailedNoti2 {
-                                        Text("통신에 문제가 생겼습니다.")
+                                        Text("통신에 실패했습니다.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
                                         
@@ -673,8 +673,8 @@ struct SignUpView: View {
                                 }
                                 .padding(.leading, 40)
                             }
-                            .padding(.bottom
-                            )
+                            .padding(.bottom)
+                            
                             VStack {
                                 HStack {
                                     Text("성별")
@@ -769,7 +769,7 @@ struct SignUpView: View {
                                             viewModel.sendPhoneNumber()
                                             
                                             withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
-                                                viewModel.isPhoneIdentifiedNumberButtonTapped = true
+                                                viewModel.isPhoneNumberSendingButtonTapped = true
                                                 position.scrollTo(edge: .bottom)
                                             }
                                             
@@ -795,7 +795,7 @@ struct SignUpView: View {
                                     if viewModel.isPhoneNumberFinalValidated {
                                         Text("인증코드가 발송 되었습니다.")
                                             .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
+                                            .foregroundStyle(.green)
                                         
                                     } else if viewModel.isPhoneNumberFailedNoti1 {
                                         Text("하이픈(-)을 제외하고 11자로 입력해주세요")
@@ -814,7 +814,7 @@ struct SignUpView: View {
                             }
                             .padding(.bottom)
                             
-                            if viewModel.isPhoneIdentifiedNumberButtonTapped {
+                            if viewModel.isPhoneNumberSendingButtonTapped {
                                 VStack {
                                     HStack {
                                         Text("인증번호")
@@ -824,7 +824,7 @@ struct SignUpView: View {
                                         Spacer()
                                     }
                                     
-                                    TextField("인증번호 6자리를 입력해 주세요", text: $viewModel.phoneIdentifiedNumber)
+                                    TextField("인증번호 6자리를 입력해 주세요", text: $viewModel.phoneCode)
                                         .focused($focus, equals: .sixth)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
@@ -835,28 +835,33 @@ struct SignUpView: View {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(focus == .sixth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .sixth ? 1.5 : 1)
                                         }
-                                        .onChange(of: viewModel.phoneIdentifiedNumber) {
+                                        .onChange(of: viewModel.phoneCode) {
                                             viewModel.restoreIdentifiedNumberRelated()
                                             
-                                            if viewModel.phoneIdentifiedNumber.count == 6 {
-                                                if viewModel.verifyPhoneIdentifiedNumber() {
-                                                    viewModel.isPhoneIdentifiedNumberFinalValidated = true
-                                                    focus = nil
-                                                    
-                                                } else {
-                                                    viewModel.isPhoneIdentifiedNumberFailedNoti1 = true
-                                                }
+                                            if viewModel.phoneCode.count == 6 {
+                                                viewModel.verifyPhoneIdentifiedNumber()
+                                            }
+                                        }
+                                        .onChange(of: viewModel.phoneCode) { oldValue, newValue in
+                                            if newValue.count > 6 {
+                                                viewModel.phoneCode = String(newValue.prefix(6))
                                             }
                                         }
                                         .padding(.horizontal, 35)
                                     
                                     HStack {
-                                        if viewModel.isPhoneIdentifiedNumberFinalValidated {
+                                        if viewModel.isPhoneCodeFinalValidated {
                                             Text("확인되었습니다.")
                                                 .font(.pretendard(size: 12))
                                                 .foregroundStyle(.green)
-                                        } else if viewModel.isPhoneIdentifiedNumberFailedNoti1 {
+                                            
+                                        } else if viewModel.isPhoneCodeFailedNoti1 {
                                             Text("잘못된 인증번호입니다.")
+                                                .font(.pretendard(size: 12))
+                                                .foregroundStyle(.red)
+                                            
+                                        } else if viewModel.isPhoneCodeFailedNoti2 {
+                                            Text("통신에 실패했습니다.")
                                                 .font(.pretendard(size: 12))
                                                 .foregroundStyle(.red)
                                         }

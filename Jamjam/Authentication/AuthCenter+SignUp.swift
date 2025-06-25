@@ -43,6 +43,17 @@ extension AuthCenter {
             .eraseToAnyPublisher()
     }
     
+    func verifySms(_ request: VerifySmsRequest) -> AnyPublisher<VerifySmsResponse, Error> {
+        let url = API.verifySms.url
+        
+        return AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)
+            .validate()
+            .publishDecodable(type: VerifySmsResponse.self)
+            .value()
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
+    
     func signUpWithProvider(_ request: SignUpWithExpertRequest) -> AnyPublisher<SignUpWithExpertResponse, Error> {
         let url = API.signUpWithExpert.url
         

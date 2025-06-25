@@ -25,14 +25,14 @@ class SignUpViewModel {
     // MARK: Page 2
     var nickname =  ""
     var isNicknameFailedNoti1 = false // 중복
-    var isNicknameFailedNoti2 = false // 통신 에러
+    var isNicknameFailedNoti2 = false // 통신 오류
     var isNicknameFailedNoti3 = false // 10글자 이내의 한글, 영문, 숫자
     var isNicknameFailedNoti4 = false // 2자 이상
     var isNicknameFinalValidated = false
     
     var loginId = ""
     var isloginIdFailedNoti1 = false // 중복
-    var isloginIdFailedNoti2 = false // 통신 에러
+    var isloginIdFailedNoti2 = false // 통신 오류
     var isloginIdFailedNoti3 = false // 소문자 시작 및 소문자 또는 숫자
     var isloginIdFailedNoti4 = false // 4자 이상
     var isloginIdFinalValidated = false
@@ -77,18 +77,19 @@ class SignUpViewModel {
     
     var phoneNumber = ""
     var isPhoneNumberFailedNoti1 = false // 하이픈 제외 11자 입력
-    var isPhoneNumberFailedNoti2 = false
+    var isPhoneNumberFailedNoti2 = false // 통신 오류
     var isPhoneNumberFinalValidated = false
     
-    var isPhoneIdentifiedNumberButtonTapped = false
-    var phoneIdentifiedNumber = ""
-    var isPhoneIdentifiedNumberFailedNoti1 = false // 잘못된 인증번호
-    var isPhoneIdentifiedNumberFinalValidated = false
+    var isPhoneNumberSendingButtonTapped = false
+    var phoneCode = ""
+    var isPhoneCodeFailedNoti1 = false // 잘못된 인증번호
+    var isPhoneCodeFailedNoti2 = false // 통신 오류
+    var isPhoneCodeFinalValidated = false
     
     var isAllFilledInPage3: Bool {
-        !realName.isEmpty && !birthYear.isEmpty && !birthMonth.isEmpty && !birthDay.isEmpty && isGenderFinalValidated && isPhoneIdentifiedNumberFinalValidated
+        !realName.isEmpty && !birthYear.isEmpty && !birthMonth.isEmpty && !birthDay.isEmpty && isGenderFinalValidated && isPhoneCodeFinalValidated
     }
     var isAllValidatedInPage3: Bool {
-        isRealNameFinalValidated && isBirthFinalValidated && isGenderFinalValidated && isPhoneIdentifiedNumberFinalValidated
+        isRealNameFinalValidated && isBirthFinalValidated && isGenderFinalValidated && isPhoneCodeFinalValidated
     }
 }

@@ -31,8 +31,27 @@ extension SignUpViewModel {
 
     }
     
-    func verifyPhoneIdentifiedNumber() -> Bool {
-        //
-        return true
+    func verifyPhoneIdentifiedNumber() {
+        let request = VerifySmsRequest(phoneNumber: self.phoneNumber, code: self.phoneCode)
+        
+        AuthCenter.shared.verifySms(request)
+            .map { $0.code }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    print("[verifySms] finished")
+                case .failure(let error):
+                    print("[verifySms] failed: \(error)")
+                    self?.isPhoneCodeFailedNoti2 = true
+                }
+            } receiveValue: { [weak self] code in
+                if code == "SUCCESS" {
+                    self?.isPhoneCodeFinalValidated = true
+                } else {
+                    self?.isPhoneCodeFailedNoti1 = true
+                }
+            }
+            .store(in: &self.cancellables)
     }
 }

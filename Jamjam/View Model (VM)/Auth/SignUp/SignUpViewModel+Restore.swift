@@ -55,7 +55,8 @@ extension SignUpViewModel {
     }
     
     func restoreIdentifiedNumberRelated() {
-        self.isPhoneIdentifiedNumberFinalValidated = false
-        self.isPhoneIdentifiedNumberFailedNoti1 = false
+        self.isPhoneCodeFailedNoti1 = false
+        self.isPhoneCodeFailedNoti2 = false
+        self.isPhoneCodeFinalValidated = false
     }
 }

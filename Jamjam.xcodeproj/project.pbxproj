@@ -31,6 +31,8 @@
 		CA3593662E05952B0069FAF8 /* CategoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3593652E05952B0069FAF8 /* CategoryContentView.swift */; };
 		CA4CF9272E0C1E1100F882C4 /* SendSmsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF9262E0C1E1100F882C4 /* SendSmsRequest.swift */; };
 		CA4CF9292E0C1E3A00F882C4 /* SendSmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF9282E0C1E3A00F882C4 /* SendSmsResponse.swift */; };
+		CA4CF92B2E0C276B00F882C4 /* VerifySmsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF92A2E0C276B00F882C4 /* VerifySmsRequest.swift */; };
+		CA4CF92D2E0C279D00F882C4 /* VerifySmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF92C2E0C279D00F882C4 /* VerifySmsResponse.swift */; };
 		CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7B2E09688700FB1E22 /* FontType.swift */; };
 		CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */; };
 		CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */; };
@@ -114,6 +116,8 @@
 		CA3593652E05952B0069FAF8 /* CategoryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentView.swift; sourceTree = "<group>"; };
 		CA4CF9262E0C1E1100F882C4 /* SendSmsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSmsRequest.swift; sourceTree = "<group>"; };
 		CA4CF9282E0C1E3A00F882C4 /* SendSmsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSmsResponse.swift; sourceTree = "<group>"; };
+		CA4CF92A2E0C276B00F882C4 /* VerifySmsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySmsRequest.swift; sourceTree = "<group>"; };
+		CA4CF92C2E0C279D00F882C4 /* VerifySmsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySmsResponse.swift; sourceTree = "<group>"; };
 		CA5C5E7B2E09688700FB1E22 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretendard.swift; sourceTree = "<group>"; };
 		CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Pretendard.swift"; sourceTree = "<group>"; };
@@ -386,6 +390,7 @@
 				CAAB47F52E0ADC4B000197E5 /* CheckNicknameResponse.swift */,
 				CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */,
 				CA4CF9282E0C1E3A00F882C4 /* SendSmsResponse.swift */,
+				CA4CF92C2E0C279D00F882C4 /* VerifySmsResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 				CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */,
 				CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */,
 				CA4CF9262E0C1E1100F882C4 /* SendSmsRequest.swift */,
+				CA4CF92A2E0C276B00F882C4 /* VerifySmsRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -736,6 +742,7 @@
 				CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */,
 				CA5C5E902E09A0A800FB1E22 /* SignUpWithClientResponse.swift in Sources */,
 				CA87FF922E03DA8600C8C830 /* SignUpViewModel+IdentifyPhoneNumber.swift in Sources */,
+				CA4CF92D2E0C279D00F882C4 /* VerifySmsResponse.swift in Sources */,
 				CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */,
 				CA09155B2DF12CF700E272F8 /* NavigationRouter.swift in Sources */,
 				CAAB47F42E0ADC1D000197E5 /* CheckNicknameRequest.swift in Sources */,
@@ -746,6 +753,7 @@
 				CAAB47F22E0AD13E000197E5 /* AuthCenter+SignUp.swift in Sources */,
 				CA9609B02DFFD17900B878C6 /* CornerRadius.swift in Sources */,
 				CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */,
+				CA4CF92B2E0C276B00F882C4 /* VerifySmsRequest.swift in Sources */,
 				CA87FF782E014B7A00C8C830 /* SignUpViewModel.swift in Sources */,
 				CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */,
 				CAAB47F82E0B0975000197E5 /* SignUpViewModel+Restore.swift in Sources */,
