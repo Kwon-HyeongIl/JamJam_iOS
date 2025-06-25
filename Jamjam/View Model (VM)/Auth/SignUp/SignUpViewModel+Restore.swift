@@ -8,6 +8,7 @@
 import Foundation
 
 extension SignUpViewModel {
+    // Page 2
     func restoreNicknameRelated() {
         self.isNicknameFinalValidated = false
         self.isNicknameFailedNoti1 = false
@@ -32,5 +33,25 @@ extension SignUpViewModel {
     func restoreConfirmPasswordRelated() {
         self.isConfirmPasswordFinalValidated = false
         self.isConfirmPasswordFailedNoti1 = false
+    }
+    
+    // Page 3
+    func restoreRealNameRelated() {
+        self.isRealNameFinalValidated = false
+        self.isRealNameFailedNoti1 = false
+    }
+    
+    func restoreBirthRelated() {
+        self.isBirthFailedNoti1 = false
+    }
+    
+    func restorePhoneNumberRelated() {
+        self.isPhoneNumberFinalValidated = false
+        self.isPhoneNumberFailedNoti1 = false
+    }
+    
+    func restoreIdentifiedNumberRelated() {
+        self.isIdentifiedNumberFinalValidated = false
+        self.isIdentifiedNumberFailedNoti1 = false
     }
 }

@@ -54,8 +54,8 @@ class SignUpViewModel {
     
     // Page 3
     var realName = ""
-    var isRealNameNotification = false
     var isRealNameFinalValidated = false
+    var isRealNameFailedNoti1 = false
     
     var birthYear = ""
     var isBirthYearLocalValidated = false
@@ -63,10 +63,10 @@ class SignUpViewModel {
     var isBirthMonthLocalValidated = false
     var birthDay = ""
     var isBirthDayLocalValidated = false
-    var isBirthNotification = false
     var isBirthFinalValidated: Bool {
         isBirthYearLocalValidated && isBirthMonthLocalValidated && isBirthDayLocalValidated
     }
+    var isBirthFailedNoti1 = false
     
     var gender: Gender?
     var isGenderManButtonTapped = false
@@ -76,12 +76,12 @@ class SignUpViewModel {
     }
     
     var phoneNumber = ""
-    var isPhoneNumberNotification = false
+    var isPhoneNumberFailedNoti1 = false
     var isPhoneNumberFinalValidated = false
     
     var isIdentifiedButtonTapped = false
     var identifiedNumber = ""
-    var isIdentifiedNumberNotification = false
+    var isIdentifiedNumberFailedNoti1 = false
     var isIdentifiedNumberFinalValidated = false
     
     var isAllValidatedInPage3: Bool {

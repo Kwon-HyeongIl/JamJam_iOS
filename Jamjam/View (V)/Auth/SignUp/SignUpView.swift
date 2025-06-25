@@ -555,22 +555,15 @@ struct SignUpView: View {
                                             .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
                                     }
                                     .onChange(of: viewModel.realName) {
-                                        if viewModel.validateRealNameForm() {
-                                            viewModel.isRealNameFinalValidated = true
-                                            
-                                        } else {
-                                            viewModel.isRealNameFinalValidated = false
-                                        }
+                                        viewModel.restoreRealNameRelated()
                                     }
                                     .padding(.horizontal, 35)
                                 
                                 HStack {
-                                    if viewModel.isRealNameNotification {
-                                        if !viewModel.isRealNameFinalValidated {
-                                            Text("한글로 2자 이상으로 입력해주세요.")
-                                                .font(.pretendard(size: 12))
-                                                .foregroundStyle(.red)
-                                        }
+                                    if viewModel.isRealNameFailedNoti1 {
+                                        Text("한글로 2자 이상으로 입력해주세요.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
                                     }
                                     
                                     Spacer()
@@ -601,12 +594,7 @@ struct SignUpView: View {
                                                 .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.birthYear) {
-                                            if viewModel.validateBirthYearForm() {
-                                                viewModel.isBirthYearLocalValidated = true
-                                                
-                                            } else {
-                                                viewModel.isBirthYearLocalValidated = false
-                                            }
+                                            viewModel.restoreBirthRelated()
                                         }
                                         .onChange(of: viewModel.birthYear) { oldValue, newValue in
                                             if newValue.count > 4 {
@@ -627,12 +615,7 @@ struct SignUpView: View {
                                                 .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.birthMonth) {
-                                            if viewModel.validateBirthMonthForm() {
-                                                viewModel.isBirthMonthLocalValidated = true
-                                                
-                                            } else {
-                                                viewModel.isBirthMonthLocalValidated = false
-                                            }
+                                            viewModel.restoreBirthRelated()
                                         }
                                         .onChange(of: viewModel.birthMonth) { oldValue, newValue in
                                             if newValue.count > 2 {
@@ -653,12 +636,7 @@ struct SignUpView: View {
                                                 .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.birthDay) {
-                                            if viewModel.validateBirthDayForm() {
-                                                viewModel.isBirthDayLocalValidated = true
-                                                
-                                            } else {
-                                                viewModel.isBirthDayLocalValidated = false
-                                            }
+                                            viewModel.restoreBirthRelated()
                                         }
                                         .onChange(of: viewModel.birthDay) { oldValue, newValue in
                                             if newValue.count > 2 {
@@ -669,12 +647,10 @@ struct SignUpView: View {
                                 .padding(.horizontal, 35)
                                 
                                 HStack {
-                                    if viewModel.isBirthNotification {
-                                        if !viewModel.isBirthFinalValidated {
-                                            Text("잘못된 날짜 형식입니다.")
-                                                .font(.pretendard(size: 12))
-                                                .foregroundStyle(.red)
-                                        }
+                                    if viewModel.isBirthFailedNoti1 {
+                                        Text("잘못된 날짜 형식입니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
                                     }
                                     
                                     Spacer()
@@ -769,17 +745,11 @@ struct SignUpView: View {
                                                 .stroke(focus == .fifth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fifth ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.phoneNumber) {
-                                            viewModel.isPhoneNumberNotification = false
-                                            
-                                            if viewModel.validatePhoneNumberForm() {
-                                                viewModel.isPhoneNumberFinalValidated = true
-                                            } else {
-                                                viewModel.isPhoneNumberFinalValidated = false
-                                            }
+                                            viewModel.restorePhoneNumberRelated()
                                         }
                                     
                                     Button {
-                                        if viewModel.isPhoneNumberFinalValidated {
+                                        if viewModel.validatePhoneNumberForm() {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
                                                 viewModel.identifyPhoneNumber()
                                                 viewModel.isIdentifiedButtonTapped = true
@@ -787,7 +757,7 @@ struct SignUpView: View {
                                             }
                                             
                                         } else {
-                                            viewModel.isPhoneNumberNotification = true
+                                            viewModel.isPhoneNumberFailedNoti1 = true
                                         }
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
@@ -798,18 +768,17 @@ struct SignUpView: View {
                                                     .font(.pretendard(Pretendard.semiBold, size: 14))
                                                     .foregroundStyle(.white)
                                             }
-                                            .opacity(viewModel.isPhoneNumberFinalValidated ? 1 : 0.4)
+                                            .opacity(viewModel.phoneNumber.count == 11 ? 1 : 0.4)
                                     }
+                                    .disabled(viewModel.phoneNumber.count != 11)
                                 }
                                 .padding(.horizontal, 35)
                                 
                                 HStack {
-                                    if viewModel.isPhoneNumberNotification {
-                                        if !viewModel.isPhoneNumberFinalValidated {
-                                            Text("하이픈(-)을 제외하고 11자로 입력해주세요")
-                                                .font(.pretendard(size: 12))
-                                                .foregroundStyle(.red)
-                                        }
+                                    if viewModel.isPhoneNumberFailedNoti1 {
+                                        Text("하이픈(-)을 제외하고 11자로 입력해주세요")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
                                     }
                                     
                                     Spacer()
@@ -840,34 +809,29 @@ struct SignUpView: View {
                                                 .stroke(focus == .sixth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .sixth ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.identifiedNumber) {
-                                            viewModel.isIdentifiedNumberNotification = false
-                                            viewModel.isIdentifiedNumberFinalValidated = false
+                                            viewModel.restoreIdentifiedNumberRelated()
                                             
                                             if viewModel.identifiedNumber.count == 6 {
                                                 if viewModel.checkIdentifyNumber() {
-                                                    viewModel.isIdentifiedNumberNotification = true
                                                     viewModel.isIdentifiedNumberFinalValidated = true
                                                     focus = nil
                                                     
                                                 } else {
-                                                    viewModel.isIdentifiedNumberNotification = true
-                                                    viewModel.isIdentifiedNumberFinalValidated = false
+                                                    viewModel.isIdentifiedNumberFailedNoti1 = true
                                                 }
                                             }
                                         }
                                         .padding(.horizontal, 35)
                                     
                                     HStack {
-                                        if viewModel.isIdentifiedNumberNotification {
-                                            if viewModel.isIdentifiedNumberFinalValidated {
-                                                Text("확인되었습니다.")
-                                                    .font(.pretendard(size: 12))
-                                                    .foregroundStyle(.green)
-                                            } else {
-                                                Text("잘못된 인증번호입니다.")
-                                                    .font(.pretendard(size: 12))
-                                                    .foregroundStyle(.red)
-                                            }
+                                        if viewModel.isIdentifiedNumberFinalValidated {
+                                            Text("확인되었습니다.")
+                                                .font(.pretendard(size: 12))
+                                                .foregroundStyle(.green)
+                                        } else if viewModel.isIdentifiedNumberFailedNoti1 {
+                                            Text("잘못된 인증번호입니다.")
+                                                .font(.pretendard(size: 12))
+                                                .foregroundStyle(.red)
                                         }
                                         
                                         Spacer()
