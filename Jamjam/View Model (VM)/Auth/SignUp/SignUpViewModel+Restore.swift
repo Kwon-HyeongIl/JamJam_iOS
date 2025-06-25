@@ -50,6 +50,8 @@ extension SignUpViewModel {
     
     func restorePhoneNumberRelated() {
         self.isPhoneNumberFailedNoti1 = false
+        self.isPhoneNumberFailedNoti2 = false
+        self.isPhoneNumberFinalValidated = false
     }
     
     func restoreIdentifiedNumberRelated() {

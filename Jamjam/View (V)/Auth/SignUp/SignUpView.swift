@@ -766,8 +766,9 @@ struct SignUpView: View {
                                     
                                     Button {
                                         if viewModel.validatePhoneNumberForm() {
+                                            viewModel.sendPhoneNumber()
+                                            
                                             withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
-                                                viewModel.identifyPhoneNumber()
                                                 viewModel.isPhoneIdentifiedNumberButtonTapped = true
                                                 position.scrollTo(edge: .bottom)
                                             }
@@ -791,8 +792,18 @@ struct SignUpView: View {
                                 .padding(.horizontal, 35)
                                 
                                 HStack {
-                                    if viewModel.isPhoneNumberFailedNoti1 {
+                                    if viewModel.isPhoneNumberFinalValidated {
+                                        Text("인증코드가 발송 되었습니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
+                                        
+                                    } else if viewModel.isPhoneNumberFailedNoti1 {
                                         Text("하이픈(-)을 제외하고 11자로 입력해주세요")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
+                                        
+                                    } else if viewModel.isPhoneNumberFailedNoti2 {
+                                        Text("인증코드 전송에 실패했습니다.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
                                     }
@@ -828,7 +839,7 @@ struct SignUpView: View {
                                             viewModel.restoreIdentifiedNumberRelated()
                                             
                                             if viewModel.phoneIdentifiedNumber.count == 6 {
-                                                if viewModel.checkIdentifyNumber() {
+                                                if viewModel.verifyPhoneIdentifiedNumber() {
                                                     viewModel.isPhoneIdentifiedNumberFinalValidated = true
                                                     focus = nil
                                                     

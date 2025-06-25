@@ -77,6 +77,8 @@ class SignUpViewModel {
     
     var phoneNumber = ""
     var isPhoneNumberFailedNoti1 = false // 하이픈 제외 11자 입력
+    var isPhoneNumberFailedNoti2 = false
+    var isPhoneNumberFinalValidated = false
     
     var isPhoneIdentifiedNumberButtonTapped = false
     var phoneIdentifiedNumber = ""

@@ -17,23 +17,29 @@ enum API {
     
     // Auth
     case login
-    case signUpWithExpert
-    case signUpWithClient
     case checkNickname
     case checkLoginId
+    case sendSms
+    case verifySms
+    case signUpWithExpert
+    case signUpWithClient
     
     var urlString: String {
         switch self {
         case .login:
             return "\(API.baseURL)/api/user/login"
-        case .signUpWithExpert: 
-            return "\(API.baseURL)/api/user/join/provider"
-        case .signUpWithClient: 
-            return "\(API.baseURL)/api/user/join/client"
         case .checkNickname:
             return "\(API.baseURL)/api/user/check/nickname"
         case .checkLoginId:
             return "\(API.baseURL)/api/user/check/loginId"
+        case .sendSms:
+            return "\(API.baseURL)/api/user/sms/send"
+        case .verifySms:
+            return "\(API.baseURL)/api/user/sms/verify"
+        case .signUpWithExpert:
+            return "\(API.baseURL)/api/user/join/provider"
+        case .signUpWithClient:
+            return "\(API.baseURL)/api/user/join/client"
         }
     }
     

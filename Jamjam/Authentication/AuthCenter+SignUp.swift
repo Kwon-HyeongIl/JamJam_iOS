@@ -12,7 +12,7 @@ import Alamofire
 extension AuthCenter {
     func checkNickname(_ request: CheckNicknameRequest) -> AnyPublisher<CheckNicknameResponse, Error> {
         let url = API.checkNickname.url
-
+        
         return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
             .validate()
             .publishDecodable(type: CheckNicknameResponse.self)
@@ -27,6 +27,17 @@ extension AuthCenter {
         return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
             .validate()
             .publishDecodable(type: CheckLoginIdResponse.self)
+            .value()
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
+    
+    func sendSms(_ request: SendSmsRequest) -> AnyPublisher<SendSmsResponse, Error> {
+        let url = API.sendSms.url
+        
+        return AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)
+            .validate()
+            .publishDecodable(type: SendSmsResponse.self)
             .value()
             .mapError { $0 as Error }
             .eraseToAnyPublisher()

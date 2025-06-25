@@ -29,6 +29,8 @@
 		CA35935F2E0514AE0069FAF8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */; };
 		CA3593642E0565750069FAF8 /* ScrollOffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3593632E0565750069FAF8 /* ScrollOffsetKey.swift */; };
 		CA3593662E05952B0069FAF8 /* CategoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3593652E05952B0069FAF8 /* CategoryContentView.swift */; };
+		CA4CF9272E0C1E1100F882C4 /* SendSmsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF9262E0C1E1100F882C4 /* SendSmsRequest.swift */; };
+		CA4CF9292E0C1E3A00F882C4 /* SendSmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF9282E0C1E3A00F882C4 /* SendSmsResponse.swift */; };
 		CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7B2E09688700FB1E22 /* FontType.swift */; };
 		CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */; };
 		CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */; };
@@ -110,6 +112,8 @@
 		CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		CA3593632E0565750069FAF8 /* ScrollOffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffsetKey.swift; sourceTree = "<group>"; };
 		CA3593652E05952B0069FAF8 /* CategoryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentView.swift; sourceTree = "<group>"; };
+		CA4CF9262E0C1E1100F882C4 /* SendSmsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSmsRequest.swift; sourceTree = "<group>"; };
+		CA4CF9282E0C1E3A00F882C4 /* SendSmsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSmsResponse.swift; sourceTree = "<group>"; };
 		CA5C5E7B2E09688700FB1E22 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretendard.swift; sourceTree = "<group>"; };
 		CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Pretendard.swift"; sourceTree = "<group>"; };
@@ -381,6 +385,7 @@
 				CA5C5E8D2E09A09C00FB1E22 /* SignUpWithExpertResponse.swift */,
 				CAAB47F52E0ADC4B000197E5 /* CheckNicknameResponse.swift */,
 				CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */,
+				CA4CF9282E0C1E3A00F882C4 /* SendSmsResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 				CA5C5E9B2E09A55B00FB1E22 /* SignUpWithExpertRequest.swift */,
 				CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */,
 				CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */,
+				CA4CF9262E0C1E1100F882C4 /* SendSmsRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -711,6 +717,7 @@
 				CA5C5E982E09A47600FB1E22 /* TestViewModel.swift in Sources */,
 				CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */,
 				CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */,
+				CA4CF9272E0C1E1100F882C4 /* SendSmsRequest.swift in Sources */,
 				CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */,
 				CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */,
 				CA09154D2DF128A400E272F8 /* ContentView.swift in Sources */,
@@ -753,6 +760,7 @@
 				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,
 				CA9609CA2E00225500B878C6 /* MainBackground.swift in Sources */,
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,
+				CA4CF9292E0C1E3A00F882C4 /* SendSmsResponse.swift in Sources */,
 				CA87FF942E040FDE00C8C830 /* SignUpViewModel+Complete.swift in Sources */,
 				CA5C5E962E09A42A00FB1E22 /* TestView.swift in Sources */,
 				CA09155D2DF12D6A00E272F8 /* NavigationDestinationPath.swift in Sources */,

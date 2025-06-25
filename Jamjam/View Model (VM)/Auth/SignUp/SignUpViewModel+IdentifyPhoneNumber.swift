@@ -8,11 +8,30 @@
 import Foundation
 
 extension SignUpViewModel {
-    func identifyPhoneNumber() {
-        // 백엔드 http 통신
+    func sendPhoneNumber() {
+        let request = SendSmsRequest(phoneNumber: self.phoneNumber)
+        
+        AuthCenter.shared.sendSms(request)
+            .map { $0.code }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    print("[sendSms] finished")
+                case .failure(let error):
+                    print("[sendSms] failed: \(error)")
+                    self?.isPhoneNumberFailedNoti2 = true
+                }
+            } receiveValue: { [weak self] code in
+                if code == "SUCCESS" {
+                    self?.isPhoneNumberFinalValidated = true
+                }
+            }
+            .store(in: &self.cancellables)
+
     }
     
-    func checkIdentifyNumber() -> Bool {
+    func verifyPhoneIdentifiedNumber() -> Bool {
         //
         return true
     }
