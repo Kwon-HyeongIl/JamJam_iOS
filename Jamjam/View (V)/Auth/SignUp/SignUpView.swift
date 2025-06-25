@@ -195,7 +195,7 @@ struct SignUpView: View {
                                     
                                     Button {
                                         if viewModel.validateNicknameForm() {
-                                            viewModel.checkNickname()
+                                            viewModel.checkNicknameIsDuplicated()
                                         } else {
                                             viewModel.isNicknameFailedNoti3 = true
                                         }
@@ -287,7 +287,7 @@ struct SignUpView: View {
                                     
                                     Button {
                                         if viewModel.validateIdForm() {
-                                            viewModel.checkId()
+                                            viewModel.checkIdIsDuplicated()
                                         } else {
                                             viewModel.isIdFailedNoti3 = true
                                         }

@@ -14,7 +14,7 @@ extension SignUpViewModel {
         return predicate.evaluate(with: self.nickname)
     }
     
-    func checkNickname() {
+    func checkNicknameIsDuplicated() {
         let request = CheckNicknameRequest(nickname: self.nickname)
         
         AuthCenter.shared.checkNickname(request)
@@ -45,7 +45,7 @@ extension SignUpViewModel {
         return predicate.evaluate(with: self.id)
     }
     
-    func checkId() -> Bool {
+    func checkIdIsDuplicated() -> Bool {
         // 백엔드 통신
         return true
     }

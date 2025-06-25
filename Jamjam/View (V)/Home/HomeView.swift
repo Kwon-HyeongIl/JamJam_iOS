@@ -23,7 +23,7 @@ struct HomeView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 85)
-                            .padding(.leading, 25)
+                            .padding(.leading, 20)
                             .padding(.top, 40)
                         
                         Spacer()
@@ -32,7 +32,7 @@ struct HomeView: View {
                             navRouter.navigate(.loginView)
                         } label: {
                             RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 64, height: 28)
+                                .frame(width: 64, height: 30)
                                 .foregroundStyle(Color.JJTitle)
                                 .overlay {
                                     Text("로그인")
@@ -40,7 +40,7 @@ struct HomeView: View {
                                         .foregroundStyle(.white)
                                 }
                                 .padding(.top, 40)
-                                .padding(.trailing, 25)
+                                .padding(.trailing, 20)
                         }
                     }
                 }
@@ -55,7 +55,7 @@ struct HomeView: View {
                                 .font(.pretendard(Pretendard.bold, size: 23))
                                 .multilineTextAlignment(.leading)
                                 .padding(.top)
-                                .padding(.leading, 25)
+                                .padding(.leading, 20)
                             
                             Spacer()
                         }
@@ -67,7 +67,7 @@ struct HomeView: View {
                         } label: {
                             RoundedRectangle(cornerRadius: 10)
                                 .frame(height: 44)
-                                .padding(.horizontal, 25)
+                                .padding(.horizontal, 20)
                                 .foregroundStyle(.white)
                                 .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
@@ -86,7 +86,7 @@ struct HomeView: View {
                                             .foregroundStyle(Color.JJTitle)
                                             .padding(.trailing)
                                     }
-                                    .padding(.horizontal, 25)
+                                    .padding(.horizontal, 20)
                                 }
                         }
                         
@@ -126,7 +126,7 @@ struct HomeView: View {
                                                     .frame(width: 33)
                                                 
                                                 Text("경영•기획")
-                                                    .font(.pretendard(Pretendard.semiBold, size: 16))
+                                                    .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
                                         }
@@ -147,12 +147,12 @@ struct HomeView: View {
                                                 .frame(width: 33)
                                             
                                             Text("컨설팅•멘토링")
-                                                .font(.pretendard(Pretendard.semiBold, size: 16))
+                                                .font(.pretendard(Pretendard.semiBold, size: 15))
                                                 .foregroundStyle(.black)
                                         }
                                     }
                             }
-                            .padding(.horizontal, 25)
+                            .padding(.horizontal, 20)
                             
                             HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
@@ -170,7 +170,7 @@ struct HomeView: View {
                                                 .frame(width: 33)
                                             
                                             Text("마케팅•홍보")
-                                                .font(.pretendard(Pretendard.semiBold, size: 16))
+                                                .font(.pretendard(Pretendard.semiBold, size: 15))
                                                 .foregroundStyle(.black)
                                         }
                                     }
@@ -190,12 +190,12 @@ struct HomeView: View {
                                                 .frame(width: 33)
                                             
                                             Text("개발•IT")
-                                                .font(.pretendard(Pretendard.semiBold, size: 16))
+                                                .font(.pretendard(Pretendard.semiBold, size: 15))
                                                 .foregroundStyle(.black)
                                         }
                                     }
                             }
-                            .padding(.horizontal, 25)
+                            .padding(.horizontal, 20)
                             
                             HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
@@ -213,7 +213,7 @@ struct HomeView: View {
                                                 .frame(width: 33)
                                             
                                             Text("디자인•편집")
-                                                .font(.pretendard(Pretendard.semiBold, size: 16))
+                                                .font(.pretendard(Pretendard.semiBold, size: 15))
                                                 .foregroundStyle(.black)
                                         }
                                     }
@@ -233,12 +233,12 @@ struct HomeView: View {
                                                 .frame(width: 33)
                                             
                                             Text("문서•작문")
-                                                .font(.pretendard(Pretendard.semiBold, size: 16))
+                                                .font(.pretendard(Pretendard.semiBold, size: 15))
                                                 .foregroundStyle(.black)
                                         }
                                     }
                             }
-                            .padding(.horizontal, 25)
+                            .padding(.horizontal, 20)
                             
                             HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
@@ -256,7 +256,7 @@ struct HomeView: View {
                                                 .frame(width: 33)
                                             
                                             Text("번역•통역")
-                                                .font(.pretendard(Pretendard.semiBold, size: 16))
+                                                .font(.pretendard(Pretendard.semiBold, size: 15))
                                                 .foregroundStyle(.black)
                                         }
                                     }
@@ -276,12 +276,12 @@ struct HomeView: View {
                                                 .frame(width: 33)
                                             
                                             Text("사진•영상")
-                                                .font(.pretendard(Pretendard.semiBold, size: 16))
+                                                .font(.pretendard(Pretendard.semiBold, size: 15))
                                                 .foregroundStyle(.black)
                                         }
                                     }
                             }
-                            .padding(.horizontal, 25)
+                            .padding(.horizontal, 20)
                             
                             HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
@@ -299,7 +299,7 @@ struct HomeView: View {
                                                 .frame(width: 33)
                                             
                                             Text("교육•강의")
-                                                .font(.pretendard(Pretendard.semiBold, size: 16))
+                                                .font(.pretendard(Pretendard.semiBold, size: 15))
                                                 .foregroundStyle(.black)
                                         }
                                     }
@@ -319,12 +319,12 @@ struct HomeView: View {
                                                 .frame(width: 33)
                                             
                                             Text("주문 제작")
-                                                .font(.pretendard(Pretendard.semiBold, size: 16))
+                                                .font(.pretendard(Pretendard.semiBold, size: 15))
                                                 .foregroundStyle(.black)
                                         }
                                     }
                             }
-                            .padding(.horizontal, 25)
+                            .padding(.horizontal, 20)
                             
                             HStack(spacing: 15) {
                                 RoundedRectangle(cornerRadius: 10)
@@ -342,7 +342,7 @@ struct HomeView: View {
                                                 .frame(width: 33)
                                             
                                             Text("취미 레슨")
-                                                .font(.pretendard(Pretendard.semiBold, size: 16))
+                                                .font(.pretendard(Pretendard.semiBold, size: 15))
                                                 .foregroundStyle(.black)
                                         }
                                     }
@@ -362,12 +362,12 @@ struct HomeView: View {
                                                 .frame(width: 33)
                                             
                                             Text("생활 서비스")
-                                                .font(.pretendard(Pretendard.semiBold, size: 16))
+                                                .font(.pretendard(Pretendard.semiBold, size: 15))
                                                 .foregroundStyle(.black)
                                         }
                                     }
                             }
-                            .padding(.horizontal, 25)
+                            .padding(.horizontal, 20)
                         }
                         
                         VStack {}

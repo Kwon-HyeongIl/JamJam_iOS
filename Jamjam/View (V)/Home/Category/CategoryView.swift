@@ -38,14 +38,14 @@ struct CategoryView: View {
                                 navRouter.navigate(.loginView)
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 64, height: 28)
+                                    .frame(width: 64, height: 30)
                                     .foregroundStyle(Color.JJTitle)
                                     .overlay {
                                         Text("로그인")
                                             .font(.pretendard(Pretendard.semiBold, size: 14))
                                             .foregroundStyle(.white)
                                     }
-                                    .padding(.trailing, 25)
+                                    .padding(.trailing, 20)
                             }
                         }
                         
@@ -68,7 +68,7 @@ struct CategoryView: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.gray.opacity(0.5), lineWidth: 1)
                         }
-                        .padding(.horizontal, 25)
+                        .padding(.horizontal, 20)
                         .foregroundStyle(.white)
                         .overlay {
                             HStack {
@@ -86,7 +86,7 @@ struct CategoryView: View {
                                     .foregroundStyle(Color.JJTitle)
                                     .padding(.trailing)
                             }
-                            .padding(.horizontal, 25)
+                            .padding(.horizontal, 20)
                         }
                         .opacity(viewModel.isSearchBarVisible ? 1 : 0)
                 }
@@ -105,7 +105,7 @@ struct CategoryView: View {
                                                      ? Color.JJTitle
                                                      : .gray)
                                     .padding(.leading,
-                                             idx == 0 ? 25 : 0)
+                                             idx == 0 ? 20 : 0)
                                     .animation(nil, value: viewModel.selectedIndex)
                                 
                                 if idx == viewModel.selectedIndex {
