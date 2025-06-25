@@ -42,12 +42,31 @@ extension SignUpViewModel {
     func validateIdForm() -> Bool {
         let pattern = "^[a-z][a-z0-9]{3,}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
-        return predicate.evaluate(with: self.id)
+        return predicate.evaluate(with: self.loginId)
     }
     
-    func checkIdIsDuplicated() -> Bool {
-        // 백엔드 통신
-        return true
+    func checkIdIsDuplicated() {
+        let request = CheckLoginIdRequest(loginId: self.loginId)
+        
+        AuthCenter.shared.checkLoginId(request)
+            .map { $0.content.available }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    print("[checkLoginId] finished")
+                case .failure(let error):
+                    print("[checkLoginId] failed: \(error)")
+                    self?.isloginIdFailedNoti2 = true
+                }
+            } receiveValue: { [weak self] available in
+                if available {
+                    self?.isloginIdFinalValidated = true
+                } else {
+                    self?.isloginIdFailedNoti1 = true
+                }
+            }
+            .store(in: &self.cancellables)
     }
     
     

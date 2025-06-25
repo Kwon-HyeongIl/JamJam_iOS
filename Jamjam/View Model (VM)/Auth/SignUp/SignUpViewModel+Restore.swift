@@ -9,18 +9,28 @@ import Foundation
 
 extension SignUpViewModel {
     func restoreNicknameRelated() {
-        self.isNicknameFailedNoti1 = false 
+        self.isNicknameFinalValidated = false
+        self.isNicknameFailedNoti1 = false
         self.isNicknameFailedNoti2 = false
         self.isNicknameFailedNoti3 = false
         self.isNicknameFailedNoti4 = false
-        self.isNicknameFinalValidated = false
     }
     
     func restoreIdRelated() {
-        self.isIdFailedNoti1 = false
-        self.isIdFailedNoti2 = false
-        self.isIdFailedNoti3 = false
-        self.isIdFailedNoti4 = false
-        self.isIdFinalValidated = false
+        self.isloginIdFinalValidated = false
+        self.isloginIdFailedNoti1 = false
+        self.isloginIdFailedNoti2 = false
+        self.isloginIdFailedNoti3 = false
+        self.isloginIdFailedNoti4 = false
+    }
+    
+    func restorePasswordRelated() {
+        self.isPasswordFinalValidated = false
+        self.isPasswordFailedNoti1 = false
+    }
+    
+    func restoreConfirmPasswordRelated() {
+        self.isConfirmPasswordFinalValidated = false
+        self.isConfirmPasswordFailedNoti1 = false
     }
 }

@@ -21,6 +21,17 @@ extension AuthCenter {
             .eraseToAnyPublisher()
     }
     
+    func checkLoginId(_ request: CheckLoginIdRequest) -> AnyPublisher<CheckLoginIdResponse, Error> {
+        let url = API.checkLoginId.url
+        
+        return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
+            .validate()
+            .publishDecodable(type: CheckLoginIdResponse.self)
+            .value()
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
+    
     func signUpWithProvider(_ request: SignUpWithExpertRequest) -> AnyPublisher<SignUpWithExpertResponse, Error> {
         let url = API.signUpWithExpert.url
         

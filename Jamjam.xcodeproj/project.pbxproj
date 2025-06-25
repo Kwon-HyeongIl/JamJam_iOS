@@ -78,6 +78,8 @@
 		CAAB47F42E0ADC1D000197E5 /* CheckNicknameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */; };
 		CAAB47F62E0ADC4B000197E5 /* CheckNicknameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F52E0ADC4B000197E5 /* CheckNicknameResponse.swift */; };
 		CAAB47F82E0B0975000197E5 /* SignUpViewModel+Restore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F72E0B0975000197E5 /* SignUpViewModel+Restore.swift */; };
+		CAAB47FA2E0BB1A1000197E5 /* CheckLoginIdRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */; };
+		CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */; };
 		CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB13BD2DF69261007C9E35 /* SplashView.swift */; };
 		CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAD3106D2E09B56200A5FAA4 /* Alamofire */; };
 /* End PBXBuildFile section */
@@ -153,6 +155,8 @@
 		CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameRequest.swift; sourceTree = "<group>"; };
 		CAAB47F52E0ADC4B000197E5 /* CheckNicknameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameResponse.swift; sourceTree = "<group>"; };
 		CAAB47F72E0B0975000197E5 /* SignUpViewModel+Restore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Restore.swift"; sourceTree = "<group>"; };
+		CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoginIdRequest.swift; sourceTree = "<group>"; };
+		CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoginIdResponse.swift; sourceTree = "<group>"; };
 		CABB13BD2DF69261007C9E35 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -376,6 +380,7 @@
 				CA5C5E8F2E09A0A800FB1E22 /* SignUpWithClientResponse.swift */,
 				CA5C5E8D2E09A09C00FB1E22 /* SignUpWithExpertResponse.swift */,
 				CAAB47F52E0ADC4B000197E5 /* CheckNicknameResponse.swift */,
+				CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 			children = (
 				CA5C5E9B2E09A55B00FB1E22 /* SignUpWithExpertRequest.swift */,
 				CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */,
+				CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -743,6 +749,7 @@
 				CA5C5E8E2E09A09C00FB1E22 /* SignUpWithExpertResponse.swift in Sources */,
 				CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */,
 				CA5C5E862E099CED00FB1E22 /* AuthCenter.swift in Sources */,
+				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */,
 				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,
 				CA9609CA2E00225500B878C6 /* MainBackground.swift in Sources */,
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,
@@ -757,6 +764,7 @@
 				CA5C5E9C2E09A55B00FB1E22 /* SignUpWithExpertRequest.swift in Sources */,
 				CA87FF7B2E014C3300C8C830 /* JJUser.swift in Sources */,
 				CA3593662E05952B0069FAF8 /* CategoryContentView.swift in Sources */,
+				CAAB47FA2E0BB1A1000197E5 /* CheckLoginIdRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

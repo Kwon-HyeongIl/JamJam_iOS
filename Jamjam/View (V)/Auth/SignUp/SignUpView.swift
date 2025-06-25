@@ -224,27 +224,23 @@ struct SignUpView: View {
                                         Text("사용 가능한 닉네임 입니다.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.green)
-                                    }
-                                    
-                                    if viewModel.isNicknameFailedNoti1 {
+                                        
+                                    } else if viewModel.isNicknameFailedNoti1 {
                                         Text("중복된 닉네임 입니다.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
-                                    }
-                                    
-                                    if viewModel.isNicknameFailedNoti2 {
+                                        
+                                    } else if viewModel.isNicknameFailedNoti2 {
                                         Text("통신에 문제가 생겼습니다.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
-                                    }
-                                    
-                                    if viewModel.isNicknameFailedNoti3 {
+                                        
+                                    } else if viewModel.isNicknameFailedNoti3 {
                                         Text("10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
-                                    }
-                                    
-                                    if viewModel.isNicknameFailedNoti4 {
+                                        
+                                    } else if viewModel.isNicknameFailedNoti4 {
                                         Text("2자 이상으로 입력해주세요.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
@@ -266,7 +262,7 @@ struct SignUpView: View {
                                 }
                                 
                                 HStack {
-                                    TextField("소문자로 시작, 소문자와 숫자만 허용", text: $viewModel.id)
+                                    TextField("소문자로 시작, 소문자와 숫자만 허용", text: $viewModel.loginId)
                                         .focused($focus, equals: .second)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
@@ -277,11 +273,11 @@ struct SignUpView: View {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
                                         }
-                                        .onChange(of: viewModel.id) {
+                                        .onChange(of: viewModel.loginId) {
                                             viewModel.restoreIdRelated()
                                             
-                                            if viewModel.id.count >= 1 && viewModel.id.count < 4 {
-                                                viewModel.isIdFailedNoti4 = false
+                                            if viewModel.loginId.count >= 1 && viewModel.loginId.count < 4 {
+                                                viewModel.isloginIdFailedNoti4 = false
                                             }
                                         }
                                     
@@ -289,7 +285,7 @@ struct SignUpView: View {
                                         if viewModel.validateIdForm() {
                                             viewModel.checkIdIsDuplicated()
                                         } else {
-                                            viewModel.isIdFailedNoti3 = true
+                                            viewModel.isloginIdFailedNoti3 = true
                                         }
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
@@ -300,11 +296,11 @@ struct SignUpView: View {
                                                     .font(.pretendard(Pretendard.semiBold, size: 14))
                                                     .foregroundStyle(.white)
                                             }
-                                            .opacity(viewModel.id.count > 4 ? 1 : 0.4)
+                                            .opacity(viewModel.loginId.count > 4 ? 1 : 0.4)
                                     }
-                                    .disabled(viewModel.id.count < 4)
-                                    .onChange(of: viewModel.isIdFinalValidated) {
-                                        if viewModel.isIdFinalValidated {
+                                    .disabled(viewModel.loginId.count < 4)
+                                    .onChange(of: viewModel.isloginIdFinalValidated) {
+                                        if viewModel.isloginIdFinalValidated {
                                             focus = nil
                                         }
                                     }
@@ -312,31 +308,27 @@ struct SignUpView: View {
                                 .padding(.horizontal, 35)
                                 
                                 HStack {
-                                    if viewModel.isIdFinalValidated {
+                                    if viewModel.isloginIdFinalValidated {
                                         Text("사용 가능한 아이디 입니다.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.green)
-                                    }
-                                    
-                                    if viewModel.isIdFailedNoti1 {
+                                        
+                                    } else if viewModel.isloginIdFailedNoti1 {
                                         Text("중복된 아이디 입니다.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
-                                    }
-                                    
-                                    if viewModel.isIdFailedNoti2 {
+                                        
+                                    }else if viewModel.isloginIdFailedNoti2 {
                                         Text("통신에 문제가 생겼습니다.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
-                                    }
-                                    
-                                    if viewModel.isIdFailedNoti3 {
+                                        
+                                    } else if viewModel.isloginIdFailedNoti3 {
                                         Text("소문자로 시작 및 소문자와 숫자만 허용됩니다.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
-                                    }
-                                    
-                                    if viewModel.isIdFailedNoti4 {
+                                        
+                                    } else if viewModel.isloginIdFailedNoti4 {
                                         Text("4자 이상으로 입력해주세요.")
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
@@ -371,20 +363,12 @@ struct SignUpView: View {
                                                     .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
                                             }
                                             .onChange(of: viewModel.password) {
-                                                if viewModel.password.count == 0 {
-                                                    viewModel.isPasswordNotification = false
-                                                    
+                                                viewModel.restorePasswordRelated()
+                                                
+                                                if viewModel.validatePasswordForm() {
+                                                    viewModel.isPasswordFinalValidated = true
                                                 } else {
-                                                    if viewModel.password.count >= 8 {
-                                                        viewModel.isPasswordNotification = true
-                                                        
-                                                        if viewModel.validatePasswordForm() {
-                                                            viewModel.isPasswordFinalValidated = true
-                                                            
-                                                        } else {
-                                                            viewModel.isPasswordFinalValidated = false
-                                                        }
-                                                    }
+                                                    viewModel.isPasswordFailedNoti1 = true
                                                 }
                                             }
                                             .padding(.horizontal, 35)
@@ -402,20 +386,12 @@ struct SignUpView: View {
                                                     .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
                                             }
                                             .onChange(of: viewModel.password) {
-                                                if viewModel.password.count == 0 {
-                                                    viewModel.isPasswordNotification = false
-                                                    
+                                                viewModel.restorePasswordRelated()
+                                                
+                                                if viewModel.validatePasswordForm() {
+                                                    viewModel.isPasswordFinalValidated = true
                                                 } else {
-                                                    viewModel.isPasswordNotification = true
-                                                    
-                                                    if viewModel.password.count >= 8 {
-                                                        if viewModel.validatePasswordForm() {
-                                                            viewModel.isPasswordFinalValidated = true
-                                                            
-                                                        } else {
-                                                            viewModel.isPasswordFinalValidated = false
-                                                        }
-                                                    }
+                                                    viewModel.isPasswordFailedNoti1 = true
                                                 }
                                             }
                                             .padding(.horizontal, 35)
@@ -438,16 +414,15 @@ struct SignUpView: View {
                                 }
                                 
                                 HStack {
-                                    if viewModel.isPasswordNotification {
-                                        if viewModel.isPasswordFinalValidated {
-                                            Text("사용 가능한 비밀번호 입니다.")
-                                                .font(.pretendard(size: 12))
-                                                .foregroundStyle(.green)
-                                        } else {
-                                            Text("영문과 숫자를 포함하여 8자 이상이어야 합니다.")
-                                                .font(.pretendard(size: 12))
-                                                .foregroundStyle(.red)
-                                        }
+                                    if viewModel.isPasswordFinalValidated {
+                                        Text("사용 가능한 비밀번호 입니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.green)
+                                        
+                                    } else if viewModel.isPasswordFailedNoti1 {
+                                        Text("영문과 숫자를 포함하여 8자 이상이어야 합니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
                                     }
                                     
                                     Spacer()
@@ -479,18 +454,14 @@ struct SignUpView: View {
                                                     .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
                                             }
                                             .onChange(of: viewModel.confirmPassword) {
-                                                if viewModel.confirmPassword.count == 0 {
-                                                    viewModel.isConfirmPasswordNotification = false
+                                                viewModel.restoreConfirmPasswordRelated()
+                                                
+                                                if viewModel.validateConfrimPassword() {
+                                                    viewModel.isConfirmPasswordFinalValidated = true
+                                                    focus = nil
                                                     
                                                 } else {
-                                                    viewModel.isConfirmPasswordNotification = true
-                                                    
-                                                    if viewModel.validateConfrimPassword() {
-                                                        viewModel.isConfirmPasswordFinalValidated = true
-                                                        
-                                                    } else {
-                                                        viewModel.isConfirmPasswordFinalValidated = false
-                                                    }
+                                                    viewModel.isConfirmPasswordFailedNoti1 = true
                                                 }
                                             }
                                             .padding(.horizontal, 35)
@@ -508,19 +479,14 @@ struct SignUpView: View {
                                                     .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
                                             }
                                             .onChange(of: viewModel.confirmPassword) {
-                                                if viewModel.confirmPassword.count == 0 {
-                                                    viewModel.isConfirmPasswordNotification = false
+                                                viewModel.restoreConfirmPasswordRelated()
+                                                
+                                                if viewModel.validateConfrimPassword() {
+                                                    viewModel.isConfirmPasswordFinalValidated = true
+                                                    focus = nil
                                                     
                                                 } else {
-                                                    viewModel.isConfirmPasswordNotification = true
-                                                    
-                                                    if viewModel.validateConfrimPassword() {
-                                                        viewModel.isConfirmPasswordFinalValidated = true
-                                                        focus = nil
-                                                        
-                                                    } else {
-                                                        viewModel.isConfirmPasswordFinalValidated = false
-                                                    }
+                                                    viewModel.isConfirmPasswordFailedNoti1 = true
                                                 }
                                             }
                                             .padding(.horizontal, 35)
@@ -543,16 +509,15 @@ struct SignUpView: View {
                                 }
                                 
                                 HStack {
-                                    if viewModel.isConfirmPasswordNotification {
-                                        if viewModel.isConfirmPasswordFinalValidated {
-                                            Text("비밀번호가 일치합니다.")
-                                                .font(.pretendard(size: 12))
-                                                .foregroundStyle(.green)
-                                        } else {
-                                            Text("비밀번호가 일치하지 않습니다.")
-                                                .font(.pretendard(size: 12))
-                                                .foregroundStyle(.red)
-                                        }
+                                    if viewModel.isConfirmPasswordFinalValidated {
+                                        Text("비밀번호가 일치합니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.green)
+                                        
+                                    } else if viewModel.isConfirmPasswordFailedNoti1 {
+                                        Text("비밀번호가 일치하지 않습니다.")
+                                            .font(.pretendard(size: 12))
+                                            .foregroundStyle(.red)
                                     }
                                     
                                     Spacer()

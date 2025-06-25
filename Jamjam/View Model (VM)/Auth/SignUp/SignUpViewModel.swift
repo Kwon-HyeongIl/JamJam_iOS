@@ -24,33 +24,32 @@ class SignUpViewModel {
     
     // Page 2
     var nickname =  ""
-    
+    var isNicknameFinalValidated = false
     var isNicknameFailedNoti1 = false // 중복
     var isNicknameFailedNoti2 = false // 통신 에러
     var isNicknameFailedNoti3 = false // 10글자 이내의 한글, 영문, 숫자
     var isNicknameFailedNoti4 = false // 2자 이상
-    var isNicknameFinalValidated = false
     
-    var id = ""
-    var isIdFailedNoti1 = false // 중복
-    var isIdFailedNoti2 = false // 통신 에러
-    var isIdFailedNoti3 = false // 소문자 시작 및 소문자 또는 숫자
-    var isIdFailedNoti4 = false // 4자 이상
-    var isIdFinalValidated = false
+    var loginId = ""
+    var isloginIdFinalValidated = false
+    var isloginIdFailedNoti1 = false // 중복
+    var isloginIdFailedNoti2 = false // 통신 에러
+    var isloginIdFailedNoti3 = false // 소문자 시작 및 소문자 또는 숫자
+    var isloginIdFailedNoti4 = false // 4자 이상
     
     var password = ""
-    var isPasswordNotification = false
     var isPasswordFinalValidated = false
+    var isPasswordFailedNoti1 = false
     
     var confirmPassword = ""
-    var isConfirmPasswordNotification = false
+    var isConfirmPasswordFailedNoti1 = false
     var isConfirmPasswordFinalValidated = false
     
     var isPasswordSecured = true
     var isConfirmPasswordSecured = true
     
     var isAllValidatedInPage2: Bool {
-        isNicknameFinalValidated && isIdFinalValidated && isPasswordFinalValidated && isConfirmPasswordFinalValidated
+        isNicknameFinalValidated && isloginIdFinalValidated && isPasswordFinalValidated && isConfirmPasswordFinalValidated
     }
     
     // Page 3

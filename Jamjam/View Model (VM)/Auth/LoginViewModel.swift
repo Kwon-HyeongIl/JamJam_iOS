@@ -9,6 +9,6 @@ import Foundation
 
 @Observable
 class LoginViewModel {
-    var id = ""
+    var loginId = ""
     var password = ""
 }
