@@ -768,7 +768,7 @@ struct SignUpView: View {
                                         if viewModel.validatePhoneNumberForm() {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
                                                 viewModel.identifyPhoneNumber()
-                                                viewModel.isIdentifiedButtonTapped = true
+                                                viewModel.isPhoneIdentifiedNumberButtonTapped = true
                                                 position.scrollTo(edge: .bottom)
                                             }
                                             
@@ -803,7 +803,7 @@ struct SignUpView: View {
                             }
                             .padding(.bottom)
                             
-                            if viewModel.isIdentifiedButtonTapped {
+                            if viewModel.isPhoneIdentifiedNumberButtonTapped {
                                 VStack {
                                     HStack {
                                         Text("인증번호")
@@ -813,7 +813,7 @@ struct SignUpView: View {
                                         Spacer()
                                     }
                                     
-                                    TextField("인증번호 6자리를 입력해 주세요", text: $viewModel.identifiedNumber)
+                                    TextField("인증번호 6자리를 입력해 주세요", text: $viewModel.phoneIdentifiedNumber)
                                         .focused($focus, equals: .sixth)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
@@ -824,27 +824,27 @@ struct SignUpView: View {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(focus == .sixth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .sixth ? 1.5 : 1)
                                         }
-                                        .onChange(of: viewModel.identifiedNumber) {
+                                        .onChange(of: viewModel.phoneIdentifiedNumber) {
                                             viewModel.restoreIdentifiedNumberRelated()
                                             
-                                            if viewModel.identifiedNumber.count == 6 {
+                                            if viewModel.phoneIdentifiedNumber.count == 6 {
                                                 if viewModel.checkIdentifyNumber() {
-                                                    viewModel.isIdentifiedNumberFinalValidated = true
+                                                    viewModel.isPhoneIdentifiedNumberFinalValidated = true
                                                     focus = nil
                                                     
                                                 } else {
-                                                    viewModel.isIdentifiedNumberFailedNoti1 = true
+                                                    viewModel.isPhoneIdentifiedNumberFailedNoti1 = true
                                                 }
                                             }
                                         }
                                         .padding(.horizontal, 35)
                                     
                                     HStack {
-                                        if viewModel.isIdentifiedNumberFinalValidated {
+                                        if viewModel.isPhoneIdentifiedNumberFinalValidated {
                                             Text("확인되었습니다.")
                                                 .font(.pretendard(size: 12))
                                                 .foregroundStyle(.green)
-                                        } else if viewModel.isIdentifiedNumberFailedNoti1 {
+                                        } else if viewModel.isPhoneIdentifiedNumberFailedNoti1 {
                                             Text("잘못된 인증번호입니다.")
                                                 .font(.pretendard(size: 12))
                                                 .foregroundStyle(.red)

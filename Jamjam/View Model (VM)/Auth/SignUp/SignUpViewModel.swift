@@ -78,15 +78,15 @@ class SignUpViewModel {
     var phoneNumber = ""
     var isPhoneNumberFailedNoti1 = false
     
-    var isIdentifiedButtonTapped = false
-    var identifiedNumber = ""
-    var isIdentifiedNumberFailedNoti1 = false
-    var isIdentifiedNumberFinalValidated = false
+    var isPhoneIdentifiedNumberButtonTapped = false
+    var phoneIdentifiedNumber = ""
+    var isPhoneIdentifiedNumberFailedNoti1 = false
+    var isPhoneIdentifiedNumberFinalValidated = false
     
     var isAllFilledInPage3: Bool {
-        !realName.isEmpty && !birthYear.isEmpty && !birthMonth.isEmpty && !birthDay.isEmpty && isGenderFinalValidated && isIdentifiedNumberFinalValidated
+        !realName.isEmpty && !birthYear.isEmpty && !birthMonth.isEmpty && !birthDay.isEmpty && isGenderFinalValidated && isPhoneIdentifiedNumberFinalValidated
     }
     var isAllValidatedInPage3: Bool {
-        isRealNameFinalValidated && isBirthFinalValidated && isGenderFinalValidated && isIdentifiedNumberFinalValidated
+        isRealNameFinalValidated && isBirthFinalValidated && isGenderFinalValidated && isPhoneIdentifiedNumberFinalValidated
     }
 }
