@@ -932,8 +932,10 @@ struct SignUpView: View {
                             }
                             
                             Button {
-                                viewModel.completeSignUp()
-                                navRouter.popToRoot()
+                                if viewModel.validateRealNameForm() && viewModel.validateBirthYearForm() && viewModel.validateBirthMonthForm() && viewModel.validateBirthDayForm() && viewModel.isGenderFinalValidated && viewModel.isPhoneNumberFinalValidated && viewModel.isIdentifiedNumberFinalValidated {
+                                    viewModel.completeSignUp()
+                                    navRouter.popToRoot()
+                                }
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 50)
@@ -943,8 +945,8 @@ struct SignUpView: View {
                                             .font(.pretendard(Pretendard.semiBold, size: 17))
                                             .foregroundStyle(.white)
                                     }
-                                    .opacity(viewModel.isAllValidatedInPage3 ? 1 : 0.4)
-                                    .disabled(!viewModel.isAllValidatedInPage3)
+//                                    .opacity(viewModel.isAllValidatedInPage3 ? 1 : 0.4)
+//                                    .disabled(!viewModel.isAllValidatedInPage3)
                                     .padding(.trailing, 35)
                             }
                         }

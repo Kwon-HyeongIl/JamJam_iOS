@@ -83,10 +83,4 @@ class SignUpViewModel {
     var identifiedNumber = ""
     var isIdentifiedNumberFailedNoti1 = false
     var isIdentifiedNumberFinalValidated = false
-    
-    var isAllValidatedInPage3: Bool {
-        isRealNameFinalValidated && isBirthFinalValidated && isGenderFinalValidated && isPhoneNumberFinalValidated && isIdentifiedNumberFinalValidated
-    }
-    
-    
 }

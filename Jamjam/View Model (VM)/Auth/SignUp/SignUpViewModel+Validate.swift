@@ -8,6 +8,7 @@
 import Foundation
 
 extension SignUpViewModel {
+    // MARK: Page 2
     func validateNicknameForm() -> Bool {
         let pattern = "^[가-힣A-Za-z\\d]{2,}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
@@ -81,28 +82,61 @@ extension SignUpViewModel {
         return self.password == self.confirmPassword
     }
     
+    // MARK: Page 3
     func validateRealNameForm() -> Bool {
         let pattern = "^[가-힣]{2,}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
-        return predicate.evaluate(with: self.realName)
+        
+        if predicate.evaluate(with: self.realName) {
+            self.isRealNameFinalValidated = true
+            return true
+            
+        } else {
+            self.isRealNameFailedNoti1 = true
+            return false
+        }
     }
     
     func validateBirthYearForm() -> Bool {
         let pattern = "^\\d{4}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
-        return predicate.evaluate(with: self.birthYear)
+        
+        if predicate.evaluate(with: self.birthYear) {
+            self.isBirthYearLocalValidated = true
+            return true
+            
+        } else {
+            self.isBirthFailedNoti1 = true
+            return false
+        }
     }
     
     func validateBirthMonthForm() -> Bool {
         let pattern = "^(0?[1-9]|1[0-2])$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
-        return predicate.evaluate(with: self.birthMonth)
+        
+        if predicate.evaluate(with: self.birthMonth) {
+            self.isBirthMonthLocalValidated = true
+            return true
+            
+        } else {
+            self.isBirthFailedNoti1 = true
+            return false
+        }
     }
     
     func validateBirthDayForm() -> Bool {
         let pattern = "^(0?[1-9]|[12][0-9]|3[01])$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
-        return predicate.evaluate(with: self.birthDay)
+        
+        if predicate.evaluate(with: self.birthDay) {
+            self.isBirthDayLocalValidated = true
+            return true
+            
+        } else {
+            self.isBirthFailedNoti1 = true
+            return false
+        }
     }
     
     func validatePhoneNumberForm() -> Bool {
