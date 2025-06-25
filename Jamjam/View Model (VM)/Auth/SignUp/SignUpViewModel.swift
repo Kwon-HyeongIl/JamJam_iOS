@@ -14,7 +14,7 @@ class SignUpViewModel {
     
     var pageIndex = 0
     
-    // Page 1
+    // MARK: Page 1
     var signUpUserType: JJUser?
     
     var isExpertButtonTapped = false
@@ -22,27 +22,27 @@ class SignUpViewModel {
     var isExpertButtonTappedNoAni = false
     var isClientButtonTappedNoAni = false
     
-    // Page 2
+    // MARK: Page 2
     var nickname =  ""
-    var isNicknameFinalValidated = false
     var isNicknameFailedNoti1 = false // 중복
     var isNicknameFailedNoti2 = false // 통신 에러
     var isNicknameFailedNoti3 = false // 10글자 이내의 한글, 영문, 숫자
     var isNicknameFailedNoti4 = false // 2자 이상
+    var isNicknameFinalValidated = false
     
     var loginId = ""
-    var isloginIdFinalValidated = false
     var isloginIdFailedNoti1 = false // 중복
     var isloginIdFailedNoti2 = false // 통신 에러
     var isloginIdFailedNoti3 = false // 소문자 시작 및 소문자 또는 숫자
     var isloginIdFailedNoti4 = false // 4자 이상
+    var isloginIdFinalValidated = false
     
     var password = ""
+    var isPasswordFailedNoti1 = false // 영문 숫자 포함 8자 이상
     var isPasswordFinalValidated = false
-    var isPasswordFailedNoti1 = false
     
     var confirmPassword = ""
-    var isConfirmPasswordFailedNoti1 = false
+    var isConfirmPasswordFailedNoti1 = false // 일치하지 않는 비밀번호
     var isConfirmPasswordFinalValidated = false
     
     var isPasswordSecured = true
@@ -52,10 +52,10 @@ class SignUpViewModel {
         isNicknameFinalValidated && isloginIdFinalValidated && isPasswordFinalValidated && isConfirmPasswordFinalValidated
     }
     
-    // Page 3
+    // MARK: Page 3
     var realName = ""
+    var isRealNameFailedNoti1 = false // 한글로 2자 이상 입력
     var isRealNameFinalValidated = false
-    var isRealNameFailedNoti1 = false
     
     var birthYear = ""
     var isBirthYearLocalValidated = false
@@ -63,10 +63,10 @@ class SignUpViewModel {
     var isBirthMonthLocalValidated = false
     var birthDay = ""
     var isBirthDayLocalValidated = false
+    var isBirthFailedNoti1 = false // 잘못된 날짜 형식
     var isBirthFinalValidated: Bool {
         isBirthYearLocalValidated && isBirthMonthLocalValidated && isBirthDayLocalValidated
     }
-    var isBirthFailedNoti1 = false
     
     var gender: Gender?
     var isGenderManButtonTapped = false
@@ -76,11 +76,11 @@ class SignUpViewModel {
     }
     
     var phoneNumber = ""
-    var isPhoneNumberFailedNoti1 = false
+    var isPhoneNumberFailedNoti1 = false // 하이픈 제외 11자 입력
     
     var isPhoneIdentifiedNumberButtonTapped = false
     var phoneIdentifiedNumber = ""
-    var isPhoneIdentifiedNumberFailedNoti1 = false
+    var isPhoneIdentifiedNumberFailedNoti1 = false // 잘못된 인증번호
     var isPhoneIdentifiedNumberFinalValidated = false
     
     var isAllFilledInPage3: Bool {

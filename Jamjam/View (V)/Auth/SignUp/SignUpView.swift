@@ -97,7 +97,7 @@ struct SignUpView: View {
                                                     .foregroundStyle(.black)
                                                     .padding(.bottom, 10)
                                                 
-                                                Text("내가 잘해온 분야를 살려\n서비스를 등록하고\n활동하고 싶어요.")
+                                                Text("내가 할 수 있는 일을\n서비스로 만들어 볼래요.")
                                                     .font(.pretendard(size: 9))
                                                     .foregroundStyle(.gray)
                                             }
@@ -141,7 +141,7 @@ struct SignUpView: View {
                                                     .foregroundStyle(.black)
                                                     .padding(.bottom, 10)
                                                 
-                                                Text("지금 필요한 일에\n경험 있는 분의 손길을\n받아보고 싶어요.")
+                                                Text("지금 필요한 일에 익숙한 손길이 필요해요.")
                                                     .font(.pretendard(size: 9))
                                                     .foregroundStyle(.gray)
                                             }

@@ -8,7 +8,7 @@
 import Foundation
 
 extension SignUpViewModel {
-    // Page 2
+    // MARK: Page 2
     func restoreNicknameRelated() {
         self.isNicknameFinalValidated = false
         self.isNicknameFailedNoti1 = false
@@ -35,7 +35,7 @@ extension SignUpViewModel {
         self.isConfirmPasswordFailedNoti1 = false
     }
     
-    // Page 3
+    // MARK: Page 3
     func restoreRealNameRelated() {
         self.isRealNameFinalValidated = false
         self.isRealNameFailedNoti1 = false
