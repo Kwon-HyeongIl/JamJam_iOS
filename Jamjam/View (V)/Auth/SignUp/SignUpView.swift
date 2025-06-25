@@ -556,6 +556,10 @@ struct SignUpView: View {
                                     }
                                     .onChange(of: viewModel.realName) {
                                         viewModel.restoreRealNameRelated()
+                                        
+                                        if viewModel.validateRealNameForm() {
+                                            viewModel.isRealNameFinalValidated = true
+                                        }
                                     }
                                     .padding(.horizontal, 35)
                                 
@@ -595,6 +599,10 @@ struct SignUpView: View {
                                         }
                                         .onChange(of: viewModel.birthYear) {
                                             viewModel.restoreBirthRelated()
+                                            
+                                            if viewModel.validateBirthYearForm() {
+                                                viewModel.isBirthYearLocalValidated = true
+                                            }
                                         }
                                         .onChange(of: viewModel.birthYear) { oldValue, newValue in
                                             if newValue.count > 4 {
@@ -616,6 +624,10 @@ struct SignUpView: View {
                                         }
                                         .onChange(of: viewModel.birthMonth) {
                                             viewModel.restoreBirthRelated()
+                                            
+                                            if viewModel.validateBirthMonthForm() {
+                                                viewModel.isBirthMonthLocalValidated = true
+                                            }
                                         }
                                         .onChange(of: viewModel.birthMonth) { oldValue, newValue in
                                             if newValue.count > 2 {
@@ -637,6 +649,10 @@ struct SignUpView: View {
                                         }
                                         .onChange(of: viewModel.birthDay) {
                                             viewModel.restoreBirthRelated()
+                                            
+                                            if viewModel.validateBirthDayForm() {
+                                                viewModel.isBirthDayLocalValidated = true
+                                            }
                                         }
                                         .onChange(of: viewModel.birthDay) { oldValue, newValue in
                                             if newValue.count > 2 {
@@ -768,9 +784,9 @@ struct SignUpView: View {
                                                     .font(.pretendard(Pretendard.semiBold, size: 14))
                                                     .foregroundStyle(.white)
                                             }
-                                            .opacity(viewModel.phoneNumber.count == 11 ? 1 : 0.4)
+                                            .opacity(viewModel.validatePhoneNumberForm() ? 1 : 0.4)
                                     }
-                                    .disabled(viewModel.phoneNumber.count != 11)
+                                    .disabled(!viewModel.validatePhoneNumberForm())
                                 }
                                 .padding(.horizontal, 35)
                                 
@@ -932,9 +948,18 @@ struct SignUpView: View {
                             }
                             
                             Button {
-                                if viewModel.validateRealNameForm() && viewModel.validateBirthYearForm() && viewModel.validateBirthMonthForm() && viewModel.validateBirthDayForm() && viewModel.isGenderFinalValidated && viewModel.isPhoneNumberFinalValidated && viewModel.isIdentifiedNumberFinalValidated {
+                                if viewModel.isAllValidatedInPage3 {
                                     viewModel.completeSignUp()
                                     navRouter.popToRoot()
+                                    
+                                } else {
+                                    if !viewModel.isRealNameFinalValidated {
+                                        viewModel.isRealNameFailedNoti1 = true
+                                    }
+                                    
+                                    if !viewModel.isBirthFinalValidated {
+                                        viewModel.isBirthFailedNoti1 = true
+                                    }
                                 }
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
@@ -945,10 +970,10 @@ struct SignUpView: View {
                                             .font(.pretendard(Pretendard.semiBold, size: 17))
                                             .foregroundStyle(.white)
                                     }
-//                                    .opacity(viewModel.isAllValidatedInPage3 ? 1 : 0.4)
-//                                    .disabled(!viewModel.isAllValidatedInPage3)
+                                    .opacity(viewModel.isAllFilledInPage3 ? 1 : 0.4)
                                     .padding(.trailing, 35)
                             }
+                            .disabled(!viewModel.isAllFilledInPage3)
                         }
                         .padding(.top, 10)
                     }

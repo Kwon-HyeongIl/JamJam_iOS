@@ -42,11 +42,13 @@ extension SignUpViewModel {
     }
     
     func restoreBirthRelated() {
+        self.isBirthYearLocalValidated = false
+        self.isBirthMonthLocalValidated = false
+        self.isBirthDayLocalValidated = false
         self.isBirthFailedNoti1 = false
     }
     
     func restorePhoneNumberRelated() {
-        self.isPhoneNumberFinalValidated = false
         self.isPhoneNumberFailedNoti1 = false
     }
     
