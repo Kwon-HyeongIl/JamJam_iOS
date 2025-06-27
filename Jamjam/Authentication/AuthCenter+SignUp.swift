@@ -54,18 +54,25 @@ extension AuthCenter {
             .eraseToAnyPublisher()
     }
     
-    func signUpWithProvider(_ request: SignUpWithExpertRequest) -> AnyPublisher<SignUpWithExpertResponse, Error> {
-        let url = API.signUpWithExpert.url
+    func signUpWithProvider(_ request: SignUpWithProviderRequest) -> AnyPublisher<SignUpWithProviderResponse, Error> {
+        let url = API.signUpWithProvider.url
         
         return AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)
             .validate()
-            .publishDecodable(type: SignUpWithExpertResponse.self)
+            .publishDecodable(type: SignUpWithProviderResponse.self)
             .value()
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
     
-    func signUpWithClient() {
+    func signUpWithClient(_ request: SignUpWithClientRequest) -> AnyPublisher<SignUpWithClientResponse, Error> {
+        let url = API.signUpWithClient.url
         
+        return AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)
+            .validate()
+            .publishDecodable(type: SignUpWithClientResponse.self)
+            .value()
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
     }
 }

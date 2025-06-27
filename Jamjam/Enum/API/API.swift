@@ -21,7 +21,7 @@ enum API {
     case checkLoginId
     case sendSms
     case verifySms
-    case signUpWithExpert
+    case signUpWithProvider
     case signUpWithClient
     
     var urlString: String {
@@ -36,7 +36,7 @@ enum API {
             return "\(API.baseURL)/api/user/sms/send"
         case .verifySms:
             return "\(API.baseURL)/api/user/sms/verify"
-        case .signUpWithExpert:
+        case .signUpWithProvider:
             return "\(API.baseURL)/api/user/join/provider"
         case .signUpWithClient:
             return "\(API.baseURL)/api/user/join/client"
