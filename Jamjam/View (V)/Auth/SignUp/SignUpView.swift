@@ -598,7 +598,7 @@ struct SignUpView: View {
                                                 .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.birthYear) {
-                                            viewModel.restoreBirthRelated()
+                                            viewModel.restoreBirthYearRelated()
                                             
                                             if viewModel.validateBirthYearForm() {
                                                 viewModel.isBirthYearLocalValidated = true
@@ -623,7 +623,7 @@ struct SignUpView: View {
                                                 .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.birthMonth) {
-                                            viewModel.restoreBirthRelated()
+                                            viewModel.restoreBirthMonthRelated()
                                             
                                             if viewModel.validateBirthMonthForm() {
                                                 viewModel.isBirthMonthLocalValidated = true
@@ -632,6 +632,11 @@ struct SignUpView: View {
                                         .onChange(of: viewModel.birthMonth) { oldValue, newValue in
                                             if newValue.count > 2 {
                                                 viewModel.birthMonth = String(newValue.prefix(4))
+                                            }
+                                        }
+                                        .onChange(of: focus) { oldValue, newValue in
+                                            if newValue != .third && viewModel.birthMonth.count == 1 {
+                                                viewModel.birthMonth = "0" + viewModel.birthMonth
                                             }
                                         }
                                     
@@ -648,7 +653,7 @@ struct SignUpView: View {
                                                 .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.birthDay) {
-                                            viewModel.restoreBirthRelated()
+                                            viewModel.restoreBirthDayRelated()
                                             
                                             if viewModel.validateBirthDayForm() {
                                                 viewModel.isBirthDayLocalValidated = true
@@ -657,6 +662,11 @@ struct SignUpView: View {
                                         .onChange(of: viewModel.birthDay) { oldValue, newValue in
                                             if newValue.count > 2 {
                                                 viewModel.birthDay = String(newValue.prefix(4))
+                                            }
+                                        }
+                                        .onChange(of: focus) { oldValue, newValue in
+                                            if newValue != .fourth && viewModel.birthDay.count == 1 {
+                                                viewModel.birthDay = "0" + viewModel.birthDay
                                             }
                                         }
                                 }
@@ -692,7 +702,7 @@ struct SignUpView: View {
                                             }
                                             viewModel.isGenderManButtonTapped.toggle()
                                         }
-                                        viewModel.gender = .man
+                                        viewModel.gender = .male
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
                                             .frame(height: 50)
@@ -717,7 +727,7 @@ struct SignUpView: View {
                                             }
                                             viewModel.isGenderWomanButtonTapped.toggle()
                                         }
-                                        viewModel.gender = .woman
+                                        viewModel.gender = .female
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
                                             .frame(height: 50)
@@ -966,7 +976,6 @@ struct SignUpView: View {
                             Button {
                                 if viewModel.isAllValidatedInPage3 {
                                     viewModel.completeSignUp()
-                                    navRouter.popToRoot()
                                     
                                 } else {
                                     if !viewModel.isRealNameFinalValidated {
@@ -990,6 +999,11 @@ struct SignUpView: View {
                                     .padding(.trailing, 35)
                             }
                             .disabled(!viewModel.isAllFilledInPage3)
+                            .onChange(of: viewModel.isSignUpCompleted) {
+                                if viewModel.isSignUpCompleted {
+                                    navRouter.popToRoot()
+                                }
+                            }
                         }
                         .padding(.top, 10)
                     }
@@ -1005,6 +1019,24 @@ struct SignUpView: View {
                 NavigationBarTitleAndHomeModifier(title: "회원 가입")
             })
             .background(Color.mainBackground)
+            .alert("회원가입 실패", isPresented: $viewModel.isSignUpFailedNoti1) {
+                Button {
+                    
+                } label: {
+                    Text("확인")
+                }
+            } message: {
+                Text("통신에 문제가 발생하였습니다. 다시 시도해주세요.")
+            }
+            .alert("회원가입 실패", isPresented: $viewModel.isSignUpFailedNoti2) {
+                Button {
+                    
+                } label: {
+                    Text("확인")
+                }
+            } message: {
+                Text(viewModel.signUpFailedNoti2ErrorMessage)
+            }
         }
     }
 }

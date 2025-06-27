@@ -67,6 +67,9 @@ class SignUpViewModel {
     var isBirthFinalValidated: Bool {
         isBirthYearLocalValidated && isBirthMonthLocalValidated && isBirthDayLocalValidated
     }
+    var formattedBirthDate: String {
+        birthYear + "-" + birthMonth + "-" + birthDay
+    }
     
     var gender: Gender?
     var isGenderManButtonTapped = false
@@ -92,4 +95,9 @@ class SignUpViewModel {
     var isAllValidatedInPage3: Bool {
         isRealNameFinalValidated && isBirthFinalValidated && isGenderFinalValidated && isPhoneCodeFinalValidated
     }
+    
+    var isSignUpFailedNoti1 = false // 통신 오류
+    var isSignUpFailedNoti2 = false // 기타 실패
+    var signUpFailedNoti2ErrorMessage = ""
+    var isSignUpCompleted = false
 }

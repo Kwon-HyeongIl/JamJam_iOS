@@ -41,9 +41,17 @@ extension SignUpViewModel {
         self.isRealNameFailedNoti1 = false
     }
     
-    func restoreBirthRelated() {
+    func restoreBirthYearRelated() {
         self.isBirthYearLocalValidated = false
+        self.isBirthFailedNoti1 = false
+    }
+    
+    func restoreBirthMonthRelated() {
         self.isBirthMonthLocalValidated = false
+        self.isBirthFailedNoti1 = false
+    }
+    
+    func restoreBirthDayRelated() {
         self.isBirthDayLocalValidated = false
         self.isBirthFailedNoti1 = false
     }
