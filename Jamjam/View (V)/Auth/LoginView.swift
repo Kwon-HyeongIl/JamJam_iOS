@@ -74,7 +74,8 @@ struct LoginView: View {
                     .padding(.bottom, 25)
                     
                     Button {
-                        
+                        viewModel.isEntireProgressViewVisible = true
+                        viewModel.login()
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundStyle(Color.JJTitle)
@@ -132,6 +133,27 @@ struct LoginView: View {
             .background(Color.mainBackground)
             .onTapGesture {
                 focus = nil
+            }
+            .onChange(of: viewModel.isLoginCompleted) {
+                navRouter.popToRoot()
+            }
+            .alert("로그인 실패", isPresented: $viewModel.isLoginFailedAlert) {
+                Button {} label: {
+                    Text("확인")
+                }
+            } message: {
+                Text("로그인에 실패하였습니다. 다시 시도해 주세요.")
+            }
+            .overlay {
+                if viewModel.isEntireProgressViewVisible {
+                    VStack {
+                        ProgressView()
+                            .scaleEffect(1.2)
+                            .padding(.bottom, 30)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.white.opacity(0.4))
+                }
             }
         }
     }

@@ -29,6 +29,9 @@
 		CA35935F2E0514AE0069FAF8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */; };
 		CA3593642E0565750069FAF8 /* ScrollOffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3593632E0565750069FAF8 /* ScrollOffsetKey.swift */; };
 		CA3593662E05952B0069FAF8 /* CategoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3593652E05952B0069FAF8 /* CategoryContentView.swift */; };
+		CA4927D12E0EE4D600D42CD0 /* AuthCenter+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4927D02E0EE4D600D42CD0 /* AuthCenter+Login.swift */; };
+		CA4927D72E0EE52D00D42CD0 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4927D62E0EE52D00D42CD0 /* LoginRequest.swift */; };
+		CA4927D92E0EE5BE00D42CD0 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4927D82E0EE5BE00D42CD0 /* LoginResponse.swift */; };
 		CA4CF9272E0C1E1100F882C4 /* SendSmsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF9262E0C1E1100F882C4 /* SendSmsRequest.swift */; };
 		CA4CF9292E0C1E3A00F882C4 /* SendSmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF9282E0C1E3A00F882C4 /* SendSmsResponse.swift */; };
 		CA4CF92B2E0C276B00F882C4 /* VerifySmsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF92A2E0C276B00F882C4 /* VerifySmsRequest.swift */; };
@@ -114,6 +117,9 @@
 		CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		CA3593632E0565750069FAF8 /* ScrollOffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffsetKey.swift; sourceTree = "<group>"; };
 		CA3593652E05952B0069FAF8 /* CategoryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentView.swift; sourceTree = "<group>"; };
+		CA4927D02E0EE4D600D42CD0 /* AuthCenter+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthCenter+Login.swift"; sourceTree = "<group>"; };
+		CA4927D62E0EE52D00D42CD0 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		CA4927D82E0EE5BE00D42CD0 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		CA4CF9262E0C1E1100F882C4 /* SendSmsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSmsRequest.swift; sourceTree = "<group>"; };
 		CA4CF9282E0C1E3A00F882C4 /* SendSmsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSmsResponse.swift; sourceTree = "<group>"; };
 		CA4CF92A2E0C276B00F882C4 /* VerifySmsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySmsRequest.swift; sourceTree = "<group>"; };
@@ -325,6 +331,48 @@
 			path = PreferenceKey;
 			sourceTree = "<group>";
 		};
+		CA4927D22E0EE4F200D42CD0 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				CA5C5E9B2E09A55B00FB1E22 /* SignUpWithProviderRequest.swift */,
+				CA4CF9302E0C2F0B00F882C4 /* SignUpWithClientRequest.swift */,
+				CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */,
+				CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */,
+				CA4CF9262E0C1E1100F882C4 /* SendSmsRequest.swift */,
+				CA4CF92A2E0C276B00F882C4 /* VerifySmsRequest.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		CA4927D32E0EE50B00D42CD0 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				CA5C5E8D2E09A09C00FB1E22 /* SignUpWithProviderResponse.swift */,
+				CA5C5E8F2E09A0A800FB1E22 /* SignUpWithClientResponse.swift */,
+				CAAB47F52E0ADC4B000197E5 /* CheckNicknameResponse.swift */,
+				CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */,
+				CA4CF9282E0C1E3A00F882C4 /* SendSmsResponse.swift */,
+				CA4CF92C2E0C279D00F882C4 /* VerifySmsResponse.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		CA4927D42E0EE52100D42CD0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CA4927D62E0EE52D00D42CD0 /* LoginRequest.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CA4927D52E0EE52500D42CD0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CA4927D82E0EE5BE00D42CD0 /* LoginResponse.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		CA5C5E7A2E09687A00FB1E22 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +402,7 @@
 			children = (
 				CA5C5E852E099CED00FB1E22 /* AuthCenter.swift */,
 				CAAB47F12E0AD13E000197E5 /* AuthCenter+SignUp.swift */,
+				CA4927D02E0EE4D600D42CD0 /* AuthCenter+Login.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -385,12 +434,8 @@
 		CA5C5E992E09A54800FB1E22 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				CA5C5E8D2E09A09C00FB1E22 /* SignUpWithProviderResponse.swift */,
-				CA5C5E8F2E09A0A800FB1E22 /* SignUpWithClientResponse.swift */,
-				CAAB47F52E0ADC4B000197E5 /* CheckNicknameResponse.swift */,
-				CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */,
-				CA4CF9282E0C1E3A00F882C4 /* SendSmsResponse.swift */,
-				CA4CF92C2E0C279D00F882C4 /* VerifySmsResponse.swift */,
+				CA4927D52E0EE52500D42CD0 /* Login */,
+				CA4927D32E0EE50B00D42CD0 /* SignUp */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -398,12 +443,8 @@
 		CA5C5E9A2E09A54E00FB1E22 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				CA5C5E9B2E09A55B00FB1E22 /* SignUpWithProviderRequest.swift */,
-				CA4CF9302E0C2F0B00F882C4 /* SignUpWithClientRequest.swift */,
-				CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */,
-				CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */,
-				CA4CF9262E0C1E1100F882C4 /* SendSmsRequest.swift */,
-				CA4CF92A2E0C276B00F882C4 /* VerifySmsRequest.swift */,
+				CA4927D42E0EE52100D42CD0 /* Login */,
+				CA4927D22E0EE4F200D42CD0 /* SignUp */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -726,6 +767,7 @@
 				CA4CF9272E0C1E1100F882C4 /* SendSmsRequest.swift in Sources */,
 				CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */,
 				CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */,
+				CA4927D12E0EE4D600D42CD0 /* AuthCenter+Login.swift in Sources */,
 				CA09154D2DF128A400E272F8 /* ContentView.swift in Sources */,
 				CA87FF822E0284EB00C8C830 /* ModifierIf.swift in Sources */,
 				CAAB47F62E0ADC4B000197E5 /* CheckNicknameResponse.swift in Sources */,
@@ -737,6 +779,7 @@
 				CA9609A42DFFCD7B00B878C6 /* Color+MainTitle.swift in Sources */,
 				CA9609A72DFFCF8100B878C6 /* MainTabBar.swift in Sources */,
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
+				CA4927D92E0EE5BE00D42CD0 /* LoginResponse.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
 				CA96099E2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift in Sources */,
 				CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */,
@@ -770,6 +813,7 @@
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,
 				CA4CF9292E0C1E3A00F882C4 /* SendSmsResponse.swift in Sources */,
 				CA87FF942E040FDE00C8C830 /* SignUpViewModel+Complete.swift in Sources */,
+				CA4927D72E0EE52D00D42CD0 /* LoginRequest.swift in Sources */,
 				CA5C5E962E09A42A00FB1E22 /* TestView.swift in Sources */,
 				CA09155D2DF12D6A00E272F8 /* NavigationDestinationPath.swift in Sources */,
 				CA9609A22DFBE1E100B878C6 /* NavigationBackGestureEnable.swift in Sources */,
