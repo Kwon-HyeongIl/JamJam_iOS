@@ -141,7 +141,7 @@ struct SignUpView: View {
                                                     .foregroundStyle(.black)
                                                     .padding(.bottom, 10)
                                                 
-                                                Text("지금 필요한 일에 익숙한 손길이 필요해요.")
+                                                Text("지금 필요한 일에\n익숙한 손길이 필요해요.")
                                                     .font(.pretendard(size: 9))
                                                     .foregroundStyle(.gray)
                                             }
@@ -211,7 +211,6 @@ struct SignUpView: View {
                                                     
                                                     if viewModel.isProgressViewVisibleInNickname {
                                                         ProgressView()
-                                                            .progressViewStyle(.circular)
                                                             .scaleEffect(0.8)
                                                     }
                                                 }
@@ -310,7 +309,6 @@ struct SignUpView: View {
                                                     
                                                     if viewModel.isProgressViewVisibleInLoginId {
                                                         ProgressView()
-                                                            .progressViewStyle(.circular)
                                                             .scaleEffect(0.8)
                                                     }
                                                 }
@@ -817,7 +815,6 @@ struct SignUpView: View {
                                                     
                                                     if viewModel.isProgressViewVisibleInPhoneNumber {
                                                         ProgressView()
-                                                            .progressViewStyle(.circular)
                                                             .scaleEffect(0.8)
                                                     }
                                                 }
@@ -1018,17 +1015,9 @@ struct SignUpView: View {
                                     .frame(height: 50)
                                     .foregroundStyle(Color.JJTitle)
                                     .overlay {
-                                        VStack(spacing: 0) {
-                                            Text("완료")
-                                                .font(.pretendard(Pretendard.semiBold, size: 17))
-                                                .foregroundStyle(.white)
-                                            
-                                            if viewModel.isProgressViewVisibleInCompleteButton {
-                                                ProgressView()
-                                                    .progressViewStyle(.circular)
-                                                    .scaleEffect(0.8)
-                                            }
-                                        }
+                                        Text("완료")
+                                            .font(.pretendard(Pretendard.semiBold, size: 17))
+                                            .foregroundStyle(.white)
                                     }
                                     .opacity(viewModel.isAllFilledInPage3 ? 1 : 0.4)
                                     .padding(.trailing, 35)
@@ -1071,6 +1060,17 @@ struct SignUpView: View {
                 }
             } message: {
                 Text(viewModel.signUpFailedNoti2ErrorMessage)
+            }
+            .overlay {
+                if viewModel.isEntireProgressViewVisible {
+                    VStack {
+                        ProgressView()
+                            .scaleEffect(1.2)
+                            .padding(.bottom, 30)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.white.opacity(0.4))
+                }
             }
         }
     }

@@ -10,7 +10,7 @@ import SwiftUI
 extension SignUpViewModel {
     func completeSignUp() {
         if self.signUpUserType == .provider {
-            self.isProgressViewVisibleInCompleteButton = true
+            self.isEntireProgressViewVisible = true
             
             let request = SignUpWithProviderRequest(name: self.realName, nickname: self.nickname, loginId: self.loginId, phoneNumber: self.phoneNumber, password: self.password, birth: self.formattedBirthDate, gender: self.gender?.rawValue ?? "NAN")
             
@@ -25,7 +25,7 @@ extension SignUpViewModel {
                         self?.isSignUpFailedNoti1 = true
                     }
                     
-                    self?.isProgressViewVisibleInCompleteButton = false
+                    self?.isEntireProgressViewVisible = false
                     
                 } receiveValue: { [weak self] response in
                     if response.code == "SUCCESS" {
@@ -40,7 +40,7 @@ extension SignUpViewModel {
                 .store(in: &self.cancellables)
             
         } else if self.signUpUserType == .client {
-            self.isProgressViewVisibleInCompleteButton = true
+            self.isEntireProgressViewVisible = true
             
             let request = SignUpWithClientRequest(name: self.realName, nickname: self.nickname, loginId: self.loginId, phoneNumber: self.phoneNumber, password: self.password, birth: self.formattedBirthDate, gender: self.gender?.rawValue ?? "NAN")
             
@@ -55,7 +55,7 @@ extension SignUpViewModel {
                         self?.isSignUpFailedNoti1 = true
                     }
                     
-                    self?.isProgressViewVisibleInCompleteButton = false
+                    self?.isEntireProgressViewVisible = false
                     
                 } receiveValue: { [weak self] response in
                     if response.code == "SUCCESS" {

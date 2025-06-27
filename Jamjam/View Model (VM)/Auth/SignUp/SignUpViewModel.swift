@@ -24,7 +24,6 @@ class SignUpViewModel {
     
     // MARK: Page 2
     var nickname =  ""
-    var isProgressViewVisibleInNickname = false
     var isNicknameFailedNoti1 = false // 중복
     var isNicknameFailedNoti2 = false // 통신 오류
     var isNicknameFailedNoti3 = false // 10글자 이내의 한글, 영문, 숫자
@@ -32,7 +31,6 @@ class SignUpViewModel {
     var isNicknameFinalValidated = false
     
     var loginId = ""
-    var isProgressViewVisibleInLoginId = false
     var isloginIdFailedNoti1 = false // 중복
     var isloginIdFailedNoti2 = false // 통신 오류
     var isloginIdFailedNoti3 = false // 소문자 시작 및 소문자 또는 숫자
@@ -81,7 +79,6 @@ class SignUpViewModel {
     }
     
     var phoneNumber = ""
-    var isProgressViewVisibleInPhoneNumber = false
     var isPhoneNumberFailedNoti1 = false // 하이픈 제외 11자 입력
     var isPhoneNumberFailedNoti2 = false // 통신 오류
     var isPhoneNumberFinalValidated = false
@@ -100,9 +97,14 @@ class SignUpViewModel {
     }
     
     // MARK: SignUp Complete
-    var isProgressViewVisibleInCompleteButton = false
     var isSignUpFailedNoti1 = false // 통신 오류
     var isSignUpFailedNoti2 = false // 기타 실패
     var signUpFailedNoti2ErrorMessage = ""
     var isSignUpCompleted = false
+    
+    // MARK: Progress View
+    var isEntireProgressViewVisible = false
+    var isProgressViewVisibleInNickname = false
+    var isProgressViewVisibleInLoginId = false
+    var isProgressViewVisibleInPhoneNumber = false
 }
