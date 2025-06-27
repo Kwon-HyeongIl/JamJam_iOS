@@ -5,11 +5,13 @@
 //  Created by 권형일 on 6/19/25.
 //
 
-import Foundation
+import SwiftUI
 
 extension SignUpViewModel {
     func completeSignUp() {
         if self.signUpUserType == .provider {
+            self.isProgressViewVisibleInCompleteButton = true
+            
             let request = SignUpWithProviderRequest(name: self.realName, nickname: self.nickname, loginId: self.loginId, phoneNumber: self.phoneNumber, password: self.password, birth: self.formattedBirthDate, gender: self.gender?.rawValue ?? "NAN")
             
             AuthCenter.shared.signUpWithProvider(request)
@@ -22,12 +24,13 @@ extension SignUpViewModel {
                         print("[signUpWithProvider] failed: \(error)")
                         self?.isSignUpFailedNoti1 = true
                     }
+                    
+                    self?.isProgressViewVisibleInCompleteButton = false
+                    
                 } receiveValue: { [weak self] response in
                     if response.code == "SUCCESS" {
                         self?.isSignUpCompleted = true
                         AuthCenter.shared.jwtToken = response.content.accessToken
-                        print("완료")
-                        print("토큰", AuthCenter.shared.jwtToken)
                         
                     } else {
                         self?.isSignUpFailedNoti2 = true
@@ -37,6 +40,8 @@ extension SignUpViewModel {
                 .store(in: &self.cancellables)
             
         } else if self.signUpUserType == .client {
+            self.isProgressViewVisibleInCompleteButton = true
+            
             let request = SignUpWithClientRequest(name: self.realName, nickname: self.nickname, loginId: self.loginId, phoneNumber: self.phoneNumber, password: self.password, birth: self.formattedBirthDate, gender: self.gender?.rawValue ?? "NAN")
             
             AuthCenter.shared.signUpWithClient(request)
@@ -49,6 +54,9 @@ extension SignUpViewModel {
                         print("[signUpWithClient] failed: \(error)")
                         self?.isSignUpFailedNoti1 = true
                     }
+                    
+                    self?.isProgressViewVisibleInCompleteButton = false
+                    
                 } receiveValue: { [weak self] response in
                     if response.code == "SUCCESS" {
                         self?.isSignUpCompleted = true

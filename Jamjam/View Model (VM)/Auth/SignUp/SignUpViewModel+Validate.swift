@@ -5,7 +5,7 @@
 //  Created by 권형일 on 6/18/25.
 //
 
-import Foundation
+import SwiftUI
 
 extension SignUpViewModel {
     // MARK: Page 2
@@ -16,6 +16,8 @@ extension SignUpViewModel {
     }
     
     func checkNicknameIsDuplicated() {
+        self.isProgressViewVisibleInNickname = true
+        
         let request = CheckNicknameRequest(nickname: self.nickname)
         
         AuthCenter.shared.checkNickname(request)
@@ -29,6 +31,9 @@ extension SignUpViewModel {
                     print("[checkNickname] failed: \(error)")
                     self?.isNicknameFailedNoti2 = true
                 }
+                
+                self?.isProgressViewVisibleInNickname = false
+                
             } receiveValue: { [weak self] available in
                 if available {
                     self?.isNicknameFinalValidated = true
@@ -47,6 +52,8 @@ extension SignUpViewModel {
     }
     
     func checkIdIsDuplicated() {
+        self.isProgressViewVisibleInLoginId = true
+        
         let request = CheckLoginIdRequest(loginId: self.loginId)
         
         AuthCenter.shared.checkLoginId(request)
@@ -60,6 +67,9 @@ extension SignUpViewModel {
                     print("[checkLoginId] failed: \(error)")
                     self?.isloginIdFailedNoti2 = true
                 }
+                
+                self?.isProgressViewVisibleInLoginId = false
+                
             } receiveValue: { [weak self] available in
                 if available {
                     self?.isloginIdFinalValidated = true
@@ -114,6 +124,8 @@ extension SignUpViewModel {
     }
     
     func sendPhoneNumber() {
+        self.isProgressViewVisibleInPhoneNumber = true
+        
         let request = SendSmsRequest(phoneNumber: self.phoneNumber)
         
         AuthCenter.shared.sendSms(request)
@@ -127,6 +139,9 @@ extension SignUpViewModel {
                     print("[sendSms] failed: \(error)")
                     self?.isPhoneNumberFailedNoti2 = true
                 }
+                
+                self?.isProgressViewVisibleInPhoneNumber = false
+                
             } receiveValue: { [weak self] code in
                 if code == "SUCCESS" {
                     self?.isPhoneNumberFinalValidated = true

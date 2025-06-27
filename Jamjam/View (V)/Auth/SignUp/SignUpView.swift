@@ -204,9 +204,20 @@ struct SignUpView: View {
                                             .frame(maxWidth: 80)
                                             .foregroundStyle(Color.JJTitle)
                                             .overlay {
-                                                Text("중복 확인")
-                                                    .font(.pretendard(Pretendard.semiBold, size: 14))
-                                                    .foregroundStyle(.white)
+                                                VStack(spacing: 0) {
+                                                    Text("중복 확인")
+                                                        .font(.pretendard(Pretendard.semiBold, size: 14))
+                                                        .foregroundStyle(.white)
+                                                    
+                                                    if viewModel.isProgressViewVisibleInNickname {
+                                                        ProgressView()
+                                                            .progressViewStyle(.circular)
+                                                            .scaleEffect(0.8)
+                                                    }
+                                                }
+                                            }
+                                            .overlay {
+                                                
                                             }
                                             .opacity(viewModel.nickname.count < 2 ? 0.4 : 1)
                                     }
@@ -292,9 +303,17 @@ struct SignUpView: View {
                                             .frame(maxWidth: 80)
                                             .foregroundStyle(Color.JJTitle)
                                             .overlay {
-                                                Text("중복 확인")
-                                                    .font(.pretendard(Pretendard.semiBold, size: 14))
-                                                    .foregroundStyle(.white)
+                                                VStack(spacing: 0) {
+                                                    Text("중복 확인")
+                                                        .font(.pretendard(Pretendard.semiBold, size: 14))
+                                                        .foregroundStyle(.white)
+                                                    
+                                                    if viewModel.isProgressViewVisibleInLoginId {
+                                                        ProgressView()
+                                                            .progressViewStyle(.circular)
+                                                            .scaleEffect(0.8)
+                                                    }
+                                                }
                                             }
                                             .opacity(viewModel.loginId.count > 4 ? 1 : 0.4)
                                     }
@@ -791,9 +810,17 @@ struct SignUpView: View {
                                             .frame(maxWidth: 100)
                                             .foregroundStyle(Color.JJTitle)
                                             .overlay {
-                                                Text("인증번호 받기")
-                                                    .font(.pretendard(Pretendard.semiBold, size: 14))
-                                                    .foregroundStyle(.white)
+                                                VStack(spacing: 0) {
+                                                    Text("인증번호 받기")
+                                                        .font(.pretendard(Pretendard.semiBold, size: 14))
+                                                        .foregroundStyle(.white)
+                                                    
+                                                    if viewModel.isProgressViewVisibleInPhoneNumber {
+                                                        ProgressView()
+                                                            .progressViewStyle(.circular)
+                                                            .scaleEffect(0.8)
+                                                    }
+                                                }
                                             }
                                             .opacity(viewModel.validatePhoneNumberForm() ? 1 : 0.4)
                                     }
@@ -991,9 +1018,17 @@ struct SignUpView: View {
                                     .frame(height: 50)
                                     .foregroundStyle(Color.JJTitle)
                                     .overlay {
-                                        Text("완료")
-                                            .font(.pretendard(Pretendard.semiBold, size: 17))
-                                            .foregroundStyle(.white)
+                                        VStack(spacing: 0) {
+                                            Text("완료")
+                                                .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                .foregroundStyle(.white)
+                                            
+                                            if viewModel.isProgressViewVisibleInCompleteButton {
+                                                ProgressView()
+                                                    .progressViewStyle(.circular)
+                                                    .scaleEffect(0.8)
+                                            }
+                                        }
                                     }
                                     .opacity(viewModel.isAllFilledInPage3 ? 1 : 0.4)
                                     .padding(.trailing, 35)
