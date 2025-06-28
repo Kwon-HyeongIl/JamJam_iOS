@@ -50,6 +50,10 @@
 		CA60FAD32E100BD000150563 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60FAD22E100BD000150563 /* Keychain.swift */; };
 		CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7D118D2E1025C100D55CCE /* ChatContentViewModel.swift */; };
 		CA7D11932E10327100D55CCE /* ChatContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7D11922E10327100D55CCE /* ChatContentView.swift */; };
+		CA7D11952E10553200D55CCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA7D11942E10553200D55CCE /* GoogleService-Info.plist */; };
+		CA7D119D2E10567900D55CCE /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = CA7D119C2E10567900D55CCE /* FirebaseCore */; };
+		CA7D119F2E10567900D55CCE /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = CA7D119E2E10567900D55CCE /* FirebaseInAppMessaging-Beta */; };
+		CA7D11A12E10567900D55CCE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = CA7D11A02E10567900D55CCE /* FirebaseMessaging */; };
 		CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E42DFAF788005377E6 /* Color+Hex.swift */; };
 		CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */; };
 		CA87FF6F2E00305600C8C830 /* CarouselStack in Frameworks */ = {isa = PBXBuildFile; productRef = CA87FF6E2E00305600C8C830 /* CarouselStack */; };
@@ -145,6 +149,8 @@
 		CA60FAD22E100BD000150563 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		CA7D118D2E1025C100D55CCE /* ChatContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContentViewModel.swift; sourceTree = "<group>"; };
 		CA7D11922E10327100D55CCE /* ChatContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContentView.swift; sourceTree = "<group>"; };
+		CA7D11942E10553200D55CCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CA7D11A22E10570A00D55CCE /* Jamjam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jamjam.entitlements; sourceTree = "<group>"; };
 		CA83F6E42DFAF788005377E6 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+MainBackground.swift"; sourceTree = "<group>"; };
 		CA87FF772E014B7A00C8C830 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -193,10 +199,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7D11A12E10567900D55CCE /* FirebaseMessaging in Frameworks */,
 				CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */,
+				CA7D119F2E10567900D55CCE /* FirebaseInAppMessaging-Beta in Frameworks */,
 				CA87FF6F2E00305600C8C830 /* CarouselStack in Frameworks */,
 				CA87FF712E00305600C8C830 /* ShuffleDeck in Frameworks */,
 				CA87FF732E00305600C8C830 /* ShuffleIt in Frameworks */,
+				CA7D119D2E10567900D55CCE /* FirebaseCore in Frameworks */,
 				CA87FF752E00305600C8C830 /* ShuffleStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +232,7 @@
 		CA09154B2DF128A400E272F8 /* Jamjam */ = {
 			isa = PBXGroup;
 			children = (
+				CA7D11A22E10570A00D55CCE /* Jamjam.entitlements */,
 				CA0BAD642E05A27400595A80 /* Info.plist */,
 				CA09154A2DF128A400E272F8 /* JamjamApp.swift */,
 				CA0915532DF12B7E00E272F8 /* NavigationBaseView.swift */,
@@ -239,6 +249,7 @@
 				CA0915482DF128A400E272F8 /* Assets.xcassets */,
 				CA09154F2DF129C900E272F8 /* Config.xcconfig */,
 				CA0915512DF129EC00E272F8 /* .gitignore */,
+				CA7D11942E10553200D55CCE /* GoogleService-Info.plist */,
 			);
 			path = Jamjam;
 			sourceTree = "<group>";
@@ -775,6 +786,9 @@
 				CA87FF722E00305600C8C830 /* ShuffleIt */,
 				CA87FF742E00305600C8C830 /* ShuffleStack */,
 				CAD3106D2E09B56200A5FAA4 /* Alamofire */,
+				CA7D119C2E10567900D55CCE /* FirebaseCore */,
+				CA7D119E2E10567900D55CCE /* FirebaseInAppMessaging-Beta */,
+				CA7D11A02E10567900D55CCE /* FirebaseMessaging */,
 			);
 			productName = Jamjam;
 			productReference = CA09153A2DF1289A00E272F8 /* Jamjam.app */;
@@ -807,6 +821,7 @@
 			packageReferences = (
 				CA87FF6D2E00305600C8C830 /* XCRemoteSwiftPackageReference "ShuffleIt" */,
 				CAD3106C2E09B56200A5FAA4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CA7D119B2E10567900D55CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CA09153B2DF1289A00E272F8 /* Products */;
@@ -828,6 +843,7 @@
 				CA0BAD972E05BC6400595A80 /* Pretendard-Bold.otf in Resources */,
 				CA0BAD982E05BC6400595A80 /* Pretendard-Thin.otf in Resources */,
 				CA0BAD992E05BC6400595A80 /* Pretendard-Regular.otf in Resources */,
+				CA7D11952E10553200D55CCE /* GoogleService-Info.plist in Resources */,
 				CA0BAD9A2E05BC6400595A80 /* Pretendard-Medium.otf in Resources */,
 				CA0BAD9B2E05BC6400595A80 /* Pretendard-ExtraBold.otf in Resources */,
 				CA0BAD9C2E05BC6400595A80 /* Pretendard-ExtraLight.otf in Resources */,
@@ -1052,6 +1068,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Jamjam/Jamjam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B3TSGMGBBP;
@@ -1089,6 +1106,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Jamjam/Jamjam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B3TSGMGBBP;
@@ -1144,6 +1162,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CA7D119B2E10567900D55CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.15.0;
+			};
+		};
 		CA87FF6D2E00305600C8C830 /* XCRemoteSwiftPackageReference "ShuffleIt" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dscyrescotti/ShuffleIt";
@@ -1163,6 +1189,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CA7D119C2E10567900D55CCE /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA7D119B2E10567900D55CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		CA7D119E2E10567900D55CCE /* FirebaseInAppMessaging-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA7D119B2E10567900D55CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessaging-Beta";
+		};
+		CA7D11A02E10567900D55CCE /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA7D119B2E10567900D55CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
 		CA87FF6E2E00305600C8C830 /* CarouselStack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CA87FF6D2E00305600C8C830 /* XCRemoteSwiftPackageReference "ShuffleIt" */;
