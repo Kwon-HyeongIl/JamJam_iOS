@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct ChatView: View {
+    @Environment(NavigationRouter.self) var navRouter
+    @State private var viewModel = ChatViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        MainBackground {
+            ScrollView(showsIndicators: false) {
+                
+            }
+        }
     }
 }
 
 #Preview {
     ChatView()
+        .environment(NavigationRouter())
 }
