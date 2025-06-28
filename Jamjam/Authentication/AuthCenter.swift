@@ -20,9 +20,9 @@ class AuthCenter {
         /// 로그아웃: 토큰에 nil 저장 -> didSet 호출 -> Keychain에서 토큰 삭제
         didSet {
             if let token = accessToken, !token.isEmpty {
-                storeAccessToken(token)
+                storeToken(token)
             } else {
-                deleteAccessToken()
+                deleteToken()
             }
         }
     }

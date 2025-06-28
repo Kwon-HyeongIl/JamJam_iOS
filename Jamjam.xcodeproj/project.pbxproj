@@ -82,6 +82,8 @@
 		CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38D82DFA5D3500AE12DD /* HomeView.swift */; };
 		CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */; };
 		CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */; };
+		CA9F46382E101ED600028F83 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F46372E101ED600028F83 /* WriteView.swift */; };
+		CA9F463A2E101EE000028F83 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F46392E101EE000028F83 /* ChatView.swift */; };
 		CAAB47F22E0AD13E000197E5 /* AuthCenter+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F12E0AD13E000197E5 /* AuthCenter+SignUp.swift */; };
 		CAAB47F42E0ADC1D000197E5 /* CheckNicknameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */; };
 		CAAB47F62E0ADC4B000197E5 /* CheckNicknameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F52E0ADC4B000197E5 /* CheckNicknameResponse.swift */; };
@@ -167,6 +169,8 @@
 		CA9E38D82DFA5D3500AE12DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard.swift; sourceTree = "<group>"; };
+		CA9F46372E101ED600028F83 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
+		CA9F46392E101EE000028F83 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		CAAB47F12E0AD13E000197E5 /* AuthCenter+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthCenter+SignUp.swift"; sourceTree = "<group>"; };
 		CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameRequest.swift; sourceTree = "<group>"; };
 		CAAB47F52E0ADC4B000197E5 /* CheckNicknameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameResponse.swift; sourceTree = "<group>"; };
@@ -254,6 +258,8 @@
 				CABB13BC2DF6923A007C9E35 /* Splash */,
 				CA9609B62DFFD7EB00B878C6 /* Auth */,
 				CA9E38D72DFA5D2300AE12DD /* Home */,
+				CA9F46352E101EB400028F83 /* Write */,
+				CA9F46362E101EC400028F83 /* Chat */,
 				CA9609B32DFFD4F300B878C6 /* Profile */,
 			);
 			path = "View (V)";
@@ -661,6 +667,22 @@
 			path = Carousel;
 			sourceTree = "<group>";
 		};
+		CA9F46352E101EB400028F83 /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				CA9F46372E101ED600028F83 /* WriteView.swift */,
+			);
+			path = Write;
+			sourceTree = "<group>";
+		};
+		CA9F46362E101EC400028F83 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				CA9F46392E101EE000028F83 /* ChatView.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		CABB13BB2DF690BE007C9E35 /* View Model (VM) */ = {
 			isa = PBXGroup;
 			children = (
@@ -786,6 +808,7 @@
 				CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */,
 				CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */,
 				CA35935F2E0514AE0069FAF8 /* CategoryViewModel.swift in Sources */,
+				CA9F46382E101ED600028F83 /* WriteView.swift in Sources */,
 				CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */,
 				CA9609A42DFFCD7B00B878C6 /* Color+MainTitle.swift in Sources */,
 				CA9609A72DFFCF8100B878C6 /* MainTabBar.swift in Sources */,
@@ -794,6 +817,7 @@
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
 				CA96099E2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift in Sources */,
 				CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */,
+				CA9F463A2E101EE000028F83 /* ChatView.swift in Sources */,
 				CA5C5E902E09A0A800FB1E22 /* SignUpWithClientResponse.swift in Sources */,
 				CA4CF92D2E0C279D00F882C4 /* VerifySmsResponse.swift in Sources */,
 				CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */,

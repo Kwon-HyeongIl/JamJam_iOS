@@ -22,6 +22,12 @@ struct MainTabView: View {
                 HomeView()
                     .tag(MainTab.home)
                 
+                WriteView()
+                    .tag(MainTab.write)
+                
+                ChatView()
+                    .tag(MainTab.chat)
+                
                 ProfileView()
                     .tag(MainTab.profile)
             }
