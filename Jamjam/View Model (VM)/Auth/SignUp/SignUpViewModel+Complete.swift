@@ -22,18 +22,18 @@ extension SignUpViewModel {
                         print("[signUpWithProvider] finished")
                     case .failure(let error):
                         print("[signUpWithProvider] failed: \(error)")
-                        self?.isSignUpFailedNoti1 = true
+                        self?.isSignUpFailedAlert1 = true
                     }
                     
                     self?.isEntireProgressViewVisible = false
                     
                 } receiveValue: { [weak self] response in
-                    if response.code == "SUCCESS" {
+                    if response.code == "SUCCESS" && !response.content.accessToken.isEmpty {
                         self?.isSignUpCompleted = true
-                        AuthCenter.shared.jwtToken = response.content.accessToken
+                        AuthCenter.shared.accessToken = response.content.accessToken
                         
                     } else {
-                        self?.isSignUpFailedNoti2 = true
+                        self?.isSignUpFailedAlert2 = true
                         self?.signUpFailedNoti2ErrorMessage = response.message
                     }
                 }
@@ -52,18 +52,18 @@ extension SignUpViewModel {
                         print("[signUpWithClient] finished")
                     case .failure(let error):
                         print("[signUpWithClient] failed: \(error)")
-                        self?.isSignUpFailedNoti1 = true
+                        self?.isSignUpFailedAlert1 = true
                     }
                     
                     self?.isEntireProgressViewVisible = false
                     
                 } receiveValue: { [weak self] response in
-                    if response.code == "SUCCESS" {
+                    if response.code == "SUCCESS" && !response.content.accessToken.isEmpty {
                         self?.isSignUpCompleted = true
-                        AuthCenter.shared.jwtToken = response.content.accessToken
+                        AuthCenter.shared.accessToken = response.content.accessToken
                         
                     } else {
-                        self?.isSignUpFailedNoti2 = true
+                        self?.isSignUpFailedAlert2 = true
                         self?.signUpFailedNoti2ErrorMessage = response.message
                     }
                 }

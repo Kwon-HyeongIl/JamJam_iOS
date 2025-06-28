@@ -20,4 +20,8 @@ extension AuthCenter {
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
+    
+    func logout() {
+        self.accessToken = nil
+    }
 }

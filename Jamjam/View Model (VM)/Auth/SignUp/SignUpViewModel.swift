@@ -97,8 +97,8 @@ class SignUpViewModel {
     }
     
     // MARK: SignUp Complete
-    var isSignUpFailedNoti1 = false // 통신 오류
-    var isSignUpFailedNoti2 = false // 기타 실패
+    var isSignUpFailedAlert1 = false // 통신 오류
+    var isSignUpFailedAlert2 = false // 기타 실패
     var signUpFailedNoti2ErrorMessage = ""
     var isSignUpCompleted = false
     
