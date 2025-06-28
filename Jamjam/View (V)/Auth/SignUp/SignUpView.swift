@@ -915,6 +915,8 @@ struct SignUpView: View {
                 VStack(spacing: 0) {
                     Divider()
                     
+                    Spacer()
+                    
                     // MARK: Bottom Button Page 1
                     if viewModel.pageIndex == 0 {
                         Button {
@@ -932,7 +934,6 @@ struct SignUpView: View {
                                 .padding(.horizontal, 35)
                         }
                         .disabled(!(viewModel.isExpertButtonTapped || viewModel.isClientButtonTapped))
-                        .padding(.top, 10)
                         
                         // MARK: Bottom Button Page 2
                     } else if viewModel.pageIndex == 1 {
@@ -974,7 +975,6 @@ struct SignUpView: View {
                                     .padding(.trailing, 35)
                             }
                         }
-                        .padding(.top, 10)
                         
                         // MARK: Bottom Button Page 3
                     } else if viewModel.pageIndex == 2 {
@@ -1029,7 +1029,6 @@ struct SignUpView: View {
                                 }
                             }
                         }
-                        .padding(.top, 10)
                     }
                     
                     Spacer()

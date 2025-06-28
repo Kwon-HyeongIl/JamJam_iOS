@@ -21,31 +21,36 @@ struct ChatContentView: View {
             .safeAreaInset(edge: .bottom) {
                 VStack(spacing: 0) {
                     Divider()
-                        .padding(.bottom)
+                        
+                    Spacer()
                     
                     HStack {
-                        TextField("메시지를 입력하세요.", text: $viewModel.chatMessage)
+                        TextField("메시지를 입력하세요.", text: $viewModel.chatMessage, axis: .vertical)
                             .focused($focus, equals: .first)
-                            .font(.pretendard(size: 14))
-                            .padding(.horizontal)
-                            .frame(minHeight: 50, maxHeight: 150)
-                            .background(.white)
+                            .lineLimit(1...5)
+                            .font(.pretendard(Pretendard.regular, size: 15))
+                            .padding(12)
+                            .background(Color.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .overlay {
+                            .overlay(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
-                            }
+                                    .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5),
+                                            lineWidth: focus == .first ? 1.5 : 1)
+                            )
                         
                         Button {
                             
                         } label: {
                             Image(systemName: "paperplane.fill")
-                                .font(.system(size: 25))
+                                .font(.system(size: 23))
                                 .foregroundStyle(viewModel.chatMessage.isEmpty ? .gray : Color.JJTitle)
                         }
                     }
                     .padding(.horizontal, 20)
+                    
+                    Spacer()
                 }
+                .frame(height: 60)
             }
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)
@@ -69,7 +74,7 @@ struct ChatContentView: View {
                             .foregroundStyle(.gray)
                         
                         Text("홍길동")
-                            .font(.pretendard(Pretendard.semiBold, size: 20))
+                            .font(.pretendard(Pretendard.semiBold, size: 19))
                     }
                 }
             }

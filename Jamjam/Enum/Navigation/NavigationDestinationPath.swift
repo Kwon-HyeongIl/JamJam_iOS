@@ -15,4 +15,7 @@ enum NavigationDestinationPath: Hashable {
     // Home
     case searchView
     case categoryView
+    
+    // Chat
+    case chatContentView
 }

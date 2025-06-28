@@ -48,8 +48,8 @@
 		CA5C5E982E09A47600FB1E22 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E972E09A47600FB1E22 /* TestViewModel.swift */; };
 		CA5C5E9C2E09A55B00FB1E22 /* SignUpWithProviderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E9B2E09A55B00FB1E22 /* SignUpWithProviderRequest.swift */; };
 		CA60FAD32E100BD000150563 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60FAD22E100BD000150563 /* Keychain.swift */; };
-		CA7D11892E10251900D55CCE /* ChatContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7D11882E10251900D55CCE /* ChatContentView.swift */; };
 		CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7D118D2E1025C100D55CCE /* ChatContentViewModel.swift */; };
+		CA7D11932E10327100D55CCE /* ChatContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7D11922E10327100D55CCE /* ChatContentView.swift */; };
 		CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E42DFAF788005377E6 /* Color+Hex.swift */; };
 		CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */; };
 		CA87FF6F2E00305600C8C830 /* CarouselStack in Frameworks */ = {isa = PBXBuildFile; productRef = CA87FF6E2E00305600C8C830 /* CarouselStack */; };
@@ -143,8 +143,8 @@
 		CA5C5E972E09A47600FB1E22 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		CA5C5E9B2E09A55B00FB1E22 /* SignUpWithProviderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithProviderRequest.swift; sourceTree = "<group>"; };
 		CA60FAD22E100BD000150563 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		CA7D11882E10251900D55CCE /* ChatContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContentView.swift; sourceTree = "<group>"; };
 		CA7D118D2E1025C100D55CCE /* ChatContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContentViewModel.swift; sourceTree = "<group>"; };
+		CA7D11922E10327100D55CCE /* ChatContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContentView.swift; sourceTree = "<group>"; };
 		CA83F6E42DFAF788005377E6 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+MainBackground.swift"; sourceTree = "<group>"; };
 		CA87FF772E014B7A00C8C830 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -477,7 +477,7 @@
 		CA7D11872E10250B00D55CCE /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				CA7D11882E10251900D55CCE /* ChatContentView.swift */,
+				CA7D11922E10327100D55CCE /* ChatContentView.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -867,7 +867,6 @@
 				CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */,
 				CA9609A42DFFCD7B00B878C6 /* Color+MainTitle.swift in Sources */,
 				CA9609A72DFFCF8100B878C6 /* MainTabBar.swift in Sources */,
-				CA7D11892E10251900D55CCE /* ChatContentView.swift in Sources */,
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
 				CA4927D92E0EE5BE00D42CD0 /* LoginResponse.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
@@ -876,6 +875,7 @@
 				CA9F463A2E101EE000028F83 /* ChatView.swift in Sources */,
 				CA5C5E902E09A0A800FB1E22 /* SignUpWithClientResponse.swift in Sources */,
 				CA4CF92D2E0C279D00F882C4 /* VerifySmsResponse.swift in Sources */,
+				CA7D11932E10327100D55CCE /* ChatContentView.swift in Sources */,
 				CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */,
 				CA09155B2DF12CF700E272F8 /* NavigationRouter.swift in Sources */,
 				CAAB47F42E0ADC1D000197E5 /* CheckNicknameRequest.swift in Sources */,

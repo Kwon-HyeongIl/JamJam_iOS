@@ -14,17 +14,21 @@ class NavigationRouter {
     @ViewBuilder
     func destinationNavigate(to view: NavigationDestinationPath) -> some View {
         switch view {
-            // Auth
+            // MARK: Auth
         case .loginView:
             LoginView()
         case .signUpView:
             SignUpView()
             
-            // Home
+            // MARK: Home
         case .searchView:
             SearchView()
         case .categoryView:
             CategoryView()
+            
+            // MARK: Chat
+        case .chatContentView:
+            ChatContentView()
         }
     }
     
