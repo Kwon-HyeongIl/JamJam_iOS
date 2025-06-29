@@ -66,10 +66,9 @@ extension AppDelegate: MessagingDelegate{
 
         print("Receive Token")
 
-        let dataDict: [String: String] = ["deviceToken": fcmToken ?? ""]
+        let dataDict: [String: String] = ["fcmDeviceToken": fcmToken ?? ""]
         
         print(dataDict)
-     
     }
 }
 

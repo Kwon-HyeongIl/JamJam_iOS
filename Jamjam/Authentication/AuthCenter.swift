@@ -35,6 +35,9 @@ class AuthCenter {
         }
     }
     
+    var fcmDeviceToken: String?
+    var googleAccessToken: String?
+    
     init() {
         let token = fetchToken()
         
