@@ -116,7 +116,7 @@ struct ProviderProfileView: View {
                     // MARK: Tab Selection
                     HStack {
                         ForEach(Array(viewModel.tabBarList.enumerated()), id: \.offset) { idx, title in
-                            VStack(spacing: 4) {
+                            VStack(spacing: 8) {
                                 Text(title)
                                     .font(.system(size: 16))
                                     .fontWeight(idx == viewModel.selectedIndex ? .semibold : .medium)
