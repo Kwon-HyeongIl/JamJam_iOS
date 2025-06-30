@@ -9,15 +9,6 @@ import SwiftUI
 
 @Observable
 class CategoryViewModel {
-    // Animation
-    var lastOffset: CGFloat = 0
-    var downAccum: CGFloat = 0
-    var upAccum: CGFloat = 0
-    var phase: ScrollPhase = .idle
-    
-    var isSearchBarVisible = true
-    var isTabBarVisible = true
-    
     // Category
     var selectedIndex = 0
     let categories = [

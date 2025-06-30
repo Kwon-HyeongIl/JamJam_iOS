@@ -91,6 +91,7 @@
 		CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */; };
 		CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB52D2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift */; };
 		CA9BB5302E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB52F2E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift */; };
+		CA9BB5322E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB5312E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift */; };
 		CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38D82DFA5D3500AE12DD /* HomeView.swift */; };
 		CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */; };
 		CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */; };
@@ -190,6 +191,7 @@
 		CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileViewModel.swift; sourceTree = "<group>"; };
 		CA9BB52D2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndTitleAndHomeModifier.swift; sourceTree = "<group>"; };
 		CA9BB52F2E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndNameModifier.swift; sourceTree = "<group>"; };
+		CA9BB5312E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndLogoAndLoginButtonModifier.swift; sourceTree = "<group>"; };
 		CA9E38D82DFA5D3500AE12DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 				CA87FF7E2E02829D00C8C830 /* NavigationBarTitleAndHomeModifier.swift */,
 				CA9BB52D2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift */,
 				CA9BB52F2E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift */,
+				CA9BB5312E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA9BB5322E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift in Sources */,
 				CA87FF7F2E02829D00C8C830 /* NavigationBarTitleAndHomeModifier.swift in Sources */,
 				CA96099A2DFBE06400B878C6 /* NavigationBarBackModifier.swift in Sources */,
 				CA5C5E982E09A47600FB1E22 /* TestViewModel.swift in Sources */,
