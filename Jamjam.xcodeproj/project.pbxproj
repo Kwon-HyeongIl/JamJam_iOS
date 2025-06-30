@@ -86,6 +86,10 @@
 		CA9609BE2DFFE36300B878C6 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609BD2DFFE36300B878C6 /* SignUpView.swift */; };
 		CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609C62E0018D800B878C6 /* TextFieldFocusField.swift */; };
 		CA9609CA2E00225500B878C6 /* MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609C92E00225500B878C6 /* MainBackground.swift */; };
+		CA9BB5242E12B8DD0035F26D /* ProviderProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB5232E12B8DD0035F26D /* ProviderProfileView.swift */; };
+		CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB5282E12B9000035F26D /* ProfileViewModel.swift */; };
+		CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */; };
+		CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB52D2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift */; };
 		CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38D82DFA5D3500AE12DD /* HomeView.swift */; };
 		CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */; };
 		CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */; };
@@ -180,6 +184,10 @@
 		CA9609BD2DFFE36300B878C6 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		CA9609C62E0018D800B878C6 /* TextFieldFocusField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFocusField.swift; sourceTree = "<group>"; };
 		CA9609C92E00225500B878C6 /* MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackground.swift; sourceTree = "<group>"; };
+		CA9BB5232E12B8DD0035F26D /* ProviderProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileView.swift; sourceTree = "<group>"; };
+		CA9BB5282E12B9000035F26D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileViewModel.swift; sourceTree = "<group>"; };
+		CA9BB52D2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndTitleAndHomeModifier.swift; sourceTree = "<group>"; };
 		CA9E38D82DFA5D3500AE12DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard.swift; sourceTree = "<group>"; };
@@ -582,6 +590,7 @@
 				CA96099B2DFBE08A00B878C6 /* NavigationBarBackAndHomeModifier.swift */,
 				CA96099D2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift */,
 				CA87FF7E2E02829D00C8C830 /* NavigationBarTitleAndHomeModifier.swift */,
+				CA9BB52D2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -639,6 +648,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9609B42DFFD50400B878C6 /* ProfileView.swift */,
+				CA9BB5222E12B8CA0035F26D /* Provider */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -683,6 +693,31 @@
 				CA9609C92E00225500B878C6 /* MainBackground.swift */,
 			);
 			path = Background;
+			sourceTree = "<group>";
+		};
+		CA9BB5222E12B8CA0035F26D /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				CA9BB5232E12B8DD0035F26D /* ProviderProfileView.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		CA9BB5252E12B8E90035F26D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CA9BB5282E12B9000035F26D /* ProfileViewModel.swift */,
+				CA9BB52A2E12B9050035F26D /* Provider */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CA9BB52A2E12B9050035F26D /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		CA9E38D72DFA5D2300AE12DD /* Home */ = {
@@ -763,6 +798,7 @@
 				CA9E38DA2DFA5FC800AE12DD /* Home */,
 				CA9F463B2E101FAF00028F83 /* Write */,
 				CA9F463C2E101FB400028F83 /* Chat */,
+				CA9BB5252E12B8E90035F26D /* Profile */,
 			);
 			path = "View Model (VM)";
 			sourceTree = "<group>";
@@ -876,6 +912,7 @@
 				CA5C5E982E09A47600FB1E22 /* TestViewModel.swift in Sources */,
 				CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */,
 				CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */,
+				CA9BB5242E12B8DD0035F26D /* ProviderProfileView.swift in Sources */,
 				CA4CF9272E0C1E1100F882C4 /* SendSmsRequest.swift in Sources */,
 				CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */,
 				CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */,
@@ -897,6 +934,7 @@
 				CA9609A72DFFCF8100B878C6 /* MainTabBar.swift in Sources */,
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
 				CA4927D92E0EE5BE00D42CD0 /* LoginResponse.swift in Sources */,
+				CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
 				CA96099E2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift in Sources */,
 				CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */,
@@ -916,6 +954,7 @@
 				CA60FAD32E100BD000150563 /* Keychain.swift in Sources */,
 				CA9609B02DFFD17900B878C6 /* CornerRadius.swift in Sources */,
 				CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */,
+				CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */,
 				CA4CF92B2E0C276B00F882C4 /* VerifySmsRequest.swift in Sources */,
 				CA87FF782E014B7A00C8C830 /* SignUpViewModel.swift in Sources */,
 				CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */,
@@ -928,6 +967,7 @@
 				CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */,
 				CA5C5E862E099CED00FB1E22 /* AuthCenter.swift in Sources */,
 				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */,
+				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
 				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,
 				CA9609CA2E00225500B878C6 /* MainBackground.swift in Sources */,
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,

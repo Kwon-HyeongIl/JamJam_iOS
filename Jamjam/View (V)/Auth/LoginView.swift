@@ -80,10 +80,10 @@ struct LoginView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundStyle(Color.JJTitle)
                             .padding(.horizontal, 35)
-                            .frame(height: 50)
+                            .frame(height: 45)
                             .overlay {
                                 Text("로그인")
-                                    .font(.pretendard(Pretendard.semiBold, size: 17))
+                                    .font(.pretendard(Pretendard.semiBold, size: 15))
                                     .foregroundStyle(.white)
                             }
                     }
