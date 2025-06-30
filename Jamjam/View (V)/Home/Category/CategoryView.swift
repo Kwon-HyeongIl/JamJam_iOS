@@ -11,6 +11,8 @@ struct CategoryView: View {
     @Environment(NavigationRouter.self) var navRouter
     @State private var viewModel = CategoryViewModel()
     
+    @State private var isTabBarVisible = true
+    
     @Namespace private var categoryUnderline
     
     var body: some View {
@@ -98,9 +100,28 @@ struct CategoryView: View {
                 }
             }
             .modifier(NavigationBarBackAndLogoAndLoginButtonModifier())
+            .onScrollGeometryChange(for: CGFloat.self) { geometry in
+                geometry.contentOffset.y
+            } action: { oldY, newY in
+                if newY <= 0 {
+                    withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                        isTabBarVisible = true
+                    }
+                    
+                    return
+                }
+                
+                let delta = newY - oldY
+                
+                guard abs(delta) > 5 else { return }
+                
+                withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                    isTabBarVisible = delta < 0
+                }
+            }
             .safeAreaInset(edge: .bottom) {
                 MainTabBar(isCategoryView: true)
-                    .offset(y: 97)
+                    .offset(y: isTabBarVisible ? 97 : 200)
             }
         }
     }
