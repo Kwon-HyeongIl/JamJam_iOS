@@ -93,16 +93,16 @@ struct CategoryView: View {
                 .frame(height: viewModel.isSearchBarVisible ? 44 : 0)
                 .padding(.bottom, viewModel.isSearchBarVisible ? 12 : 0)
                 
-                // MARK: Category
+                // MARK: Category Selection
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 13) {
                         ForEach(Array(viewModel.categories.enumerated()), id: \.offset) { idx, title in
                             VStack(spacing: 4) {
                                 Text(title)
                                     .font(.system(size: 16))
-                                    .fontWeight(idx == viewModel.selectedIndex ? .bold : .medium)
+                                    .fontWeight(idx == viewModel.selectedIndex ? .semibold : .medium)
                                     .foregroundStyle(idx == viewModel.selectedIndex
-                                                     ? Color.JJTitle
+                                                     ? .black
                                                      : .gray)
                                     .padding(.leading,
                                              idx == 0 ? 20 : 0)
@@ -112,7 +112,7 @@ struct CategoryView: View {
                                     Rectangle()
                                         .fill(idx == viewModel.selectedIndex ? Color.JJTitle : .clear)
                                         .frame(height: 2)
-                                        .padding(.leading, idx == 0 ? 25 : 0)
+                                        .padding(.leading, idx == 0 ? 20 : 0)
                                         .matchedGeometryEffect(id: "underline", in: categoryUnderline)
                                     
                                 } else {
