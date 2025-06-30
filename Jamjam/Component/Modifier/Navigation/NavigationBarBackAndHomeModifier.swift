@@ -12,6 +12,17 @@ struct NavigationBarBackAndHomeModifier: ViewModifier {
     @Environment(NavigationRouter.self) var navRouter
     @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
     
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(Color.mainBackground)
+        appearance.shadowColor = .clear // 하단 Divider 제거
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+    }
+    
     func body(content: Content) -> some View {
         content
             .navigationBarBackButtonHidden()
@@ -37,7 +48,7 @@ struct NavigationBarBackAndHomeModifier: ViewModifier {
                         Image(systemName: "house")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 25)
+                            .frame(width: 24)
                             .foregroundStyle(Color.JJTitle)
                     }
                 }

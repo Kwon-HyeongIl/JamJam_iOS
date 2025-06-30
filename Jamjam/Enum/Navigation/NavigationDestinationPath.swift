@@ -18,4 +18,7 @@ enum NavigationDestinationPath: Hashable {
     
     // Chat
     case chatContentView
+    
+    // Profile
+    case providerProfileView
 }

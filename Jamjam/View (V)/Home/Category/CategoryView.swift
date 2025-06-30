@@ -139,12 +139,10 @@ struct CategoryView: View {
                     }
                     .frame(height: 0)
                     
-//                    Text("Content")
-//                    
-//                    VStack {
-//                        Color.red.opacity(0.1)
-//                    }
-//                    .frame(width: 50, height: 1200)
+                    VStack {
+                        Color.red.opacity(0.1)
+                    }
+                    .frame(width: 50, height: 1200)
                     
                     // 내부 뷰
                 }

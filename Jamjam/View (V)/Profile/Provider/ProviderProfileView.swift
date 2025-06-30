@@ -15,7 +15,7 @@ struct ProviderProfileView: View {
         MainBackground {
             ScrollView(showsIndicators: false) {
                 VStack {
-                    // MARK: Profile Part 1
+                    // MARK: Profile Part
                     HStack(spacing: 10) {
                         Image(systemName: "person.crop.circle")
                             .font(.system(size: 60))
@@ -56,45 +56,6 @@ struct ProviderProfileView: View {
                     }
                     .padding(.bottom)
                     
-                    // MARK: Profile Part 2
-                    HStack {
-                        Spacer()
-                        
-                        VStack(spacing: 10) {
-                            Text("총 의뢰수")
-                                .font(.pretendard(Pretendard.medium, size: 15))
-                                .foregroundStyle(.gray)
-                            
-                            Text("0회")
-                                .font(.pretendard(Pretendard.bold, size: 18))
-                        }
-                        
-                        Spacer()
-                        
-                        VStack(spacing: 10) {
-                            Text("만족도")
-                                .font(.pretendard(Pretendard.medium, size: 15))
-                                .foregroundStyle(.gray)
-                            
-                            Text("0%")
-                                .font(.pretendard(Pretendard.bold, size: 18))
-                        }
-                        
-                        Spacer()
-                        
-                        VStack(spacing: 10) {
-                            Text("경력")
-                                .font(.pretendard(Pretendard.medium, size: 15))
-                                .foregroundStyle(.gray)
-                            
-                            Text("28년")
-                                .font(.pretendard(Pretendard.bold, size: 18))
-                        }
-                        
-                        Spacer()
-                    }
-                    .padding(.bottom)
-                    
                     // MARK: Contack Part
                     VStack {
                         Button {
@@ -114,33 +75,42 @@ struct ProviderProfileView: View {
                     .padding(.bottom)
                     
                     // MARK: Tab Selection
-                    HStack {
-                        ForEach(Array(viewModel.tabBarList.enumerated()), id: \.offset) { idx, title in
-                            VStack(spacing: 8) {
-                                Text(title)
-                                    .font(.system(size: 16))
-                                    .fontWeight(idx == viewModel.selectedIndex ? .semibold : .medium)
-                                    .foregroundStyle(idx == viewModel.selectedIndex
-                                                     ? .black
-                                                     : .gray)
-                                    .animation(nil, value: viewModel.selectedIndex)
-                                
-                                if idx == viewModel.selectedIndex {
-                                    Rectangle()
-                                        .fill(idx == viewModel.selectedIndex ? Color.JJTitle : .clear)
-                                        .frame(height: 2)
-                                        .padding(.horizontal, 25)
-                                        .matchedGeometryEffect(id: "underline", in: tabListUnderline)
-                                    
-                                } else {
-                                    Color.clear.frame(height: 2)
+                    LazyVStack(pinnedViews: [.sectionHeaders]) {
+                        Section {
+                            Rectangle()
+                                .frame(width: 50, height: 1200)
+                                .foregroundStyle(.red.opacity(0.1))
+                        } header: {
+                            HStack {
+                                ForEach(Array(viewModel.tabBarList.enumerated()), id: \.offset) { idx, title in
+                                    VStack(spacing: 8) {
+                                        Text(title)
+                                            .font(.system(size: 16))
+                                            .fontWeight(idx == viewModel.selectedIndex ? .semibold : .medium)
+                                            .foregroundStyle(idx == viewModel.selectedIndex ? .black : .gray)
+                                            .animation(nil, value: viewModel.selectedIndex)
+                                        
+                                        if idx == viewModel.selectedIndex {
+                                            Rectangle()
+                                                .fill(Color.JJTitle)
+                                                .frame(height: 2)
+                                                .padding(.horizontal, 25)
+                                                .matchedGeometryEffect(id: "underline", in: tabListUnderline)
+                                        } else {
+                                            Color.clear.frame(height: 2)
+                                        }
+                                    }
+                                    .onTapGesture {
+                                        withAnimation(.spring(response: 0.2,
+                                                              dampingFraction: 1,
+                                                              blendDuration: 0)) {
+                                            viewModel.selectedIndex = idx
+                                        }
+                                    }
                                 }
                             }
-                            .onTapGesture {
-                                withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
-                                    viewModel.selectedIndex = idx
-                                }
-                            }
+                            .padding(.top)
+                            .background(Color.mainBackground)
                         }
                     }
                 }
@@ -155,3 +125,4 @@ struct ProviderProfileView: View {
         .environment(NavigationRouter())
         .environment(MainTabBarCapsule())
 }
+

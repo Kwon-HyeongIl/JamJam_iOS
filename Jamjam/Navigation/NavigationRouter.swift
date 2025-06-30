@@ -29,6 +29,10 @@ class NavigationRouter {
             // MARK: Chat
         case .chatContentView:
             ChatContentView()
+            
+            // MARK: Profile
+        case .providerProfileView:
+            ProviderProfileView()
         }
     }
     

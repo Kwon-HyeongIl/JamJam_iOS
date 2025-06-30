@@ -132,25 +132,29 @@ struct HomeView: View {
                                         }
                                 }
                                 
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("consulting_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 33)
-                                            
-                                            Text("컨설팅•멘토링")
-                                                .font(.pretendard(Pretendard.semiBold, size: 15))
-                                                .foregroundStyle(.black)
+                                Button {
+                                    navRouter.navigate(.providerProfileView)
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.white)
+                                        .frame(height: 80)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.3), lineWidth: 1)
                                         }
-                                    }
+                                        .overlay {
+                                            VStack(spacing: 7) {
+                                                Image("consulting_icon")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 33)
+                                                
+                                                Text("컨설팅•멘토링")
+                                                    .font(.pretendard(Pretendard.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
+                                            }
+                                        }
+                                }
                             }
                             .padding(.horizontal, 20)
                             
