@@ -90,6 +90,7 @@
 		CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB5282E12B9000035F26D /* ProfileViewModel.swift */; };
 		CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */; };
 		CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB52D2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift */; };
+		CA9BB5302E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB52F2E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift */; };
 		CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38D82DFA5D3500AE12DD /* HomeView.swift */; };
 		CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */; };
 		CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */; };
@@ -188,6 +189,7 @@
 		CA9BB5282E12B9000035F26D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileViewModel.swift; sourceTree = "<group>"; };
 		CA9BB52D2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndTitleAndHomeModifier.swift; sourceTree = "<group>"; };
+		CA9BB52F2E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndNameModifier.swift; sourceTree = "<group>"; };
 		CA9E38D82DFA5D3500AE12DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard.swift; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 				CA96099D2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift */,
 				CA87FF7E2E02829D00C8C830 /* NavigationBarTitleAndHomeModifier.swift */,
 				CA9BB52D2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift */,
+				CA9BB52F2E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -975,6 +978,7 @@
 				CA87FF942E040FDE00C8C830 /* SignUpViewModel+Complete.swift in Sources */,
 				CA4927D72E0EE52D00D42CD0 /* LoginRequest.swift in Sources */,
 				CA5C5E962E09A42A00FB1E22 /* TestView.swift in Sources */,
+				CA9BB5302E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift in Sources */,
 				CA09155D2DF12D6A00E272F8 /* NavigationDestinationPath.swift in Sources */,
 				CA9609A22DFBE1E100B878C6 /* NavigationBackGestureEnable.swift in Sources */,
 				CA5C5E942E09A22800FB1E22 /* API.swift in Sources */,

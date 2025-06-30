@@ -121,8 +121,10 @@ struct ProviderProfileView: View {
 }
 
 #Preview {
-    ProviderProfileView()
-        .environment(NavigationRouter())
-        .environment(MainTabBarCapsule())
+    NavigationStack {
+        ProviderProfileView()
+            .environment(NavigationRouter())
+            .environment(MainTabBarCapsule())
+    }
 }
 

@@ -1,21 +1,20 @@
 //
-//  NavigationBarBackAndTitleAndHomeModifier.swift
+//  NavigationBarBackAndNameModifier.swift
 //  Jamjam
 //
-//  Created by 권형일 on 6/30/25.
+//  Created by 권형일 on 7/1/25.
 //
 
 import SwiftUI
 
-// 뒤로가기 + 타이틀 + 홈
-struct NavigationBarBackAndTitleAndHomeModifier: ViewModifier {
+// 뒤로가기 + 이름
+struct NavigationBarBackAndNameModifier: ViewModifier {
     @Environment(NavigationRouter.self) var navRouter
-    @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
     
-    let title: String
+    let name: String
     
-    init(title: String) {
-        self.title = title
+    init(name: String) {
+        self.name = name
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -45,22 +44,15 @@ struct NavigationBarBackAndTitleAndHomeModifier: ViewModifier {
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    Text(title)
-                        .font(.pretendard(Pretendard.semiBold, size: 18))
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        navRouter.popToRoot()
-                        mainTabBarCapsule.selectedTab = .home
-                    } label: {
-                        Image(systemName: "house")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 24)
-                            .foregroundStyle(Color.JJTitle)
+                    HStack {
+                        Image(systemName: "person.crop.circle")
+                            .font(.system(size: 20))
+                            .foregroundStyle(.gray)
+                        
+                        Text(name)
+                            .font(.pretendard(Pretendard.semiBold, size: 19))
                     }
-                } 
+                }
             }
     }
 }

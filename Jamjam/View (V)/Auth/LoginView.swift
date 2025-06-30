@@ -160,6 +160,8 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
-        .environment(NavigationRouter())
+    NavigationStack {
+        LoginView()
+            .environment(NavigationRouter())
+    }
 }

@@ -52,37 +52,14 @@ struct ChatContentView: View {
                 }
                 .frame(height: 60)
             }
-            .navigationBarBackButtonHidden()
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        navRouter.back()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .scaledToFit()
-                            .frame(width: 24)
-                            .fontWeight(.medium)
-                            .foregroundStyle(.black)
-                    }
-                }
-                
-                ToolbarItem(placement: .principal) {
-                    HStack {
-                        Image(systemName: "person.crop.circle")
-                            .font(.system(size: 20))
-                            .foregroundStyle(.gray)
-                        
-                        Text("홍길동")
-                            .font(.pretendard(Pretendard.semiBold, size: 19))
-                    }
-                }
-            }
+            .modifier(NavigationBarBackAndNameModifier(name: "홍길동"))
         }
     }
 }
 
 #Preview {
-    ChatContentView()
-        .environment(NavigationRouter())
+    NavigationStack {
+        ChatContentView()
+            .environment(NavigationRouter())
+    }
 }

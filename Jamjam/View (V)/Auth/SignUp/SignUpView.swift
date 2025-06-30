@@ -1076,7 +1076,9 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView()
-        .environment(NavigationRouter())
-        .environment(MainTabBarCapsule())
+    NavigationStack {
+        SignUpView()
+            .environment(NavigationRouter())
+            .environment(MainTabBarCapsule())
+    }
 }
