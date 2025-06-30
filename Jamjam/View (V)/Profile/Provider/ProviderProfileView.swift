@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProviderProfileView: View {
     @State private var viewModel = ProviderProfileViewModel()
+    @Namespace private var tabListUnderline
     
     var body: some View {
         MainBackground {
@@ -110,10 +111,37 @@ struct ProviderProfileView: View {
                                 }
                         }
                     }
+                    .padding(.bottom)
                     
                     // MARK: Tab Selection
                     HStack {
-                        
+                        ForEach(Array(viewModel.tabList.enumerated()), id: \.offset) { idx, title in
+                            VStack(spacing: 4) {
+                                Text(title)
+                                    .font(.system(size: 16))
+                                    .fontWeight(idx == viewModel.selectedIndex ? .semibold : .medium)
+                                    .foregroundStyle(idx == viewModel.selectedIndex
+                                                     ? .black
+                                                     : .gray)
+                                    .animation(nil, value: viewModel.selectedIndex)
+                                
+                                if idx == viewModel.selectedIndex {
+                                    Rectangle()
+                                        .fill(idx == viewModel.selectedIndex ? Color.JJTitle : .clear)
+                                        .frame(height: 2)
+                                        .padding(.horizontal, 25)
+                                        .matchedGeometryEffect(id: "underline", in: tabListUnderline)
+                                    
+                                } else {
+                                    Color.clear.frame(height: 2)
+                                }
+                            }
+                            .onTapGesture {
+                                withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                                    viewModel.selectedIndex = idx
+                                }
+                            }
+                        }
                     }
                 }
             }

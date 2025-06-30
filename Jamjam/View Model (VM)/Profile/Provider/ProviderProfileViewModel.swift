@@ -10,4 +10,8 @@ import Foundation
 @Observable
 class ProviderProfileViewModel {
     
+    var selectedIndex = 0
+    let tabList = [
+        "전문가 정보", "서비스"
+    ]
 }

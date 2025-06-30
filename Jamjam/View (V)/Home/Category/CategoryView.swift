@@ -95,7 +95,7 @@ struct CategoryView: View {
                 
                 // MARK: Category Selection
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 13) {
+                    HStack(spacing: 14) {
                         ForEach(Array(viewModel.categories.enumerated()), id: \.offset) { idx, title in
                             VStack(spacing: 4) {
                                 Text(title)
