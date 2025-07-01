@@ -28,7 +28,7 @@ extension SignUpViewModel {
                     print("[checkNickname] finished")
                 case .failure(let error):
                     print("[checkNickname] failed: \(error)")
-                    self?.isNicknameFailedNoti2 = true
+                    self?.isNicknameNotiVisible = true
                 }
                 
                 self?.isProgressViewVisibleInNickname = false
@@ -36,8 +36,12 @@ extension SignUpViewModel {
             } receiveValue: { [weak self] response in
                 if let available = response.content?.available, available == true {
                     self?.isNicknameFinalValidated = true
+                    self?.isNicknameNotiVisible = true
+                    self?.nicknameNotiContent = "사용 가능한 닉네임 입니다."
+                    
                 } else {
-                    self?.isNicknameFailedNoti1 = true
+                    self?.isNicknameNotiVisible = true
+                    self?.nicknameNotiContent = "중복된 닉네임입니다."
                 }
             }
             .store(in: &self.cancellables)

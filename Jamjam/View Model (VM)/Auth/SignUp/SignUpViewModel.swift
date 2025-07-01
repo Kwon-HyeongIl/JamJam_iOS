@@ -24,10 +24,8 @@ class SignUpViewModel {
     
     // MARK: Page 2
     var nickname =  ""
-    var isNicknameFailedNoti1 = false // 중복
-    var isNicknameFailedNoti2 = false // 통신 오류
-    var isNicknameFailedNoti3 = false // 10글자 이내의 한글, 영문, 숫자
-    var isNicknameFailedNoti4 = false // 2자 이상
+    var isNicknameNotiVisible = false
+    var nicknameNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
     var isNicknameFinalValidated = false
     
     var loginId = ""

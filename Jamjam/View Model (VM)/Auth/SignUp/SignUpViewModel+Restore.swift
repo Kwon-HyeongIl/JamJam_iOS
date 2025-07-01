@@ -11,10 +11,8 @@ extension SignUpViewModel {
     // MARK: Page 2
     func restoreNicknameRelated() {
         self.isNicknameFinalValidated = false
-        self.isNicknameFailedNoti1 = false
-        self.isNicknameFailedNoti2 = false
-        self.isNicknameFailedNoti3 = false
-        self.isNicknameFailedNoti4 = false
+        self.isNicknameNotiVisible = false
+        self.nicknameNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
     }
     
     func restoreIdRelated() {

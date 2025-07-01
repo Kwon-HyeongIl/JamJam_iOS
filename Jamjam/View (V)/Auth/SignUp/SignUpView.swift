@@ -189,7 +189,8 @@ struct SignUpView: View {
                                             viewModel.restoreNicknameRelated()
                                             
                                             if viewModel.nickname.count == 1 {
-                                                viewModel.isNicknameFailedNoti3 = true
+                                                viewModel.isNicknameNotiVisible = true
+                                                viewModel.nicknameNotiContent = "10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요."
                                             }
                                         }
                                     
@@ -197,7 +198,8 @@ struct SignUpView: View {
                                         if viewModel.validateNicknameForm() {
                                             viewModel.checkNicknameIsDuplicated()
                                         } else {
-                                            viewModel.isNicknameFailedNoti3 = true
+                                            viewModel.isNicknameNotiVisible = true
+                                            viewModel.nicknameNotiContent = "10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요."
                                         }
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
@@ -230,30 +232,11 @@ struct SignUpView: View {
                                 .padding(.horizontal, 35)
                                 
                                 HStack {
-                                    if viewModel.isNicknameFinalValidated {
-                                        Text("사용 가능한 닉네임 입니다.")
+                                    if viewModel.isNicknameNotiVisible {
+                                        Text(viewModel.nicknameNotiContent)
                                             .font(.pretendard(size: 12))
-                                            .foregroundStyle(.green)
+                                            .foregroundStyle(viewModel.isNicknameFinalValidated ? .green : .red)
                                         
-                                    } else if viewModel.isNicknameFailedNoti1 {
-                                        Text("중복된 닉네임 입니다.")
-                                            .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
-                                        
-                                    } else if viewModel.isNicknameFailedNoti2 {
-                                        Text("통신에 실패했습니다.")
-                                            .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
-                                        
-                                    } else if viewModel.isNicknameFailedNoti3 {
-                                        Text("10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요.")
-                                            .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
-                                        
-                                    } else if viewModel.isNicknameFailedNoti4 {
-                                        Text("2자 이상으로 입력해주세요.")
-                                            .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
                                     }
                                     
                                     Spacer()
