@@ -53,6 +53,9 @@ class AuthCenter {
             // 토큰이 존재하는 경우 재발급
             logger.info("[init] Keychain에 기존의 토큰 존재")
             refreshAccessToken(accessToken)
+            
+        } else {
+            logger.info("[init] Keychain에 기존의 토큰 없음")
         }
     }
     
