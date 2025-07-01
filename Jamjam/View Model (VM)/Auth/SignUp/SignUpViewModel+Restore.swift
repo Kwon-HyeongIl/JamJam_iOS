@@ -12,61 +12,61 @@ extension SignUpViewModel {
     func restoreNicknameRelated() {
         self.isNicknameFinalValidated = false
         self.isNicknameNotiVisible = false
-        self.nicknameNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
+        self.nicknameNotiMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     }
     
     func restoreLoginIdRelated() {
         self.isloginIdFinalValidated = false
         self.isLoginIdNotiVisible = false
-        self.loginIdNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
+        self.loginIdNotiMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     }
     
     func restorePasswordRelated() {
         self.isPasswordFinalValidated = false
         self.isPasswordNotiVisible = false
-        self.passwordNotiContent = ""
+        self.passwordNotiMessage = ""
     }
     
     func restoreConfirmPasswordRelated() {
         self.isConfirmPasswordFinalValidated = false
         self.isConfirmPasswordNotiVisible = false
-        self.confirmPasswordNotiContent = ""
+        self.confirmPasswordNotiMessage = ""
     }
     
     // MARK: Page 3
     func restoreRealNameRelated() {
         self.isRealNameFinalValidated = false
         self.isRealNameNotiVisible = false
-        self.realNameNotiContent = ""
+        self.realNameNotiMessage = ""
     }
     
     func restoreBirthYearRelated() {
         self.isBirthYearLocalValidated = false
         self.isBirthNotiVisible = false
-        self.birthNotiContent = ""
+        self.birthNotiMessage = ""
     }
     
     func restoreBirthMonthRelated() {
         self.isBirthMonthLocalValidated = false
         self.isBirthNotiVisible = false
-        self.birthNotiContent = ""
+        self.birthNotiMessage = ""
     }
     
     func restoreBirthDayRelated() {
         self.isBirthDayLocalValidated = false
         self.isBirthNotiVisible = false
-        self.birthNotiContent = ""
+        self.birthNotiMessage = ""
     }
     
     func restorePhoneNumberRelated() {
         self.isPhoneNumberFinalValidated = false
         self.isPhoneNumberNotiVisible = false
-        self.phoneNumberNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
+        self.phoneNumberNotiMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     }
     
     func restoreIdentifiedNumberRelated() {
         self.isPhoneCodeFinalValidated = false
         self.isPhoneCodeNotiVisible = false
-        self.phoneCodeNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
+        self.phoneCodeNotiMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     }
 }

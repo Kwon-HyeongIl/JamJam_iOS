@@ -35,11 +35,11 @@ extension SignUpViewModel {
                 if let available = response.content?.available, available == true {
                     self?.isNicknameFinalValidated = true
                     self?.isNicknameNotiVisible = true
-                    self?.nicknameNotiContent = "사용 가능한 닉네임 입니다."
+                    self?.nicknameNotiMessage = "사용 가능한 닉네임 입니다."
                     
                 } else {
                     self?.isNicknameNotiVisible = true
-                    self?.nicknameNotiContent = response.message
+                    self?.nicknameNotiMessage = response.message
                 }
             }
             .store(in: &self.cancellables)
@@ -72,11 +72,11 @@ extension SignUpViewModel {
                 if let available = response.content?.available, available == true {
                     self?.isloginIdFinalValidated = true
                     self?.isLoginIdNotiVisible = true
-                    self?.loginIdNotiContent = "사용 가능한 아이디 입니다."
+                    self?.loginIdNotiMessage = "사용 가능한 아이디 입니다."
                     
                 } else {
                     self?.isLoginIdNotiVisible = true
-                    self?.loginIdNotiContent = response.message
+                    self?.loginIdNotiMessage = response.message
                 }
             }
             .store(in: &self.cancellables)
@@ -145,11 +145,11 @@ extension SignUpViewModel {
                 if response.code == "SUCCESS" {
                     self?.isPhoneNumberFinalValidated = true
                     self?.isPhoneNumberNotiVisible = true
-                    self?.phoneNumberNotiContent = "인증코드가 발송 되었습니다."
+                    self?.phoneNumberNotiMessage = "인증코드가 발송 되었습니다."
                     
                 } else {
                     self?.isPhoneNumberNotiVisible = true
-                    self?.phoneNumberNotiContent = response.message
+                    self?.phoneNumberNotiMessage = response.message
                 }
             }
             .store(in: &self.cancellables)
@@ -172,11 +172,11 @@ extension SignUpViewModel {
                 if response.code == "SUCCESS" {
                     self?.isPhoneCodeFinalValidated = true
                     self?.isPhoneCodeNotiVisible = true
-                    self?.phoneCodeNotiContent = "확인되었습니다."
+                    self?.phoneCodeNotiMessage = "확인되었습니다."
                     
                 } else {
                     self?.isPhoneCodeNotiVisible = true
-                    self?.phoneCodeNotiContent = response.message
+                    self?.phoneCodeNotiMessage = response.message
                 }
             }
             .store(in: &self.cancellables)

@@ -36,7 +36,7 @@ extension SignUpViewModel {
                         
                     } else {
                         self?.isSignUpAlertVisible = true
-                        self?.signUpAlertContent = response.message
+                        self?.signUpAlertMessage = response.message
                     }
                 }
                 .store(in: &self.cancellables)
@@ -68,7 +68,7 @@ extension SignUpViewModel {
                         
                     } else {
                         self?.isSignUpAlertVisible = true
-                        self?.signUpAlertContent = response.message
+                        self?.signUpAlertMessage = response.message
                     }
                 }
                 .store(in: &self.cancellables)

@@ -190,7 +190,7 @@ struct SignUpView: View {
                                             
                                             if viewModel.nickname.count == 1 {
                                                 viewModel.isNicknameNotiVisible = true
-                                                viewModel.nicknameNotiContent = "10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요."
+                                                viewModel.nicknameNotiMessage = "10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요."
                                             }
                                         }
                                     
@@ -201,7 +201,7 @@ struct SignUpView: View {
                                             viewModel.checkNicknameIsDuplicated()
                                         } else {
                                             viewModel.isNicknameNotiVisible = true
-                                            viewModel.nicknameNotiContent = "10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요."
+                                            viewModel.nicknameNotiMessage = "10자 이내의 한글, 영문, 숫자 조합으로 입력해주세요."
                                         }
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
@@ -235,7 +235,7 @@ struct SignUpView: View {
                                 
                                 HStack {
                                     if viewModel.isNicknameNotiVisible {
-                                        Text(viewModel.nicknameNotiContent)
+                                        Text(viewModel.nicknameNotiMessage)
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(viewModel.isNicknameFinalValidated ? .green : .red)
                                         
@@ -273,7 +273,7 @@ struct SignUpView: View {
                                             
                                             if viewModel.loginId.count >= 1 && viewModel.loginId.count < 4 {
                                                 viewModel.isLoginIdNotiVisible = true
-                                                viewModel.loginIdNotiContent = "4자 이상으로 입력해주세요."
+                                                viewModel.loginIdNotiMessage = "4자 이상으로 입력해주세요."
                                             }
                                         }
                                     
@@ -284,7 +284,7 @@ struct SignUpView: View {
                                             viewModel.checkIdIsDuplicated()
                                         } else {
                                             viewModel.isLoginIdNotiVisible = true
-                                            viewModel.loginIdNotiContent = "소문자로 시작 및 소문자와 숫자만 허용됩니다."
+                                            viewModel.loginIdNotiMessage = "소문자로 시작 및 소문자와 숫자만 허용됩니다."
                                         }
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
@@ -315,7 +315,7 @@ struct SignUpView: View {
                                 
                                 HStack {
                                     if viewModel.isLoginIdNotiVisible {
-                                        Text(viewModel.loginIdNotiContent)
+                                        Text(viewModel.loginIdNotiMessage)
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(viewModel.isloginIdFinalValidated ? .green : .red)
                                     }
@@ -354,11 +354,11 @@ struct SignUpView: View {
                                                 if viewModel.validatePasswordForm() {
                                                     viewModel.isPasswordFinalValidated = true
                                                     viewModel.isPasswordNotiVisible = true
-                                                    viewModel.passwordNotiContent = "사용 가능한 비밀번호 입니다."
+                                                    viewModel.passwordNotiMessage = "사용 가능한 비밀번호 입니다."
                                                     
                                                 } else {
                                                     viewModel.isPasswordNotiVisible = true
-                                                    viewModel.passwordNotiContent = "영문과 숫자를 포함하여 8자 이상이어야 합니다."
+                                                    viewModel.passwordNotiMessage = "영문과 숫자를 포함하여 8자 이상이어야 합니다."
                                                 }
                                             }
                                             .padding(.horizontal, 35)
@@ -381,11 +381,11 @@ struct SignUpView: View {
                                                 if viewModel.validatePasswordForm() {
                                                     viewModel.isPasswordFinalValidated = true
                                                     viewModel.isPasswordNotiVisible = true
-                                                    viewModel.passwordNotiContent = "사용 가능한 비밀번호 입니다."
+                                                    viewModel.passwordNotiMessage = "사용 가능한 비밀번호 입니다."
                                                     
                                                 } else {
                                                     viewModel.isPasswordNotiVisible = true
-                                                    viewModel.passwordNotiContent = "영문과 숫자를 포함하여 8자 이상이어야 합니다."
+                                                    viewModel.passwordNotiMessage = "영문과 숫자를 포함하여 8자 이상이어야 합니다."
                                                     
                                                 }
                                             }
@@ -410,7 +410,7 @@ struct SignUpView: View {
                                 
                                 HStack {
                                     if viewModel.isPasswordNotiVisible {
-                                        Text(viewModel.passwordNotiContent)
+                                        Text(viewModel.passwordNotiMessage)
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(viewModel.isPasswordFinalValidated ? .green : .red)
                                     }
@@ -449,12 +449,12 @@ struct SignUpView: View {
                                                 if viewModel.validateConfrimPassword() {
                                                     viewModel.isConfirmPasswordFinalValidated = true
                                                     viewModel.isConfirmPasswordNotiVisible = true
-                                                    viewModel.confirmPasswordNotiContent = "비밀번호가 일치합니다."
+                                                    viewModel.confirmPasswordNotiMessage = "비밀번호가 일치합니다."
                                                     focus = nil
                                                     
                                                 } else {
                                                     viewModel.isConfirmPasswordNotiVisible = true
-                                                    viewModel.confirmPasswordNotiContent = "비밀번호가 일치하지 않습니다."
+                                                    viewModel.confirmPasswordNotiMessage = "비밀번호가 일치하지 않습니다."
                                                 }
                                             }
                                             .padding(.horizontal, 35)
@@ -477,12 +477,12 @@ struct SignUpView: View {
                                                 if viewModel.validateConfrimPassword() {
                                                     viewModel.isConfirmPasswordFinalValidated = true
                                                     viewModel.isConfirmPasswordNotiVisible = true
-                                                    viewModel.confirmPasswordNotiContent = "비밀번호가 일치합니다."
+                                                    viewModel.confirmPasswordNotiMessage = "비밀번호가 일치합니다."
                                                     focus = nil
                                                     
                                                 } else {
                                                     viewModel.isConfirmPasswordNotiVisible = true
-                                                    viewModel.confirmPasswordNotiContent = "비밀번호가 일치하지 않습니다."
+                                                    viewModel.confirmPasswordNotiMessage = "비밀번호가 일치하지 않습니다."
                                                 }
                                             }
                                             .padding(.horizontal, 35)
@@ -506,7 +506,7 @@ struct SignUpView: View {
                                 
                                 HStack {
                                     if viewModel.isConfirmPasswordNotiVisible {
-                                        Text(viewModel.confirmPasswordNotiContent)
+                                        Text(viewModel.confirmPasswordNotiMessage)
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(viewModel.isConfirmPasswordFinalValidated ? .green : .red)
                                     }
@@ -556,7 +556,7 @@ struct SignUpView: View {
                                 
                                 HStack {
                                     if viewModel.isRealNameNotiVisible {
-                                        Text(viewModel.realNameNotiContent)
+                                        Text(viewModel.realNameNotiMessage)
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
                                     }
@@ -665,7 +665,7 @@ struct SignUpView: View {
                                 
                                 HStack {
                                     if viewModel.isBirthNotiVisible {
-                                        Text(viewModel.birthNotiContent)
+                                        Text(viewModel.birthNotiMessage)
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
                                     }
@@ -778,7 +778,7 @@ struct SignUpView: View {
                                             
                                         } else {
                                             viewModel.isPhoneNumberNotiVisible = true
-                                            viewModel.phoneNumberNotiContent = "하이픈(-)을 제외하고 11자로 입력해주세요"
+                                            viewModel.phoneNumberNotiMessage = "하이픈(-)을 제외하고 11자로 입력해주세요"
                                         }
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
@@ -804,7 +804,7 @@ struct SignUpView: View {
                                 
                                 HStack {
                                     if viewModel.isPhoneNumberNotiVisible {
-                                        Text(viewModel.phoneNumberNotiContent)
+                                        Text(viewModel.phoneNumberNotiMessage)
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(viewModel.isPhoneNumberFinalValidated ? .green : .red)
                                     }
@@ -852,7 +852,7 @@ struct SignUpView: View {
                                     
                                     HStack {
                                         if viewModel.isPhoneCodeNotiVisible {
-                                            Text(viewModel.phoneCodeNotiContent)
+                                            Text(viewModel.phoneCodeNotiMessage)
                                                 .font(.pretendard(size: 12))
                                                 .foregroundStyle(viewModel.isPhoneCodeFinalValidated ? .green : .red)
                                         }
@@ -961,12 +961,12 @@ struct SignUpView: View {
                                 } else {
                                     if !viewModel.isRealNameFinalValidated {
                                         viewModel.isRealNameNotiVisible = true
-                                        viewModel.realNameNotiContent = "한글로 2자 이상으로 입력해주세요."
+                                        viewModel.realNameNotiMessage = "한글로 2자 이상으로 입력해주세요."
                                     }
                                     
                                     if !viewModel.isBirthFinalValidated {
                                         viewModel.isBirthNotiVisible = true
-                                        viewModel.birthNotiContent = "잘못된 날짜 형식입니다."
+                                        viewModel.birthNotiMessage = "잘못된 날짜 형식입니다."
                                     }
                                 }
                             } label: {
@@ -1003,12 +1003,12 @@ struct SignUpView: View {
             .background(Color.mainBackground)
             .alert("회원가입 실패", isPresented: $viewModel.isSignUpAlertVisible) {
                 Button {
-                    viewModel.signUpAlertContent = "문제가 발생하였습니다. 다시 시도해 주세요."
+                    viewModel.signUpAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
                 } label: {
                     Text("확인")
                 }
             } message: {
-                Text(viewModel.signUpAlertContent)
+                Text(viewModel.signUpAlertMessage)
             }
             .onTapGesture {
                 focus = nil

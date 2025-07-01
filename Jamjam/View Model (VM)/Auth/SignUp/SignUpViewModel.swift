@@ -25,22 +25,22 @@ class SignUpViewModel {
     // MARK: Page 2
     var nickname =  ""
     var isNicknameNotiVisible = false
-    var nicknameNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
+    var nicknameNotiMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     var isNicknameFinalValidated = false
     
     var loginId = ""
     var isLoginIdNotiVisible = false
-    var loginIdNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
+    var loginIdNotiMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     var isloginIdFinalValidated = false
     
     var password = ""
     var isPasswordNotiVisible = false
-    var passwordNotiContent = ""
+    var passwordNotiMessage = ""
     var isPasswordFinalValidated = false
     
     var confirmPassword = ""
     var isConfirmPasswordNotiVisible = false
-    var confirmPasswordNotiContent = ""
+    var confirmPasswordNotiMessage = ""
     var isConfirmPasswordFinalValidated = false
     
     var isPasswordSecured = true
@@ -53,7 +53,7 @@ class SignUpViewModel {
     // MARK: Page 3
     var realName = ""
     var isRealNameNotiVisible = false
-    var realNameNotiContent = ""
+    var realNameNotiMessage = ""
     var isRealNameFinalValidated = false
     
     var birthYear = ""
@@ -63,7 +63,7 @@ class SignUpViewModel {
     var birthDay = ""
     var isBirthDayLocalValidated = false
     var isBirthNotiVisible = false
-    var birthNotiContent = ""
+    var birthNotiMessage = ""
     var isBirthFinalValidated: Bool {
         isBirthYearLocalValidated && isBirthMonthLocalValidated && isBirthDayLocalValidated
     }
@@ -80,13 +80,13 @@ class SignUpViewModel {
     
     var phoneNumber = ""
     var isPhoneNumberNotiVisible = false
-    var phoneNumberNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
+    var phoneNumberNotiMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     var isPhoneNumberFinalValidated = false
     var isPhoneNumberSendingButtonTapped = false
     
     var phoneCode = ""
     var isPhoneCodeNotiVisible = false
-    var phoneCodeNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
+    var phoneCodeNotiMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     var isPhoneCodeFinalValidated = false
     
     var isAllFilledInPage3: Bool {
@@ -98,7 +98,7 @@ class SignUpViewModel {
     
     // MARK: SignUp Complete
     var isSignUpAlertVisible = false
-    var signUpAlertContent = "문제가 발생하였습니다. 다시 시도해 주세요."
+    var signUpAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     var isSignUpCompleted = false
     
     // MARK: Progress View
