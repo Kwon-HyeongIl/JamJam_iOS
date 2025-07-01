@@ -16,8 +16,6 @@ extension SignUpViewModel {
     }
     
     func checkNicknameIsDuplicated() {
-        self.isProgressViewVisibleInNickname = true
-        
         let request = CheckNicknameRequest(nickname: self.nickname)
         
         AuthCenter.shared.checkNickname(request)
@@ -41,7 +39,7 @@ extension SignUpViewModel {
                     
                 } else {
                     self?.isNicknameNotiVisible = true
-                    self?.nicknameNotiContent = "중복된 닉네임입니다."
+                    self?.nicknameNotiContent = response.message
                 }
             }
             .store(in: &self.cancellables)
@@ -55,8 +53,6 @@ extension SignUpViewModel {
     }
     
     func checkIdIsDuplicated() {
-        self.isProgressViewVisibleInLoginId = true
-        
         let request = CheckLoginIdRequest(loginId: self.loginId)
         
         AuthCenter.shared.checkLoginId(request)
@@ -126,8 +122,6 @@ extension SignUpViewModel {
     }
     
     func sendPhoneNumber() {
-        self.isProgressViewVisibleInPhoneNumber = true
-        
         let request = SendSmsRequest(phoneNumber: self.phoneNumber)
         
         AuthCenter.shared.sendSms(request)

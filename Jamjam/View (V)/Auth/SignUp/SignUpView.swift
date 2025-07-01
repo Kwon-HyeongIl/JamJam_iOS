@@ -195,6 +195,8 @@ struct SignUpView: View {
                                         }
                                     
                                     Button {
+                                        viewModel.isProgressViewVisibleInNickname = true
+                                        
                                         if viewModel.validateNicknameForm() {
                                             viewModel.checkNicknameIsDuplicated()
                                         } else {
@@ -275,6 +277,8 @@ struct SignUpView: View {
                                         }
                                     
                                     Button {
+                                        viewModel.isProgressViewVisibleInLoginId = true
+                                        
                                         if viewModel.validateIdForm() {
                                             viewModel.checkIdIsDuplicated()
                                         } else {
@@ -775,6 +779,8 @@ struct SignUpView: View {
                                         }
                                     
                                     Button {
+                                        viewModel.isProgressViewVisibleInPhoneNumber = true
+                                        
                                         if viewModel.validatePhoneNumberForm() {
                                             viewModel.sendPhoneNumber()
                                             
