@@ -880,7 +880,7 @@ struct SignUpView: View {
                             viewModel.pageIndex = 1
                         } label: {
                             RoundedRectangle(cornerRadius: 10)
-                                .frame(height: 50)
+                                .frame(height: 45)
                                 .foregroundStyle(Color.JJTitle)
                                 .overlay {
                                     Text("다음")
@@ -902,7 +902,7 @@ struct SignUpView: View {
                                 viewModel.isClientButtonTapped = false
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .frame(height: 50)
+                                    .frame(height: 45)
                                     .foregroundStyle(.white)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
@@ -920,7 +920,7 @@ struct SignUpView: View {
                                 viewModel.pageIndex = 2
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .frame(height: 50)
+                                    .frame(height: 45)
                                     .foregroundStyle(Color.JJTitle)
                                     .overlay {
                                         Text("다음")
@@ -940,7 +940,7 @@ struct SignUpView: View {
                                 viewModel.pageIndex = 1
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .frame(height: 50)
+                                    .frame(height: 45)
                                     .foregroundStyle(.white)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
@@ -971,7 +971,7 @@ struct SignUpView: View {
                                 }
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .frame(height: 50)
+                                    .frame(height: 45)
                                     .foregroundStyle(Color.JJTitle)
                                     .overlay {
                                         Text("완료")

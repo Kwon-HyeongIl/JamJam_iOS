@@ -11,6 +11,7 @@ struct ProviderProfileView: View {
     @State private var viewModel = ProviderProfileViewModel()
     
     @State private var position = ScrollPosition()
+    @State private var isTabBarVisible = true
     
     @Namespace private var tabListUnderline
     
@@ -56,24 +57,6 @@ struct ProviderProfileView: View {
                         }
                         
                         Spacer()
-                    }
-                    .padding(.bottom)
-                    
-                    // MARK: Contack Part
-                    VStack {
-                        Button {
-                            
-                        } label: {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(height: 45)
-                                .foregroundStyle(Color.JJTitle)
-                                .padding(.horizontal, 20)
-                                .overlay {
-                                    Text("문의하기")
-                                        .font(.pretendard(Pretendard.semiBold, size: 15))
-                                        .foregroundStyle(.white)
-                                }
-                        }
                     }
                     .padding(.bottom)
                     
@@ -246,6 +229,51 @@ struct ProviderProfileView: View {
             }
             .modifier(NavigationBarBackAndTitleAndHomeModifier(title: "전문가"))
             .scrollPosition($position)
+            .onScrollGeometryChange(for: CGFloat.self) { geometry in
+                geometry.contentOffset.y
+            } action: { oldY, newY in
+                if newY <= 0 {
+                    withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                        isTabBarVisible = true
+                    }
+                    
+                    return
+                }
+                
+                let delta = newY - oldY
+                
+                guard abs(delta) > 5 else { return }
+                
+                withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                    isTabBarVisible = delta < 0
+                }
+            }
+            .safeAreaInset(edge: .bottom) {
+                VStack(spacing: 0) {
+                    Divider()
+                    
+                    Spacer()
+                    
+                    Button {
+                        
+                    } label: {
+                        RoundedRectangle(cornerRadius: 10)
+                            .frame(height: 45)
+                            .foregroundStyle(Color.JJTitle)
+                            .padding(.horizontal, 20)
+                            .overlay {
+                                Text("문의하기")
+                                    .font(.pretendard(Pretendard.semiBold, size: 15))
+                                    .foregroundStyle(.white)
+                            }
+                    }
+                    
+                    Spacer()
+                }
+                .frame(height: 70)
+                .background(Color.mainBackground)
+                .offset(y: isTabBarVisible ? 0 : 110)
+            }
         }
     }
 }
