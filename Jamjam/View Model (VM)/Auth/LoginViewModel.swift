@@ -16,14 +16,14 @@ class LoginViewModel {
     var password = ""
     
     var isEntireProgressViewVisible = false
-    var isLoginFailedAlert = false
+    var isLoginAlertVisible = false
+    var loginAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     var isLoginCompleted = false
     
     func login() {
         let request = LoginRequest(loginId: loginId, password: password)
         
         AuthCenter.shared.login(request)
-            .map { $0.accessToken }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -31,18 +31,21 @@ class LoginViewModel {
                     print("[login] finished")
                 case .failure(let error):
                     print("[login] failed: \(error)")
-                    self?.isLoginFailedAlert = true
+                    self?.isLoginAlertVisible = true
                 }
                 
                 self?.isEntireProgressViewVisible = false
                 
-            } receiveValue: { [weak self] accessToken in
-                if !accessToken.isEmpty {
-                    AuthCenter.shared.accessToken = accessToken
+            } receiveValue: { [weak self] response in
+                let receivedAccessToken = response.content?.accessToken ?? ""
+                
+                if response.message == "SUCCESS", !receivedAccessToken.isEmpty {
+                    AuthCenter.shared.accessToken = receivedAccessToken
                     self?.isLoginCompleted = true
                     
                 } else {
-                    self?.isLoginFailedAlert = true
+                    self?.isLoginAlertVisible = true
+                    self?.loginAlertMessage = response.message
                 }
             }
             .store(in: &self.cancellables)

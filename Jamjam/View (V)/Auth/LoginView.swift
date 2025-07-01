@@ -137,12 +137,14 @@ struct LoginView: View {
             .onChange(of: viewModel.isLoginCompleted) {
                 navRouter.popToRoot()
             }
-            .alert("로그인 실패", isPresented: $viewModel.isLoginFailedAlert) {
-                Button {} label: {
+            .alert("로그인 실패", isPresented: $viewModel.isLoginAlertVisible) {
+                Button {
+                    viewModel.loginAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
+                } label: {
                     Text("확인")
                 }
             } message: {
-                Text("로그인에 실패하였습니다. 다시 시도해 주세요.")
+                Text(viewModel.loginAlertMessage)
             }
             .overlay {
                 if viewModel.isEntireProgressViewVisible {

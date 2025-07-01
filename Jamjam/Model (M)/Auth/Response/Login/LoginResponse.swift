@@ -8,6 +8,12 @@
 import Foundation
 
 struct LoginResponse: Decodable {
-    let tokenType: String
-    let accessToken: String
+    let code: String
+    let message: String
+    let content: Content?
+    
+    struct Content: Decodable {
+        let accessToken: String
+        let tokenType: String
+    }
 }
