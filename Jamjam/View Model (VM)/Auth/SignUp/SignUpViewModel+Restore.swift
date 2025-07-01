@@ -15,12 +15,10 @@ extension SignUpViewModel {
         self.nicknameNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
     }
     
-    func restoreIdRelated() {
+    func restoreLoginIdRelated() {
         self.isloginIdFinalValidated = false
-        self.isloginIdFailedNoti1 = false
-        self.isloginIdFailedNoti2 = false
-        self.isloginIdFailedNoti3 = false
-        self.isloginIdFailedNoti4 = false
+        self.isLoginIdNotiVisible = false
+        self.loginIdNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
     }
     
     func restorePasswordRelated() {

@@ -63,7 +63,7 @@ extension SignUpViewModel {
                     print("[checkLoginId] finished")
                 case .failure(let error):
                     print("[checkLoginId] failed: \(error)")
-                    self?.isloginIdFailedNoti2 = true
+                    self?.isLoginIdNotiVisible = true
                 }
                 
                 self?.isProgressViewVisibleInLoginId = false
@@ -71,8 +71,12 @@ extension SignUpViewModel {
             } receiveValue: { [weak self] response in
                 if let available = response.content?.available, available == true {
                     self?.isloginIdFinalValidated = true
+                    self?.isLoginIdNotiVisible = true
+                    self?.loginIdNotiContent = "사용 가능한 아이디 입니다."
+                    
                 } else {
-                    self?.isloginIdFailedNoti1 = true
+                    self?.isLoginIdNotiVisible = true
+                    self?.loginIdNotiContent = response.message
                 }
             }
             .store(in: &self.cancellables)

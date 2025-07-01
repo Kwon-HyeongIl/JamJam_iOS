@@ -29,10 +29,8 @@ class SignUpViewModel {
     var isNicknameFinalValidated = false
     
     var loginId = ""
-    var isloginIdFailedNoti1 = false // 중복
-    var isloginIdFailedNoti2 = false // 통신 오류
-    var isloginIdFailedNoti3 = false // 소문자 시작 및 소문자 또는 숫자
-    var isloginIdFailedNoti4 = false // 4자 이상
+    var isLoginIdNotiVisible = false
+    var loginIdNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
     var isloginIdFinalValidated = false
     
     var password = ""

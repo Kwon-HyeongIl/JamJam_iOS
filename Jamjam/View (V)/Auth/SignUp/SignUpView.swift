@@ -269,10 +269,11 @@ struct SignUpView: View {
                                                 .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.loginId) {
-                                            viewModel.restoreIdRelated()
+                                            viewModel.restoreLoginIdRelated()
                                             
                                             if viewModel.loginId.count >= 1 && viewModel.loginId.count < 4 {
-                                                viewModel.isloginIdFailedNoti4 = false
+                                                viewModel.isLoginIdNotiVisible = true
+                                                viewModel.loginIdNotiContent = "4자 이상으로 입력해주세요."
                                             }
                                         }
                                     
@@ -282,7 +283,8 @@ struct SignUpView: View {
                                         if viewModel.validateIdForm() {
                                             viewModel.checkIdIsDuplicated()
                                         } else {
-                                            viewModel.isloginIdFailedNoti3 = true
+                                            viewModel.isLoginIdNotiVisible = true
+                                            viewModel.loginIdNotiContent = "소문자로 시작 및 소문자와 숫자만 허용됩니다."
                                         }
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
@@ -312,30 +314,10 @@ struct SignUpView: View {
                                 .padding(.horizontal, 35)
                                 
                                 HStack {
-                                    if viewModel.isloginIdFinalValidated {
-                                        Text("사용 가능한 아이디 입니다.")
+                                    if viewModel.isLoginIdNotiVisible {
+                                        Text(viewModel.loginIdNotiContent)
                                             .font(.pretendard(size: 12))
-                                            .foregroundStyle(.green)
-                                        
-                                    } else if viewModel.isloginIdFailedNoti1 {
-                                        Text("중복된 아이디 입니다.")
-                                            .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
-                                        
-                                    }else if viewModel.isloginIdFailedNoti2 {
-                                        Text("통신에 실패했습니다.")
-                                            .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
-                                        
-                                    } else if viewModel.isloginIdFailedNoti3 {
-                                        Text("소문자로 시작 및 소문자와 숫자만 허용됩니다.")
-                                            .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
-                                        
-                                    } else if viewModel.isloginIdFailedNoti4 {
-                                        Text("4자 이상으로 입력해주세요.")
-                                            .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
+                                            .foregroundStyle(viewModel.isloginIdFinalValidated ? .green : .red)
                                     }
                                     
                                     Spacer()
