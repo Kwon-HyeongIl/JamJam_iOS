@@ -36,22 +36,26 @@ extension SignUpViewModel {
     // MARK: Page 3
     func restoreRealNameRelated() {
         self.isRealNameFinalValidated = false
-        self.isRealNameFailedNoti1 = false
+        self.isRealNameNotiVisible = false
+        self.realNameNotiContent = ""
     }
     
     func restoreBirthYearRelated() {
         self.isBirthYearLocalValidated = false
-        self.isBirthFailedNoti1 = false
+        self.isBirthNotiVisible = false
+        self.birthNotiContent = ""
     }
     
     func restoreBirthMonthRelated() {
         self.isBirthMonthLocalValidated = false
-        self.isBirthFailedNoti1 = false
+        self.isBirthNotiVisible = false
+        self.birthNotiContent = ""
     }
     
     func restoreBirthDayRelated() {
         self.isBirthDayLocalValidated = false
-        self.isBirthFailedNoti1 = false
+        self.isBirthNotiVisible = false
+        self.birthNotiContent = ""
     }
     
     func restorePhoneNumberRelated() {

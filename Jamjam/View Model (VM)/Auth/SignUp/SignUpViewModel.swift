@@ -52,7 +52,8 @@ class SignUpViewModel {
     
     // MARK: Page 3
     var realName = ""
-    var isRealNameFailedNoti1 = false // 한글로 2자 이상 입력
+    var isRealNameNotiVisible = false
+    var realNameNotiContent = ""
     var isRealNameFinalValidated = false
     
     var birthYear = ""
@@ -61,7 +62,8 @@ class SignUpViewModel {
     var isBirthMonthLocalValidated = false
     var birthDay = ""
     var isBirthDayLocalValidated = false
-    var isBirthFailedNoti1 = false // 잘못된 날짜 형식
+    var isBirthNotiVisible = false
+    var birthNotiContent = ""
     var isBirthFinalValidated: Bool {
         isBirthYearLocalValidated && isBirthMonthLocalValidated && isBirthDayLocalValidated
     }

@@ -555,8 +555,8 @@ struct SignUpView: View {
                                     .padding(.horizontal, 35)
                                 
                                 HStack {
-                                    if viewModel.isRealNameFailedNoti1 {
-                                        Text("한글로 2자 이상으로 입력해주세요.")
+                                    if viewModel.isRealNameNotiVisible {
+                                        Text(viewModel.realNameNotiContent)
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
                                     }
@@ -664,8 +664,8 @@ struct SignUpView: View {
                                 .padding(.horizontal, 35)
                                 
                                 HStack {
-                                    if viewModel.isBirthFailedNoti1 {
-                                        Text("잘못된 날짜 형식입니다.")
+                                    if viewModel.isBirthNotiVisible {
+                                        Text(viewModel.birthNotiContent)
                                             .font(.pretendard(size: 12))
                                             .foregroundStyle(.red)
                                     }
@@ -979,11 +979,13 @@ struct SignUpView: View {
                                     
                                 } else {
                                     if !viewModel.isRealNameFinalValidated {
-                                        viewModel.isRealNameFailedNoti1 = true
+                                        viewModel.isRealNameNotiVisible = true
+                                        viewModel.realNameNotiContent = "한글로 2자 이상으로 입력해주세요."
                                     }
                                     
                                     if !viewModel.isBirthFinalValidated {
-                                        viewModel.isBirthFailedNoti1 = true
+                                        viewModel.isBirthNotiVisible = true
+                                        viewModel.birthNotiContent = "잘못된 날짜 형식입니다."
                                     }
                                 }
                             } label: {
