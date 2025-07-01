@@ -34,11 +34,13 @@ class SignUpViewModel {
     var isloginIdFinalValidated = false
     
     var password = ""
-    var isPasswordFailedNoti1 = false // 영문 숫자 포함 8자 이상
+    var isPasswordNotiVisible = false
+    var passwordNotiContent = ""
     var isPasswordFinalValidated = false
     
     var confirmPassword = ""
-    var isConfirmPasswordFailedNoti1 = false // 일치하지 않는 비밀번호
+    var isConfirmPasswordNotiVisible = false
+    var confirmPasswordNotiContent = ""
     var isConfirmPasswordFinalValidated = false
     
     var isPasswordSecured = true

@@ -353,8 +353,12 @@ struct SignUpView: View {
                                                 
                                                 if viewModel.validatePasswordForm() {
                                                     viewModel.isPasswordFinalValidated = true
+                                                    viewModel.isPasswordNotiVisible = true
+                                                    viewModel.passwordNotiContent = "사용 가능한 비밀번호 입니다."
+                                                    
                                                 } else {
-                                                    viewModel.isPasswordFailedNoti1 = true
+                                                    viewModel.isPasswordNotiVisible = true
+                                                    viewModel.passwordNotiContent = "영문과 숫자를 포함하여 8자 이상이어야 합니다."
                                                 }
                                             }
                                             .padding(.horizontal, 35)
@@ -376,8 +380,13 @@ struct SignUpView: View {
                                                 
                                                 if viewModel.validatePasswordForm() {
                                                     viewModel.isPasswordFinalValidated = true
+                                                    viewModel.isPasswordNotiVisible = true
+                                                    viewModel.passwordNotiContent = "사용 가능한 비밀번호 입니다."
+                                                    
                                                 } else {
-                                                    viewModel.isPasswordFailedNoti1 = true
+                                                    viewModel.isPasswordNotiVisible = true
+                                                    viewModel.passwordNotiContent = "영문과 숫자를 포함하여 8자 이상이어야 합니다."
+                                                    
                                                 }
                                             }
                                             .padding(.horizontal, 35)
@@ -400,15 +409,10 @@ struct SignUpView: View {
                                 }
                                 
                                 HStack {
-                                    if viewModel.isPasswordFinalValidated {
-                                        Text("사용 가능한 비밀번호 입니다.")
+                                    if viewModel.isPasswordNotiVisible {
+                                        Text(viewModel.passwordNotiContent)
                                             .font(.pretendard(size: 12))
-                                            .foregroundStyle(.green)
-                                        
-                                    } else if viewModel.isPasswordFailedNoti1 {
-                                        Text("영문과 숫자를 포함하여 8자 이상이어야 합니다.")
-                                            .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
+                                            .foregroundStyle(viewModel.isPasswordFinalValidated ? .green : .red)
                                     }
                                     
                                     Spacer()
@@ -444,10 +448,13 @@ struct SignUpView: View {
                                                 
                                                 if viewModel.validateConfrimPassword() {
                                                     viewModel.isConfirmPasswordFinalValidated = true
+                                                    viewModel.isConfirmPasswordNotiVisible = true
+                                                    viewModel.confirmPasswordNotiContent = "비밀번호가 일치합니다."
                                                     focus = nil
                                                     
                                                 } else {
-                                                    viewModel.isConfirmPasswordFailedNoti1 = true
+                                                    viewModel.isConfirmPasswordNotiVisible = true
+                                                    viewModel.confirmPasswordNotiContent = "비밀번호가 일치하지 않습니다."
                                                 }
                                             }
                                             .padding(.horizontal, 35)
@@ -469,10 +476,13 @@ struct SignUpView: View {
                                                 
                                                 if viewModel.validateConfrimPassword() {
                                                     viewModel.isConfirmPasswordFinalValidated = true
+                                                    viewModel.isConfirmPasswordNotiVisible = true
+                                                    viewModel.confirmPasswordNotiContent = "비밀번호가 일치합니다."
                                                     focus = nil
                                                     
                                                 } else {
-                                                    viewModel.isConfirmPasswordFailedNoti1 = true
+                                                    viewModel.isConfirmPasswordNotiVisible = true
+                                                    viewModel.confirmPasswordNotiContent = "비밀번호가 일치하지 않습니다."
                                                 }
                                             }
                                             .padding(.horizontal, 35)
@@ -495,15 +505,10 @@ struct SignUpView: View {
                                 }
                                 
                                 HStack {
-                                    if viewModel.isConfirmPasswordFinalValidated {
-                                        Text("비밀번호가 일치합니다.")
+                                    if viewModel.isConfirmPasswordNotiVisible {
+                                        Text(viewModel.confirmPasswordNotiContent)
                                             .font(.pretendard(size: 12))
-                                            .foregroundStyle(.green)
-                                        
-                                    } else if viewModel.isConfirmPasswordFailedNoti1 {
-                                        Text("비밀번호가 일치하지 않습니다.")
-                                            .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
+                                            .foregroundStyle(viewModel.isConfirmPasswordFinalValidated ? .green : .red)
                                     }
                                     
                                     Spacer()

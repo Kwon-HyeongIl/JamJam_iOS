@@ -23,12 +23,14 @@ extension SignUpViewModel {
     
     func restorePasswordRelated() {
         self.isPasswordFinalValidated = false
-        self.isPasswordFailedNoti1 = false
+        self.isPasswordNotiVisible = false
+        self.passwordNotiContent = ""
     }
     
     func restoreConfirmPasswordRelated() {
         self.isConfirmPasswordFinalValidated = false
-        self.isConfirmPasswordFailedNoti1 = false
+        self.isConfirmPasswordNotiVisible = false
+        self.confirmPasswordNotiContent = ""
     }
     
     // MARK: Page 3
