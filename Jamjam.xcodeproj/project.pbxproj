@@ -107,7 +107,6 @@
 		CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */; };
 		CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB13BD2DF69261007C9E35 /* SplashView.swift */; };
 		CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAD3106D2E09B56200A5FAA4 /* Alamofire */; };
-		CAE914662E13CED300829D2C /* RefreshAccessTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE914652E13CED300829D2C /* RefreshAccessTokenRequest.swift */; };
 		CAE914682E13CF0700829D2C /* RefreshAccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE914672E13CF0700829D2C /* RefreshAccessTokenResponse.swift */; };
 /* End PBXBuildFile section */
 
@@ -208,7 +207,6 @@
 		CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoginIdRequest.swift; sourceTree = "<group>"; };
 		CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoginIdResponse.swift; sourceTree = "<group>"; };
 		CABB13BD2DF69261007C9E35 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		CAE914652E13CED300829D2C /* RefreshAccessTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenRequest.swift; sourceTree = "<group>"; };
 		CAE914672E13CF0700829D2C /* RefreshAccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -826,7 +824,6 @@
 		CAE914632E13CEB100829D2C /* Token */ = {
 			isa = PBXGroup;
 			children = (
-				CAE914652E13CED300829D2C /* RefreshAccessTokenRequest.swift */,
 			);
 			path = Token;
 			sourceTree = "<group>";
@@ -1009,7 +1006,6 @@
 				CA09155D2DF12D6A00E272F8 /* NavigationDestinationPath.swift in Sources */,
 				CA9609A22DFBE1E100B878C6 /* NavigationBackGestureEnable.swift in Sources */,
 				CA5C5E942E09A22800FB1E22 /* API.swift in Sources */,
-				CAE914662E13CED300829D2C /* RefreshAccessTokenRequest.swift in Sources */,
 				CA9609BE2DFFE36300B878C6 /* SignUpView.swift in Sources */,
 				CA96099C2DFBE08A00B878C6 /* NavigationBarBackAndHomeModifier.swift in Sources */,
 				CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */,

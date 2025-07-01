@@ -81,10 +81,13 @@ class AuthCenter {
     // MARK: Refresh
     private func refreshAccessToken(_ accessToken: String) {
         let url = API.refreshAccessToken.url
-        let request = RefreshAccessTokenRequest(accessToken: "Bearer \(accessToken)")
+        let headers: HTTPHeaders = [
+                "X-Client-Type": "APP",
+                "Authorization": "Bearer \(accessToken)"
+            ]
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            AF.request(url, method: .post, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
+            AF.request(url, method: .post, headers: headers)
                 .publishDecodable(type: RefreshAccessTokenResponse.self)
                 .value()
                 .receive(on: DispatchQueue.main)
@@ -100,8 +103,6 @@ class AuthCenter {
                     
                     if response.code == "SUCCESS" && !receivedAccessToken.isEmpty {
                         self?.accessToken = receivedAccessToken
-                        self?.storeAccessToken(receivedAccessToken)
-                        
                         self?.logger.info("[refreshAccessToken] 토큰 응답 완료")
                         
                     } else {

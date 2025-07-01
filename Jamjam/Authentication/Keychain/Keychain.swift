@@ -17,6 +17,7 @@ enum Keychain {
         guard let data = token.data(using: .utf8) else { return false }
         
         deleteToken()
+        
         let query: [CFString: Any] = [
             kSecClass:           kSecClassGenericPassword,
             kSecAttrService:     service,
