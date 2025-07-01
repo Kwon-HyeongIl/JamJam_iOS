@@ -14,7 +14,6 @@ extension AuthCenter {
         let url = API.checkNickname.url
         
         return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
-            .validate()
             .publishDecodable(type: CheckNicknameResponse.self)
             .value()
             .mapError { $0 as Error }
@@ -25,7 +24,6 @@ extension AuthCenter {
         let url = API.checkLoginId.url
         
         return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
-            .validate()
             .publishDecodable(type: CheckLoginIdResponse.self)
             .value()
             .mapError { $0 as Error }
@@ -36,7 +34,6 @@ extension AuthCenter {
         let url = API.sendSms.url
         
         return AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)
-            .validate()
             .publishDecodable(type: SendSmsResponse.self)
             .value()
             .mapError { $0 as Error }
@@ -47,7 +44,6 @@ extension AuthCenter {
         let url = API.verifySms.url
         
         return AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)
-            .validate()
             .publishDecodable(type: VerifySmsResponse.self)
             .value()
             .mapError { $0 as Error }
@@ -58,7 +54,6 @@ extension AuthCenter {
         let url = API.signUpWithProvider.url
         
         return AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)
-            .validate()
             .publishDecodable(type: SignUpWithProviderResponse.self)
             .value()
             .mapError { $0 as Error }
@@ -69,7 +64,6 @@ extension AuthCenter {
         let url = API.signUpWithClient.url
         
         return AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)
-            .validate()
             .publishDecodable(type: SignUpWithClientResponse.self)
             .value()
             .mapError { $0 as Error }

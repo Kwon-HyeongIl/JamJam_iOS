@@ -38,6 +38,7 @@ class LoginViewModel {
                 
             } receiveValue: { [weak self] accessToken in
                 if !accessToken.isEmpty {
+
                     AuthCenter.shared.accessToken = accessToken
                     self?.isLoginCompleted = true
                     

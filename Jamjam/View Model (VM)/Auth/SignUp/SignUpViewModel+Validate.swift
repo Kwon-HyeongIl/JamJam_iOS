@@ -21,7 +21,6 @@ extension SignUpViewModel {
         let request = CheckNicknameRequest(nickname: self.nickname)
         
         AuthCenter.shared.checkNickname(request)
-            .map { $0.content.available }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -34,8 +33,8 @@ extension SignUpViewModel {
                 
                 self?.isProgressViewVisibleInNickname = false
                 
-            } receiveValue: { [weak self] available in
-                if available {
+            } receiveValue: { [weak self] response in
+                if let available = response.content?.available, available == true {
                     self?.isNicknameFinalValidated = true
                 } else {
                     self?.isNicknameFailedNoti1 = true
@@ -57,7 +56,6 @@ extension SignUpViewModel {
         let request = CheckLoginIdRequest(loginId: self.loginId)
         
         AuthCenter.shared.checkLoginId(request)
-            .map { $0.content.available }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -70,8 +68,8 @@ extension SignUpViewModel {
                 
                 self?.isProgressViewVisibleInLoginId = false
                 
-            } receiveValue: { [weak self] available in
-                if available {
+            } receiveValue: { [weak self] response in
+                if let available = response.content?.available, available == true {
                     self?.isloginIdFinalValidated = true
                 } else {
                     self?.isloginIdFailedNoti1 = true

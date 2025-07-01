@@ -11,6 +11,10 @@ import ShuffleStack
 
 @Observable
 class HomeViewModel {
+    var isLogin: Bool {
+        AuthCenter.shared.isLogin
+    }
+    
     @ObservationIgnored var carouselCards: [CarouselCard] = [
         .init(image: "image1",),
         .init(image: "image2",),

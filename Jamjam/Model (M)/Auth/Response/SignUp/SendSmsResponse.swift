@@ -10,7 +10,7 @@ import Foundation
 struct SendSmsResponse: Decodable {
     let code: String
     let message: String
-    let content: Content
+    let content: Content?
     
     struct Content: Decodable {
         

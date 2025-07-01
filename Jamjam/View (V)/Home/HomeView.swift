@@ -28,19 +28,21 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                        Button {
-                            navRouter.navigate(.loginView)
-                        } label: {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 64, height: 30)
-                                .foregroundStyle(Color.JJTitle)
-                                .overlay {
-                                    Text("로그인")
-                                        .font(.pretendard(Pretendard.semiBold, size: 14))
-                                        .foregroundStyle(.white)
-                                }
-                                .padding(.top, 40)
-                                .padding(.trailing, 20)
+                        if !viewModel.isLogin {
+                            Button {
+                                navRouter.navigate(.loginView)
+                            } label: {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(width: 64, height: 30)
+                                    .foregroundStyle(Color.JJTitle)
+                                    .overlay {
+                                        Text("로그인")
+                                            .font(.pretendard(Pretendard.semiBold, size: 14))
+                                            .foregroundStyle(.white)
+                                    }
+                                    .padding(.top, 40)
+                                    .padding(.trailing, 20)
+                            }
                         }
                     }
                 }

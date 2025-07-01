@@ -28,9 +28,11 @@ extension SignUpViewModel {
                     self?.isEntireProgressViewVisible = false
                     
                 } receiveValue: { [weak self] response in
-                    if response.code == "SUCCESS" && !response.content.accessToken.isEmpty {
+                    let receivedAccessToken = response.content?.accessToken ?? ""
+                    
+                    if response.code == "SUCCESS" && !receivedAccessToken.isEmpty {
                         self?.isSignUpCompleted = true
-                        AuthCenter.shared.accessToken = response.content.accessToken
+                        AuthCenter.shared.accessToken = receivedAccessToken
                         
                     } else {
                         self?.isSignUpFailedAlert2 = true
@@ -58,9 +60,11 @@ extension SignUpViewModel {
                     self?.isEntireProgressViewVisible = false
                     
                 } receiveValue: { [weak self] response in
-                    if response.code == "SUCCESS" && !response.content.accessToken.isEmpty {
+                    let receivedAccessToken = response.content?.accessToken ?? ""
+                    
+                    if response.code == "SUCCESS" && !receivedAccessToken.isEmpty {
                         self?.isSignUpCompleted = true
-                        AuthCenter.shared.accessToken = response.content.accessToken
+                        AuthCenter.shared.accessToken = receivedAccessToken
                         
                     } else {
                         self?.isSignUpFailedAlert2 = true
