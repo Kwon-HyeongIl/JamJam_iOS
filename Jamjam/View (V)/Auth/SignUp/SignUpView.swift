@@ -777,7 +777,8 @@ struct SignUpView: View {
                                             }
                                             
                                         } else {
-                                            viewModel.isPhoneNumberFailedNoti1 = true
+                                            viewModel.isPhoneNumberNotiVisible = true
+                                            viewModel.phoneNumberNotiContent = "하이픈(-)을 제외하고 11자로 입력해주세요"
                                         }
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
@@ -802,20 +803,10 @@ struct SignUpView: View {
                                 .padding(.horizontal, 35)
                                 
                                 HStack {
-                                    if viewModel.isPhoneNumberFinalValidated {
-                                        Text("인증코드가 발송 되었습니다.")
+                                    if viewModel.isPhoneNumberNotiVisible {
+                                        Text(viewModel.phoneNumberNotiContent)
                                             .font(.pretendard(size: 12))
-                                            .foregroundStyle(.green)
-                                        
-                                    } else if viewModel.isPhoneNumberFailedNoti1 {
-                                        Text("하이픈(-)을 제외하고 11자로 입력해주세요")
-                                            .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
-                                        
-                                    } else if viewModel.isPhoneNumberFailedNoti2 {
-                                        Text("인증코드 전송에 실패했습니다.")
-                                            .font(.pretendard(size: 12))
-                                            .foregroundStyle(.red)
+                                            .foregroundStyle(viewModel.isPhoneNumberFinalValidated ? .green : .red)
                                     }
                                     
                                     Spacer()
@@ -860,20 +851,10 @@ struct SignUpView: View {
                                         .padding(.horizontal, 35)
                                     
                                     HStack {
-                                        if viewModel.isPhoneCodeFinalValidated {
-                                            Text("확인되었습니다.")
+                                        if viewModel.isPhoneCodeNotiVisible {
+                                            Text(viewModel.phoneCodeNotiContent)
                                                 .font(.pretendard(size: 12))
-                                                .foregroundStyle(.green)
-                                            
-                                        } else if viewModel.isPhoneCodeFailedNoti1 {
-                                            Text("잘못된 인증번호입니다.")
-                                                .font(.pretendard(size: 12))
-                                                .foregroundStyle(.red)
-                                            
-                                        } else if viewModel.isPhoneCodeFailedNoti2 {
-                                            Text("통신에 실패했습니다.")
-                                                .font(.pretendard(size: 12))
-                                                .foregroundStyle(.red)
+                                                .foregroundStyle(viewModel.isPhoneCodeFinalValidated ? .green : .red)
                                         }
                                         
                                         Spacer()

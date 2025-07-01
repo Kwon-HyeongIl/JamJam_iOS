@@ -79,14 +79,14 @@ class SignUpViewModel {
     }
     
     var phoneNumber = ""
-    var isPhoneNumberFailedNoti1 = false // 하이픈 제외 11자 입력
-    var isPhoneNumberFailedNoti2 = false // 통신 오류
+    var isPhoneNumberNotiVisible = false
+    var phoneNumberNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
     var isPhoneNumberFinalValidated = false
-    
     var isPhoneNumberSendingButtonTapped = false
+    
     var phoneCode = ""
-    var isPhoneCodeFailedNoti1 = false // 잘못된 인증번호
-    var isPhoneCodeFailedNoti2 = false // 통신 오류
+    var isPhoneCodeNotiVisible = false
+    var phoneCodeNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
     var isPhoneCodeFinalValidated = false
     
     var isAllFilledInPage3: Bool {

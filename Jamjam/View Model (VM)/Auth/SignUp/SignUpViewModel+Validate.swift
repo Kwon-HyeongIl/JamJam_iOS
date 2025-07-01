@@ -129,7 +129,6 @@ extension SignUpViewModel {
         let request = SendSmsRequest(phoneNumber: self.phoneNumber)
         
         AuthCenter.shared.sendSms(request)
-            .map { $0.code }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -137,14 +136,20 @@ extension SignUpViewModel {
                     print("[sendSms] finished")
                 case .failure(let error):
                     print("[sendSms] failed: \(error)")
-                    self?.isPhoneNumberFailedNoti2 = true
+                    self?.isPhoneNumberNotiVisible = true
                 }
                 
                 self?.isProgressViewVisibleInPhoneNumber = false
                 
-            } receiveValue: { [weak self] code in
-                if code == "SUCCESS" {
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS" {
                     self?.isPhoneNumberFinalValidated = true
+                    self?.isPhoneNumberNotiVisible = true
+                    self?.phoneNumberNotiContent = "인증코드가 발송 되었습니다."
+                    
+                } else {
+                    self?.isPhoneNumberNotiVisible = true
+                    self?.phoneNumberNotiContent = response.message
                 }
             }
             .store(in: &self.cancellables)
@@ -154,7 +159,6 @@ extension SignUpViewModel {
         let request = VerifySmsRequest(phoneNumber: self.phoneNumber, code: self.phoneCode)
         
         AuthCenter.shared.verifySms(request)
-            .map { $0.code }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -162,13 +166,17 @@ extension SignUpViewModel {
                     print("[verifySms] finished")
                 case .failure(let error):
                     print("[verifySms] failed: \(error)")
-                    self?.isPhoneCodeFailedNoti2 = true
+                    self?.isPhoneCodeNotiVisible = true
                 }
-            } receiveValue: { [weak self] code in
-                if code == "SUCCESS" {
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS" {
                     self?.isPhoneCodeFinalValidated = true
+                    self?.isPhoneCodeNotiVisible = true
+                    self?.phoneCodeNotiContent = "확인되었습니다."
+                    
                 } else {
-                    self?.isPhoneCodeFailedNoti1 = true
+                    self?.isPhoneCodeNotiVisible = true
+                    self?.phoneCodeNotiContent = response.message
                 }
             }
             .store(in: &self.cancellables)

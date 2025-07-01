@@ -59,14 +59,14 @@ extension SignUpViewModel {
     }
     
     func restorePhoneNumberRelated() {
-        self.isPhoneNumberFailedNoti1 = false
-        self.isPhoneNumberFailedNoti2 = false
         self.isPhoneNumberFinalValidated = false
+        self.isPhoneNumberNotiVisible = false
+        self.phoneNumberNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
     }
     
     func restoreIdentifiedNumberRelated() {
-        self.isPhoneCodeFailedNoti1 = false
-        self.isPhoneCodeFailedNoti2 = false
         self.isPhoneCodeFinalValidated = false
+        self.isPhoneCodeNotiVisible = false
+        self.phoneCodeNotiContent = "문제가 발생하였습니다. 다시 시도해 주세요."
     }
 }
