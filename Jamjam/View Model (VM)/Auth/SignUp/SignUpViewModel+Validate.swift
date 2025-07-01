@@ -163,9 +163,9 @@ extension SignUpViewModel {
             .sink { [weak self] completion in
                 switch completion {
                 case .finished:
-                    logger.info("[verifySms] finished")
+                    self?.logger.info("[verifySms] finished")
                 case .failure(let error):
-                    logger.error("[verifySms] failed: \(error)")
+                    self?.logger.error("[verifySms] failed: \(error)")
                     self?.isPhoneCodeNotiVisible = true
                 }
             } receiveValue: { [weak self] response in

@@ -19,9 +19,9 @@ extension SignUpViewModel {
                 .sink { [weak self] completion in
                     switch completion {
                     case .finished:
-                        logger.info("[signUpWithProvider] finished")
+                        self?.logger.info("[signUpWithProvider] finished")
                     case .failure(let error):
-                        logger.error("[signUpWithProvider] failed: \(error)")
+                        self?.logger.error("[signUpWithProvider] failed: \(error)")
                         self?.isSignUpAlertVisible = true
                     }
                     
@@ -51,9 +51,9 @@ extension SignUpViewModel {
                 .sink { [weak self] completion in
                     switch completion {
                     case .finished:
-                        logger.info("[signUpWithClient] finished")
+                        self?.logger.info("[signUpWithClient] finished")
                     case .failure(let error):
-                        logger.error("[signUpWithClient] failed: \(error)")
+                        self?.logger.error("[signUpWithClient] failed: \(error)")
                         self?.isSignUpAlertVisible = true
                     }
                     
