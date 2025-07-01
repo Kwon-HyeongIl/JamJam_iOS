@@ -12,10 +12,12 @@ enum API {
     static let baseURL = "https://api.jamx2.store"
     
     static let headers: HTTPHeaders = [
-            "X-Client-Type": "APP"
+            "X-Client-Type": "APP",
+            "Authorization": "Bearer \(AuthCenter.shared.accessToken ?? "")"
         ]
     
     // Auth
+    case refreshAccessToken
     case login
     case checkNickname
     case checkLoginId
@@ -26,6 +28,8 @@ enum API {
     
     var urlString: String {
         switch self {
+        case .refreshAccessToken:
+            return "\(API.baseURL)/api/user/reissue/app"
         case .login:
             return "\(API.baseURL)/api/user/login"
         case .checkNickname:

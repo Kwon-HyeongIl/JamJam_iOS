@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import Alamofire
+import os
 
 @Observable
 class AuthCenter {
@@ -19,8 +20,8 @@ class AuthCenter {
         /// 로그인/회원가입: 인증 -> 토큰 저장 -> didSet 호출 -> Keychain에 토큰 저장
         /// 로그아웃: 토큰에 nil 저장 -> didSet 호출 -> Keychain에서 토큰 삭제
         didSet {
-            if let token = accessToken, !token.isEmpty {
-                storeToken(token)
+            if let accessToken = accessToken, !accessToken.isEmpty {
+                storeToken(accessToken)
             } else {
                 deleteToken()
             }
@@ -28,7 +29,7 @@ class AuthCenter {
     }
     
     var isLogin: Bool {
-        if let token = accessToken, !token.isEmpty {
+        if let accessToken = accessToken, !accessToken.isEmpty {
             true
         } else {
             false
@@ -38,36 +39,69 @@ class AuthCenter {
     var fcmDeviceToken: String?
     var googleAccessToken: String?
     
+    @ObservationIgnored var cancellables = Set<AnyCancellable>()
+    
+    let logger = Logger(subsystem: "com.khi.jamjam", category: "AuthCenter")
+    
     init() {
-        let token = fetchToken()
+        let accessToken = fetchAccessToken()
         
-        if token != nil {
+        if let accessToken {
             // 토큰이 존재하는 경우 재발급
-            refreshToken()
+            logger.info("[init] Keychain에 기존의 토큰 존재")
+            refreshAccessToken(accessToken)
         }
     }
     
     
     // MARK: KeyChain
-    private func fetchToken() -> String? {
+    private func fetchAccessToken() -> String? {
         Keychain.fetchToken()
     }
     
-    private func storeToken(_ token: String) {
+    private func storeAccessToken(_ token: String) {
         if Keychain.storeToken(token) {
-            print("AccessToken keychain saved successfully")
+            logger.info("[storeAccessToken] 토큰 저장 완료")
         } else {
-            print("AccessToken keychain save failed")
+            logger.info("[storeAccessToken] 토큰 저장 실패")
         }
     }
     
-    private func deleteToken() {
+    private func deleteAccessToken() {
         Keychain.deleteToken()
     }
     
     
     // MARK: Refresh
-    private func refreshToken() {
+    private func refreshAccessToken(_ accessToken: String) {
+        let url = API.refreshAccessToken.url
+        let request = RefreshAccessTokenRequest(accessToken: accessToken)
         
+        AF.request(url, method: .post, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
+            .validate()
+            .publishDecodable(type: RefreshAccessTokenResponse.self)
+            .value()
+            .map { $0 }
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[refreshAccessToken] completion finished")
+                case .failure(let error):
+                    self?.logger.error("[refreshAccessToken] completion failed: \(error)")
+                }
+            } receiveValue: { [weak self] response in
+                let receivedAccessToken = response.content.accessToken
+                
+                if response.code == "SUCCESS" && !receivedAccessToken.isEmpty {
+                    self?.accessToken = receivedAccessToken
+                    self?.storeAccessToken(receivedAccessToken)
+                    
+                    self?.logger.info("[refreshAccessToken] 토큰 응답 완료")
+                    
+                } else {
+                    self?.logger.error("[refreshAccessToken] 토큰 응답 실패")
+                }
+            }
+            .store(in: &cancellables)
     }
 }

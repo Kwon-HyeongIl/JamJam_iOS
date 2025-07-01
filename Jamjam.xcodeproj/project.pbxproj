@@ -107,6 +107,8 @@
 		CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */; };
 		CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB13BD2DF69261007C9E35 /* SplashView.swift */; };
 		CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAD3106D2E09B56200A5FAA4 /* Alamofire */; };
+		CAE914662E13CED300829D2C /* RefreshAccessTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE914652E13CED300829D2C /* RefreshAccessTokenRequest.swift */; };
+		CAE914682E13CF0700829D2C /* RefreshAccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE914672E13CF0700829D2C /* RefreshAccessTokenResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,6 +208,8 @@
 		CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoginIdRequest.swift; sourceTree = "<group>"; };
 		CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoginIdResponse.swift; sourceTree = "<group>"; };
 		CABB13BD2DF69261007C9E35 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		CAE914652E13CED300829D2C /* RefreshAccessTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenRequest.swift; sourceTree = "<group>"; };
+		CAE914672E13CF0700829D2C /* RefreshAccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -477,6 +481,7 @@
 		CA5C5E992E09A54800FB1E22 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				CAE914642E13CEB900829D2C /* Token */,
 				CA4927D52E0EE52500D42CD0 /* Login */,
 				CA4927D32E0EE50B00D42CD0 /* SignUp */,
 			);
@@ -486,6 +491,7 @@
 		CA5C5E9A2E09A54E00FB1E22 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				CAE914632E13CEB100829D2C /* Token */,
 				CA4927D42E0EE52100D42CD0 /* Login */,
 				CA4927D22E0EE4F200D42CD0 /* SignUp */,
 			);
@@ -817,6 +823,22 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		CAE914632E13CEB100829D2C /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				CAE914652E13CED300829D2C /* RefreshAccessTokenRequest.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
+		CAE914642E13CEB900829D2C /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				CAE914672E13CF0700829D2C /* RefreshAccessTokenResponse.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -919,6 +941,7 @@
 				CA5C5E982E09A47600FB1E22 /* TestViewModel.swift in Sources */,
 				CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */,
 				CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */,
+				CAE914682E13CF0700829D2C /* RefreshAccessTokenResponse.swift in Sources */,
 				CA9BB5242E12B8DD0035F26D /* ProviderProfileView.swift in Sources */,
 				CA4CF9272E0C1E1100F882C4 /* SendSmsRequest.swift in Sources */,
 				CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */,
@@ -986,6 +1009,7 @@
 				CA09155D2DF12D6A00E272F8 /* NavigationDestinationPath.swift in Sources */,
 				CA9609A22DFBE1E100B878C6 /* NavigationBackGestureEnable.swift in Sources */,
 				CA5C5E942E09A22800FB1E22 /* API.swift in Sources */,
+				CAE914662E13CED300829D2C /* RefreshAccessTokenRequest.swift in Sources */,
 				CA9609BE2DFFE36300B878C6 /* SignUpView.swift in Sources */,
 				CA96099C2DFBE08A00B878C6 /* NavigationBarBackAndHomeModifier.swift in Sources */,
 				CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */,
