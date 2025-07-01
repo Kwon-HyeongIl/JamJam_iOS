@@ -107,5 +107,5 @@ class SignUpViewModel {
     var isProgressViewVisibleInPhoneNumber = false
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
-    @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "SignUpViewModel)
+    @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "SignUpViewModel")
 }
