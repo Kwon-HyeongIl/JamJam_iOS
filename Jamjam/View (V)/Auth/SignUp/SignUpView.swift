@@ -98,7 +98,7 @@ struct SignUpView: View {
                                                     .padding(.bottom, 10)
                                                 
                                                 Text("내가 할 수 있는 일을\n서비스로 만들어 볼래요.")
-                                                    .font(.pretendard(size: 9))
+                                                    .font(.pretendard(size: 10))
                                                     .foregroundStyle(.gray)
                                             }
                                             .padding(5)
@@ -142,7 +142,7 @@ struct SignUpView: View {
                                                     .padding(.bottom, 10)
                                                 
                                                 Text("지금 필요한 일에\n익숙한 손길이 필요해요.")
-                                                    .font(.pretendard(size: 9))
+                                                    .font(.pretendard(size: 10))
                                                     .foregroundStyle(.gray)
                                             }
                                             .padding(5)
@@ -1009,6 +1009,9 @@ struct SignUpView: View {
                 }
             } message: {
                 Text(viewModel.signUpAlertContent)
+            }
+            .onTapGesture {
+                focus = nil
             }
             .overlay {
                 if viewModel.isEntireProgressViewVisible {
