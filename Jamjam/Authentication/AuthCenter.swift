@@ -26,7 +26,7 @@ class AuthCenter {
                 logger.info("[accessToken didSet] Keychain에 토큰 저장")
                 storeAccessToken(accessToken)
             } else {
-                logger.error("[accessToken didSet] 토큰 형식이 잘못 됨")
+                logger.warning("[accessToken didSet] 빈 토큰 수신")
                 deleteAccessToken()
             }
         }
@@ -102,8 +102,8 @@ class AuthCenter {
                     let receivedAccessToken = response.content?.accessToken ?? ""
                     
                     if response.code == "SUCCESS" && !receivedAccessToken.isEmpty {
-                        self?.accessToken = receivedAccessToken
                         self?.logger.info("[refreshAccessToken] 토큰 응답 완료")
+                        self?.accessToken = receivedAccessToken
                         
                     } else {
                         self?.logger.error("[refreshAccessToken] 토큰 응답 실패: \(response.message)")

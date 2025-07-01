@@ -1001,23 +1001,14 @@ struct SignUpView: View {
                 NavigationBarTitleAndHomeModifier(title: "회원 가입")
             })
             .background(Color.mainBackground)
-            .alert("회원가입 실패", isPresented: $viewModel.isSignUpFailedAlert1) {
+            .alert("회원가입 실패", isPresented: $viewModel.isSignUpAlertVisible) {
                 Button {
-                    
+                    viewModel.signUpAlertContent = "문제가 발생하였습니다. 다시 시도해 주세요."
                 } label: {
                     Text("확인")
                 }
             } message: {
-                Text("통신에 문제가 발생하였습니다. 다시 시도해주세요.")
-            }
-            .alert("회원가입 실패", isPresented: $viewModel.isSignUpFailedAlert2) {
-                Button {
-                    
-                } label: {
-                    Text("확인")
-                }
-            } message: {
-                Text(viewModel.signUpFailedNoti2ErrorMessage)
+                Text(viewModel.signUpAlertContent)
             }
             .overlay {
                 if viewModel.isEntireProgressViewVisible {

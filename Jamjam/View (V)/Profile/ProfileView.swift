@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button {
+            AuthCenter.shared.logout()
+        } label: {
+            Text("로그아웃")
+        }
     }
 }
 

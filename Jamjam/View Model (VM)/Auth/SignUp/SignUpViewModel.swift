@@ -97,9 +97,8 @@ class SignUpViewModel {
     }
     
     // MARK: SignUp Complete
-    var isSignUpFailedAlert1 = false // 통신 오류
-    var isSignUpFailedAlert2 = false // 기타 실패
-    var signUpFailedNoti2ErrorMessage = ""
+    var isSignUpAlertVisible = false
+    var signUpAlertContent = "문제가 발생하였습니다. 다시 시도해 주세요."
     var isSignUpCompleted = false
     
     // MARK: Progress View

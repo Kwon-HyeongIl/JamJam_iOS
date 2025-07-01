@@ -22,7 +22,7 @@ extension SignUpViewModel {
                         print("[signUpWithProvider] finished")
                     case .failure(let error):
                         print("[signUpWithProvider] failed: \(error)")
-                        self?.isSignUpFailedAlert1 = true
+                        self?.isSignUpAlertVisible = true
                     }
                     
                     self?.isEntireProgressViewVisible = false
@@ -35,8 +35,8 @@ extension SignUpViewModel {
                         AuthCenter.shared.accessToken = receivedAccessToken
                         
                     } else {
-                        self?.isSignUpFailedAlert2 = true
-                        self?.signUpFailedNoti2ErrorMessage = response.message
+                        self?.isSignUpAlertVisible = true
+                        self?.signUpAlertContent = response.message
                     }
                 }
                 .store(in: &self.cancellables)
@@ -54,7 +54,7 @@ extension SignUpViewModel {
                         print("[signUpWithClient] finished")
                     case .failure(let error):
                         print("[signUpWithClient] failed: \(error)")
-                        self?.isSignUpFailedAlert1 = true
+                        self?.isSignUpAlertVisible = true
                     }
                     
                     self?.isEntireProgressViewVisible = false
@@ -67,8 +67,8 @@ extension SignUpViewModel {
                         AuthCenter.shared.accessToken = receivedAccessToken
                         
                     } else {
-                        self?.isSignUpFailedAlert2 = true
-                        self?.signUpFailedNoti2ErrorMessage = response.message
+                        self?.isSignUpAlertVisible = true
+                        self?.signUpAlertContent = response.message
                     }
                 }
                 .store(in: &self.cancellables)
