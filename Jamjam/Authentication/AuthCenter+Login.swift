@@ -21,6 +21,7 @@ extension AuthCenter {
     }
     
     func logout() {
+        logger.info("[logout]")
         self.accessToken = nil
     }
 }

@@ -23,9 +23,9 @@ extension SignUpViewModel {
             .sink { [weak self] completion in
                 switch completion {
                 case .finished:
-                    print("[checkNickname] finished")
+                    self?.logger.info("[checkNickname] finished")
                 case .failure(let error):
-                    print("[checkNickname] failed: \(error)")
+                    self?.logger.error("[checkNickname] failed: \(error)")
                     self?.isNicknameNotiVisible = true
                 }
                 
@@ -60,9 +60,9 @@ extension SignUpViewModel {
             .sink { [weak self] completion in
                 switch completion {
                 case .finished:
-                    print("[checkLoginId] finished")
+                    self?.logger.info("[checkLoginId] finished")
                 case .failure(let error):
-                    print("[checkLoginId] failed: \(error)")
+                    self?.logger.error("[checkLoginId] failed: \(error)")
                     self?.isLoginIdNotiVisible = true
                 }
                 
@@ -133,9 +133,9 @@ extension SignUpViewModel {
             .sink { [weak self] completion in
                 switch completion {
                 case .finished:
-                    print("[sendSms] finished")
+                    self?.logger.info("[sendSms] finished")
                 case .failure(let error):
-                    print("[sendSms] failed: \(error)")
+                    self?.logger.error("[sendSms] failed: \(error)")
                     self?.isPhoneNumberNotiVisible = true
                 }
                 
@@ -163,9 +163,9 @@ extension SignUpViewModel {
             .sink { [weak self] completion in
                 switch completion {
                 case .finished:
-                    print("[verifySms] finished")
+                    logger.info("[verifySms] finished")
                 case .failure(let error):
-                    print("[verifySms] failed: \(error)")
+                    logger.error("[verifySms] failed: \(error)")
                     self?.isPhoneCodeNotiVisible = true
                 }
             } receiveValue: { [weak self] response in

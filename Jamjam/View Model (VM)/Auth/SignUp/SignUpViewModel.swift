@@ -7,11 +7,10 @@
 
 import Foundation
 import Combine
+import os
 
 @Observable
 class SignUpViewModel {
-    @ObservationIgnored var cancellables = Set<AnyCancellable>()
-    
     var pageIndex = 0
     
     // MARK: Page 1
@@ -106,4 +105,7 @@ class SignUpViewModel {
     var isProgressViewVisibleInNickname = false
     var isProgressViewVisibleInLoginId = false
     var isProgressViewVisibleInPhoneNumber = false
+    
+    @ObservationIgnored var cancellables = Set<AnyCancellable>()
+    @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "SignUpViewModel)
 }

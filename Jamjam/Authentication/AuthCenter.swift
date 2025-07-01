@@ -44,8 +44,7 @@ class AuthCenter {
     var googleAccessToken: String?
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
-    
-    let logger = Logger(subsystem: "com.khi.jamjam", category: "AuthCenter")
+    @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "AuthCenter")
     
     init() {
         let accessToken = fetchAccessToken()
@@ -53,7 +52,6 @@ class AuthCenter {
         if let accessToken {
             // 토큰이 존재하는 경우 재발급
             logger.info("[init] Keychain에 기존의 토큰 존재")
-            print("기존 토큰1: \(accessToken)")
             refreshAccessToken(accessToken)
         }
     }

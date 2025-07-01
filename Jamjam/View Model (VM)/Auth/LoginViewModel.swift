@@ -7,11 +7,10 @@
 
 import Foundation
 import Combine
+import os
 
 @Observable
 class LoginViewModel {
-    @ObservationIgnored var cancellables = Set<AnyCancellable>()
-    
     var loginId = ""
     var password = ""
     
@@ -19,6 +18,9 @@ class LoginViewModel {
     var isLoginAlertVisible = false
     var loginAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     var isLoginCompleted = false
+    
+    @ObservationIgnored var cancellables = Set<AnyCancellable>()
+    @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "LoginViewModel")
     
     func login() {
         let request = LoginRequest(loginId: loginId, password: password)
@@ -28,9 +30,9 @@ class LoginViewModel {
             .sink { [weak self] completion in
                 switch completion {
                 case .finished:
-                    print("[login] finished")
+                    self?.logger.info("[login] finished")
                 case .failure(let error):
-                    print("[login] failed: \(error)")
+                    self?.logger.error("[login] failed: \(error)")
                     self?.isLoginAlertVisible = true
                 }
                 
