@@ -27,8 +27,8 @@ class NavigationRouter {
             CategoryView()
             
             // MARK: Chat
-        case .chatContentView:
-            ChatContentView()
+        case .chatContentView(let user, let roomId):
+            ChatContentView(user: user, roomId: roomId)
             
             // MARK: Profile
         case .providerProfileView:

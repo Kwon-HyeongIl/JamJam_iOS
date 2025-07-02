@@ -16,7 +16,7 @@ enum API {
             "Authorization": "Bearer \(AuthCenter.shared.accessToken ?? "")"
         ]
     
-    // Auth
+    // MARK: Auth
     case refreshAccessToken
     case login
     case checkNickname
@@ -26,8 +26,12 @@ enum API {
     case signUpWithProvider
     case signUpWithClient
     
+    // MARK: Chat
+    case startChatRoom
+    
     var urlString: String {
         switch self {
+            // MARK: Auth
         case .refreshAccessToken:
             return "\(API.baseURL)/api/user/reissue/app"
         case .login:
@@ -44,6 +48,10 @@ enum API {
             return "\(API.baseURL)/api/user/join/provider"
         case .signUpWithClient:
             return "\(API.baseURL)/api/user/join/client"
+            
+            // MARK: Chat
+        case .startChatRoom:
+            return "\(API.baseURL)/api/chat/room"
         }
     }
     

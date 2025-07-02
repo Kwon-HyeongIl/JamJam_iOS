@@ -15,7 +15,7 @@ struct ChatView: View {
         MainBackground {
             ScrollView(showsIndicators: false) {
                 Button {
-                    navRouter.navigate(.chatContentView)
+//                    navRouter.navigate(.chatContentView)
                 } label: {
                     Text("TT")
                 }

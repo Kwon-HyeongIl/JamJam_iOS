@@ -105,6 +105,10 @@
 		CAAB47F82E0B0975000197E5 /* SignUpViewModel+Restore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F72E0B0975000197E5 /* SignUpViewModel+Restore.swift */; };
 		CAAB47FA2E0BB1A1000197E5 /* CheckLoginIdRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */; };
 		CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */; };
+		CAB6FFF42E1508DF004CD644 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFF32E1508DF004CD644 /* ChatManager.swift */; };
+		CAB6FFF92E150CDF004CD644 /* StartChatRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFF82E150CDF004CD644 /* StartChatRoomRequest.swift */; };
+		CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponse.swift */; };
+		CAB6FFFD2E151228004CD644 /* JJUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFC2E151228004CD644 /* JJUserModel.swift */; };
 		CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB13BD2DF69261007C9E35 /* SplashView.swift */; };
 		CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAD3106D2E09B56200A5FAA4 /* Alamofire */; };
 		CAE914682E13CF0700829D2C /* RefreshAccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE914672E13CF0700829D2C /* RefreshAccessTokenResponse.swift */; };
@@ -206,6 +210,10 @@
 		CAAB47F72E0B0975000197E5 /* SignUpViewModel+Restore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Restore.swift"; sourceTree = "<group>"; };
 		CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoginIdRequest.swift; sourceTree = "<group>"; };
 		CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoginIdResponse.swift; sourceTree = "<group>"; };
+		CAB6FFF32E1508DF004CD644 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
+		CAB6FFF82E150CDF004CD644 /* StartChatRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatRoomRequest.swift; sourceTree = "<group>"; };
+		CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatRoomResponse.swift; sourceTree = "<group>"; };
+		CAB6FFFC2E151228004CD644 /* JJUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJUserModel.swift; sourceTree = "<group>"; };
 		CABB13BD2DF69261007C9E35 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		CAE914672E13CF0700829D2C /* RefreshAccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -258,6 +266,7 @@
 				CA5C5E842E099CD600FB1E22 /* Authentication */,
 				CA0915592DF12CE600E272F8 /* Navigation */,
 				CA88CEBE2E11063A00B1116E /* FCM */,
+				CAB6FFF12E1508C8004CD644 /* Manager */,
 				CA09155F2DF12EBD00E272F8 /* View (V) */,
 				CABB13BB2DF690BE007C9E35 /* View Model (VM) */,
 				CA09155E2DF12E8600E272F8 /* Model (M) */,
@@ -283,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				CA5C5E8C2E09A05800FB1E22 /* Auth */,
+				CAB6FFF52E150CB6004CD644 /* Chat */,
 			);
 			path = "Model (M)";
 			sourceTree = "<group>";
@@ -455,6 +465,7 @@
 		CA5C5E8C2E09A05800FB1E22 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				CAB6FFFC2E151228004CD644 /* JJUserModel.swift */,
 				CA5C5E9A2E09A54E00FB1E22 /* Request */,
 				CA5C5E992E09A54800FB1E22 /* Response */,
 			);
@@ -800,6 +811,47 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CAB6FFF12E1508C8004CD644 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CAB6FFF22E1508D4004CD644 /* Chat */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		CAB6FFF22E1508D4004CD644 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				CAB6FFF32E1508DF004CD644 /* ChatManager.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		CAB6FFF52E150CB6004CD644 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				CAB6FFF62E150CC6004CD644 /* Request */,
+				CAB6FFF72E150CCD004CD644 /* Response */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		CAB6FFF62E150CC6004CD644 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				CAB6FFF82E150CDF004CD644 /* StartChatRoomRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		CAB6FFF72E150CCD004CD644 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		CABB13BB2DF690BE007C9E35 /* View Model (VM) */ = {
 			isa = PBXGroup;
 			children = (
@@ -948,6 +1000,7 @@
 				CA09154D2DF128A400E272F8 /* ContentView.swift in Sources */,
 				CA9F46412E10214000028F83 /* ChatCellView.swift in Sources */,
 				CA87FF822E0284EB00C8C830 /* ModifierIf.swift in Sources */,
+				CAB6FFFD2E151228004CD644 /* JJUserModel.swift in Sources */,
 				CAAB47F62E0ADC4B000197E5 /* CheckNicknameResponse.swift in Sources */,
 				CA9609AA2DFFCFFD00B878C6 /* MainTabBarCapsule.swift in Sources */,
 				CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */,
@@ -960,6 +1013,7 @@
 				CA9609A42DFFCD7B00B878C6 /* Color+MainTitle.swift in Sources */,
 				CA9609A72DFFCF8100B878C6 /* MainTabBar.swift in Sources */,
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
+				CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponse.swift in Sources */,
 				CA4927D92E0EE5BE00D42CD0 /* LoginResponse.swift in Sources */,
 				CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
@@ -993,6 +1047,7 @@
 				CA5C5E8E2E09A09C00FB1E22 /* SignUpWithProviderResponse.swift in Sources */,
 				CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */,
 				CA5C5E862E099CED00FB1E22 /* AuthCenter.swift in Sources */,
+				CAB6FFF92E150CDF004CD644 /* StartChatRoomRequest.swift in Sources */,
 				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */,
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
 				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,
@@ -1011,6 +1066,7 @@
 				CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */,
 				CA5C5E9C2E09A55B00FB1E22 /* SignUpWithProviderRequest.swift in Sources */,
 				CA87FF7B2E014C3300C8C830 /* JJUser.swift in Sources */,
+				CAB6FFF42E1508DF004CD644 /* ChatManager.swift in Sources */,
 				CA3593662E05952B0069FAF8 /* CategoryContentView.swift in Sources */,
 				CAAB47FA2E0BB1A1000197E5 /* CheckLoginIdRequest.swift in Sources */,
 			);

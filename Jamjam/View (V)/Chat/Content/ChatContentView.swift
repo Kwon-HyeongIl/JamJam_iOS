@@ -9,14 +9,20 @@ import SwiftUI
 
 struct ChatContentView: View {
     @Environment(NavigationRouter.self) var navRouter
-    @State private var viewModel = ChatContentViewModel()
+    @State private var viewModel: ChatContentViewModel
     
     @FocusState private var focus: TextFieldFocusField?
+    
+    init(user: JJUserModel, roomId: Int) {
+        viewModel = ChatContentViewModel(user: user, roomId: roomId)
+    }
     
     var body: some View {
         MainBackground {
             ScrollView(showsIndicators: false) {
-                
+                VStack {
+                    
+                }
             }
             .safeAreaInset(edge: .bottom) {
                 VStack(spacing: 0) {
@@ -59,7 +65,7 @@ struct ChatContentView: View {
 
 #Preview {
     NavigationStack {
-        ChatContentView()
+        ChatContentView(user: JJUserModel(userId: "", realName: "홍길동"), roomId: 0)
             .environment(NavigationRouter())
     }
 }

@@ -9,5 +9,12 @@ import Foundation
 
 @Observable
 class ChatContentViewModel {
+    let user: JJUserModel
+    let roomId: Int
     var chatMessage = ""
+    
+    init(user: JJUserModel, roomId: Int) {
+        self.user = user
+        self.roomId = roomId
+    }
 }

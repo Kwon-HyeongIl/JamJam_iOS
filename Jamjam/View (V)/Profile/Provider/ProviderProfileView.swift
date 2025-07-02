@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProviderProfileView: View {
+    @Environment(NavigationRouter.self) var navRouter
     @State private var viewModel = ProviderProfileViewModel()
     
     @State private var position = ScrollPosition()
@@ -228,6 +229,21 @@ struct ProviderProfileView: View {
                 }
             }
             .modifier(NavigationBarBackAndTitleAndHomeModifier(title: "전문가"))
+            .alert("채팅 연결 실패", isPresented: $viewModel.isChatAlertVisible) {
+                Button {
+                    viewModel.chatAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
+                } label: {
+                    Text("확인")
+                }
+            } message: {
+                Text(viewModel.chatAlertMessage)
+            }
+            .onChange(of: viewModel.isNavigateToChatRoom) { _, newValue in
+                if newValue {
+                    navRouter.navigate(.chatContentView(viewModel.user, viewModel.targetRoomId))
+                    viewModel.isNavigateToChatRoom = false
+                }
+            }
             .scrollPosition($position)
             .onScrollGeometryChange(for: CGFloat.self) { geometry in
                 geometry.contentOffset.y
