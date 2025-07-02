@@ -10,19 +10,16 @@ import Combine
 
 @Observable
 class ChatContentViewModel {
-    let roomId: Int
+    let chatRoom: ChatRoom
     var messages: [ChatSocketMessageResponse] = []
     
     var senderId = ""
-    
-    let user: JJUserModel
     var chatMessage = ""
     
     @ObservationIgnored private var cancellables = Set<AnyCancellable>()
     
-    init(user: JJUserModel, roomId: Int) {
-        self.user = user
-        self.roomId = roomId
+    init(chatRoom: ChatRoom) {
+        self.chatRoom = chatRoom
         subscribeStomp()
         ChatManager.shared.connect()
     }
@@ -33,7 +30,7 @@ class ChatContentViewModel {
                 .sink { [weak self] status in
                     guard let self else { return }
                     if case .connected = status {
-                        ChatManager.shared.subscribe(roomId: roomId)
+                        ChatManager.shared.subscribe(roomId: chatRoom.id)
                         print("방 구독")
                     }
                 }
@@ -52,7 +49,7 @@ class ChatContentViewModel {
     func send() {
         let text = chatMessage.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !text.isEmpty else { return }
-        ChatManager.shared.sendMessage(roomId: roomId, text: text)
+        ChatManager.shared.sendMessage(roomId: chatRoom.id, text: text)
         chatMessage = ""
     }
 }

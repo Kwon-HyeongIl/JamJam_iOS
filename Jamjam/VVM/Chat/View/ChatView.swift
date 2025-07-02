@@ -14,7 +14,7 @@ struct ChatView: View {
     var body: some View {
         MainBackground {
             ScrollView(showsIndicators: false) {
-                LazyVStack {
+                LazyVStack(spacing: 0) {
                     ForEach(viewModel.chatRooms) { chatRoom in
                         ChatCellView(chatRoom: chatRoom)
                             .onTapGesture {

@@ -13,8 +13,8 @@ struct ChatContentView: View {
     
     @FocusState private var focus: TextFieldFocusField?
     
-    init(user: JJUserModel, roomId: Int) {
-        viewModel = ChatContentViewModel(user: user, roomId: roomId)
+    init(chatRoom: ChatRoom) {
+        viewModel = ChatContentViewModel(chatRoom: chatRoom)
     }
     
     var body: some View {
