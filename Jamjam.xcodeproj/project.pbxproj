@@ -105,6 +105,12 @@
 		CAAB47F82E0B0975000197E5 /* SignUpViewModel+Restore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F72E0B0975000197E5 /* SignUpViewModel+Restore.swift */; };
 		CAAB47FA2E0BB1A1000197E5 /* CheckLoginIdRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */; };
 		CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */; };
+		CAB600002E152AC4004CD644 /* SwiftStomp in Frameworks */ = {isa = PBXBuildFile; productRef = CAB6FFFF2E152AC4004CD644 /* SwiftStomp */; };
+		CAB600032E15480F004CD644 /* SocketConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600022E15480F004CD644 /* SocketConnectionStatus.swift */; };
+		CAB600052E15517D004CD644 /* ChatManager+Outer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600042E15517D004CD644 /* ChatManager+Outer.swift */; };
+		CAB600072E155CF4004CD644 /* ChatSocketEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600062E155CF4004CD644 /* ChatSocketEventType.swift */; };
+		CAB600092E155D29004CD644 /* ChatSocketMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600082E155D29004CD644 /* ChatSocketMessageRequest.swift */; };
+		CAB6000B2E155D3C004CD644 /* ChatSocketMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6000A2E155D3C004CD644 /* ChatSocketMessageResponse.swift */; };
 		CAB6FFF42E1508DF004CD644 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFF32E1508DF004CD644 /* ChatManager.swift */; };
 		CAB6FFF92E150CDF004CD644 /* StartChatRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFF82E150CDF004CD644 /* StartChatRoomRequest.swift */; };
 		CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponse.swift */; };
@@ -210,6 +216,11 @@
 		CAAB47F72E0B0975000197E5 /* SignUpViewModel+Restore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Restore.swift"; sourceTree = "<group>"; };
 		CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoginIdRequest.swift; sourceTree = "<group>"; };
 		CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoginIdResponse.swift; sourceTree = "<group>"; };
+		CAB600022E15480F004CD644 /* SocketConnectionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketConnectionStatus.swift; sourceTree = "<group>"; };
+		CAB600042E15517D004CD644 /* ChatManager+Outer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatManager+Outer.swift"; sourceTree = "<group>"; };
+		CAB600062E155CF4004CD644 /* ChatSocketEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSocketEventType.swift; sourceTree = "<group>"; };
+		CAB600082E155D29004CD644 /* ChatSocketMessageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSocketMessageRequest.swift; sourceTree = "<group>"; };
+		CAB6000A2E155D3C004CD644 /* ChatSocketMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSocketMessageResponse.swift; sourceTree = "<group>"; };
 		CAB6FFF32E1508DF004CD644 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		CAB6FFF82E150CDF004CD644 /* StartChatRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatRoomRequest.swift; sourceTree = "<group>"; };
 		CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatRoomResponse.swift; sourceTree = "<group>"; };
@@ -226,6 +237,7 @@
 				CA7D11A12E10567900D55CCE /* FirebaseMessaging in Frameworks */,
 				CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */,
 				CA7D119F2E10567900D55CCE /* FirebaseInAppMessaging-Beta in Frameworks */,
+				CAB600002E152AC4004CD644 /* SwiftStomp in Frameworks */,
 				CA87FF6F2E00305600C8C830 /* CarouselStack in Frameworks */,
 				CA87FF712E00305600C8C830 /* ShuffleDeck in Frameworks */,
 				CA87FF732E00305600C8C830 /* ShuffleIt in Frameworks */,
@@ -332,6 +344,7 @@
 		CA0915612DF12EE800E272F8 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				CAB600012E1547FD004CD644 /* Stomp */,
 				CA5C5E922E09A20E00FB1E22 /* API */,
 				CA5C5E7A2E09687A00FB1E22 /* Font */,
 				CA87FF792E014C2B00C8C830 /* User */,
@@ -811,6 +824,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CAB600012E1547FD004CD644 /* Stomp */ = {
+			isa = PBXGroup;
+			children = (
+				CAB600022E15480F004CD644 /* SocketConnectionStatus.swift */,
+				CAB600062E155CF4004CD644 /* ChatSocketEventType.swift */,
+			);
+			path = Stomp;
+			sourceTree = "<group>";
+		};
 		CAB6FFF12E1508C8004CD644 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -823,6 +845,7 @@
 			isa = PBXGroup;
 			children = (
 				CAB6FFF32E1508DF004CD644 /* ChatManager.swift */,
+				CAB600042E15517D004CD644 /* ChatManager+Outer.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -840,6 +863,7 @@
 			isa = PBXGroup;
 			children = (
 				CAB6FFF82E150CDF004CD644 /* StartChatRoomRequest.swift */,
+				CAB600082E155D29004CD644 /* ChatSocketMessageRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -848,6 +872,7 @@
 			isa = PBXGroup;
 			children = (
 				CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponse.swift */,
+				CAB6000A2E155D3C004CD644 /* ChatSocketMessageResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -913,6 +938,7 @@
 				CA7D119C2E10567900D55CCE /* FirebaseCore */,
 				CA7D119E2E10567900D55CCE /* FirebaseInAppMessaging-Beta */,
 				CA7D11A02E10567900D55CCE /* FirebaseMessaging */,
+				CAB6FFFF2E152AC4004CD644 /* SwiftStomp */,
 			);
 			productName = Jamjam;
 			productReference = CA09153A2DF1289A00E272F8 /* Jamjam.app */;
@@ -946,6 +972,7 @@
 				CA87FF6D2E00305600C8C830 /* XCRemoteSwiftPackageReference "ShuffleIt" */,
 				CAD3106C2E09B56200A5FAA4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CA7D119B2E10567900D55CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CAB6FFFE2E152AC4004CD644 /* XCRemoteSwiftPackageReference "SwiftStomp" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CA09153B2DF1289A00E272F8 /* Products */;
@@ -991,6 +1018,7 @@
 				CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */,
 				CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */,
 				CAE914682E13CF0700829D2C /* RefreshAccessTokenResponse.swift in Sources */,
+				CAB600092E155D29004CD644 /* ChatSocketMessageRequest.swift in Sources */,
 				CA9BB5242E12B8DD0035F26D /* ProviderProfileView.swift in Sources */,
 				CA4CF9272E0C1E1100F882C4 /* SendSmsRequest.swift in Sources */,
 				CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */,
@@ -1006,6 +1034,7 @@
 				CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */,
 				CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */,
 				CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */,
+				CAB600032E15480F004CD644 /* SocketConnectionStatus.swift in Sources */,
 				CA35935F2E0514AE0069FAF8 /* CategoryViewModel.swift in Sources */,
 				CA88CEC02E11077800B1116E /* FCMCenter.swift in Sources */,
 				CA9F46382E101ED600028F83 /* WriteView.swift in Sources */,
@@ -1016,6 +1045,7 @@
 				CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponse.swift in Sources */,
 				CA4927D92E0EE5BE00D42CD0 /* LoginResponse.swift in Sources */,
 				CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */,
+				CAB600052E15517D004CD644 /* ChatManager+Outer.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
 				CA96099E2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift in Sources */,
 				CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */,
@@ -1036,6 +1066,7 @@
 				CA9609B02DFFD17900B878C6 /* CornerRadius.swift in Sources */,
 				CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */,
 				CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */,
+				CAB6000B2E155D3C004CD644 /* ChatSocketMessageResponse.swift in Sources */,
 				CA4CF92B2E0C276B00F882C4 /* VerifySmsRequest.swift in Sources */,
 				CA87FF782E014B7A00C8C830 /* SignUpViewModel.swift in Sources */,
 				CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */,
@@ -1047,6 +1078,7 @@
 				CA5C5E8E2E09A09C00FB1E22 /* SignUpWithProviderResponse.swift in Sources */,
 				CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */,
 				CA5C5E862E099CED00FB1E22 /* AuthCenter.swift in Sources */,
+				CAB600072E155CF4004CD644 /* ChatSocketEventType.swift in Sources */,
 				CAB6FFF92E150CDF004CD644 /* StartChatRoomRequest.swift in Sources */,
 				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */,
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
@@ -1314,6 +1346,14 @@
 				kind = branch;
 			};
 		};
+		CAB6FFFE2E152AC4004CD644 /* XCRemoteSwiftPackageReference "SwiftStomp" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Romixery/SwiftStomp";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
 		CAD3106C2E09B56200A5FAA4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -1359,6 +1399,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CA87FF6D2E00305600C8C830 /* XCRemoteSwiftPackageReference "ShuffleIt" */;
 			productName = ShuffleStack;
+		};
+		CAB6FFFF2E152AC4004CD644 /* SwiftStomp */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAB6FFFE2E152AC4004CD644 /* XCRemoteSwiftPackageReference "SwiftStomp" */;
+			productName = SwiftStomp;
 		};
 		CAD3106D2E09B56200A5FAA4 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

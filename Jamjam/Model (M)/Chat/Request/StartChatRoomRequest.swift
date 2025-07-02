@@ -8,5 +8,5 @@
 import Foundation
 
 struct StartChatRoomRequest: Encodable {
-    let otherId: Int
+    let otherId: String
 }

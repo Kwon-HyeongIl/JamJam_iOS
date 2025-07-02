@@ -21,7 +21,18 @@ struct ChatContentView: View {
         MainBackground {
             ScrollView(showsIndicators: false) {
                 VStack {
-                    
+                    Text("roomId \(viewModel.roomId)")
+                    Text("senderId \(viewModel.senderId)")
+                    // 메시지 리스트
+                    ScrollViewReader { proxy in
+                        List(viewModel.messages) { msg in
+                            HStack {
+                                bubble(msg.content.content, color: .blue, fg: .white)
+                            }
+                            .listRowSeparator(.hidden)
+                        }
+                        .listStyle(.plain)
+                    }
                 }
             }
             .safeAreaInset(edge: .bottom) {
@@ -45,7 +56,8 @@ struct ChatContentView: View {
                             )
                         
                         Button {
-                            
+                            viewModel.send()
+                            print("send")
                         } label: {
                             Image(systemName: "paperplane.fill")
                                 .font(.system(size: 23))
@@ -60,6 +72,15 @@ struct ChatContentView: View {
             }
             .modifier(NavigationBarBackAndNameModifier(name: "홍길동"))
         }
+    }
+    
+    @ViewBuilder
+    private func bubble(_ text: String, color: Color, fg: Color) -> some View {
+        Text(text)
+            .padding(10)
+            .foregroundStyle(fg)
+            .background(color, in: RoundedRectangle(cornerRadius: 12))
+            .frame(maxWidth: 250, alignment: .leading)
     }
 }
 

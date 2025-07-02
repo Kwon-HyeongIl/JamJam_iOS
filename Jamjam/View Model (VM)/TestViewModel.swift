@@ -10,24 +10,47 @@ import Combine
 
 @Observable
 class TestViewModel {
+    let roomId: Int
+    var inputText: String = ""
+    var messages: [ChatSocketMessageResponse] = []
+    
+    var senderId = ""
+    
     @ObservationIgnored private var cancellables = Set<AnyCancellable>()
     
-    func request() {
-        let request = SignUpWithProviderRequest(name: "김국자", nickname: "ohMyGod", loginId: "onMyLogin", phoneNumber: "01043452839", password: "12345678a@", birth: "1950-06-23", gender: "MALE")
-        
-        AuthCenter.shared.signUpWithProvider(request)
-            .receive(on: DispatchQueue.main)
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    print("성공")
-                case .failure(let error):
-                    print("실패", error.localizedDescription)
+    init(roomId: Int) {
+            self.roomId = roomId
+            subscribeStomp()
+            ChatManager.shared.connect()
+        }
+    
+
+    private func subscribeStomp() {
+            // 연결 → 방 구독
+            ChatManager.shared.socketConnectionStatus
+                .sink { [weak self] status in
+                    guard let self else { return }
+                    if case .connected = status {
+                        ChatManager.shared.subscribe(roomId: roomId)
+                        print("방 구독")
+                    }
                 }
-            } receiveValue: { data in
-                print("데이터 출력")
-                print(data)
-            }
-            .store(in: &cancellables)
-    }
+                .store(in: &cancellables)
+
+            // 메시지 수신
+            ChatManager.shared.onMessageReceived
+                .sink { [weak self] new in
+                    self?.senderId = new.content.senderId
+                    self?.messages.append(new)
+                    print("메시지 수신")
+                }
+                .store(in: &cancellables)
+        }
+
+    func send() {
+            let text = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !text.isEmpty else { return }
+            ChatManager.shared.sendMessage(roomId: roomId, text: text)
+            inputText = ""
+        }
 }

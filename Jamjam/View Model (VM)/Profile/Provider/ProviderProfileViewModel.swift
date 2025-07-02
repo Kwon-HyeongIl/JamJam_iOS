@@ -11,7 +11,7 @@ import os
 
 @Observable
 class ProviderProfileViewModel {
-    let user = JJUserModel(userId: "", realName: "홍길동")
+    let user = JJUserModel(userId: "1", realName: "llioopv") // 임시
     
     var isTabBarVisible = true
     var selectedIndex = 0
@@ -28,7 +28,7 @@ class ProviderProfileViewModel {
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "SignUpViewModel")
     
     func startChatRoom() {
-        ChatManager.startChatRoom(otherId: 0)
+        ChatManager.shared.startChatRoom(otherId: "1")
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -42,8 +42,10 @@ class ProviderProfileViewModel {
                 let receivedRoomId = response.content?.roomId ?? 0
                 
                 if response.code == "SUCCESS", receivedRoomId != 0 {
-                    self?.isNavigateToChatRoom = true
                     self?.targetRoomId = receivedRoomId
+                    self?.isNavigateToChatRoom = true
+                    print("[startChatRoom] roomId \(receivedRoomId)")
+                    print("SUCCESS")
                     
                 } else {
                     self?.isChatAlertVisible = true

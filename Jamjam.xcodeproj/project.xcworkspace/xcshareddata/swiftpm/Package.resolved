@@ -1,5 +1,5 @@
 {
-  "originHash" : "73703881247dff35f02a72e86f523ec80bd145e4f1a9672b1988c18186094dda",
+  "originHash" : "02aa9a75dab303a3a86f89227f3a81d460322f8301113bc21276ad525f2ac8d5",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -128,6 +128,15 @@
       }
     },
     {
+      "identity" : "reachability.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ashleymills/Reachability.swift",
+      "state" : {
+        "revision" : "21d1dc412cfecbe6e34f1f4c4eb88d3f912654a6",
+        "version" : "5.2.4"
+      }
+    },
+    {
       "identity" : "shuffleit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dscyrescotti/ShuffleIt",
@@ -143,6 +152,15 @@
       "state" : {
         "revision" : "102a647b573f60f73afdce5613a51d71349fe507",
         "version" : "1.30.0"
+      }
+    },
+    {
+      "identity" : "swiftstomp",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Romixery/SwiftStomp",
+      "state" : {
+        "revision" : "f25926d2ab67ec0391de9a706cf71dfb08d36bbc",
+        "version" : "1.2.1"
       }
     }
   ],

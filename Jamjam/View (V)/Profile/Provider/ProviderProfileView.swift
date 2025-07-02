@@ -271,7 +271,7 @@ struct ProviderProfileView: View {
                     Spacer()
                     
                     Button {
-                        
+                        viewModel.startChatRoom()
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
                             .frame(height: 45)
