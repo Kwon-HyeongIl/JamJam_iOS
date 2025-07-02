@@ -28,6 +28,7 @@ enum API {
     
     // MARK: Chat
     case startChatRoom
+    case fetchChatRooms
     case webSocketURL
     
     var urlString: String {
@@ -53,6 +54,8 @@ enum API {
             // MARK: Chat
         case .startChatRoom:
             return "\(API.baseURL)/api/chat/room"
+        case .fetchChatRooms:
+            return "\(API.baseURL)/api/chat/rooms"
         case .webSocketURL:
             return "wss://api.jamx2.store/ws-chat"
         }

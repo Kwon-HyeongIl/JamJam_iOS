@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChatCellView: View {
-    // 객체 받기
+    let chatRoom: ChatRoom
     
     var body: some View {
         HStack {
@@ -18,10 +18,10 @@ struct ChatCellView: View {
                 .padding(.leading, 20)
             
             VStack(alignment: .leading, spacing: 8) {
-                Text("홍길동")
+                Text(chatRoom.nickname)
                     .font(.pretendard(Pretendard.semiBold, size: 17))
                 
-                Text("안녕하세요~")
+                Text(chatRoom.lastMessage ?? "")
                     .font(.pretendard(Pretendard.regular, size: 14))
                     .foregroundStyle(.gray)
             }
@@ -29,7 +29,7 @@ struct ChatCellView: View {
             Spacer()
             
             VStack(alignment: .trailing) {
-                Text("5시간 전")
+                Text(chatRoom.lastMessageTime ?? "")
                     .font(.pretendard(Pretendard.regular, size: 12))
                     .foregroundStyle(.gray)
                 
@@ -38,7 +38,7 @@ struct ChatCellView: View {
                     .scaledToFit()
                     .frame(width: 20)
                     .overlay {
-                        Text("3")
+                        Text("\(chatRoom.unreadCount)")
                             .font(.pretendard(Pretendard.semiBold, size: 12))
                             .foregroundStyle(.white)
                     }
@@ -52,5 +52,5 @@ struct ChatCellView: View {
 }
 
 #Preview {
-    ChatCellView()
+    ChatCellView(chatRoom: ChatRoom(id: 0, nickname: "0", lastMessage: "0", lastMessageTime: "0", unreadCount: 0, profileUrl: "0"))
 }

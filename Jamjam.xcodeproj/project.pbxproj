@@ -107,10 +107,13 @@
 		CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */; };
 		CAB600002E152AC4004CD644 /* SwiftStomp in Frameworks */ = {isa = PBXBuildFile; productRef = CAB6FFFF2E152AC4004CD644 /* SwiftStomp */; };
 		CAB600032E15480F004CD644 /* SocketConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600022E15480F004CD644 /* SocketConnectionStatus.swift */; };
-		CAB600052E15517D004CD644 /* ChatManager+Outer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600042E15517D004CD644 /* ChatManager+Outer.swift */; };
+		CAB600052E15517D004CD644 /* ChatManager+StompOuter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600042E15517D004CD644 /* ChatManager+StompOuter.swift */; };
 		CAB600072E155CF4004CD644 /* ChatSocketEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600062E155CF4004CD644 /* ChatSocketEventType.swift */; };
 		CAB600092E155D29004CD644 /* ChatSocketMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600082E155D29004CD644 /* ChatSocketMessageRequest.swift */; };
 		CAB6000B2E155D3C004CD644 /* ChatSocketMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6000A2E155D3C004CD644 /* ChatSocketMessageResponse.swift */; };
+		CAB6000D2E157B22004CD644 /* ChatManager+Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6000C2E157B22004CD644 /* ChatManager+Room.swift */; };
+		CAB6000F2E157C97004CD644 /* FetchChatRoomsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6000E2E157C97004CD644 /* FetchChatRoomsRequest.swift */; };
+		CAB600112E157CC4004CD644 /* FetchChatRoomsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600102E157CC4004CD644 /* FetchChatRoomsResponse.swift */; };
 		CAB6FFF42E1508DF004CD644 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFF32E1508DF004CD644 /* ChatManager.swift */; };
 		CAB6FFF92E150CDF004CD644 /* StartChatRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFF82E150CDF004CD644 /* StartChatRoomRequest.swift */; };
 		CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponse.swift */; };
@@ -217,10 +220,13 @@
 		CAAB47F92E0BB1A1000197E5 /* CheckLoginIdRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoginIdRequest.swift; sourceTree = "<group>"; };
 		CAAB47FB2E0BB1D5000197E5 /* CheckLoginIdResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoginIdResponse.swift; sourceTree = "<group>"; };
 		CAB600022E15480F004CD644 /* SocketConnectionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketConnectionStatus.swift; sourceTree = "<group>"; };
-		CAB600042E15517D004CD644 /* ChatManager+Outer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatManager+Outer.swift"; sourceTree = "<group>"; };
+		CAB600042E15517D004CD644 /* ChatManager+StompOuter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatManager+StompOuter.swift"; sourceTree = "<group>"; };
 		CAB600062E155CF4004CD644 /* ChatSocketEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSocketEventType.swift; sourceTree = "<group>"; };
 		CAB600082E155D29004CD644 /* ChatSocketMessageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSocketMessageRequest.swift; sourceTree = "<group>"; };
 		CAB6000A2E155D3C004CD644 /* ChatSocketMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSocketMessageResponse.swift; sourceTree = "<group>"; };
+		CAB6000C2E157B22004CD644 /* ChatManager+Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatManager+Room.swift"; sourceTree = "<group>"; };
+		CAB6000E2E157C97004CD644 /* FetchChatRoomsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchChatRoomsRequest.swift; sourceTree = "<group>"; };
+		CAB600102E157CC4004CD644 /* FetchChatRoomsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchChatRoomsResponse.swift; sourceTree = "<group>"; };
 		CAB6FFF32E1508DF004CD644 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		CAB6FFF82E150CDF004CD644 /* StartChatRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatRoomRequest.swift; sourceTree = "<group>"; };
 		CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatRoomResponse.swift; sourceTree = "<group>"; };
@@ -845,7 +851,8 @@
 			isa = PBXGroup;
 			children = (
 				CAB6FFF32E1508DF004CD644 /* ChatManager.swift */,
-				CAB600042E15517D004CD644 /* ChatManager+Outer.swift */,
+				CAB600042E15517D004CD644 /* ChatManager+StompOuter.swift */,
+				CAB6000C2E157B22004CD644 /* ChatManager+Room.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -864,6 +871,7 @@
 			children = (
 				CAB6FFF82E150CDF004CD644 /* StartChatRoomRequest.swift */,
 				CAB600082E155D29004CD644 /* ChatSocketMessageRequest.swift */,
+				CAB6000E2E157C97004CD644 /* FetchChatRoomsRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -873,6 +881,7 @@
 			children = (
 				CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponse.swift */,
 				CAB6000A2E155D3C004CD644 /* ChatSocketMessageResponse.swift */,
+				CAB600102E157CC4004CD644 /* FetchChatRoomsResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1014,6 +1023,7 @@
 				CA9BB5322E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift in Sources */,
 				CA87FF7F2E02829D00C8C830 /* NavigationBarTitleAndHomeModifier.swift in Sources */,
 				CA96099A2DFBE06400B878C6 /* NavigationBarBackModifier.swift in Sources */,
+				CAB600112E157CC4004CD644 /* FetchChatRoomsResponse.swift in Sources */,
 				CA5C5E982E09A47600FB1E22 /* TestViewModel.swift in Sources */,
 				CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */,
 				CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */,
@@ -1028,6 +1038,7 @@
 				CA09154D2DF128A400E272F8 /* ContentView.swift in Sources */,
 				CA9F46412E10214000028F83 /* ChatCellView.swift in Sources */,
 				CA87FF822E0284EB00C8C830 /* ModifierIf.swift in Sources */,
+				CAB6000F2E157C97004CD644 /* FetchChatRoomsRequest.swift in Sources */,
 				CAB6FFFD2E151228004CD644 /* JJUserModel.swift in Sources */,
 				CAAB47F62E0ADC4B000197E5 /* CheckNicknameResponse.swift in Sources */,
 				CA9609AA2DFFCFFD00B878C6 /* MainTabBarCapsule.swift in Sources */,
@@ -1045,7 +1056,7 @@
 				CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponse.swift in Sources */,
 				CA4927D92E0EE5BE00D42CD0 /* LoginResponse.swift in Sources */,
 				CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */,
-				CAB600052E15517D004CD644 /* ChatManager+Outer.swift in Sources */,
+				CAB600052E15517D004CD644 /* ChatManager+StompOuter.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
 				CA96099E2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift in Sources */,
 				CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */,
@@ -1076,6 +1087,7 @@
 				CA9609AD2DFFD02300B878C6 /* MainTab.swift in Sources */,
 				CA9609BB2DFFDA6100B878C6 /* LoginViewModel.swift in Sources */,
 				CA5C5E8E2E09A09C00FB1E22 /* SignUpWithProviderResponse.swift in Sources */,
+				CAB6000D2E157B22004CD644 /* ChatManager+Room.swift in Sources */,
 				CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */,
 				CA5C5E862E099CED00FB1E22 /* AuthCenter.swift in Sources */,
 				CAB600072E155CF4004CD644 /* ChatSocketEventType.swift in Sources */,

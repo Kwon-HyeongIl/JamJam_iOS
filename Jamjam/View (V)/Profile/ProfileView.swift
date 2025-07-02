@@ -11,7 +11,7 @@ struct ProfileView: View {
     @Environment(NavigationRouter.self) var navRouter
     
     var body: some View {
-        VStack {
+        VStack(spacing: 30) {
             Button {
                 AuthCenter.shared.logout()
             } label: {

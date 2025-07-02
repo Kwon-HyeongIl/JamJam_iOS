@@ -14,11 +14,17 @@ struct ChatView: View {
     var body: some View {
         MainBackground {
             ScrollView(showsIndicators: false) {
-                Button {
-//                    navRouter.navigate(.chatContentView)
-                } label: {
-                    Text("TT")
+                LazyVStack {
+                    ForEach(viewModel.chatRooms) { chatRoom in
+                        ChatCellView(chatRoom: chatRoom)
+                            .onTapGesture {
+                                
+                            }
+                    }
                 }
+            }
+            .onAppear {
+                viewModel.fetchChatRooms()
             }
         }
     }
