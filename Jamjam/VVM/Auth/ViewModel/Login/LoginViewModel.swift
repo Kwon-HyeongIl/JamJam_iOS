@@ -41,7 +41,7 @@ class LoginViewModel {
             } receiveValue: { [weak self] response in
                 let receivedAccessToken = response.content?.accessToken ?? ""
                 
-                if response.message == "SUCCESS", !receivedAccessToken.isEmpty {
+                if response.code == "SUCCESS", !receivedAccessToken.isEmpty {
                     AuthCenter.shared.accessToken = receivedAccessToken
                     self?.isLoginCompleted = true
                     

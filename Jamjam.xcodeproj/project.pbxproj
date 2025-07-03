@@ -114,6 +114,7 @@
 		CAB600112E157CC4004CD644 /* FetchChatRoomsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600102E157CC4004CD644 /* FetchChatRoomsResponse.swift */; };
 		CAB600292E167A8C004CD644 /* FetchChatMessagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600282E167A8C004CD644 /* FetchChatMessagesRequest.swift */; };
 		CAB6002B2E167ABD004CD644 /* FetchChatMessagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6002A2E167ABD004CD644 /* FetchChatMessagesResponse.swift */; };
+		CAB600392E168DD5004CD644 /* NavigationBarBackAndProfileAndEditModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB600382E168DD5004CD644 /* NavigationBarBackAndProfileAndEditModifier.swift */; };
 		CAB6FFF42E1508DF004CD644 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFF32E1508DF004CD644 /* ChatManager.swift */; };
 		CAB6FFF92E150CDF004CD644 /* StartChatRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFF82E150CDF004CD644 /* StartChatRoomRequest.swift */; };
 		CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponse.swift */; };
@@ -227,6 +228,7 @@
 		CAB600102E157CC4004CD644 /* FetchChatRoomsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchChatRoomsResponse.swift; sourceTree = "<group>"; };
 		CAB600282E167A8C004CD644 /* FetchChatMessagesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchChatMessagesRequest.swift; sourceTree = "<group>"; };
 		CAB6002A2E167ABD004CD644 /* FetchChatMessagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchChatMessagesResponse.swift; sourceTree = "<group>"; };
+		CAB600382E168DD5004CD644 /* NavigationBarBackAndProfileAndEditModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndProfileAndEditModifier.swift; sourceTree = "<group>"; };
 		CAB6FFF32E1508DF004CD644 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		CAB6FFF82E150CDF004CD644 /* StartChatRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatRoomRequest.swift; sourceTree = "<group>"; };
 		CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatRoomResponse.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				CA9BB52D2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift */,
 				CA9BB52F2E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift */,
 				CA9BB5312E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift */,
+				CAB600382E168DD5004CD644 /* NavigationBarBackAndProfileAndEditModifier.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -658,19 +661,10 @@
 		CA9609B62DFFD7EB00B878C6 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				CAB600152E15A5CE004CD644 /* Login */,
-				CA9609BC2DFFE34500B878C6 /* SignUp */,
+				CAB600322E16849F004CD644 /* View */,
+				CAB600342E1684BB004CD644 /* ViewModel */,
 			);
 			path = Auth;
-			sourceTree = "<group>";
-		};
-		CA9609BC2DFFE34500B878C6 /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				CAB600142E15A5C6004CD644 /* View */,
-				CAB600162E15A5DD004CD644 /* ViewModel */,
-			);
-			path = SignUp;
 			sourceTree = "<group>";
 		};
 		CA9609C52E0018BE00B878C6 /* FocusField */ = {
@@ -747,50 +741,6 @@
 				CAB600062E155CF4004CD644 /* ChatSocketEventType.swift */,
 			);
 			path = Stomp;
-			sourceTree = "<group>";
-		};
-		CAB600122E15A5AB004CD644 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CA9609B72DFFD85D00B878C6 /* LoginView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CAB600132E15A5B2004CD644 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				CA9609BA2DFFDA6100B878C6 /* LoginViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		CAB600142E15A5C6004CD644 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CA9609BD2DFFE36300B878C6 /* SignUpView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CAB600152E15A5CE004CD644 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				CAB600122E15A5AB004CD644 /* View */,
-				CAB600132E15A5B2004CD644 /* ViewModel */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		CAB600162E15A5DD004CD644 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				CA87FF772E014B7A00C8C830 /* SignUpViewModel.swift */,
-				CAAB47F72E0B0975000197E5 /* SignUpViewModel+Restore.swift */,
-				CA87FF892E02B66600C8C830 /* SignUpViewModel+Validate.swift */,
-				CA87FF932E040FDE00C8C830 /* SignUpViewModel+Complete.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CAB600172E15A5FA004CD644 /* View */ = {
@@ -896,6 +846,59 @@
 				CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */,
 			);
 			path = Provider;
+			sourceTree = "<group>";
+		};
+		CAB600322E16849F004CD644 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CAB600352E1684C7004CD644 /* SignUp */,
+				CAB600332E1684A9004CD644 /* Login */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CAB600332E1684A9004CD644 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609B72DFFD85D00B878C6 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CAB600342E1684BB004CD644 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CAB600362E1684D1004CD644 /* Login */,
+				CAB600372E1684D4004CD644 /* SignUp */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CAB600352E1684C7004CD644 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609BD2DFFE36300B878C6 /* SignUpView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		CAB600362E1684D1004CD644 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609BA2DFFDA6100B878C6 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CAB600372E1684D4004CD644 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				CA87FF772E014B7A00C8C830 /* SignUpViewModel.swift */,
+				CAAB47F72E0B0975000197E5 /* SignUpViewModel+Restore.swift */,
+				CA87FF892E02B66600C8C830 /* SignUpViewModel+Validate.swift */,
+				CA87FF932E040FDE00C8C830 /* SignUpViewModel+Complete.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		CAB6FFF12E1508C8004CD644 /* Manager */ = {
@@ -1111,6 +1114,7 @@
 				CA5C5E902E09A0A800FB1E22 /* SignUpWithClientResponse.swift in Sources */,
 				CA4CF92D2E0C279D00F882C4 /* VerifySmsResponse.swift in Sources */,
 				CA7D11932E10327100D55CCE /* ChatContentView.swift in Sources */,
+				CAB600392E168DD5004CD644 /* NavigationBarBackAndProfileAndEditModifier.swift in Sources */,
 				CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */,
 				CA09155B2DF12CF700E272F8 /* NavigationRouter.swift in Sources */,
 				CAAB47F42E0ADC1D000197E5 /* CheckNicknameRequest.swift in Sources */,

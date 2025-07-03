@@ -16,6 +16,7 @@ class ChatContentViewModel {
     var messages: [Message] = []
     
     var inputMessage = ""
+    var isEditButtonTapped = false
     
     @ObservationIgnored private var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ChatContentViewModel")
@@ -71,7 +72,6 @@ class ChatContentViewModel {
                     self?.logger.info("[fetchChatMessages] SUCCESS")
                     
                     if let messages = response.content?.chats {
-                        self?.logger.info("[fetchChatMessages] 이전 메세지 존재")
                         self?.messages = messages
                     }
                     

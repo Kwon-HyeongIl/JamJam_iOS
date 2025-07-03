@@ -25,8 +25,9 @@ class AuthCenter {
             if let accessToken = accessToken, !accessToken.isEmpty {
                 logger.info("[accessToken didSet] Keychain에 토큰 저장")
                 storeAccessToken(accessToken)
+                
             } else {
-                logger.warning("[accessToken didSet] 빈 토큰 수신")
+                logger.warning("[accessToken didSet] 빈 토큰 저장, 토큰 삭제 시도")
                 deleteAccessToken()
             }
         }

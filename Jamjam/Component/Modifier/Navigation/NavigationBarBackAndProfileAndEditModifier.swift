@@ -1,17 +1,23 @@
 //
-//  NavigationBarBackAndLogoAndLoginButtonModifier.swift
+//  NavigationBarBackAndProfileAndEditModifier.swift
 //  Jamjam
 //
-//  Created by 권형일 on 7/1/25.
+//  Created by 권형일 on 7/3/25.
 //
 
 import SwiftUI
 
-// 뒤로가기 + 로고 + 로그인
-struct NavigationBarBackAndLogoAndLoginButtonModifier: ViewModifier {
+struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
     @Environment(NavigationRouter.self) var navRouter
     
-    init() {
+    let nickname: String
+    
+    @Binding var isEdditButtonTapped: Bool
+    
+    init(nickname: String, isEdditButtonTapped: Binding<Bool>) {
+        self.nickname = nickname
+        self._isEdditButtonTapped = isEdditButtonTapped
+        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(Color.mainBackground)
@@ -40,24 +46,23 @@ struct NavigationBarBackAndLogoAndLoginButtonModifier: ViewModifier {
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    Image("jamjam_main_logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 45)
+                    HStack {
+                        Image(systemName: "person.crop.circle")
+                            .font(.system(size: 20))
+                            .foregroundStyle(.gray)
+                        
+                        Text(nickname)
+                            .font(.pretendard(Pretendard.semiBold, size: 18))
+                    }
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        navRouter.navigate(.loginView)
+                        isEdditButtonTapped = true
                     } label: {
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 64, height: 30)
-                            .foregroundStyle(Color.JJTitle)
-                            .overlay {
-                                Text("로그인")
-                                    .font(.pretendard(Pretendard.semiBold, size: 14))
-                                    .foregroundStyle(.white)
-                            }
+                        Image(systemName: "ellipsis")
+                            .font(.system(size: 20))
+                            .foregroundStyle(.gray)
                             .padding(.trailing, 20)
                     }
                 }

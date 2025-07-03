@@ -102,7 +102,23 @@ struct ChatContentView: View {
                 }
                 .frame(height: 60)
             }
-            .modifier(NavigationBarBackAndNameModifier(name: "홍길동"))
+            .modifier(NavigationBarBackAndProfileAndEditModifier(nickname: viewModel.chatRoom.nickname, isEdditButtonTapped: $viewModel.isEditButtonTapped))
+            .alert("채팅방을 나가시겠습니까?", isPresented: $viewModel.isEditButtonTapped) {
+                Button(role: .cancel) {
+                    
+                } label: {
+                    Text("취소")
+                }
+                
+                Button(role: .destructive) {
+                    // 삭제 호출 함수
+                    navRouter.back()
+                } label: {
+                    Text("나가기")
+                }
+            } message: {
+                Text("채팅방 기록은 복구되지 않습니다.")
+            }
         }
     }
 }

@@ -31,7 +31,10 @@ class ChatViewModel {
             } receiveValue: { [weak self] response in
                 if response.code == "SUCCESS" {
                     self?.logger.info("[fetchChatRooms] SUCCESS")
-                    self?.chatRooms = response.content?.rooms ?? []
+                    
+                    if let rooms = response.content?.rooms {
+                        self?.chatRooms = rooms
+                    }
                     
                 } else {
                     self?.logger.error("[fetchChatRooms] 에러 발생: \(response.message)")
