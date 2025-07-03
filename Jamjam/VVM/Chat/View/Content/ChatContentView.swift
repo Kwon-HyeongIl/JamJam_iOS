@@ -111,13 +111,27 @@ struct ChatContentView: View {
                 }
                 
                 Button(role: .destructive) {
-                    // 삭제 호출 함수
+                    viewModel.deleteChatRoom()
                     navRouter.back()
                 } label: {
                     Text("나가기")
                 }
             } message: {
                 Text("채팅방 기록은 복구되지 않습니다.")
+            }
+            .alert("채팅방 나가기 실패", isPresented: $viewModel.isDeleteChatRoomAlertVisible) {
+                Button {
+                    viewModel.deleteChatRoomAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
+                } label: {
+                    Text("확인")
+                }
+            } message: {
+                Text(viewModel.deleteChatRoomAlertMessage)
+            }
+            .onChange(of: viewModel.isChatRoomDeleted) { _, newValue in
+                if newValue {
+                    navRouter.back()
+                }
             }
         }
     }

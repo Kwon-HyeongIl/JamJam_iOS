@@ -17,6 +17,9 @@ class ChatContentViewModel {
     
     var inputMessage = ""
     var isEditButtonTapped = false
+    var isDeleteChatRoomAlertVisible = false
+    var deleteChatRoomAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
+    var isChatRoomDeleted = false
     
     @ObservationIgnored private var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ChatContentViewModel")
@@ -89,5 +92,30 @@ class ChatContentViewModel {
         
         ChatManager.shared.sendMessage(roomId: chatRoom.id, text: text)
         inputMessage = ""
+    }
+    
+    func deleteChatRoom() {
+        ChatManager.shared.deleteChatRoom(targetChatRoomId: chatRoom.id)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[deleteChatRoom] completion finished")
+                case .failure(let error):
+                    self?.logger.error("[deleteChatRoom] completion failed: \(error)")
+                    self?.isDeleteChatRoomAlertVisible = true
+                }
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS" {
+                    self?.logger.info("[deleteChatRoom] SUCCESS")
+                    self?.isChatRoomDeleted = true
+                    
+                } else {
+                    self?.logger.error("[deleteChatRoom] 응답 처리 실패: \(response.message)")
+                    self?.isDeleteChatRoomAlertVisible = true
+                    self?.deleteChatRoomAlertMessage = response.message
+                }
+            }
+            .store(in: &self.cancellables)
     }
 }

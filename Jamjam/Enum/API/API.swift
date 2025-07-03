@@ -27,10 +27,12 @@ enum API {
     case signUpWithClient
     
     // MARK: Chat
+    case webSocketURL
+    
     case startChatRoom
     case fetchChatRooms
     case fetchChatMessages(String)
-    case webSocketURL
+    case deleteChatRoom(String)
     
     var urlString: String {
         switch self {
@@ -53,14 +55,17 @@ enum API {
             return "\(API.baseURL)/api/user/join/client"
             
             // MARK: Chat
+        case .webSocketURL:
+            return "wss://api.jamx2.store/ws-chat"
+            
         case .startChatRoom:
             return "\(API.baseURL)/api/chat/room"
         case .fetchChatRooms:
             return "\(API.baseURL)/api/chat/rooms"
         case .fetchChatMessages(let chatRoomId):
             return "\(API.baseURL)/api/chat/rooms/\(chatRoomId)/messages"
-        case .webSocketURL:
-            return "wss://api.jamx2.store/ws-chat"
+        case .deleteChatRoom(let chatRoomId):
+            return "\(API.baseURL)/api/chat/rooms/\(chatRoomId)"
         }
     }
     

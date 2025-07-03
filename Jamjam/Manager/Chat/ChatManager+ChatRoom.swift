@@ -40,4 +40,14 @@ extension ChatManager {
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
+    
+    func deleteChatRoom(targetChatRoomId: Int) -> AnyPublisher<DeleteChatRoomResponse, Error> {
+        let url = API.deleteChatRoom("\(targetChatRoomId)").url
+        
+        return AF.request(url, method: .delete, headers: API.headers)
+            .publishDecodable(type: DeleteChatRoomResponse.self)
+            .value()
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
 }
