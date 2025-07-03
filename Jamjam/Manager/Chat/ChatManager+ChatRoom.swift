@@ -30,4 +30,14 @@ extension ChatManager {
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
+    
+    func fetchChatMessages(request: FetchChatMessagesRequest, chatRoomId: Int) -> AnyPublisher<FetchChatMessagesResponse, Error> {
+        let url = API.fetchChatMessages("\(chatRoomId)").url
+        
+        return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
+            .publishDecodable(type: FetchChatMessagesResponse.self)
+            .value()
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
 }

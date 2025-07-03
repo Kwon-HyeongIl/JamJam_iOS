@@ -1,0 +1,23 @@
+//
+//  FetchChatMessagesResponse.swift
+//  Jamjam
+//
+//  Created by 권형일 on 7/3/25.
+//
+
+import Foundation
+
+struct FetchChatMessagesResponse: Decodable {
+    let code: String
+    let message: String
+    let content: Content?
+    
+    struct Content: Decodable {
+        let sliceInfo: SliceInfo
+        let chats: [Message]
+        
+        struct SliceInfo: Decodable {
+            let hasNext: Bool
+        }
+    }
+}

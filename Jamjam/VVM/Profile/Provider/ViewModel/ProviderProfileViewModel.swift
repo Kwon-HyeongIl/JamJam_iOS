@@ -42,10 +42,9 @@ class ProviderProfileViewModel {
                 let receivedRoomId = response.content?.roomId ?? 0
                 
                 if response.code == "SUCCESS", receivedRoomId != 0 {
+                    self?.logger.info("[startChatRoom] SUCCESS")
                     self?.targetRoomId = receivedRoomId
                     self?.isNavigateToChatRoom = true
-                    print("[startChatRoom] roomId \(receivedRoomId)")
-                    print("SUCCESS")
                     
                 } else {
                     self?.isChatAlertVisible = true

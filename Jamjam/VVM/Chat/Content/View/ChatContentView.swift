@@ -74,7 +74,7 @@ struct ChatContentView: View {
                     Spacer()
                     
                     HStack {
-                        TextField("메시지를 입력하세요.", text: $viewModel.chatMessage, axis: .vertical)
+                        TextField("메시지를 입력하세요.", text: $viewModel.inputMessage, axis: .vertical)
                             .focused($focus, equals: .first)
                             .lineLimit(1...5)
                             .font(.pretendard(Pretendard.regular, size: 15))
@@ -93,7 +93,7 @@ struct ChatContentView: View {
                         } label: {
                             Image(systemName: "paperplane.fill")
                                 .font(.system(size: 23))
-                                .foregroundStyle(viewModel.chatMessage.isEmpty ? .gray : Color.JJTitle)
+                                .foregroundStyle(viewModel.inputMessage.isEmpty ? .gray : Color.JJTitle)
                         }
                     }
                     .padding(.horizontal, 20)
