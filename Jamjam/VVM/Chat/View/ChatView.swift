@@ -18,7 +18,7 @@ struct ChatView: View {
                     ForEach(viewModel.chatRooms) { chatRoom in
                         ChatCellView(chatRoom: chatRoom)
                             .onTapGesture {
-                                
+                                navRouter.navigate(.chatContentView(chatRoom))
                             }
                     }
                 }

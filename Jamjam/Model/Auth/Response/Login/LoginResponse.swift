@@ -13,7 +13,8 @@ struct LoginResponse: Decodable {
     let content: Content?
     
     struct Content: Decodable {
-        let accessToken: String
+        let message: String
         let tokenType: String
+        let accessToken: String
     }
 }
