@@ -380,8 +380,7 @@
 		CA35935A2E05118D0069FAF8 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				CAB600192E15A62B004CD644 /* View */,
-				CAB6001A2E15A641004CD644 /* ViewModel */,
+				CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -527,8 +526,7 @@
 		CA7D11872E10250B00D55CCE /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				CAB600222E15A69C004CD644 /* View */,
-				CAB600232E15A6A1004CD644 /* ViewModel */,
+				CA7D11922E10327100D55CCE /* ChatContentView.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -571,8 +569,7 @@
 		CA9609912DFBDE0100B878C6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				CAB6001B2E15A651004CD644 /* View */,
-				CAB6001C2E15A65C004CD644 /* ViewModel */,
+				CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -654,7 +651,6 @@
 			children = (
 				CAB600242E15A6AC004CD644 /* View */,
 				CAB600252E15A6B2004CD644 /* ViewModel */,
-				CA9BB5222E12B8CA0035F26D /* Provider */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -671,8 +667,8 @@
 		CA9609BC2DFFE34500B878C6 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				CAB600162E15A5DD004CD644 /* ViewModel */,
 				CAB600142E15A5C6004CD644 /* View */,
+				CAB600162E15A5DD004CD644 /* ViewModel */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -696,8 +692,7 @@
 		CA9BB5222E12B8CA0035F26D /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				CAB600262E15A6C0004CD644 /* View */,
-				CAB600272E15A6C5004CD644 /* ViewModel */,
+				CA9BB5232E12B8DD0035F26D /* ProviderProfileView.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -707,8 +702,6 @@
 			children = (
 				CAB600172E15A5FA004CD644 /* View */,
 				CAB600182E15A602004CD644 /* ViewModel */,
-				CA35935A2E05118D0069FAF8 /* Category */,
-				CA9609912DFBDE0100B878C6 /* Search */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -724,8 +717,8 @@
 		CA9F46352E101EB400028F83 /* Write */ = {
 			isa = PBXGroup;
 			children = (
-				CAB6001E2E15A66E004CD644 /* ViewModel */,
 				CAB6001D2E15A669004CD644 /* View */,
+				CAB6001E2E15A66E004CD644 /* ViewModel */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -735,8 +728,6 @@
 			children = (
 				CAB6001F2E15A67D004CD644 /* View */,
 				CAB600202E15A683004CD644 /* ViewModel */,
-				CA9F463F2E10212800028F83 /* Cell */,
-				CA7D11872E10250B00D55CCE /* Content */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -744,7 +735,7 @@
 		CA9F463F2E10212800028F83 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				CAB600212E15A68D004CD644 /* View */,
+				CA9F46402E10214000028F83 /* ChatCellView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -806,6 +797,8 @@
 			isa = PBXGroup;
 			children = (
 				CA9E38D82DFA5D3500AE12DD /* HomeView.swift */,
+				CAB6002C2E1681A8004CD644 /* Category */,
+				CAB6002D2E1681D1004CD644 /* Search */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -814,39 +807,8 @@
 			isa = PBXGroup;
 			children = (
 				CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		CAB600192E15A62B004CD644 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CA35935B2E0511C70069FAF8 /* CategoryView.swift */,
-				CA3593652E05952B0069FAF8 /* CategoryContentView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CAB6001A2E15A641004CD644 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		CAB6001B2E15A651004CD644 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CA9609922DFBDE9B00B878C6 /* SearchView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CAB6001C2E15A65C004CD644 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */,
+				CA35935A2E05118D0069FAF8 /* Category */,
+				CA9609912DFBDE0100B878C6 /* Search */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -870,6 +832,8 @@
 			isa = PBXGroup;
 			children = (
 				CA9F46392E101EE000028F83 /* ChatView.swift */,
+				CA7D11872E10250B00D55CCE /* Content */,
+				CA9F463F2E10212800028F83 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -878,30 +842,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9F463D2E101FD100028F83 /* ChatViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		CAB600212E15A68D004CD644 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CA9F46402E10214000028F83 /* ChatCellView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CAB600222E15A69C004CD644 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CA7D11922E10327100D55CCE /* ChatContentView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CAB600232E15A6A1004CD644 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				CA7D118D2E1025C100D55CCE /* ChatContentViewModel.swift */,
+				CAB600302E168244004CD644 /* Content */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -910,6 +851,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9609B42DFFD50400B878C6 /* ProfileView.swift */,
+				CA9BB5222E12B8CA0035F26D /* Provider */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -918,24 +860,42 @@
 			isa = PBXGroup;
 			children = (
 				CA9BB5282E12B9000035F26D /* ProfileViewModel.swift */,
+				CAB600312E16825C004CD644 /* Provider */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		CAB600262E15A6C0004CD644 /* View */ = {
+		CAB6002C2E1681A8004CD644 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				CA9BB5232E12B8DD0035F26D /* ProviderProfileView.swift */,
+				CA35935B2E0511C70069FAF8 /* CategoryView.swift */,
+				CA3593652E05952B0069FAF8 /* CategoryContentView.swift */,
 			);
-			path = View;
+			path = Category;
 			sourceTree = "<group>";
 		};
-		CAB600272E15A6C5004CD644 /* ViewModel */ = {
+		CAB6002D2E1681D1004CD644 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CA9609922DFBDE9B00B878C6 /* SearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CAB600302E168244004CD644 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				CA7D118D2E1025C100D55CCE /* ChatContentViewModel.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		CAB600312E16825C004CD644 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
 				CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */,
 			);
-			path = ViewModel;
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		CAB6FFF12E1508C8004CD644 /* Manager */ = {
