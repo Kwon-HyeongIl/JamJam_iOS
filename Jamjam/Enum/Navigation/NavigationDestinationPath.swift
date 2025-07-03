@@ -17,7 +17,7 @@ enum NavigationDestinationPath: Hashable {
     case categoryView
     
     // Chat
-    case chatContentView(JJUserModel, Int)
+    case chatContentView(ChatRoom)
     
     // Profile
     case providerProfileView

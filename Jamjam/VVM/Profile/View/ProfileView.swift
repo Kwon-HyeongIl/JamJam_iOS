@@ -17,18 +17,6 @@ struct ProfileView: View {
             } label: {
                 Text("로그아웃")
             }
-            
-            Button {
-                navRouter.navigate(.providerProfileView)
-            } label: {
-                Text("ProviderProfileView")
-            }
-            
-            Button {
-                navRouter.navigate(.chatContentView(JJUserModel(userId: "1", realName: "llioopv"), 1))
-            } label: {
-                Text("ChatContentView")
-            }
         }
     }
 }

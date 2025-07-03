@@ -11,9 +11,8 @@ import Combine
 @Observable
 class ChatContentViewModel {
     let chatRoom: ChatRoom
-    var messages: [ChatSocketMessageResponse] = []
+    var messages: [Message] = []
     
-    var senderId = ""
     var chatMessage = ""
     
     @ObservationIgnored private var cancellables = Set<AnyCancellable>()
@@ -38,9 +37,9 @@ class ChatContentViewModel {
 
             // 메시지 수신
             ChatManager.shared.onMessageReceived
-                .sink { [weak self] new in
-                    self?.senderId = new.content.senderId
-                    self?.messages.append(new)
+                .sink { [weak self] response in
+                    guard let message = response.content else { return }
+                    self?.messages.append(message)
                     print("메시지 수신")
                 }
                 .store(in: &cancellables)
@@ -48,7 +47,9 @@ class ChatContentViewModel {
     
     func send() {
         let text = chatMessage.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         guard !text.isEmpty else { return }
+        
         ChatManager.shared.sendMessage(roomId: chatRoom.id, text: text)
         chatMessage = ""
     }

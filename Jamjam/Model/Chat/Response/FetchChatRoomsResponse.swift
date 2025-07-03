@@ -20,7 +20,7 @@ struct FetchChatRoomsResponse: Decodable {
     }
 }
 
-struct ChatRoom: Decodable, Identifiable {
+struct ChatRoom: Decodable, Identifiable, Hashable, Equatable {
     let id: Int
     let nickname: String
     let lastMessage: String?

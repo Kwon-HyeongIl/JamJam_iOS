@@ -21,17 +21,49 @@ struct ChatContentView: View {
         MainBackground {
             ScrollView(showsIndicators: false) {
                 VStack {
-                    Text("roomId \(viewModel.roomId)")
-                    Text("senderId \(viewModel.senderId)")
-                    // 메시지 리스트
-                    ScrollViewReader { proxy in
-                        List(viewModel.messages) { msg in
-                            HStack {
-                                bubble(msg.content.content, color: .blue, fg: .white)
+                    ForEach(viewModel.messages) { message in
+                        HStack {
+                            if message.isOwn { // 내 채팅
+                                Spacer()
+                                
+                                VStack {
+                                    Spacer()
+                                    
+                                    Text("\(message.sentAt)")
+                                        .font(.pretendard(Pretendard.regular, size: 8))
+                                        .foregroundStyle(.gray)
+                                }
+                                
+                                VStack {
+                                    Text(message.content)
+                                        .font(.pretendard(Pretendard.medium, size: 14))
+                                        .foregroundStyle(.white)
+                                        .padding()
+                                }
+                                .background(Color.JJTitle)
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                              
+                            } else { // 상대 채팅
+                                VStack {
+                                    Text(message.content)
+                                        .font(.pretendard(Pretendard.medium, size: 14))
+                                        .foregroundStyle(.black)
+                                        .padding()
+                                }
+                                .background(.gray)
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                                
+                                VStack {
+                                    Spacer()
+                                    
+                                    Text("\(message.sentAt)")
+                                        .font(.pretendard(Pretendard.regular, size: 8))
+                                        .foregroundStyle(.gray)
+                                }
+                                
+                                Spacer()
                             }
-                            .listRowSeparator(.hidden)
                         }
-                        .listStyle(.plain)
                     }
                 }
             }
@@ -73,20 +105,11 @@ struct ChatContentView: View {
             .modifier(NavigationBarBackAndNameModifier(name: "홍길동"))
         }
     }
-    
-    @ViewBuilder
-    private func bubble(_ text: String, color: Color, fg: Color) -> some View {
-        Text(text)
-            .padding(10)
-            .foregroundStyle(fg)
-            .background(color, in: RoundedRectangle(cornerRadius: 12))
-            .frame(maxWidth: 250, alignment: .leading)
-    }
 }
 
 #Preview {
     NavigationStack {
-        ChatContentView(user: JJUserModel(userId: "", realName: "홍길동"), roomId: 0)
+        ChatContentView(chatRoom: ChatRoom(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: ""))
             .environment(NavigationRouter())
     }
 }

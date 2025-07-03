@@ -692,8 +692,8 @@
 		CA9BB5222E12B8CA0035F26D /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				CAB600272E15A6C5004CD644 /* ViewModel */,
 				CAB600262E15A6C0004CD644 /* View */,
+				CAB600272E15A6C5004CD644 /* ViewModel */,
 			);
 			path = Provider;
 			sourceTree = "<group>";

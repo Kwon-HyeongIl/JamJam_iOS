@@ -239,8 +239,9 @@ struct ProviderProfileView: View {
                 Text(viewModel.chatAlertMessage)
             }
             .onChange(of: viewModel.isNavigateToChatRoom) { _, newValue in
-                if newValue {
-                    navRouter.navigate(.chatContentView(viewModel.user, viewModel.targetRoomId))
+                if newValue == true {
+                    let chatRoom = ChatRoom(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: "")
+                    navRouter.navigate(.chatContentView(chatRoom))
                     viewModel.isNavigateToChatRoom = false
                 }
             }

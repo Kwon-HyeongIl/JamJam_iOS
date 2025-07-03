@@ -7,19 +7,19 @@
 
 import Foundation
 
-struct ChatSocketMessageResponse: Codable, Identifiable {
+struct ChatSocketMessageResponse: Codable {
     let type: ChatSocketEventType
-    let content: Content
+    let content: Message?
+}
 
-    struct Content: Codable, Identifiable {
-        let messageId: Int
-        let senderId: String
-        let senderNickname: String
-        let content: String
-        let sentAt: Date              // ISO-8601
-        var id: Int { messageId }
-    }
-
-    // Identifiable proxy
-    var id: Int { content.messageId }
+struct Message: Codable, Identifiable {
+    let messageId: Int
+    let senderId: String
+    let senderNickname: String
+    let content: String
+    let sentAt: Date // ISO-8601
+    let isOwn: Bool
+    
+    // Idenrifiable
+    var id: Int { messageId }
 }
