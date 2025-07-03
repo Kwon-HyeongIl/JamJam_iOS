@@ -39,6 +39,7 @@ class ChatContentViewModel {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] status in
                 guard let self else { return }
+                print("🔄 socketConnectionStatus 변경: \(status)")
                 if case .connected = status {
                     ChatManager.shared.subscribe(roomId: chatRoom.id)
                     print("방 구독")
@@ -52,7 +53,7 @@ class ChatContentViewModel {
             .sink { [weak self] response in
                 guard let message = response.content else { return }
                 self?.messages.append(message)
-                print("메시지 수신")
+                print("📥 ViewModel 메시지 추가 — id: \(message.id)")
             }
             .store(in: &cancellables)
     }

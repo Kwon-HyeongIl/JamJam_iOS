@@ -16,6 +16,11 @@ enum API {
             "Authorization": "Bearer \(AuthCenter.shared.accessToken ?? "")"
         ]
     
+    static let socketHeaders = [
+        "Authorization": "Bearer \(AuthCenter.shared.accessToken ?? "")",
+        "Heart-Beat": "10000, 10000"
+    ]
+    
     // MARK: Auth
     case refreshAccessToken
     case login

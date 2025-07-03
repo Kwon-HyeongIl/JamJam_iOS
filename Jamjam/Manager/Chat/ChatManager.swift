@@ -23,28 +23,34 @@ class ChatManager {
     
     init() {
         let url = API.webSocketURL.url
-        let headers = ["Authorization": "Bearer \(AuthCenter.shared.accessToken ?? "")"]
+        let headers = API.socketHeaders
         
-        client = SwiftStomp(host: url, httpConnectionHeaders: headers)
+        client = SwiftStomp(host: url, headers: headers, httpConnectionHeaders: headers)
         client.autoReconnect = true
         client.enableAutoPing()
         
         decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         
+        print("🟢 ChatManager init 완료 — URL: \(url)")
+        
         bindStompEvents()
     }
     
     private func bindStompEvents() {
-            // 연결 상태
+            // 연결 상태 수신
             client.eventsUpstream
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] event in
                     switch event {
-                    case .connected:   self?.socketConnectionStatus.send(.connected)
-                    case .disconnected: self?.socketConnectionStatus.send(.disconnected)
+                    case .connected:
+                        print("✅ STOMP connected")
+                        self?.socketConnectionStatus.send(.connected)
+                    case .disconnected:
+                        print("⚠️ STOMP disconnected")
+                        self?.socketConnectionStatus.send(.disconnected)
                     case .error(let e):
-                        print("STOMP Error:", e)
+                        print("❌ STOMP Error: \(e)")
                         self?.socketConnectionStatus.send(.disconnected)
                     }
                 }
@@ -58,8 +64,12 @@ class ChatManager {
                           let data = raw.data(using: .utf8),
                           let res  = try? self?.decoder.decode(ChatSocketMessageResponse.self, from: data),
                           res.type == .newMessage
-                    else { return }
-
+                    else {
+                        print("🟤 수신 프레임 디코딩 실패: \(frame)")
+                        return
+                    }
+                    print("💬 수신: \(res)")
+                    
                     self?.onMessageReceived.send(res)
                 }
                 .store(in: &cancellables)

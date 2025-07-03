@@ -9,7 +9,11 @@ import Foundation
 
 extension ChatManager {
     func connect() {
-        guard !client.isConnected else { return }
+        guard !client.isConnected else {
+            print("ℹ️ 이미 연결됨")
+            return
+        }
+        print("🔌 connect() 호출")
         socketConnectionStatus.send(.connecting)
         client.connect()
     }
@@ -22,7 +26,7 @@ extension ChatManager {
     
     // MARK: – Subscribe (방 내부 브로드캐스트)
     func subscribe(roomId: Int) {
-        print("구독하려는 roomId, \(roomId)")
+        print("📡 subscribe() — roomId: \(roomId)")
         client.subscribe(to: "/topic/room/\(roomId)", mode: .auto)
     }
     
@@ -31,8 +35,12 @@ extension ChatManager {
         let dto = ChatSocketMessageRequest(roomId: roomId, message: text)
         guard let body = try? JSONEncoder().encode(dto),
               let json = String(data: body, encoding: .utf8)
-        else { return }
+        else {
+            print("❗️ 메시지 JSON 인코딩 실패")
+            return
+        }
         
+        print("🚀 SEND ↗️ /app/chat — \(json)")
         client.send(body: json, to: "/app/chat")     // 명세상의 SEND 경로
     }
 }
