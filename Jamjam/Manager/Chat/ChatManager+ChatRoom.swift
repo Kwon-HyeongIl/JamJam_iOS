@@ -32,7 +32,7 @@ extension ChatManager {
     }
     
     func fetchChatMessages(request: FetchChatMessagesRequest, chatRoomId: Int) -> AnyPublisher<FetchChatMessagesResponse, Error> {
-        let url = API.fetchChatMessages("\(chatRoomId)").url
+        let url = API.fetchChatMessages(chatRoomId).url
         
         return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
             .publishDecodable(type: FetchChatMessagesResponse.self)
@@ -41,8 +41,18 @@ extension ChatManager {
             .eraseToAnyPublisher()
     }
     
+    func readLastMessage(request: ReadLastMessageRequest, chatRoomId: Int) -> AnyPublisher<ReadLastMessageResponse, Error> {
+        let url = API.readLastMessage(chatRoomId).url
+        
+        return AF.request(url, method: .put, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)
+            .publishDecodable(type: ReadLastMessageResponse.self)
+            .value()
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
+    
     func deleteChatRoom(targetChatRoomId: Int) -> AnyPublisher<DeleteChatRoomResponse, Error> {
-        let url = API.deleteChatRoom("\(targetChatRoomId)").url
+        let url = API.deleteChatRoom(targetChatRoomId).url
         
         return AF.request(url, method: .delete, headers: API.headers)
             .publishDecodable(type: DeleteChatRoomResponse.self)

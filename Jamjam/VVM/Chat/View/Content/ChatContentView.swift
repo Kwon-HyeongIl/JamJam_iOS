@@ -133,6 +133,9 @@ struct ChatContentView: View {
                     navRouter.back()
                 }
             }
+            .onDisappear {
+                viewModel.readLastMessage()
+            }
         }
     }
 }

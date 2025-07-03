@@ -76,10 +76,36 @@ class ChatContentViewModel {
                     
                     if let messages = response.content?.chats {
                         self?.messages = messages
+                        self?.readLastMessage()
                     }
                     
                 } else {
                     self?.logger.error("[fetchChatMessages] 응답 처리 실패: \(response.message)")
+                }
+            }
+            .store(in: &self.cancellables)
+    }
+    
+    func readLastMessage() {
+        let lastMessageId = messages.last?.id ?? 0
+        let request = ReadLastMessageRequest(lastReadMessageId: lastMessageId)
+        let chatRoomId = chatRoom.id
+        
+        ChatManager.shared.readLastMessage(request: request, chatRoomId: chatRoomId)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[readLastMessage] completion finished")
+                case .failure(let error):
+                    self?.logger.error("[readLastMessage] completion failed: \(error)")
+                }
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS" {
+                    self?.logger.info("[readLastMessage] SUCCESS")
+                    
+                } else {
+                    self?.logger.error("[readLastMessage] 응답 처리 실패: \(response.message)")
                 }
             }
             .store(in: &self.cancellables)

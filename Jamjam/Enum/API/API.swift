@@ -31,8 +31,9 @@ enum API {
     
     case startChatRoom
     case fetchChatRooms
-    case fetchChatMessages(String)
-    case deleteChatRoom(String)
+    case fetchChatMessages(Int)
+    case readLastMessage(Int)
+    case deleteChatRoom(Int)
     
     var urlString: String {
         switch self {
@@ -64,6 +65,8 @@ enum API {
             return "\(API.baseURL)/api/chat/rooms"
         case .fetchChatMessages(let chatRoomId):
             return "\(API.baseURL)/api/chat/rooms/\(chatRoomId)/messages"
+        case .readLastMessage(let chatRoomId):
+            return "\(API.baseURL)/api/chat/rooms/\(chatRoomId)/read"
         case .deleteChatRoom(let chatRoomId):
             return "\(API.baseURL)/api/chat/rooms/\(chatRoomId)"
         }

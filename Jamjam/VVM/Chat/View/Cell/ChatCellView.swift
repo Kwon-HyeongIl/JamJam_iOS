@@ -33,15 +33,17 @@ struct ChatCellView: View {
                     .font(.pretendard(Pretendard.regular, size: 12))
                     .foregroundStyle(.gray)
                 
-                Circle()
-                    .fill(Color.JJTitle)
-                    .scaledToFit()
-                    .frame(width: 20)
-                    .overlay {
-                        Text("\(chatRoom.unreadCount)")
-                            .font(.pretendard(Pretendard.semiBold, size: 12))
-                            .foregroundStyle(.white)
-                    }
+                if chatRoom.unreadCount >= 1 {
+                    Circle()
+                        .fill(Color.JJTitle)
+                        .scaledToFit()
+                        .frame(width: 20)
+                        .overlay {
+                            Text("\(chatRoom.unreadCount)")
+                                .font(.pretendard(Pretendard.semiBold, size: 12))
+                                .foregroundStyle(.white)
+                        }
+                }
             }
             .padding(.trailing, 20)
         }
