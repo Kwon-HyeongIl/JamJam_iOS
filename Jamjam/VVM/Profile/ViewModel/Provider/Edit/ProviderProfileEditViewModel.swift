@@ -11,7 +11,7 @@ import Foundation
 class ProviderProfileEditViewModel: Hashable, Equatable {
     let id = UUID() // temp
     
-    var pageIndex = 0
+    var pageIndex = 1
     var title: String {
         switch pageIndex {
         case 0:
@@ -35,7 +35,7 @@ class ProviderProfileEditViewModel: Hashable, Equatable {
     var selectedSkill: Skill?
     
     // MARK: Page Index 1
-    var selectedDetailSkills: [Skill] = []
+    var selectedDetailSkillIds: [Int] = []
     var tappedSkill: Skill?
     var isSheetVisible = false
     

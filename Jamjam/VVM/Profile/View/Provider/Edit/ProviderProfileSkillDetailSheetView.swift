@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProviderProfileSkillDetailSheetView: View {
-    @Binding var selectedDetailSkills: [Skill]
+    @Binding var selectedDetailSkillIds: [Int]
     let targetSkill: Skill?
     
     var body: some View {
@@ -17,326 +17,377 @@ struct ProviderProfileSkillDetailSheetView: View {
                 VStack {
                     switch targetSkill {
                     case .management:
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text(Skill.management.displayName)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom)
                                 
                                 Spacer()
                             }
                             
-                            VStack(spacing: 20) {
-                                ForEach(ManagementDetail.allCases, id: \.self) { detailSkill in
-                                    HStack {
-                                        Text(detailSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
-                                        
-                                        Spacer()
-                                    }
+                            ForEach(ManagementDetail.allCases, id: \.self) { detailSkill in
+                                HStack {
+                                    Text(detailSkill.displayName)
+                                        .font(.pretendard(Pretendard.regular, size: 18))
+                                        .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
+                                        .padding(.leading, 20)
                                     
-                                    Divider()
+                                    Spacer()
                                 }
+                                .padding(.vertical, 20)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                                        if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
+                                            selectedDetailSkillIds.remove(at: index)
+                                        } else {
+                                            selectedDetailSkillIds.append(detailSkill.rawValue)
+                                        }
+                                    }
+                                }
+                                .overlay {
+                                    if selectedDetailSkillIds.contains(detailSkill.rawValue) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 35)
+                                            .foregroundStyle(.red.opacity(0.1))
+                                            .padding(.horizontal, 10)
+                                    }
+                                }
+                                
+                                Divider()
                             }
                         }
                         
                     case .consulting:
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text(Skill.consulting.displayName)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom)
                                 
                                 Spacer()
                             }
                             
-                            VStack(spacing: 20) {
-                                ForEach(ConsultingDetail.allCases, id: \.self) { detailSkill in
-                                    HStack {
-                                        Text(detailSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
-                                        
-                                        Spacer()
-                                    }
+                            ForEach(ConsultingDetail.allCases, id: \.self) { detailSkill in
+                                HStack {
+                                    Text(detailSkill.displayName)
+                                        .font(.pretendard(Pretendard.regular, size: 18))
+                                        .padding(.leading, 20)
                                     
-                                    Divider()
+                                    Spacer()
                                 }
+                                .padding(.vertical, 20)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                }
+                                
+                                Divider()
                             }
                         }
                         
                     case .marketing:
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text(Skill.marketing.displayName)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom)
                                 
                                 Spacer()
                             }
                             
-                            VStack(spacing: 20) {
-                                ForEach(MarketingDetail.allCases, id: \.self) { detailSkill in
-                                    HStack {
-                                        Text(detailSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
-                                        
-                                        Spacer()
-                                    }
+                            ForEach(MarketingDetail.allCases, id: \.self) { detailSkill in
+                                HStack {
+                                    Text(detailSkill.displayName)
+                                        .font(.pretendard(Pretendard.regular, size: 18))
+                                        .padding(.leading, 20)
                                     
-                                    Divider()
+                                    Spacer()
                                 }
+                                .padding(.vertical, 20)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                }
+                                
+                                Divider()
                             }
                         }
                         
                     case .development:
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text(Skill.development.displayName)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom)
                                 
                                 Spacer()
                             }
                             
-                            VStack(spacing: 20) {
-                                ForEach(DevelopmentDetail.allCases, id: \.self) { detailSkill in
-                                    HStack {
-                                        Text(detailSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
-                                        
-                                        Spacer()
-                                    }
+                            ForEach(DevelopmentDetail.allCases, id: \.self) { detailSkill in
+                                HStack {
+                                    Text(detailSkill.displayName)
+                                        .font(.pretendard(Pretendard.regular, size: 18))
+                                        .padding(.leading, 20)
                                     
-                                    Divider()
+                                    Spacer()
                                 }
+                                .padding(.vertical, 20)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                }
+                                
+                                Divider()
                             }
                         }
                         
                     case .design:
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text(Skill.design.displayName)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom)
                                 
                                 Spacer()
                             }
                             
-                            VStack(spacing: 20) {
-                                ForEach(DesignDetail.allCases, id: \.self) { detailSkill in
-                                    HStack {
-                                        Text(detailSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
-                                        
-                                        Spacer()
-                                    }
+                            ForEach(DesignDetail.allCases, id: \.self) { detailSkill in
+                                HStack {
+                                    Text(detailSkill.displayName)
+                                        .font(.pretendard(Pretendard.regular, size: 18))
+                                        .padding(.leading, 20)
                                     
-                                    Divider()
+                                    Spacer()
                                 }
+                                .padding(.vertical, 20)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                }
+                                
+                                Divider()
                             }
                         }
                         
                     case .writing:
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text(Skill.writing.displayName)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom)
                                 
                                 Spacer()
                             }
                             
-                            VStack(spacing: 20) {
-                                ForEach(WritingDetail.allCases, id: \.self) { detailSkill in
-                                    HStack {
-                                        Text(detailSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
-                                        
-                                        Spacer()
-                                    }
+                            ForEach(WritingDetail.allCases, id: \.self) { detailSkill in
+                                HStack {
+                                    Text(detailSkill.displayName)
+                                        .font(.pretendard(Pretendard.regular, size: 18))
+                                        .padding(.leading, 20)
                                     
-                                    Divider()
+                                    Spacer()
                                 }
+                                .padding(.vertical, 20)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                }
+                                
+                                Divider()
                             }
                         }
                         
                     case .translation:
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text(Skill.translation.displayName)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom)
                                 
                                 Spacer()
                             }
                             
-                            VStack(spacing: 20) {
-                                ForEach(TranslationDetail.allCases, id: \.self) { detailSkill in
-                                    HStack {
-                                        Text(detailSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
-                                        
-                                        Spacer()
-                                    }
+                            ForEach(TranslationDetail.allCases, id: \.self) { detailSkill in
+                                HStack {
+                                    Text(detailSkill.displayName)
+                                        .font(.pretendard(Pretendard.regular, size: 18))
+                                        .padding(.leading, 20)
                                     
-                                    Divider()
+                                    Spacer()
                                 }
+                                .padding(.vertical, 20)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                }
+                                
+                                Divider()
                             }
                         }
                         
                     case .media:
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text(Skill.media.displayName)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom)
                                 
                                 Spacer()
                             }
                             
-                            VStack(spacing: 20) {
-                                ForEach(MediaDetail.allCases, id: \.self) { detailSkill in
-                                    HStack {
-                                        Text(detailSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
-                                        
-                                        Spacer()
-                                    }
+                            ForEach(MediaDetail.allCases, id: \.self) { detailSkill in
+                                HStack {
+                                    Text(detailSkill.displayName)
+                                        .font(.pretendard(Pretendard.regular, size: 18))
+                                        .padding(.leading, 20)
                                     
-                                    Divider()
+                                    Spacer()
                                 }
+                                .padding(.vertical, 20)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                }
+                                
+                                Divider()
                             }
                         }
                         
                     case .education:
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text(Skill.education.displayName)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom)
                                 
                                 Spacer()
                             }
                             
-                            VStack(spacing: 20) {
-                                ForEach(EducationDetail.allCases, id: \.self) { detailSkill in
-                                    HStack {
-                                        Text(detailSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
-                                        
-                                        Spacer()
-                                    }
+                            ForEach(EducationDetail.allCases, id: \.self) { detailSkill in
+                                HStack {
+                                    Text(detailSkill.displayName)
+                                        .font(.pretendard(Pretendard.regular, size: 18))
+                                        .padding(.leading, 20)
                                     
-                                    Divider()
+                                    Spacer()
                                 }
+                                .padding(.vertical, 20)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                }
+                                
+                                Divider()
                             }
                         }
                         
                     case .customMade:
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text(Skill.customMade.displayName)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom)
                                 
                                 Spacer()
                             }
                             
-                            VStack(spacing: 20) {
-                                ForEach(CustomMadeDetail.allCases, id: \.self) { detailSkill in
-                                    HStack {
-                                        Text(detailSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
-                                        
-                                        Spacer()
-                                    }
+                            ForEach(CustomMadeDetail.allCases, id: \.self) { detailSkill in
+                                HStack {
+                                    Text(detailSkill.displayName)
+                                        .font(.pretendard(Pretendard.regular, size: 18))
+                                        .padding(.leading, 20)
                                     
-                                    Divider()
+                                    Spacer()
                                 }
+                                .padding(.vertical, 20)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                }
+                                
+                                Divider()
                             }
                         }
                         
                     case .hobbyLesson:
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text(Skill.hobbyLesson.displayName)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom)
                                 
                                 Spacer()
                             }
                             
-                            VStack(spacing: 20) {
-                                ForEach(HobbyLessonDetail.allCases, id: \.self) { detailSkill in
-                                    HStack {
-                                        Text(detailSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
-                                        
-                                        Spacer()
-                                    }
+                            ForEach(HobbyLessonDetail.allCases, id: \.self) { detailSkill in
+                                HStack {
+                                    Text(detailSkill.displayName)
+                                        .font(.pretendard(Pretendard.regular, size: 18))
+                                        .padding(.leading, 20)
                                     
-                                    Divider()
+                                    Spacer()
                                 }
+                                .padding(.vertical, 20)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                }
+                                
+                                Divider()
                             }
                         }
                         
                     case .lifeService:
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text(Skill.lifeService.displayName)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom)
                                 
                                 Spacer()
                             }
                             
-                            VStack(spacing: 20) {
-                                ForEach(LifeServiceDetail.allCases, id: \.self) { detailSkill in
-                                    HStack {
-                                        Text(detailSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
-                                        
-                                        Spacer()
-                                    }
+                            ForEach(LifeServiceDetail.allCases, id: \.self) { detailSkill in
+                                HStack {
+                                    Text(detailSkill.displayName)
+                                        .font(.pretendard(Pretendard.regular, size: 18))
+                                        .padding(.leading, 20)
                                     
-                                    Divider()
+                                    Spacer()
                                 }
+                                .padding(.vertical, 20)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                }
+                                
+                                Divider()
                             }
                         }
                         
@@ -351,6 +402,6 @@ struct ProviderProfileSkillDetailSheetView: View {
     }
 }
 
-#Preview {
-    ProviderProfileSkillDetailSheetView(selectedDetailSkills: .constant([]), targetSkill: nil)
-}
+//#Preview {
+//
+//}

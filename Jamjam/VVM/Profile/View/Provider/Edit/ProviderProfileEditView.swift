@@ -306,24 +306,47 @@ struct ProviderProfileEditView: View {
                     }
                     
                 case 1:
-                    VStack(spacing: 30) {
+                    VStack(spacing: 0) {
                         ScrollView {
-                            VStack(spacing: 20) {
-                                ForEach(Array(Skill.allCases.enumerated()), id: \.element) { index, currentSkill in
-                                    HStack {
-                                        Text(currentSkill.displayName)
-                                            .font(.pretendard(Pretendard.regular, size: 18))
-                                            .padding(.leading, 20)
+                            VStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(height: 100)
+                                    .foregroundStyle(.gray.opacity(0.2))
+                                    .padding(.horizontal, 20)
+                                    .padding(.top, 5)
+                                    .overlay {
+                                        if viewModel.selectedDetailSkillIds.isEmpty {
+                                            VStack {
+                                                Text("아래에서 기술을 선택해주세요.")
+                                                    .font(.pretendard(Pretendard.regular, size: 12))
+                                                    .foregroundStyle(.gray)
+                                                
+                                                Text("최대 20개까지 선택할 수 있습니다.")
+                                                    .font(.pretendard(Pretendard.regular, size: 12))
+                                                    .foregroundStyle(.gray)
+                                            }
+                                        }
+                                    }
+                                
+                                VStack(spacing: 0) {
+                                    ForEach(Array(Skill.allCases.enumerated()), id: \.element) { index, currentSkill in
+                                        HStack {
+                                            Text(currentSkill.displayName)
+                                                .font(.pretendard(Pretendard.regular, size: 18))
+                                                .padding(.leading, 20)
+                                            
+                                            Spacer()
+                                        }
+                                        .padding(.vertical, 20)
+                                        .contentShape(Rectangle())
+                                        .onTapGesture {
+                                            viewModel.tappedSkill = currentSkill
+                                            viewModel.isSheetVisible = true
+                                        }
+                                        .padding(.top, index == 0 ? 15 : 0)
                                         
-                                        Spacer()
+                                        Divider()
                                     }
-                                    .onTapGesture {
-                                        viewModel.tappedSkill = currentSkill
-                                        viewModel.isSheetVisible = true
-                                    }
-                                    .padding(.top, index == 0 ? 15 : 0)
-                                    
-                                    Divider()
                                 }
                             }
                         }
@@ -331,7 +354,7 @@ struct ProviderProfileEditView: View {
                     .sheet(isPresented: $viewModel.isSheetVisible) {
                         viewModel.tappedSkill = nil
                     } content: {
-                        ProviderProfileSkillDetailSheetView(selectedDetailSkills: $viewModel.selectedDetailSkills, targetSkill: viewModel.tappedSkill)
+                        ProviderProfileSkillDetailSheetView(selectedDetailSkillIds: $viewModel.selectedDetailSkillIds, targetSkill: viewModel.tappedSkill)
                             .presentationDragIndicator(.visible)
                             .presentationDetents([.medium, .large])
                     }
@@ -392,5 +415,6 @@ struct ProviderProfileEditView: View {
     NavigationStack {
         ProviderProfileEditView()
             .environment(NavigationRouter())
+            .environment(MainTabBarCapsule())
     }
 }
