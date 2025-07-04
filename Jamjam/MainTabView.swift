@@ -25,7 +25,7 @@ struct MainTabView: View {
                 WriteView()
                     .tag(MainTab.write)
                 
-                ChatView()
+                ChatListView()
                     .tag(MainTab.chat)
                 
                 ProfileView()

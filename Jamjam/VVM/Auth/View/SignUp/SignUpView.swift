@@ -996,6 +996,7 @@ struct SignUpView: View {
                 .background(Color.mainBackground)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
         .modifierIf(viewModel.pageIndex == 0, then: {
             NavigationBarBackAndTitleModifier(title: "회원 가입")

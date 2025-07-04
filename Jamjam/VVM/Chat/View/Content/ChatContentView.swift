@@ -103,6 +103,7 @@ struct ChatContentView: View {
                 .frame(height: 60)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
         .modifier(NavigationBarBackAndProfileAndEditModifier(nickname: viewModel.chatRoom.nickname ?? "", isEdditButtonTapped: $viewModel.isEditButtonTapped))
         .alert("채팅방을 나가시겠습니까?", isPresented: $viewModel.isEditButtonTapped) {

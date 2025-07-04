@@ -10,7 +10,7 @@ import Combine
 import os
 
 @Observable
-class ChatViewModel {
+class ChatListViewModel {
     var chatRooms: [ChatRoom] = []
     
     var isStompClientInitPossible: Bool {

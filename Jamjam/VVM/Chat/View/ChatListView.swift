@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ChatView: View {
+struct ChatListView: View {
     @Environment(NavigationRouter.self) var navRouter
-    @State private var viewModel = ChatViewModel()
+    @State private var viewModel = ChatListViewModel()
     
     var body: some View {
         VStack(spacing: 0) {
@@ -38,6 +38,7 @@ struct ChatView: View {
                 }
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
         .onAppear {
             viewModel.fetchChatRooms()
@@ -50,6 +51,6 @@ struct ChatView: View {
 }
 
 #Preview {
-    ChatView()
+    ChatListView()
         .environment(NavigationRouter())
 }

@@ -382,6 +382,7 @@ struct HomeView: View {
                 }
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
         .ignoresSafeArea(edges: .top)
         .onAppear {

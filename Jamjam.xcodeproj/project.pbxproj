@@ -37,8 +37,13 @@
 		CA4CF92B2E0C276B00F882C4 /* VerifySmsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF92A2E0C276B00F882C4 /* VerifySmsRequest.swift */; };
 		CA4CF92D2E0C279D00F882C4 /* VerifySmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF92C2E0C279D00F882C4 /* VerifySmsResponse.swift */; };
 		CA4CF9312E0C2F0B00F882C4 /* SignUpWithClientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF9302E0C2F0B00F882C4 /* SignUpWithClientRequest.swift */; };
-		CA4F12202E177DC00061012E /* ProviderProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F121F2E177DC00061012E /* ProviderProfileEditView.swift */; };
 		CA4F12222E177DD00061012E /* ProviderProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */; };
+		CA4F12272E1784070061012E /* ProviderProfileEditListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12262E1784070061012E /* ProviderProfileEditListView.swift */; };
+		CA4F122A2E1784C00061012E /* ProviderProfileIntroductionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12292E1784C00061012E /* ProviderProfileIntroductionEditView.swift */; };
+		CA4F122C2E1784D10061012E /* ProviderProfileSkillEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F122B2E1784D10061012E /* ProviderProfileSkillEditView.swift */; };
+		CA4F122E2E1784DD0061012E /* ProviderProfileCareerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F122D2E1784DD0061012E /* ProviderProfileCareerEditView.swift */; };
+		CA4F12302E1784FF0061012E /* ProviderProfileCertificationEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F122F2E1784FF0061012E /* ProviderProfileCertificationEditView.swift */; };
+		CA4F12322E17851D0061012E /* ProviderProfileCallTimeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12312E17851D0061012E /* ProviderProfileCallTimeEditView.swift */; };
 		CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7B2E09688700FB1E22 /* FontType.swift */; };
 		CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */; };
 		CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */; };
@@ -95,8 +100,8 @@
 		CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */; };
 		CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */; };
 		CA9F46382E101ED600028F83 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F46372E101ED600028F83 /* WriteView.swift */; };
-		CA9F463A2E101EE000028F83 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F46392E101EE000028F83 /* ChatView.swift */; };
-		CA9F463E2E101FD100028F83 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F463D2E101FD100028F83 /* ChatViewModel.swift */; };
+		CA9F463A2E101EE000028F83 /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F46392E101EE000028F83 /* ChatListView.swift */; };
+		CA9F463E2E101FD100028F83 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F463D2E101FD100028F83 /* ChatListViewModel.swift */; };
 		CA9F46412E10214000028F83 /* ChatCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F46402E10214000028F83 /* ChatCellView.swift */; };
 		CAAB47F22E0AD13E000197E5 /* AuthCenter+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F12E0AD13E000197E5 /* AuthCenter+SignUp.swift */; };
 		CAAB47F42E0ADC1D000197E5 /* CheckNicknameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */; };
@@ -162,8 +167,13 @@
 		CA4CF92A2E0C276B00F882C4 /* VerifySmsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySmsRequest.swift; sourceTree = "<group>"; };
 		CA4CF92C2E0C279D00F882C4 /* VerifySmsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySmsResponse.swift; sourceTree = "<group>"; };
 		CA4CF9302E0C2F0B00F882C4 /* SignUpWithClientRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithClientRequest.swift; sourceTree = "<group>"; };
-		CA4F121F2E177DC00061012E /* ProviderProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileEditView.swift; sourceTree = "<group>"; };
 		CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileEditViewModel.swift; sourceTree = "<group>"; };
+		CA4F12262E1784070061012E /* ProviderProfileEditListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileEditListView.swift; sourceTree = "<group>"; };
+		CA4F12292E1784C00061012E /* ProviderProfileIntroductionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileIntroductionEditView.swift; sourceTree = "<group>"; };
+		CA4F122B2E1784D10061012E /* ProviderProfileSkillEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileSkillEditView.swift; sourceTree = "<group>"; };
+		CA4F122D2E1784DD0061012E /* ProviderProfileCareerEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileCareerEditView.swift; sourceTree = "<group>"; };
+		CA4F122F2E1784FF0061012E /* ProviderProfileCertificationEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileCertificationEditView.swift; sourceTree = "<group>"; };
+		CA4F12312E17851D0061012E /* ProviderProfileCallTimeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileCallTimeEditView.swift; sourceTree = "<group>"; };
 		CA5C5E7B2E09688700FB1E22 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretendard.swift; sourceTree = "<group>"; };
 		CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Pretendard.swift"; sourceTree = "<group>"; };
@@ -214,8 +224,8 @@
 		CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard.swift; sourceTree = "<group>"; };
 		CA9F46372E101ED600028F83 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
-		CA9F46392E101EE000028F83 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		CA9F463D2E101FD100028F83 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		CA9F46392E101EE000028F83 /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		CA9F463D2E101FD100028F83 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		CA9F46402E10214000028F83 /* ChatCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCellView.swift; sourceTree = "<group>"; };
 		CAAB47F12E0AD13E000197E5 /* AuthCenter+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthCenter+SignUp.swift"; sourceTree = "<group>"; };
 		CAAB47F32E0ADC1D000197E5 /* CheckNicknameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameRequest.swift; sourceTree = "<group>"; };
@@ -442,6 +452,27 @@
 				CA4927D82E0EE5BE00D42CD0 /* LoginResponse.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		CA4F12252E1783CD0061012E /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				CA4F12262E1784070061012E /* ProviderProfileEditListView.swift */,
+				CA4F12282E1784950061012E /* List */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		CA4F12282E1784950061012E /* List */ = {
+			isa = PBXGroup;
+			children = (
+				CA4F12292E1784C00061012E /* ProviderProfileIntroductionEditView.swift */,
+				CA4F122B2E1784D10061012E /* ProviderProfileSkillEditView.swift */,
+				CA4F122D2E1784DD0061012E /* ProviderProfileCareerEditView.swift */,
+				CA4F122F2E1784FF0061012E /* ProviderProfileCertificationEditView.swift */,
+				CA4F12312E17851D0061012E /* ProviderProfileCallTimeEditView.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		CA5C5E7A2E09687A00FB1E22 /* Font */ = {
@@ -686,7 +717,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9BB5232E12B8DD0035F26D /* ProviderProfileView.swift */,
-				CA4F121F2E177DC00061012E /* ProviderProfileEditView.swift */,
+				CA4F12252E1783CD0061012E /* Edit */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -781,7 +812,7 @@
 		CAB6001F2E15A67D004CD644 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CA9F46392E101EE000028F83 /* ChatView.swift */,
+				CA9F46392E101EE000028F83 /* ChatListView.swift */,
 				CA7D11872E10250B00D55CCE /* Content */,
 				CA9F463F2E10212800028F83 /* Cell */,
 			);
@@ -791,7 +822,7 @@
 		CAB600202E15A683004CD644 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CA9F463D2E101FD100028F83 /* ChatViewModel.swift */,
+				CA9F463D2E101FD100028F83 /* ChatListViewModel.swift */,
 				CAB600302E168244004CD644 /* Content */,
 			);
 			path = ViewModel;
@@ -1088,7 +1119,8 @@
 				CA4F12222E177DD00061012E /* ProviderProfileEditViewModel.swift in Sources */,
 				CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */,
 				CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */,
-				CA9F463E2E101FD100028F83 /* ChatViewModel.swift in Sources */,
+				CA4F122E2E1784DD0061012E /* ProviderProfileCareerEditView.swift in Sources */,
+				CA9F463E2E101FD100028F83 /* ChatListViewModel.swift in Sources */,
 				CA4927D12E0EE4D600D42CD0 /* AuthCenter+Login.swift in Sources */,
 				CA09154D2DF128A400E272F8 /* ContentView.swift in Sources */,
 				CA9F46412E10214000028F83 /* ChatCellView.swift in Sources */,
@@ -1097,6 +1129,7 @@
 				CAB6FFFD2E151228004CD644 /* JJUserModel.swift in Sources */,
 				CAAB47F62E0ADC4B000197E5 /* CheckNicknameResponse.swift in Sources */,
 				CAB6003B2E1693B5004CD644 /* DeleteChatRoomResponse.swift in Sources */,
+				CA4F12322E17851D0061012E /* ProviderProfileCallTimeEditView.swift in Sources */,
 				CAB6003D2E16B682004CD644 /* ReadLastMessageRequest.swift in Sources */,
 				CA9609AA2DFFCFFD00B878C6 /* MainTabBarCapsule.swift in Sources */,
 				CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */,
@@ -1112,12 +1145,13 @@
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
 				CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponse.swift in Sources */,
 				CA4927D92E0EE5BE00D42CD0 /* LoginResponse.swift in Sources */,
+				CA4F122C2E1784D10061012E /* ProviderProfileSkillEditView.swift in Sources */,
 				CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */,
 				CAB600052E15517D004CD644 /* ChatManager+StompOpen.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
 				CA96099E2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift in Sources */,
 				CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */,
-				CA9F463A2E101EE000028F83 /* ChatView.swift in Sources */,
+				CA9F463A2E101EE000028F83 /* ChatListView.swift in Sources */,
 				CA5C5E902E09A0A800FB1E22 /* SignUpWithClientResponse.swift in Sources */,
 				CA4CF92D2E0C279D00F882C4 /* VerifySmsResponse.swift in Sources */,
 				CA7D11932E10327100D55CCE /* ChatContentView.swift in Sources */,
@@ -1139,7 +1173,6 @@
 				CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */,
 				CAB6000B2E155D3C004CD644 /* ChatSocketMessageResponse.swift in Sources */,
 				CA4CF92B2E0C276B00F882C4 /* VerifySmsRequest.swift in Sources */,
-				CA4F12202E177DC00061012E /* ProviderProfileEditView.swift in Sources */,
 				CA87FF782E014B7A00C8C830 /* SignUpViewModel.swift in Sources */,
 				CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */,
 				CAAB47F82E0B0975000197E5 /* SignUpViewModel+Restore.swift in Sources */,
@@ -1155,8 +1188,11 @@
 				CAB6FFF92E150CDF004CD644 /* StartChatRoomRequest.swift in Sources */,
 				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */,
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
+				CA4F122A2E1784C00061012E /* ProviderProfileIntroductionEditView.swift in Sources */,
+				CA4F12302E1784FF0061012E /* ProviderProfileCertificationEditView.swift in Sources */,
 				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,
 				CAB6003F2E16B6A9004CD644 /* ReadLastMessageResponse.swift in Sources */,
+				CA4F12272E1784070061012E /* ProviderProfileEditListView.swift in Sources */,
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,
 				CA4CF9292E0C1E3A00F882C4 /* SendSmsResponse.swift in Sources */,
 				CA87FF942E040FDE00C8C830 /* SignUpViewModel+Complete.swift in Sources */,

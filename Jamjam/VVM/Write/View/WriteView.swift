@@ -22,6 +22,7 @@ struct WriteView: View {
             .frame(height: 50)
             .background(Color.mainBackground)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
     }
 }

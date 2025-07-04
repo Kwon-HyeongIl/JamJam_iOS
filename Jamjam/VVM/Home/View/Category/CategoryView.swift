@@ -123,6 +123,7 @@ struct CategoryView: View {
                     .offset(y: isTabBarVisible ? 97 : 200)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
         .modifier(NavigationBarBackAndLogoAndLoginButtonModifier())
     }

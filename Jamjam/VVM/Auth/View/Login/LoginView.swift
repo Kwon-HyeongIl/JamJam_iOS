@@ -130,6 +130,7 @@ struct LoginView: View {
                 }
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
         .modifier(NavigationBarBackAndTitleModifier(title: "로그인"))
         .background(Color.mainBackground)

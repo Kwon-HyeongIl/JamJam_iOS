@@ -275,6 +275,7 @@ struct ProviderProfileView: View {
                 .offset(y: isTabBarVisible ? 0 : 110)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
         .modifier(NavigationBarBackAndTitleAndHomeModifier(title: "전문가"))
         .alert("채팅 연결 실패", isPresented: $viewModel.isChatAlertVisible) {
