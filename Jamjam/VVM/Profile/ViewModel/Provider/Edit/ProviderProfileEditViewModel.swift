@@ -35,7 +35,7 @@ class ProviderProfileEditViewModel: Hashable, Equatable {
     var selectedSkill: Skill?
     
     // MARK: Page Index 1
-    var selectedSkillIds: [Int] = []
+    var selectedDetailSkills: [Skill] = []
     var tappedSkill: Skill?
     var isSheetVisible = false
     

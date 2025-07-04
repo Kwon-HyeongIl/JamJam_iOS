@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProviderProfileSkillDetailSheetView: View {
-    @Binding var selectedSkillDetailId: [Int]
+    @Binding var selectedDetailSkills: [Skill]
     let targetSkill: Skill?
     
     var body: some View {
@@ -184,5 +184,5 @@ struct ProviderProfileSkillDetailSheetView: View {
 }
 
 #Preview {
-    ProviderProfileSkillDetailSheetView(selectedSkillDetailId: .constant([]), targetSkill: nil)
+    ProviderProfileSkillDetailSheetView(selectedDetailSkills: .constant([]), targetSkill: nil)
 }

@@ -330,7 +330,7 @@ struct ProviderProfileEditView: View {
                     .sheet(isPresented: $viewModel.isSheetVisible) {
                         viewModel.tappedSkill = nil
                     } content: {
-                        ProviderProfileSkillDetailSheetView(selectedSkillDetailId: $viewModel.selectedSkillIds, targetSkill: viewModel.tappedSkill)
+                        ProviderProfileSkillDetailSheetView(selectedDetailSkills: $viewModel.selectedDetailSkills, targetSkill: viewModel.tappedSkill)
                     }
                     .presentationDragIndicator(.visible)
                     .presentationDetents([.fraction(0.7), .large])
