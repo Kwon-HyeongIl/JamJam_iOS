@@ -11,6 +11,11 @@ import Foundation
 class ProviderProfileEditViewModel: Hashable, Equatable {
     let id = UUID() // temp
     
+    // MARK: 자기소개 필드
+    var inputIntroduction = ""
+    var selectedRegion: Region = .none
+    var selectedSkill: Skill = .none
+    
     // MARK: Hashable, Equatable
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

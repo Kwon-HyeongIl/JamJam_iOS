@@ -26,7 +26,7 @@ struct CategoryView: View {
                             .frame(height: 42)
                             .overlay {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                    .stroke(.gray.opacity(0.2), lineWidth: 1)
                             }
                             .padding(.horizontal, 20)
                             .foregroundStyle(.white)

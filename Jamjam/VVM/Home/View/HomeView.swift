@@ -118,7 +118,7 @@ struct HomeView: View {
                                         .frame(height: 80)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
                                         }
                                         .overlay {
                                             VStack(spacing: 7) {
@@ -142,7 +142,7 @@ struct HomeView: View {
                                         .frame(height: 80)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
                                         }
                                         .overlay {
                                             VStack(spacing: 7) {
@@ -166,7 +166,7 @@ struct HomeView: View {
                                     .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
                                     }
                                     .overlay {
                                         VStack(spacing: 7) {
@@ -186,7 +186,7 @@ struct HomeView: View {
                                     .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
                                     }
                                     .overlay {
                                         VStack(spacing: 7) {
@@ -209,7 +209,7 @@ struct HomeView: View {
                                     .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
                                     }
                                     .overlay {
                                         VStack(spacing: 7) {
@@ -229,7 +229,7 @@ struct HomeView: View {
                                     .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
                                     }
                                     .overlay {
                                         VStack(spacing: 7) {
@@ -252,7 +252,7 @@ struct HomeView: View {
                                     .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
                                     }
                                     .overlay {
                                         VStack(spacing: 7) {
@@ -272,7 +272,7 @@ struct HomeView: View {
                                     .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
                                     }
                                     .overlay {
                                         VStack(spacing: 7) {
@@ -295,7 +295,7 @@ struct HomeView: View {
                                     .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
                                     }
                                     .overlay {
                                         VStack(spacing: 7) {
@@ -315,7 +315,7 @@ struct HomeView: View {
                                     .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
                                     }
                                     .overlay {
                                         VStack(spacing: 7) {
@@ -338,7 +338,7 @@ struct HomeView: View {
                                     .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
                                     }
                                     .overlay {
                                         VStack(spacing: 7) {
@@ -358,7 +358,7 @@ struct HomeView: View {
                                     .frame(height: 80)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
                                     }
                                     .overlay {
                                         VStack(spacing: 7) {

@@ -105,9 +105,9 @@ struct SignUpView: View {
                                         }
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(viewModel.isExpertButtonTapped ? Color.JJTitle : .gray.opacity(0.5), lineWidth: 1.5)
+                                                .stroke(viewModel.isExpertButtonTapped ? Color.JJTitle : .gray.opacity(0.2), lineWidth: 1.5)
                                         }
-                                        .padding(.leading, 35)
+                                        .padding(.leading, 20)
                                 }
                                 
                                 Button {
@@ -149,9 +149,9 @@ struct SignUpView: View {
                                         }
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(viewModel.isClientButtonTapped ? Color.JJTitle : .gray.opacity(0.5), lineWidth: 1.5)
+                                                .stroke(viewModel.isClientButtonTapped ? Color.JJTitle : .gray.opacity(0.2), lineWidth: 1.5)
                                         }
-                                        .padding(.trailing, 35)
+                                        .padding(.trailing, 20)
                                 }
                             }
                         }
@@ -168,7 +168,7 @@ struct SignUpView: View {
                                 HStack {
                                     Text("닉네임")
                                         .font(.pretendard(Pretendard.semiBold, size: 17))
-                                        .padding(.leading, 35)
+                                        .padding(.leading, 20)
                                     
                                     Spacer()
                                 }
@@ -183,7 +183,7 @@ struct SignUpView: View {
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
+                                                .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .first ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.nickname) {
                                             viewModel.restoreNicknameRelated()
@@ -231,7 +231,7 @@ struct SignUpView: View {
                                         }
                                     }
                                 }
-                                .padding(.horizontal, 35)
+                                .padding(.horizontal, 20)
                                 
                                 HStack {
                                     if viewModel.isNicknameNotiVisible {
@@ -243,7 +243,7 @@ struct SignUpView: View {
                                     
                                     Spacer()
                                 }
-                                .padding(.leading, 40)
+                                .padding(.leading, 25)
                             }
                             .padding(.bottom)
                             
@@ -251,7 +251,7 @@ struct SignUpView: View {
                                 HStack {
                                     Text("아이디")
                                         .font(.pretendard(Pretendard.semiBold, size: 17))
-                                        .padding(.leading, 35)
+                                        .padding(.leading, 20)
                                     
                                     Spacer()
                                 }
@@ -266,7 +266,7 @@ struct SignUpView: View {
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
+                                                .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .second ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.loginId) {
                                             viewModel.restoreLoginIdRelated()
@@ -311,7 +311,7 @@ struct SignUpView: View {
                                         }
                                     }
                                 }
-                                .padding(.horizontal, 35)
+                                .padding(.horizontal, 20)
                                 
                                 HStack {
                                     if viewModel.isLoginIdNotiVisible {
@@ -322,7 +322,7 @@ struct SignUpView: View {
                                     
                                     Spacer()
                                 }
-                                .padding(.leading, 40)
+                                .padding(.leading, 25)
                             }
                             .padding(.bottom)
                             
@@ -330,7 +330,7 @@ struct SignUpView: View {
                                 HStack {
                                     Text("비밀번호")
                                         .font(.pretendard(Pretendard.semiBold, size: 17))
-                                        .padding(.leading, 35)
+                                        .padding(.leading, 20)
                                     
                                     Spacer()
                                 }
@@ -346,7 +346,7 @@ struct SignUpView: View {
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
+                                                    .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .third ? 1.5 : 1)
                                             }
                                             .onChange(of: viewModel.password) {
                                                 viewModel.restorePasswordRelated()
@@ -361,7 +361,7 @@ struct SignUpView: View {
                                                     viewModel.passwordNotiMessage = "영문과 숫자를 포함하여 8자 이상이어야 합니다."
                                                 }
                                             }
-                                            .padding(.horizontal, 35)
+                                            .padding(.horizontal, 20)
                                         
                                     } else {
                                         TextField("영문과 숫자를 포함한 최소 8자", text: $viewModel.password)
@@ -373,7 +373,7 @@ struct SignUpView: View {
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
+                                                    .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .third ? 1.5 : 1)
                                             }
                                             .onChange(of: viewModel.password) {
                                                 viewModel.restorePasswordRelated()
@@ -389,7 +389,7 @@ struct SignUpView: View {
                                                     
                                                 }
                                             }
-                                            .padding(.horizontal, 35)
+                                            .padding(.horizontal, 20)
                                     }
                                     
                                     HStack {
@@ -417,7 +417,7 @@ struct SignUpView: View {
                                     
                                     Spacer()
                                 }
-                                .padding(.leading, 40)
+                                .padding(.leading, 25)
                             }
                             .padding(.bottom)
                             
@@ -425,7 +425,7 @@ struct SignUpView: View {
                                 HStack {
                                     Text("비밀번호 확인")
                                         .font(.pretendard(Pretendard.semiBold, size: 17))
-                                        .padding(.leading, 35)
+                                        .padding(.leading, 20)
                                     
                                     Spacer()
                                 }
@@ -441,7 +441,7 @@ struct SignUpView: View {
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
+                                                    .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .fourth ? 1.5 : 1)
                                             }
                                             .onChange(of: viewModel.confirmPassword) {
                                                 viewModel.restoreConfirmPasswordRelated()
@@ -457,7 +457,7 @@ struct SignUpView: View {
                                                     viewModel.confirmPasswordNotiMessage = "비밀번호가 일치하지 않습니다."
                                                 }
                                             }
-                                            .padding(.horizontal, 35)
+                                            .padding(.horizontal, 20)
                                         
                                     } else {
                                         TextField("비밀번호를 한번 더 입력해 주세요", text: $viewModel.confirmPassword)
@@ -469,7 +469,7 @@ struct SignUpView: View {
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
+                                                    .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .fourth ? 1.5 : 1)
                                             }
                                             .onChange(of: viewModel.confirmPassword) {
                                                 viewModel.restoreConfirmPasswordRelated()
@@ -485,7 +485,7 @@ struct SignUpView: View {
                                                     viewModel.confirmPasswordNotiMessage = "비밀번호가 일치하지 않습니다."
                                                 }
                                             }
-                                            .padding(.horizontal, 35)
+                                            .padding(.horizontal, 20)
                                     }
                                     
                                     HStack {
@@ -513,7 +513,7 @@ struct SignUpView: View {
                                     
                                     Spacer()
                                 }
-                                .padding(.leading, 40)
+                                .padding(.leading, 25)
                             }
                         }
                         
@@ -529,7 +529,7 @@ struct SignUpView: View {
                                 HStack {
                                     Text("이름")
                                         .font(.pretendard(Pretendard.semiBold, size: 17))
-                                        .padding(.leading, 35)
+                                        .padding(.leading, 20)
                                     
                                     Spacer()
                                 }
@@ -543,7 +543,7 @@ struct SignUpView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
+                                            .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .first ? 1.5 : 1)
                                     }
                                     .onChange(of: viewModel.realName) {
                                         viewModel.restoreRealNameRelated()
@@ -552,7 +552,7 @@ struct SignUpView: View {
                                             viewModel.isRealNameFinalValidated = true
                                         }
                                     }
-                                    .padding(.horizontal, 35)
+                                    .padding(.horizontal, 20)
                                 
                                 HStack {
                                     if viewModel.isRealNameNotiVisible {
@@ -563,7 +563,7 @@ struct SignUpView: View {
                                     
                                     Spacer()
                                 }
-                                .padding(.leading, 40)
+                                .padding(.leading, 25)
                             }
                             .padding(.bottom)
                             
@@ -571,7 +571,7 @@ struct SignUpView: View {
                                 HStack {
                                     Text("생년월일")
                                         .font(.pretendard(Pretendard.semiBold, size: 17))
-                                        .padding(.leading, 35)
+                                        .padding(.leading, 20)
                                     
                                     Spacer()
                                 }
@@ -586,7 +586,7 @@ struct SignUpView: View {
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
+                                                .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .second ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.birthYear) {
                                             viewModel.restoreBirthYearRelated()
@@ -611,7 +611,7 @@ struct SignUpView: View {
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .third ? 1.5 : 1)
+                                                .stroke(focus == .third ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .third ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.birthMonth) {
                                             viewModel.restoreBirthMonthRelated()
@@ -641,7 +641,7 @@ struct SignUpView: View {
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fourth ? 1.5 : 1)
+                                                .stroke(focus == .fourth ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .fourth ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.birthDay) {
                                             viewModel.restoreBirthDayRelated()
@@ -661,7 +661,7 @@ struct SignUpView: View {
                                             }
                                         }
                                 }
-                                .padding(.horizontal, 35)
+                                .padding(.horizontal, 20)
                                 
                                 HStack {
                                     if viewModel.isBirthNotiVisible {
@@ -672,7 +672,7 @@ struct SignUpView: View {
                                     
                                     Spacer()
                                 }
-                                .padding(.leading, 40)
+                                .padding(.leading, 25)
                             }
                             .padding(.bottom)
                             
@@ -680,7 +680,7 @@ struct SignUpView: View {
                                 HStack {
                                     Text("성별")
                                         .font(.pretendard(Pretendard.semiBold, size: 17))
-                                        .padding(.leading, 35)
+                                        .padding(.leading, 20)
                                     
                                     Spacer()
                                 }
@@ -707,7 +707,7 @@ struct SignUpView: View {
                                             }
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(viewModel.isGenderManButtonTapped ? Color.JJTitle : .gray.opacity(0.5), lineWidth: viewModel.isGenderManButtonTapped ? 1.5 : 1)
+                                                    .stroke(viewModel.isGenderManButtonTapped ? Color.JJTitle : .gray.opacity(0.2), lineWidth: viewModel.isGenderManButtonTapped ? 1.5 : 1)
                                             }
                                     }
                                     
@@ -732,11 +732,11 @@ struct SignUpView: View {
                                             }
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(viewModel.isGenderWomanButtonTapped ? Color.JJTitle : .gray.opacity(0.5), lineWidth: viewModel.isGenderWomanButtonTapped ? 1.5 : 1)
+                                                    .stroke(viewModel.isGenderWomanButtonTapped ? Color.JJTitle : .gray.opacity(0.2), lineWidth: viewModel.isGenderWomanButtonTapped ? 1.5 : 1)
                                             }
                                     }
                                 }
-                                .padding(.horizontal, 35)
+                                .padding(.horizontal, 20)
                             }
                             .padding(.bottom)
                             
@@ -744,7 +744,7 @@ struct SignUpView: View {
                                 HStack {
                                     Text("휴대폰 번호")
                                         .font(.pretendard(Pretendard.semiBold, size: 17))
-                                        .padding(.leading, 35)
+                                        .padding(.leading, 20)
                                     
                                     Spacer()
                                 }
@@ -759,7 +759,7 @@ struct SignUpView: View {
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(focus == .fifth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .fifth ? 1.5 : 1)
+                                                .stroke(focus == .fifth ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .fifth ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.phoneNumber) {
                                             viewModel.restorePhoneNumberRelated()
@@ -800,7 +800,7 @@ struct SignUpView: View {
                                     }
                                     .disabled(!viewModel.validatePhoneNumberForm())
                                 }
-                                .padding(.horizontal, 35)
+                                .padding(.horizontal, 20)
                                 
                                 HStack {
                                     if viewModel.isPhoneNumberNotiVisible {
@@ -811,7 +811,7 @@ struct SignUpView: View {
                                     
                                     Spacer()
                                 }
-                                .padding(.leading, 40)
+                                .padding(.leading, 25)
                             }
                             .padding(.bottom)
                             
@@ -820,7 +820,7 @@ struct SignUpView: View {
                                     HStack {
                                         Text("인증번호")
                                             .font(.pretendard(Pretendard.semiBold, size: 17))
-                                            .padding(.leading, 35)
+                                            .padding(.leading, 20)
                                         
                                         Spacer()
                                     }
@@ -834,7 +834,7 @@ struct SignUpView: View {
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(focus == .sixth ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .sixth ? 1.5 : 1)
+                                                .stroke(focus == .sixth ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .sixth ? 1.5 : 1)
                                         }
                                         .onChange(of: viewModel.phoneCode) {
                                             viewModel.restoreIdentifiedNumberRelated()
@@ -848,7 +848,7 @@ struct SignUpView: View {
                                                 viewModel.phoneCode = String(newValue.prefix(6))
                                             }
                                         }
-                                        .padding(.horizontal, 35)
+                                        .padding(.horizontal, 20)
                                     
                                     HStack {
                                         if viewModel.isPhoneCodeNotiVisible {
@@ -859,7 +859,7 @@ struct SignUpView: View {
                                         
                                         Spacer()
                                     }
-                                    .padding(.leading, 40)
+                                    .padding(.leading, 25)
                                 }
                             }
                         }
@@ -888,7 +888,7 @@ struct SignUpView: View {
                                         .foregroundStyle(.white)
                                 }
                                 .opacity((viewModel.isExpertButtonTappedNoAni || viewModel.isClientButtonTappedNoAni) ? 1 : 0.4)
-                                .padding(.horizontal, 35)
+                                .padding(.horizontal, 20)
                         }
                         .disabled(!(viewModel.isExpertButtonTapped || viewModel.isClientButtonTapped))
                         
@@ -906,14 +906,14 @@ struct SignUpView: View {
                                     .foregroundStyle(.white)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
                                     }
                                     .overlay {
                                         Text("이전")
                                             .font(.pretendard(Pretendard.semiBold, size: 17))
                                             .foregroundStyle(.gray)
                                     }
-                                    .padding(.leading, 35)
+                                    .padding(.leading, 20)
                             }
                             
                             Button {
@@ -929,7 +929,7 @@ struct SignUpView: View {
                                     }
                                     .opacity(viewModel.isAllValidatedInPage2 ? 1 : 0.4)
                                     .disabled(!viewModel.isAllValidatedInPage2)
-                                    .padding(.trailing, 35)
+                                    .padding(.trailing, 20)
                             }
                         }
                         
@@ -944,14 +944,14 @@ struct SignUpView: View {
                                     .foregroundStyle(.white)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
                                     }
                                     .overlay {
                                         Text("이전")
                                             .font(.pretendard(Pretendard.semiBold, size: 17))
                                             .foregroundStyle(.gray)
                                     }
-                                    .padding(.leading, 35)
+                                    .padding(.leading, 20)
                             }
                             
                             Button {
@@ -979,7 +979,7 @@ struct SignUpView: View {
                                             .foregroundStyle(.white)
                                     }
                                     .opacity(viewModel.isAllFilledInPage3 ? 1 : 0.4)
-                                    .padding(.trailing, 35)
+                                    .padding(.trailing, 20)
                             }
                             .disabled(!viewModel.isAllFilledInPage3)
                             .onChange(of: viewModel.isSignUpCompleted) {

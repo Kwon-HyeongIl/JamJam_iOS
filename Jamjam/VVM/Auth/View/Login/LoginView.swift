@@ -29,7 +29,7 @@ struct LoginView: View {
                         HStack {
                             Text("아이디")
                                 .font(.pretendard(Pretendard.semiBold, size: 17))
-                                .padding(.leading, 35)
+                                .padding(.leading, 20)
                             
                             Spacer()
                         }
@@ -43,9 +43,9 @@ struct LoginView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .overlay {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .first ? 1.5 : 1)
+                                    .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .first ? 1.5 : 1)
                             }
-                            .padding(.horizontal, 35)
+                            .padding(.horizontal, 20)
                     }
                     .padding(.bottom)
                     
@@ -53,7 +53,7 @@ struct LoginView: View {
                         HStack {
                             Text("비밀번호")
                                 .font(.pretendard(Pretendard.semiBold, size: 17))
-                                .padding(.leading, 35)
+                                .padding(.leading, 20)
                             
                             Spacer()
                         }
@@ -67,9 +67,9 @@ struct LoginView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .overlay {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.5), lineWidth: focus == .second ? 1.5 : 1)
+                                    .stroke(focus == .second ? Color.JJTitle : .gray.opacity(0.2), lineWidth: focus == .second ? 1.5 : 1)
                             }
-                            .padding(.horizontal, 35)
+                            .padding(.horizontal, 20)
                     }
                     .padding(.bottom, 25)
                     
@@ -79,7 +79,7 @@ struct LoginView: View {
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundStyle(Color.JJTitle)
-                            .padding(.horizontal, 35)
+                            .padding(.horizontal, 20)
                             .frame(height: 45)
                             .overlay {
                                 Text("로그인")

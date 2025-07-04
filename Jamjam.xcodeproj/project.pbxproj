@@ -44,6 +44,8 @@
 		CA4F122E2E1784DD0061012E /* ProviderProfileCareerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F122D2E1784DD0061012E /* ProviderProfileCareerEditView.swift */; };
 		CA4F12302E1784FF0061012E /* ProviderProfileCertificationEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F122F2E1784FF0061012E /* ProviderProfileCertificationEditView.swift */; };
 		CA4F12322E17851D0061012E /* ProviderProfileCallTimeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12312E17851D0061012E /* ProviderProfileCallTimeEditView.swift */; };
+		CA4F12362E179DE00061012E /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12352E179DE00061012E /* Region.swift */; };
+		CA4F12382E17CACE0061012E /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12372E17CACE0061012E /* Skill.swift */; };
 		CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7B2E09688700FB1E22 /* FontType.swift */; };
 		CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */; };
 		CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */; };
@@ -174,6 +176,8 @@
 		CA4F122D2E1784DD0061012E /* ProviderProfileCareerEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileCareerEditView.swift; sourceTree = "<group>"; };
 		CA4F122F2E1784FF0061012E /* ProviderProfileCertificationEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileCertificationEditView.swift; sourceTree = "<group>"; };
 		CA4F12312E17851D0061012E /* ProviderProfileCallTimeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileCallTimeEditView.swift; sourceTree = "<group>"; };
+		CA4F12352E179DE00061012E /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		CA4F12372E17CACE0061012E /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		CA5C5E7B2E09688700FB1E22 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretendard.swift; sourceTree = "<group>"; };
 		CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Pretendard.swift"; sourceTree = "<group>"; };
@@ -367,6 +371,7 @@
 		CA0915612DF12EE800E272F8 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				CA4F12342E179DD10061012E /* Profile */,
 				CA0915622DF12EF000E272F8 /* Navigation */,
 				CA5C5E922E09A20E00FB1E22 /* API */,
 				CAB600012E1547FD004CD644 /* Stomp */,
@@ -481,6 +486,15 @@
 				CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */,
 			);
 			path = Edit;
+			sourceTree = "<group>";
+		};
+		CA4F12342E179DD10061012E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CA4F12352E179DE00061012E /* Region.swift */,
+				CA4F12372E17CACE0061012E /* Skill.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		CA5C5E7A2E09687A00FB1E22 /* Font */ = {
@@ -891,8 +905,8 @@
 		CAB600322E16849F004CD644 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CAB600352E1684C7004CD644 /* SignUp */,
 				CAB600332E1684A9004CD644 /* Login */,
+				CAB600352E1684C7004CD644 /* SignUp */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1156,6 +1170,7 @@
 				CA4F122C2E1784D10061012E /* ProviderProfileSkillEditView.swift in Sources */,
 				CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */,
 				CAB600052E15517D004CD644 /* ChatManager+StompOpen.swift in Sources */,
+				CA4F12382E17CACE0061012E /* Skill.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
 				CA96099E2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift in Sources */,
 				CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */,
@@ -1197,6 +1212,7 @@
 				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */,
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
 				CA4F122A2E1784C00061012E /* ProviderProfileIntroductionEditView.swift in Sources */,
+				CA4F12362E179DE00061012E /* Region.swift in Sources */,
 				CA4F12302E1784FF0061012E /* ProviderProfileCertificationEditView.swift in Sources */,
 				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,
 				CAB6003F2E16B6A9004CD644 /* ReadLastMessageResponse.swift in Sources */,

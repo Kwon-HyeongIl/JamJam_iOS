@@ -78,12 +78,13 @@ struct ChatContentView: View {
                             .focused($focus, equals: .first)
                             .lineLimit(1...5)
                             .font(.pretendard(Pretendard.regular, size: 15))
-                            .padding(12)
+                            .padding(.horizontal)
+                            .padding(.vertical, 10)
                             .background(Color.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.5),
+                                    .stroke(focus == .first ? Color.JJTitle : .gray.opacity(0.2),
                                             lineWidth: focus == .first ? 1.5 : 1)
                             )
                         

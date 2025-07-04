@@ -16,7 +16,7 @@ struct ProviderProfileEditListView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 18) {
                     Button {
-                        
+                        navRouter.navigate(.providerProfileIntroductionEditView(viewModel))
                     } label: {
                         HStack {
                             Image(systemName: "person")
@@ -42,7 +42,7 @@ struct ProviderProfileEditListView: View {
                         .padding(.horizontal, 20)
                     
                     Button {
-                        
+                        navRouter.navigate(.providerProfileSkillEditView(viewModel))
                     } label: {
                         HStack {
                             Image(systemName: "wrench.and.screwdriver")
@@ -67,7 +67,7 @@ struct ProviderProfileEditListView: View {
                         .padding(.horizontal, 20)
                     
                     Button {
-                        
+                        navRouter.navigate(.providerProfileCareerEditView(viewModel))
                     } label: {
                         HStack {
                             Image(systemName: "building.2")
@@ -92,7 +92,7 @@ struct ProviderProfileEditListView: View {
                         .padding(.horizontal, 20)
                     
                     Button {
-                        
+                        navRouter.navigate(.providerProfileCertificationEditView(viewModel))
                     } label: {
                         HStack {
                             Image(systemName: "person.text.rectangle")
@@ -117,7 +117,7 @@ struct ProviderProfileEditListView: View {
                         .padding(.horizontal, 20)
                     
                     Button {
-                        
+                        navRouter.navigate(.providerProfileCallTimeEditView(viewModel))
                     } label: {
                         HStack {
                             Image(systemName: "clock.arrow.trianglehead.2.counterclockwise.rotate.90")

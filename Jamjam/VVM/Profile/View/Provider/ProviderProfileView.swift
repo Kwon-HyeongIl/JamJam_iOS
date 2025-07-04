@@ -145,7 +145,7 @@ struct ProviderProfileView: View {
                                     HStack {
                                         Image(systemName: "graduationcap.fill")
                                             .font(.system(size: 12))
-                                            .foregroundStyle(.gray.opacity(0.5))
+                                            .foregroundStyle(.gray.opacity(0.2))
                                             .padding(.leading, 30)
                                         
                                         Text("서울대학교 컴퓨터공학과 졸업")
