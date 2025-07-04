@@ -437,6 +437,8 @@ struct ProviderProfileEditView: View {
                                         .font(.pretendard(Pretendard.semiBold, size: 15))
                                         .foregroundStyle(.white)
                                 }
+                                .opacity(viewModel.isAllValidatedInPageIndex0 ? 1 : 0.4)
+                                .disabled(!viewModel.isAllValidatedInPageIndex0)
                         }
                         
                     case 1:
@@ -471,8 +473,8 @@ struct ProviderProfileEditView: View {
                                             .foregroundStyle(.white)
                                     }
                                     .padding(.trailing, 20)
-                                    .opacity(viewModel.selectedDetailSkillIds.isEmpty ? 0.4 : 1)
-                                    .disabled(viewModel.selectedDetailSkillIds.isEmpty)
+                                    .opacity(viewModel.isAllValidatedInPageIndex1 ? 1 : 0.4)
+                                    .disabled(!viewModel.isAllValidatedInPageIndex1)
                             }
                         }
                         

@@ -34,10 +34,20 @@ class ProviderProfileEditViewModel: Hashable, Equatable {
     var selectedRegion: Region?
     var selectedSkill: Skill?
     
+    var isAllValidatedInPageIndex0: Bool {
+        !inputIntroduction.isEmpty &&
+        selectedRegion != nil &&
+        selectedSkill != nil
+    }
+    
     // MARK: Page Index 1
     var selectedDetailSkillIds: [Int] = []
     var tappedSkill: Skill?
     var isSheetVisible = false
+    
+    var isAllValidatedInPageIndex1: Bool {
+        !selectedDetailSkillIds.isEmpty
+    }
     
     func detailSkillText(id: Int) -> String? {
         ProfileInfoManager.extractDetailSkillTextWithId(id: id)
