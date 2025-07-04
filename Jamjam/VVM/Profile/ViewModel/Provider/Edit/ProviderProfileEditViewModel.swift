@@ -8,10 +8,9 @@
 import Foundation
 
 @Observable
-class ProviderProfileEditViewModel: Hashable, Equatable {
-    let id = UUID() // temp
+class ProviderProfileEditViewModel {
+    var pageIndex = 0
     
-    var pageIndex = 1
     var title: String {
         switch pageIndex {
         case 0:
@@ -51,15 +50,5 @@ class ProviderProfileEditViewModel: Hashable, Equatable {
     
     func detailSkillText(id: Int) -> String? {
         ProfileInfoManager.extractDetailSkillTextWithId(id: id)
-    }
-    
-    
-    // MARK: Hashable, Equatable
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    
-    static func == (lhs: ProviderProfileEditViewModel, rhs: ProviderProfileEditViewModel) -> Bool {
-        return lhs.id == rhs.id
     }
 }

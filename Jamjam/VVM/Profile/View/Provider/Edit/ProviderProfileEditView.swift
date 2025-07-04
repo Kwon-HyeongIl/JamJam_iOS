@@ -19,7 +19,31 @@ struct ProviderProfileEditView: View {
                 switch viewModel.pageIndex {
                     // MARK: Page Index 0
                 case 0:
-                    VStack(spacing: 30) {
+                    VStack(spacing: 0) {
+                        HStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 30, height: 5)
+                                .foregroundStyle(Color.JJTitle)
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 30, height: 5)
+                                .foregroundStyle(.gray.opacity(0.5))
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 30, height: 5)
+                                .foregroundStyle(.gray.opacity(0.5))
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 30, height: 5)
+                                .foregroundStyle(.gray.opacity(0.5))
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 30, height: 5)
+                                .foregroundStyle(.gray.opacity(0.5))
+                        }
+                        .padding(.top, 10)
+                        .padding(.bottom, 20)
+                        
                         // MARK: 자기 소개
                         VStack {
                             HStack {
@@ -45,7 +69,7 @@ struct ProviderProfileEditView: View {
                                 }
                                 .padding(.horizontal, 20)
                         }
-                        .padding(.top)
+                        .padding(.bottom, 30)
                         
                         // MARK: 지역
                         VStack {
@@ -172,9 +196,9 @@ struct ProviderProfileEditView: View {
                                     }
                                     .overlay {
                                         HStack {
-                                            Text(viewModel.selectedRegion?.text ?? "")
+                                            Text(viewModel.selectedRegion?.text ?? "지역을 선택하세요.")
                                                 .font(.pretendard(size: 14.5))
-                                                .foregroundStyle(.gray.opacity(0.55))
+                                                .foregroundStyle(viewModel.selectedRegion == nil ? .gray.opacity(0.55) : .black)
                                                 .padding(.leading, 35)
                                             
                                             Spacer()
@@ -188,6 +212,7 @@ struct ProviderProfileEditView: View {
                                 
                             }
                         }
+                        .padding(.bottom, 30)
                         
                         // MARK: 전문 분야
                         VStack {
@@ -284,9 +309,9 @@ struct ProviderProfileEditView: View {
                                     }
                                     .overlay {
                                         HStack {
-                                            Text(viewModel.selectedSkill?.text ?? "")
+                                            Text(viewModel.selectedSkill?.text ?? "전문 분야를 선택하세요.")
                                                 .font(.pretendard(size: 14.5))
-                                                .foregroundStyle(.gray.opacity(0.55))
+                                                .foregroundStyle(viewModel.selectedSkill == nil ? .gray.opacity(0.55) : .black)
                                                 .padding(.leading, 35)
                                             
                                             Spacer()
@@ -305,11 +330,35 @@ struct ProviderProfileEditView: View {
                             .frame(width: 1, height: 90)
                     }
                     
+                    // MARK: Page Index 1
                 case 1:
                     VStack(spacing: 0) {
                         ScrollView {
+                            // MARK: 보유 기술 선택
                             VStack(spacing: 0) {
-                                
+                                HStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 30, height: 5)
+                                        .foregroundStyle(Color.JJTitle)
+                                    
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 30, height: 5)
+                                        .foregroundStyle(Color.JJTitle)
+                                    
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 30, height: 5)
+                                        .foregroundStyle(.gray.opacity(0.5))
+                                    
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 30, height: 5)
+                                        .foregroundStyle(.gray.opacity(0.5))
+                                    
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 30, height: 5)
+                                        .foregroundStyle(.gray.opacity(0.5))
+                                }
+                                .padding(.top, 10)
+                                .padding(.bottom)
                                 
                                 ZStack {
                                     Rectangle()

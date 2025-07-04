@@ -31,15 +31,15 @@ struct SignUpView: View {
                     HStack {
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: 50, height: 5)
-                            .foregroundStyle(((viewModel.pageIndex == 0) || (viewModel.pageIndex == 1) || (viewModel.pageIndex == 2)) ? Color.JJTitle : .gray.opacity(0.6))
+                            .foregroundStyle(((viewModel.pageIndex == 0) || (viewModel.pageIndex == 1) || (viewModel.pageIndex == 2)) ? Color.JJTitle : .gray.opacity(0.5))
                         
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: 50, height: 5)
-                            .foregroundStyle(((viewModel.pageIndex == 1) || (viewModel.pageIndex == 2)) ? Color.JJTitle : .gray.opacity(0.6))
+                            .foregroundStyle(((viewModel.pageIndex == 1) || (viewModel.pageIndex == 2)) ? Color.JJTitle : .gray.opacity(0.5))
                         
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: 50, height: 5)
-                            .foregroundStyle(viewModel.pageIndex == 2 ? Color.JJTitle : .gray.opacity(0.6))
+                            .foregroundStyle(viewModel.pageIndex == 2 ? Color.JJTitle : .gray.opacity(0.5))
                     }
                     .padding(.bottom, 30)
                     
