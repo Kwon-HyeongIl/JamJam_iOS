@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ProviderProfileCallTimeEditView: View {
+    @Environment(NavigationRouter.self) var navRouter
+    @Bindable var viewModel: ProviderProfileEditViewModel
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    ProviderProfileCallTimeEditView()
+    ProviderProfileCallTimeEditView(viewModel: ProviderProfileEditViewModel())
+        .environment(NavigationRouter())
 }

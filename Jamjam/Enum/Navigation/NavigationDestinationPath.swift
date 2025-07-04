@@ -22,4 +22,10 @@ enum NavigationDestinationPath: Hashable {
     // Profile
     case providerProfileView
     
+    case providerProfileEditListView
+    case providerProfileIntroductionEditView(ProviderProfileEditViewModel)
+    case providerProfileSkillEditView(ProviderProfileEditViewModel)
+    case providerProfileCareerEditView(ProviderProfileEditViewModel)
+    case providerProfileCertificationEditView(ProviderProfileEditViewModel)
+    case providerProfileCallTimeEditView(ProviderProfileEditViewModel)
 }

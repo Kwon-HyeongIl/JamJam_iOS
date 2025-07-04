@@ -367,13 +367,13 @@
 		CA0915612DF12EE800E272F8 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				CAB600012E1547FD004CD644 /* Stomp */,
+				CA0915622DF12EF000E272F8 /* Navigation */,
 				CA5C5E922E09A20E00FB1E22 /* API */,
+				CAB600012E1547FD004CD644 /* Stomp */,
 				CA5C5E7A2E09687A00FB1E22 /* Font */,
 				CA87FF792E014C2B00C8C830 /* User */,
 				CA9609C52E0018BE00B878C6 /* FocusField */,
 				CA9609AB2DFFD01800B878C6 /* TabBar */,
-				CA0915622DF12EF000E272F8 /* Navigation */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -473,6 +473,14 @@
 				CA4F12312E17851D0061012E /* ProviderProfileCallTimeEditView.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		CA4F12332E17872E0061012E /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */,
+			);
+			path = Edit;
 			sourceTree = "<group>";
 		};
 		CA5C5E7A2E09687A00FB1E22 /* Font */ = {
@@ -875,7 +883,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */,
-				CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */,
+				CA4F12332E17872E0061012E /* Edit */,
 			);
 			path = Provider;
 			sourceTree = "<group>";

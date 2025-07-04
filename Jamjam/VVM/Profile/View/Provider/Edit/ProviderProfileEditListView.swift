@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProviderProfileEditListView: View {
+    @Environment(NavigationRouter.self) var navRouter
+    @State var viewModel = ProviderProfileEditViewModel()
+    
     var body: some View {
         VStack(spacing: 0) {
             
