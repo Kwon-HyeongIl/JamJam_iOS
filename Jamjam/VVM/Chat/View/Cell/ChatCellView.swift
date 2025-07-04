@@ -47,9 +47,9 @@ struct ChatCellView: View {
             }
             .padding(.trailing, 20)
         }
+        .background(Color.mainBackground)
         .frame(maxWidth: .infinity)
         .frame(height: 80)
-        .background(Color.mainBackground)
     }
 }
 

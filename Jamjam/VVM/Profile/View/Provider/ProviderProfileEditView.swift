@@ -11,7 +11,7 @@ struct ProviderProfileEditView: View {
     @State private var viewModel = ProviderProfileEditViewModel()
     
     var body: some View {
-        MainBackground {
+        VStack(spacing: 0) {
             ScrollView(showsIndicators: false) {
                 
             }
@@ -21,6 +21,7 @@ struct ProviderProfileEditView: View {
                 NavigationBarTitleAndHomeModifier(title: "프로필 설정")
             })
         }
+        .background(Color.mainBackground)
     }
 }
 

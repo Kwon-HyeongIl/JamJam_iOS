@@ -12,7 +12,7 @@ struct ChatView: View {
     @State private var viewModel = ChatViewModel()
     
     var body: some View {
-        MainBackground {
+        VStack(spacing: 0) {
             VStack(spacing: 0) {
                 VStack {
                     HStack {
@@ -37,12 +37,13 @@ struct ChatView: View {
                     }
                 }
             }
-            .onAppear {
-                viewModel.fetchChatRooms()
-                
-                if viewModel.isStompClientInitPossible {
-                    viewModel.initStompClient()
-                }
+        }
+        .background(Color.mainBackground)
+        .onAppear {
+            viewModel.fetchChatRooms()
+            
+            if viewModel.isStompClientInitPossible {
+                viewModel.initStompClient()
             }
         }
     }

@@ -16,7 +16,7 @@ struct CategoryView: View {
     @Namespace private var categoryUnderline
     
     var body: some View {
-        MainBackground {
+        VStack(spacing: 0) {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0) {
                     Button {
@@ -99,7 +99,6 @@ struct CategoryView: View {
                     }
                 }
             }
-            .modifier(NavigationBarBackAndLogoAndLoginButtonModifier())
             .onScrollGeometryChange(for: CGFloat.self) { geometry in
                 geometry.contentOffset.y
             } action: { oldY, newY in
@@ -124,6 +123,8 @@ struct CategoryView: View {
                     .offset(y: isTabBarVisible ? 97 : 200)
             }
         }
+        .background(Color.mainBackground)
+        .modifier(NavigationBarBackAndLogoAndLoginButtonModifier())
     }
 }
 

@@ -11,7 +11,7 @@ struct ProfileView: View {
     @Environment(NavigationRouter.self) var navRouter
     
     var body: some View {
-        MainBackground {
+        VStack(spacing: 0) {
             VStack(spacing: 0) {
                 VStack {
                     HStack {
@@ -40,6 +40,7 @@ struct ProfileView: View {
                 }
             }
         }
+        .background(Color.mainBackground)
     }
 }
 

@@ -14,7 +14,7 @@ struct LoginView: View {
     @FocusState private var focus: TextFieldFocusField?
     
     var body: some View {
-        MainBackground {
+        VStack(spacing: 0) {
             ScrollView(showsIndicators: false) {
                 VStack {
                     Image("jamjam_main_logo")
@@ -129,33 +129,34 @@ struct LoginView: View {
                     .frame(height: 50)
                 }
             }
-            .modifier(NavigationBarBackAndTitleModifier(title: "로그인"))
-            .background(Color.mainBackground)
-            .onTapGesture {
-                focus = nil
+        }
+        .background(Color.mainBackground)
+        .modifier(NavigationBarBackAndTitleModifier(title: "로그인"))
+        .background(Color.mainBackground)
+        .onTapGesture {
+            focus = nil
+        }
+        .onChange(of: viewModel.isLoginCompleted) {
+            navRouter.popToRoot()
+        }
+        .alert("로그인 실패", isPresented: $viewModel.isLoginAlertVisible) {
+            Button {
+                viewModel.loginAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
+            } label: {
+                Text("확인")
             }
-            .onChange(of: viewModel.isLoginCompleted) {
-                navRouter.popToRoot()
-            }
-            .alert("로그인 실패", isPresented: $viewModel.isLoginAlertVisible) {
-                Button {
-                    viewModel.loginAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
-                } label: {
-                    Text("확인")
+        } message: {
+            Text(viewModel.loginAlertMessage)
+        }
+        .overlay {
+            if viewModel.isEntireProgressViewVisible {
+                VStack {
+                    ProgressView()
+                        .scaleEffect(1.2)
+                        .padding(.bottom, 30)
                 }
-            } message: {
-                Text(viewModel.loginAlertMessage)
-            }
-            .overlay {
-                if viewModel.isEntireProgressViewVisible {
-                    VStack {
-                        ProgressView()
-                            .scaleEffect(1.2)
-                            .padding(.bottom, 30)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(.white.opacity(0.4))
-                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.white.opacity(0.4))
             }
         }
     }

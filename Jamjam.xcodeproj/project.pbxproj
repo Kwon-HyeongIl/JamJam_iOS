@@ -85,7 +85,6 @@
 		CA9609BB2DFFDA6100B878C6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609BA2DFFDA6100B878C6 /* LoginViewModel.swift */; };
 		CA9609BE2DFFE36300B878C6 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609BD2DFFE36300B878C6 /* SignUpView.swift */; };
 		CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609C62E0018D800B878C6 /* TextFieldFocusField.swift */; };
-		CA9609CA2E00225500B878C6 /* MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609C92E00225500B878C6 /* MainBackground.swift */; };
 		CA9BB5242E12B8DD0035F26D /* ProviderProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB5232E12B8DD0035F26D /* ProviderProfileView.swift */; };
 		CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB5282E12B9000035F26D /* ProfileViewModel.swift */; };
 		CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */; };
@@ -205,7 +204,6 @@
 		CA9609BA2DFFDA6100B878C6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CA9609BD2DFFE36300B878C6 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		CA9609C62E0018D800B878C6 /* TextFieldFocusField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFocusField.swift; sourceTree = "<group>"; };
-		CA9609C92E00225500B878C6 /* MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackground.swift; sourceTree = "<group>"; };
 		CA9BB5232E12B8DD0035F26D /* ProviderProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileView.swift; sourceTree = "<group>"; };
 		CA9BB5282E12B9000035F26D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileViewModel.swift; sourceTree = "<group>"; };
@@ -345,7 +343,6 @@
 				CA5C5E912E09A18E00FB1E22 /* Url */,
 				CA0BAD612E05A23300595A80 /* Font */,
 				CA3593622E0565600069FAF8 /* PreferenceKey */,
-				CA9609C82E00222A00B878C6 /* Background */,
 				CA9609AE2DFFD14200B878C6 /* View Editor */,
 				CA9609A82DFFCFEA00B878C6 /* Capsule */,
 				CA9609A52DFFCF6200B878C6 /* TabBar */,
@@ -683,14 +680,6 @@
 				CA9609C62E0018D800B878C6 /* TextFieldFocusField.swift */,
 			);
 			path = FocusField;
-			sourceTree = "<group>";
-		};
-		CA9609C82E00222A00B878C6 /* Background */ = {
-			isa = PBXGroup;
-			children = (
-				CA9609C92E00225500B878C6 /* MainBackground.swift */,
-			);
-			path = Background;
 			sourceTree = "<group>";
 		};
 		CA9BB5222E12B8CA0035F26D /* Provider */ = {
@@ -1167,7 +1156,6 @@
 				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */,
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
 				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,
-				CA9609CA2E00225500B878C6 /* MainBackground.swift in Sources */,
 				CAB6003F2E16B6A9004CD644 /* ReadLastMessageResponse.swift in Sources */,
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,
 				CA4CF9292E0C1E3A00F882C4 /* SendSmsResponse.swift in Sources */,

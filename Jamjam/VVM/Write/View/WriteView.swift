@@ -9,21 +9,20 @@ import SwiftUI
 
 struct WriteView: View {
     var body: some View {
-        MainBackground {
-            VStack(spacing: 0) {
-                VStack {
-                    HStack {
-                        Text("작성")
-                            .font(.pretendard(Pretendard.semiBold, size: 25))
-                            .padding(.leading, 20)
-                        
-                        Spacer()
-                    }
+        VStack(spacing: 0) {
+            VStack {
+                HStack {
+                    Text("작성")
+                        .font(.pretendard(Pretendard.semiBold, size: 25))
+                        .padding(.leading, 20)
+                    
+                    Spacer()
                 }
-                .frame(height: 50)
-                .background(Color.mainBackground)
             }
+            .frame(height: 50)
+            .background(Color.mainBackground)
         }
+        .background(Color.mainBackground)
     }
 }
 

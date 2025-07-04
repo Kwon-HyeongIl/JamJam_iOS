@@ -18,7 +18,7 @@ struct ChatContentView: View {
     }
     
     var body: some View {
-        MainBackground {
+        VStack(spacing: 0) {
             ScrollView(showsIndicators: false) {
                 VStack {
                     ForEach(viewModel.messages) { message in
@@ -102,40 +102,41 @@ struct ChatContentView: View {
                 }
                 .frame(height: 60)
             }
-            .modifier(NavigationBarBackAndProfileAndEditModifier(nickname: viewModel.chatRoom.nickname ?? "", isEdditButtonTapped: $viewModel.isEditButtonTapped))
-            .alert("채팅방을 나가시겠습니까?", isPresented: $viewModel.isEditButtonTapped) {
-                Button(role: .cancel) {
-                    
-                } label: {
-                    Text("취소")
-                }
+        }
+        .background(Color.mainBackground)
+        .modifier(NavigationBarBackAndProfileAndEditModifier(nickname: viewModel.chatRoom.nickname ?? "", isEdditButtonTapped: $viewModel.isEditButtonTapped))
+        .alert("채팅방을 나가시겠습니까?", isPresented: $viewModel.isEditButtonTapped) {
+            Button(role: .cancel) {
                 
-                Button(role: .destructive) {
-                    viewModel.deleteChatRoom()
-                    navRouter.back()
-                } label: {
-                    Text("나가기")
-                }
-            } message: {
-                Text("채팅방 기록은 복구되지 않습니다.")
+            } label: {
+                Text("취소")
             }
-            .alert("채팅방 나가기 실패", isPresented: $viewModel.isDeleteChatRoomAlertVisible) {
-                Button {
-                    viewModel.deleteChatRoomAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
-                } label: {
-                    Text("확인")
-                }
-            } message: {
-                Text(viewModel.deleteChatRoomAlertMessage)
+            
+            Button(role: .destructive) {
+                viewModel.deleteChatRoom()
+                navRouter.back()
+            } label: {
+                Text("나가기")
             }
-            .onChange(of: viewModel.isChatRoomDeleted) { _, newValue in
-                if newValue {
-                    navRouter.back()
-                }
+        } message: {
+            Text("채팅방 기록은 복구되지 않습니다.")
+        }
+        .alert("채팅방 나가기 실패", isPresented: $viewModel.isDeleteChatRoomAlertVisible) {
+            Button {
+                viewModel.deleteChatRoomAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
+            } label: {
+                Text("확인")
             }
-            .onDisappear {
-                viewModel.readLastMessage()
+        } message: {
+            Text(viewModel.deleteChatRoomAlertMessage)
+        }
+        .onChange(of: viewModel.isChatRoomDeleted) { _, newValue in
+            if newValue {
+                navRouter.back()
             }
+        }
+        .onDisappear {
+            viewModel.readLastMessage()
         }
     }
 }

@@ -16,7 +16,7 @@ struct SignUpView: View {
     @FocusState private var focus: TextFieldFocusField?
     
     var body: some View {
-        MainBackground {
+        VStack(spacing: 0) {
             ScrollView(showsIndicators: false) {
                 VStack {
                     Image("jamjam_main_logo")
@@ -995,34 +995,35 @@ struct SignUpView: View {
                 .frame(height: 70)
                 .background(Color.mainBackground)
             }
-            .modifierIf(viewModel.pageIndex == 0, then: {
-                NavigationBarBackAndTitleModifier(title: "회원 가입")
-            }, else: {
-                NavigationBarTitleAndHomeModifier(title: "회원 가입")
-            })
-            .background(Color.mainBackground)
-            .alert("회원가입 실패", isPresented: $viewModel.isSignUpAlertVisible) {
-                Button {
-                    viewModel.signUpAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
-                } label: {
-                    Text("확인")
-                }
-            } message: {
-                Text(viewModel.signUpAlertMessage)
+        }
+        .background(Color.mainBackground)
+        .modifierIf(viewModel.pageIndex == 0, then: {
+            NavigationBarBackAndTitleModifier(title: "회원 가입")
+        }, else: {
+            NavigationBarTitleAndHomeModifier(title: "회원 가입")
+        })
+        .background(Color.mainBackground)
+        .alert("회원가입 실패", isPresented: $viewModel.isSignUpAlertVisible) {
+            Button {
+                viewModel.signUpAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
+            } label: {
+                Text("확인")
             }
-            .onTapGesture {
-                focus = nil
-            }
-            .overlay {
-                if viewModel.isEntireProgressViewVisible {
-                    VStack {
-                        ProgressView()
-                            .scaleEffect(1.2)
-                            .padding(.bottom, 30)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(.white.opacity(0.4))
+        } message: {
+            Text(viewModel.signUpAlertMessage)
+        }
+        .onTapGesture {
+            focus = nil
+        }
+        .overlay {
+            if viewModel.isEntireProgressViewVisible {
+                VStack {
+                    ProgressView()
+                        .scaleEffect(1.2)
+                        .padding(.bottom, 30)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.white.opacity(0.4))
             }
         }
     }

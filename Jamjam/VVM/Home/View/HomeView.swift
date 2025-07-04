@@ -14,7 +14,7 @@ struct HomeView: View {
     @State private var viewModel = HomeViewModel()
     
     var body: some View {
-        MainBackground {
+        VStack(spacing: 0) {
             VStack(spacing: 0) {
                 // MARK: Tool Bar
                 VStack {
@@ -381,20 +381,19 @@ struct HomeView: View {
                     }
                 }
             }
-            .ignoresSafeArea(edges: .top)
-            // MARK: OnAppear
-            .onAppear {
-                viewModel.timer
-                    .autoconnect()
-                    .sink { _ in
-                        viewModel.shufflePublisher.send(.right)
-                    }
-                    .store(in: &viewModel.subscriptions)
-            }
-            // MARK: OnDisappear
-            .onDisappear {
-                viewModel.subscriptions.removeAll()
-            }
+        }
+        .background(Color.mainBackground)
+        .ignoresSafeArea(edges: .top)
+        .onAppear {
+            viewModel.timer
+                .autoconnect()
+                .sink { _ in
+                    viewModel.shufflePublisher.send(.right)
+                }
+                .store(in: &viewModel.subscriptions)
+        }
+        .onDisappear {
+            viewModel.subscriptions.removeAll()
         }
     }
 }
