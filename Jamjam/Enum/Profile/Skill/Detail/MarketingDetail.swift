@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MarketingDetail: Int, Codable {
+enum MarketingDetail: Int, CaseIterable, Codable {
     case digitalMarketing = 31
     case snsMarketing = 32
     case contentMarketing = 33

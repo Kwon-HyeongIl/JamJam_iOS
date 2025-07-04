@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ManagementDetail: Int, Codable {
+enum ManagementDetail: Int, CaseIterable, Codable {
     case businessPlan = 1
     case marketResearch = 2
     case strategyPlanning = 3

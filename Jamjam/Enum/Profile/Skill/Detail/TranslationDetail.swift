@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TranslationDetail: Int, Codable {
+enum TranslationDetail: Int, CaseIterable, Codable {
     case englishTranslation = 107
     case chineseTranslation = 108
     case japaneseTranslation = 109

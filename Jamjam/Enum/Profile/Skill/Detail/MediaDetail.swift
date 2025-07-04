@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MediaDetail: Int, Codable {
+enum MediaDetail: Int, CaseIterable, Codable {
     case productPhotography = 122
     case portraitPhotography = 123
     case weddingPhotography = 124

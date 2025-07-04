@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HobbyLessonDetail: Int, Codable {
+enum HobbyLessonDetail: Int, CaseIterable, Codable {
     case pianoLesson = 167
     case guitarLesson = 168
     case drumLesson = 169

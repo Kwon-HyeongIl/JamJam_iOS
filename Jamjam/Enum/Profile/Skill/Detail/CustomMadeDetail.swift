@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CustomMadeDetail: Int, Codable {
+enum CustomMadeDetail: Int, CaseIterable, Codable {
     case customFurniture = 152
     case interiorAccessory = 153
     case accessoryMaking = 154

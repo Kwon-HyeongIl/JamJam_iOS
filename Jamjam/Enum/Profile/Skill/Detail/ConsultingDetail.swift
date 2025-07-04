@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ConsultingDetail: Int, Codable {
+enum ConsultingDetail: Int, CaseIterable, Codable {
     case managementConsulting = 16
     case strategyConsulting = 17
     case organizationConsulting = 18

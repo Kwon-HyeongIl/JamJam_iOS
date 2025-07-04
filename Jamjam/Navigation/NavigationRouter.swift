@@ -33,19 +33,8 @@ class NavigationRouter {
             // MARK: Profile
         case .providerProfileView:
             ProviderProfileView()
-            
         case .providerProfileEditListView:
-            ProviderProfileEditListView()
-        case .providerProfileIntroductionEditView(let viewModel):
-            ProviderProfileIntroductionEditView(viewModel: viewModel)
-        case .providerProfileSkillEditView(let viewModel):
-            ProviderProfileSkillEditView(viewModel: viewModel)
-        case .providerProfileCareerEditView(let viewModel):
-            ProviderProfileCareerEditView(viewModel: viewModel)
-        case .providerProfileCertificationEditView(let viewModel):
-            ProviderProfileCertificationEditView(viewModel: viewModel)
-        case .providerProfileCallTimeEditView(let viewModel):
-            ProviderProfileCallTimeEditView(viewModel: viewModel)
+            ProviderProfileEditView()
         }
     }
     

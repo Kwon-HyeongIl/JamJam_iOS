@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WritingDetail: Int, Codable {
+enum WritingDetail: Int, CaseIterable, Codable {
     case copywriting = 92
     case contentWriting = 93
     case articleWriting = 94

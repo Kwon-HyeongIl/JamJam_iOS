@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DesignDetail: Int, Codable {
+enum DesignDetail: Int, CaseIterable, Codable {
     case photoshop = 72
     case illustrator = 73
     case indesign = 74

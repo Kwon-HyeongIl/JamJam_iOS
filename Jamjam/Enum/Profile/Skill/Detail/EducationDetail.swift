@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum EducationDetail: Int, Codable {
+enum EducationDetail: Int, CaseIterable, Codable {
     case onlineLecture = 137
     case corporateTraining = 138
     case oneToOneTutoring = 139

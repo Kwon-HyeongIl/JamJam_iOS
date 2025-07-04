@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DevelopmentDetail: Int, Codable {
+enum DevelopmentDetail: Int, CaseIterable, Codable {
     case react = 46
     case vue = 47
     case angular = 48

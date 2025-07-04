@@ -38,12 +38,6 @@
 		CA4CF92D2E0C279D00F882C4 /* VerifySmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF92C2E0C279D00F882C4 /* VerifySmsResponse.swift */; };
 		CA4CF9312E0C2F0B00F882C4 /* SignUpWithClientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF9302E0C2F0B00F882C4 /* SignUpWithClientRequest.swift */; };
 		CA4F12222E177DD00061012E /* ProviderProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */; };
-		CA4F12272E1784070061012E /* ProviderProfileEditListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12262E1784070061012E /* ProviderProfileEditListView.swift */; };
-		CA4F122A2E1784C00061012E /* ProviderProfileIntroductionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12292E1784C00061012E /* ProviderProfileIntroductionEditView.swift */; };
-		CA4F122C2E1784D10061012E /* ProviderProfileSkillEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F122B2E1784D10061012E /* ProviderProfileSkillEditView.swift */; };
-		CA4F122E2E1784DD0061012E /* ProviderProfileCareerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F122D2E1784DD0061012E /* ProviderProfileCareerEditView.swift */; };
-		CA4F12302E1784FF0061012E /* ProviderProfileCertificationEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F122F2E1784FF0061012E /* ProviderProfileCertificationEditView.swift */; };
-		CA4F12322E17851D0061012E /* ProviderProfileCallTimeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12312E17851D0061012E /* ProviderProfileCallTimeEditView.swift */; };
 		CA4F12362E179DE00061012E /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12352E179DE00061012E /* Region.swift */; };
 		CA4F12382E17CACE0061012E /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12372E17CACE0061012E /* Skill.swift */; };
 		CA4F123D2E17D66A0061012E /* ManagementDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F123C2E17D66A0061012E /* ManagementDetail.swift */; };
@@ -58,6 +52,8 @@
 		CA4F124F2E17D7B70061012E /* CustomMadeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F124E2E17D7B70061012E /* CustomMadeDetail.swift */; };
 		CA4F12512E17D7D50061012E /* HobbyLessonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12502E17D7D50061012E /* HobbyLessonDetail.swift */; };
 		CA4F12532E17D7FA0061012E /* LifeServiceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12522E17D7FA0061012E /* LifeServiceDetail.swift */; };
+		CA4F12572E17E11B0061012E /* ProviderProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12562E17E11B0061012E /* ProviderProfileEditView.swift */; };
+		CA4F12592E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12582E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift */; };
 		CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7B2E09688700FB1E22 /* FontType.swift */; };
 		CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */; };
 		CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */; };
@@ -182,12 +178,6 @@
 		CA4CF92C2E0C279D00F882C4 /* VerifySmsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySmsResponse.swift; sourceTree = "<group>"; };
 		CA4CF9302E0C2F0B00F882C4 /* SignUpWithClientRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithClientRequest.swift; sourceTree = "<group>"; };
 		CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileEditViewModel.swift; sourceTree = "<group>"; };
-		CA4F12262E1784070061012E /* ProviderProfileEditListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileEditListView.swift; sourceTree = "<group>"; };
-		CA4F12292E1784C00061012E /* ProviderProfileIntroductionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileIntroductionEditView.swift; sourceTree = "<group>"; };
-		CA4F122B2E1784D10061012E /* ProviderProfileSkillEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileSkillEditView.swift; sourceTree = "<group>"; };
-		CA4F122D2E1784DD0061012E /* ProviderProfileCareerEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileCareerEditView.swift; sourceTree = "<group>"; };
-		CA4F122F2E1784FF0061012E /* ProviderProfileCertificationEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileCertificationEditView.swift; sourceTree = "<group>"; };
-		CA4F12312E17851D0061012E /* ProviderProfileCallTimeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileCallTimeEditView.swift; sourceTree = "<group>"; };
 		CA4F12352E179DE00061012E /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		CA4F12372E17CACE0061012E /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		CA4F123C2E17D66A0061012E /* ManagementDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementDetail.swift; sourceTree = "<group>"; };
@@ -202,6 +192,8 @@
 		CA4F124E2E17D7B70061012E /* CustomMadeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMadeDetail.swift; sourceTree = "<group>"; };
 		CA4F12502E17D7D50061012E /* HobbyLessonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyLessonDetail.swift; sourceTree = "<group>"; };
 		CA4F12522E17D7FA0061012E /* LifeServiceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeServiceDetail.swift; sourceTree = "<group>"; };
+		CA4F12562E17E11B0061012E /* ProviderProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileEditView.swift; sourceTree = "<group>"; };
+		CA4F12582E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileSkillDetailSheetView.swift; sourceTree = "<group>"; };
 		CA5C5E7B2E09688700FB1E22 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretendard.swift; sourceTree = "<group>"; };
 		CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Pretendard.swift"; sourceTree = "<group>"; };
@@ -486,22 +478,10 @@
 		CA4F12252E1783CD0061012E /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				CA4F12262E1784070061012E /* ProviderProfileEditListView.swift */,
-				CA4F12282E1784950061012E /* List */,
+				CA4F12562E17E11B0061012E /* ProviderProfileEditView.swift */,
+				CA4F12582E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift */,
 			);
 			path = Edit;
-			sourceTree = "<group>";
-		};
-		CA4F12282E1784950061012E /* List */ = {
-			isa = PBXGroup;
-			children = (
-				CA4F12292E1784C00061012E /* ProviderProfileIntroductionEditView.swift */,
-				CA4F122B2E1784D10061012E /* ProviderProfileSkillEditView.swift */,
-				CA4F122D2E1784DD0061012E /* ProviderProfileCareerEditView.swift */,
-				CA4F122F2E1784FF0061012E /* ProviderProfileCertificationEditView.swift */,
-				CA4F12312E17851D0061012E /* ProviderProfileCallTimeEditView.swift */,
-			);
-			path = List;
 			sourceTree = "<group>";
 		};
 		CA4F12332E17872E0061012E /* Edit */ = {
@@ -1202,7 +1182,6 @@
 				CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */,
 				CA4F123F2E17D6920061012E /* ConsultingDetail.swift in Sources */,
 				CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */,
-				CA4F122E2E1784DD0061012E /* ProviderProfileCareerEditView.swift in Sources */,
 				CA9F463E2E101FD100028F83 /* ChatListViewModel.swift in Sources */,
 				CA4927D12E0EE4D600D42CD0 /* AuthCenter+Login.swift in Sources */,
 				CA09154D2DF128A400E272F8 /* ContentView.swift in Sources */,
@@ -1212,7 +1191,6 @@
 				CAB6FFFD2E151228004CD644 /* JJUserModel.swift in Sources */,
 				CAAB47F62E0ADC4B000197E5 /* CheckNicknameResponse.swift in Sources */,
 				CAB6003B2E1693B5004CD644 /* DeleteChatRoomResponse.swift in Sources */,
-				CA4F12322E17851D0061012E /* ProviderProfileCallTimeEditView.swift in Sources */,
 				CAB6003D2E16B682004CD644 /* ReadLastMessageRequest.swift in Sources */,
 				CA9609AA2DFFCFFD00B878C6 /* MainTabBarCapsule.swift in Sources */,
 				CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */,
@@ -1228,7 +1206,6 @@
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
 				CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponse.swift in Sources */,
 				CA4927D92E0EE5BE00D42CD0 /* LoginResponse.swift in Sources */,
-				CA4F122C2E1784D10061012E /* ProviderProfileSkillEditView.swift in Sources */,
 				CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */,
 				CAB600052E15517D004CD644 /* ChatManager+StompOpen.swift in Sources */,
 				CA4F12382E17CACE0061012E /* Skill.swift in Sources */,
@@ -1257,8 +1234,10 @@
 				CAAB47F22E0AD13E000197E5 /* AuthCenter+SignUp.swift in Sources */,
 				CA60FAD32E100BD000150563 /* Keychain.swift in Sources */,
 				CA4F124F2E17D7B70061012E /* CustomMadeDetail.swift in Sources */,
+				CA4F12572E17E11B0061012E /* ProviderProfileEditView.swift in Sources */,
 				CA9609B02DFFD17900B878C6 /* CornerRadius.swift in Sources */,
 				CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */,
+				CA4F12592E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift in Sources */,
 				CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */,
 				CAB6000B2E155D3C004CD644 /* ChatSocketMessageResponse.swift in Sources */,
 				CA4CF92B2E0C276B00F882C4 /* VerifySmsRequest.swift in Sources */,
@@ -1279,13 +1258,10 @@
 				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponse.swift in Sources */,
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
 				CA4F12512E17D7D50061012E /* HobbyLessonDetail.swift in Sources */,
-				CA4F122A2E1784C00061012E /* ProviderProfileIntroductionEditView.swift in Sources */,
 				CA4F12412E17D6B60061012E /* MarketingDetail.swift in Sources */,
 				CA4F12362E179DE00061012E /* Region.swift in Sources */,
-				CA4F12302E1784FF0061012E /* ProviderProfileCertificationEditView.swift in Sources */,
 				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,
 				CAB6003F2E16B6A9004CD644 /* ReadLastMessageResponse.swift in Sources */,
-				CA4F12272E1784070061012E /* ProviderProfileEditListView.swift in Sources */,
 				CA4F123D2E17D66A0061012E /* ManagementDetail.swift in Sources */,
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,
 				CA4CF9292E0C1E3A00F882C4 /* SendSmsResponse.swift in Sources */,

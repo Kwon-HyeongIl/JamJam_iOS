@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum LifeServiceDetail: Int, Codable {
+enum LifeServiceDetail: Int, CaseIterable, Codable {
     case cleaningService = 182
     case organizingService = 183
     case penthouseManagement = 184

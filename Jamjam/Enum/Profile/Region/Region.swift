@@ -8,7 +8,6 @@
 import Foundation
 
 enum Region: Int, Codable {
-    case none = 0
     case seoul = 1
     case incheon = 2
     case gyeonggi = 3
@@ -29,7 +28,6 @@ enum Region: Int, Codable {
     
     var displayName: String {
         switch self {
-        case .none: return "지역을 선택하세요"
         case .seoul: return "서울특별시"
         case .incheon: return "인천광역시"
         case .gyeonggi: return "경기도"
