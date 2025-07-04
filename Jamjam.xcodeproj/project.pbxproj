@@ -37,6 +37,8 @@
 		CA4CF92B2E0C276B00F882C4 /* VerifySmsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF92A2E0C276B00F882C4 /* VerifySmsRequest.swift */; };
 		CA4CF92D2E0C279D00F882C4 /* VerifySmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF92C2E0C279D00F882C4 /* VerifySmsResponse.swift */; };
 		CA4CF9312E0C2F0B00F882C4 /* SignUpWithClientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF9302E0C2F0B00F882C4 /* SignUpWithClientRequest.swift */; };
+		CA4F12202E177DC00061012E /* ProviderProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F121F2E177DC00061012E /* ProviderProfileEditView.swift */; };
+		CA4F12222E177DD00061012E /* ProviderProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */; };
 		CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7B2E09688700FB1E22 /* FontType.swift */; };
 		CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */; };
 		CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */; };
@@ -161,6 +163,8 @@
 		CA4CF92A2E0C276B00F882C4 /* VerifySmsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySmsRequest.swift; sourceTree = "<group>"; };
 		CA4CF92C2E0C279D00F882C4 /* VerifySmsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySmsResponse.swift; sourceTree = "<group>"; };
 		CA4CF9302E0C2F0B00F882C4 /* SignUpWithClientRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithClientRequest.swift; sourceTree = "<group>"; };
+		CA4F121F2E177DC00061012E /* ProviderProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileEditView.swift; sourceTree = "<group>"; };
+		CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileEditViewModel.swift; sourceTree = "<group>"; };
 		CA5C5E7B2E09688700FB1E22 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretendard.swift; sourceTree = "<group>"; };
 		CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Pretendard.swift"; sourceTree = "<group>"; };
@@ -693,6 +697,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9BB5232E12B8DD0035F26D /* ProviderProfileView.swift */,
+				CA4F121F2E177DC00061012E /* ProviderProfileEditView.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -850,6 +855,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */,
+				CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -1090,6 +1096,7 @@
 				CAB600092E155D29004CD644 /* ChatSocketMessageRequest.swift in Sources */,
 				CA9BB5242E12B8DD0035F26D /* ProviderProfileView.swift in Sources */,
 				CA4CF9272E0C1E1100F882C4 /* SendSmsRequest.swift in Sources */,
+				CA4F12222E177DD00061012E /* ProviderProfileEditViewModel.swift in Sources */,
 				CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */,
 				CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */,
 				CA9F463E2E101FD100028F83 /* ChatViewModel.swift in Sources */,
@@ -1143,6 +1150,7 @@
 				CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */,
 				CAB6000B2E155D3C004CD644 /* ChatSocketMessageResponse.swift in Sources */,
 				CA4CF92B2E0C276B00F882C4 /* VerifySmsRequest.swift in Sources */,
+				CA4F12202E177DC00061012E /* ProviderProfileEditView.swift in Sources */,
 				CA87FF782E014B7A00C8C830 /* SignUpViewModel.swift in Sources */,
 				CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */,
 				CAAB47F82E0B0975000197E5 /* SignUpViewModel+Restore.swift in Sources */,
