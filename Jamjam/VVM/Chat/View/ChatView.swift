@@ -13,13 +13,27 @@ struct ChatView: View {
     
     var body: some View {
         MainBackground {
-            ScrollView(showsIndicators: false) {
-                LazyVStack(spacing: 0) {
-                    ForEach(viewModel.chatRooms) { chatRoom in
-                        ChatCellView(chatRoom: chatRoom)
-                            .onTapGesture {
-                                navRouter.navigate(.chatContentView(chatRoom))
-                            }
+            VStack(spacing: 0) {
+                VStack {
+                    HStack {
+                        Text("채팅")
+                            .font(.pretendard(Pretendard.semiBold, size: 25))
+                            .padding(.leading, 20)
+                        
+                        Spacer()
+                    }
+                }
+                .frame(height: 50)
+                .background(Color.mainBackground)
+                
+                ScrollView(showsIndicators: false) {
+                    LazyVStack(spacing: 0) {
+                        ForEach(viewModel.chatRooms) { chatRoom in
+                            ChatCellView(chatRoom: chatRoom)
+                                .onTapGesture {
+                                    navRouter.navigate(.chatContentView(chatRoom))
+                                }
+                        }
                     }
                 }
             }

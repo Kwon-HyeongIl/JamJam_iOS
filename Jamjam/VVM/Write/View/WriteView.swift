@@ -9,7 +9,21 @@ import SwiftUI
 
 struct WriteView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        MainBackground {
+            VStack(spacing: 0) {
+                VStack {
+                    HStack {
+                        Text("작성")
+                            .font(.pretendard(Pretendard.semiBold, size: 25))
+                            .padding(.leading, 20)
+                        
+                        Spacer()
+                    }
+                }
+                .frame(height: 50)
+                .background(Color.mainBackground)
+            }
+        }
     }
 }
 
