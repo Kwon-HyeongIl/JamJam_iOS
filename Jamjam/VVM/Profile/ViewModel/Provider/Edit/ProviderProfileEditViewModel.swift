@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 class ProviderProfileEditViewModel {
-    var pageIndex = 2
+    var pageIndex = 3
     
     var title: String {
         switch pageIndex {
@@ -51,7 +51,9 @@ class ProviderProfileEditViewModel {
     // MARK: Page Index 2
     var careerFormList: [CareerFormModel] = []
     
-    
+    // MARK: Page Index 3
+    var degreeFormList: [DegreeFormModel] = []
+    var certificateFormList: [CertificateFormModel] = []
     
     func detailSkillText(id: Int) -> String? {
         ProfileInfoManager.extractDetailSkillTextWithId(id: id)
@@ -61,6 +63,22 @@ class ProviderProfileEditViewModel {
         if let index = careerFormList.firstIndex(where: { $0.id == form.id }) {
             DispatchQueue.main.async {
                 self.careerFormList.remove(at: index)
+            }
+        }
+    }
+    
+    func removeCurrentDegreeForm(_ form: DegreeFormModel) {
+        if let index = degreeFormList.firstIndex(where: { $0.id == form.id }) {
+            DispatchQueue.main.async {
+                self.degreeFormList.remove(at: index)
+            }
+        }
+    }
+    
+    func removeCurrentCertificateForm(_ form: CertificateFormModel) {
+        if let index = certificateFormList.firstIndex(where: { $0.id == form.id }) {
+            DispatchQueue.main.async {
+                self.certificateFormList.remove(at: index)
             }
         }
     }
