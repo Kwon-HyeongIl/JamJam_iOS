@@ -40,7 +40,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {

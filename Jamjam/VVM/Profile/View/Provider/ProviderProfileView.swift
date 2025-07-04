@@ -198,7 +198,7 @@ struct ProviderProfileView: View {
                                         }
                                     }
                                     .onTapGesture {
-                                        withAnimation(.spring(response: 0.2,
+                                        withAnimation(.spring(response: 0.1,
                                                               dampingFraction: 1,
                                                               blendDuration: 0)) {
                                             viewModel.selectedIndex = idx
@@ -206,14 +206,14 @@ struct ProviderProfileView: View {
                                     }
                                     .onChange(of: viewModel.selectedIndex) { _, newIndex in
                                         if newIndex == 0 {
-                                            withAnimation(.spring(response: 0.2,
+                                            withAnimation(.spring(response: 0.1,
                                                                   dampingFraction: 1,
                                                                   blendDuration: 0)) {
                                                 position.scrollTo(edge: .top)
                                             }
                                             
                                         } else if newIndex == 1 {
-                                            withAnimation(.spring(response: 0.2,
+                                            withAnimation(.spring(response: 0.1,
                                                                   dampingFraction: 1,
                                                                   blendDuration: 0)) {
                                                 position.scrollTo(edge: .bottom)
@@ -233,7 +233,7 @@ struct ProviderProfileView: View {
                 geometry.contentOffset.y
             } action: { oldY, newY in
                 if newY <= 0 {
-                    withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
                         isTabBarVisible = true
                     }
                     
@@ -244,7 +244,7 @@ struct ProviderProfileView: View {
                 
                 guard abs(delta) > 5 else { return }
                 
-                withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
                     isTabBarVisible = delta < 0
                 }
             }

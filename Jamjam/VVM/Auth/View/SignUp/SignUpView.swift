@@ -67,7 +67,7 @@ struct SignUpView: View {
                             
                             HStack(spacing: 15) {
                                 Button {
-                                    withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
                                         if viewModel.isClientButtonTapped {
                                             viewModel.isClientButtonTapped = false
                                         }
@@ -111,7 +111,7 @@ struct SignUpView: View {
                                 }
                                 
                                 Button {
-                                    withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
                                         if viewModel.isExpertButtonTapped {
                                             viewModel.isExpertButtonTapped = false
                                         }
@@ -687,7 +687,7 @@ struct SignUpView: View {
                                 
                                 HStack {
                                     Button {
-                                        withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                                        withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
                                             if viewModel.isGenderWomanButtonTapped {
                                                 viewModel.isGenderWomanButtonTapped = false
                                             }
@@ -712,7 +712,7 @@ struct SignUpView: View {
                                     }
                                     
                                     Button {
-                                        withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                                        withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
                                             if viewModel.isGenderManButtonTapped {
                                                 viewModel.isGenderManButtonTapped = false
                                             }
@@ -771,7 +771,7 @@ struct SignUpView: View {
                                         if viewModel.validatePhoneNumberForm() {
                                             viewModel.sendPhoneNumber()
                                             
-                                            withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                                            withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
                                                 viewModel.isPhoneNumberSendingButtonTapped = true
                                                 position.scrollTo(edge: .bottom)
                                             }

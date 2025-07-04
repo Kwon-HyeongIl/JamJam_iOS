@@ -86,7 +86,7 @@ struct CategoryView: View {
                                             }
                                         }
                                         .onTapGesture {
-                                            withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                                            withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
                                                 viewModel.selectedIndex = idx
                                             }
                                         }
@@ -103,7 +103,7 @@ struct CategoryView: View {
                 geometry.contentOffset.y
             } action: { oldY, newY in
                 if newY <= 0 {
-                    withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
                         isTabBarVisible = true
                     }
                     
@@ -114,7 +114,7 @@ struct CategoryView: View {
                 
                 guard abs(delta) > 5 else { return }
                 
-                withAnimation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 0)) {
+                withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
                     isTabBarVisible = delta < 0
                 }
             }
