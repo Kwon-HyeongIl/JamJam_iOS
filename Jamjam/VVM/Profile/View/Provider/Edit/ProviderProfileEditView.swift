@@ -574,10 +574,16 @@ struct ProviderProfileEditView: View {
                                                     HStack {
                                                         Spacer()
                                                         
-                                                        Image(systemName: "xmark")
-                                                            .font(.system(size: 15))
-                                                            .foregroundStyle(.gray.opacity(0.5))
-                                                            .padding(.trailing, 35)
+                                                        Button {
+                                                            withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                                                viewModel.removeCurrentCareerForm($careerForm.wrappedValue)
+                                                            }
+                                                        } label: {
+                                                            Image(systemName: "xmark")
+                                                                .font(.system(size: 15))
+                                                                .foregroundStyle(.gray.opacity(0.5))
+                                                                .padding(.trailing, 35)
+                                                        }
                                                     }
                                                     .padding(.top, 12)
                                                     

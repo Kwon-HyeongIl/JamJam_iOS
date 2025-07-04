@@ -56,4 +56,10 @@ class ProviderProfileEditViewModel {
     func detailSkillText(id: Int) -> String? {
         ProfileInfoManager.extractDetailSkillTextWithId(id: id)
     }
+    
+    func removeCurrentCareerForm(_ form: CareerFormModel) {
+        if let index = careerFormList.firstIndex(where: { $0.id == form.id }) {
+            careerFormList.remove(at: index)
+        }
+    }
 }
