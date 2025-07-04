@@ -418,13 +418,13 @@ struct ProviderProfileEditView: View {
                     .frame(width: 1, height: 90)
             }
             .safeAreaInset(edge: .bottom) {
-                switch viewModel.pageIndex {
-                case 0:
-                    VStack(spacing: 0) {
-                        Divider()
-                        
-                        Spacer()
-                        
+                VStack(spacing: 0) {
+                    Divider()
+                    
+                    Spacer()
+                    
+                    switch viewModel.pageIndex {
+                    case 0:
                         Button {
                             viewModel.pageIndex = 1
                         } label: {
@@ -439,14 +439,51 @@ struct ProviderProfileEditView: View {
                                 }
                         }
                         
-                        Spacer()
+                    case 1:
+                        HStack(spacing: 15) {
+                            Button {
+                                viewModel.pageIndex = 0
+                            } label: {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(height: 45)
+                                    .foregroundStyle(.white)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("이전")
+                                            .font(.pretendard(Pretendard.semiBold, size: 17))
+                                            .foregroundStyle(.gray)
+                                    }
+                                    .padding(.leading, 20)
+                            }
+                            
+                            Button {
+                                viewModel.pageIndex = 2
+                            } label: {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(height: 45)
+                                    .foregroundStyle(Color.JJTitle)
+                                    .overlay {
+                                        Text("다음")
+                                            .font(.pretendard(Pretendard.semiBold, size: 17))
+                                            .foregroundStyle(.white)
+                                    }
+                                    .padding(.trailing, 20)
+                                    .opacity(viewModel.selectedDetailSkillIds.isEmpty ? 0.4 : 1)
+                                    .disabled(viewModel.selectedDetailSkillIds.isEmpty)
+                            }
+                        }
+                        
+                    default:
+                        VStack {}
                     }
-                    .frame(height: 70)
-                    .background(Color.mainBackground)
                     
-                default:
-                    VStack {}
+                    Spacer()
                 }
+                .frame(height: 70)
+                .background(Color.mainBackground)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
