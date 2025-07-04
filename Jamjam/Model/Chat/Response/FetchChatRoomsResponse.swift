@@ -22,9 +22,9 @@ struct FetchChatRoomsResponse: Decodable {
 
 struct ChatRoom: Decodable, Identifiable, Hashable, Equatable {
     let id: Int
-    let nickname: String
+    let nickname: String?
     let lastMessage: String?
     let lastMessageTime: String?
     let unreadCount: Int
-    let profileUrl: String
+    let profileUrl: String?
 }

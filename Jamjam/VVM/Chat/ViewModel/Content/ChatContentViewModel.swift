@@ -34,26 +34,40 @@ class ChatContentViewModel {
     }
     
     private func subscribeStomp() {
-        // 연결 → 방 구독
-        ChatManager.shared.socketConnectionStatus
+        // MARK: 연결 상태 라우터 구독 → 방 구독 (connection 상태일 때)
+        ChatManager.shared.socketConnectionStatusRouter
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] status in
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[socketConnectionStatusRouter] completion finished")
+                case .failure(let error):
+                    self?.logger.error("[socketConnectionStatusRouter] completion failed: \(error)")
+                }
+            } receiveValue: { [weak self] status in
                 guard let self else { return }
-                print("🔄 socketConnectionStatus 변경: \(status)")
+                
                 if case .connected = status {
+                    logger.info("[socketConnectionStatusRouter] 연결 상태 확인, 방 구독 시작, target roomId: \(chatRoom.id)")
                     ChatManager.shared.subscribe(roomId: chatRoom.id)
-                    print("방 구독")
                 }
             }
             .store(in: &cancellables)
 
-        // 메시지 수신
-        ChatManager.shared.onMessageReceived
+        // MARK: 메시지 라우터 구독
+        ChatManager.shared.messageReceivedRouter
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] response in
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[messageReceivedRouter] completion finished")
+                case .failure(let error):
+                    self?.logger.error("[messageReceivedRouter] completion failed: \(error)")
+                }
+            } receiveValue: { [weak self] response in
+                self?.logger.info("[messageReceivedRouter] 디코딩 된 메시지 저장")
                 guard let message = response.content else { return }
                 self?.messages.append(message)
-                print("📥 ViewModel 메시지 추가 — id: \(message.id)")
             }
             .store(in: &cancellables)
     }
@@ -75,9 +89,13 @@ class ChatContentViewModel {
                 if response.code == "SUCCESS" {
                     self?.logger.info("[fetchChatMessages] SUCCESS")
                     
-                    if let messages = response.content?.chats {
+                    if let messages = response.content?.chats, !messages.isEmpty {
+                        self?.logger.info("[fetchChatMessages] 이전 메시지 존재")
                         self?.messages = messages
                         self?.readLastMessage()
+                        
+                    } else {
+                        self?.logger.info("[fetchChatMessages] 이전 메시지 없음")
                     }
                     
                 } else {
@@ -113,11 +131,7 @@ class ChatContentViewModel {
     }
     
     func send() {
-        let text = inputMessage.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        guard !text.isEmpty else { return }
-        
-        ChatManager.shared.sendMessage(roomId: chatRoom.id, text: text)
+        ChatManager.shared.sendMessage(roomId: chatRoom.id, text: inputMessage)
         inputMessage = ""
     }
     

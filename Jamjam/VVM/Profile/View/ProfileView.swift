@@ -17,6 +17,12 @@ struct ProfileView: View {
             } label: {
                 Text("로그아웃")
             }
+            
+            Button {
+                navRouter.navigate(.providerProfileView)
+            } label: {
+                Text("llioopv의 프로필")
+            }
         }
     }
 }

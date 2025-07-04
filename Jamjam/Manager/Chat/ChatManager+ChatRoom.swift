@@ -23,6 +23,7 @@ extension ChatManager {
     
     func fetchChatRooms(request: FetchChatRoomsRequest) -> AnyPublisher<FetchChatRoomsResponse, Error> {
         let url = API.fetchChatRooms.url
+        print("패치 토큰 \(API.headers)")
         
         return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
             .publishDecodable(type: FetchChatRoomsResponse.self)
@@ -33,6 +34,8 @@ extension ChatManager {
     
     func fetchChatMessages(request: FetchChatMessagesRequest, chatRoomId: Int) -> AnyPublisher<FetchChatMessagesResponse, Error> {
         let url = API.fetchChatMessages(chatRoomId).url
+        
+        print("팡 \(API.headers)")
         
         return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
             .publishDecodable(type: FetchChatMessagesResponse.self)

@@ -25,6 +25,10 @@ struct ChatView: View {
             }
             .onAppear {
                 viewModel.fetchChatRooms()
+                
+                if viewModel.isStompClientInitPossible {
+                    viewModel.initStompClient()
+                }
             }
         }
     }

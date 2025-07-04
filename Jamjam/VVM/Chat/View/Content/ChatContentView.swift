@@ -102,7 +102,7 @@ struct ChatContentView: View {
                 }
                 .frame(height: 60)
             }
-            .modifier(NavigationBarBackAndProfileAndEditModifier(nickname: viewModel.chatRoom.nickname, isEdditButtonTapped: $viewModel.isEditButtonTapped))
+            .modifier(NavigationBarBackAndProfileAndEditModifier(nickname: viewModel.chatRoom.nickname ?? "", isEdditButtonTapped: $viewModel.isEditButtonTapped))
             .alert("채팅방을 나가시겠습니까?", isPresented: $viewModel.isEditButtonTapped) {
                 Button(role: .cancel) {
                     

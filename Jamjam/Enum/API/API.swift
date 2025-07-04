@@ -12,11 +12,13 @@ enum API {
     static let baseURL = "https://api.jamx2.store"
     
     static let headers: HTTPHeaders = [
-            "X-Client-Type": "APP",
-            "Authorization": "Bearer \(AuthCenter.shared.accessToken ?? "")"
-        ]
+        "content-type": "application/json",
+        "X-Client-Type": "APP",
+        "Authorization": "Bearer \(AuthCenter.shared.accessToken ?? "")"
+    ]
     
     static let socketHeaders = [
+        "content-type": "application/json",
         "Authorization": "Bearer \(AuthCenter.shared.accessToken ?? "")",
         "Heart-Beat": "10000, 10000"
     ]

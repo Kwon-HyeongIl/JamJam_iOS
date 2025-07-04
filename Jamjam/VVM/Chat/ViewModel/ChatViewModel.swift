@@ -13,6 +13,10 @@ import os
 class ChatViewModel {
     var chatRooms: [ChatRoom] = []
     
+    var isStompClientInitPossible: Bool {
+        !AuthCenter.shared.isStompClientInit && AuthCenter.shared.isLogin
+    }
+    
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ChatViewModel")
     
@@ -41,5 +45,9 @@ class ChatViewModel {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    func initStompClient() {
+        ChatManager.shared.initStompClient()
     }
 }

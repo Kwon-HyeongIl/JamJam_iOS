@@ -44,6 +44,8 @@ class AuthCenter {
     var fcmDeviceToken: String?
     var googleAccessToken: String?
     
+    var isStompClientInit = false
+    
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "AuthCenter")
     

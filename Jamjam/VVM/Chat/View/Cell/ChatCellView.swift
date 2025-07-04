@@ -18,7 +18,7 @@ struct ChatCellView: View {
                 .padding(.leading, 20)
             
             VStack(alignment: .leading, spacing: 8) {
-                Text(chatRoom.nickname)
+                Text(chatRoom.nickname ?? "")
                     .font(.pretendard(Pretendard.semiBold, size: 17))
                 
                 Text(chatRoom.lastMessage ?? "")
