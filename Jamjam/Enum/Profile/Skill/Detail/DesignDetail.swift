@@ -29,7 +29,7 @@ enum DesignDetail: Int, CaseIterable, Codable {
     case emoticonDesign = 90
     case bICIDesign = 91
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .photoshop: return "Adobe Photoshop"
         case .illustrator: return "Adobe Illustrator"

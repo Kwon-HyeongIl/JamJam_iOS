@@ -24,7 +24,7 @@ enum MarketingDetail: Int, CaseIterable, Codable {
     case retargetingAds = 44
     case marketingAutomation = 45
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .digitalMarketing: return "디지털 마케팅"
         case .snsMarketing: return "SNS 마케팅"

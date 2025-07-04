@@ -24,7 +24,7 @@ enum CustomMadeDetail: Int, CaseIterable, Codable {
     case phoneCaseMaking = 165
     case customPerfume = 166
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .customFurniture: return "맞춤 가구"
         case .interiorAccessory: return "인테리어 소품"

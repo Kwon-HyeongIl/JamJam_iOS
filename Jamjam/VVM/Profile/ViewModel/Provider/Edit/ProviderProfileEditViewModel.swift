@@ -39,6 +39,10 @@ class ProviderProfileEditViewModel: Hashable, Equatable {
     var tappedSkill: Skill?
     var isSheetVisible = false
     
+    func detailSkillText(id: Int) -> String? {
+        ProfileInfoManager.extractDetailSkillTextWithId(id: id)
+    }
+    
     
     // MARK: Hashable, Equatable
     func hash(into hasher: inout Hasher) {

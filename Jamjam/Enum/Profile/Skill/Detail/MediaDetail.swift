@@ -24,7 +24,7 @@ enum MediaDetail: Int, CaseIterable, Codable {
     case musicVideoProduction = 135
     case droneFilming = 136
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .productPhotography: return "상품사진"
         case .portraitPhotography: return "인물사진"

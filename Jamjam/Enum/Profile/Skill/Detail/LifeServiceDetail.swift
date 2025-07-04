@@ -24,7 +24,7 @@ enum LifeServiceDetail: Int, CaseIterable, Codable {
     case homeCareService = 195
     case seniorCareService = 196
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .cleaningService: return "청소 서비스"
         case .organizingService: return "정리정돈"

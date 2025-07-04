@@ -61,103 +61,103 @@ struct ProviderProfileEditView: View {
                                 Button {
                                     viewModel.selectedRegion = .seoul
                                 } label: {
-                                    Text(Region.seoul.displayName)
+                                    Text(Region.seoul.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .incheon
                                 } label: {
-                                    Text(Region.incheon.displayName)
+                                    Text(Region.incheon.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .gyeonggi
                                 } label: {
-                                    Text(Region.gyeonggi.displayName)
+                                    Text(Region.gyeonggi.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .busan
                                 } label: {
-                                    Text(Region.busan.displayName)
+                                    Text(Region.busan.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .ulsan
                                 } label: {
-                                    Text(Region.ulsan.displayName)
+                                    Text(Region.ulsan.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .gyeongnam
                                 } label: {
-                                    Text(Region.gyeongnam.displayName)
+                                    Text(Region.gyeongnam.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .daegu
                                 } label: {
-                                    Text(Region.daegu.displayName)
+                                    Text(Region.daegu.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .gyeongbuk
                                 } label: {
-                                    Text(Region.gyeongbuk.displayName)
+                                    Text(Region.gyeongbuk.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .daejeon
                                 } label: {
-                                    Text(Region.daejeon.displayName)
+                                    Text(Region.daejeon.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .sejong
                                 } label: {
-                                    Text(Region.sejong.displayName)
+                                    Text(Region.sejong.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .chungnam
                                 } label: {
-                                    Text(Region.chungnam.displayName)
+                                    Text(Region.chungnam.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .chungbuk
                                 } label: {
-                                    Text(Region.chungbuk.displayName)
+                                    Text(Region.chungbuk.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .gwangju
                                 } label: {
-                                    Text(Region.gwangju.displayName)
+                                    Text(Region.gwangju.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .jeonnam
                                 } label: {
-                                    Text(Region.jeonnam.displayName)
+                                    Text(Region.jeonnam.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .jeonbuk
                                 } label: {
-                                    Text(Region.jeonbuk.displayName)
+                                    Text(Region.jeonbuk.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .gangwon
                                 } label: {
-                                    Text(Region.gangwon.displayName)
+                                    Text(Region.gangwon.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedRegion = .jeju
                                 } label: {
-                                    Text(Region.jeju.displayName)
+                                    Text(Region.jeju.text)
                                 }
                                 
                             } label: {
@@ -172,7 +172,7 @@ struct ProviderProfileEditView: View {
                                     }
                                     .overlay {
                                         HStack {
-                                            Text(viewModel.selectedRegion?.displayName ?? "")
+                                            Text(viewModel.selectedRegion?.text ?? "")
                                                 .font(.pretendard(size: 14.5))
                                                 .foregroundStyle(.gray.opacity(0.55))
                                                 .padding(.leading, 35)
@@ -203,73 +203,73 @@ struct ProviderProfileEditView: View {
                                 Button {
                                     viewModel.selectedSkill = .management
                                 } label: {
-                                    Text(Skill.management.displayName)
+                                    Text(Skill.management.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .consulting
                                 } label: {
-                                    Text(Skill.consulting.displayName)
+                                    Text(Skill.consulting.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .marketing
                                 } label: {
-                                    Text(Skill.marketing.displayName)
+                                    Text(Skill.marketing.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .development
                                 } label: {
-                                    Text(Skill.development.displayName)
+                                    Text(Skill.development.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .design
                                 } label: {
-                                    Text(Skill.design.displayName)
+                                    Text(Skill.design.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .writing
                                 } label: {
-                                    Text(Skill.writing.displayName)
+                                    Text(Skill.writing.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .translation
                                 } label: {
-                                    Text(Skill.translation.displayName)
+                                    Text(Skill.translation.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .media
                                 } label: {
-                                    Text(Skill.media.displayName)
+                                    Text(Skill.media.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .education
                                 } label: {
-                                    Text(Skill.education.displayName)
+                                    Text(Skill.education.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .customMade
                                 } label: {
-                                    Text(Skill.customMade.displayName)
+                                    Text(Skill.customMade.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .hobbyLesson
                                 } label: {
-                                    Text(Skill.hobbyLesson.displayName)
+                                    Text(Skill.hobbyLesson.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .lifeService
                                 } label: {
-                                    Text(Skill.lifeService.displayName)
+                                    Text(Skill.lifeService.text)
                                 }
                                 
                             } label: {
@@ -284,7 +284,7 @@ struct ProviderProfileEditView: View {
                                     }
                                     .overlay {
                                         HStack {
-                                            Text(viewModel.selectedSkill?.displayName ?? "")
+                                            Text(viewModel.selectedSkill?.text ?? "")
                                                 .font(.pretendard(size: 14.5))
                                                 .foregroundStyle(.gray.opacity(0.55))
                                                 .padding(.leading, 35)
@@ -308,30 +308,81 @@ struct ProviderProfileEditView: View {
                 case 1:
                     VStack(spacing: 0) {
                         ScrollView {
-                            VStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(height: 100)
-                                    .foregroundStyle(.gray.opacity(0.2))
-                                    .padding(.horizontal, 20)
-                                    .padding(.top, 5)
-                                    .overlay {
-                                        if viewModel.selectedDetailSkillIds.isEmpty {
-                                            VStack {
-                                                Text("아래에서 기술을 선택해주세요.")
-                                                    .font(.pretendard(Pretendard.regular, size: 12))
-                                                    .foregroundStyle(.gray)
+                            VStack(spacing: 0) {
+                                
+                                
+                                ZStack {
+                                    Rectangle()
+                                        .frame(height: 80)
+                                        .foregroundStyle(.gray.opacity(0.1))
+                                        .padding(.top, 5)
+                                        .overlay {
+                                            if viewModel.selectedDetailSkillIds.isEmpty {
+                                                VStack {
+                                                    Text("아래에서 기술을 선택해주세요.")
+                                                        .font(.pretendard(Pretendard.regular, size: 12))
+                                                        .foregroundStyle(.gray)
+                                                    
+                                                    Text("최대 20개까지 선택할 수 있습니다.")
+                                                        .font(.pretendard(Pretendard.regular, size: 12))
+                                                        .foregroundStyle(.gray)
+                                                }
+                                            }
+                                        }
+                                    
+                                    VStack(spacing: 0) {
+                                        if !viewModel.selectedDetailSkillIds.isEmpty {
+                                            HStack {
+                                                Text("\(viewModel.selectedDetailSkillIds.count)개 선택됨")
+                                                    .font(.pretendard(size: 12))
+                                                    .foregroundStyle(.gray.opacity(0.7))
+                                                    .padding(.leading, 20)
+                                                    .padding(.bottom, 8)
                                                 
-                                                Text("최대 20개까지 선택할 수 있습니다.")
-                                                    .font(.pretendard(Pretendard.regular, size: 12))
-                                                    .foregroundStyle(.gray)
+                                                Spacer()
+                                            }
+                                        }
+                                        
+                                        ScrollView(.horizontal, showsIndicators: false) {
+                                            HStack(spacing: 0) {
+                                                ForEach(Array(viewModel.selectedDetailSkillIds.enumerated()), id: \.element) { index, detailSkillId in
+                                                    
+                                                    HStack(spacing: 10) {
+                                                        Text(viewModel.detailSkillText(id: detailSkillId) ?? "")
+                                                            .font(.pretendard(size: 16))
+                                                            .foregroundStyle(Color.JJTitle)
+                                                        
+                                                        Button {
+                                                            // 삭제 액션
+                                                        } label: {
+                                                            Image(systemName: "xmark")
+                                                                .font(.system(size: 12))
+                                                                .foregroundStyle(.gray.opacity(0.5))
+                                                        }
+                                                    }
+                                                    .padding(.horizontal, 13)
+                                                    .padding(.vertical, 6)
+                                                    .background(
+                                                        RoundedRectangle(cornerRadius: 30)
+                                                            .foregroundStyle(.red.opacity(0.1))
+                                                            .overlay {
+                                                                RoundedRectangle(cornerRadius: 30)
+                                                                    .strokeBorder(Color.JJTitle, lineWidth: 1)
+                                                            }
+                                                        
+                                                    )
+                                                    .fixedSize()
+                                                    .padding(.leading, viewModel.selectedDetailSkillIds.isEmpty ? 0 : 20)
+                                                }
                                             }
                                         }
                                     }
+                                }
                                 
                                 VStack(spacing: 0) {
                                     ForEach(Array(Skill.allCases.enumerated()), id: \.element) { index, currentSkill in
                                         HStack {
-                                            Text(currentSkill.displayName)
+                                            Text(currentSkill.text)
                                                 .font(.pretendard(Pretendard.regular, size: 18))
                                                 .padding(.leading, 20)
                                             
@@ -343,9 +394,9 @@ struct ProviderProfileEditView: View {
                                             viewModel.tappedSkill = currentSkill
                                             viewModel.isSheetVisible = true
                                         }
-                                        .padding(.top, index == 0 ? 15 : 0)
                                         
                                         Divider()
+                                            .padding(.horizontal, 10)
                                     }
                                 }
                             }

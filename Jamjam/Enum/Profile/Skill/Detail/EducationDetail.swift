@@ -24,7 +24,7 @@ enum EducationDetail: Int, CaseIterable, Codable {
     case teachingMethodConsulting = 150
     case instructorCoaching = 151
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .onlineLecture: return "온라인 강의"
         case .corporateTraining: return "기업교육"

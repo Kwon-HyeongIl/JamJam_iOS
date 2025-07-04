@@ -24,7 +24,7 @@ enum HobbyLessonDetail: Int, CaseIterable, Codable {
     case photographyBasics = 180
     case digitalDrawing = 181
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .pianoLesson: return "피아노"
         case .guitarLesson: return "기타"

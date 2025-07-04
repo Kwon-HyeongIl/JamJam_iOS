@@ -35,7 +35,7 @@ enum DevelopmentDetail: Int, CaseIterable, Codable {
     case webSecurity = 70
     case mobileAppDevelopment = 71
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .react: return "React"
         case .vue: return "Vue.js"

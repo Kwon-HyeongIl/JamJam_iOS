@@ -21,7 +21,7 @@ enum Skill: Int, CaseIterable, Codable {
     case hobbyLesson = 11
     case lifeService = 12
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .management: return "경영•기획"
         case .consulting: return "컨설팅•멘토링"

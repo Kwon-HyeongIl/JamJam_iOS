@@ -26,7 +26,7 @@ enum Region: Int, Codable {
     case gangwon = 16
     case jeju = 17
     
-    var displayName: String {
+    var text: String {
         switch self {
         case .seoul: return "서울특별시"
         case .incheon: return "인천광역시"

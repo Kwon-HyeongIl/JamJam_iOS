@@ -19,7 +19,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .management:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.management.displayName)
+                                Text(Skill.management.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -30,7 +30,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                             
                             ForEach(ManagementDetail.allCases, id: \.self) { detailSkill in
                                 HStack {
-                                    Text(detailSkill.displayName)
+                                    Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
                                         .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
                                         .padding(.leading, 20)
@@ -51,7 +51,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .overlay {
                                     if selectedDetailSkillIds.contains(detailSkill.rawValue) {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .frame(height: 35)
+                                            .frame(height: 40)
                                             .foregroundStyle(.red.opacity(0.1))
                                             .padding(.horizontal, 10)
                                     }
@@ -64,7 +64,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .consulting:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.consulting.displayName)
+                                Text(Skill.consulting.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -75,7 +75,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                             
                             ForEach(ConsultingDetail.allCases, id: \.self) { detailSkill in
                                 HStack {
-                                    Text(detailSkill.displayName)
+                                    Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
                                         .padding(.leading, 20)
                                     
@@ -94,7 +94,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .marketing:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.marketing.displayName)
+                                Text(Skill.marketing.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -105,7 +105,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                             
                             ForEach(MarketingDetail.allCases, id: \.self) { detailSkill in
                                 HStack {
-                                    Text(detailSkill.displayName)
+                                    Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
                                         .padding(.leading, 20)
                                     
@@ -124,7 +124,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .development:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.development.displayName)
+                                Text(Skill.development.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -135,7 +135,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                             
                             ForEach(DevelopmentDetail.allCases, id: \.self) { detailSkill in
                                 HStack {
-                                    Text(detailSkill.displayName)
+                                    Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
                                         .padding(.leading, 20)
                                     
@@ -154,7 +154,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .design:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.design.displayName)
+                                Text(Skill.design.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -165,7 +165,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                             
                             ForEach(DesignDetail.allCases, id: \.self) { detailSkill in
                                 HStack {
-                                    Text(detailSkill.displayName)
+                                    Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
                                         .padding(.leading, 20)
                                     
@@ -184,7 +184,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .writing:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.writing.displayName)
+                                Text(Skill.writing.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -195,7 +195,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                             
                             ForEach(WritingDetail.allCases, id: \.self) { detailSkill in
                                 HStack {
-                                    Text(detailSkill.displayName)
+                                    Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
                                         .padding(.leading, 20)
                                     
@@ -214,7 +214,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .translation:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.translation.displayName)
+                                Text(Skill.translation.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -225,7 +225,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                             
                             ForEach(TranslationDetail.allCases, id: \.self) { detailSkill in
                                 HStack {
-                                    Text(detailSkill.displayName)
+                                    Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
                                         .padding(.leading, 20)
                                     
@@ -244,7 +244,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .media:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.media.displayName)
+                                Text(Skill.media.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -255,7 +255,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                             
                             ForEach(MediaDetail.allCases, id: \.self) { detailSkill in
                                 HStack {
-                                    Text(detailSkill.displayName)
+                                    Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
                                         .padding(.leading, 20)
                                     
@@ -274,7 +274,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .education:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.education.displayName)
+                                Text(Skill.education.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -285,7 +285,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                             
                             ForEach(EducationDetail.allCases, id: \.self) { detailSkill in
                                 HStack {
-                                    Text(detailSkill.displayName)
+                                    Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
                                         .padding(.leading, 20)
                                     
@@ -304,7 +304,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .customMade:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.customMade.displayName)
+                                Text(Skill.customMade.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -315,7 +315,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                             
                             ForEach(CustomMadeDetail.allCases, id: \.self) { detailSkill in
                                 HStack {
-                                    Text(detailSkill.displayName)
+                                    Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
                                         .padding(.leading, 20)
                                     
@@ -334,7 +334,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .hobbyLesson:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.hobbyLesson.displayName)
+                                Text(Skill.hobbyLesson.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -345,7 +345,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                             
                             ForEach(HobbyLessonDetail.allCases, id: \.self) { detailSkill in
                                 HStack {
-                                    Text(detailSkill.displayName)
+                                    Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
                                         .padding(.leading, 20)
                                     
@@ -364,7 +364,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .lifeService:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.lifeService.displayName)
+                                Text(Skill.lifeService.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -375,7 +375,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                             
                             ForEach(LifeServiceDetail.allCases, id: \.self) { detailSkill in
                                 HStack {
-                                    Text(detailSkill.displayName)
+                                    Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
                                         .padding(.leading, 20)
                                     

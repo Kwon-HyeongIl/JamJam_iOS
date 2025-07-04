@@ -24,7 +24,7 @@ enum ManagementDetail: Int, CaseIterable, Codable {
     case processDiagnosis = 14
     case pmoOperation = 15
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .businessPlan: return "사업계획서 작성"
         case .marketResearch: return "시장조사"

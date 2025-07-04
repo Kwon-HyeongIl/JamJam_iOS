@@ -24,7 +24,7 @@ enum TranslationDetail: Int, CaseIterable, Codable {
     case gameTranslation = 120
     case interpretationGuide = 121
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .englishTranslation: return "영어 번역"
         case .chineseTranslation: return "중국어 번역"

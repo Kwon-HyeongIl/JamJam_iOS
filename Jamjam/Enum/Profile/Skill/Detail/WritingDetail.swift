@@ -24,7 +24,7 @@ enum WritingDetail: Int, CaseIterable, Codable {
     case essayGhostwriting = 105
     case emailWriting = 106
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .copywriting: return "카피라이팅"
         case .contentWriting: return "콘텐츠 라이팅"

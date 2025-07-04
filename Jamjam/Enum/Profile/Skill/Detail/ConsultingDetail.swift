@@ -24,7 +24,7 @@ enum ConsultingDetail: Int, CaseIterable, Codable {
     case processImprovementMentoring = 29
     case globalExpansionStrategy = 30
 
-    var displayName: String {
+    var text: String {
         switch self {
         case .managementConsulting: return "경영컨설팅"
         case .strategyConsulting: return "전략컨설팅"
