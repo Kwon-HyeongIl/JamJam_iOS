@@ -26,17 +26,26 @@ struct ProfileView: View {
                 .background(Color.mainBackground)
             }
             
-            VStack(spacing: 30) {
-                Button {
-                    AuthCenter.shared.logout()
-                } label: {
-                    Text("로그아웃")
-                }
-                
-                Button {
-                    navRouter.navigate(.providerProfileView)
-                } label: {
-                    Text("llioopv의 프로필")
+            
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 30) {
+                    Button {
+                        AuthCenter.shared.logout()
+                    } label: {
+                        Text("로그아웃")
+                    }
+                    
+                    Button {
+                        navRouter.navigate(.providerProfileView)
+                    } label: {
+                        Text("llioopv의 프로필")
+                    }
+                    
+                    Button {
+                        navRouter.navigate(.providerProfileEditListView)
+                    } label: {
+                        Text("ProviderProfileEditListView")
+                    }
                 }
             }
         }
