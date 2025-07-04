@@ -44,7 +44,6 @@ struct ProviderProfileEditView: View {
                         .padding(.top, 10)
                         .padding(.bottom, 20)
                         
-                        // MARK: 자기 소개
                         VStack {
                             HStack {
                                 Text("자기 소개")
@@ -71,7 +70,6 @@ struct ProviderProfileEditView: View {
                         }
                         .padding(.bottom, 30)
                         
-                        // MARK: 지역
                         VStack {
                             HStack {
                                 Text("지역")
@@ -214,7 +212,6 @@ struct ProviderProfileEditView: View {
                         }
                         .padding(.bottom, 30)
                         
-                        // MARK: 전문 분야
                         VStack {
                             HStack {
                                 Text("전문 분야")
@@ -334,7 +331,6 @@ struct ProviderProfileEditView: View {
                 case 1:
                     VStack(spacing: 0) {
                         ScrollView {
-                            // MARK: 보유 기술 선택
                             VStack(spacing: 0) {
                                 HStack {
                                     RoundedRectangle(cornerRadius: 10)
@@ -459,6 +455,164 @@ struct ProviderProfileEditView: View {
                             .presentationDetents([.medium, .large])
                     }
                     
+                    // MARK: Page Index 2
+                case 2:
+                    VStack(spacing: 0) {
+                        ScrollView(showsIndicators: false) {
+                            VStack(spacing: 0) {
+                                HStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 30, height: 5)
+                                        .foregroundStyle(Color.JJTitle)
+                                    
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 30, height: 5)
+                                        .foregroundStyle(Color.JJTitle)
+                                    
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 30, height: 5)
+                                        .foregroundStyle(Color.JJTitle)
+                                    
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 30, height: 5)
+                                        .foregroundStyle(.gray.opacity(0.5))
+                                    
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 30, height: 5)
+                                        .foregroundStyle(.gray.opacity(0.5))
+                                }
+                                .padding(.top, 10)
+                                .padding(.bottom, 20)
+                                
+                                VStack(spacing: 15) {
+                                    ForEach($viewModel.careerFormList) { $careerForm in
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 380)
+                                            .foregroundStyle(.gray.opacity(0.1))
+                                            .padding(.horizontal, 20)
+                                            .overlay {
+                                                VStack(spacing: 25) {
+                                                    VStack {
+                                                        HStack {
+                                                            Text("단체명")
+                                                                .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                                .padding(.leading, 30)
+                                                            
+                                                            Spacer()
+                                                        }
+                                                        
+                                                        HStack {
+                                                            TextField("단체명을 입력하세요", text: $careerForm.groupName)
+                                                            //                                                        .focused($focus, equals: .first)
+                                                                .font(.pretendard(size: 14))
+                                                                .padding(.horizontal)
+                                                                .frame(height: 50)
+                                                                .background(.white)
+                                                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                                .overlay {
+                                                                    RoundedRectangle(cornerRadius: 10)
+                                                                        .stroke(.gray.opacity(0.2), lineWidth: 1)
+                                                                }
+                                                        }
+                                                        .padding(.horizontal, 30)
+                                                    }
+                                                    
+                                                    VStack {
+                                                        HStack {
+                                                            Text("직책/역할")
+                                                                .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                                .padding(.leading, 30)
+                                                            
+                                                            Spacer()
+                                                        }
+                                                        
+                                                        HStack {
+                                                            TextField("직책이나 역할을 입력하세요", text: $careerForm.role)
+                                                            //                                                        .focused($focus, equals: .first)
+                                                                .font(.pretendard(size: 14))
+                                                                .padding(.horizontal)
+                                                                .frame(height: 50)
+                                                                .background(.white)
+                                                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                                .overlay {
+                                                                    RoundedRectangle(cornerRadius: 10)
+                                                                        .stroke(.gray.opacity(0.2), lineWidth: 1)
+                                                                }
+                                                        }
+                                                        .padding(.horizontal, 30)
+                                                    }
+                                                    
+                                                    VStack {
+                                                        HStack {
+                                                            Text("직책/역할")
+                                                                .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                                .padding(.leading, 30)
+                                                            
+                                                            Spacer()
+                                                        }
+                                                        
+                                                        RoundedRectangle(cornerRadius: 10)
+                                                            .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                                            .frame(height: 100)
+                                                            .padding(.horizontal, 30)
+                                                            .overlay {
+                                                                VStack(spacing: 5) {
+                                                                    Image(systemName: "folder.badge.plus")
+                                                                        .font(.system(size: 22))
+                                                                        .foregroundStyle(.gray.opacity(0.5))
+                                                                    
+                                                                    Text("탭하여 파일 불러오기")
+                                                                        .font(.pretendard(Pretendard.medium, size: 14))
+                                                                        .foregroundStyle(.gray.opacity(0.5))
+                                                                }
+                                                            }
+                                                    }
+                                                }
+                                            }
+                                            .overlay {
+                                                VStack {
+                                                    HStack {
+                                                        Spacer()
+                                                        
+                                                        Image(systemName: "xmark")
+                                                            .font(.system(size: 15))
+                                                            .foregroundStyle(.gray.opacity(0.5))
+                                                            .padding(.trailing, 35)
+                                                    }
+                                                    .padding(.top, 12)
+                                                    
+                                                    Spacer()
+                                                }
+                                            }
+                                    }
+                                }
+                                .padding(.bottom)
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(height: 80)
+                                    .foregroundStyle(.gray.opacity(0.1))
+                                    .padding(.horizontal, 20)
+                                    .overlay {
+                                        HStack {
+                                            Image(systemName: "plus.app")
+                                                .font(.system(size: 16))
+                                                .foregroundStyle(.gray.opacity(0.7))
+                                            
+                                            Text("경력 추가")
+                                                .font(.pretendard(Pretendard.regular, size: 16))
+                                                .foregroundStyle(.gray.opacity(0.7))
+                                        }
+                                    }
+                                    .onTapGesture {
+                                        withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                            viewModel.careerFormList.append(CareerFormModel())
+                                        }
+                                    }
+                                
+                            }
+                        }
+                    }
+                    
                 default:
                     VStack {}
                 }
@@ -524,6 +678,43 @@ struct ProviderProfileEditView: View {
                                     .padding(.trailing, 20)
                                     .opacity(viewModel.isAllValidatedInPageIndex1 ? 1 : 0.4)
                                     .disabled(!viewModel.isAllValidatedInPageIndex1)
+                            }
+                        }
+                        
+                    case 2:
+                        HStack(spacing: 15) {
+                            Button {
+                                viewModel.pageIndex = 1
+                            } label: {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(height: 45)
+                                    .foregroundStyle(.white)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
+                                    }
+                                    .overlay {
+                                        Text("이전")
+                                            .font(.pretendard(Pretendard.semiBold, size: 17))
+                                            .foregroundStyle(.gray)
+                                    }
+                                    .padding(.leading, 20)
+                            }
+                            
+                            Button {
+                                print(viewModel.careerFormList)
+                            } label: {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(height: 45)
+                                    .foregroundStyle(Color.JJTitle)
+                                    .overlay {
+                                        Text("다음")
+                                            .font(.pretendard(Pretendard.semiBold, size: 17))
+                                            .foregroundStyle(.white)
+                                    }
+                                    .padding(.trailing, 20)
+//                                    .opacity(viewModel.isAllValidatedInPageIndex1 ? 1 : 0.4)
+//                                    .disabled(!viewModel.isAllValidatedInPageIndex1)
                             }
                         }
                         

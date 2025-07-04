@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 class ProviderProfileEditViewModel {
-    var pageIndex = 0
+    var pageIndex = 2
     
     var title: String {
         switch pageIndex {
@@ -47,6 +47,11 @@ class ProviderProfileEditViewModel {
     var isAllValidatedInPageIndex1: Bool {
         !selectedDetailSkillIds.isEmpty
     }
+    
+    // MARK: Page Index 2
+    var careerFormList: [CareerFormModel] = []
+    
+    
     
     func detailSkillText(id: Int) -> String? {
         ProfileInfoManager.extractDetailSkillTextWithId(id: id)
