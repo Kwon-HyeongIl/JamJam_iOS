@@ -309,7 +309,7 @@ struct ProviderProfileEditView: View {
                     VStack(spacing: 30) {
                         ScrollView {
                             VStack(spacing: 20) {
-                                ForEach(Skill.allCases, id: \.self) { currentSkill in
+                                ForEach(Array(Skill.allCases.enumerated()), id: \.element) { index, currentSkill in
                                     HStack {
                                         Text(currentSkill.displayName)
                                             .font(.pretendard(Pretendard.regular, size: 18))
@@ -321,6 +321,7 @@ struct ProviderProfileEditView: View {
                                         viewModel.tappedSkill = currentSkill
                                         viewModel.isSheetVisible = true
                                     }
+                                    .padding(.top, index == 0 ? 15 : 0)
                                     
                                     Divider()
                                 }
@@ -331,9 +332,9 @@ struct ProviderProfileEditView: View {
                         viewModel.tappedSkill = nil
                     } content: {
                         ProviderProfileSkillDetailSheetView(selectedDetailSkills: $viewModel.selectedDetailSkills, targetSkill: viewModel.tappedSkill)
+                            .presentationDragIndicator(.visible)
+                            .presentationDetents([.medium, .large])
                     }
-                    .presentationDragIndicator(.visible)
-                    .presentationDetents([.fraction(0.7), .large])
                     
                 default:
                     VStack {}
