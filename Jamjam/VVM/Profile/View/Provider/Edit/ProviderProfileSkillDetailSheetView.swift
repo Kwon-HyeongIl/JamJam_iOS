@@ -44,7 +44,9 @@ struct ProviderProfileSkillDetailSheetView: View {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {
-                                            selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            if selectedDetailSkillIds.count <= 20 {
+                                                selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            }
                                         }
                                     }
                                 }
@@ -58,6 +60,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 }
                                 
                                 Divider()
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
@@ -77,6 +80,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 HStack {
                                     Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
+                                        .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
                                         .padding(.leading, 20)
                                     
                                     Spacer()
@@ -84,10 +88,27 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                        if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
+                                            selectedDetailSkillIds.remove(at: index)
+                                        } else {
+                                            if selectedDetailSkillIds.count <= 20 {
+                                                selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            }
+                                        }
+                                    }
+                                }
+                                .overlay {
+                                    if selectedDetailSkillIds.contains(detailSkill.rawValue) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 40)
+                                            .foregroundStyle(.red.opacity(0.1))
+                                            .padding(.horizontal, 10)
+                                    }
                                 }
                                 
                                 Divider()
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
@@ -107,6 +128,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 HStack {
                                     Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
+                                        .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
                                         .padding(.leading, 20)
                                     
                                     Spacer()
@@ -114,10 +136,27 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                        if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
+                                            selectedDetailSkillIds.remove(at: index)
+                                        } else {
+                                            if selectedDetailSkillIds.count <= 20 {
+                                                selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            }
+                                        }
+                                    }
+                                }
+                                .overlay {
+                                    if selectedDetailSkillIds.contains(detailSkill.rawValue) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 40)
+                                            .foregroundStyle(.red.opacity(0.1))
+                                            .padding(.horizontal, 10)
+                                    }
                                 }
                                 
                                 Divider()
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
@@ -137,6 +176,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 HStack {
                                     Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
+                                        .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
                                         .padding(.leading, 20)
                                     
                                     Spacer()
@@ -144,10 +184,27 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                        if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
+                                            selectedDetailSkillIds.remove(at: index)
+                                        } else {
+                                            if selectedDetailSkillIds.count <= 20 {
+                                                selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            }
+                                        }
+                                    }
+                                }
+                                .overlay {
+                                    if selectedDetailSkillIds.contains(detailSkill.rawValue) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 40)
+                                            .foregroundStyle(.red.opacity(0.1))
+                                            .padding(.horizontal, 10)
+                                    }
                                 }
                                 
                                 Divider()
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
@@ -167,6 +224,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 HStack {
                                     Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
+                                        .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
                                         .padding(.leading, 20)
                                     
                                     Spacer()
@@ -174,10 +232,27 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                        if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
+                                            selectedDetailSkillIds.remove(at: index)
+                                        } else {
+                                            if selectedDetailSkillIds.count <= 20 {
+                                                selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            }
+                                        }
+                                    }
+                                }
+                                .overlay {
+                                    if selectedDetailSkillIds.contains(detailSkill.rawValue) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 40)
+                                            .foregroundStyle(.red.opacity(0.1))
+                                            .padding(.horizontal, 10)
+                                    }
                                 }
                                 
                                 Divider()
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
@@ -197,6 +272,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 HStack {
                                     Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
+                                        .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
                                         .padding(.leading, 20)
                                     
                                     Spacer()
@@ -204,10 +280,27 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                        if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
+                                            selectedDetailSkillIds.remove(at: index)
+                                        } else {
+                                            if selectedDetailSkillIds.count <= 20 {
+                                                selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            }
+                                        }
+                                    }
+                                }
+                                .overlay {
+                                    if selectedDetailSkillIds.contains(detailSkill.rawValue) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 40)
+                                            .foregroundStyle(.red.opacity(0.1))
+                                            .padding(.horizontal, 10)
+                                    }
                                 }
                                 
                                 Divider()
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
@@ -227,6 +320,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 HStack {
                                     Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
+                                        .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
                                         .padding(.leading, 20)
                                     
                                     Spacer()
@@ -234,10 +328,27 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                        if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
+                                            selectedDetailSkillIds.remove(at: index)
+                                        } else {
+                                            if selectedDetailSkillIds.count <= 20 {
+                                                selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            }
+                                        }
+                                    }
+                                }
+                                .overlay {
+                                    if selectedDetailSkillIds.contains(detailSkill.rawValue) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 40)
+                                            .foregroundStyle(.red.opacity(0.1))
+                                            .padding(.horizontal, 10)
+                                    }
                                 }
                                 
                                 Divider()
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
@@ -257,6 +368,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 HStack {
                                     Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
+                                        .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
                                         .padding(.leading, 20)
                                     
                                     Spacer()
@@ -264,10 +376,27 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                        if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
+                                            selectedDetailSkillIds.remove(at: index)
+                                        } else {
+                                            if selectedDetailSkillIds.count <= 20 {
+                                                selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            }
+                                        }
+                                    }
+                                }
+                                .overlay {
+                                    if selectedDetailSkillIds.contains(detailSkill.rawValue) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 40)
+                                            .foregroundStyle(.red.opacity(0.1))
+                                            .padding(.horizontal, 10)
+                                    }
                                 }
                                 
                                 Divider()
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
@@ -287,6 +416,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 HStack {
                                     Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
+                                        .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
                                         .padding(.leading, 20)
                                     
                                     Spacer()
@@ -294,10 +424,27 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                        if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
+                                            selectedDetailSkillIds.remove(at: index)
+                                        } else {
+                                            if selectedDetailSkillIds.count <= 20 {
+                                                selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            }
+                                        }
+                                    }
+                                }
+                                .overlay {
+                                    if selectedDetailSkillIds.contains(detailSkill.rawValue) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 40)
+                                            .foregroundStyle(.red.opacity(0.1))
+                                            .padding(.horizontal, 10)
+                                    }
                                 }
                                 
                                 Divider()
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
@@ -317,6 +464,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 HStack {
                                     Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
+                                        .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
                                         .padding(.leading, 20)
                                     
                                     Spacer()
@@ -324,10 +472,27 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                        if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
+                                            selectedDetailSkillIds.remove(at: index)
+                                        } else {
+                                            if selectedDetailSkillIds.count <= 20 {
+                                                selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            }
+                                        }
+                                    }
+                                }
+                                .overlay {
+                                    if selectedDetailSkillIds.contains(detailSkill.rawValue) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 40)
+                                            .foregroundStyle(.red.opacity(0.1))
+                                            .padding(.horizontal, 10)
+                                    }
                                 }
                                 
                                 Divider()
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
@@ -347,6 +512,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 HStack {
                                     Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
+                                        .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
                                         .padding(.leading, 20)
                                     
                                     Spacer()
@@ -354,10 +520,27 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                        if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
+                                            selectedDetailSkillIds.remove(at: index)
+                                        } else {
+                                            if selectedDetailSkillIds.count <= 20 {
+                                                selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            }
+                                        }
+                                    }
+                                }
+                                .overlay {
+                                    if selectedDetailSkillIds.contains(detailSkill.rawValue) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 40)
+                                            .foregroundStyle(.red.opacity(0.1))
+                                            .padding(.horizontal, 10)
+                                    }
                                 }
                                 
                                 Divider()
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
@@ -377,6 +560,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 HStack {
                                     Text(detailSkill.text)
                                         .font(.pretendard(Pretendard.regular, size: 18))
+                                        .foregroundStyle(selectedDetailSkillIds.contains(detailSkill.rawValue) ? Color.JJTitle : .black)
                                         .padding(.leading, 20)
                                     
                                     Spacer()
@@ -384,10 +568,27 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    selectedDetailSkillIds.append(detailSkill.rawValue)
+                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                        if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
+                                            selectedDetailSkillIds.remove(at: index)
+                                        } else {
+                                            if selectedDetailSkillIds.count <= 20 {
+                                                selectedDetailSkillIds.append(detailSkill.rawValue)
+                                            }
+                                        }
+                                    }
+                                }
+                                .overlay {
+                                    if selectedDetailSkillIds.contains(detailSkill.rawValue) {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(height: 40)
+                                            .foregroundStyle(.red.opacity(0.1))
+                                            .padding(.horizontal, 10)
+                                    }
                                 }
                                 
                                 Divider()
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
