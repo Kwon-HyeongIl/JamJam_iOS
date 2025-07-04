@@ -56,105 +56,105 @@ struct ProviderProfileIntroductionEditView: View {
                         
                         Menu {
                             Button {
-                                viewModel.selectedRegion = .region1
+                                viewModel.selectedRegion = .seoul
                             } label: {
-                                Text(Region.region1.rawValue)
+                                Text(Region.seoul.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region2
+                                viewModel.selectedRegion = .incheon
                             } label: {
-                                Text(Region.region2.rawValue)
+                                Text(Region.incheon.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region3
+                                viewModel.selectedRegion = .gyeonggi
                             } label: {
-                                Text(Region.region3.rawValue)
+                                Text(Region.gyeonggi.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region4
+                                viewModel.selectedRegion = .busan
                             } label: {
-                                Text(Region.region4.rawValue)
+                                Text(Region.busan.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region5
+                                viewModel.selectedRegion = .ulsan
                             } label: {
-                                Text(Region.region5.rawValue)
+                                Text(Region.ulsan.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region6
+                                viewModel.selectedRegion = .gyeongnam
                             } label: {
-                                Text(Region.region6.rawValue)
+                                Text(Region.gyeongnam.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region7
+                                viewModel.selectedRegion = .daegu
                             } label: {
-                                Text(Region.region7.rawValue)
+                                Text(Region.daegu.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region8
+                                viewModel.selectedRegion = .gyeongbuk
                             } label: {
-                                Text(Region.region8.rawValue)
+                                Text(Region.gyeongbuk.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region9
+                                viewModel.selectedRegion = .daejeon
                             } label: {
-                                Text(Region.region9.rawValue)
+                                Text(Region.daejeon.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region10
+                                viewModel.selectedRegion = .sejong
                             } label: {
-                                Text(Region.region10.rawValue)
+                                Text(Region.sejong.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region11
+                                viewModel.selectedRegion = .chungnam
                             } label: {
-                                Text(Region.region11.rawValue)
+                                Text(Region.chungnam.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region12
+                                viewModel.selectedRegion = .chungbuk
                             } label: {
-                                Text(Region.region12.rawValue)
+                                Text(Region.chungbuk.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region13
+                                viewModel.selectedRegion = .gwangju
                             } label: {
-                                Text(Region.region13.rawValue)
+                                Text(Region.gwangju.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region14
+                                viewModel.selectedRegion = .jeonnam
                             } label: {
-                                Text(Region.region14.rawValue)
+                                Text(Region.jeonnam.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region15
+                                viewModel.selectedRegion = .jeonbuk
                             } label: {
-                                Text(Region.region15.rawValue)
+                                Text(Region.jeonbuk.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region16
+                                viewModel.selectedRegion = .gangwon
                             } label: {
-                                Text(Region.region16.rawValue)
+                                Text(Region.gangwon.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedRegion = .region17
+                                viewModel.selectedRegion = .jeju
                             } label: {
-                                Text(Region.region17.rawValue)
+                                Text(Region.jeju.displayName)
                             }
                             
                         } label: {
@@ -169,7 +169,7 @@ struct ProviderProfileIntroductionEditView: View {
                                 }
                                 .overlay {
                                     HStack {
-                                        Text(viewModel.selectedRegion.rawValue)
+                                        Text(viewModel.selectedRegion.displayName)
                                             .font(.pretendard(size: 14.5))
                                             .foregroundStyle(.gray.opacity(0.55))
                                             .padding(.leading, 35)
@@ -198,75 +198,75 @@ struct ProviderProfileIntroductionEditView: View {
                         
                         Menu {
                             Button {
-                                viewModel.selectedSkill = .skill1
+                                viewModel.selectedSkill = .management
                             } label: {
-                                Text(Skill.skill1.rawValue)
+                                Text(Skill.management.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedSkill = .skill2
+                                viewModel.selectedSkill = .consulting
                             } label: {
-                                Text(Skill.skill2.rawValue)
+                                Text(Skill.consulting.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedSkill = .skill3
+                                viewModel.selectedSkill = .marketing
                             } label: {
-                                Text(Skill.skill3.rawValue)
+                                Text(Skill.marketing.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedSkill = .skill4
+                                viewModel.selectedSkill = .development
                             } label: {
-                                Text(Skill.skill4.rawValue)
+                                Text(Skill.development.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedSkill = .skill5
+                                viewModel.selectedSkill = .design
                             } label: {
-                                Text(Skill.skill5.rawValue)
+                                Text(Skill.design.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedSkill = .skill6
+                                viewModel.selectedSkill = .writing
                             } label: {
-                                Text(Skill.skill6.rawValue)
+                                Text(Skill.writing.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedSkill = .skill7
+                                viewModel.selectedSkill = .translation
                             } label: {
-                                Text(Skill.skill7.rawValue)
+                                Text(Skill.translation.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedSkill = .skill8
+                                viewModel.selectedSkill = .media
                             } label: {
-                                Text(Skill.skill8.rawValue)
+                                Text(Skill.media.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedSkill = .skill9
+                                viewModel.selectedSkill = .education
                             } label: {
-                                Text(Skill.skill9.rawValue)
+                                Text(Skill.education.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedSkill = .skill10
+                                viewModel.selectedSkill = .customMade
                             } label: {
-                                Text(Skill.skill10.rawValue)
+                                Text(Skill.customMade.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedSkill = .skill11
+                                viewModel.selectedSkill = .hobbyLesson
                             } label: {
-                                Text(Skill.skill11.rawValue)
+                                Text(Skill.hobbyLesson.displayName)
                             }
                             
                             Button {
-                                viewModel.selectedSkill = .skill12
+                                viewModel.selectedSkill = .lifeService
                             } label: {
-                                Text(Skill.skill12.rawValue)
+                                Text(Skill.lifeService.displayName)
                             }
                             
                         } label: {
@@ -281,7 +281,7 @@ struct ProviderProfileIntroductionEditView: View {
                                 }
                                 .overlay {
                                     HStack {
-                                        Text(viewModel.selectedSkill.rawValue)
+                                        Text(viewModel.selectedSkill.displayName)
                                             .font(.pretendard(size: 14.5))
                                             .foregroundStyle(.gray.opacity(0.55))
                                             .padding(.leading, 35)

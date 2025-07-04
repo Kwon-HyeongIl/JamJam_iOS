@@ -7,18 +7,36 @@
 
 import Foundation
 
-enum Skill: String {
-    case none = "전문 분야를 선택하세요"
-    case skill1 = "경영•기획"
-    case skill2 = "컨설팅•멘토링"
-    case skill3 = "마케팅•홍보"
-    case skill4 = "개발•IT"
-    case skill5 = "디자인•편집"
-    case skill6 = "문서•작문"
-    case skill7 = "번역•통역"
-    case skill8 = "사진•영상"
-    case skill9 = "교육•강의"
-    case skill10 = "주문 제작"
-    case skill11 = "취미 레슨"
-    case skill12 = "생활 서비스"
+enum Skill: Int, Codable {
+    case none        = 0
+    case management  = 1
+    case consulting  = 2
+    case marketing   = 3
+    case development = 4
+    case design      = 5
+    case writing     = 6
+    case translation = 7
+    case media       = 8
+    case education   = 9
+    case customMade  = 10
+    case hobbyLesson = 11
+    case lifeService = 12
+
+    var displayName: String {
+        switch self {
+        case .none        : return "전문 분야를 선택하세요"
+        case .management  : return "경영•기획"
+        case .consulting  : return "컨설팅•멘토링"
+        case .marketing   : return "마케팅•홍보"
+        case .development : return "개발•IT"
+        case .design      : return "디자인•편집"
+        case .writing     : return "문서•작문"
+        case .translation : return "번역•통역"
+        case .media       : return "사진•영상"
+        case .education   : return "교육•강의"
+        case .customMade  : return "주문 제작"
+        case .hobbyLesson : return "취미 레슨"
+        case .lifeService : return "생활 서비스"
+        }
+    }
 }
