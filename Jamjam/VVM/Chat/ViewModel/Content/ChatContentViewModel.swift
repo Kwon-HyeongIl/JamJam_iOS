@@ -132,7 +132,10 @@ class ChatContentViewModel {
     
     func send() {
         ChatManager.shared.sendMessage(roomId: chatRoom.id, text: inputMessage)
-        inputMessage = ""
+        
+        DispatchQueue.main.async {
+            self.inputMessage = ""
+        }
     }
     
     func deleteChatRoom() {

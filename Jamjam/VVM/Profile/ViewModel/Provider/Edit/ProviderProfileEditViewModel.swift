@@ -59,7 +59,9 @@ class ProviderProfileEditViewModel {
     
     func removeCurrentCareerForm(_ form: CareerFormModel) {
         if let index = careerFormList.firstIndex(where: { $0.id == form.id }) {
-            careerFormList.remove(at: index)
+            DispatchQueue.main.async {
+                self.careerFormList.remove(at: index)
+            }
         }
     }
 }
