@@ -17,6 +17,5 @@ struct ChatSocketMessageResponse: Decodable {
         let senderNickname: String
         let content: String
         let sentAt: String
-        let isOwn: Bool
     }
 }

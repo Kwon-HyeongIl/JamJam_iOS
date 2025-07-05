@@ -90,7 +90,6 @@ struct ChatContentView: View {
                         
                         Button {
                             viewModel.send()
-                            print("send")
                         } label: {
                             Image(systemName: "paperplane.fill")
                                 .font(.system(size: 23))

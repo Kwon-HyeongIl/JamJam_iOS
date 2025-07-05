@@ -23,7 +23,8 @@ extension ChatManager {
     }
     
     func subscribe(roomId: Int) {
-        client?.subscribe(to: "/topic/room/\(roomId)", mode: .auto)
+        let headers = API.socketHeaders
+        client?.subscribe(to: "/topic/room/\(roomId)", mode: .auto, headers: headers)
     }
     
     func sendMessage(roomId: Int, text: String) {
@@ -35,6 +36,7 @@ extension ChatManager {
             return
         }
         
-        client?.send(body: json, to: "/app/chat")
+        let headers = API.socketHeaders
+        client?.send(body: json, to: "/app/chat", headers: headers)
     }
 }
