@@ -25,6 +25,10 @@
 		CA0BAD9D2E05BC6400595A80 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0BAD922E05BC6400595A80 /* Pretendard-Light.otf */; };
 		CA0BAD9E2E05BC6400595A80 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0BAD952E05BC6400595A80 /* Pretendard-SemiBold.otf */; };
 		CA0BAD9F2E05BC6400595A80 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0BAD8E2E05BC6400595A80 /* Pretendard-Black.otf */; };
+		CA2F853F2E19970100848F2E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2F853E2E19970100848F2E /* WebKit.framework */; };
+		CA2F85472E19A5BF00848F2E /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F85462E19A5BF00848F2E /* WebView.swift */; };
+		CA2F854E2E19A75F00848F2E /* serviceContent.html in Resources */ = {isa = PBXBuildFile; fileRef = CA2F854D2E19A75F00848F2E /* serviceContent.html */; };
+		CA2F85502E19A8D000848F2E /* hugerte-lang-kr.js in Resources */ = {isa = PBXBuildFile; fileRef = CA2F854F2E19A8D000848F2E /* hugerte-lang-kr.js */; };
 		CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35935B2E0511C70069FAF8 /* CategoryView.swift */; };
 		CA35935F2E0514AE0069FAF8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */; };
 		CA3593642E0565750069FAF8 /* ScrollOffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3593632E0565750069FAF8 /* ScrollOffsetKey.swift */; };
@@ -172,6 +176,10 @@
 		CA0BAD942E05BC6400595A80 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		CA0BAD952E05BC6400595A80 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		CA0BAD962E05BC6400595A80 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		CA2F853E2E19970100848F2E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		CA2F85462E19A5BF00848F2E /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		CA2F854D2E19A75F00848F2E /* serviceContent.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = serviceContent.html; sourceTree = "<group>"; };
+		CA2F854F2E19A8D000848F2E /* hugerte-lang-kr.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "hugerte-lang-kr.js"; sourceTree = "<group>"; };
 		CA35935B2E0511C70069FAF8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		CA3593632E0565750069FAF8 /* ScrollOffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffsetKey.swift; sourceTree = "<group>"; };
@@ -293,6 +301,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA2F853F2E19970100848F2E /* WebKit.framework in Frameworks */,
 				CA7D11A12E10567900D55CCE /* FirebaseMessaging in Frameworks */,
 				CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */,
 				CA7D119F2E10567900D55CCE /* FirebaseInAppMessaging-Beta in Frameworks */,
@@ -313,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				CA09154B2DF128A400E272F8 /* Jamjam */,
+				CA2F853D2E19970000848F2E /* Frameworks */,
 				CA09153B2DF1289A00E272F8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -385,6 +395,7 @@
 		CA0915602DF12EDC00E272F8 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				CA2F85402E199DA500848F2E /* WebView */,
 				CA5C5E912E09A18E00FB1E22 /* Url */,
 				CA0BAD612E05A23300595A80 /* Font */,
 				CA3593622E0565600069FAF8 /* PreferenceKey */,
@@ -430,6 +441,40 @@
 				CA5C5E7D2E096A4600FB1E22 /* RawFile */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		CA2F853D2E19970000848F2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA2F853E2E19970100848F2E /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA2F85402E199DA500848F2E /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				CA2F85462E19A5BF00848F2E /* WebView.swift */,
+				CA2F85482E19A6D500848F2E /* JS */,
+				CA2F85452E19A5A600848F2E /* HTML */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		CA2F85452E19A5A600848F2E /* HTML */ = {
+			isa = PBXGroup;
+			children = (
+				CA2F854D2E19A75F00848F2E /* serviceContent.html */,
+			);
+			path = HTML;
+			sourceTree = "<group>";
+		};
+		CA2F85482E19A6D500848F2E /* JS */ = {
+			isa = PBXGroup;
+			children = (
+				CA2F854F2E19A8D000848F2E /* hugerte-lang-kr.js */,
+			);
+			path = JS;
 			sourceTree = "<group>";
 		};
 		CA35935A2E05118D0069FAF8 /* Category */ = {
@@ -1186,11 +1231,13 @@
 			files = (
 				CA0915522DF129EC00E272F8 /* .gitignore in Resources */,
 				CA09154C2DF128A400E272F8 /* Assets.xcassets in Resources */,
+				CA2F85502E19A8D000848F2E /* hugerte-lang-kr.js in Resources */,
 				CA0BAD972E05BC6400595A80 /* Pretendard-Bold.otf in Resources */,
 				CA0BAD982E05BC6400595A80 /* Pretendard-Thin.otf in Resources */,
 				CA0BAD992E05BC6400595A80 /* Pretendard-Regular.otf in Resources */,
 				CA7D11952E10553200D55CCE /* GoogleService-Info.plist in Resources */,
 				CA0BAD9A2E05BC6400595A80 /* Pretendard-Medium.otf in Resources */,
+				CA2F854E2E19A75F00848F2E /* serviceContent.html in Resources */,
 				CA0BAD9B2E05BC6400595A80 /* Pretendard-ExtraBold.otf in Resources */,
 				CA0BAD9C2E05BC6400595A80 /* Pretendard-ExtraLight.otf in Resources */,
 				CA0BAD9D2E05BC6400595A80 /* Pretendard-Light.otf in Resources */,
@@ -1287,6 +1334,7 @@
 				CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */,
 				CAAB47F82E0B0975000197E5 /* SignUpViewModel+Restore.swift in Sources */,
 				CA9609932DFBDE9B00B878C6 /* SearchView.swift in Sources */,
+				CA2F85472E19A5BF00848F2E /* WebView.swift in Sources */,
 				CA0915562DF12B9400E272F8 /* AisleView.swift in Sources */,
 				CA9609AD2DFFD02300B878C6 /* MainTab.swift in Sources */,
 				CA9609BB2DFFDA6100B878C6 /* LoginViewModel.swift in Sources */,

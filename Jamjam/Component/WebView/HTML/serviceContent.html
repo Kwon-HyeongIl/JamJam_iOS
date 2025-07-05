@@ -1,0 +1,340 @@
+﻿<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rich Text Editor</title>
+    <link
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/hugerte@1/hugerte.min.js"></script>
+    <script src="/hugerte-lang-kr.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          'Pretendard Variable',
+          Pretendard,
+          -apple-system,
+          BlinkMacSystemFont,
+          system-ui,
+          sans-serif;
+        background-color: #f7f7fb;
+      }
+
+      .editor-container {
+        position: relative;
+        margin-bottom: 16px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .editor-container .tox-hugerte {
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .editor-container .tox-editor-header {
+        border: none;
+        border-bottom: 1px solid #e5e7eb !important;
+        box-shadow: none !important;
+      }
+
+      .editor-container .tox-edit-area,
+      .editor-container .tox-edit-area__iframe {
+        border: none;
+      }
+
+      .editor-container .tox-edit-area__iframe {
+        border-radius: 0 0 12px 12px;
+      }
+
+      .loading-skeleton {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(
+          90deg,
+          #f3f4f6 25%,
+          #e5e7eb 50%,
+          #f3f4f6 75%
+        );
+        background-size: 200% 100%;
+        border-radius: 12px;
+        animation: loading 1.5s infinite;
+      }
+
+      @keyframes loading {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      .skeleton-toolbar {
+        height: 48px;
+        background-color: #f3f4f6;
+        border-bottom: 1px solid #e5e7eb;
+        border-radius: 12px 12px 0 0;
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        gap: 8px;
+      }
+
+      .skeleton-button {
+        width: 24px;
+        height: 24px;
+        background-color: #e5e7eb;
+        border-radius: 4px;
+        animation: pulse 1.5s ease-in-out infinite alternate;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .skeleton-content {
+        flex: 1;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .skeleton-line {
+        height: 16px;
+        background-color: #e5e7eb;
+        border-radius: 4px;
+        animation: pulse 1.5s ease-in-out infinite alternate;
+      }
+
+      .skeleton-line.w-60 {
+        width: 60%;
+      }
+      .skeleton-line.w-80 {
+        width: 80%;
+      }
+      .skeleton-line.w-40 {
+        width: 40%;
+      }
+      .skeleton-line.w-90 {
+        width: 90%;
+      }
+      .skeleton-line.w-70 {
+        width: 70%;
+      }
+
+      .hidden {
+        display: none;
+      }
+      .invisible {
+        opacity: 0;
+        position: absolute;
+        visibility: hidden;
+      }
+      .visible {
+        opacity: 1;
+        position: static;
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="editor-container">
+      <div id="loadingSkeleton" class="loading-skeleton" style="height: 540px">
+        <div class="skeleton-toolbar">
+          <div class="skeleton-button"></div>
+          <div class="skeleton-button"></div>
+          <div class="skeleton-button"></div>
+          <div class="skeleton-button"></div>
+          <div class="skeleton-button"></div>
+          <div class="skeleton-button"></div>
+          <div class="skeleton-button"></div>
+          <div class="skeleton-button"></div>
+        </div>
+        <div class="skeleton-content">
+          <div class="skeleton-line w-60"></div>
+          <div class="skeleton-line w-80"></div>
+          <div class="skeleton-line w-40"></div>
+          <div class="skeleton-line w-90"></div>
+          <div class="skeleton-line w-70"></div>
+        </div>
+      </div>
+
+      <div id="editorWrapper" class="invisible">
+        <textarea id="editor"></textarea>
+      </div>
+    </div>
+
+    <script>
+      const FONT_FAMILY =
+        "'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif";
+      const LETTER_SPACING = '-0.025em';
+
+      let editor = null;
+      let isEditorReady = false;
+
+      function sendMessageToSwift(type, data) {
+        if (
+          window.webkit &&
+          window.webkit.messageHandlers &&
+          window.webkit.messageHandlers.editorHandler
+        ) {
+          window.webkit.messageHandlers.editorHandler.postMessage({
+            type: type,
+            data: data,
+          });
+        }
+      }
+
+      function handleContentChange(content) {
+        sendMessageToSwift('contentChanged', content);
+      }
+
+      function handleEditorReady() {
+        sendMessageToSwift('editorReady', true);
+      }
+
+      window.setEditorContent = function (content) {
+        if (editor && isEditorReady) {
+          editor.setContent(content);
+        }
+      };
+
+      window.getEditorContent = function () {
+        if (editor && isEditorReady) {
+          return editor.getContent();
+        }
+        return '';
+      };
+
+      window.setEditorHeight = function (height) {
+        if (editor && isEditorReady) {
+          editor.dom.setStyle(editor.getContainer(), 'height', height + 'px');
+          document.getElementById('loadingSkeleton').style.height =
+            height + 'px';
+        }
+      };
+
+      window.setEditorDisabled = function (disabled) {
+        if (editor && isEditorReady) {
+          editor.setMode(disabled ? 'readonly' : 'design');
+        }
+      };
+
+      function createEditorConfig(height) {
+        return {
+          selector: '#editor',
+          height: height,
+          language: 'ko_KR',
+          language_url: './hugerte-lang-kr.js',
+          menubar: false,
+          plugins: 'lists advlist',
+          toolbar:
+            'blocks | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+          lists_indent_on_tab: true,
+          contextmenu: 'lists',
+          content_css: [
+            'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css',
+          ],
+          content_style: `
+                    body {
+                        font-family: ${FONT_FAMILY} !important;
+                        font-size: 14px !important;
+                        padding: 0 16px !important;
+                        margin: 0 !important;
+                        line-height: 1.5 !important;
+                        letter-spacing: ${LETTER_SPACING} !important;
+                        -webkit-font-smoothing: antialiased !important;
+                        -moz-osx-font-smoothing: grayscale !important;
+                    }
+
+                    * {
+                        font-family: ${FONT_FAMILY} !important;
+                        letter-spacing: ${LETTER_SPACING} !important;
+                    }
+
+                    h1, h2, h3, h4, h5, h6 {
+                        font-weight: 600 !important;
+                        margin: 16px 0 8px 0 !important;
+                    }
+
+                    h1 { font-size: 24px !important; }
+                    h2 { font-size: 20px !important; }
+                    h3 { font-size: 18px !important; }
+                    h4 { font-size: 16px !important; }
+                    h5 { font-size: 14px !important; }
+                    h6 { font-size: 13px !important; }
+
+                    p {
+                        margin: 8px 0 !important;
+                        line-height: 1.6 !important;
+                    }
+
+                    ul, ol {
+                        margin: 8px 0 !important;
+                        padding-left: 20px !important;
+                    }
+
+                    li {
+                        margin: 4px 0 !important;
+                        line-height: 1.5 !important;
+                    }
+
+                    strong, b { font-weight: 600 !important; }
+                    em, i { font-style: italic !important; }
+                `,
+          branding: false,
+          elementpath: false,
+          statusbar: false,
+          highlight_on_focus: false,
+          font_family_formats:
+            'Pretendard=Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif; Arial=arial,helvetica,sans-serif; Georgia=georgia,palatino,serif; Times New Roman=times new roman,times,serif; Verdana=verdana,geneva,sans-serif',
+          setup: function (editor) {
+            window.editorInstance = editor;
+
+            editor.on('init', function () {
+              isEditorReady = true;
+              document
+                .getElementById('loadingSkeleton')
+                .classList.add('hidden');
+              document
+                .getElementById('editorWrapper')
+                .classList.remove('invisible');
+              document.getElementById('editorWrapper').classList.add('visible');
+              handleEditorReady();
+
+              const doc = editor.getDoc();
+              if (doc && doc.body) {
+                doc.body.style.fontFamily = FONT_FAMILY;
+                doc.body.style.letterSpacing = LETTER_SPACING;
+                doc.body.style.lineHeight = '1.5';
+              }
+            });
+
+            editor.on('input change paste keyup', function () {
+              handleContentChange(editor.getContent());
+            });
+          },
+        };
+      }
+
+      hugerte.init(createEditorConfig(540));
+    </script>
+  </body>
+</html>

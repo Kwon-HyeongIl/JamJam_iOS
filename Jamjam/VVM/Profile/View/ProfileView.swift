@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct ProfileView: View {
     @Environment(NavigationRouter.self) var navRouter
+    
+    @State private var editorContent = ""
     
     var body: some View {
         VStack(spacing: 0) {
@@ -28,30 +31,34 @@ struct ProfileView: View {
             
             
             ScrollView(showsIndicators: false) {
-                VStack(spacing: 30) {
-                    Button {
-                        AuthCenter.shared.logout()
-                    } label: {
-                        Text("로그아웃")
-                    }
-                    
-                    Button {
-                        navRouter.navigate(.providerProfileView)
-                    } label: {
-                        Text("llioopv의 프로필")
-                    }
-                    
-                    Button {
-                        navRouter.navigate(.providerProfileEditListView)
-                    } label: {
-                        Text("ProviderProfileEditListView")
-                    }
-                }
+                WebView(markdown: $editorContent)
+                    .frame(height: 570)
+//                VStack(spacing: 30) {
+//                    Button {
+//                        AuthCenter.shared.logout()
+//                    } label: {
+//                        Text("로그아웃")
+//                    }
+//                    
+//                    Button {
+//                        navRouter.navigate(.providerProfileView)
+//                    } label: {
+//                        Text("llioopv의 프로필")
+//                    }
+//                    
+//                    Button {
+//                        navRouter.navigate(.providerProfileEditListView)
+//                    } label: {
+//                        Text("ProviderProfileEditListView")
+//                    }
+//                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
     }
+    
+    
 }
 
 #Preview {
