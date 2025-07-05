@@ -44,6 +44,7 @@ struct ProviderProfileEditView: View {
                         .padding(.top, 10)
                         .padding(.bottom, 20)
                         
+                        // MARK: -- 자기 소개
                         VStack {
                             HStack {
                                 Text("자기 소개")
@@ -70,6 +71,7 @@ struct ProviderProfileEditView: View {
                         }
                         .padding(.bottom, 30)
                         
+                        // MARK: -- 지역
                         VStack {
                             HStack {
                                 Text("지역")
@@ -195,7 +197,7 @@ struct ProviderProfileEditView: View {
                                     .overlay {
                                         HStack {
                                             Text(viewModel.selectedRegion?.text ?? "지역을 선택하세요.")
-                                                .font(.pretendard(size: 14.5))
+                                                .font(.pretendard(size: 14))
                                                 .foregroundStyle(viewModel.selectedRegion == nil ? .gray.opacity(0.55) : .black)
                                                 .padding(.leading, 35)
                                             
@@ -212,6 +214,7 @@ struct ProviderProfileEditView: View {
                         }
                         .padding(.bottom, 30)
                         
+                        // MARK: -- 전문 분야
                         VStack {
                             HStack {
                                 Text("전문 분야")
@@ -307,7 +310,7 @@ struct ProviderProfileEditView: View {
                                     .overlay {
                                         HStack {
                                             Text(viewModel.selectedSkill?.text ?? "전문 분야를 선택하세요.")
-                                                .font(.pretendard(size: 14.5))
+                                                .font(.pretendard(size: 14))
                                                 .foregroundStyle(viewModel.selectedSkill == nil ? .gray.opacity(0.55) : .black)
                                                 .padding(.leading, 35)
                                             
@@ -484,10 +487,11 @@ struct ProviderProfileEditView: View {
                                 .padding(.top, 10)
                                 .padding(.bottom, 20)
                                 
+                                // MARK: -- 경력
                                 VStack(spacing: 15) {
                                     ForEach($viewModel.careerFormList) { $careerForm in
                                         RoundedRectangle(cornerRadius: 10)
-                                            .frame(height: 380)
+                                            .frame(height: 390)
                                             .foregroundStyle(.gray.opacity(0.1))
                                             .padding(.horizontal, 20)
                                             .overlay {
@@ -647,299 +651,325 @@ struct ProviderProfileEditView: View {
                                 .padding(.top, 10)
                                 .padding(.bottom, 20)
                                 
-                                HStack {
-                                    Text("학력")
-                                        .font(.pretendard(Pretendard.semiBold, size: 17))
-                                        .padding(.leading, 20)
+                                // MARK: -- 학력
+                                VStack(spacing: 5) {
+                                    HStack {
+                                        Text("학력")
+                                            .font(.pretendard(Pretendard.semiBold, size: 17))
+                                            .padding(.leading, 20)
+                                        
+                                        Spacer()
+                                    }
                                     
-                                    Spacer()
-                                }
-                                
-                                ForEach($viewModel.degreeFormList) { $degreeForm in
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .frame(height: 480)
-                                        .foregroundStyle(.gray.opacity(0.1))
-                                        .padding(.horizontal, 20)
-                                        .overlay {
-                                            VStack(spacing: 25) {
-                                                VStack {
-                                                    HStack {
-                                                        Text("학교명")
-                                                            .font(.pretendard(Pretendard.semiBold, size: 17))
-                                                            .padding(.leading, 30)
-                                                        
-                                                        Spacer()
-                                                    }
-                                                    
-                                                    HStack {
-                                                        TextField("학교명을 입력하세요", text: $degreeForm.schoolName)
-                                                        //                                                        .focused($focus, equals: .first)
-                                                            .font(.pretendard(size: 14))
-                                                            .padding(.horizontal)
-                                                            .frame(height: 50)
-                                                            .background(.white)
-                                                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                                                            .overlay {
-                                                                RoundedRectangle(cornerRadius: 10)
-                                                                    .stroke(.gray.opacity(0.2), lineWidth: 1)
+                                    VStack(spacing: 15) {
+                                        ForEach($viewModel.degreeFormList) { $degreeForm in
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .frame(height: 500)
+                                                .foregroundStyle(.gray.opacity(0.1))
+                                                .padding(.horizontal, 20)
+                                                .overlay {
+                                                    VStack(spacing: 25) {
+                                                        VStack {
+                                                            HStack {
+                                                                Text("학교명")
+                                                                    .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                                    .padding(.leading, 30)
+                                                                
+                                                                Spacer()
                                                             }
-                                                    }
-                                                    .padding(.horizontal, 30)
-                                                }
-                                                
-                                                VStack {
-                                                    HStack {
-                                                        Text("전공")
-                                                            .font(.pretendard(Pretendard.semiBold, size: 17))
-                                                            .padding(.leading, 30)
-                                                        
-                                                        Spacer()
-                                                    }
-                                                    
-                                                    HStack {
-                                                        TextField("전공을 입력하세요", text: $degreeForm.major)
-                                                        //                                                        .focused($focus, equals: .first)
-                                                            .font(.pretendard(size: 14))
-                                                            .padding(.horizontal)
-                                                            .frame(height: 50)
-                                                            .background(.white)
-                                                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                                                            .overlay {
-                                                                RoundedRectangle(cornerRadius: 10)
-                                                                    .stroke(.gray.opacity(0.2), lineWidth: 1)
+                                                            
+                                                            HStack {
+                                                                TextField("학교명을 입력하세요", text: $degreeForm.schoolName)
+                                                                //                                                        .focused($focus, equals: .first)
+                                                                    .font(.pretendard(size: 14))
+                                                                    .padding(.horizontal)
+                                                                    .frame(height: 50)
+                                                                    .background(.white)
+                                                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                                    .overlay {
+                                                                        RoundedRectangle(cornerRadius: 10)
+                                                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
+                                                                    }
                                                             }
-                                                    }
-                                                    .padding(.horizontal, 30)
-                                                }
-                                                
-                                                VStack {
-                                                    HStack {
-                                                        Text("학위")
-                                                            .font(.pretendard(Pretendard.semiBold, size: 17))
-                                                            .padding(.leading, 30)
-                                                        
-                                                        Spacer()
-                                                    }
-                                                    
-                                                    Menu {
-                                                        Button {
-                                                            $degreeForm.degree.wrappedValue = "학사"
-                                                        } label: {
-                                                            Text("학사")
+                                                            .padding(.horizontal, 30)
                                                         }
                                                         
-                                                        Button {
-                                                            $degreeForm.degree.wrappedValue = "석사"
-                                                        } label: {
-                                                            Text("석사")
+                                                        VStack {
+                                                            HStack {
+                                                                Text("전공")
+                                                                    .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                                    .padding(.leading, 30)
+                                                                
+                                                                Spacer()
+                                                            }
+                                                            
+                                                            HStack {
+                                                                TextField("전공을 입력하세요", text: $degreeForm.major)
+                                                                //                                                        .focused($focus, equals: .first)
+                                                                    .font(.pretendard(size: 14))
+                                                                    .padding(.horizontal)
+                                                                    .frame(height: 50)
+                                                                    .background(.white)
+                                                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                                    .overlay {
+                                                                        RoundedRectangle(cornerRadius: 10)
+                                                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
+                                                                    }
+                                                            }
+                                                            .padding(.horizontal, 30)
                                                         }
                                                         
-                                                        Button {
-                                                            $degreeForm.degree.wrappedValue = "박사"
-                                                        } label: {
-                                                            Text("박사")
-                                                        }
-                                                    } label: {
-                                                        HStack {
-                                                            RoundedRectangle(cornerRadius: 10)
-                                                                .padding(.horizontal)
-                                                                .frame(height: 50)
-                                                                .background(.white)
-                                                                .overlay {
+                                                        VStack {
+                                                            HStack {
+                                                                Text("학위")
+                                                                    .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                                    .padding(.leading, 30)
+                                                                
+                                                                Spacer()
+                                                            }
+                                                            
+                                                            Menu {
+                                                                Button {
+                                                                    $degreeForm.degree.wrappedValue = "학사"
+                                                                } label: {
+                                                                    Text("학사")
+                                                                }
+                                                                
+                                                                Button {
+                                                                    $degreeForm.degree.wrappedValue = "석사"
+                                                                } label: {
+                                                                    Text("석사")
+                                                                }
+                                                                
+                                                                Button {
+                                                                    $degreeForm.degree.wrappedValue = "박사"
+                                                                } label: {
+                                                                    Text("박사")
+                                                                }
+                                                            } label: {
+                                                                HStack {
                                                                     RoundedRectangle(cornerRadius: 10)
-                                                                        .stroke(.gray.opacity(0.2), lineWidth: 1)
+                                                                        .frame(height: 50)
+                                                                        .padding(.horizontal)
+                                                                        .foregroundStyle(.white)
+                                                                        .overlay {
+                                                                            RoundedRectangle(cornerRadius: 10)
+                                                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
+                                                                                .padding(.horizontal)
+                                                                        }
+                                                                        .overlay {
+                                                                            HStack {
+                                                                                Text("학위를 선택하세요")
+                                                                                    .font(.pretendard(size: 14))
+                                                                                    .foregroundStyle(.gray.opacity(0.55))
+                                                                                    .padding(.leading, 30)
+                                                                                
+                                                                                Spacer()
+                                                                                
+                                                                                Image(systemName: "chevron.up.chevron.down")
+                                                                                    .font(.system(size: 14.5))
+                                                                                    .foregroundStyle(.gray.opacity(0.55))
+                                                                                    .padding(.trailing, 30)
+                                                                            }
+                                                                        }
                                                                 }
+                                                                .padding(.horizontal, 14)
+                                                            }
+                                                        }
+                                                        
+                                                        VStack {
+                                                            HStack {
+                                                                Text("증빙 자료")
+                                                                    .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                                    .padding(.leading, 30)
+                                                                
+                                                                Spacer()
+                                                            }
+                                                            
+                                                            RoundedRectangle(cornerRadius: 10)
+                                                                .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                                                .frame(height: 100)
+                                                                .padding(.horizontal, 30)
                                                                 .overlay {
-                                                                    Text("학위를 선택하세요")
-                                                                        .font(.pretendard(size: 14.5))
-                                                                        .foregroundStyle(.gray.opacity(0.55))
+                                                                    VStack(spacing: 5) {
+                                                                        Image(systemName: "folder.badge.plus")
+                                                                            .font(.system(size: 22))
+                                                                            .foregroundStyle(.gray.opacity(0.5))
+                                                                        
+                                                                        Text("탭하여 파일 불러오기")
+                                                                            .font(.pretendard(Pretendard.medium, size: 14))
+                                                                            .foregroundStyle(.gray.opacity(0.5))
+                                                                    }
                                                                 }
                                                         }
-                                                        .padding(.horizontal, 30)
                                                     }
                                                 }
-                                                
-                                                VStack {
-                                                    HStack {
-                                                        Text("증빙 자료")
-                                                            .font(.pretendard(Pretendard.semiBold, size: 17))
-                                                            .padding(.leading, 30)
+                                                .overlay {
+                                                    VStack {
+                                                        HStack {
+                                                            Spacer()
+                                                            
+                                                            Button {
+                                                                withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                                                    viewModel.removeCurrentDegreeForm($degreeForm.wrappedValue)
+                                                                }
+                                                            } label: {
+                                                                Image(systemName: "xmark")
+                                                                    .font(.system(size: 15))
+                                                                    .foregroundStyle(.gray.opacity(0.5))
+                                                                    .padding(.trailing, 35)
+                                                            }
+                                                        }
+                                                        .padding(.top, 12)
                                                         
                                                         Spacer()
                                                     }
-                                                    
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                                        .frame(height: 100)
-                                                        .padding(.horizontal, 30)
-                                                        .overlay {
-                                                            VStack(spacing: 5) {
-                                                                Image(systemName: "folder.badge.plus")
-                                                                    .font(.system(size: 22))
-                                                                    .foregroundStyle(.gray.opacity(0.5))
-                                                                
-                                                                Text("탭하여 파일 불러오기")
-                                                                    .font(.pretendard(Pretendard.medium, size: 14))
-                                                                    .foregroundStyle(.gray.opacity(0.5))
-                                                            }
-                                                        }
                                                 }
-                                            }
-                                        }
-                                        .overlay {
-                                            VStack {
-                                                HStack {
-                                                    Spacer()
-                                                    
-                                                    Button {
-                                                        withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
-                                                            viewModel.removeCurrentDegreeForm($degreeForm.wrappedValue)
-                                                        }
-                                                    } label: {
-                                                        Image(systemName: "xmark")
-                                                            .font(.system(size: 15))
-                                                            .foregroundStyle(.gray.opacity(0.5))
-                                                            .padding(.trailing, 35)
-                                                    }
-                                                }
-                                                .padding(.top, 12)
-                                                
-                                                Spacer()
-                                            }
-                                        }
-                                }
-                                
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(height: 80)
-                                    .foregroundStyle(.gray.opacity(0.1))
-                                    .padding(.horizontal, 20)
-                                    .overlay {
-                                        HStack {
-                                            Image(systemName: "plus.app")
-                                                .font(.system(size: 16))
-                                                .foregroundStyle(.gray.opacity(0.7))
-                                            
-                                            Text("학력 추가")
-                                                .font(.pretendard(Pretendard.regular, size: 16))
-                                                .foregroundStyle(.gray.opacity(0.7))
                                         }
                                     }
-                                    .onTapGesture {
-                                        withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
-                                            viewModel.degreeFormList.append(DegreeFormModel())
-                                        }
-                                    }
-                                
-                                HStack {
-                                    Text("자격증")
-                                        .font(.pretendard(Pretendard.semiBold, size: 17))
-                                        .padding(.leading, 20)
+                                    .padding(.top, 5)
+                                    .padding(.bottom, 5)
                                     
-                                    Spacer()
-                                }
-                                
-                                ForEach($viewModel.certificateFormList) { $certificateForm in
                                     RoundedRectangle(cornerRadius: 10)
-                                        .frame(height: 280)
+                                        .frame(height: 80)
                                         .foregroundStyle(.gray.opacity(0.1))
                                         .padding(.horizontal, 20)
                                         .overlay {
-                                            VStack(spacing: 25) {
-                                                VStack {
-                                                    HStack {
-                                                        Text("자격증 이름")
-                                                            .font(.pretendard(Pretendard.semiBold, size: 17))
-                                                            .padding(.leading, 30)
-                                                        
-                                                        Spacer()
-                                                    }
-                                                    
-                                                    HStack {
-                                                        TextField("자격증 이름을 입력하세요", text: $certificateForm.certificateName)
-//                                                            .focused($focus, equals: .first)
-                                                            .font(.pretendard(size: 14))
-                                                            .padding(.horizontal)
-                                                            .frame(height: 50)
-                                                            .background(.white)
-                                                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                                                            .overlay {
-                                                                RoundedRectangle(cornerRadius: 10)
-                                                                    .stroke(.gray.opacity(0.2), lineWidth: 1)
-                                                            }
-                                                    }
-                                                    .padding(.horizontal, 30)
-                                                }
+                                            HStack {
+                                                Image(systemName: "plus.app")
+                                                    .font(.system(size: 16))
+                                                    .foregroundStyle(.gray.opacity(0.7))
                                                 
-                                                VStack {
-                                                    HStack {
-                                                        Text("증빙 자료")
-                                                            .font(.pretendard(Pretendard.semiBold, size: 17))
-                                                            .padding(.leading, 30)
-                                                        
-                                                        Spacer()
-                                                    }
-                                                    
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .stroke(.gray.opacity(0.5), lineWidth: 1)
-                                                        .frame(height: 100)
-                                                        .padding(.horizontal, 30)
-                                                        .overlay {
-                                                            VStack(spacing: 5) {
-                                                                Image(systemName: "folder.badge.plus")
-                                                                    .font(.system(size: 22))
-                                                                    .foregroundStyle(.gray.opacity(0.5))
-                                                                
-                                                                Text("탭하여 파일 불러오기")
-                                                                    .font(.pretendard(Pretendard.medium, size: 14))
-                                                                    .foregroundStyle(.gray.opacity(0.5))
-                                                            }
-                                                        }
-                                                }
+                                                Text("학력 추가")
+                                                    .font(.pretendard(Pretendard.regular, size: 16))
+                                                    .foregroundStyle(.gray.opacity(0.7))
                                             }
                                         }
-                                        .overlay {
-                                            VStack {
-                                                HStack {
-                                                    Spacer()
-                                                    
-                                                    Button {
-                                                        withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
-                                                            viewModel.removeCurrentCertificateForm($certificateForm.wrappedValue)
-                                                        }
-                                                    } label: {
-                                                        Image(systemName: "xmark")
-                                                            .font(.system(size: 15))
-                                                            .foregroundStyle(.gray.opacity(0.5))
-                                                            .padding(.trailing, 35)
-                                                    }
-                                                }
-                                                .padding(.top, 12)
-                                                
-                                                Spacer()
+                                        .onTapGesture {
+                                            withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                                viewModel.degreeFormList.append(DegreeFormModel())
                                             }
                                         }
                                 }
+                                .padding(.bottom, 30)
                                 
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(height: 80)
-                                    .foregroundStyle(.gray.opacity(0.1))
-                                    .padding(.horizontal, 20)
-                                    .overlay {
-                                        HStack {
-                                            Image(systemName: "plus.app")
-                                                .font(.system(size: 16))
-                                                .foregroundStyle(.gray.opacity(0.7))
-                                            
-                                            Text("자격증 추가")
-                                                .font(.pretendard(Pretendard.regular, size: 16))
-                                                .foregroundStyle(.gray.opacity(0.7))
+                                // MARK: -- 자격증
+                                VStack(spacing: 5) {
+                                    HStack {
+                                        Text("자격증")
+                                            .font(.pretendard(Pretendard.semiBold, size: 17))
+                                            .padding(.leading, 20)
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                    VStack(spacing: 15) {
+                                        ForEach($viewModel.certificateFormList) { $certificateForm in
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .frame(height: 290)
+                                                .foregroundStyle(.gray.opacity(0.1))
+                                                .padding(.horizontal, 20)
+                                                .overlay {
+                                                    VStack(spacing: 25) {
+                                                        VStack {
+                                                            HStack {
+                                                                Text("자격증 이름")
+                                                                    .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                                    .padding(.leading, 30)
+                                                                
+                                                                Spacer()
+                                                            }
+                                                            
+                                                            HStack {
+                                                                TextField("자격증 이름을 입력하세요", text: $certificateForm.certificateName)
+                                                                //                                                            .focused($focus, equals: .first)
+                                                                    .font(.pretendard(size: 14))
+                                                                    .padding(.horizontal)
+                                                                    .frame(height: 50)
+                                                                    .background(.white)
+                                                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                                    .overlay {
+                                                                        RoundedRectangle(cornerRadius: 10)
+                                                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
+                                                                    }
+                                                            }
+                                                            .padding(.horizontal, 30)
+                                                        }
+                                                        
+                                                        VStack {
+                                                            HStack {
+                                                                Text("증빙 자료")
+                                                                    .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                                    .padding(.leading, 30)
+                                                                
+                                                                Spacer()
+                                                            }
+                                                            
+                                                            RoundedRectangle(cornerRadius: 10)
+                                                                .stroke(.gray.opacity(0.5), lineWidth: 1)
+                                                                .frame(height: 100)
+                                                                .padding(.horizontal, 30)
+                                                                .overlay {
+                                                                    VStack(spacing: 5) {
+                                                                        Image(systemName: "folder.badge.plus")
+                                                                            .font(.system(size: 22))
+                                                                            .foregroundStyle(.gray.opacity(0.5))
+                                                                        
+                                                                        Text("탭하여 파일 불러오기")
+                                                                            .font(.pretendard(Pretendard.medium, size: 14))
+                                                                            .foregroundStyle(.gray.opacity(0.5))
+                                                                    }
+                                                                }
+                                                        }
+                                                    }
+                                                }
+                                                .overlay {
+                                                    VStack {
+                                                        HStack {
+                                                            Spacer()
+                                                            
+                                                            Button {
+                                                                withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                                                    viewModel.removeCurrentCertificateForm($certificateForm.wrappedValue)
+                                                                }
+                                                            } label: {
+                                                                Image(systemName: "xmark")
+                                                                    .font(.system(size: 15))
+                                                                    .foregroundStyle(.gray.opacity(0.5))
+                                                                    .padding(.trailing, 35)
+                                                            }
+                                                        }
+                                                        .padding(.top, 12)
+                                                        
+                                                        Spacer()
+                                                    }
+                                                }
                                         }
                                     }
-                                    .onTapGesture {
-                                        withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
-                                            viewModel.certificateFormList.append(CertificateFormModel())
+                                    .padding(.top, 5)
+                                    .padding(.bottom, 5)
+                                    
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(height: 80)
+                                        .foregroundStyle(.gray.opacity(0.1))
+                                        .padding(.horizontal, 20)
+                                        .overlay {
+                                            HStack {
+                                                Image(systemName: "plus.app")
+                                                    .font(.system(size: 16))
+                                                    .foregroundStyle(.gray.opacity(0.7))
+                                                
+                                                Text("자격증 추가")
+                                                    .font(.pretendard(Pretendard.regular, size: 16))
+                                                    .foregroundStyle(.gray.opacity(0.7))
+                                            }
                                         }
-                                    }
+                                        .onTapGesture {
+                                            withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                                viewModel.certificateFormList.append(CertificateFormModel())
+                                            }
+                                        }
+                                }
                             }
                         }
                     }
@@ -1015,7 +1045,7 @@ struct ProviderProfileEditView: View {
                     case 2:
                         HStack(spacing: 15) {
                             Button {
-                                viewModel.pageIndex = 3
+                                viewModel.pageIndex = 1
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 45)
