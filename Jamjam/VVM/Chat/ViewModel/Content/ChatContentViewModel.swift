@@ -11,7 +11,7 @@ import os
 
 @Observable
 class ChatContentViewModel {
-    let chatRoom: ChatRoom
+    let chatRoom: ChatRoomModel
     
     var messages: [ChatMessageModel] = []
     
@@ -24,7 +24,7 @@ class ChatContentViewModel {
     @ObservationIgnored private var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ChatContentViewModel")
     
-    init(chatRoom: ChatRoom) {
+    init(chatRoom: ChatRoomModel) {
         self.chatRoom = chatRoom
         
         fetchChatMessages()

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChatCellView: View {
-    let chatRoom: ChatRoom
+    let chatRoom: ChatRoomModel
     
     var body: some View {
         HStack {
@@ -54,5 +54,5 @@ struct ChatCellView: View {
 }
 
 #Preview {
-    ChatCellView(chatRoom: ChatRoom(fromFetchChatRoomsResponse: .init(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: "")))
+    ChatCellView(chatRoom: ChatRoomModel(fromFetchChatRoomsResponse: .init(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: "")))
 }

@@ -11,7 +11,7 @@ import os
 
 @Observable
 class ChatListViewModel {
-    var chatRooms: [ChatRoom] = []
+    var chatRooms: [ChatRoomModel] = []
     
     var isStompClientInitPossible: Bool {
         !AuthCenter.shared.isStompClientInit && AuthCenter.shared.isLogin
@@ -38,7 +38,7 @@ class ChatListViewModel {
                     
                     if let rooms = response.content?.rooms {
                         let chatRooms = rooms.map {
-                            ChatRoom(fromFetchChatRoomsResponse: $0)
+                            ChatRoomModel(fromFetchChatRoomsResponse: $0)
                         }
                         self?.chatRooms = chatRooms
                     }

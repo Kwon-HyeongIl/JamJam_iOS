@@ -17,7 +17,7 @@ enum NavigationDestinationPath: Hashable {
     case categoryView
     
     // Chat
-    case chatContentView(ChatRoom)
+    case chatContentView(ChatRoomModel)
     
     // Profile
     case providerProfileView

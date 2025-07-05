@@ -13,7 +13,7 @@ struct ChatContentView: View {
     
     @FocusState private var focus: TextFieldFocusField?
     
-    init(chatRoom: ChatRoom) {
+    init(chatRoom: ChatRoomModel) {
         viewModel = ChatContentViewModel(chatRoom: chatRoom)
     }
     
@@ -106,7 +106,7 @@ struct ChatContentView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
-        .modifier(NavigationBarBackAndProfileAndEditModifier(nickname: viewModel.chatRoom.nickname ?? "", isEdditButtonTapped: $viewModel.isEditButtonTapped))
+        .modifier(NavigationBarBackAndProfileAndEditModifier(nickname: viewModel.chatRoom.nickname, isEdditButtonTapped: $viewModel.isEditButtonTapped))
         .alert("채팅방을 나가시겠습니까?", isPresented: $viewModel.isEditButtonTapped) {
             Button(role: .cancel) {
                 
@@ -145,7 +145,7 @@ struct ChatContentView: View {
 
 #Preview {
     NavigationStack {
-        ChatContentView(chatRoom: ChatRoom(fromFetchChatRoomsResponse: .init(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: "")))
+        ChatContentView(chatRoom: ChatRoomModel(fromFetchChatRoomsResponse: .init(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: "")))
             .environment(NavigationRouter())
     }
 }
