@@ -16,22 +16,35 @@ class AuthCenter {
     
     var accessToken: String? {
         /// - 동작 과정
-        /// 접속: Keychain에서 토큰 가져옴 -> 토큰이 존재하면 재발급 -> accessToken에 저장 -> didSet 호출 -> Keychain에 토큰 저장
-        /// 로그인/회원가입: 인증 -> 토큰 저장 -> didSet 호출 -> Keychain에 토큰 저장
-        /// 로그아웃: 토큰에 nil 저장 -> didSet 호출 -> Keychain에서 토큰 삭제
+        /// 접속: Keychain에서 토큰 가져옴 -> 토큰이 존재하면 재발급 -> accessToken에 저장 -> didSet 호출 -> Keychain에 토큰 저장(+userId 저장)
+        /// 로그인/회원가입: 인증 -> 토큰 저장 -> didSet 호출 -> Keychain에 토큰 저장(+userId 저장)
+        /// 로그아웃: 토큰에 nil 저장 -> didSet 호출 -> Keychain에서 토큰 삭제(+userId -1)
         didSet {
             logger.info("[accessToken didSet] didSet 호출")
             
             if let accessToken = accessToken, !accessToken.isEmpty {
-                logger.info("[accessToken didSet] Keychain에 토큰 저장")
+                logger.info("[accessToken didSet] Keychain에 토큰 저장 시도")
                 storeAccessToken(accessToken)
+                
+                let extractedUserId = extractUserIdFromJWTAccessToken(accessToken)
+                if let userId = extractedUserId {
+                    logger.info("[accessToken didSet] userId 추출 완료, 저장 시도")
+                    self.userId = userId
+                    logger.info("[accessToken didSet] 로그인 된 userId: \(userId)")
+                    
+                } else {
+                    logger.error("[accessToken didSet] userId 추출 실패")
+                }
                 
             } else {
                 logger.warning("[accessToken didSet] 빈 토큰 저장, 토큰 삭제 시도")
                 deleteAccessToken()
+                userId = nil
             }
         }
     }
+    
+    var userId: Int?
     
     var isLogin: Bool {
         if let accessToken = accessToken, !accessToken.isEmpty {
@@ -62,7 +75,6 @@ class AuthCenter {
         }
     }
     
-    
     // MARK: KeyChain
     private func fetchAccessToken() -> String? {
         Keychain.fetchToken()
@@ -82,7 +94,6 @@ class AuthCenter {
     }
     
     
-    // MARK: Refresh
     private func refreshAccessToken(_ accessToken: String) {
         let url = API.refreshAccessToken.url
         let headers: HTTPHeaders = [
@@ -116,4 +127,35 @@ class AuthCenter {
                 .store(in: &self.cancellables)
         }
     }
+    
+    private func extractUserIdFromJWTAccessToken(_ accessToken: String) -> Int? {
+        let parts = accessToken.split(separator: ".")
+        guard parts.count == 3 else { return nil }
+
+        var payload = String(parts[1])
+            .replacingOccurrences(of: "-", with: "+")
+            .replacingOccurrences(of: "_", with: "/")
+
+        let missingPadding = 4 - (payload.count % 4)
+        if missingPadding < 4 {
+            payload += String(repeating: "=", count: missingPadding)
+        }
+
+        guard
+            let data = Data(base64Encoded: payload),
+            let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+        else { return nil }
+
+        if let id = json["userId"] as? Int {
+            return id
+        }
+
+        if let idString = json["userId"] as? String,
+           let id = Int(idString) {
+            return id
+        }
+
+        return nil
+    }
+
 }

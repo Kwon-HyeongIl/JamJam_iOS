@@ -30,6 +30,6 @@ struct ChatMessageModel {
         senderNickname = from.senderNickname
         content = from.content
         sentAt = from.sentAt
-        isOwn = from.isOwn
+        isOwn = String(AuthCenter.shared.userId ?? -1) == from.senderId ? true : false
     }
 }
