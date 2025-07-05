@@ -58,6 +58,7 @@
 		CA4F125F2E18451C0061012E /* CareerFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F125E2E18451C0061012E /* CareerFormModel.swift */; };
 		CA4F12612E1858E50061012E /* DegreeFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12602E1858E50061012E /* DegreeFormModel.swift */; };
 		CA4F12632E185A030061012E /* CertificateFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12622E185A030061012E /* CertificateFormModel.swift */; };
+		CA5B62B42E19575A00CA939F /* RangeSlider in Frameworks */ = {isa = PBXBuildFile; productRef = CA5B62B32E19575A00CA939F /* RangeSlider */; };
 		CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7B2E09688700FB1E22 /* FontType.swift */; };
 		CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */; };
 		CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */; };
@@ -291,6 +292,7 @@
 				CA7D11A12E10567900D55CCE /* FirebaseMessaging in Frameworks */,
 				CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */,
 				CA7D119F2E10567900D55CCE /* FirebaseInAppMessaging-Beta in Frameworks */,
+				CA5B62B42E19575A00CA939F /* RangeSlider in Frameworks */,
 				CAB600002E152AC4004CD644 /* SwiftStomp in Frameworks */,
 				CA87FF6F2E00305600C8C830 /* CarouselStack in Frameworks */,
 				CA87FF712E00305600C8C830 /* ShuffleDeck in Frameworks */,
@@ -1124,6 +1126,7 @@
 				CA7D119E2E10567900D55CCE /* FirebaseInAppMessaging-Beta */,
 				CA7D11A02E10567900D55CCE /* FirebaseMessaging */,
 				CAB6FFFF2E152AC4004CD644 /* SwiftStomp */,
+				CA5B62B32E19575A00CA939F /* RangeSlider */,
 			);
 			productName = Jamjam;
 			productReference = CA09153A2DF1289A00E272F8 /* Jamjam.app */;
@@ -1158,6 +1161,7 @@
 				CAD3106C2E09B56200A5FAA4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CA7D119B2E10567900D55CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				CAB6FFFE2E152AC4004CD644 /* XCRemoteSwiftPackageReference "SwiftStomp" */,
+				CA5B62B22E19575A00CA939F /* XCRemoteSwiftPackageReference "Range-Slider" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CA09153B2DF1289A00E272F8 /* Products */;
@@ -1542,6 +1546,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CA5B62B22E19575A00CA939F /* XCRemoteSwiftPackageReference "Range-Slider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jackvdp/Range-Slider";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		CA7D119B2E10567900D55CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1577,6 +1589,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CA5B62B32E19575A00CA939F /* RangeSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA5B62B22E19575A00CA939F /* XCRemoteSwiftPackageReference "Range-Slider" */;
+			productName = RangeSlider;
+		};
 		CA7D119C2E10567900D55CCE /* FirebaseCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CA7D119B2E10567900D55CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

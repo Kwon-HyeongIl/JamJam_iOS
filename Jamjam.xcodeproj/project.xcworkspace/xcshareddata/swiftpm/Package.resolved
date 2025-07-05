@@ -1,5 +1,5 @@
 {
-  "originHash" : "02aa9a75dab303a3a86f89227f3a81d460322f8301113bc21276ad525f2ac8d5",
+  "originHash" : "6ca4b1c04d4006490e70b5274cea5d3d32d98b1595a8cd22d2cf48a45c68811c",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -125,6 +125,15 @@
       "state" : {
         "revision" : "540318ecedd63d883069ae7f1ed811a2df00b6ac",
         "version" : "2.4.0"
+      }
+    },
+    {
+      "identity" : "range-slider",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jackvdp/Range-Slider",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c1264f46ef316ec57331ec1b9d1d3d0af096bd8a"
       }
     },
     {

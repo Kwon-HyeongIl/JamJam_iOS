@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 class ProviderProfileEditViewModel {
-    var pageIndex = 3
+    var pageIndex = 4
     
     var title: String {
         switch pageIndex {
@@ -55,6 +55,11 @@ class ProviderProfileEditViewModel {
     var degreeFormList: [DegreeFormModel] = []
     var certificateFormList: [CertificateFormModel] = []
     
+    // MARK: Page Index 4
+    var startTime = 6.0 / 24.0
+    var endTime = 18.0 / 24.0
+    let hourStep = 1.0 / 24.0
+    
     func detailSkillText(id: Int) -> String? {
         ProfileInfoManager.extractDetailSkillTextWithId(id: id)
     }
@@ -81,5 +86,10 @@ class ProviderProfileEditViewModel {
                 self.certificateFormList.remove(at: index)
             }
         }
+    }
+    
+    func convertTimeTo24(_ sliderValue: Double) -> String {
+        let hour = Int((sliderValue * 24).rounded())
+        return String(format: "%02d:00", hour)
     }
 }
