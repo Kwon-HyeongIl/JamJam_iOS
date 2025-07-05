@@ -37,7 +37,10 @@ class ChatListViewModel {
                     self?.logger.info("[fetchChatRooms] SUCCESS")
                     
                     if let rooms = response.content?.rooms {
-                        self?.chatRooms = rooms
+                        let chatRooms = rooms.map {
+                            ChatRoom(fromFetchChatRoomsResponse: $0)
+                        }
+                        self?.chatRooms = chatRooms
                     }
                     
                 } else {

@@ -13,18 +13,18 @@ struct FetchChatRoomsResponse: Decodable {
     let content: Content?
     
     struct Content: Decodable {
-        let rooms: [ChatRoom]
+        let rooms: [Room]
         let currentPage: Int
         let totalPage: Int?
         let hasNext: Bool
+        
+        struct Room: Decodable {
+            let id: Int
+            let nickname: String?
+            let lastMessage: String?
+            let lastMessageTime: String?
+            let unreadCount: Int
+            let profileUrl: String?
+        }
     }
-}
-
-struct ChatRoom: Decodable, Identifiable, Hashable, Equatable {
-    let id: Int
-    let nickname: String?
-    let lastMessage: String?
-    let lastMessageTime: String?
-    let unreadCount: Int
-    let profileUrl: String?
 }

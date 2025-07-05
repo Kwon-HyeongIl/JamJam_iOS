@@ -17,7 +17,7 @@ class ChatManager {
     var client: SwiftStomp?
     
     var socketConnectionStatusRouter = CurrentValueSubject<SocketConnectionStatus, Never>(.disconnected)
-    var messageReceivedRouter = PassthroughSubject<ChatSocketMessageResponse, Never>()
+    var messageReceivedRouter = PassthroughSubject<ChatMessageModel, Never>()
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ChatManager")
@@ -78,16 +78,19 @@ class ChatManager {
                     guard case let
                         .text(raw, _, _, _) = frame,
                           let data = raw.data(using: .utf8),
-                          let res = try? JSONDecoder().decode(ChatSocketMessageResponse.self, from: data),
-                          res.type == .newMessage
+                          let response = try? JSONDecoder().decode(ChatSocketMessageResponse.self, from: data),
+                          let content = response.content
                     else {
                         self?.logger.error("[messagesUpstream] 수신 프레임 디코딩 실패")
                         return
                     }
                     
-                    self?.logger.info("[messagesUpstream] 수신 프레임 디코딩 성공, senderId: \(res.content?.senderId ?? "nil")")
+//                    let chatMessage = ChatMessage(messageId: content.messageId, senderId: content.senderId, senderNickname: content.senderNickname, content: content.content, sentAt: content.sentAt, isOwn: content.isOwn)
+                    let chatMessage = ChatMessageModel(fromChatSocketMessageResponse: content)
                     
-                    self?.messageReceivedRouter.send(res)
+                    self?.logger.info("[messagesUpstream] 수신 프레임 디코딩 성공, senderId: \(chatMessage.senderId)")
+                    
+                    self?.messageReceivedRouter.send(chatMessage)
                 }
                 .store(in: &self.cancellables)
         }

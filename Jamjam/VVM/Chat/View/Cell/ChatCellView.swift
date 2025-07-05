@@ -18,10 +18,10 @@ struct ChatCellView: View {
                 .padding(.leading, 20)
             
             VStack(alignment: .leading, spacing: 8) {
-                Text(chatRoom.nickname ?? "")
+                Text(chatRoom.nickname)
                     .font(.pretendard(Pretendard.semiBold, size: 17))
                 
-                Text(chatRoom.lastMessage ?? "")
+                Text(chatRoom.lastMessage)
                     .font(.pretendard(Pretendard.regular, size: 14))
                     .foregroundStyle(.gray)
             }
@@ -29,7 +29,7 @@ struct ChatCellView: View {
             Spacer()
             
             VStack(alignment: .trailing) {
-                Text(chatRoom.lastMessageTime ?? "")
+                Text(chatRoom.lastMessageTime)
                     .font(.pretendard(Pretendard.regular, size: 12))
                     .foregroundStyle(.gray)
                 
@@ -54,5 +54,5 @@ struct ChatCellView: View {
 }
 
 #Preview {
-    ChatCellView(chatRoom: ChatRoom(id: 0, nickname: "0", lastMessage: "0", lastMessageTime: "0", unreadCount: 0, profileUrl: "0"))
+    ChatCellView(chatRoom: ChatRoom(fromFetchChatRoomsResponse: .init(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: "")))
 }

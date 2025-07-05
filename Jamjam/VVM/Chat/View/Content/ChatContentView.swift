@@ -21,7 +21,7 @@ struct ChatContentView: View {
         VStack(spacing: 0) {
             ScrollView(showsIndicators: false) {
                 VStack {
-                    ForEach(viewModel.messages) { message in
+                    ForEach(viewModel.messages, id: \.messageId) { message in
                         HStack {
                             if message.isOwn { // 내 채팅
                                 Spacer()
@@ -145,7 +145,7 @@ struct ChatContentView: View {
 
 #Preview {
     NavigationStack {
-        ChatContentView(chatRoom: ChatRoom(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: ""))
+        ChatContentView(chatRoom: ChatRoom(fromFetchChatRoomsResponse: .init(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: "")))
             .environment(NavigationRouter())
     }
 }

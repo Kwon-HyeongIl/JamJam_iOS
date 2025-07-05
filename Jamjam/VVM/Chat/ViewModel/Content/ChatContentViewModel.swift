@@ -13,7 +13,7 @@ import os
 class ChatContentViewModel {
     let chatRoom: ChatRoom
     
-    var messages: [Message] = []
+    var messages: [ChatMessageModel] = []
     
     var inputMessage = ""
     var isEditButtonTapped = false
@@ -48,8 +48,8 @@ class ChatContentViewModel {
                 guard let self else { return }
                 
                 if case .connected = status {
-                    logger.info("[socketConnectionStatusRouter] 연결 상태 확인, 방 구독 시작, target roomId: \(chatRoom.id)")
-                    ChatManager.shared.subscribe(roomId: chatRoom.id)
+                    logger.info("[socketConnectionStatusRouter] 연결 상태 확인, 방 구독 시작, target roomId: \(chatRoom.roomId)")
+                    ChatManager.shared.subscribe(roomId: chatRoom.roomId)
                 }
             }
             .store(in: &cancellables)
@@ -64,17 +64,16 @@ class ChatContentViewModel {
                 case .failure(let error):
                     self?.logger.error("[messageReceivedRouter] completion failed: \(error)")
                 }
-            } receiveValue: { [weak self] response in
-                self?.logger.info("[messageReceivedRouter] 디코딩 된 메시지 저장")
-                guard let message = response.content else { return }
-                self?.messages.append(message)
+            } receiveValue: { [weak self] chatMessage in
+                self?.logger.info("[messageReceivedRouter] 디코딩 된 메시지 저장 시도")
+                self?.messages.append(chatMessage)
             }
             .store(in: &cancellables)
     }
     
     private func fetchChatMessages() {
         let request = FetchChatMessagesRequest(page: 0, size: 20, sort: ["lastMessageTime,desc"])
-        let chatRoomId = chatRoom.id
+        let chatRoomId = chatRoom.roomId
         
         ChatManager.shared.fetchChatMessages(request: request, chatRoomId: chatRoomId)
             .receive(on: DispatchQueue.main)
@@ -89,9 +88,14 @@ class ChatContentViewModel {
                 if response.code == "SUCCESS" {
                     self?.logger.info("[fetchChatMessages] SUCCESS")
                     
-                    if let messages = response.content?.chats, !messages.isEmpty {
+                    if let chats = response.content?.chats, !chats.isEmpty {
                         self?.logger.info("[fetchChatMessages] 이전 메시지 존재")
-                        self?.messages = messages
+                        
+                        let chatMessages = chats.map {
+                            ChatMessageModel(fromFetchChatMessagesResponse: $0)
+                        }
+                        
+                        self?.messages = chatMessages
                         self?.readLastMessage()
                         
                     } else {
@@ -106,9 +110,9 @@ class ChatContentViewModel {
     }
     
     func readLastMessage() {
-        let lastMessageId = messages.last?.id ?? 0
+        guard let lastMessageId = messages.last?.messageId else { return }
         let request = ReadLastMessageRequest(lastReadMessageId: lastMessageId)
-        let chatRoomId = chatRoom.id
+        let chatRoomId = chatRoom.roomId
         
         ChatManager.shared.readLastMessage(request: request, chatRoomId: chatRoomId)
             .receive(on: DispatchQueue.main)
@@ -131,7 +135,7 @@ class ChatContentViewModel {
     }
     
     func send() {
-        ChatManager.shared.sendMessage(roomId: chatRoom.id, text: inputMessage)
+        ChatManager.shared.sendMessage(roomId: chatRoom.roomId, text: inputMessage)
         
         DispatchQueue.main.async {
             self.inputMessage = ""
@@ -139,7 +143,7 @@ class ChatContentViewModel {
     }
     
     func deleteChatRoom() {
-        ChatManager.shared.deleteChatRoom(targetChatRoomId: chatRoom.id)
+        ChatManager.shared.deleteChatRoom(targetChatRoomId: chatRoom.roomId)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {

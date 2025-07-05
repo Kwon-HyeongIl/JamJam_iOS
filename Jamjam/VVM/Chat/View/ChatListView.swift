@@ -28,7 +28,7 @@ struct ChatListView: View {
                 
                 ScrollView(showsIndicators: false) {
                     LazyVStack(spacing: 0) {
-                        ForEach(viewModel.chatRooms) { chatRoom in
+                        ForEach(viewModel.chatRooms, id: \.roomId) { chatRoom in
                             ChatCellView(chatRoom: chatRoom)
                                 .onTapGesture {
                                     navRouter.navigate(.chatContentView(chatRoom))
