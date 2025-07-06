@@ -12,7 +12,8 @@ struct ChatMessageModel {
     let senderId: String
     let senderNickname: String
     let content: String
-    let sentAt: String
+    let sentDayTime: String
+    let sentDate: String
     let isOwn: Bool
     
     init(fromFetchChatMessagesResponse from: FetchChatMessagesResponse.Content.Chat) {
@@ -20,7 +21,8 @@ struct ChatMessageModel {
         senderId = from.senderId
         senderNickname = from.senderNickname
         content = from.content
-        sentAt = from.sentAt
+        sentDayTime = DateManager.isoToDayTime(from.sentAt)
+        sentDate = DateManager.isoToDate(from.sentAt)
         isOwn = from.isOwn
     }
     
@@ -29,7 +31,8 @@ struct ChatMessageModel {
         senderId = from.senderId
         senderNickname = from.senderNickname
         content = from.content
-        sentAt = from.sentAt
+        sentDayTime = DateManager.isoToDayTime(from.sentAt)
+        sentDate = DateManager.isoToDate(from.sentAt)
         isOwn = String(AuthCenter.shared.userId ?? -1) == from.senderId ? true : false
     }
 }

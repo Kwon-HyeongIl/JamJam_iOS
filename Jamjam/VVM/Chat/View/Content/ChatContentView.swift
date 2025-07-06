@@ -22,7 +22,7 @@ struct ChatContentView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 10) {
                     ForEach(viewModel.messages, id: \.messageId) { message in
-                        HStack {
+                        HStack(spacing: 2) {
                             // MARK: 내 채팅
                             if message.isOwn {
                                 Spacer()
@@ -30,11 +30,12 @@ struct ChatContentView: View {
                                 VStack {
                                     Spacer()
                                     
-                                    Text("\(message.sentAt)")
+                                    Text("\(message.sentDayTime)")
                                         .font(.pretendard(Pretendard.regular, size: 8))
                                         .foregroundStyle(.gray)
                                         .padding(.bottom, 3)
                                 }
+                                .padding(.leading, 80)
                                 
                                 VStack {
                                     Text(message.content)
@@ -65,11 +66,12 @@ struct ChatContentView: View {
                                 VStack {
                                     Spacer()
                                     
-                                    Text("\(message.sentAt)")
+                                    Text("\(message.sentDayTime)")
                                         .font(.pretendard(Pretendard.regular, size: 8))
                                         .foregroundStyle(.gray)
                                         .padding(.bottom, 3)
                                 }
+                                .padding(.trailing, 80)
                                 
                                 Spacer()
                             }

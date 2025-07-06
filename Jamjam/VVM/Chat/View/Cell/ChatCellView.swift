@@ -17,13 +17,13 @@ struct ChatCellView: View {
                 .foregroundStyle(.gray.opacity(0.6))
                 .padding(.leading, 20)
             
-            VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading, spacing: 7) {
                 Text(chatRoom.nickname)
                     .font(.pretendard(Pretendard.semiBold, size: 17))
                 
                 Text(chatRoom.lastMessage)
                     .font(.pretendard(Pretendard.regular, size: 14))
-                    .frame(maxWidth: 150)
+                    .frame(maxWidth: 150, alignment: .leading)
                     .lineLimit(1)
                     .foregroundStyle(.gray)
             }
@@ -31,25 +31,25 @@ struct ChatCellView: View {
             Spacer()
             
             VStack(alignment: .trailing) {
-                Text(chatRoom.lastMessageTime)
-                    .font(.pretendard(Pretendard.regular, size: 12))
-                    .foregroundStyle(.gray)
-                
-                Spacer()
-                
-                if chatRoom.unreadCount >= 1 {
-                    Circle()
-                        .fill(Color.JJTitle)
-                        .scaledToFit()
-                        .frame(width: 20)
-                        .overlay {
-                            Text("\(chatRoom.unreadCount)")
-                                .font(.pretendard(Pretendard.semiBold, size: 12))
-                                .foregroundStyle(.white)
-                        }
+                ZStack {
+                    Text(chatRoom.lastMessageRelativeTime)
+                        .font(.pretendard(Pretendard.regular, size: 12))
+                        .foregroundStyle(.gray)
+                        .padding(.bottom, 18)
+                    
+                    if chatRoom.unreadCount >= 1 {
+                        Circle()
+                            .fill(Color.JJTitle)
+                            .scaledToFit()
+                            .frame(width: 20)
+                            .overlay {
+                                Text("\(chatRoom.unreadCount)")
+                                    .font(.pretendard(Pretendard.semiBold, size: 12))
+                                    .foregroundStyle(.white)
+                            }
+                            .padding(.top, 10)
+                    }
                 }
-                
-                Spacer()
             }
             .padding(.trailing, 20)
         }

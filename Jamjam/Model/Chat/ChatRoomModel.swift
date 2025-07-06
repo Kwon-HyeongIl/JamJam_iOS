@@ -11,7 +11,7 @@ struct ChatRoomModel: Hashable, Equatable {
     let roomId: Int
     let nickname: String
     let lastMessage: String
-    let lastMessageTime: String
+    let lastMessageRelativeTime: String
     let unreadCount: Int
     let profileUrl: String
     
@@ -19,7 +19,7 @@ struct ChatRoomModel: Hashable, Equatable {
         roomId = from.id
         nickname = from.nickname ?? ""
         lastMessage = from.lastMessage ?? ""
-        lastMessageTime = from.lastMessageTime ?? ""
+        lastMessageRelativeTime = DateManager.isoToRelativeTime(from.lastMessageTime)
         unreadCount = from.unreadCount
         profileUrl = from.profileUrl ?? ""
     }
