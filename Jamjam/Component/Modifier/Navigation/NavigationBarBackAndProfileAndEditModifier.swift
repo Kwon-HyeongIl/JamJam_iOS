@@ -57,8 +57,12 @@ struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        isEdditButtonTapped = true
+                    Menu {
+                        Button {
+                            isEdditButtonTapped = true
+                        } label: {
+                            Text("채팅방 나가기")
+                        }
                     } label: {
                         Image(systemName: "ellipsis")
                             .font(.system(size: 20))

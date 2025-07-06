@@ -159,7 +159,7 @@ struct ChatContentView: View {
                 Text("나가기")
             }
         } message: {
-            Text("채팅방 기록은 복구되지 않습니다.")
+            Text("채팅 내역은 복구되지 않습니다.")
         }
         .alert("채팅방 나가기 실패", isPresented: $viewModel.isDeleteChatRoomAlertVisible) {
             Button {
