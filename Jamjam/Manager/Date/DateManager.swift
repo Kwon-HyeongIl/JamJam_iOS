@@ -11,29 +11,35 @@ class DateManager {
     // ex: "오후 12:00"
     static func isoToDayTime(_ isoString: String) -> String {
         let isoFormatter = ISO8601DateFormatter()
-        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        isoFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        isoFormatter.formatOptions = [
+            .withFullDate,
+            .withTime,
+            .withDashSeparatorInDate,
+            .withColonSeparatorInTime,
+            .withFractionalSeconds
+        ]
+        isoFormatter.timeZone = TimeZone.current
         
         let date = isoFormatter.date(from: isoString) ?? Date()
         
-        let f = DateFormatter()
-        f.locale = Locale(identifier: "ko_KR")
-        f.dateFormat = "a hh:mm"
-        return f.string(from: date)
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "a hh:mm"
+        return formatter.string(from: date)
     }
     
     // ex: "2025. 07. 06 (일)
     static func isoToDate(_ isoString: String) -> String {
         let isoFormatter = ISO8601DateFormatter()
         isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        isoFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        isoFormatter.timeZone = TimeZone.current
         
         let date = isoFormatter.date(from: isoString) ?? Date()
         
-        let f = DateFormatter()
-        f.locale = Locale(identifier: "ko_KR")
-        f.dateFormat = "yyyy. MM. dd (EEE)"
-        return f.string(from: date)
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "yyyy. MM. dd (EEE)"
+        return formatter.string(from: date)
     }
     
     static func isoToRelativeTime(_ isoString: String?) -> String {
@@ -45,10 +51,9 @@ class DateManager {
             .withTime,
             .withDashSeparatorInDate,
             .withColonSeparatorInTime,
-            .withFractionalSeconds // 소수점 이하 자릿수 자유
-            // 타임존 옵션(.withTimeZone)을 넣지 않음
+            .withFractionalSeconds
         ]
-        isoFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        isoFormatter.timeZone = TimeZone.current
         
         guard let date = isoFormatter.date(from: isoString) else {
             return isoString

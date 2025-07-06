@@ -1210,10 +1210,11 @@
 				};
 			};
 			buildConfigurationList = CA0915352DF1289A00E272F8 /* Build configuration list for PBXProject "Jamjam" */;
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ko,
 				Base,
 			);
 			mainGroup = CA0915312DF1289A00E272F8;

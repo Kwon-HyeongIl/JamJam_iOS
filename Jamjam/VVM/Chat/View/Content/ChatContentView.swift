@@ -21,21 +21,29 @@ struct ChatContentView: View {
         VStack(spacing: 0) {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 10) {
-                    ForEach(viewModel.messages, id: \.messageId) { message in
-                        HStack(spacing: 2) {
-                            // MARK: 내 채팅
-                            if message.isOwn {
+                    ForEach(Array(viewModel.messages.enumerated()), id: \.element.messageId) { index, message in
+                        let isOhterUserProfileIconVisible = !message.isOwn && (index == 0 || viewModel.messages[index - 1].isOwn)
+                        
+                        let isSentDayTimeVisible = !(index > 0 &&
+                                                 viewModel.messages[index - 1].isOwn == message.isOwn &&
+                                                 viewModel.messages[index - 1].sentDayTime == message.sentDayTime)
+                        
+                        // MARK: 내 채팅
+                        if message.isOwn {
+                            HStack(spacing: 2) {
                                 Spacer()
                                 
-                                VStack {
-                                    Spacer()
-                                    
-                                    Text("\(message.sentDayTime)")
-                                        .font(.pretendard(Pretendard.regular, size: 8))
-                                        .foregroundStyle(.gray)
-                                        .padding(.bottom, 3)
+                                if isSentDayTimeVisible {
+                                    VStack {
+                                        Spacer()
+                                        
+                                        Text("\(message.sentDayTime)")
+                                            .font(.pretendard(Pretendard.regular, size: 8))
+                                            .foregroundStyle(.gray)
+                                            .padding(.bottom, 3)
+                                    }
+                                    .padding(.leading, 80)
                                 }
-                                .padding(.leading, 80)
                                 
                                 VStack {
                                     Text(message.content)
@@ -45,14 +53,20 @@ struct ChatContentView: View {
                                 }
                                 .background(Color.JJTitle)
                                 .clipShape(RoundedRectangle(cornerRadius: 25))
+                                .padding(.leading, isSentDayTimeVisible ? 0 : 100)
                                 .padding(.trailing, 10)
-                              
-                                // MARK: 상대방 채팅
-                            } else {
-                                Image(systemName: "person.crop.circle.fill")
-                                    .font(.system(size: 35))
-                                    .foregroundStyle(.gray.opacity(0.6))
-                                    .padding(.leading, 10)
+                                
+                            }
+                            
+                            // MARK: 상대방 채팅
+                        } else {
+                            HStack(spacing: 2) {
+                                if isOhterUserProfileIconVisible {
+                                    Image(systemName: "person.crop.circle.fill")
+                                        .font(.system(size: 35))
+                                        .foregroundStyle(.gray.opacity(0.6))
+                                        .padding(.leading, 10)
+                                }
                                 
                                 VStack {
                                     Text(message.content)
@@ -62,16 +76,20 @@ struct ChatContentView: View {
                                 }
                                 .background(.gray.opacity(0.3))
                                 .clipShape(RoundedRectangle(cornerRadius: 25))
+                                .padding(.leading, isOhterUserProfileIconVisible ? 0 : 52)
+                                .padding(.trailing, isSentDayTimeVisible ? 0 : 100)
                                 
-                                VStack {
-                                    Spacer()
-                                    
-                                    Text("\(message.sentDayTime)")
-                                        .font(.pretendard(Pretendard.regular, size: 8))
-                                        .foregroundStyle(.gray)
-                                        .padding(.bottom, 3)
+                                if isSentDayTimeVisible {
+                                    VStack {
+                                        Spacer()
+                                        
+                                        Text("\(message.sentDayTime)")
+                                            .font(.pretendard(Pretendard.regular, size: 8))
+                                            .foregroundStyle(.gray)
+                                            .padding(.bottom, 3)
+                                    }
+                                    .padding(.trailing, 80)
                                 }
-                                .padding(.trailing, 80)
                                 
                                 Spacer()
                             }
