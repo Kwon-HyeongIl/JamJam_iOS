@@ -31,7 +31,13 @@ class DateManager {
     // ex: "2025. 07. 06 (일)
     static func isoToDate(_ isoString: String) -> String {
         let isoFormatter = ISO8601DateFormatter()
-        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        isoFormatter.formatOptions = [
+            .withFullDate,
+            .withTime,
+            .withDashSeparatorInDate,
+            .withColonSeparatorInTime,
+            .withFractionalSeconds
+        ]
         isoFormatter.timeZone = TimeZone.current
         
         let date = isoFormatter.date(from: isoString) ?? Date()

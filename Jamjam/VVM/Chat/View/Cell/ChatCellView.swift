@@ -47,7 +47,7 @@ struct ChatCellView: View {
                                     .font(.pretendard(Pretendard.semiBold, size: 12))
                                     .foregroundStyle(.white)
                             }
-                            .padding(.top, 10)
+                            .padding(.top)
                     }
                 }
             }
