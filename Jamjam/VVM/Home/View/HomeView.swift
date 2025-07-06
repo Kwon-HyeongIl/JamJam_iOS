@@ -99,7 +99,7 @@ struct HomeView: View {
                                 .scaledToFill()
                                 .frame(height: 170)
                                 .frame(maxWidth: UIScreen.main.bounds.width - 130)
-                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
                                 .shadow(color: .gray.opacity(0.3), radius: 5, x: 5, y: 5)
                         }
                         .shuffleOffset(27)

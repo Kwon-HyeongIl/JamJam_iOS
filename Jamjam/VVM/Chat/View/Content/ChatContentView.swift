@@ -20,10 +20,11 @@ struct ChatContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             ScrollView(showsIndicators: false) {
-                VStack {
+                VStack(spacing: 10) {
                     ForEach(viewModel.messages, id: \.messageId) { message in
                         HStack {
-                            if message.isOwn { // 내 채팅
+                            // MARK: 내 채팅
+                            if message.isOwn {
                                 Spacer()
                                 
                                 VStack {
@@ -32,26 +33,34 @@ struct ChatContentView: View {
                                     Text("\(message.sentAt)")
                                         .font(.pretendard(Pretendard.regular, size: 8))
                                         .foregroundStyle(.gray)
+                                        .padding(.bottom, 3)
                                 }
                                 
                                 VStack {
                                     Text(message.content)
-                                        .font(.pretendard(Pretendard.medium, size: 14))
+                                        .font(.pretendard(Pretendard.medium, size: 15))
                                         .foregroundStyle(.white)
-                                        .padding()
+                                        .padding(12)
                                 }
                                 .background(Color.JJTitle)
-                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                                .padding(.trailing, 10)
                               
-                            } else { // 상대 채팅
+                                // MARK: 상대방 채팅
+                            } else {
+                                Image(systemName: "person.crop.circle.fill")
+                                    .font(.system(size: 35))
+                                    .foregroundStyle(.gray.opacity(0.6))
+                                    .padding(.leading, 10)
+                                
                                 VStack {
                                     Text(message.content)
-                                        .font(.pretendard(Pretendard.medium, size: 14))
+                                        .font(.pretendard(Pretendard.medium, size: 15))
                                         .foregroundStyle(.black)
-                                        .padding()
+                                        .padding(12)
                                 }
-                                .background(.gray)
-                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                                .background(.gray.opacity(0.3))
+                                .clipShape(RoundedRectangle(cornerRadius: 25))
                                 
                                 VStack {
                                     Spacer()
@@ -59,6 +68,7 @@ struct ChatContentView: View {
                                     Text("\(message.sentAt)")
                                         .font(.pretendard(Pretendard.regular, size: 8))
                                         .foregroundStyle(.gray)
+                                        .padding(.bottom, 3)
                                 }
                                 
                                 Spacer()

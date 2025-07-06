@@ -45,9 +45,9 @@ struct NavigationBarBackAndNameModifier: ViewModifier {
                 
                 ToolbarItem(placement: .principal) {
                     HStack {
-                        Image(systemName: "person.crop.circle")
+                        Image(systemName: "person.crop.circle.fill")
                             .font(.system(size: 20))
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(.gray.opacity(0.6))
                         
                         Text(name)
                             .font(.pretendard(Pretendard.semiBold, size: 19))

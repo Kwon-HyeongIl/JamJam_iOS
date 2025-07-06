@@ -22,9 +22,9 @@ struct ProviderProfileView: View {
                 VStack {
                     // MARK: Profile Part
                     HStack(spacing: 10) {
-                        Image(systemName: "person.crop.circle")
+                        Image(systemName: "person.crop.circle.fill")
                             .font(.system(size: 60))
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(.gray.opacity(0.6))
                             .padding(.leading, 20)
                         
                         VStack(spacing: 8) {

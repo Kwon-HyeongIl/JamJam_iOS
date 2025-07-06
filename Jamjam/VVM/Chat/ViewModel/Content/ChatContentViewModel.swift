@@ -91,9 +91,10 @@ class ChatContentViewModel {
                     if let chats = response.content?.chats, !chats.isEmpty {
                         self?.logger.info("[fetchChatMessages] 이전 메시지 존재")
                         
-                        let chatMessages = chats.map {
-                            ChatMessageModel(fromFetchChatMessagesResponse: $0)
-                        }
+                        let chatMessages = chats
+                            .map { ChatMessageModel(fromFetchChatMessagesResponse: $0) }
+                            .reversed()
+                            .reduce(into: []) { $0.append($1) }
                         
                         self?.messages = chatMessages
                         self?.readLastMessage()

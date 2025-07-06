@@ -412,10 +412,10 @@ struct ProviderProfileEditView: View {
                                                     .padding(.horizontal, 13)
                                                     .padding(.vertical, 6)
                                                     .background(
-                                                        RoundedRectangle(cornerRadius: 30)
+                                                        RoundedRectangle(cornerRadius: 25)
                                                             .foregroundStyle(.red.opacity(0.1))
                                                             .overlay {
-                                                                RoundedRectangle(cornerRadius: 30)
+                                                                RoundedRectangle(cornerRadius: 25)
                                                                     .strokeBorder(Color.JJTitle, lineWidth: 1)
                                                             }
                                                         

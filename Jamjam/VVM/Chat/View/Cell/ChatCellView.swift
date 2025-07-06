@@ -12,17 +12,19 @@ struct ChatCellView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "person.crop.circle")
+            Image(systemName: "person.crop.circle.fill")
                 .font(.system(size: 50))
-                .foregroundStyle(.gray)
+                .foregroundStyle(.gray.opacity(0.6))
                 .padding(.leading, 20)
             
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 6) {
                 Text(chatRoom.nickname)
                     .font(.pretendard(Pretendard.semiBold, size: 17))
                 
                 Text(chatRoom.lastMessage)
                     .font(.pretendard(Pretendard.regular, size: 14))
+                    .frame(maxWidth: 150)
+                    .lineLimit(1)
                     .foregroundStyle(.gray)
             }
             
@@ -32,6 +34,8 @@ struct ChatCellView: View {
                 Text(chatRoom.lastMessageTime)
                     .font(.pretendard(Pretendard.regular, size: 12))
                     .foregroundStyle(.gray)
+                
+                Spacer()
                 
                 if chatRoom.unreadCount >= 1 {
                     Circle()
@@ -44,6 +48,8 @@ struct ChatCellView: View {
                                 .foregroundStyle(.white)
                         }
                 }
+                
+                Spacer()
             }
             .padding(.trailing, 20)
         }

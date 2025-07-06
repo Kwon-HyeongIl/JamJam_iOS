@@ -47,9 +47,9 @@ struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
                 
                 ToolbarItem(placement: .principal) {
                     HStack {
-                        Image(systemName: "person.crop.circle")
+                        Image(systemName: "person.crop.circle.fill")
                             .font(.system(size: 20))
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(.gray.opacity(0.6))
                         
                         Text(nickname)
                             .font(.pretendard(Pretendard.semiBold, size: 18))
@@ -63,7 +63,6 @@ struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
                         Image(systemName: "ellipsis")
                             .font(.system(size: 20))
                             .foregroundStyle(.gray)
-                            .padding(.trailing, 20)
                     }
                 }
             }
