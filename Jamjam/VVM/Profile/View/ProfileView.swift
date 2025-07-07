@@ -31,7 +31,7 @@ struct ProfileView: View {
             
             
             ScrollView(showsIndicators: false) {
-                WebView(html: $editorContent)
+                WebView(markdown: $editorContent)
                     .frame(height: 570)
 //                VStack(spacing: 30) {
 //                    Button {

@@ -10,41 +10,83 @@ import WebKit
 
 struct WebView: UIViewRepresentable {
     @Binding var markdown: String
-    
-    // JS 메시지 수신
+
     final class Coordinator: NSObject, WKScriptMessageHandler {
-        var parent: WebView
-        init(_ parent: WebView) { self.parent = parent }
-        
+        private let html: Binding<String>
+
+        weak var webView: WKWebView?
+        private var editorReady   = false
+        private var lastPushed    = ""
+
+        init(html: Binding<String>) {
+            self.html = html
+        }
+
+        // JS → Swift
         func userContentController(_ uc: WKUserContentController,
-                                   didReceive message: WKScriptMessage) {
-            guard let body = message.body as? [String: Any],
-                  body["type"] as? String == "contentChanged",
-                  let data = body["data"] as? String else { return }
-            
-            DispatchQueue.main.async {
-                self.parent.markdown = data
+                                   didReceive msg: WKScriptMessage) {
+
+            guard let body = msg.body as? [String: Any],
+                  let type = body["type"] as? String else { return }
+
+            switch type {
+            case "contentChanged":
+                if let newHTML = body["data"] as? String {
+                    DispatchQueue.main.async {
+                        self.html.wrappedValue = newHTML
+                        self.lastPushed        = newHTML
+                    }
+                }
+
+            case "editorReady":
+                editorReady = true
+                pushIfNeeded()
+
+            default: break
             }
         }
+
+        // Swift → JS
+        func pushIfNeeded() {
+            guard editorReady, let webView else { return }
+
+            let current = html.wrappedValue
+            guard current != lastPushed else { return }
+            lastPushed = current
+
+            let esc = current
+                .replacingOccurrences(of: "\\", with: "\\\\")
+                .replacingOccurrences(of: "\"", with: "\\\"")
+                .replacingOccurrences(of: "\n", with: "\\n")
+
+            let js = "window.setEditorContent(\"\(esc)\");"
+            webView.evaluateJavaScript(js, completionHandler: nil)
+        }
     }
-    
-    func makeCoordinator() -> Coordinator { Coordinator(self) }
-    
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(html: $markdown)
+    }
+
     func makeUIView(context: Context) -> WKWebView {
-        let contentController = WKUserContentController()
-        contentController.add(context.coordinator, name: "editorHandler")
-        
-        let config = WKWebViewConfiguration()
-        config.userContentController = contentController
-        
-        let webView = WKWebView(frame: .zero, configuration: config)
-        
-        if let url = Bundle.main
-            .url(forResource: "serviceContent", withExtension: "html") {
-            webView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
+        let uc = WKUserContentController()
+        uc.add(context.coordinator, name: "editorHandler")
+
+        let cfg = WKWebViewConfiguration()
+        cfg.userContentController = uc
+
+        let webView = WKWebView(frame: .zero, configuration: cfg)
+        context.coordinator.webView = webView
+
+        if let url = Bundle.main.url(forResource: "serviceContent",
+                                     withExtension: "html") {
+            webView.loadFileURL(url,
+                                 allowingReadAccessTo: url.deletingLastPathComponent())
         }
         return webView
     }
-    
-    func updateUIView(_ uiView: WKWebView, context: Context) { }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        context.coordinator.pushIfNeeded()
+    }
 }

@@ -45,7 +45,7 @@ struct RegisterServiceTailView: View {
                                 ForEach(Array(viewModel.aiRecommendServiceNames.enumerated()), id: \.element) { index, serviceName in
                                     HStack(spacing: 10) {
                                         Text(serviceName)
-                                            .font(.pretendard(size: 15))
+                                            .font(.pretendard(size: 14))
                                             .foregroundStyle(viewModel.serviceName == serviceName ? Color.JJTitle : .black)
                                     }
                                     .padding(.horizontal, 13)
@@ -80,7 +80,7 @@ struct RegisterServiceTailView: View {
                             Spacer()
                         }
                         
-                        WebView(html: $viewModel.description)
+                        WebView(markdown: $viewModel.description)
                             .frame(height: 400)
                             .padding(.horizontal, 20)
                     }
