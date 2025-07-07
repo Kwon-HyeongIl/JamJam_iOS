@@ -216,6 +216,7 @@ struct SignUpView: View {
                                                     if viewModel.isProgressViewVisibleInNickname {
                                                         ProgressView()
                                                             .scaleEffect(0.8)
+                                                            .tint(Color.JJTitle)
                                                     }
                                                 }
                                             }
@@ -299,6 +300,7 @@ struct SignUpView: View {
                                                     if viewModel.isProgressViewVisibleInLoginId {
                                                         ProgressView()
                                                             .scaleEffect(0.8)
+                                                            .tint(Color.JJTitle)
                                                     }
                                                 }
                                             }
@@ -795,6 +797,7 @@ struct SignUpView: View {
                                                     if viewModel.isProgressViewVisibleInPhoneNumber {
                                                         ProgressView()
                                                             .scaleEffect(0.8)
+                                                            .tint(Color.JJTitle)
                                                     }
                                                 }
                                             }
@@ -1023,10 +1026,11 @@ struct SignUpView: View {
                 VStack {
                     ProgressView()
                         .scaleEffect(1.2)
+                        .tint(Color.JJTitle)
                         .padding(.bottom, 30)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(.white.opacity(0.4))
+                .background(.gray.opacity(0.5))
             }
         }
     }

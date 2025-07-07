@@ -154,10 +154,11 @@ struct LoginView: View {
                 VStack {
                     ProgressView()
                         .scaleEffect(1.2)
+                        .tint(Color.JJTitle)
                         .padding(.bottom, 30)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(.white.opacity(0.4))
+                .background(.gray.opacity(0.5))
             }
         }
     }

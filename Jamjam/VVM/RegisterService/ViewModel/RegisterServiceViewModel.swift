@@ -14,7 +14,7 @@ class RegisterServiceViewModel: Hashable, Equatable {
     var pageIndex = 1
     
     // MARK: Page Index 0
-    var inputInitialDiscription = ""
+    var initialDescription = ""
     var isAiProgressiveViewVisible = false
     var isInitialContentsGenerateCompleted = false
     
@@ -22,13 +22,17 @@ class RegisterServiceViewModel: Hashable, Equatable {
     var serviceName = ""
     var aiRecommendServiceNames: [String] = ["fadkfjads", "akdjfakd"]
     var category: Skill?
-    var discription = ""
+    var description = ""
+    var price = ""
+    var isAllValidatedInPageIndex1: Bool {
+        !serviceName.isEmpty && category != nil && !description.isEmpty && !price.isEmpty
+    }
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "RegisterServiceViewModel")
     
     func generateService() {
-        let request = GenerateServiceRequestDto(discription: inputInitialDiscription)
+        let request = GenerateServiceRequestDto(discription: initialDescription)
         
         ServiceManager.generateService(request)
             .receive(on: DispatchQueue.main)
@@ -42,12 +46,13 @@ class RegisterServiceViewModel: Hashable, Equatable {
                 
                 self?.isAiProgressiveViewVisible = false
             } receiveValue: { [weak self] response in
+                print(response.content?.description ?? "")
                 if response.code == "SUCCESS", let content = response.content {
                     self?.logger.info("[generateService] SUCCESS")
                     
                     self?.aiRecommendServiceNames = content.serviceNames
                     self?.category = Skill(rawValue: content.category)
-                    self?.discription = content.discription
+                    self?.description = content.description
                     self?.pageIndex = 1
                     self?.isInitialContentsGenerateCompleted = true
                     

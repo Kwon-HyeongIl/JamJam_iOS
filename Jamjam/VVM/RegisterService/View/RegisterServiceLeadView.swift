@@ -67,7 +67,7 @@ struct RegisterServiceLeadView: View {
                         Spacer()
                     }
                     
-                    TextField("서비스 소개를 입력해 주세요.", text: $viewModel.inputInitialDiscription, axis: .vertical)
+                    TextField("서비스 소개를 입력해 주세요.", text: $viewModel.initialDescription, axis: .vertical)
                         .focused($focus, equals: .first)
                         .font(.pretendard(size: 15))
                         .lineLimit(1...15)
@@ -87,7 +87,7 @@ struct RegisterServiceLeadView: View {
                                 HStack {
                                     Spacer()
                                     
-                                    Text("\(viewModel.inputInitialDiscription.count)/500자")
+                                    Text("\(viewModel.initialDescription.count)/500자")
                                         .font(.pretendard(Pretendard.regular, size: 10))
                                         .foregroundStyle(.gray.opacity(0.5))
                                         .padding(.trailing, 10)
@@ -95,9 +95,9 @@ struct RegisterServiceLeadView: View {
                                 }
                             }
                         }
-                        .onChange(of: viewModel.inputInitialDiscription) { _, newValue in
+                        .onChange(of: viewModel.initialDescription) { _, newValue in
                             if newValue.count > 500 {
-                                viewModel.inputInitialDiscription = String(newValue.prefix(500))
+                                viewModel.initialDescription = String(newValue.prefix(500))
                             }
                         }
                         .padding(.horizontal, 20)
@@ -107,6 +107,7 @@ struct RegisterServiceLeadView: View {
                         
                         Button {
                             viewModel.isAiProgressiveViewVisible = true
+                            viewModel.generateService()
                         } label: {
                             Image("ai_generate_button")
                                 .resizable()
@@ -114,10 +115,10 @@ struct RegisterServiceLeadView: View {
                                 .frame(width: 130)
                                 .scaleEffect(1.2)
                                 .padding(.trailing, 7)
-                                .shimmering(active: !viewModel.inputInitialDiscription.isEmpty)
-                                .opacity(viewModel.inputInitialDiscription.isEmpty ? 0.4 : 1)
+                                .shimmering(active: viewModel.isAiProgressiveViewVisible)
+                                .opacity(viewModel.initialDescription.isEmpty ? 0.4 : 1)
                         }
-                        .disabled(viewModel.inputInitialDiscription.isEmpty)
+                        .disabled(viewModel.initialDescription.isEmpty)
                     }
                 }
             }
@@ -126,18 +127,18 @@ struct RegisterServiceLeadView: View {
         .background(Color.mainBackground)
         .overlay {
             if viewModel.isAiProgressiveViewVisible {
-                VStack {
+                VStack(spacing: 15) {
                     ProgressView()
                         .scaleEffect(1.2)
-                        .padding(.bottom, 30)
+                        .tint(Color.JJTitle)
                     
                     Text("AI가 콘텐츠를 생성하고 있습니다.")
-                        .font(.pretendard(Pretendard.medium, size: 22))
-                        .foregroundStyle(Color.JJTitle)
-                        .shimmering()
+                        .font(.pretendard(Pretendard.semiBold, size: 16))
+                        .foregroundStyle(.white)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(.white.opacity(0.4))
+                .background(.gray.opacity(0.5))
+                .padding(.bottom, 30)
             }
         }
         .onChange(of: viewModel.isInitialContentsGenerateCompleted) { _, newValue in

@@ -15,6 +15,6 @@ struct GenerateServiceResponseDto: Decodable {
     struct Content: Decodable {
         let serviceNames: [String]
         let category: Int
-        let discription: String
+        let description: String
     }
 }
