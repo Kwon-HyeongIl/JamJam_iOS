@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct WriteView: View {
-    @State private var viewModel = WriteViewModel()
+struct RegisterServiceLeadView: View {
+    @Environment(NavigationRouter.self) var navRouter
+    @State private var viewModel = RegisterServiceViewModel()
     
     @FocusState private var focus: TextFieldFocusField?
     
@@ -126,5 +127,6 @@ struct WriteView: View {
 }
 
 #Preview {
-    WriteView()
+    RegisterServiceLeadView()
+        .environment(NavigationRouter())
 }

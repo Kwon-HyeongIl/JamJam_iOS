@@ -74,6 +74,11 @@
 		CA60ED3F2E196A5F00B93A1D /* ChatMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60ED3E2E196A5F00B93A1D /* ChatMessageModel.swift */; };
 		CA60ED412E196D2B00B93A1D /* ChatRoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60ED402E196D2B00B93A1D /* ChatRoomModel.swift */; };
 		CA60FAD32E100BD000150563 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60FAD22E100BD000150563 /* Keychain.swift */; };
+		CA7685272E1BDAEE00148204 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685262E1BDAEE00148204 /* ServiceManager.swift */; };
+		CA7685292E1BDDB800148204 /* RegisterServiceTailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685282E1BDDB800148204 /* RegisterServiceTailView.swift */; };
+		CA7685302E1BE12200148204 /* GenerateServiceRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA76852F2E1BE12200148204 /* GenerateServiceRequestDto.swift */; };
+		CA7685322E1BE14500148204 /* GenerateServiceResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685312E1BE14500148204 /* GenerateServiceResponseDto.swift */; };
+		CA7685342E1BE26F00148204 /* ServiceManager+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685332E1BE26F00148204 /* ServiceManager+Register.swift */; };
 		CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7D118D2E1025C100D55CCE /* ChatContentViewModel.swift */; };
 		CA7D11932E10327100D55CCE /* ChatContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7D11922E10327100D55CCE /* ChatContentView.swift */; };
 		CA7D11952E10553200D55CCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA7D11942E10553200D55CCE /* GoogleService-Info.plist */; };
@@ -93,7 +98,7 @@
 		CA87FF822E0284EB00C8C830 /* ModifierIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87FF812E0284EB00C8C830 /* ModifierIf.swift */; };
 		CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87FF892E02B66600C8C830 /* SignUpViewModel+Validate.swift */; };
 		CA87FF942E040FDE00C8C830 /* SignUpViewModel+Complete.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87FF932E040FDE00C8C830 /* SignUpViewModel+Complete.swift */; };
-		CA88CEC02E11077800B1116E /* FCMCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88CEBF2E11077800B1116E /* FCMCenter.swift */; };
+		CA88CEC02E11077800B1116E /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88CEBF2E11077800B1116E /* FCMManager.swift */; };
 		CA9609932DFBDE9B00B878C6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609922DFBDE9B00B878C6 /* SearchView.swift */; };
 		CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */; };
 		CA96099A2DFBE06400B878C6 /* NavigationBarBackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609992DFBE06400B878C6 /* NavigationBarBackModifier.swift */; };
@@ -120,7 +125,7 @@
 		CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38D82DFA5D3500AE12DD /* HomeView.swift */; };
 		CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */; };
 		CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */; };
-		CA9F46382E101ED600028F83 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F46372E101ED600028F83 /* WriteView.swift */; };
+		CA9F46382E101ED600028F83 /* RegisterServiceLeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F46372E101ED600028F83 /* RegisterServiceLeadView.swift */; };
 		CA9F463A2E101EE000028F83 /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F46392E101EE000028F83 /* ChatListView.swift */; };
 		CA9F463E2E101FD100028F83 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F463D2E101FD100028F83 /* ChatListViewModel.swift */; };
 		CA9F46412E10214000028F83 /* ChatCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F46402E10214000028F83 /* ChatCellView.swift */; };
@@ -151,7 +156,7 @@
 		CAB6FFFD2E151228004CD644 /* JJUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFC2E151228004CD644 /* JJUserModel.swift */; };
 		CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB13BD2DF69261007C9E35 /* SplashView.swift */; };
 		CAD2F2452E1A9755007B5BE8 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2F2442E1A9755007B5BE8 /* DateManager.swift */; };
-		CAD2F2472E1AE4ED007B5BE8 /* WriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2F2462E1AE4ED007B5BE8 /* WriteViewModel.swift */; };
+		CAD2F2472E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2F2462E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift */; };
 		CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAD3106D2E09B56200A5FAA4 /* Alamofire */; };
 		CAE914682E13CF0700829D2C /* RefreshAccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE914672E13CF0700829D2C /* RefreshAccessTokenResponse.swift */; };
 /* End PBXBuildFile section */
@@ -226,6 +231,11 @@
 		CA60ED3E2E196A5F00B93A1D /* ChatMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageModel.swift; sourceTree = "<group>"; };
 		CA60ED402E196D2B00B93A1D /* ChatRoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomModel.swift; sourceTree = "<group>"; };
 		CA60FAD22E100BD000150563 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		CA7685262E1BDAEE00148204 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		CA7685282E1BDDB800148204 /* RegisterServiceTailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceTailView.swift; sourceTree = "<group>"; };
+		CA76852F2E1BE12200148204 /* GenerateServiceRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateServiceRequestDto.swift; sourceTree = "<group>"; };
+		CA7685312E1BE14500148204 /* GenerateServiceResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateServiceResponseDto.swift; sourceTree = "<group>"; };
+		CA7685332E1BE26F00148204 /* ServiceManager+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServiceManager+Register.swift"; sourceTree = "<group>"; };
 		CA7D118D2E1025C100D55CCE /* ChatContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContentViewModel.swift; sourceTree = "<group>"; };
 		CA7D11922E10327100D55CCE /* ChatContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContentView.swift; sourceTree = "<group>"; };
 		CA7D11942E10553200D55CCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -239,7 +249,7 @@
 		CA87FF812E0284EB00C8C830 /* ModifierIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierIf.swift; sourceTree = "<group>"; };
 		CA87FF892E02B66600C8C830 /* SignUpViewModel+Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Validate.swift"; sourceTree = "<group>"; };
 		CA87FF932E040FDE00C8C830 /* SignUpViewModel+Complete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Complete.swift"; sourceTree = "<group>"; };
-		CA88CEBF2E11077800B1116E /* FCMCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMCenter.swift; sourceTree = "<group>"; };
+		CA88CEBF2E11077800B1116E /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
 		CA9609922DFBDE9B00B878C6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		CA9609992DFBE06400B878C6 /* NavigationBarBackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackModifier.swift; sourceTree = "<group>"; };
@@ -266,7 +276,7 @@
 		CA9E38D82DFA5D3500AE12DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard.swift; sourceTree = "<group>"; };
-		CA9F46372E101ED600028F83 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
+		CA9F46372E101ED600028F83 /* RegisterServiceLeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceLeadView.swift; sourceTree = "<group>"; };
 		CA9F46392E101EE000028F83 /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
 		CA9F463D2E101FD100028F83 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		CA9F46402E10214000028F83 /* ChatCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCellView.swift; sourceTree = "<group>"; };
@@ -296,7 +306,7 @@
 		CAB6FFFC2E151228004CD644 /* JJUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJUserModel.swift; sourceTree = "<group>"; };
 		CABB13BD2DF69261007C9E35 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		CAD2F2442E1A9755007B5BE8 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
-		CAD2F2462E1AE4ED007B5BE8 /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
+		CAD2F2462E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceViewModel.swift; sourceTree = "<group>"; };
 		CAE914672E13CF0700829D2C /* RefreshAccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -349,9 +359,6 @@
 				CA0915552DF12B9400E272F8 /* AisleView.swift */,
 				CA0915492DF128A400E272F8 /* ContentView.swift */,
 				CA0915572DF12BBF00E272F8 /* MainTabView.swift */,
-				CA5C5E842E099CD600FB1E22 /* Authentication */,
-				CA0915592DF12CE600E272F8 /* Navigation */,
-				CA88CEBE2E11063A00B1116E /* FCM */,
 				CAB6FFF12E1508C8004CD644 /* Manager */,
 				CA09155F2DF12EBD00E272F8 /* VVM */,
 				CA09155E2DF12E8600E272F8 /* Model */,
@@ -377,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				CA5C5E8C2E09A05800FB1E22 /* Auth */,
+				CA76852A2E1BDF8E00148204 /* RegisterService */,
 				CAB6FFF52E150CB6004CD644 /* Chat */,
 				CA4F125D2E1844FC0061012E /* Profile */,
 			);
@@ -389,7 +397,7 @@
 				CABB13BC2DF6923A007C9E35 /* Splash */,
 				CA9609B62DFFD7EB00B878C6 /* Auth */,
 				CA9E38D72DFA5D2300AE12DD /* Home */,
-				CA9F46352E101EB400028F83 /* Write */,
+				CA9F46352E101EB400028F83 /* RegisterService */,
 				CA9F46362E101EC400028F83 /* Chat */,
 				CA9609B32DFFD4F300B878C6 /* Profile */,
 			);
@@ -643,7 +651,7 @@
 			path = RawFile;
 			sourceTree = "<group>";
 		};
-		CA5C5E842E099CD600FB1E22 /* Authentication */ = {
+		CA5C5E842E099CD600FB1E22 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				CA5C5E852E099CED00FB1E22 /* AuthCenter.swift */,
@@ -651,7 +659,7 @@
 				CA4927D02E0EE4D600D42CD0 /* AuthCenter+Login.swift */,
 				CA60FAD12E100BB900150563 /* Keychain */,
 			);
-			path = Authentication;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		CA5C5E8C2E09A05800FB1E22 /* Auth */ = {
@@ -707,6 +715,56 @@
 			path = Keychain;
 			sourceTree = "<group>";
 		};
+		CA7685252E1BDABF00148204 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CA7685262E1BDAEE00148204 /* ServiceManager.swift */,
+				CA7685332E1BE26F00148204 /* ServiceManager+Register.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CA76852A2E1BDF8E00148204 /* RegisterService */ = {
+			isa = PBXGroup;
+			children = (
+				CA76852E2E1BE0F200148204 /* Dto */,
+				CA76852D2E1BE0EA00148204 /* Domain */,
+			);
+			path = RegisterService;
+			sourceTree = "<group>";
+		};
+		CA76852B2E1BDF9900148204 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				CA76852F2E1BE12200148204 /* GenerateServiceRequestDto.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		CA76852C2E1BDFA000148204 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				CA7685312E1BE14500148204 /* GenerateServiceResponseDto.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		CA76852D2E1BE0EA00148204 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		CA76852E2E1BE0F200148204 /* Dto */ = {
+			isa = PBXGroup;
+			children = (
+				CA76852B2E1BDF9900148204 /* Request */,
+				CA76852C2E1BDFA000148204 /* Response */,
+			);
+			path = Dto;
+			sourceTree = "<group>";
+		};
 		CA7D11872E10250B00D55CCE /* Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -745,7 +803,7 @@
 		CA88CEBE2E11063A00B1116E /* FCM */ = {
 			isa = PBXGroup;
 			children = (
-				CA88CEBF2E11077800B1116E /* FCMCenter.swift */,
+				CA88CEBF2E11077800B1116E /* FCMManager.swift */,
 			);
 			path = FCM;
 			sourceTree = "<group>";
@@ -883,13 +941,13 @@
 			path = Carousel;
 			sourceTree = "<group>";
 		};
-		CA9F46352E101EB400028F83 /* Write */ = {
+		CA9F46352E101EB400028F83 /* RegisterService */ = {
 			isa = PBXGroup;
 			children = (
 				CAB6001D2E15A669004CD644 /* View */,
 				CAB6001E2E15A66E004CD644 /* ViewModel */,
 			);
-			path = Write;
+			path = RegisterService;
 			sourceTree = "<group>";
 		};
 		CA9F46362E101EC400028F83 /* Chat */ = {
@@ -941,7 +999,8 @@
 		CAB6001D2E15A669004CD644 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CA9F46372E101ED600028F83 /* WriteView.swift */,
+				CA9F46372E101ED600028F83 /* RegisterServiceLeadView.swift */,
+				CA7685282E1BDDB800148204 /* RegisterServiceTailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -949,7 +1008,7 @@
 		CAB6001E2E15A66E004CD644 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CAD2F2462E1AE4ED007B5BE8 /* WriteViewModel.swift */,
+				CAD2F2462E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1081,6 +1140,10 @@
 		CAB6FFF12E1508C8004CD644 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				CA5C5E842E099CD600FB1E22 /* Auth */,
+				CA0915592DF12CE600E272F8 /* Navigation */,
+				CA88CEBE2E11063A00B1116E /* FCM */,
+				CA7685252E1BDABF00148204 /* Service */,
 				CAD2F2432E1A974B007B5BE8 /* Date */,
 				CA4F125A2E18242A0061012E /* ProfileInfo */,
 				CAB6FFF22E1508D4004CD644 /* Chat */,
@@ -1269,6 +1332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA9BB5322E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift in Sources */,
+				CA7685342E1BE26F00148204 /* ServiceManager+Register.swift in Sources */,
 				CA87FF7F2E02829D00C8C830 /* NavigationBarTitleAndHomeModifier.swift in Sources */,
 				CA96099A2DFBE06400B878C6 /* NavigationBarBackModifier.swift in Sources */,
 				CAB600112E157CC4004CD644 /* FetchChatRoomsResponse.swift in Sources */,
@@ -1298,9 +1362,10 @@
 				CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */,
 				CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */,
 				CAB600032E15480F004CD644 /* SocketConnectionStatus.swift in Sources */,
+				CA7685292E1BDDB800148204 /* RegisterServiceTailView.swift in Sources */,
 				CA35935F2E0514AE0069FAF8 /* CategoryViewModel.swift in Sources */,
-				CA88CEC02E11077800B1116E /* FCMCenter.swift in Sources */,
-				CA9F46382E101ED600028F83 /* WriteView.swift in Sources */,
+				CA88CEC02E11077800B1116E /* FCMManager.swift in Sources */,
+				CA9F46382E101ED600028F83 /* RegisterServiceLeadView.swift in Sources */,
 				CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */,
 				CA9609A42DFFCD7B00B878C6 /* Color+MainTitle.swift in Sources */,
 				CA9609A72DFFCF8100B878C6 /* MainTabBar.swift in Sources */,
@@ -1315,6 +1380,7 @@
 				CA4F12432E17D6D40061012E /* DevelopmentDetail.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
 				CA60ED412E196D2B00B93A1D /* ChatRoomModel.swift in Sources */,
+				CA7685322E1BE14500148204 /* GenerateServiceResponseDto.swift in Sources */,
 				CA96099E2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift in Sources */,
 				CA4F124D2E17D79A0061012E /* EducationDetail.swift in Sources */,
 				CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */,
@@ -1323,6 +1389,7 @@
 				CA4CF92D2E0C279D00F882C4 /* VerifySmsResponse.swift in Sources */,
 				CA7D11932E10327100D55CCE /* ChatContentView.swift in Sources */,
 				CA4F12472E17D71E0061012E /* WritingDetail.swift in Sources */,
+				CA7685302E1BE12200148204 /* GenerateServiceRequestDto.swift in Sources */,
 				CAB600392E168DD5004CD644 /* NavigationBarBackAndProfileAndEditModifier.swift in Sources */,
 				CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */,
 				CA09155B2DF12CF700E272F8 /* NavigationRouter.swift in Sources */,
@@ -1344,7 +1411,7 @@
 				CA4F12592E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift in Sources */,
 				CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */,
 				CAB6000B2E155D3C004CD644 /* ChatSocketMessageResponse.swift in Sources */,
-				CAD2F2472E1AE4ED007B5BE8 /* WriteViewModel.swift in Sources */,
+				CAD2F2472E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift in Sources */,
 				CA4CF92B2E0C276B00F882C4 /* VerifySmsRequest.swift in Sources */,
 				CA87FF782E014B7A00C8C830 /* SignUpViewModel.swift in Sources */,
 				CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */,
@@ -1366,6 +1433,7 @@
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
 				CA4F12512E17D7D50061012E /* HobbyLessonDetail.swift in Sources */,
 				CA4F12632E185A030061012E /* CertificateFormModel.swift in Sources */,
+				CA7685272E1BDAEE00148204 /* ServiceManager.swift in Sources */,
 				CA4F12412E17D6B60061012E /* MarketingDetail.swift in Sources */,
 				CA4F12362E179DE00061012E /* Region.swift in Sources */,
 				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,

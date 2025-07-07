@@ -16,6 +16,9 @@ enum NavigationDestinationPath: Hashable {
     case searchView
     case categoryView
     
+    // Write
+    case registerServiceTailView(RegisterServiceViewModel)
+    
     // Chat
     case chatContentView(ChatRoomModel)
     

@@ -26,6 +26,10 @@ class NavigationRouter {
         case .categoryView:
             CategoryView()
             
+            // MARK: Write
+        case .registerServiceTailView(let viewModel):
+            RegisterServiceTailView(viewModel: viewModel)
+            
             // MARK: Chat
         case .chatContentView(let chatRoom):
             ChatContentView(chatRoom: chatRoom)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FCMCenter {
+class FCMManager {
     func sendFCMPushNoti(targetUserFCMToken: String, isTargetUserApprove: Bool, content: String) {
     
             // 수신 사용자가 알림을 허용했는지 체크

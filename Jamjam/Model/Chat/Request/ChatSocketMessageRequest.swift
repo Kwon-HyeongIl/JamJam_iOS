@@ -8,7 +8,7 @@
 import Foundation
 
 struct ChatSocketMessageRequest: Encodable {
-    let type: ChatSocketEventType = .sendMessage      // 고정
+    let type: ChatSocketEventType = .sendMessage
     let content: Content
 
     struct Content: Encodable {
