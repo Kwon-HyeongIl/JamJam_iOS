@@ -83,6 +83,7 @@
 		CA7685412E1BFA3200148204 /* StompCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685402E1BFA3200148204 /* StompCore.swift */; };
 		CA7685432E1BFB6400148204 /* StompCore+CRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685422E1BFB6400148204 /* StompCore+CRUD.swift */; };
 		CA7685462E1C01CA00148204 /* NavigationDestinationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685452E1C01CA00148204 /* NavigationDestinationPath.swift */; };
+		CA7685492E1C0BF800148204 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = CA7685482E1C0BF800148204 /* Shimmer */; };
 		CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7D118D2E1025C100D55CCE /* ChatContentViewModel.swift */; };
 		CA7D11932E10327100D55CCE /* ChatContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7D11922E10327100D55CCE /* ChatContentView.swift */; };
 		CA7D11952E10553200D55CCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA7D11942E10553200D55CCE /* GoogleService-Info.plist */; };
@@ -319,6 +320,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7685492E1C0BF800148204 /* Shimmer in Frameworks */,
 				CA2F853F2E19970100848F2E /* WebKit.framework in Frameworks */,
 				CA7D11A12E10567900D55CCE /* FirebaseMessaging in Frameworks */,
 				CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */,
@@ -405,7 +407,6 @@
 			isa = PBXGroup;
 			children = (
 				CA2F85402E199DA500848F2E /* WebView */,
-				CA5C5E912E09A18E00FB1E22 /* Url */,
 				CA0BAD612E05A23300595A80 /* Font */,
 				CA3593622E0565600069FAF8 /* PreferenceKey */,
 				CA9609AE2DFFD14200B878C6 /* View Editor */,
@@ -659,13 +660,6 @@
 				CA5C5E992E09A54800FB1E22 /* Response */,
 			);
 			path = Auth;
-			sourceTree = "<group>";
-		};
-		CA5C5E912E09A18E00FB1E22 /* Url */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Url;
 			sourceTree = "<group>";
 		};
 		CA5C5E922E09A20E00FB1E22 /* API */ = {
@@ -1285,6 +1279,7 @@
 				CA7D11A02E10567900D55CCE /* FirebaseMessaging */,
 				CAB6FFFF2E152AC4004CD644 /* SwiftStomp */,
 				CA5B62B32E19575A00CA939F /* RangeSlider */,
+				CA7685482E1C0BF800148204 /* Shimmer */,
 			);
 			productName = Jamjam;
 			productReference = CA09153A2DF1289A00E272F8 /* Jamjam.app */;
@@ -1321,6 +1316,7 @@
 				CA7D119B2E10567900D55CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				CAB6FFFE2E152AC4004CD644 /* XCRemoteSwiftPackageReference "SwiftStomp" */,
 				CA5B62B22E19575A00CA939F /* XCRemoteSwiftPackageReference "Range-Slider" */,
+				CA7685472E1C0BF800148204 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CA09153B2DF1289A00E272F8 /* Products */;
@@ -1727,6 +1723,14 @@
 				kind = branch;
 			};
 		};
+		CA7685472E1C0BF800148204 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
 		CA7D119B2E10567900D55CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1766,6 +1770,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CA5B62B22E19575A00CA939F /* XCRemoteSwiftPackageReference "Range-Slider" */;
 			productName = RangeSlider;
+		};
+		CA7685482E1C0BF800148204 /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA7685472E1C0BF800148204 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
 		};
 		CA7D119C2E10567900D55CCE /* FirebaseCore */ = {
 			isa = XCSwiftPackageProductDependency;

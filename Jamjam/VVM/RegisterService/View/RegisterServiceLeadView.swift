@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Shimmer
 
 struct RegisterServiceLeadView: View {
     @Environment(NavigationCore.self) var navRouter
@@ -66,7 +67,7 @@ struct RegisterServiceLeadView: View {
                         Spacer()
                     }
                     
-                    TextField("서비스 소개를 입력하세요.", text: $viewModel.inputContent, axis: .vertical)
+                    TextField("서비스 소개를 입력하세요.", text: $viewModel.inputInitialDiscription, axis: .vertical)
                         .focused($focus, equals: .first)
                         .font(.pretendard(size: 15))
                         .lineLimit(1...15)
@@ -86,7 +87,7 @@ struct RegisterServiceLeadView: View {
                                 HStack {
                                     Spacer()
                                     
-                                    Text("\(viewModel.inputContent.count)/500자")
+                                    Text("\(viewModel.inputInitialDiscription.count)/500자")
                                         .font(.pretendard(Pretendard.regular, size: 10))
                                         .foregroundStyle(.gray.opacity(0.5))
                                         .padding(.trailing, 10)
@@ -94,9 +95,9 @@ struct RegisterServiceLeadView: View {
                                 }
                             }
                         }
-                        .onChange(of: viewModel.inputContent) { _, newValue in
+                        .onChange(of: viewModel.inputInitialDiscription) { _, newValue in
                             if newValue.count > 500 {
-                                viewModel.inputContent = String(newValue.prefix(500))
+                                viewModel.inputInitialDiscription = String(newValue.prefix(500))
                             }
                         }
                         .padding(.horizontal, 20)
@@ -105,7 +106,7 @@ struct RegisterServiceLeadView: View {
                         Spacer()
                         
                         Button {
-                            
+                            viewModel.isAiProgressiveViewVisible = true
                         } label: {
                             Image("ai_generate_button")
                                 .resizable()
@@ -120,6 +121,27 @@ struct RegisterServiceLeadView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
+        .overlay {
+            if viewModel.isAiProgressiveViewVisible {
+                VStack {
+                    ProgressView()
+                        .scaleEffect(1.2)
+                        .padding(.bottom, 30)
+                    
+                    Text("AI가 콘텐츠를 생성하고 있습니다.")
+                        .font(.pretendard(Pretendard.medium, size: 22))
+                        .foregroundStyle(Color.JJTitle)
+                        .shimmering()
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.white.opacity(0.4))
+            }
+        }
+        .onChange(of: viewModel.isInitialContentsGenerateCompleted) { _, newValue in
+            if newValue {
+                navRouter.navigate(.registerServiceTailView(viewModel))
+            }
+        }
         .onTapGesture {
             focus = nil
         }

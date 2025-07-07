@@ -10,7 +10,7 @@ import Combine
 import Alamofire
 
 extension ServiceManager {
-    func generateService(_ request: GenerateServiceRequestDto) -> AnyPublisher<GenerateServiceResponseDto, Error> {
+    static func generateService(_ request: GenerateServiceRequestDto) -> AnyPublisher<GenerateServiceResponseDto, Error> {
         let url = API.generateService.url
         
         return AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)

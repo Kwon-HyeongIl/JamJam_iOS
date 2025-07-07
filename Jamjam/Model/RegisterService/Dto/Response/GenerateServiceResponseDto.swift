@@ -9,12 +9,12 @@ import Foundation
 
 struct GenerateServiceResponseDto: Decodable {
     let code: String
-    let massage: String
+    let message: String
     let content: Content?
     
     struct Content: Decodable {
         let serviceNames: [String]
-        let category: String
+        let category: Int
         let discription: String
     }
 }
