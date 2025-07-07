@@ -34,7 +34,7 @@ struct LoginView: View {
                             Spacer()
                         }
                         
-                        TextField("아이디를 입력하세요", text: $viewModel.loginId)
+                        TextField("아이디를 입력해 주세요", text: $viewModel.loginId)
                             .focused($focus, equals: .first)
                             .font(.pretendard(size: 14))
                             .padding(.horizontal)
@@ -58,7 +58,7 @@ struct LoginView: View {
                             Spacer()
                         }
                         
-                        SecureField("비밀번호를 입력하세요", text: $viewModel.password)
+                        SecureField("비밀번호를 입력해 주세요", text: $viewModel.password)
                             .focused($focus, equals: .second)
                             .font(.pretendard(size: 14))
                             .padding(.horizontal)

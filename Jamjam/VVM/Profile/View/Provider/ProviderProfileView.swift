@@ -198,24 +198,18 @@ struct ProviderProfileView: View {
                                         }
                                     }
                                     .onTapGesture {
-                                        withAnimation(.spring(response: 0.1,
-                                                              dampingFraction: 1,
-                                                              blendDuration: 0)) {
+                                        withAnimation(.customAnimation) {
                                             viewModel.selectedIndex = idx
                                         }
                                     }
                                     .onChange(of: viewModel.selectedIndex) { _, newIndex in
                                         if newIndex == 0 {
-                                            withAnimation(.spring(response: 0.1,
-                                                                  dampingFraction: 1,
-                                                                  blendDuration: 0)) {
+                                            withAnimation(.customAnimation) {
                                                 position.scrollTo(edge: .top)
                                             }
                                             
                                         } else if newIndex == 1 {
-                                            withAnimation(.spring(response: 0.1,
-                                                                  dampingFraction: 1,
-                                                                  blendDuration: 0)) {
+                                            withAnimation(.customAnimation) {
                                                 position.scrollTo(edge: .bottom)
                                             }
                                         }
@@ -233,7 +227,7 @@ struct ProviderProfileView: View {
                 geometry.contentOffset.y
             } action: { oldY, newY in
                 if newY <= 0 {
-                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                    withAnimation(.customAnimation) {
                         isTabBarVisible = true
                     }
                     
@@ -244,7 +238,7 @@ struct ProviderProfileView: View {
                 
                 guard abs(delta) > 5 else { return }
                 
-                withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                withAnimation(.customAnimation) {
                     isTabBarVisible = delta < 0
                 }
             }

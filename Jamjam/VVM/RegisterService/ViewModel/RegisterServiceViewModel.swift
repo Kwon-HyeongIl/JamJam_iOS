@@ -19,7 +19,8 @@ class RegisterServiceViewModel: Hashable, Equatable {
     var isInitialContentsGenerateCompleted = false
     
     // MARK: Page Index 1
-    var aiServiceNames: [String] = []
+    var serviceName = ""
+    var aiRecommendServiceNames: [String] = ["fadkfjads", "akdjfakd"]
     var category: Skill?
     var discription = ""
     
@@ -43,6 +44,8 @@ class RegisterServiceViewModel: Hashable, Equatable {
             } receiveValue: { [weak self] response in
                 if response.code == "SUCCESS", let content = response.content {
                     self?.logger.info("[generateService] SUCCESS")
+                    
+                    self?.aiRecommendServiceNames = content.serviceNames
                     self?.category = Skill(rawValue: content.category)
                     self?.discription = content.discription
                     self?.pageIndex = 1

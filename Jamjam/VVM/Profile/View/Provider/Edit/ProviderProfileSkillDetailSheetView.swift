@@ -40,7 +40,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.customAnimation) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {
@@ -88,7 +88,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.customAnimation) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {
@@ -136,7 +136,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.customAnimation) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {
@@ -184,7 +184,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.customAnimation) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {
@@ -232,7 +232,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.customAnimation) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {
@@ -280,7 +280,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.customAnimation) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {
@@ -328,7 +328,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.customAnimation) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {
@@ -376,7 +376,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.customAnimation) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {
@@ -424,7 +424,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.customAnimation) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {
@@ -472,7 +472,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.customAnimation) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {
@@ -520,7 +520,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.customAnimation) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {
@@ -568,7 +568,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                                 .padding(.vertical, 20)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                    withAnimation(.customAnimation) {
                                         if let index = selectedDetailSkillIds.firstIndex(of: detailSkill.rawValue) {
                                             selectedDetailSkillIds.remove(at: index)
                                         } else {

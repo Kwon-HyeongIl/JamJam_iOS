@@ -29,7 +29,7 @@ struct RegisterServiceLeadView: View {
             .background(Color.mainBackground)
             
             ScrollView(showsIndicators: false) {
-                VStack(spacing: 20) {
+                VStack(spacing: 30) {
                     HStack {
                         Text("서비스 소개를 자유롭게 적어주세요!")
                             .font(.pretendard(Pretendard.semiBold, size: 18))
@@ -67,7 +67,7 @@ struct RegisterServiceLeadView: View {
                         Spacer()
                     }
                     
-                    TextField("서비스 소개를 입력하세요.", text: $viewModel.inputInitialDiscription, axis: .vertical)
+                    TextField("서비스 소개를 입력해 주세요.", text: $viewModel.inputInitialDiscription, axis: .vertical)
                         .focused($focus, equals: .first)
                         .font(.pretendard(size: 15))
                         .lineLimit(1...15)
@@ -114,7 +114,10 @@ struct RegisterServiceLeadView: View {
                                 .frame(width: 130)
                                 .scaleEffect(1.2)
                                 .padding(.trailing, 7)
+                                .shimmering(active: !viewModel.inputInitialDiscription.isEmpty)
+                                .opacity(viewModel.inputInitialDiscription.isEmpty ? 0.4 : 1)
                         }
+                        .disabled(viewModel.inputInitialDiscription.isEmpty)
                     }
                 }
             }

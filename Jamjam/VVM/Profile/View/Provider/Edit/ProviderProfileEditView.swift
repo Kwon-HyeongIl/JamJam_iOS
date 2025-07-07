@@ -55,7 +55,7 @@ struct ProviderProfileEditView: View {
                                 Spacer()
                             }
                             
-                            TextField("자기 소개를 입력하세요.", text: $viewModel.inputIntroduction, axis: .vertical)
+                            TextField("자기 소개를 입력해 주세요.", text: $viewModel.inputIntroduction, axis: .vertical)
                                 .focused($focus, equals: .first)
                                 .font(.pretendard(size: 15))
                                 .lineLimit(1...15)
@@ -197,7 +197,7 @@ struct ProviderProfileEditView: View {
                                     }
                                     .overlay {
                                         HStack {
-                                            Text(viewModel.selectedRegion?.text ?? "지역을 선택하세요.")
+                                            Text(viewModel.selectedRegion?.text ?? "지역을 선택해 주세요.")
                                                 .font(.pretendard(size: 14))
                                                 .foregroundStyle(viewModel.selectedRegion == nil ? .gray.opacity(0.55) : .black)
                                                 .padding(.leading, 35)
@@ -310,7 +310,7 @@ struct ProviderProfileEditView: View {
                                     }
                                     .overlay {
                                         HStack {
-                                            Text(viewModel.selectedSkill?.text ?? "전문 분야를 선택하세요.")
+                                            Text(viewModel.selectedSkill?.text ?? "전문 분야를 선택해 주세요.")
                                                 .font(.pretendard(size: 14))
                                                 .foregroundStyle(viewModel.selectedSkill == nil ? .gray.opacity(0.55) : .black)
                                                 .padding(.leading, 35)
@@ -392,7 +392,7 @@ struct ProviderProfileEditView: View {
                                             }
                                         }
                                         
-                                        ScrollView(.horizontal, showsIndicators: false) {
+                                        ScrollView(.horizontal) {
                                             HStack(spacing: 0) {
                                                 ForEach(Array(viewModel.selectedDetailSkillIds.enumerated()), id: \.element) { index, detailSkillId in
                                                     
@@ -412,10 +412,10 @@ struct ProviderProfileEditView: View {
                                                     .padding(.horizontal, 13)
                                                     .padding(.vertical, 6)
                                                     .background(
-                                                        RoundedRectangle(cornerRadius: 25)
+                                                        RoundedRectangle(cornerRadius: 20)
                                                             .foregroundStyle(.red.opacity(0.1))
                                                             .overlay {
-                                                                RoundedRectangle(cornerRadius: 25)
+                                                                RoundedRectangle(cornerRadius: 20)
                                                                     .strokeBorder(Color.JJTitle, lineWidth: 1)
                                                             }
                                                         
@@ -516,7 +516,7 @@ struct ProviderProfileEditView: View {
                                                             }
                                                             
                                                             HStack {
-                                                                TextField("단체명을 입력하세요", text: $careerForm.groupName)
+                                                                TextField("단체명을 입력해 주세요", text: $careerForm.groupName)
                                                                 //                                                        .focused($focus, equals: .first)
                                                                     .font(.pretendard(size: 14))
                                                                     .padding(.horizontal)
@@ -541,7 +541,7 @@ struct ProviderProfileEditView: View {
                                                             }
                                                             
                                                             HStack {
-                                                                TextField("직책이나 역할을 입력하세요", text: $careerForm.role)
+                                                                TextField("직책이나 역할을 입력해 주세요", text: $careerForm.role)
                                                                 //                                                        .focused($focus, equals: .first)
                                                                     .font(.pretendard(size: 14))
                                                                     .padding(.horizontal)
@@ -589,7 +589,7 @@ struct ProviderProfileEditView: View {
                                                             Spacer()
                                                             
                                                             Button {
-                                                                withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                                                withAnimation(.customAnimation) {
                                                                     viewModel.removeCurrentCareerForm($careerForm.wrappedValue)
                                                                 }
                                                             } label: {
@@ -624,7 +624,7 @@ struct ProviderProfileEditView: View {
                                             }
                                         }
                                         .onTapGesture {
-                                            withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                            withAnimation(.customAnimation) {
                                                 viewModel.careerFormList.append(CareerFormDomainModel())
                                             }
                                         }
@@ -690,7 +690,7 @@ struct ProviderProfileEditView: View {
                                                             }
                                                             
                                                             HStack {
-                                                                TextField("학교명을 입력하세요", text: $degreeForm.schoolName)
+                                                                TextField("학교명을 입력해 주세요", text: $degreeForm.schoolName)
                                                                 //                                                        .focused($focus, equals: .first)
                                                                     .font(.pretendard(size: 14))
                                                                     .padding(.horizontal)
@@ -715,7 +715,7 @@ struct ProviderProfileEditView: View {
                                                             }
                                                             
                                                             HStack {
-                                                                TextField("전공을 입력하세요", text: $degreeForm.major)
+                                                                TextField("전공을 입력해 주세요", text: $degreeForm.major)
                                                                 //                                                        .focused($focus, equals: .first)
                                                                     .font(.pretendard(size: 14))
                                                                     .padding(.horizontal)
@@ -770,7 +770,7 @@ struct ProviderProfileEditView: View {
                                                                         }
                                                                         .overlay {
                                                                             HStack {
-                                                                                Text("학위를 선택하세요")
+                                                                                Text("학위를 선택해 주세요")
                                                                                     .font(.pretendard(size: 14))
                                                                                     .foregroundStyle(.gray.opacity(0.55))
                                                                                     .padding(.leading, 30)
@@ -821,7 +821,7 @@ struct ProviderProfileEditView: View {
                                                             Spacer()
                                                             
                                                             Button {
-                                                                withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                                                withAnimation(.customAnimation) {
                                                                     viewModel.removeCurrentDegreeForm($degreeForm.wrappedValue)
                                                                 }
                                                             } label: {
@@ -856,7 +856,7 @@ struct ProviderProfileEditView: View {
                                             }
                                         }
                                         .onTapGesture {
-                                            withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                            withAnimation(.customAnimation) {
                                                 viewModel.degreeFormList.append(DegreeFormDomainModel())
                                             }
                                         }
@@ -891,7 +891,7 @@ struct ProviderProfileEditView: View {
                                                             }
                                                             
                                                             HStack {
-                                                                TextField("자격증 이름을 입력하세요", text: $certificateForm.certificateName)
+                                                                TextField("자격증 이름을 입력해 주세요", text: $certificateForm.certificateName)
                                                                 //                                                            .focused($focus, equals: .first)
                                                                     .font(.pretendard(size: 14))
                                                                     .padding(.horizontal)
@@ -939,7 +939,7 @@ struct ProviderProfileEditView: View {
                                                             Spacer()
                                                             
                                                             Button {
-                                                                withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                                                withAnimation(.customAnimation) {
                                                                     viewModel.removeCurrentCertificateForm($certificateForm.wrappedValue)
                                                                 }
                                                             } label: {
@@ -974,7 +974,7 @@ struct ProviderProfileEditView: View {
                                             }
                                         }
                                         .onTapGesture {
-                                            withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
+                                            withAnimation(.customAnimation) {
                                                 viewModel.certificateFormList.append(CertificateFormDomainModel())
                                             }
                                         }

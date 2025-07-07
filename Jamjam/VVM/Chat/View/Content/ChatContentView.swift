@@ -113,7 +113,7 @@ struct ChatContentView: View {
                     Spacer()
                     
                     HStack {
-                        TextField("메시지를 입력하세요.", text: $viewModel.inputMessage, axis: .vertical)
+                        TextField("메시지를 입력해 주세요.", text: $viewModel.inputMessage, axis: .vertical)
                             .focused($focus, equals: .first)
                             .lineLimit(1...5)
                             .font(.pretendard(Pretendard.regular, size: 15))
