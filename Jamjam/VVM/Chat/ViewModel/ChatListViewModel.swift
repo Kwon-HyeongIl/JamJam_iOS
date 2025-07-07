@@ -11,7 +11,7 @@ import os
 
 @Observable
 class ChatListViewModel {
-    var chatRooms: [ChatRoomModel] = []
+    var chatRooms: [ChatRoomDomainModel] = []
     
     var isStompClientInitPossible: Bool {
         !AuthCore.shared.isStompClientInit && AuthCore.shared.isLogin
@@ -21,7 +21,7 @@ class ChatListViewModel {
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ChatViewModel")
     
     func fetchChatRooms() {
-        let request = FetchChatRoomsRequest(page: 0, size: 20, sort: ["lastMessageTime,desc"])
+        let request = FetchChatRoomsRequestDto(page: 0, size: 20, sort: ["lastMessageTime,desc"])
         
         ChatManager.fetchChatRooms(request: request)
             .receive(on: DispatchQueue.main)
@@ -38,7 +38,7 @@ class ChatListViewModel {
                     
                     if let rooms = response.content?.rooms {
                         let chatRooms = rooms.map {
-                            ChatRoomModel(fromFetchChatRoomsResponse: $0)
+                            ChatRoomDomainModel(fromFetchChatRoomsResponse: $0)
                         }
                         self?.chatRooms = chatRooms
                     }

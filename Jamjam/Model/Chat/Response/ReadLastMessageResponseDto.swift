@@ -1,18 +1,18 @@
 //
-//  StartChatRoomResponse.swift
+//  ReadLastMessageResponse.swift
 //  Jamjam
 //
-//  Created by 권형일 on 7/2/25.
+//  Created by 권형일 on 7/3/25.
 //
 
 import Foundation
 
-struct StartChatRoomResponse: Decodable {
+struct ReadLastMessageResponseDto: Decodable {
     let code: String
     let message: String
     let content: Content?
     
     struct Content: Decodable {
-        let roomId: Int
+        
     }
 }

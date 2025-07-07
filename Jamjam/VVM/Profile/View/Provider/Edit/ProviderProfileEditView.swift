@@ -625,7 +625,7 @@ struct ProviderProfileEditView: View {
                                         }
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
-                                                viewModel.careerFormList.append(CareerFormModel())
+                                                viewModel.careerFormList.append(CareerFormDomainModel())
                                             }
                                         }
                                 }
@@ -857,7 +857,7 @@ struct ProviderProfileEditView: View {
                                         }
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
-                                                viewModel.degreeFormList.append(DegreeFormModel())
+                                                viewModel.degreeFormList.append(DegreeFormDomainModel())
                                             }
                                         }
                                 }
@@ -975,7 +975,7 @@ struct ProviderProfileEditView: View {
                                         }
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.1, dampingFraction: 1.0, blendDuration: 0)) {
-                                                viewModel.certificateFormList.append(CertificateFormModel())
+                                                viewModel.certificateFormList.append(CertificateFormDomainModel())
                                             }
                                         }
                                 }

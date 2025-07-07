@@ -11,9 +11,9 @@ import os
 
 @Observable
 class ChatContentViewModel {
-    let chatRoom: ChatRoomModel
+    let chatRoom: ChatRoomDomainModel
     
-    var messages: [ChatMessageModel] = []
+    var messages: [ChatMessageDomainModel] = []
     
     var inputMessage = ""
     var isEditButtonTapped = false
@@ -24,7 +24,7 @@ class ChatContentViewModel {
     @ObservationIgnored private var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ChatContentViewModel")
     
-    init(chatRoom: ChatRoomModel) {
+    init(chatRoom: ChatRoomDomainModel) {
         self.chatRoom = chatRoom
         
         fetchChatMessages()
@@ -72,7 +72,7 @@ class ChatContentViewModel {
     }
     
     private func fetchChatMessages() {
-        let request = FetchChatMessagesRequest(page: 0, size: 20, sort: ["lastMessageTime,desc"])
+        let request = FetchChatMessagesRequestDto(page: 0, size: 20, sort: ["lastMessageTime,desc"])
         let chatRoomId = chatRoom.roomId
         
         ChatManager.fetchChatMessages(request: request, chatRoomId: chatRoomId)
@@ -92,7 +92,7 @@ class ChatContentViewModel {
                         self?.logger.info("[fetchChatMessages] 이전 메시지 존재")
                         
                         let chatMessages = chats
-                            .map { ChatMessageModel(fromFetchChatMessagesResponse: $0) }
+                            .map { ChatMessageDomainModel(fromFetchChatMessagesResponse: $0) }
                             .reversed()
                             .reduce(into: []) { $0.append($1) }
                         
@@ -112,7 +112,7 @@ class ChatContentViewModel {
     
     func readLastMessage() {
         guard let lastMessageId = messages.last?.messageId else { return }
-        let request = ReadLastMessageRequest(lastReadMessageId: lastMessageId)
+        let request = ReadLastMessageRequestDto(lastReadMessageId: lastMessageId)
         let chatRoomId = chatRoom.roomId
         
         ChatManager.readLastMessage(request: request, chatRoomId: chatRoomId)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SignUpWithClientRequest: Encodable {
+struct SignUpWithClientRequestDto: Encodable {
     let name: String
     let nickname: String
     let loginId: String

@@ -1,13 +1,13 @@
 //
-//  ReadLastMessageResponse.swift
+//  VerifySmsResponse.swift
 //  Jamjam
 //
-//  Created by 권형일 on 7/3/25.
+//  Created by 권형일 on 6/25/25.
 //
 
 import Foundation
 
-struct ReadLastMessageResponse: Decodable {
+struct VerifySmsResponseDto: Decodable {
     let code: String
     let message: String
     let content: Content?

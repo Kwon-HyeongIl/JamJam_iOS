@@ -1,18 +1,18 @@
 //
-//  CheckLoginIdResponse.swift
+//  DeleteChatRoomResponse.swift
 //  Jamjam
 //
-//  Created by 권형일 on 6/25/25.
+//  Created by 권형일 on 7/3/25.
 //
 
 import Foundation
 
-struct CheckLoginIdResponse: Decodable {
+struct DeleteChatRoomResponseDto: Decodable {
     let code: String
     let message: String
     let content: Content?
     
     struct Content: Decodable {
-        let available: Bool
+        
     }
 }

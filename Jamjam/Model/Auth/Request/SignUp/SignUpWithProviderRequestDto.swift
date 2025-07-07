@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SignUpWithProviderRequest: Encodable {
+struct SignUpWithProviderRequestDto: Encodable {
     let name: String
     let nickname: String
     let loginId: String

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChatSocketMessageResponse: Decodable {
+struct ChatSocketMessageResponseDto: Decodable {
     let type: String
     let content: Content?
     

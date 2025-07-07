@@ -10,52 +10,52 @@ import Combine
 import Alamofire
 
 extension ChatManager {
-    static func startChatRoom(otherId: String) -> AnyPublisher<StartChatRoomResponse, Error> {
+    static func startChatRoom(otherId: String) -> AnyPublisher<StartChatRoomResponseDto, Error> {
         let url = API.startChatRoom.url
-        let request = StartChatRoomRequest(otherId: otherId)
+        let request = StartChatRoomRequestDto(otherId: otherId)
         
         return AF.request(url, method: .post, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
-            .publishDecodable(type: StartChatRoomResponse.self)
+            .publishDecodable(type: StartChatRoomResponseDto.self)
             .value()
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
     
-    static func fetchChatRooms(request: FetchChatRoomsRequest) -> AnyPublisher<FetchChatRoomsResponse, Error> {
+    static func fetchChatRooms(request: FetchChatRoomsRequestDto) -> AnyPublisher<FetchChatRoomsResponseDto, Error> {
         let url = API.fetchChatRooms.url
         
         return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
-            .publishDecodable(type: FetchChatRoomsResponse.self)
+            .publishDecodable(type: FetchChatRoomsResponseDto.self)
             .value()
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
     
-    static func fetchChatMessages(request: FetchChatMessagesRequest, chatRoomId: Int) -> AnyPublisher<FetchChatMessagesResponse, Error> {
+    static func fetchChatMessages(request: FetchChatMessagesRequestDto, chatRoomId: Int) -> AnyPublisher<FetchChatMessagesResponseDto, Error> {
         let url = API.fetchChatMessages(chatRoomId).url
         
         return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
-            .publishDecodable(type: FetchChatMessagesResponse.self)
+            .publishDecodable(type: FetchChatMessagesResponseDto.self)
             .value()
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
     
-    static func readLastMessage(request: ReadLastMessageRequest, chatRoomId: Int) -> AnyPublisher<ReadLastMessageResponse, Error> {
+    static func readLastMessage(request: ReadLastMessageRequestDto, chatRoomId: Int) -> AnyPublisher<ReadLastMessageResponseDto, Error> {
         let url = API.readLastMessage(chatRoomId).url
         
         return AF.request(url, method: .put, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)
-            .publishDecodable(type: ReadLastMessageResponse.self)
+            .publishDecodable(type: ReadLastMessageResponseDto.self)
             .value()
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
     
-    static func deleteChatRoom(targetChatRoomId: Int) -> AnyPublisher<DeleteChatRoomResponse, Error> {
+    static func deleteChatRoom(targetChatRoomId: Int) -> AnyPublisher<DeleteChatRoomResponseDto, Error> {
         let url = API.deleteChatRoom(targetChatRoomId).url
         
         return AF.request(url, method: .delete, headers: API.headers)
-            .publishDecodable(type: DeleteChatRoomResponse.self)
+            .publishDecodable(type: DeleteChatRoomResponseDto.self)
             .value()
             .mapError { $0 as Error }
             .eraseToAnyPublisher()

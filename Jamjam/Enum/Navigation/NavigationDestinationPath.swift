@@ -2,7 +2,7 @@
 //  NavigationDestinationPath.swift
 //  Jamjam
 //
-//  Created by 권형일 on 6/5/25.
+//  Created by 권형일 on 7/7/25.
 //
 
 import Foundation
@@ -20,7 +20,7 @@ enum NavigationDestinationPath: Hashable {
     case registerServiceTailView(RegisterServiceViewModel)
     
     // Chat
-    case chatContentView(ChatRoomModel)
+    case chatContentView(ChatRoomDomainModel)
     
     // Profile
     case providerProfileView

@@ -49,11 +49,11 @@ class ProviderProfileEditViewModel {
     }
     
     // MARK: Page Index 2
-    var careerFormList: [CareerFormModel] = []
+    var careerFormList: [CareerFormDomainModel] = []
     
     // MARK: Page Index 3
-    var degreeFormList: [DegreeFormModel] = []
-    var certificateFormList: [CertificateFormModel] = []
+    var degreeFormList: [DegreeFormDomainModel] = []
+    var certificateFormList: [CertificateFormDomainModel] = []
     
     // MARK: Page Index 4
     var startTime = 6.0 / 24.0
@@ -64,7 +64,7 @@ class ProviderProfileEditViewModel {
         ProfileInfoManager.extractDetailSkillTextWithId(id: id)
     }
     
-    func removeCurrentCareerForm(_ form: CareerFormModel) {
+    func removeCurrentCareerForm(_ form: CareerFormDomainModel) {
         if let index = careerFormList.firstIndex(where: { $0.id == form.id }) {
             DispatchQueue.main.async {
                 self.careerFormList.remove(at: index)
@@ -72,7 +72,7 @@ class ProviderProfileEditViewModel {
         }
     }
     
-    func removeCurrentDegreeForm(_ form: DegreeFormModel) {
+    func removeCurrentDegreeForm(_ form: DegreeFormDomainModel) {
         if let index = degreeFormList.firstIndex(where: { $0.id == form.id }) {
             DispatchQueue.main.async {
                 self.degreeFormList.remove(at: index)
@@ -80,7 +80,7 @@ class ProviderProfileEditViewModel {
         }
     }
     
-    func removeCurrentCertificateForm(_ form: CertificateFormModel) {
+    func removeCurrentCertificateForm(_ form: CertificateFormDomainModel) {
         if let index = certificateFormList.firstIndex(where: { $0.id == form.id }) {
             DispatchQueue.main.async {
                 self.certificateFormList.remove(at: index)

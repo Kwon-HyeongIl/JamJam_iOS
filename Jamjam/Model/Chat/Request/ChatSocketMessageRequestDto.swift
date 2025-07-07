@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChatSocketMessageRequest: Encodable {
+struct ChatSocketMessageRequestDto: Encodable {
     let type: ChatSocketEventType = .sendMessage
     let content: Content
 

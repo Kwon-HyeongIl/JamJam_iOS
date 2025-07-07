@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct JJUserModel: Hashable, Equatable {
+struct UserDomainModel: Hashable, Equatable {
     let userId: String
     let realName: String
     
@@ -16,7 +16,7 @@ struct JJUserModel: Hashable, Equatable {
         hasher.combine(userId)
     }
     
-    static func == (lhs: JJUserModel, rhs: JJUserModel) -> Bool {
+    static func == (lhs: UserDomainModel, rhs: UserDomainModel) -> Bool {
         return lhs.userId == rhs.userId
     }
     

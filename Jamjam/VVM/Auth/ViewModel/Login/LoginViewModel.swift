@@ -23,7 +23,7 @@ class LoginViewModel {
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "LoginViewModel")
     
     func login() {
-        let request = LoginRequest(loginId: loginId, password: password)
+        let request = LoginRequestDto(loginId: loginId, password: password)
         
         AuthManager.login(request)
             .receive(on: DispatchQueue.main)

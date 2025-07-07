@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FetchChatRoomsResponse: Decodable {
+struct FetchChatRoomsResponseDto: Decodable {
     let code: String
     let message: String
     let content: Content?

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FetchChatMessagesRequest: Encodable {
+struct FetchChatMessagesRequestDto: Encodable {
     let page: Int
     let size: Int
     let sort: [String]

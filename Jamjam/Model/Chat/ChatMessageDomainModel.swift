@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChatMessageModel {
+struct ChatMessageDomainModel {
     let messageId: Int
     let senderId: String
     let senderNickname: String
@@ -16,7 +16,7 @@ struct ChatMessageModel {
     let sentDate: String
     let isOwn: Bool
     
-    init(fromFetchChatMessagesResponse from: FetchChatMessagesResponse.Content.Chat) {
+    init(fromFetchChatMessagesResponse from: FetchChatMessagesResponseDto.Content.Chat) {
         messageId = from.messageId
         senderId = from.senderId
         senderNickname = from.senderNickname
@@ -26,7 +26,7 @@ struct ChatMessageModel {
         isOwn = from.isOwn
     }
     
-    init(fromChatSocketMessageResponse from: ChatSocketMessageResponse.Content) {
+    init(fromChatSocketMessageResponse from: ChatSocketMessageResponseDto.Content) {
         messageId = from.messageId
         senderId = from.senderId
         senderNickname = from.senderNickname

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CareerFormModel: Identifiable {
+struct CareerFormDomainModel: Identifiable {
     var groupName = ""
     var role = ""
     var fileData = ""

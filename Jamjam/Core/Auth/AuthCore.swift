@@ -103,7 +103,7 @@ class AuthCore {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             AF.request(url, method: .post, headers: headers)
-                .publishDecodable(type: RefreshAccessTokenResponse.self)
+                .publishDecodable(type: RefreshAccessTokenResponseDto.self)
                 .value()
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] completion in

@@ -28,7 +28,7 @@ extension StompCore {
     }
     
     func sendMessage(roomId: Int, text: String) {
-        let dto = ChatSocketMessageRequest(roomId: roomId, message: text)
+        let dto = ChatSocketMessageRequestDto(roomId: roomId, message: text)
         guard let body = try? JSONEncoder().encode(dto),
               let json = String(data: body, encoding: .utf8)
         else {

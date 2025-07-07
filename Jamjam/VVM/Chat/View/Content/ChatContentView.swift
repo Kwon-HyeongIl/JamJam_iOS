@@ -13,7 +13,7 @@ struct ChatContentView: View {
     
     @FocusState private var focus: TextFieldFocusField?
     
-    init(chatRoom: ChatRoomModel) {
+    init(chatRoom: ChatRoomDomainModel) {
         viewModel = ChatContentViewModel(chatRoom: chatRoom)
     }
     
@@ -183,7 +183,7 @@ struct ChatContentView: View {
 
 #Preview {
     NavigationStack {
-        ChatContentView(chatRoom: ChatRoomModel(fromFetchChatRoomsResponse: .init(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: "")))
+        ChatContentView(chatRoom: ChatRoomDomainModel(fromFetchChatRoomsResponse: .init(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: "")))
             .environment(NavigationCore())
     }
 }

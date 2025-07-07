@@ -18,7 +18,7 @@ class StompCore {
     var client: SwiftStomp?
     
     var socketConnectionStatusRouter = CurrentValueSubject<SocketConnectionStatus, Never>(.disconnected)
-    var messageReceivedRouter = PassthroughSubject<ChatMessageModel, Never>()
+    var messageReceivedRouter = PassthroughSubject<ChatMessageDomainModel, Never>()
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ChatManager")
@@ -79,14 +79,14 @@ class StompCore {
                     guard case let
                         .text(raw, _, _, _) = frame,
                           let data = raw.data(using: .utf8),
-                          let response = try? JSONDecoder().decode(ChatSocketMessageResponse.self, from: data),
+                          let response = try? JSONDecoder().decode(ChatSocketMessageResponseDto.self, from: data),
                           let content = response.content
                     else {
                         self?.logger.error("[messagesUpstream] 수신 프레임 디코딩 실패")
                         return
                     }
                     
-                    let chatMessage = ChatMessageModel(fromChatSocketMessageResponse: content)
+                    let chatMessage = ChatMessageDomainModel(fromChatSocketMessageResponse: content)
                     
                     self?.logger.info("[messagesUpstream] 수신 프레임 디코딩 성공, senderId: \(chatMessage.senderId)")
                     

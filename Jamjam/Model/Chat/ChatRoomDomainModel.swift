@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChatRoomModel: Hashable, Equatable {
+struct ChatRoomDomainModel: Hashable, Equatable {
     let roomId: Int
     let nickname: String
     let lastMessage: String
@@ -15,7 +15,7 @@ struct ChatRoomModel: Hashable, Equatable {
     let unreadCount: Int
     let profileUrl: String
     
-    init(fromFetchChatRoomsResponse from: FetchChatRoomsResponse.Content.Room) {
+    init(fromFetchChatRoomsResponse from: FetchChatRoomsResponseDto.Content.Room) {
         roomId = from.id
         nickname = from.nickname ?? ""
         lastMessage = from.lastMessage ?? ""

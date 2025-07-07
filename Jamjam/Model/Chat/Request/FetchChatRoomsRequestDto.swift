@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FetchChatRoomsRequest: Encodable {
+struct FetchChatRoomsRequestDto: Encodable {
     let page: Int
     let size: Int
     let sort: [String]

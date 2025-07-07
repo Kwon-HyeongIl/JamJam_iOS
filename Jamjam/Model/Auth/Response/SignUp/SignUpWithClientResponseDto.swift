@@ -1,13 +1,13 @@
 //
-//  RefreshAccessTokenResponse.swift
+//  SignUpWithClientResponse.swift
 //  Jamjam
 //
-//  Created by 권형일 on 7/1/25.
+//  Created by 권형일 on 6/23/25.
 //
 
 import Foundation
 
-struct RefreshAccessTokenResponse: Decodable {
+struct SignUpWithClientResponseDto: Decodable {
     let code: String
     let message: String
     let content: Content?
@@ -15,5 +15,6 @@ struct RefreshAccessTokenResponse: Decodable {
     struct Content: Decodable {
         let accessToken: String
         let tokenType: String
+        let expiresIn: Double
     }
 }

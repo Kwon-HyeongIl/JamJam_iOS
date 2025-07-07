@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct ReadLastMessageRequest: Encodable {
+struct ReadLastMessageRequestDto: Encodable {
     let lastReadMessageId: Int
 }

@@ -10,11 +10,11 @@ import Combine
 import Alamofire
 
 extension AuthManager {
-    static func login(_ request: LoginRequest) -> AnyPublisher<LoginResponse, Error> {
+    static func login(_ request: LoginRequestDto) -> AnyPublisher<LoginResponseDto, Error> {
         let url = API.login.url
         
         return AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)
-            .publishDecodable(type: LoginResponse.self)
+            .publishDecodable(type: LoginResponseDto.self)
             .value()
             .mapError { $0 as Error }
             .eraseToAnyPublisher()

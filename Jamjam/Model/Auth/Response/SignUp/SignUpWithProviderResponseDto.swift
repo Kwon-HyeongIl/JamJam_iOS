@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SignUpWithProviderResponse: Decodable {
+struct SignUpWithProviderResponseDto: Decodable {
     let code: String
     let message: String
     let content: Content?

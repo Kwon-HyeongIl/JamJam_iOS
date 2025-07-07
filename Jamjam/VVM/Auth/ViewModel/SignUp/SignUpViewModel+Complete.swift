@@ -12,7 +12,7 @@ extension SignUpViewModel {
         if self.signUpUserType == .provider {
             self.isEntireProgressViewVisible = true
             
-            let request = SignUpWithProviderRequest(name: self.realName, nickname: self.nickname, loginId: self.loginId, phoneNumber: self.phoneNumber, password: self.password, birth: self.formattedBirthDate, gender: self.gender?.rawValue ?? "NAN")
+            let request = SignUpWithProviderRequestDto(name: self.realName, nickname: self.nickname, loginId: self.loginId, phoneNumber: self.phoneNumber, password: self.password, birth: self.formattedBirthDate, gender: self.gender?.rawValue ?? "NAN")
             
             AuthManager.signUpWithProvider(request)
                 .receive(on: DispatchQueue.main)
@@ -44,7 +44,7 @@ extension SignUpViewModel {
         } else if self.signUpUserType == .client {
             self.isEntireProgressViewVisible = true
             
-            let request = SignUpWithClientRequest(name: self.realName, nickname: self.nickname, loginId: self.loginId, phoneNumber: self.phoneNumber, password: self.password, birth: self.formattedBirthDate, gender: self.gender?.rawValue ?? "NAN")
+            let request = SignUpWithClientRequestDto(name: self.realName, nickname: self.nickname, loginId: self.loginId, phoneNumber: self.phoneNumber, password: self.password, birth: self.formattedBirthDate, gender: self.gender?.rawValue ?? "NAN")
             
             AuthManager.signUpWithClient(request)
                 .receive(on: DispatchQueue.main)
