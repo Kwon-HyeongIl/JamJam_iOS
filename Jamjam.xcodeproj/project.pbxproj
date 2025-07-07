@@ -151,6 +151,7 @@
 		CAB6FFFD2E151228004CD644 /* JJUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFC2E151228004CD644 /* JJUserModel.swift */; };
 		CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB13BD2DF69261007C9E35 /* SplashView.swift */; };
 		CAD2F2452E1A9755007B5BE8 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2F2442E1A9755007B5BE8 /* DateManager.swift */; };
+		CAD2F2472E1AE4ED007B5BE8 /* WriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2F2462E1AE4ED007B5BE8 /* WriteViewModel.swift */; };
 		CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAD3106D2E09B56200A5FAA4 /* Alamofire */; };
 		CAE914682E13CF0700829D2C /* RefreshAccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE914672E13CF0700829D2C /* RefreshAccessTokenResponse.swift */; };
 /* End PBXBuildFile section */
@@ -295,6 +296,7 @@
 		CAB6FFFC2E151228004CD644 /* JJUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJUserModel.swift; sourceTree = "<group>"; };
 		CABB13BD2DF69261007C9E35 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		CAD2F2442E1A9755007B5BE8 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		CAD2F2462E1AE4ED007B5BE8 /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
 		CAE914672E13CF0700829D2C /* RefreshAccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -947,6 +949,7 @@
 		CAB6001E2E15A66E004CD644 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CAD2F2462E1AE4ED007B5BE8 /* WriteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1341,6 +1344,7 @@
 				CA4F12592E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift in Sources */,
 				CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */,
 				CAB6000B2E155D3C004CD644 /* ChatSocketMessageResponse.swift in Sources */,
+				CAD2F2472E1AE4ED007B5BE8 /* WriteViewModel.swift in Sources */,
 				CA4CF92B2E0C276B00F882C4 /* VerifySmsRequest.swift in Sources */,
 				CA87FF782E014B7A00C8C830 /* SignUpViewModel.swift in Sources */,
 				CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */,

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "client_tint_icon.png",
+      "filename" : "client.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

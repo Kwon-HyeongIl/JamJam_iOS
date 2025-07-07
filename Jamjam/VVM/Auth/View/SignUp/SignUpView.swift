@@ -86,7 +86,7 @@ struct SignUpView: View {
                                         .scaledToFit()
                                         .overlay {
                                             VStack {
-                                                Image(viewModel.isExpertButtonTapped ? "expert_tint_icon" : "expert_icon")
+                                                Image(viewModel.isExpertButtonTapped ? "provider_tint" : "provider")
                                                     .resizable()
                                                     .scaledToFit()
                                                     .frame(width: 35)
@@ -130,7 +130,7 @@ struct SignUpView: View {
                                         .scaledToFit()
                                         .overlay {
                                             VStack {
-                                                Image(viewModel.isClientButtonTapped ? "client_tint_icon" : "client_icon")
+                                                Image(viewModel.isClientButtonTapped ? "client_tint" : "client")
                                                     .resizable()
                                                     .scaledToFit()
                                                     .frame(width: 35)
@@ -700,10 +700,11 @@ struct SignUpView: View {
                                             .foregroundStyle(viewModel.isGenderManButtonTapped ? .red.opacity(0.1) : .white)
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
-                                                Image(viewModel.isGenderManButtonTapped ? "man_tint_icon" : "man_icon")
+                                                Image("man_tint")
                                                     .resizable()
                                                     .scaledToFit()
                                                     .frame(width: 20)
+                                                    .opacity(viewModel.isGenderManButtonTapped ? 0.1 : 1)
                                             }
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
@@ -725,10 +726,11 @@ struct SignUpView: View {
                                             .foregroundStyle(viewModel.isGenderWomanButtonTapped ? .red.opacity(0.1) : .white)
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
-                                                Image(viewModel.isGenderWomanButtonTapped ? "woman_tint_icon" : "woman_icon")
+                                                Image("woman_tint")
                                                     .resizable()
                                                     .scaledToFit()
                                                     .frame(width: 20)
+                                                    .opacity(viewModel.isGenderWomanButtonTapped ? 0.1 : 1)
                                             }
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
