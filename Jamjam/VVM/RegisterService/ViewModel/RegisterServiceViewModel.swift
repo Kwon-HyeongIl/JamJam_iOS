@@ -11,11 +11,11 @@ import os
 
 @Observable
 class RegisterServiceViewModel: Hashable, Equatable {
-    var pageIndex = 1
+    var pageIndex = 2
     
     // MARK: Page Index 0
     var initialDescription = ""
-    var isAiProgressiveViewVisible = false
+    var isAiGenerateContentsProgressViewVisible = false
     var isInitialContentsGenerateCompleted = false
     
     // MARK: Page Index 1
@@ -27,6 +27,10 @@ class RegisterServiceViewModel: Hashable, Equatable {
     var isAllValidatedInPageIndex1: Bool {
         !serviceName.isEmpty && category != nil && !description.isEmpty && !price.isEmpty
     }
+    
+    // MARK: Page Index 2
+    var isAiGenerateImageProgressViewVisible = false
+    var isPresentServiceNameToAiImage = true
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "RegisterServiceViewModel")
@@ -44,7 +48,7 @@ class RegisterServiceViewModel: Hashable, Equatable {
                     self?.logger.error("[generateService] completion failed: \(error)")
                 }
                 
-                self?.isAiProgressiveViewVisible = false
+                self?.isAiGenerateContentsProgressViewVisible = false
             } receiveValue: { [weak self] response in
                 print(response.content?.description ?? "")
                 if response.code == "SUCCESS", let content = response.content {

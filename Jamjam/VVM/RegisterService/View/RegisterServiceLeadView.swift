@@ -106,7 +106,7 @@ struct RegisterServiceLeadView: View {
                         Spacer()
                         
                         Button {
-                            viewModel.isAiProgressiveViewVisible = true
+                            viewModel.isAiGenerateContentsProgressViewVisible = true
                             viewModel.generateService()
                         } label: {
                             Image("ai_generate_button")
@@ -115,7 +115,7 @@ struct RegisterServiceLeadView: View {
                                 .frame(width: 130)
                                 .scaleEffect(1.2)
                                 .padding(.trailing, 7)
-                                .shimmering(active: viewModel.isAiProgressiveViewVisible)
+                                .shimmering(active: viewModel.isAiGenerateContentsProgressViewVisible)
                                 .opacity(viewModel.initialDescription.isEmpty ? 0.4 : 1)
                         }
                         .disabled(viewModel.initialDescription.isEmpty)
@@ -126,10 +126,10 @@ struct RegisterServiceLeadView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
         .overlay {
-            if viewModel.isAiProgressiveViewVisible {
+            if viewModel.isAiGenerateContentsProgressViewVisible {
                 VStack(spacing: 15) {
                     ProgressView()
-                        .scaleEffect(1.2)
+                        .scaleEffect(1.5)
                         .tint(Color.JJTitle)
                     
                     Text("AI가 콘텐츠를 생성하고 있습니다.")

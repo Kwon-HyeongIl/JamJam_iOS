@@ -153,7 +153,7 @@ struct LoginView: View {
             if viewModel.isEntireProgressViewVisible {
                 VStack {
                     ProgressView()
-                        .scaleEffect(1.2)
+                        .scaleEffect(1.5)
                         .tint(Color.JJTitle)
                         .padding(.bottom, 30)
                 }
