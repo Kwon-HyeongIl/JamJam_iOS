@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChatContentView: View {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @State private var viewModel: ChatContentViewModel
     
     @FocusState private var focus: TextFieldFocusField?
@@ -184,6 +184,6 @@ struct ChatContentView: View {
 #Preview {
     NavigationStack {
         ChatContentView(chatRoom: ChatRoomModel(fromFetchChatRoomsResponse: .init(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: "")))
-            .environment(NavigationRouter())
+            .environment(NavigationCore())
     }
 }

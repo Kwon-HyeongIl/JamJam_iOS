@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegisterServiceTailView: View {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @Bindable var viewModel: RegisterServiceViewModel
     
     @FocusState private var focus: TextFieldFocusField?
@@ -29,6 +29,6 @@ struct RegisterServiceTailView: View {
 #Preview {
     NavigationStack {
         RegisterServiceTailView(viewModel: RegisterServiceViewModel())
-            .environment(NavigationRouter())
+            .environment(NavigationCore())
     }
 }

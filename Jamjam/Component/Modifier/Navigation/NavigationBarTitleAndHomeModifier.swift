@@ -9,7 +9,7 @@ import SwiftUI
 
 // 타이틀 + 홈 이동
 struct NavigationBarTitleAndHomeModifier: ViewModifier {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
     
     let title: String

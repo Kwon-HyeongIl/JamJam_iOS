@@ -28,7 +28,7 @@ class ProviderProfileViewModel {
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ProviderProfileViewModel")
     
     func startChatRoom() {
-        ChatManager.shared.startChatRoom(otherId: "1")
+        ChatManager.startChatRoom(otherId: "1")
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {

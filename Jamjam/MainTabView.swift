@@ -44,6 +44,6 @@ struct MainTabView: View {
 
 #Preview {
     MainTabView()
-        .environment(NavigationRouter())
+        .environment(NavigationCore())
         .environment(MainTabBarCapsule())
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChatListView: View {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @State private var viewModel = ChatListViewModel()
     
     var body: some View {
@@ -52,5 +52,5 @@ struct ChatListView: View {
 
 #Preview {
     ChatListView()
-        .environment(NavigationRouter())
+        .environment(NavigationCore())
 }

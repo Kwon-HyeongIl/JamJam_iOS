@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NavigationBaseView: View {
-    @State private var navRouter = NavigationRouter()
+    @State private var navRouter = NavigationCore()
     @State private var tabCapsule = MainTabBarCapsule()
     
     var body: some View {

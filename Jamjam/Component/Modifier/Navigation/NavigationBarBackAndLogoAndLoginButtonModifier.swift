@@ -9,7 +9,7 @@ import SwiftUI
 
 // 뒤로가기 + 로고 + 로그인
 struct NavigationBarBackAndLogoAndLoginButtonModifier: ViewModifier {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     
     init() {
         let appearance = UINavigationBarAppearance()

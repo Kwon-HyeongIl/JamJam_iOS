@@ -8,7 +8,7 @@
 import SwiftUI
 
 @Observable
-class NavigationRouter {
+class NavigationCore {
     var path = NavigationPath()
     
     @ViewBuilder

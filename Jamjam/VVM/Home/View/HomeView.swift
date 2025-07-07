@@ -10,7 +10,7 @@ import Combine
 import ShuffleStack
 
 struct HomeView: View {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @State private var viewModel = HomeViewModel()
     
     var body: some View {
@@ -401,5 +401,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-        .environment(NavigationRouter())
+        .environment(NavigationCore())
 }

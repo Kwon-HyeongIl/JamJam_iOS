@@ -1,13 +1,13 @@
 //
-//  ChatManager+Outer.swift
+//  StompCore+CRUD.swift
 //  Jamjam
 //
-//  Created by 권형일 on 7/2/25.
+//  Created by 권형일 on 7/7/25.
 //
 
 import Foundation
 
-extension ChatManager {
+extension StompCore {
     func connect() {
         guard !(client?.isConnected == true) else { return }
 

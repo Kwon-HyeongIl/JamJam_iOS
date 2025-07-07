@@ -14,7 +14,7 @@ extension SignUpViewModel {
             
             let request = SignUpWithProviderRequest(name: self.realName, nickname: self.nickname, loginId: self.loginId, phoneNumber: self.phoneNumber, password: self.password, birth: self.formattedBirthDate, gender: self.gender?.rawValue ?? "NAN")
             
-            AuthCenter.shared.signUpWithProvider(request)
+            AuthManager.signUpWithProvider(request)
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] completion in
                     switch completion {
@@ -32,7 +32,7 @@ extension SignUpViewModel {
                     
                     if response.code == "SUCCESS" && !receivedAccessToken.isEmpty {
                         self?.isSignUpCompleted = true
-                        AuthCenter.shared.accessToken = receivedAccessToken
+                        AuthCore.shared.accessToken = receivedAccessToken
                         
                     } else {
                         self?.isSignUpAlertVisible = true
@@ -46,7 +46,7 @@ extension SignUpViewModel {
             
             let request = SignUpWithClientRequest(name: self.realName, nickname: self.nickname, loginId: self.loginId, phoneNumber: self.phoneNumber, password: self.password, birth: self.formattedBirthDate, gender: self.gender?.rawValue ?? "NAN")
             
-            AuthCenter.shared.signUpWithClient(request)
+            AuthManager.signUpWithClient(request)
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] completion in
                     switch completion {
@@ -64,7 +64,7 @@ extension SignUpViewModel {
                     
                     if response.code == "SUCCESS" && !receivedAccessToken.isEmpty {
                         self?.isSignUpCompleted = true
-                        AuthCenter.shared.accessToken = receivedAccessToken
+                        AuthCore.shared.accessToken = receivedAccessToken
                         
                     } else {
                         self?.isSignUpAlertVisible = true

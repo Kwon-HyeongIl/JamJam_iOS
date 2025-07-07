@@ -9,7 +9,7 @@ import SwiftUI
 import WebKit
 
 struct ProfileView: View {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     
     @State private var editorContent = ""
     
@@ -63,5 +63,5 @@ struct ProfileView: View {
 
 #Preview {
     ProfileView()
-        .environment(NavigationRouter())
+        .environment(NavigationCore())
 }

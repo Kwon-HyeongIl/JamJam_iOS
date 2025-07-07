@@ -14,7 +14,7 @@ class ChatListViewModel {
     var chatRooms: [ChatRoomModel] = []
     
     var isStompClientInitPossible: Bool {
-        !AuthCenter.shared.isStompClientInit && AuthCenter.shared.isLogin
+        !AuthCore.shared.isStompClientInit && AuthCore.shared.isLogin
     }
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
@@ -23,7 +23,7 @@ class ChatListViewModel {
     func fetchChatRooms() {
         let request = FetchChatRoomsRequest(page: 0, size: 20, sort: ["lastMessageTime,desc"])
         
-        ChatManager.shared.fetchChatRooms(request: request)
+        ChatManager.fetchChatRooms(request: request)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -51,6 +51,6 @@ class ChatListViewModel {
     }
     
     func initStompClient() {
-        ChatManager.shared.initStompClient()
+        StompCore.shared.initStompClient()
     }
 }

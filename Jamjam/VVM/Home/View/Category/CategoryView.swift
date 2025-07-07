@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryView: View {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @State private var viewModel = CategoryViewModel()
     
     @State private var isTabBarVisible = true
@@ -132,7 +132,7 @@ struct CategoryView: View {
 #Preview {
     NavigationStack {
         CategoryView()
-            .environment(NavigationRouter())
+            .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }
 }

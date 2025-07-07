@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @State private var viewModel = LoginViewModel()
     
     @FocusState private var focus: TextFieldFocusField?
@@ -166,6 +166,6 @@ struct LoginView: View {
 #Preview {
     NavigationStack {
         LoginView()
-            .environment(NavigationRouter())
+            .environment(NavigationCore())
     }
 }

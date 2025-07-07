@@ -14,12 +14,12 @@ enum API {
     static let headers: HTTPHeaders = [
         "content-type": "application/json",
         "X-Client-Type": "APP",
-        "Authorization": "Bearer \(AuthCenter.shared.accessToken ?? "")"
+        "Authorization": "Bearer \(AuthCore.shared.accessToken ?? "")"
     ]
     
     static let socketHeaders = [
         "content-type": "application/json",
-        "Authorization": "Bearer \(AuthCenter.shared.accessToken ?? "")",
+        "Authorization": "Bearer \(AuthCore.shared.accessToken ?? "")",
         "Heart-Beat": "10000, 10000"
     ]
     

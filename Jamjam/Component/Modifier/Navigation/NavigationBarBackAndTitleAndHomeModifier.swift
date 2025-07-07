@@ -9,7 +9,7 @@ import SwiftUI
 
 // 뒤로가기 + 타이틀 + 홈
 struct NavigationBarBackAndTitleAndHomeModifier: ViewModifier {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
     
     let title: String

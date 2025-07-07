@@ -9,7 +9,7 @@ import SwiftUI
 
 // 뒤로가기
 struct NavigationBarBackModifier: ViewModifier {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     
     init() {
         let appearance = UINavigationBarAppearance()

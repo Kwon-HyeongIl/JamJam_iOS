@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @State private var viewModel = SignUpViewModel()
     
     @State private var position = ScrollPosition()
@@ -1035,7 +1035,7 @@ struct SignUpView: View {
 #Preview {
     NavigationStack {
         SignUpView()
-            .environment(NavigationRouter())
+            .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }
 }

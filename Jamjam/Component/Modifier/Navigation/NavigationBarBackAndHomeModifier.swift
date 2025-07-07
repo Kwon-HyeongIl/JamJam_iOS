@@ -9,7 +9,7 @@ import SwiftUI
 
 // 뒤로가기 + 홈 이동
 struct NavigationBarBackAndHomeModifier: ViewModifier {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
     
     init() {

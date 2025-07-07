@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabBar: View {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
     
     let isCategoryView: Bool
@@ -63,6 +63,6 @@ struct MainTabBar: View {
 
 #Preview {
     MainTabBar(isCategoryView: false)
-        .environment(NavigationRouter())
+        .environment(NavigationCore())
         .environment(MainTabBarCapsule())
 }

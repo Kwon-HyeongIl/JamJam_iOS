@@ -25,7 +25,7 @@ class LoginViewModel {
     func login() {
         let request = LoginRequest(loginId: loginId, password: password)
         
-        AuthCenter.shared.login(request)
+        AuthManager.login(request)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -42,7 +42,7 @@ class LoginViewModel {
                 let receivedAccessToken = response.content?.accessToken ?? ""
                 
                 if response.code == "SUCCESS", !receivedAccessToken.isEmpty {
-                    AuthCenter.shared.accessToken = receivedAccessToken
+                    AuthCore.shared.accessToken = receivedAccessToken
                     self?.isLoginCompleted = true
                     
                 } else {

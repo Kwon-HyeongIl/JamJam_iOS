@@ -9,7 +9,7 @@ import SwiftUI
 import RangeSlider
 
 struct ProviderProfileEditView: View {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @State var viewModel = ProviderProfileEditViewModel()
     
     @FocusState private var focus: TextFieldFocusField?
@@ -1242,7 +1242,7 @@ struct ProviderProfileEditView: View {
 #Preview {
     NavigationStack {
         ProviderProfileEditView()
-            .environment(NavigationRouter())
+            .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }
 }

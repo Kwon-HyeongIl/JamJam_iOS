@@ -9,7 +9,7 @@ import SwiftUI
 
 // 뒤로가기 + 타이틀
 struct NavigationBarBackAndTitleModifier: ViewModifier {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     
     let title: String
     

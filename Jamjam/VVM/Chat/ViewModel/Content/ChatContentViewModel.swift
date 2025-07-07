@@ -30,12 +30,12 @@ class ChatContentViewModel {
         fetchChatMessages()
         
         subscribeStomp()
-        ChatManager.shared.connect()
+        StompCore.shared.connect()
     }
     
     private func subscribeStomp() {
         // MARK: 연결 상태 라우터 구독 → 방 구독 (connection 상태일 때)
-        ChatManager.shared.socketConnectionStatusRouter
+        StompCore.shared.socketConnectionStatusRouter
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -49,13 +49,13 @@ class ChatContentViewModel {
                 
                 if case .connected = status {
                     logger.info("[socketConnectionStatusRouter] 연결 상태 확인, 방 구독 시작, target roomId: \(chatRoom.roomId)")
-                    ChatManager.shared.subscribe(roomId: chatRoom.roomId)
+                    StompCore.shared.subscribe(roomId: chatRoom.roomId)
                 }
             }
             .store(in: &cancellables)
 
         // MARK: 메시지 라우터 구독
-        ChatManager.shared.messageReceivedRouter
+        StompCore.shared.messageReceivedRouter
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -75,7 +75,7 @@ class ChatContentViewModel {
         let request = FetchChatMessagesRequest(page: 0, size: 20, sort: ["lastMessageTime,desc"])
         let chatRoomId = chatRoom.roomId
         
-        ChatManager.shared.fetchChatMessages(request: request, chatRoomId: chatRoomId)
+        ChatManager.fetchChatMessages(request: request, chatRoomId: chatRoomId)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -115,7 +115,7 @@ class ChatContentViewModel {
         let request = ReadLastMessageRequest(lastReadMessageId: lastMessageId)
         let chatRoomId = chatRoom.roomId
         
-        ChatManager.shared.readLastMessage(request: request, chatRoomId: chatRoomId)
+        ChatManager.readLastMessage(request: request, chatRoomId: chatRoomId)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -136,7 +136,7 @@ class ChatContentViewModel {
     }
     
     func send() {
-        ChatManager.shared.sendMessage(roomId: chatRoom.roomId, text: inputMessage)
+        StompCore.shared.sendMessage(roomId: chatRoom.roomId, text: inputMessage)
         
         DispatchQueue.main.async {
             self.inputMessage = ""
@@ -144,7 +144,7 @@ class ChatContentViewModel {
     }
     
     func deleteChatRoom() {
-        ChatManager.shared.deleteChatRoom(targetChatRoomId: chatRoom.roomId)
+        ChatManager.deleteChatRoom(targetChatRoomId: chatRoom.roomId)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {

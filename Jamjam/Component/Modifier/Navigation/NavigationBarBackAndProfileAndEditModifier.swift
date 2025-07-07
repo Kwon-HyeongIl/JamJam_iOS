@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     
     let nickname: String
     

@@ -9,7 +9,7 @@ import SwiftUI
 
 // 뒤로가기 + 이름
 struct NavigationBarBackAndNameModifier: ViewModifier {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     
     let name: String
     

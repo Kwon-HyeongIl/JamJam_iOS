@@ -33,6 +33,6 @@ struct ChatMessageModel {
         content = from.content
         sentDayTime = DateManager.isoToDayTime(from.sentAt)
         sentDate = DateManager.isoToDate(from.sentAt)
-        isOwn = String(AuthCenter.shared.userId ?? -1) == from.senderId ? true : false
+        isOwn = String(AuthCore.shared.userId ?? -1) == from.senderId ? true : false
     }
 }

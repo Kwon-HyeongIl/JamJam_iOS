@@ -12,7 +12,7 @@ import ShuffleStack
 @Observable
 class HomeViewModel {
     var isLogin: Bool {
-        AuthCenter.shared.isLogin
+        AuthCore.shared.isLogin
     }
     
     @ObservationIgnored var carouselCards: [CarouselCard] = [

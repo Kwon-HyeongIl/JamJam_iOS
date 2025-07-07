@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProviderProfileView: View {
-    @Environment(NavigationRouter.self) var navRouter
+    @Environment(NavigationCore.self) var navRouter
     @State private var viewModel = ProviderProfileViewModel()
     
     @State private var position = ScrollPosition()
@@ -300,7 +300,7 @@ struct ProviderProfileView: View {
 #Preview {
     NavigationStack {
         ProviderProfileView()
-            .environment(NavigationRouter())
+            .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }
 }

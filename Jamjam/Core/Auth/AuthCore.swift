@@ -11,8 +11,8 @@ import Alamofire
 import os
 
 @Observable
-class AuthCenter {
-    static let shared = AuthCenter()
+class AuthCore {
+    static let shared = AuthCore()
     
     var accessToken: String? {
         /// - 동작 과정
