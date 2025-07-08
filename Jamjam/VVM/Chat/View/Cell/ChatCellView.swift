@@ -41,13 +41,13 @@ struct ChatCellView: View {
                         Circle()
                             .fill(Color.JJTitle)
                             .scaledToFit()
-                            .frame(width: 20)
+                            .frame(width: 18)
                             .overlay {
                                 Text("\(chatRoom.unreadCount)")
-                                    .font(.pretendard(Pretendard.semiBold, size: 12))
+                                    .font(.pretendard(Pretendard.semiBold, size: 11))
                                     .foregroundStyle(.white)
                             }
-                            .padding(.top)
+                            .padding(.top, 25)
                     }
                 }
             }

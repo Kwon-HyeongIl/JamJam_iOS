@@ -23,4 +23,13 @@ struct ChatRoomDomainModel: Hashable, Equatable {
         unreadCount = from.unreadCount
         profileUrl = from.profileUrl ?? ""
     }
+    
+    init(fromChatSocketRoomResponse from: SocketChatRoomResponseDto.Content) {
+        roomId = from.id
+        nickname = from.nickname
+        lastMessage = from.lastMessage
+        lastMessageRelativeTime = DateManager.isoToRelativeTime(from.lastMessageTime)
+        unreadCount = from.unreadCount
+        profileUrl = from.profileUrl
+    }
 }

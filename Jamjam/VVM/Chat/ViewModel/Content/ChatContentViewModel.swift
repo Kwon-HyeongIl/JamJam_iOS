@@ -29,12 +29,12 @@ class ChatContentViewModel {
         
         fetchChatMessages()
         
-        subscribeStomp()
-        StompCore.shared.connect()
+        subscribeStompChatRoom()
+        StompManager.connect()
     }
     
-    private func subscribeStomp() {
-        // MARK: 연결 상태 라우터 구독 → 방 구독 (connection 상태일 때)
+    private func subscribeStompChatRoom() {
+        // MARK: 연결 상태 라우터 구독
         StompCore.shared.socketConnectionStatusRouter
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
@@ -49,13 +49,13 @@ class ChatContentViewModel {
                 
                 if case .connected = status {
                     logger.info("[socketConnectionStatusRouter] 연결 상태 확인, 방 구독 시작, target roomId: \(chatRoom.roomId)")
-                    StompCore.shared.subscribe(roomId: chatRoom.roomId)
+                    StompManager.subscribeChatRoomMessage(roomId: chatRoom.roomId)
                 }
             }
             .store(in: &cancellables)
 
         // MARK: 메시지 라우터 구독
-        StompCore.shared.messageReceivedRouter
+        StompCore.shared.chatMessageReceivedRouter
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -136,7 +136,7 @@ class ChatContentViewModel {
     }
     
     func send() {
-        StompCore.shared.sendMessage(roomId: chatRoom.roomId, text: inputMessage)
+        StompManager.sendMessage(roomId: chatRoom.roomId, text: inputMessage)
         
         DispatchQueue.main.async {
             self.inputMessage = ""

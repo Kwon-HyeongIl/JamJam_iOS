@@ -18,7 +18,10 @@ class StompCore {
     var client: SwiftStomp?
     
     var socketConnectionStatusRouter = CurrentValueSubject<SocketConnectionStatus, Never>(.disconnected)
-    var messageReceivedRouter = PassthroughSubject<ChatMessageDomainModel, Never>()
+    var chatRoomReceivedRouter = PassthroughSubject<ChatRoomDomainModel, Never>()
+    var chatMessageReceivedRouter = PassthroughSubject<ChatMessageDomainModel, Never>()
+    
+    private struct TypeOnly: Decodable { let type: String }
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ChatManager")
@@ -40,7 +43,7 @@ class StompCore {
     }
     
     private func bindStompEvents() {
-            // MARK: STOMP 연결 상태 구독
+            // MARK: Stomp 연결 상태 구독
             client?.eventsUpstream
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] completion in
@@ -64,34 +67,51 @@ class StompCore {
                     }
                 }
                 .store(in: &cancellables)
-
-            // MARK: STOMP 메시지 수신 구독
-            client?.messagesUpstream
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] completion in
-                    switch completion {
-                    case .finished:
-                        self?.logger.info("[messagesUpstream] completion finished")
-                    case .failure(let error):
-                        self?.logger.error("[messagesUpstream] completion failed: \(error)")
-                    }
-                } receiveValue: { [weak self] frame in
-                    guard case let
-                        .text(raw, _, _, _) = frame,
-                          let data = raw.data(using: .utf8),
-                          let response = try? JSONDecoder().decode(ChatSocketMessageResponseDto.self, from: data),
-                          let content = response.content
-                    else {
-                        self?.logger.error("[messagesUpstream] 수신 프레임 디코딩 실패")
-                        return
-                    }
-                    
-                    let chatMessage = ChatMessageDomainModel(fromChatSocketMessageResponse: content)
-                    
-                    self?.logger.info("[messagesUpstream] 수신 프레임 디코딩 성공, senderId: \(chatMessage.senderId)")
-                    
-                    self?.messageReceivedRouter.send(chatMessage)
+        
+        // MARK: Stomp 수신 구독
+        client?.messagesUpstream
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[messagesUpstream] completion finished")
+                case .failure(let error):
+                    self?.logger.error("[messagesUpstream] completion failed: \(error)")
                 }
-                .store(in: &self.cancellables)
-        }
+            } receiveValue: { [weak self] frame in
+                guard case let .text(raw, _, _, _) = frame,
+                      let data = raw.data(using: .utf8) else { return }
+                
+                guard let typeOnly = try? JSONDecoder().decode(TypeOnly.self, from: data) else {
+                    self?.logger.error("[messageUpStream] TypeOnly 디코딩 실패")
+                    return
+                }
+                
+                switch typeOnly.type {
+                case "CHAT_ROOM_UPDATE":
+                    if let dto = try? JSONDecoder().decode(SocketChatRoomResponseDto.self, from: data),
+                       let content = dto.content {
+                        let chatRoom = ChatRoomDomainModel(fromChatSocketRoomResponse: content)
+                        self?.chatRoomReceivedRouter.send(chatRoom)
+                        
+                    } else {
+                        self?.logger.error("[messagesUpstream] ChatSocketRoomResponseDto 디코딩 실패")
+                    }
+                    
+                case "NEW_MESSAGE":
+                    if let dto = try? JSONDecoder().decode(SocketChatMessageResponseDto.self, from: data),
+                       let content = dto.content {
+                        let message = ChatMessageDomainModel(fromChatSocketMessageResponse: content)
+                        self?.chatMessageReceivedRouter.send(message)
+                        
+                    } else {
+                        self?.logger.error("[messagesUpstream] ChatSocketMessageResponseDto 디코딩 실패")
+                    }
+                    
+                default:
+                    self?.logger.warning("[messagesUpstream] 미확인 type: \(typeOnly.type)")
+                }
+            }
+            .store(in: &self.cancellables)
+    }
 }

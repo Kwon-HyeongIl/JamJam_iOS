@@ -26,7 +26,7 @@ struct ChatMessageDomainModel {
         isOwn = from.isOwn
     }
     
-    init(fromChatSocketMessageResponse from: ChatSocketMessageResponseDto.Content) {
+    init(fromChatSocketMessageResponse from: SocketChatMessageResponseDto.Content) {
         messageId = from.messageId
         senderId = from.senderId
         senderNickname = from.senderNickname

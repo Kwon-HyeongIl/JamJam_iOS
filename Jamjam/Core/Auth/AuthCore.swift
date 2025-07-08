@@ -60,7 +60,7 @@ class AuthCore {
     var isStompClientInit = false
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
-    @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "AuthCenter")
+    @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "AuthCore")
     
     init() {
         let accessToken = fetchAccessToken()
