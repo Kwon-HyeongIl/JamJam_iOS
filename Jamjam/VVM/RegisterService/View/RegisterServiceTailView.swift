@@ -407,7 +407,7 @@ struct RegisterServiceTailView: View {
                         
                         VStack {
                             HStack {
-                                Text("썸네일 사진")
+                                Text("포트폴리오 사진")
                                     .font(.pretendard(Pretendard.semiBold, size: 17))
                                     .padding(.leading, 20)
                                 

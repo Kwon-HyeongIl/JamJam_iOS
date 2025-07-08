@@ -36,6 +36,7 @@ enum API {
     // MARK: RegisterService
     case generateService
     case generateThumbnail
+    case registerService
     
     // MARK: Chat
     case webSocketURL
@@ -71,6 +72,8 @@ enum API {
             return "\(API.baseURL)/api/service/generate"
         case .generateThumbnail:
             return "\(API.baseURL)/api/service/ai-thumbnail"
+        case .registerService:
+            return "\(API.baseURL)/api/service/register"
             
             // MARK: Chat
         case .webSocketURL:

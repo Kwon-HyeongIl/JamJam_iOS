@@ -62,6 +62,8 @@
 		CA4F12632E185A030061012E /* CertificateFormDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12622E185A030061012E /* CertificateFormDomainModel.swift */; };
 		CA50CB522E1D3FCC0078AC22 /* StompManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50CB512E1D3FCC0078AC22 /* StompManager.swift */; };
 		CA50CB552E1D46C80078AC22 /* SocketChatRoomResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50CB542E1D46C80078AC22 /* SocketChatRoomResponseDto.swift */; };
+		CA50CB572E1D68C50078AC22 /* RegisterServiceRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50CB562E1D68C50078AC22 /* RegisterServiceRequestDto.swift */; };
+		CA50CB592E1D78DE0078AC22 /* RegisterServiceResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50CB582E1D78DE0078AC22 /* RegisterServiceResponseDto.swift */; };
 		CA5B62B42E19575A00CA939F /* RangeSlider in Frameworks */ = {isa = PBXBuildFile; productRef = CA5B62B32E19575A00CA939F /* RangeSlider */; };
 		CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7B2E09688700FB1E22 /* FontType.swift */; };
 		CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */; };
@@ -227,6 +229,8 @@
 		CA4F12622E185A030061012E /* CertificateFormDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateFormDomainModel.swift; sourceTree = "<group>"; };
 		CA50CB512E1D3FCC0078AC22 /* StompManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StompManager.swift; sourceTree = "<group>"; };
 		CA50CB542E1D46C80078AC22 /* SocketChatRoomResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketChatRoomResponseDto.swift; sourceTree = "<group>"; };
+		CA50CB562E1D68C50078AC22 /* RegisterServiceRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceRequestDto.swift; sourceTree = "<group>"; };
+		CA50CB582E1D78DE0078AC22 /* RegisterServiceResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceResponseDto.swift; sourceTree = "<group>"; };
 		CA5C5E7B2E09688700FB1E22 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretendard.swift; sourceTree = "<group>"; };
 		CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Pretendard.swift"; sourceTree = "<group>"; };
@@ -747,6 +751,7 @@
 			children = (
 				CA76852F2E1BE12200148204 /* GenerateServiceRequestDto.swift */,
 				CA870FBD2E1C49260083449B /* GenerateThumbnailRequestDto.swift */,
+				CA50CB562E1D68C50078AC22 /* RegisterServiceRequestDto.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -756,6 +761,7 @@
 			children = (
 				CA7685312E1BE14500148204 /* GenerateServiceResponseDto.swift */,
 				CA870FBF2E1C49710083449B /* GenerateThumbnailResponseDto.swift */,
+				CA50CB582E1D78DE0078AC22 /* RegisterServiceResponseDto.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1395,6 +1401,7 @@
 			files = (
 				CA9BB5322E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift in Sources */,
 				CA7685342E1BE26F00148204 /* ServiceManager+Register.swift in Sources */,
+				CA50CB572E1D68C50078AC22 /* RegisterServiceRequestDto.swift in Sources */,
 				CA87FF7F2E02829D00C8C830 /* NavigationBarTitleAndHomeModifier.swift in Sources */,
 				CA96099A2DFBE06400B878C6 /* NavigationBarBackModifier.swift in Sources */,
 				CAB600112E157CC4004CD644 /* FetchChatRoomsResponseDto.swift in Sources */,
@@ -1468,6 +1475,7 @@
 				CA9609B52DFFD50400B878C6 /* ProfileView.swift in Sources */,
 				CAB6002B2E167ABD004CD644 /* FetchChatMessagesResponse.swift in Sources */,
 				CA4F12532E17D7FA0061012E /* LifeServiceDetail.swift in Sources */,
+				CA50CB592E1D78DE0078AC22 /* RegisterServiceResponseDto.swift in Sources */,
 				CA87FF7D2E024B5000C8C830 /* Gender.swift in Sources */,
 				CA60FAD32E100BD000150563 /* Keychain.swift in Sources */,
 				CA4F124F2E17D7B70061012E /* CustomMadeDetail.swift in Sources */,

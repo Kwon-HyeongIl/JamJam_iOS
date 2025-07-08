@@ -32,7 +32,7 @@ class RegisterServiceViewModel: Hashable, Equatable {
     var isAiGenerateImageProgressViewVisible = false
     var typography = true
     var thumbnailImage: UIImage?
-    var portfolioImage = ""
+    var portfolioImages: [UIImage]?
     var isAllValidatedInPageIndex2: Bool {
         true
     }
