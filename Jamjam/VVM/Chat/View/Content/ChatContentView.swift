@@ -22,18 +22,23 @@ struct ChatContentView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 10) {
                     ForEach(Array(viewModel.messages.enumerated()), id: \.element.messageId) { index, message in
-                        let isSentDateVisible = (index == 0) || (message.sentDate != viewModel.messages[index - 1].sentDate)
+                        let isLast = index + 1 >= viewModel.messages.count
                         
-                        let isOhterUserProfileIconVisible = isSentDateVisible || (index == 0) || (viewModel.messages[index - 1].isOwn)
+                        // MARK: 일 단위 표시 여부
+                        let isSentDateVisible = isLast || (message.sentDate != viewModel.messages[index + 1].sentDate)
                         
-                        let isSentDayTimeVisible = (index == 0) || (viewModel.messages[index - 1].isOwn != message.isOwn) || (viewModel.messages[index - 1].sentDayTime != message.sentDayTime)
+                        // MARK: 분 단위 표시 여부
+                        let isSentMinuteVisible = isLast || (viewModel.messages[index + 1].isOwn != message.isOwn) || (viewModel.messages[index + 1].sentMinuteTime != message.sentMinuteTime)
+                        
+                        // MARK: 프로필 아이콘 표시 여부
+                        let isOtherUserProfileIconVisible = isSentDateVisible || isLast || (viewModel.messages[index + 1].isOwn)
                         
                         VStack(spacing: 0) {
                             if isSentDateVisible {
                                 Text(message.sentDate)
                                     .font(.pretendard(Pretendard.regular, size: 11))
                                     .foregroundStyle(.gray)
-                                    .padding(.top, index == 0 ? 3 : 10)
+                                    .padding(.top, isLast ? 10 : 3)
                             }
                             
                             // MARK: 내 채팅
@@ -41,11 +46,11 @@ struct ChatContentView: View {
                                 HStack(spacing: 2) {
                                     Spacer()
                                     
-                                    if isSentDayTimeVisible {
+                                    if isSentMinuteVisible {
                                         VStack {
                                             Spacer()
                                             
-                                            Text("\(message.sentDayTime)")
+                                            Text("\(message.sentMinuteTime)")
                                                 .font(.pretendard(Pretendard.regular, size: 8))
                                                 .foregroundStyle(.gray)
                                                 .padding(.bottom, 3)
@@ -61,7 +66,7 @@ struct ChatContentView: View {
                                     }
                                     .background(Color.JJTitle)
                                     .clipShape(RoundedRectangle(cornerRadius: 25))
-                                    .padding(.leading, isSentDayTimeVisible ? 0 : 100)
+                                    .padding(.leading, isSentMinuteVisible ? 0 : 100)
                                     .padding(.trailing, 10)
                                     
                                 }
@@ -69,7 +74,7 @@ struct ChatContentView: View {
                                 // MARK: 상대방 채팅
                             } else {
                                 HStack(spacing: 2) {
-                                    if isOhterUserProfileIconVisible {
+                                    if isOtherUserProfileIconVisible {
                                         Image(systemName: "person.crop.circle.fill")
                                             .font(.system(size: 34))
                                             .foregroundStyle(.gray.opacity(0.6))
@@ -84,14 +89,14 @@ struct ChatContentView: View {
                                     }
                                     .background(.gray.opacity(0.3))
                                     .clipShape(RoundedRectangle(cornerRadius: 25))
-                                    .padding(.leading, isOhterUserProfileIconVisible ? 0 : 52)
-                                    .padding(.trailing, isSentDayTimeVisible ? 0 : 100)
+                                    .padding(.leading, isOtherUserProfileIconVisible ? 0 : 52)
+                                    .padding(.trailing, isSentMinuteVisible ? 0 : 100)
                                     
-                                    if isSentDayTimeVisible {
+                                    if isSentMinuteVisible {
                                         VStack {
                                             Spacer()
                                             
-                                            Text("\(message.sentDayTime)")
+                                            Text("\(message.sentMinuteTime)")
                                                 .font(.pretendard(Pretendard.regular, size: 8))
                                                 .foregroundStyle(.gray)
                                                 .padding(.bottom, 3)
@@ -103,9 +108,11 @@ struct ChatContentView: View {
                                 }
                             }
                         }
+                        .scaleEffect(y: -1)
                     }
                 }
             }
+            .scaleEffect(y: -1)
             .safeAreaInset(edge: .bottom) {
                 VStack(spacing: 0) {
                     Divider()
@@ -140,6 +147,7 @@ struct ChatContentView: View {
                     Spacer()
                 }
                 .frame(height: 60)
+                .background(Color.mainBackground)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -176,7 +184,9 @@ struct ChatContentView: View {
             }
         }
         .onDisappear {
-            viewModel.readLastMessage()
+            if viewModel.chatRoom.unreadCount > 0 {
+                viewModel.readLastMessage()
+            }
         }
     }
 }

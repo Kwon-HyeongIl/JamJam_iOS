@@ -9,7 +9,7 @@ import Foundation
 
 class DateManager {
     // ex: "오후 12:00"
-    static func isoToDayTime(_ isoString: String) -> String {
+    static func isoToMinuteTime(_ isoString: String) -> String {
         let isoFormatter = ISO8601DateFormatter()
         isoFormatter.formatOptions = [
             .withFullDate,

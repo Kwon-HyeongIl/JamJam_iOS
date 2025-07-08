@@ -66,7 +66,7 @@ class ChatContentViewModel {
                 }
             } receiveValue: { [weak self] chatMessage in
                 self?.logger.info("[messageReceivedRouter] 디코딩 된 메시지 저장 시도")
-                self?.messages.append(chatMessage)
+                self?.messages.insert(chatMessage, at: 0)
             }
             .store(in: &cancellables)
     }
@@ -90,14 +90,8 @@ class ChatContentViewModel {
                     
                     if let chats = response.content?.chats, !chats.isEmpty {
                         self?.logger.info("[fetchChatMessages] 이전 메시지 존재")
-                        
-                        let chatMessages = chats
-                            .map { ChatMessageDomainModel(fromFetchChatMessagesResponse: $0) }
-                            .reversed()
-                            .reduce(into: []) { $0.append($1) }
-                        
-                        self?.messages = chatMessages
-                        self?.readLastMessage()
+
+                        self?.messages = chats.map { ChatMessageDomainModel(fromFetchChatMessagesResponse: $0) }
                         
                     } else {
                         self?.logger.info("[fetchChatMessages] 이전 메시지 없음")

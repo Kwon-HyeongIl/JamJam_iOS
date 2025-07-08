@@ -12,7 +12,7 @@ struct ChatMessageDomainModel {
     let senderId: String
     let senderNickname: String
     let content: String
-    let sentDayTime: String
+    let sentMinuteTime: String
     let sentDate: String
     let isOwn: Bool
     
@@ -21,7 +21,7 @@ struct ChatMessageDomainModel {
         senderId = from.senderId
         senderNickname = from.senderNickname
         content = from.content
-        sentDayTime = DateManager.isoToDayTime(from.sentAt)
+        sentMinuteTime = DateManager.isoToMinuteTime(from.sentAt)
         sentDate = DateManager.isoToDate(from.sentAt)
         isOwn = from.isOwn
     }
@@ -31,7 +31,7 @@ struct ChatMessageDomainModel {
         senderId = from.senderId
         senderNickname = from.senderNickname
         content = from.content
-        sentDayTime = DateManager.isoToDayTime(from.sentAt)
+        sentMinuteTime = DateManager.isoToMinuteTime(from.sentAt)
         sentDate = DateManager.isoToDate(from.sentAt)
         isOwn = String(AuthCore.shared.userId ?? -1) == from.senderId ? true : false
     }
