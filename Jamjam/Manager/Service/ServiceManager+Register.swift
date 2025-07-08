@@ -19,4 +19,14 @@ extension ServiceManager {
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
+    
+    static func generateThumbnail(_ request: GenerateThumbnailRequestDto) -> AnyPublisher<GenerateThumbnailResponseDto, Error> {
+        let url = API.generateThumbnail.url
+        
+        return AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder.default, headers: API.headers)
+            .publishDecodable(type: GenerateThumbnailResponseDto.self)
+            .value()
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
 }

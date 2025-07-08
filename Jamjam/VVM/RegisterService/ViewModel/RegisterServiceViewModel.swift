@@ -5,7 +5,7 @@
 //  Created by 권형일 on 7/7/25.
 //
 
-import Foundation
+import SwiftUI
 import Combine
 import os
 
@@ -30,7 +30,12 @@ class RegisterServiceViewModel: Hashable, Equatable {
     
     // MARK: Page Index 2
     var isAiGenerateImageProgressViewVisible = false
-    var isPresentServiceNameToAiImage = true
+    var typography = true
+    var thumbnailImage: UIImage?
+    var portfolioImage = ""
+    var isAllValidatedInPageIndex2: Bool {
+        true
+    }
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "RegisterServiceViewModel")
@@ -50,7 +55,6 @@ class RegisterServiceViewModel: Hashable, Equatable {
                 
                 self?.isAiGenerateContentsProgressViewVisible = false
             } receiveValue: { [weak self] response in
-                print(response.content?.description ?? "")
                 if response.code == "SUCCESS", let content = response.content {
                     self?.logger.info("[generateService] SUCCESS")
                     
@@ -67,6 +71,43 @@ class RegisterServiceViewModel: Hashable, Equatable {
             .store(in: &self.cancellables)
     }
     
+    func generateThumbnail() {
+        let request = GenerateThumbnailRequestDto(serviceName: serviceName, description: description, typography: typography)
+        
+        ServiceManager.generateThumbnail(request)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[generateThumbnail] completion finished")
+                case .failure(let error):
+                    self?.logger.error("[generateThumbnail] completion failed: \(error)")
+                }
+                
+                self?.isAiGenerateImageProgressViewVisible = false
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS", let content = response.content {
+                    self?.logger.info("[generateThumbnail] SUCCESS")
+                    
+                    let convertedImage = self?.decodeImage(content.imageBase64)
+                    self?.thumbnailImage = convertedImage
+                    
+                } else {
+                    self?.logger.error("[generateThumbnail] 응답 처리 실패: \(response.message)")
+                }
+            }
+            .store(in: &self.cancellables)
+    }
+    
+    private func decodeImage(_ base64String: String) -> UIImage? {
+        guard let imageData = Data(base64Encoded: base64String),
+              let image = UIImage(data: imageData) else {
+            logger.error("[decodeImage] Base64 디코딩 또는 UIImage 생성 실패")
+            return nil
+        }
+        
+        return image
+    }
     
     // MARK: Hashble, Equatable
     let id = UUID()

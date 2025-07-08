@@ -317,44 +317,68 @@ struct RegisterServiceTailView: View {
                             }
                             .padding(.bottom)
                             
-                            RoundedRectangle(cornerRadius: 10)
-                                .scaledToFit()
-                                .foregroundStyle(viewModel.isAiGenerateImageProgressViewVisible ? .gray.opacity(0.5) : .gray.opacity(0.1))
-                                .padding(.horizontal, 20)
-                                .overlay {
-                                    if !viewModel.isAiGenerateImageProgressViewVisible {
-                                        VStack(spacing: 10) {
-                                            Image(systemName: "photo")
-                                                .font(.system(size: 35))
-                                                .foregroundStyle(.gray.opacity(0.7))
-                                            
-                                            Text("사진 업로드")
-                                                .font(.pretendard(Pretendard.regular, size: 16))
-                                                .foregroundStyle(.gray.opacity(0.7))
-                                        }
-                                        
-                                    } else {
+                            if let thumbnailImage = viewModel.thumbnailImage {
+                                Image(uiImage: thumbnailImage)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(.horizontal, 20)
+                                    .overlay {
                                         VStack {
-                                            VStack(spacing: 15) {
-                                                ProgressView()
-                                                    .scaleEffect(1.5)
-                                                    .tint(Color.JJTitle)
+                                            HStack {
+                                                Spacer()
                                                 
-                                                Text("AI 썸네일 생성 중")
+                                                Image(systemName: "xmark.circle.fill")
+                                                    .font(.system(size: 10))
+                                                    .foregroundStyle(.gray.opacity(0.5))
+                                                    .padding(.trailing, 7)
+
+                                            }
+                                            .padding(.top, 7)
+                                            
+                                            Spacer()
+                                        }
+                                    }
+                                
+                            } else {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .scaledToFit()
+                                    .foregroundStyle(viewModel.isAiGenerateImageProgressViewVisible ? .gray.opacity(0.5) : .gray.opacity(0.1))
+                                    .padding(.horizontal, 20)
+                                    .overlay {
+                                        if !viewModel.isAiGenerateImageProgressViewVisible {
+                                            VStack(spacing: 10) {
+                                                Image(systemName: "photo")
+                                                    .font(.system(size: 35))
+                                                    .foregroundStyle(.gray.opacity(0.7))
+                                                
+                                                Text("사진 업로드")
                                                     .font(.pretendard(Pretendard.regular, size: 16))
-                                                    .foregroundStyle(.white)
+                                                    .foregroundStyle(.gray.opacity(0.7))
+                                            }
+                                            
+                                        } else {
+                                            VStack {
+                                                VStack(spacing: 15) {
+                                                    ProgressView()
+                                                        .scaleEffect(1.5)
+                                                        .tint(Color.JJTitle)
+                                                    
+                                                    Text("AI 썸네일 생성 중")
+                                                        .font(.pretendard(Pretendard.regular, size: 16))
+                                                        .foregroundStyle(.white)
+                                                }
                                             }
                                         }
                                     }
-                                }
+                            }
                             
                             HStack {
                                 HStack {
-                                    Image(systemName: viewModel.isPresentServiceNameToAiImage ? "checkmark.square.fill" : "checkmark.square")
+                                    Image(systemName: viewModel.typography ? "checkmark.square.fill" : "checkmark.square")
                                         .font(.system(size: 18))
-                                        .foregroundStyle(viewModel.isPresentServiceNameToAiImage ? Color.JJTitle : .gray.opacity(0.5))
+                                        .foregroundStyle(viewModel.typography ? Color.JJTitle : .gray.opacity(0.5))
                                         .onTapGesture {
-                                            viewModel.isPresentServiceNameToAiImage.toggle()
+                                            viewModel.typography.toggle()
                                         }
                                     
                                     Text("썸네일에 서비스 명 표기")
@@ -490,8 +514,8 @@ struct RegisterServiceTailView: View {
                                             .foregroundStyle(.white)
                                     }
                                     .padding(.trailing, 20)
-//                                    .opacity(viewModel.isAllValidatedInPageIndex1 ? 1 : 0.4)
-//                                    .disabled(!viewModel.isAllValidatedInPageIndex1)
+                                    .opacity(viewModel.isAllValidatedInPageIndex2 ? 1 : 0.4)
+                                    .disabled(!viewModel.isAllValidatedInPageIndex2)
                             }
                         }
 
