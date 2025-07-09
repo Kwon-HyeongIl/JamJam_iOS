@@ -19,8 +19,8 @@ class CategoryViewModel {
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "CategoryViewModel")
     
     @ObservationIgnored let columns: [GridItem] = [
-        GridItem(.flexible(), spacing: 0),
-        GridItem(.flexible(), spacing: 0)
+        GridItem(.flexible(), spacing: 0, alignment: .top),
+        GridItem(.flexible(), spacing: 0, alignment: .top)
     ]
     
     init(skill: Skill) {

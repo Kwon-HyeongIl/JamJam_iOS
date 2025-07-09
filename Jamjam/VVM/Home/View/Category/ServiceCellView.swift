@@ -10,6 +10,7 @@ import Shimmer
 
 struct ServiceCellView: View {
     let service: ServiceCellDomainModel
+    let upperWidth: CGFloat
     
     var body: some View {
         VStack {
@@ -23,7 +24,6 @@ struct ServiceCellView: View {
                 case .success(let image):
                     image
                         .resizable()
-                        .scaledToFill()
                     
                 case .failure:
                     Image(systemName: "photo")
@@ -34,14 +34,13 @@ struct ServiceCellView: View {
                     EmptyView()
                 }
             }
-            .frame(maxWidth: .infinity)
-            .aspectRatio(1, contentMode: .fill)
-            .clipped()
+            .frame(width: upperWidth * 0.4, height: upperWidth * 0.4)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding(.bottom, 5)
             
             HStack {
                 Text(service.serviceName)
-                    .font(.pretendard(Pretendard.semiBold, size: 18))
+                    .font(.pretendard(Pretendard.semiBold, size: 17))
                 
                 Spacer()
             }
@@ -49,7 +48,7 @@ struct ServiceCellView: View {
             
             HStack {
                 Text("\(service.salary)~")
-                    .font(.pretendard(Pretendard.medium, size: 16))
+                    .font(.pretendard(Pretendard.medium, size: 15))
                 
                 Spacer()
             }
@@ -57,7 +56,7 @@ struct ServiceCellView: View {
             
             HStack {
                 Text(service.providerName)
-                    .font(.pretendard(size: 15))
+                    .font(.pretendard(size: 14))
                     .foregroundStyle(.gray)
                 
                 Spacer()
@@ -67,5 +66,5 @@ struct ServiceCellView: View {
 }
 
 #Preview {
-    ServiceCellView(service: ServiceCellDomainModel(thumbnailUrl: "https://github.com/user-attachments/assets/a3f573b2-1618-4b4f-ac2c-dc50005d6b0a", serviceName: "경제스톡", providerName: "권형일", salary: 10000))
+    ServiceCellView(service: ServiceCellDomainModel(thumbnailUrl: "https://github.com/user-attachments/assets/a3f573b2-1618-4b4f-ac2c-dc50005d6b0a", serviceName: "경제스톡", providerName: "권형일", salary: 10000), upperWidth: 100)
 }
