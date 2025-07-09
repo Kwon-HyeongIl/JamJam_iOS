@@ -33,6 +33,9 @@ enum API {
     case signUpWithProvider
     case signUpWithClient
     
+    // MARK: Home
+    case fetchServices
+    
     // MARK: RegisterService
     case generateService
     case generateThumbnail
@@ -66,6 +69,10 @@ enum API {
             return "\(API.baseURL)/api/user/join/provider"
         case .signUpWithClient:
             return "\(API.baseURL)/api/user/join/client"
+            
+            // MARK: Home
+        case .fetchServices:
+            return "\(API.baseURL)/api/service/service-list"
             
             // MARK: RegisterService
         case .generateService:

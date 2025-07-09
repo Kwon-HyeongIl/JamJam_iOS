@@ -23,8 +23,8 @@ class NavigationCore {
             // MARK: Home
         case .searchView:
             SearchView()
-        case .categoryView:
-            CategoryView()
+        case .categoryView(let skill):
+            CategoryView(skill: skill)
             
             // MARK: Write
         case .registerServiceTailView(let viewModel):

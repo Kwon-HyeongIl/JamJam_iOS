@@ -52,6 +52,7 @@ class RegisterServiceViewModel: Hashable, Equatable {
         let request = GenerateServiceRequestDto(description: initialDescription)
         
         logger.info("[generateService] 요청 송신")
+        
         ServiceManager.generateService(request)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
@@ -111,6 +112,7 @@ class RegisterServiceViewModel: Hashable, Equatable {
         let request = GenerateThumbnailRequestDto(serviceName: serviceName, description: description, typography: typography)
         
         logger.info("[generateThumbnail] 요청 송신")
+        
         ServiceManager.generateThumbnail(request)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in

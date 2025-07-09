@@ -9,11 +9,15 @@ import SwiftUI
 
 struct CategoryView: View {
     @Environment(NavigationCore.self) var navRouter
-    @State private var viewModel = CategoryViewModel()
+    @State private var viewModel: CategoryViewModel
     
     @State private var isTabBarVisible = true
     
     @Namespace private var categoryUnderline
+    
+    init(skill: Skill) {
+        viewModel = CategoryViewModel(skill: skill)
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -55,39 +59,40 @@ struct CategoryView: View {
                     // MARK: Category Selection
                     LazyVStack(pinnedViews: [.sectionHeaders]) {
                         Section {
-                            VStack {
-                                Color.red.opacity(0.1)
+                            LazyVGrid(columns: viewModel.columns, spacing: 10) {
+                                ForEach(viewModel.services) { service in
+                                    ServiceCellView(service: service)
+                                }
+                                .padding(.horizontal, 20)
                             }
-                            .frame(width: 50, height: 1200)
                         } header: {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 14) {
-                                    ForEach(Array(viewModel.categories.enumerated()), id: \.offset) { idx, title in
+                                    ForEach(Skill.allCases, id: \.self) { skill in
+                                        let isSelected = (skill == viewModel.selectedSkill)
+                                        
                                         VStack(spacing: 4) {
-                                            Text(title)
-                                                .font(.system(size: 16))
-                                                .fontWeight(idx == viewModel.selectedIndex ? .semibold : .medium)
-                                                .foregroundStyle(idx == viewModel.selectedIndex
-                                                                 ? .black
-                                                                 : .gray)
+                                            Text(skill.text)
+                                                .font(.pretendard(size: 16))
+                                                .foregroundStyle(isSelected ? .black : .gray)
                                                 .padding(.leading,
-                                                         idx == 0 ? 20 : 0)
-                                                .animation(nil, value: viewModel.selectedIndex)
+                                                         skill == .management ? 20 : 0)
                                             
-                                            if idx == viewModel.selectedIndex {
+                                            if isSelected {
                                                 Rectangle()
-                                                    .fill(idx == viewModel.selectedIndex ? Color.JJTitle : .clear)
+                                                    .fill(Color.JJTitle)
                                                     .frame(height: 2)
-                                                    .padding(.leading, idx == 0 ? 20 : 0)
-                                                    .matchedGeometryEffect(id: "underline", in: categoryUnderline)
-                                                
+                                                    .padding(.leading,
+                                                             skill == .management ? 20 : 0)
+                                                    .matchedGeometryEffect(id: "underline",
+                                                                           in: categoryUnderline)
                                             } else {
                                                 Color.clear.frame(height: 2)
                                             }
                                         }
                                         .onTapGesture {
                                             withAnimation(.customAnimation) {
-                                                viewModel.selectedIndex = idx
+                                                viewModel.selectedSkill = skill
                                             }
                                         }
                                     }
@@ -131,7 +136,7 @@ struct CategoryView: View {
 
 #Preview {
     NavigationStack {
-        CategoryView()
+        CategoryView(skill: Skill.management)
             .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }

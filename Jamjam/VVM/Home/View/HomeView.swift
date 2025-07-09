@@ -111,7 +111,7 @@ struct HomeView: View {
                         VStack(spacing: 12) {
                             HStack(spacing: 15) {
                                 Button {
-                                    navRouter.navigate(.categoryView)
+                                    navRouter.navigate(.categoryView(.management))
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
@@ -127,7 +127,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text("경영•기획")
+                                                Text(Skill.management.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -135,7 +135,7 @@ struct HomeView: View {
                                 }
                                 
                                 Button {
-                                    navRouter.navigate(.providerProfileView)
+                                    navRouter.navigate(.categoryView(.consulting))
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
@@ -151,7 +151,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text("컨설팅•멘토링")
+                                                Text(Skill.consulting.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -161,217 +161,257 @@ struct HomeView: View {
                             .padding(.horizontal, 20)
                             
                             HStack(spacing: 15) {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("marketing_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 33)
-                                            
-                                            Text("마케팅•홍보")
-                                                .font(.pretendard(Pretendard.semiBold, size: 15))
-                                                .foregroundStyle(.black)
+                                Button {
+                                    navRouter.navigate(.categoryView(.marketing))
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.white)
+                                        .frame(height: 80)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
                                         }
-                                    }
+                                        .overlay {
+                                            VStack(spacing: 7) {
+                                                Image("marketing_icon")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 33)
+                                                
+                                                Text(Skill.marketing.text)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
+                                            }
+                                        }
+                                }
                                 
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("development_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 33)
-                                            
-                                            Text("개발•IT")
-                                                .font(.pretendard(Pretendard.semiBold, size: 15))
-                                                .foregroundStyle(.black)
+                                Button {
+                                    navRouter.navigate(.categoryView(.development))
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.white)
+                                        .frame(height: 80)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
                                         }
-                                    }
+                                        .overlay {
+                                            VStack(spacing: 7) {
+                                                Image("development_icon")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 33)
+                                                
+                                                Text(Skill.development.text)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
+                                            }
+                                        }
+                                }
                             }
                             .padding(.horizontal, 20)
                             
                             HStack(spacing: 15) {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("design_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 33)
-                                            
-                                            Text("디자인•편집")
-                                                .font(.pretendard(Pretendard.semiBold, size: 15))
-                                                .foregroundStyle(.black)
+                                Button {
+                                    navRouter.navigate(.categoryView(.design))
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.white)
+                                        .frame(height: 80)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
                                         }
-                                    }
+                                        .overlay {
+                                            VStack(spacing: 7) {
+                                                Image("design_icon")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 33)
+                                                
+                                                Text(Skill.design.text)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
+                                            }
+                                        }
+                                }
                                 
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("write_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 33)
-                                            
-                                            Text("문서•작문")
-                                                .font(.pretendard(Pretendard.semiBold, size: 15))
-                                                .foregroundStyle(.black)
+                                Button {
+                                    navRouter.navigate(.categoryView(.writing))
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.white)
+                                        .frame(height: 80)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
                                         }
-                                    }
+                                        .overlay {
+                                            VStack(spacing: 7) {
+                                                Image("write_icon")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 33)
+                                                
+                                                Text(Skill.writing.text)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
+                                            }
+                                        }
+                                }
                             }
                             .padding(.horizontal, 20)
                             
                             HStack(spacing: 15) {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("translation_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 33)
-                                            
-                                            Text("번역•통역")
-                                                .font(.pretendard(Pretendard.semiBold, size: 15))
-                                                .foregroundStyle(.black)
+                                Button {
+                                    navRouter.navigate(.categoryView(.translation))
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.white)
+                                        .frame(height: 80)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
                                         }
-                                    }
+                                        .overlay {
+                                            VStack(spacing: 7) {
+                                                Image("translation_icon")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 33)
+                                                
+                                                Text(Skill.translation.text)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
+                                            }
+                                        }
+                                }
                                 
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("photograph_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 33)
-                                            
-                                            Text("사진•영상")
-                                                .font(.pretendard(Pretendard.semiBold, size: 15))
-                                                .foregroundStyle(.black)
+                                Button {
+                                    navRouter.navigate(.categoryView(.media))
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.white)
+                                        .frame(height: 80)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
                                         }
-                                    }
+                                        .overlay {
+                                            VStack(spacing: 7) {
+                                                Image("photograph_icon")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 33)
+                                                
+                                                Text(Skill.media.text)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
+                                            }
+                                        }
+                                }
                             }
                             .padding(.horizontal, 20)
                             
                             HStack(spacing: 15) {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("education_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 33)
-                                            
-                                            Text("교육•강의")
-                                                .font(.pretendard(Pretendard.semiBold, size: 15))
-                                                .foregroundStyle(.black)
+                                Button {
+                                    navRouter.navigate(.categoryView(.education))
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.white)
+                                        .frame(height: 80)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
                                         }
-                                    }
+                                        .overlay {
+                                            VStack(spacing: 7) {
+                                                Image("education_icon")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 33)
+                                                
+                                                Text(Skill.education.text)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
+                                            }
+                                        }
+                                }
                                 
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("craft_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 33)
-                                            
-                                            Text("주문 제작")
-                                                .font(.pretendard(Pretendard.semiBold, size: 15))
-                                                .foregroundStyle(.black)
+                                Button {
+                                    navRouter.navigate(.categoryView(.customMade))
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.white)
+                                        .frame(height: 80)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
                                         }
-                                    }
+                                        .overlay {
+                                            VStack(spacing: 7) {
+                                                Image("craft_icon")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 33)
+                                                
+                                                Text(Skill.customMade.text)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
+                                            }
+                                        }
+                                }
                             }
                             .padding(.horizontal, 20)
                             
                             HStack(spacing: 15) {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("hobby_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 33)
-                                            
-                                            Text("취미 레슨")
-                                                .font(.pretendard(Pretendard.semiBold, size: 15))
-                                                .foregroundStyle(.black)
+                                Button {
+                                    navRouter.navigate(.categoryView(.hobbyLesson))
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.white)
+                                        .frame(height: 80)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
                                         }
-                                    }
+                                        .overlay {
+                                            VStack(spacing: 7) {
+                                                Image("hobby_icon")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 33)
+                                                
+                                                Text(Skill.hobbyLesson.text)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
+                                            }
+                                        }
+                                }
                                 
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.white)
-                                    .frame(height: 80)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
-                                    }
-                                    .overlay {
-                                        VStack(spacing: 7) {
-                                            Image("living_icon")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 33)
-                                            
-                                            Text("생활 서비스")
-                                                .font(.pretendard(Pretendard.semiBold, size: 15))
-                                                .foregroundStyle(.black)
+                                Button {
+                                    navRouter.navigate(.categoryView(.lifeService))
+                                } label: {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.white)
+                                        .frame(height: 80)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 1)
                                         }
-                                    }
+                                        .overlay {
+                                            VStack(spacing: 7) {
+                                                Image("living_icon")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 33)
+                                                
+                                                Text(Skill.lifeService.text)
+                                                    .font(.pretendard(Pretendard.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
+                                            }
+                                        }
+                                }
                             }
                             .padding(.horizontal, 20)
                         }

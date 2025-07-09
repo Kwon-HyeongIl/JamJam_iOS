@@ -14,7 +14,7 @@ enum NavigationDestinationPath: Hashable {
     
     // Home
     case searchView
-    case categoryView
+    case categoryView(Skill)
     
     // Write
     case registerServiceTailView(RegisterServiceViewModel)
