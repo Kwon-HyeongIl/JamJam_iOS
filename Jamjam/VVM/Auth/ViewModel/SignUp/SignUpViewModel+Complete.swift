@@ -14,7 +14,7 @@ extension SignUpViewModel {
             
             let request = SignUpWithProviderRequestDto(name: self.realName, nickname: self.nickname, loginId: self.loginId, phoneNumber: self.phoneNumber, password: self.password, birth: self.formattedBirthDate, gender: self.gender?.rawValue ?? "NAN")
             
-            AuthManager.signUpWithProvider(request)
+            UserManager.signUpWithProvider(request)
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] completion in
                     switch completion {
@@ -46,7 +46,7 @@ extension SignUpViewModel {
             
             let request = SignUpWithClientRequestDto(name: self.realName, nickname: self.nickname, loginId: self.loginId, phoneNumber: self.phoneNumber, password: self.password, birth: self.formattedBirthDate, gender: self.gender?.rawValue ?? "NAN")
             
-            AuthManager.signUpWithClient(request)
+            UserManager.signUpWithClient(request)
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] completion in
                     switch completion {

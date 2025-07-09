@@ -37,7 +37,7 @@ class NavigationCore {
             // MARK: Profile
         case .providerProfileView:
             ProviderProfileView()
-        case .providerProfileEditListView:
+        case .providerProfileEditView:
             ProviderProfileEditView()
         }
     }

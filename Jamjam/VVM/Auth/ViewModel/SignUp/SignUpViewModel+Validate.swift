@@ -18,7 +18,7 @@ extension SignUpViewModel {
     func checkNicknameIsDuplicated() {
         let request = CheckNicknameRequestDto(nickname: self.nickname)
         
-        AuthManager.checkNickname(request)
+        UserManager.checkNickname(request)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -55,7 +55,7 @@ extension SignUpViewModel {
     func checkIdIsDuplicated() {
         let request = CheckLoginIdRequestDto(loginId: self.loginId)
         
-        AuthManager.checkLoginId(request)
+        UserManager.checkLoginId(request)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -128,7 +128,7 @@ extension SignUpViewModel {
     func sendPhoneNumber() {
         let request = SendSmsRequestDto(phoneNumber: self.phoneNumber)
         
-        AuthManager.sendSms(request)
+        UserManager.sendSms(request)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -158,7 +158,7 @@ extension SignUpViewModel {
     func verifyPhoneIdentifiedNumber() {
         let request = VerifySmsRequestDto(phoneNumber: self.phoneNumber, code: self.phoneCode)
         
-        AuthManager.verifySms(request)
+        UserManager.verifySms(request)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {

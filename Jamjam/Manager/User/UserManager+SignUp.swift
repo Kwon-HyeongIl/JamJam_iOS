@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Alamofire
 
-extension AuthManager {
+extension UserManager {
     static func checkNickname(_ request: CheckNicknameRequestDto) -> AnyPublisher<CheckNicknameResponseDto, Error> {
         let url = API.checkNickname.url
         

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum JJUser {
-    case provider
-    case client
+enum JJUser: String, Codable {
+    case provider = "PROVIDER"
+    case client = "CLIENT"
 }

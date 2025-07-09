@@ -11,7 +11,7 @@ import os
 
 @Observable
 class ProviderProfileViewModel {
-    let user = UserDomainModel(userId: "1", realName: "llioopv") // 임시
+//    let user = UserDomainModel(userId: "1", realName: "llioopv") 
     
     var isTabBarVisible = true
     var selectedIndex = 0

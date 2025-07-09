@@ -79,9 +79,9 @@
 		CA7685302E1BE12200148204 /* GenerateServiceRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA76852F2E1BE12200148204 /* GenerateServiceRequestDto.swift */; };
 		CA7685322E1BE14500148204 /* GenerateServiceResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685312E1BE14500148204 /* GenerateServiceResponseDto.swift */; };
 		CA7685342E1BE26F00148204 /* ServiceManager+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685332E1BE26F00148204 /* ServiceManager+Register.swift */; };
-		CA7685392E1BF87F00148204 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685382E1BF87F00148204 /* AuthManager.swift */; };
-		CA76853B2E1BF8A000148204 /* AuthManager+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA76853A2E1BF8A000148204 /* AuthManager+SignUp.swift */; };
-		CA76853D2E1BF8D200148204 /* AuthManager+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA76853C2E1BF8D200148204 /* AuthManager+Login.swift */; };
+		CA7685392E1BF87F00148204 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685382E1BF87F00148204 /* UserManager.swift */; };
+		CA76853B2E1BF8A000148204 /* UserManager+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA76853A2E1BF8A000148204 /* UserManager+SignUp.swift */; };
+		CA76853D2E1BF8D200148204 /* UserManager+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA76853C2E1BF8D200148204 /* UserManager+Login.swift */; };
 		CA7685412E1BFA3200148204 /* StompCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685402E1BFA3200148204 /* StompCore.swift */; };
 		CA7685462E1C01CA00148204 /* NavigationDestinationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685452E1C01CA00148204 /* NavigationDestinationPath.swift */; };
 		CA7685492E1C0BF800148204 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = CA7685482E1C0BF800148204 /* Shimmer */; };
@@ -98,6 +98,7 @@
 		CA7DE5B32E1E628800086E8B /* ServiceManager+Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5B22E1E628800086E8B /* ServiceManager+Fetch.swift */; };
 		CA7DE5B52E1E6CC100086E8B /* ServiceCellDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5B42E1E6CC100086E8B /* ServiceCellDomainModel.swift */; };
 		CA7DE5B92E1E78DF00086E8B /* ServiceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5B82E1E78DF00086E8B /* ServiceCellView.swift */; };
+		CA7DE5BD2E1EBCD100086E8B /* FetchUserResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5BC2E1EBCD100086E8B /* FetchUserResponseDto.swift */; };
 		CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E42DFAF788005377E6 /* Color+Hex.swift */; };
 		CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */; };
 		CA870FBE2E1C49260083449B /* GenerateThumbnailRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA870FBD2E1C49260083449B /* GenerateThumbnailRequestDto.swift */; };
@@ -249,9 +250,9 @@
 		CA76852F2E1BE12200148204 /* GenerateServiceRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateServiceRequestDto.swift; sourceTree = "<group>"; };
 		CA7685312E1BE14500148204 /* GenerateServiceResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateServiceResponseDto.swift; sourceTree = "<group>"; };
 		CA7685332E1BE26F00148204 /* ServiceManager+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServiceManager+Register.swift"; sourceTree = "<group>"; };
-		CA7685382E1BF87F00148204 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		CA76853A2E1BF8A000148204 /* AuthManager+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager+SignUp.swift"; sourceTree = "<group>"; };
-		CA76853C2E1BF8D200148204 /* AuthManager+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager+Login.swift"; sourceTree = "<group>"; };
+		CA7685382E1BF87F00148204 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		CA76853A2E1BF8A000148204 /* UserManager+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager+SignUp.swift"; sourceTree = "<group>"; };
+		CA76853C2E1BF8D200148204 /* UserManager+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager+Login.swift"; sourceTree = "<group>"; };
 		CA7685402E1BFA3200148204 /* StompCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StompCore.swift; sourceTree = "<group>"; };
 		CA7685452E1C01CA00148204 /* NavigationDestinationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestinationPath.swift; sourceTree = "<group>"; };
 		CA76854B2E1C183000148204 /* Animation+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation+Custom.swift"; sourceTree = "<group>"; };
@@ -265,6 +266,7 @@
 		CA7DE5B22E1E628800086E8B /* ServiceManager+Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServiceManager+Fetch.swift"; sourceTree = "<group>"; };
 		CA7DE5B42E1E6CC100086E8B /* ServiceCellDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCellDomainModel.swift; sourceTree = "<group>"; };
 		CA7DE5B82E1E78DF00086E8B /* ServiceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCellView.swift; sourceTree = "<group>"; };
+		CA7DE5BC2E1EBCD100086E8B /* FetchUserResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserResponseDto.swift; sourceTree = "<group>"; };
 		CA83F6E42DFAF788005377E6 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+MainBackground.swift"; sourceTree = "<group>"; };
 		CA870FBD2E1C49260083449B /* GenerateThumbnailRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateThumbnailRequestDto.swift; sourceTree = "<group>"; };
@@ -402,7 +404,7 @@
 		CA09155E2DF12E8600E272F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CA5C5E8C2E09A05800FB1E22 /* Auth */,
+				CA5C5E8C2E09A05800FB1E22 /* User */,
 				CA7DE5A32E1E4CB100086E8B /* Service */,
 				CAB6FFF52E150CB6004CD644 /* Chat */,
 				CA4F125D2E1844FC0061012E /* Profile */,
@@ -679,25 +681,25 @@
 			path = RawFile;
 			sourceTree = "<group>";
 		};
-		CA5C5E842E099CD600FB1E22 /* Auth */ = {
+		CA5C5E842E099CD600FB1E22 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				CA7685382E1BF87F00148204 /* AuthManager.swift */,
-				CA76853A2E1BF8A000148204 /* AuthManager+SignUp.swift */,
-				CA76853C2E1BF8D200148204 /* AuthManager+Login.swift */,
+				CA7685382E1BF87F00148204 /* UserManager.swift */,
+				CA76853A2E1BF8A000148204 /* UserManager+SignUp.swift */,
+				CA76853C2E1BF8D200148204 /* UserManager+Login.swift */,
 				CA60FAD12E100BB900150563 /* Keychain */,
 			);
-			path = Auth;
+			path = User;
 			sourceTree = "<group>";
 		};
-		CA5C5E8C2E09A05800FB1E22 /* Auth */ = {
+		CA5C5E8C2E09A05800FB1E22 /* User */ = {
 			isa = PBXGroup;
 			children = (
 				CAB6FFFC2E151228004CD644 /* UserDomainModel.swift */,
 				CA5C5E9A2E09A54E00FB1E22 /* Request */,
 				CA5C5E992E09A54800FB1E22 /* Response */,
 			);
-			path = Auth;
+			path = User;
 			sourceTree = "<group>";
 		};
 		CA5C5E922E09A20E00FB1E22 /* API */ = {
@@ -711,6 +713,7 @@
 		CA5C5E992E09A54800FB1E22 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				CA7DE5BB2E1EBCB400086E8B /* Fetch */,
 				CAE914642E13CEB900829D2C /* Token */,
 				CA4927D52E0EE52500D42CD0 /* Login */,
 				CA4927D32E0EE50B00D42CD0 /* SignUp */,
@@ -898,6 +901,14 @@
 				CA7DE5AF2E1E610100086E8B /* FetchServicesResponseDto.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		CA7DE5BB2E1EBCB400086E8B /* Fetch */ = {
+			isa = PBXGroup;
+			children = (
+				CA7DE5BC2E1EBCD100086E8B /* FetchUserResponseDto.swift */,
+			);
+			path = Fetch;
 			sourceTree = "<group>";
 		};
 		CA83F6E32DFAF77D005377E6 /* Color */ = {
@@ -1267,7 +1278,7 @@
 		CAB6FFF12E1508C8004CD644 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				CA5C5E842E099CD600FB1E22 /* Auth */,
+				CA5C5E842E099CD600FB1E22 /* User */,
 				CA50CB502E1D3F960078AC22 /* Stomp */,
 				CA88CEBE2E11063A00B1116E /* FCM */,
 				CA7685252E1BDABF00148204 /* Service */,
@@ -1511,6 +1522,7 @@
 				CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */,
 				CA4F12382E17CACE0061012E /* Skill.swift in Sources */,
 				CA4F12432E17D6D40061012E /* DevelopmentDetail.swift in Sources */,
+				CA7DE5BD2E1EBCD100086E8B /* FetchUserResponseDto.swift in Sources */,
 				CA50CB552E1D46C80078AC22 /* SocketChatRoomResponseDto.swift in Sources */,
 				CA09154E2DF128A400E272F8 /* JamjamApp.swift in Sources */,
 				CA60ED412E196D2B00B93A1D /* ChatRoomDomainModel.swift in Sources */,
@@ -1523,7 +1535,7 @@
 				CA5C5E902E09A0A800FB1E22 /* SignUpWithClientResponseDto.swift in Sources */,
 				CA4CF92D2E0C279D00F882C4 /* VerifySmsResponseDto.swift in Sources */,
 				CA7D11932E10327100D55CCE /* ChatContentView.swift in Sources */,
-				CA7685392E1BF87F00148204 /* AuthManager.swift in Sources */,
+				CA7685392E1BF87F00148204 /* UserManager.swift in Sources */,
 				CA4F12472E17D71E0061012E /* WritingDetail.swift in Sources */,
 				CA7DE5B02E1E610100086E8B /* FetchServicesResponseDto.swift in Sources */,
 				CA7685302E1BE12200148204 /* GenerateServiceRequestDto.swift in Sources */,
@@ -1558,10 +1570,10 @@
 				CA9609932DFBDE9B00B878C6 /* SearchView.swift in Sources */,
 				CA2F85472E19A5BF00848F2E /* WebView.swift in Sources */,
 				CA0915562DF12B9400E272F8 /* AisleView.swift in Sources */,
-				CA76853D2E1BF8D200148204 /* AuthManager+Login.swift in Sources */,
+				CA76853D2E1BF8D200148204 /* UserManager+Login.swift in Sources */,
 				CA9609AD2DFFD02300B878C6 /* MainTab.swift in Sources */,
 				CAD2F2452E1A9755007B5BE8 /* DateManager.swift in Sources */,
-				CA76853B2E1BF8A000148204 /* AuthManager+SignUp.swift in Sources */,
+				CA76853B2E1BF8A000148204 /* UserManager+SignUp.swift in Sources */,
 				CA9609BB2DFFDA6100B878C6 /* LoginViewModel.swift in Sources */,
 				CA5C5E8E2E09A09C00FB1E22 /* SignUpWithProviderResponseDto.swift in Sources */,
 				CA4F124B2E17D76B0061012E /* MediaDetail.swift in Sources */,

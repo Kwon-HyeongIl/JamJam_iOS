@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Alamofire
 
-extension AuthManager {
+extension UserManager {
     static func login(_ request: LoginRequestDto) -> AnyPublisher<LoginResponseDto, Error> {
         let url = API.login.url
         

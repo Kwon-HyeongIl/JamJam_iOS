@@ -25,7 +25,7 @@ class LoginViewModel {
     func login() {
         let request = LoginRequestDto(loginId: loginId, password: password)
         
-        AuthManager.login(request)
+        UserManager.login(request)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
