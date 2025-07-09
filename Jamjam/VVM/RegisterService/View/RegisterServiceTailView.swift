@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Shimmer
+import PhotosUI
 
 struct RegisterServiceTailView: View {
     @Environment(NavigationCore.self) var navRouter
@@ -44,7 +45,7 @@ struct RegisterServiceTailView: View {
                                 .padding(.horizontal, 20)
                                 .padding(.bottom, 5)
                             
-                            ScrollView(.horizontal, showsIndicators: false) {
+                            ScrollView(.horizontal) {
                                 HStack(spacing: 5) {
                                     ForEach(Array(viewModel.aiRecommendServiceNames.enumerated()), id: \.element) { index, serviceName in
                                         HStack(spacing: 10) {
@@ -210,7 +211,7 @@ struct RegisterServiceTailView: View {
                                 Spacer()
                             }
                             
-                            TextField("가격을 입력해 주세요", text: $viewModel.price)
+                            TextField("가격을 입력해 주세요", text: $viewModel.salary)
                                 .focused($focus, equals: .second)
                                 .font(.pretendard(size: 14))
                                 .padding(.horizontal)
@@ -321,55 +322,71 @@ struct RegisterServiceTailView: View {
                                 Image(uiImage: thumbnailImage)
                                     .resizable()
                                     .scaledToFit()
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .padding(.horizontal, 20)
                                     .overlay {
                                         VStack {
                                             HStack {
                                                 Spacer()
                                                 
-                                                Image(systemName: "xmark.circle.fill")
-                                                    .font(.system(size: 10))
-                                                    .foregroundStyle(.gray.opacity(0.5))
-                                                    .padding(.trailing, 7)
+                                                Button {
+                                                    viewModel.thumbnailImage = nil
+                                                    viewModel.selectedThumbnailImage = nil
+                                                } label: {
+                                                    Image(systemName: "xmark.circle.fill")
+                                                        .font(.system(size: 20))
+                                                        .foregroundStyle(.gray.opacity(0.7))
+                                                        .padding(.trailing, 30)
+                                                }
 
                                             }
-                                            .padding(.top, 7)
+                                            .padding(.top, 10)
                                             
                                             Spacer()
                                         }
                                     }
                                 
                             } else {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .scaledToFit()
-                                    .foregroundStyle(viewModel.isAiGenerateImageProgressViewVisible ? .gray.opacity(0.5) : .gray.opacity(0.1))
-                                    .padding(.horizontal, 20)
-                                    .overlay {
-                                        if !viewModel.isAiGenerateImageProgressViewVisible {
-                                            VStack(spacing: 10) {
-                                                Image(systemName: "photo")
-                                                    .font(.system(size: 35))
-                                                    .foregroundStyle(.gray.opacity(0.7))
-                                                
-                                                Text("사진 업로드")
-                                                    .font(.pretendard(Pretendard.regular, size: 16))
-                                                    .foregroundStyle(.gray.opacity(0.7))
-                                            }
-                                            
-                                        } else {
-                                            VStack {
-                                                VStack(spacing: 15) {
-                                                    ProgressView()
-                                                        .scaleEffect(1.5)
-                                                        .tint(Color.JJTitle)
+                                PhotosPicker(
+                                    selection: $viewModel.selectedThumbnailImage,
+                                    matching: .images
+                                ) {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .scaledToFit()
+                                        .foregroundStyle(viewModel.isAiGenerateImageProgressViewVisible ? .gray.opacity(0.5) : .gray.opacity(0.1))
+                                        .padding(.horizontal, 20)
+                                        .overlay {
+                                            if !viewModel.isAiGenerateImageProgressViewVisible {
+                                                VStack(spacing: 10) {
+                                                    Image(systemName: "photo")
+                                                        .font(.system(size: 35))
+                                                        .foregroundStyle(.gray.opacity(0.7))
                                                     
-                                                    Text("AI 썸네일 생성 중")
+                                                    Text("사진 업로드")
                                                         .font(.pretendard(Pretendard.regular, size: 16))
-                                                        .foregroundStyle(.white)
+                                                        .foregroundStyle(.gray.opacity(0.7))
+                                                }
+                                                
+                                            } else {
+                                                VStack {
+                                                    VStack(spacing: 15) {
+                                                        ProgressView()
+                                                            .scaleEffect(1.5)
+                                                            .tint(Color.JJTitle)
+                                                        
+                                                        Text("AI 썸네일 생성 중")
+                                                            .font(.pretendard(Pretendard.regular, size: 16))
+                                                            .foregroundStyle(.white)
+                                                    }
                                                 }
                                             }
                                         }
+                                }
+                                .onChange(of: viewModel.selectedThumbnailImage) {
+                                    Task {
+                                        await viewModel.convertThumbnailImage()
                                     }
+                                }
                             }
                             
                             HStack {
@@ -416,20 +433,70 @@ struct RegisterServiceTailView: View {
                             
                             RoundedRectangle(cornerRadius: 10)
                                 .frame(height: 150)
-                                .foregroundStyle(.gray.opacity(0.1))
+                                .foregroundStyle(viewModel.selectedPortfolioImages.isEmpty ? .gray.opacity(0.1) : .clear)
                                 .padding(.horizontal, 20)
                                 .overlay {
-                                    VStack(spacing: 10) {
-                                        Image(systemName: "photo")
-                                            .font(.system(size: 35))
-                                            .foregroundStyle(.gray.opacity(0.7))
-                                        
-                                        Text("탭하여 사진 불러오기")
-                                            .font(.pretendard(Pretendard.regular, size: 16))
-                                            .foregroundStyle(.gray.opacity(0.7))
+                                    if viewModel.selectedPortfolioImages.isEmpty {
+                                        VStack(spacing: 10) {
+                                            Image(systemName: "photo")
+                                                .font(.system(size: 35))
+                                                .foregroundStyle(.gray.opacity(0.7))
+                                            
+                                            Text("탭하여 사진 불러오기")
+                                                .font(.pretendard(Pretendard.regular, size: 16))
+                                                .foregroundStyle(.gray.opacity(0.7))
+                                        }
                                     }
                                 }
+                                .overlay {
+                                    if let images = viewModel.portfolioImages {
+                                        ScrollView(.horizontal) {
+                                            HStack(spacing: 5) {
+                                                ForEach(Array(images.enumerated()), id: \.offset) { index, image in
+                                                    Image(uiImage: image)
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                        .padding(.leading, index == 0 ? 20 : 0)
+                                                        .overlay {
+                                                            VStack {
+                                                                HStack {
+                                                                    Spacer()
+                                                                    
+                                                                    Button {
+                                                                        viewModel.removePortfolioImage(index: index)
+                                                                    } label: {
+                                                                        Image(systemName: "xmark.circle.fill")
+                                                                            .font(.system(size: 20))
+                                                                            .foregroundStyle(.gray.opacity(0.7))
+                                                                            .padding(.trailing, 5)
+                                                                    }
+                                                                    
+                                                                }
+                                                                .padding(.top, 5)
+                                                                
+                                                                Spacer()
+                                                            }
+                                                        }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .photosPicker(
+                                    isPresented: $viewModel.isPortfolioPhotosPickerVisible,
+                                    selection: $viewModel.selectedPortfolioImages,
+                                    matching: .images
+                                )
                                 .padding(.bottom, 12)
+                                .onTapGesture {
+                                    viewModel.isPortfolioPhotosPickerVisible = true
+                                }
+                                .onChange(of: viewModel.selectedPortfolioImages) {
+                                    Task {
+                                        await viewModel.convertPortfolioImages()
+                                    }
+                                }
                         }
                     }
                     
@@ -503,7 +570,8 @@ struct RegisterServiceTailView: View {
                             }
                             
                             Button {
-                                
+                                viewModel.isEntireProgressViewVisible = true
+                                viewModel.registerService()
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 45)
@@ -531,9 +599,26 @@ struct RegisterServiceTailView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
+        .overlay {
+            if viewModel.isEntireProgressViewVisible {
+                VStack {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                        .tint(Color.JJTitle)
+                        .padding(.bottom, 30)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.gray.opacity(0.5))
+            }
+        }
         .modifier(NavigationBarTitleAndHomeModifier(title: "서비스 등록"))
         .onTapGesture {
             focus = nil
+        }
+        .onChange(of: viewModel.isRegisterCompleted) { _, newValue in
+            if newValue {
+                navRouter.popToRoot()
+            }
         }
     }
 }

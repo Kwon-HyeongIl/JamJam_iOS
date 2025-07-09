@@ -39,20 +39,23 @@ extension ServiceManager {
         .eraseToAnyPublisher()
     }
     
-    static func registerService(_ request: RegisterServiceRequestDto, thumbnailImage: UIImage, portfolioImages: [UIImage]) -> AnyPublisher<RegisterServiceResponseDto, Error> {
+    static func registerService(_ request: RegisterServiceRequestDto, thumbnailImage: UIImage?, portfolioImages: [UIImage]?) -> AnyPublisher<RegisterServiceResponseDto, Error> {
         return AF.upload(
             multipartFormData: { form in
                 if let json = try? JSONEncoder().encode(request) {
                     form.append(json, withName: "request", mimeType: "application/json")
                 }
                 
-                if let data = thumbnailImage.jpegData(compressionQuality: 0.85) {
+                if let image = thumbnailImage,
+                   let data = image.jpegData(compressionQuality: 0.85) {
                     form.append(data, withName: "thumbnail", fileName: "thumbnail.jpg", mimeType: "image/jpeg")
                 }
                 
-                for (index, img) in portfolioImages.enumerated() {
-                    if let data = img.jpegData(compressionQuality: 0.85) {
-                        form.append(data, withName: "portfolioImages", fileName: "portfolio_\(index).jpg", mimeType: "image/jpeg")
+                if let images = portfolioImages {
+                    for (index, img) in images.enumerated() {
+                        if let data = img.jpegData(compressionQuality: 0.85) {
+                            form.append(data, withName: "portfolioImages", fileName: "portfolio_\(index).jpg", mimeType: "image/jpeg")
+                        }
                     }
                 }
             },

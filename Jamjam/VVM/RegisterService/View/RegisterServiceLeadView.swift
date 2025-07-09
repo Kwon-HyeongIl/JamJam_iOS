@@ -127,18 +127,20 @@ struct RegisterServiceLeadView: View {
         .background(Color.mainBackground)
         .overlay {
             if viewModel.isAiGenerateContentsProgressViewVisible {
-                VStack(spacing: 15) {
-                    ProgressView()
-                        .scaleEffect(1.5)
-                        .tint(Color.JJTitle)
-                    
-                    Text("AI가 콘텐츠를 생성하고 있습니다.")
-                        .font(.pretendard(Pretendard.semiBold, size: 16))
-                        .foregroundStyle(.white)
+                VStack {
+                    VStack(spacing: 15) {
+                        ProgressView()
+                            .scaleEffect(1.5)
+                            .tint(Color.JJTitle)
+                        
+                        Text("AI가 콘텐츠를 생성하고 있습니다.")
+                            .font(.pretendard(Pretendard.semiBold, size: 16))
+                            .foregroundStyle(.white)
+                    }
+                    .padding(.bottom, 30)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(.gray.opacity(0.5))
-                .padding(.bottom, 30)
             }
         }
         .onChange(of: viewModel.isInitialContentsGenerateCompleted) { _, newValue in
