@@ -107,6 +107,7 @@ struct RegisterServiceLeadView: View {
                         
                         Button {
                             viewModel.isAiGenerateContentsProgressViewVisible = true
+                            viewModel.pageIndex = 1
                             viewModel.generateService()
                         } label: {
                             Image("ai_generate_button")

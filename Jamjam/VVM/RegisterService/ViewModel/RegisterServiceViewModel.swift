@@ -12,7 +12,7 @@ import os
 
 @Observable
 class RegisterServiceViewModel: Hashable, Equatable {
-    var pageIndex = 2
+    var pageIndex = 0
     
     // MARK: Page Index 0
     var initialDescription = ""
@@ -49,8 +49,9 @@ class RegisterServiceViewModel: Hashable, Equatable {
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "RegisterServiceViewModel")
     
     func generateService() {
-        let request = GenerateServiceRequestDto(discription: initialDescription)
+        let request = GenerateServiceRequestDto(description: initialDescription)
         
+        print("initialDescription \(initialDescription)")
         logger.info("[generateService] 요청 송신")
         ServiceManager.generateService(request)
             .receive(on: DispatchQueue.main)

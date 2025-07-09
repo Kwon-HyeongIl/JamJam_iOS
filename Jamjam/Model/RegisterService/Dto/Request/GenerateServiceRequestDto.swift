@@ -8,5 +8,5 @@
 import Foundation
 
 struct GenerateServiceRequestDto: Encodable {
-    let discription: String
+    let description: String
 }
