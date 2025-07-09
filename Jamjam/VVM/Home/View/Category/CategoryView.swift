@@ -61,8 +61,13 @@ struct CategoryView: View {
                         LazyVStack(pinnedViews: [.sectionHeaders]) {
                             Section {
                                 LazyVGrid(columns: viewModel.columns, spacing: 10) {
-                                    ForEach(viewModel.services) { service in
+                                    ForEach(viewModel.services, id: \.id) { service in
                                         ServiceCellView(service: service, upperWidth: proxy.size.width)
+                                            .onAppear {
+                                                if service.id == viewModel.services.last?.id {
+                                                    viewModel.fetchServiceWithCategory()
+                                                }
+                                            }
                                     }
                                     .padding(.horizontal, 20)
                                 }
@@ -94,6 +99,8 @@ struct CategoryView: View {
                                             .onTapGesture {
                                                 withAnimation(.customAnimation) {
                                                     viewModel.selectedSkill = skill
+                                                    viewModel.restoreServices()
+                                                    viewModel.fetchServiceWithCategory()
                                                 }
                                             }
                                         }

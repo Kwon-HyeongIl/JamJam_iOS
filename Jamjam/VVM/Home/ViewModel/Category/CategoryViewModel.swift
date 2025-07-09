@@ -15,6 +15,9 @@ class CategoryViewModel {
     
     var services: [ServiceCellDomainModel] = []
     
+    var currentPage = 0
+    var totalPage = 0
+    
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "CategoryViewModel")
     
@@ -28,13 +31,27 @@ class CategoryViewModel {
         fetchServiceWithCategory()
     }
     
+    func restoreServices() {
+        services = []
+        currentPage = 0
+        totalPage = 0
+    }
+    
     func fetchServiceWithCategory() {
+        guard let category = selectedSkill?.rawValue else { return }
+        
+        if currentPage != 0 {
+            guard currentPage < totalPage else { return }
+        }
+        
         let request = FetchServicesRequestDto(
-            category: selectedSkill?.rawValue ?? 1,
-            page: 0,
+            category: category,
+            page: currentPage,
             size: 20,
             sort: []
         )
+        
+        currentPage += 1
         
         ServiceManager.fetchServices(request)
             .receive(on: DispatchQueue.main)
@@ -56,6 +73,10 @@ class CategoryViewModel {
                         }
                         
                         self?.services.append(contentsOf: newServices)
+                    }
+                    
+                    if let totalPages = response.content?.totalPages {
+                        self?.totalPage = totalPages
                     }
                     
                 } else {
