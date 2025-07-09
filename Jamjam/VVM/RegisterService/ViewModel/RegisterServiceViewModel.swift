@@ -51,6 +51,7 @@ class RegisterServiceViewModel: Hashable, Equatable {
     func generateService() {
         let request = GenerateServiceRequestDto(discription: initialDescription)
         
+        logger.info("[generateService] 요청 송신")
         ServiceManager.generateService(request)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
@@ -109,6 +110,7 @@ class RegisterServiceViewModel: Hashable, Equatable {
     func generateThumbnail() {
         let request = GenerateThumbnailRequestDto(serviceName: serviceName, description: description, typography: typography)
         
+        logger.info("[generateThumbnail] 요청 송신")
         ServiceManager.generateThumbnail(request)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
@@ -135,8 +137,18 @@ class RegisterServiceViewModel: Hashable, Equatable {
     }
     
     private func decodeImage(_ base64String: String) -> UIImage? {
-        guard let imageData = Data(base64Encoded: base64String),
-              let image = UIImage(data: imageData) else {
+        let body = base64String
+            .components(separatedBy: ",")
+            .last ?? base64String
+        
+        let standard = body
+            .replacingOccurrences(of: "-", with: "+")
+            .replacingOccurrences(of: "_", with: "/")
+            .replacingOccurrences(of: "\\s", with: "", options: .regularExpression)
+        
+        guard let data = Data(base64Encoded: standard,
+                              options: .ignoreUnknownCharacters),
+              let image = UIImage(data: data) else {
             logger.error("[decodeImage] Base64 디코딩 또는 UIImage 생성 실패")
             return nil
         }

@@ -408,6 +408,7 @@ struct RegisterServiceTailView: View {
                                 
                                 Button {
                                     viewModel.isAiGenerateImageProgressViewVisible = true
+                                    viewModel.generateThumbnail()
                                 } label: {
                                     Image("ai_generate_button")
                                         .resizable()
