@@ -75,8 +75,6 @@ struct RegisterServiceTailView: View {
                             }
                         }
                         
-                        Text("description \(viewModel.description)")
-                        
                         VStack {
                             HStack {
                                 Text("서비스 상세 설명")

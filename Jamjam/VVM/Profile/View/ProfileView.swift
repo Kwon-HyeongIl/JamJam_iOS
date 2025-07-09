@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import WebKit
 
 struct ProfileView: View {
     @Environment(NavigationCore.self) var navRouter
@@ -29,29 +28,17 @@ struct ProfileView: View {
                 .background(Color.mainBackground)
             }
             
-            
             ScrollView(showsIndicators: false) {
-                WebView(markdown: $editorContent)
-                    .frame(height: 570)
-//                VStack(spacing: 30) {
-//                    Button {
-//                        AuthCenter.shared.logout()
-//                    } label: {
-//                        Text("로그아웃")
-//                    }
-//                    
-//                    Button {
-//                        navRouter.navigate(.providerProfileView)
-//                    } label: {
-//                        Text("llioopv의 프로필")
-//                    }
-//                    
-//                    Button {
-//                        navRouter.navigate(.providerProfileEditListView)
-//                    } label: {
-//                        Text("ProviderProfileEditListView")
-//                    }
-//                }
+                VStack {
+                    HStack {
+                        
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.gray.opacity(0.1))
+                    .frame(height: 200)
+                    .padding(.horizontal, 20)
+                }
+
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -86,7 +86,5 @@ struct WebView: UIViewRepresentable {
         return webView
     }
 
-    func updateUIView(_ uiView: WKWebView, context: Context) {
-        context.coordinator.pushIfNeeded()
-    }
+    func updateUIView(_ uiView: WKWebView, context: Context) {}
 }

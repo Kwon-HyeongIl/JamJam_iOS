@@ -51,7 +51,6 @@ class RegisterServiceViewModel: Hashable, Equatable {
     func generateService() {
         let request = GenerateServiceRequestDto(description: initialDescription)
         
-        print("initialDescription \(initialDescription)")
         logger.info("[generateService] 요청 송신")
         ServiceManager.generateService(request)
             .receive(on: DispatchQueue.main)
