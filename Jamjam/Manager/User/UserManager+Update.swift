@@ -23,7 +23,7 @@ extension UserManager {
                 }
             },
             to: API.updateUserInfo.url,
-            method: .post,
+            method: .patch,
             headers: API.headers
         )
         .publishDecodable(type: UpdateUserInfoResponseDto.self)

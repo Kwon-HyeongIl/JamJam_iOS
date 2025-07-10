@@ -35,7 +35,7 @@ struct RegisterServiceTailView: View {
                                 .focused($focus, equals: .first)
                                 .font(.pretendard(size: 14))
                                 .padding(.horizontal)
-                                .frame(height: 50)
+                                .frame(height: 45)
                                 .background(.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                 .overlay {
@@ -172,7 +172,7 @@ struct RegisterServiceTailView: View {
                                 }
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .frame(height: 50)
+                                    .frame(height: 45)
                                     .foregroundStyle(.white)
                                     .padding(.horizontal, 20)
                                     .overlay {
@@ -215,7 +215,7 @@ struct RegisterServiceTailView: View {
                                 .focused($focus, equals: .second)
                                 .font(.pretendard(size: 14))
                                 .padding(.horizontal)
-                                .frame(height: 50)
+                                .frame(height: 45)
                                 .background(.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                 .overlay {

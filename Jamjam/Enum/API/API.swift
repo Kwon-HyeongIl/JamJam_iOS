@@ -36,6 +36,7 @@ enum API {
     case signUpWithProvider
     case signUpWithClient
     case updateUserInfo
+    case checkPassword
     
     // MARK: Home
     case fetchServices
@@ -79,6 +80,8 @@ enum API {
             return "\(API.baseURL)/api/user/join/client"
         case .updateUserInfo:
             return "\(API.baseURL)/api/user"
+        case .checkPassword:
+            return "\(API.baseURL)/api/user/check-password"
             
             // MARK: Home
         case .fetchServices:

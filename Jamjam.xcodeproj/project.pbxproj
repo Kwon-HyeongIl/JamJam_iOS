@@ -108,6 +108,9 @@
 		CA7DE5D42E1FE3E300086E8B /* UserManager+Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5D32E1FE3E300086E8B /* UserManager+Update.swift */; };
 		CA7DE5D82E1FFAD600086E8B /* BeforeCheckPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5D72E1FFAD600086E8B /* BeforeCheckPasswordView.swift */; };
 		CA7DE5DA2E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5D92E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift */; };
+		CA7DE5DC2E2028BE00086E8B /* UserManager+Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5DB2E2028BE00086E8B /* UserManager+Check.swift */; };
+		CA7DE5E02E20293C00086E8B /* CheckPasswordRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5DF2E20293C00086E8B /* CheckPasswordRequestDto.swift */; };
+		CA7DE5E22E20295500086E8B /* CheckPasswordResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5E12E20295500086E8B /* CheckPasswordResponseDto.swift */; };
 		CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E42DFAF788005377E6 /* Color+Hex.swift */; };
 		CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */; };
 		CA870FBE2E1C49260083449B /* GenerateThumbnailRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA870FBD2E1C49260083449B /* GenerateThumbnailRequestDto.swift */; };
@@ -285,6 +288,9 @@
 		CA7DE5D32E1FE3E300086E8B /* UserManager+Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager+Update.swift"; sourceTree = "<group>"; };
 		CA7DE5D72E1FFAD600086E8B /* BeforeCheckPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeCheckPasswordView.swift; sourceTree = "<group>"; };
 		CA7DE5D92E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeCheckPasswordViewModel.swift; sourceTree = "<group>"; };
+		CA7DE5DB2E2028BE00086E8B /* UserManager+Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager+Check.swift"; sourceTree = "<group>"; };
+		CA7DE5DF2E20293C00086E8B /* CheckPasswordRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordRequestDto.swift; sourceTree = "<group>"; };
+		CA7DE5E12E20295500086E8B /* CheckPasswordResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordResponseDto.swift; sourceTree = "<group>"; };
 		CA83F6E42DFAF788005377E6 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+MainBackground.swift"; sourceTree = "<group>"; };
 		CA870FBD2E1C49260083449B /* GenerateThumbnailRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateThumbnailRequestDto.swift; sourceTree = "<group>"; };
@@ -707,6 +713,7 @@
 				CA76853A2E1BF8A000148204 /* UserManager+SignUp.swift */,
 				CA76853C2E1BF8D200148204 /* UserManager+Login.swift */,
 				CA7DE5D32E1FE3E300086E8B /* UserManager+Update.swift */,
+				CA7DE5DB2E2028BE00086E8B /* UserManager+Check.swift */,
 				CA60FAD12E100BB900150563 /* Keychain */,
 			);
 			path = User;
@@ -734,6 +741,7 @@
 		CA5C5E992E09A54800FB1E22 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				CA7DE5DE2E20292C00086E8B /* Check */,
 				CA7DE5D62E1FE5DF00086E8B /* Update */,
 				CA7DE5BB2E1EBCB400086E8B /* Fetch */,
 				CAE914642E13CEB900829D2C /* Token */,
@@ -746,6 +754,7 @@
 		CA5C5E9A2E09A54E00FB1E22 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				CA7DE5DD2E20292600086E8B /* Check */,
 				CA7DE5D52E1FE5DA00086E8B /* Update */,
 				CAE914632E13CEB100829D2C /* Token */,
 				CA4927D42E0EE52100D42CD0 /* Login */,
@@ -998,6 +1007,22 @@
 				CA7DE5CE2E1FE32E00086E8B /* UpdateUserInfoResponseDto.swift */,
 			);
 			path = Update;
+			sourceTree = "<group>";
+		};
+		CA7DE5DD2E20292600086E8B /* Check */ = {
+			isa = PBXGroup;
+			children = (
+				CA7DE5DF2E20293C00086E8B /* CheckPasswordRequestDto.swift */,
+			);
+			path = Check;
+			sourceTree = "<group>";
+		};
+		CA7DE5DE2E20292C00086E8B /* Check */ = {
+			isa = PBXGroup;
+			children = (
+				CA7DE5E12E20295500086E8B /* CheckPasswordResponseDto.swift */,
+			);
+			path = Check;
 			sourceTree = "<group>";
 		};
 		CA83F6E32DFAF77D005377E6 /* Color */ = {
@@ -1597,11 +1622,13 @@
 				CA9609AA2DFFCFFD00B878C6 /* MainTabBarCapsule.swift in Sources */,
 				CA7DE5C82E1F866100086E8B /* Bank.swift in Sources */,
 				CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */,
+				CA7DE5E02E20293C00086E8B /* CheckPasswordRequestDto.swift in Sources */,
 				CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */,
 				CA7DE5DA2E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift in Sources */,
 				CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */,
 				CAB600032E15480F004CD644 /* SocketConnectionStatus.swift in Sources */,
 				CA7685292E1BDDB800148204 /* RegisterServiceTailView.swift in Sources */,
+				CA7DE5DC2E2028BE00086E8B /* UserManager+Check.swift in Sources */,
 				CA35935F2E0514AE0069FAF8 /* CategoryViewModel.swift in Sources */,
 				CA88CEC02E11077800B1116E /* FCMManager.swift in Sources */,
 				CA9F46382E101ED600028F83 /* RegisterServiceLeadView.swift in Sources */,
@@ -1655,6 +1682,7 @@
 				CA4F12572E17E11B0061012E /* ProviderProfileEditView.swift in Sources */,
 				CA9609B02DFFD17900B878C6 /* CornerRadius.swift in Sources */,
 				CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */,
+				CA7DE5E22E20295500086E8B /* CheckPasswordResponseDto.swift in Sources */,
 				CA7DE5B92E1E78DF00086E8B /* ServiceCellView.swift in Sources */,
 				CA4F12592E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift in Sources */,
 				CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */,

@@ -9,7 +9,7 @@ import Foundation
 
 struct AccountDomainModel: Hashable, Equatable {
     let bankCode: String
-    let backName: String
+    let bankName: String
     let accountNumber: String
     let depositor: String
     

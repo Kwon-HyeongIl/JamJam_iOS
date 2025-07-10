@@ -178,7 +178,7 @@ struct SignUpView: View {
                                         .focused($focus, equals: .first)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
-                                        .frame(height: 50)
+                                        .frame(height: 45)
                                         .background(.white)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
@@ -262,7 +262,7 @@ struct SignUpView: View {
                                         .focused($focus, equals: .second)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
-                                        .frame(height: 50)
+                                        .frame(height: 45)
                                         .background(.white)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
@@ -343,7 +343,7 @@ struct SignUpView: View {
                                             .focused($focus, equals: .third)
                                             .font(.pretendard(size: 14))
                                             .padding(.horizontal)
-                                            .frame(height: 50)
+                                            .frame(height: 45)
                                             .background(.white)
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
@@ -370,7 +370,7 @@ struct SignUpView: View {
                                             .focused($focus, equals: .third)
                                             .font(.pretendard(size: 14))
                                             .padding(.horizontal)
-                                            .frame(height: 50)
+                                            .frame(height: 45)
                                             .background(.white)
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
@@ -438,7 +438,7 @@ struct SignUpView: View {
                                             .focused($focus, equals: .fourth)
                                             .font(.pretendard(size: 14))
                                             .padding(.horizontal)
-                                            .frame(height: 50)
+                                            .frame(height: 45)
                                             .background(.white)
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
@@ -466,7 +466,7 @@ struct SignUpView: View {
                                             .focused($focus, equals: .fourth)
                                             .font(.pretendard(size: 14))
                                             .padding(.horizontal)
-                                            .frame(height: 50)
+                                            .frame(height: 45)
                                             .background(.white)
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
@@ -540,7 +540,7 @@ struct SignUpView: View {
                                     .focused($focus, equals: .first)
                                     .font(.pretendard(size: 14))
                                     .padding(.horizontal)
-                                    .frame(height: 50)
+                                    .frame(height: 45)
                                     .background(.white)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .overlay {
@@ -583,7 +583,7 @@ struct SignUpView: View {
                                         .focused($focus, equals: .second)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
-                                        .frame(height: 50)
+                                        .frame(height: 45)
                                         .background(.white)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
@@ -607,7 +607,7 @@ struct SignUpView: View {
                                         .focused($focus, equals: .third)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
-                                        .frame(height: 50)
+                                        .frame(height: 45)
                                         .frame(maxWidth: 75)
                                         .background(.white)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -637,7 +637,7 @@ struct SignUpView: View {
                                         .focused($focus, equals: .fourth)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
-                                        .frame(height: 50)
+                                        .frame(height: 45)
                                         .frame(maxWidth: 75)
                                         .background(.white)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -698,7 +698,7 @@ struct SignUpView: View {
                                         viewModel.gender = .male
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .frame(height: 50)
+                                            .frame(height: 45)
                                             .foregroundStyle(viewModel.isGenderManButtonTapped ? .red.opacity(0.1) : .white)
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
@@ -723,7 +723,7 @@ struct SignUpView: View {
                                         viewModel.gender = .female
                                     } label: {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .frame(height: 50)
+                                            .frame(height: 45)
                                             .foregroundStyle(viewModel.isGenderWomanButtonTapped ? .red.opacity(0.1) : .white)
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
@@ -756,7 +756,7 @@ struct SignUpView: View {
                                         .focused($focus, equals: .fifth)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
-                                        .frame(height: 50)
+                                        .frame(height: 45)
                                         .background(.white)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
@@ -832,7 +832,7 @@ struct SignUpView: View {
                                         .focused($focus, equals: .sixth)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
-                                        .frame(height: 50)
+                                        .frame(height: 45)
                                         .background(.white)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {

@@ -115,7 +115,7 @@ struct EditUserInfoView: View {
                                 .focused($focus, equals: .first)
                                 .font(.pretendard(size: 14))
                                 .padding(.horizontal)
-                                .frame(height: 50)
+                                .frame(height: 45)
                                 .background(.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                 .overlay {
@@ -217,7 +217,7 @@ struct EditUserInfoView: View {
                                 .focused($focus, equals: .second)
                                 .font(.pretendard(size: 14))
                                 .padding(.horizontal)
-                                .frame(height: 50)
+                                .frame(height: 45)
                                 .background(.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                 .overlay {
@@ -292,7 +292,7 @@ struct EditUserInfoView: View {
                                 .focused($focus, equals: .third)
                                 .font(.pretendard(size: 14))
                                 .padding(.horizontal)
-                                .frame(height: 50)
+                                .frame(height: 45)
                                 .background(.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                 .overlay {
@@ -343,7 +343,7 @@ struct EditUserInfoView: View {
                                         .focused($focus, equals: .fourth)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
-                                        .frame(height: 50)
+                                        .frame(height: 45)
                                         .background(.white)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
@@ -370,7 +370,7 @@ struct EditUserInfoView: View {
                                         .focused($focus, equals: .fourth)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
-                                        .frame(height: 50)
+                                        .frame(height: 45)
                                         .background(.white)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
@@ -438,7 +438,7 @@ struct EditUserInfoView: View {
                                         .focused($focus, equals: .fifth)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
-                                        .frame(height: 50)
+                                        .frame(height: 45)
                                         .background(.white)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
@@ -466,7 +466,7 @@ struct EditUserInfoView: View {
                                         .focused($focus, equals: .fifth)
                                         .font(.pretendard(size: 14))
                                         .padding(.horizontal)
-                                        .frame(height: 50)
+                                        .frame(height: 45)
                                         .background(.white)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .overlay {
@@ -657,7 +657,7 @@ struct EditUserInfoView: View {
                             }
                         } label: {
                             RoundedRectangle(cornerRadius: 10)
-                                .frame(height: 50)
+                                .frame(height: 45)
                                 .foregroundStyle(.white)
                                 .padding(.horizontal, 20)
                                 .overlay {
@@ -689,7 +689,7 @@ struct EditUserInfoView: View {
                                 .foregroundStyle(.gray)
                         }
                         .frame(maxWidth: .infinity)
-                        .frame(height: 50)
+                        .frame(height: 45)
                         .background(.gray.opacity(0.2))
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
@@ -702,7 +702,7 @@ struct EditUserInfoView: View {
                             .focused($focus, equals: .sixth)
                             .font(.pretendard(size: 14))
                             .padding(.horizontal)
-                            .frame(height: 50)
+                            .frame(height: 45)
                             .background(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .overlay {
@@ -759,6 +759,9 @@ struct EditUserInfoView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
         .modifier(NavigationBarBackAndTitleModifier(title: "기본 정보 수정"))
+        .onTapGesture {
+            focus = nil
+        }
         .onChange(of: viewModel.isUpdateCompleted) {
             navRouter.back()
         }

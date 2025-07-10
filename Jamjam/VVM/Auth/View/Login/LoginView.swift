@@ -38,7 +38,7 @@ struct LoginView: View {
                             .focused($focus, equals: .first)
                             .font(.pretendard(size: 14))
                             .padding(.horizontal)
-                            .frame(height: 50)
+                            .frame(height: 45)
                             .background(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .overlay {
@@ -62,7 +62,7 @@ struct LoginView: View {
                             .focused($focus, equals: .second)
                             .font(.pretendard(size: 14))
                             .padding(.horizontal)
-                            .frame(height: 50)
+                            .frame(height: 45)
                             .background(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .overlay {
@@ -124,9 +124,6 @@ struct LoginView: View {
                                 .foregroundStyle(Color.JJTitle)
                         }
                     }
-                    
-                    VStack {}
-                    .frame(height: 50)
                 }
             }
         }

@@ -44,7 +44,7 @@ class ProfileViewModel {
                     if let account = content.account {
                         accountModel = AccountDomainModel(
                             bankCode: account.bankCode,
-                            backName: account.backName,
+                            bankName: account.bankName,
                             accountNumber: account.accountNumber,
                             depositor: account.depositor
                         )

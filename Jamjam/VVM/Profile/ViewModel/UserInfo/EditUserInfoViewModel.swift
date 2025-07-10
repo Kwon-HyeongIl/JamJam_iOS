@@ -249,7 +249,7 @@ class EditUserInfoViewModel {
             password: newPassword.isEmpty ? nil : newPassword,
             account: UpdateUserInfoRequestDto.Account(
                 bankCode: (user?.account?.bankCode != bankType?.rawValue) ? bankType?.rawValue : nil,
-                bankName: (user?.account?.backName != bankType?.text) ? bankType?.text : nil,
+                bankName: (user?.account?.bankName != bankType?.text) ? bankType?.text : nil,
                 accountNumber: (user?.account?.accountNumber != bankAccount) ? bankAccount : nil,
                 depositor: (user?.account?.bankCode != bankType?.rawValue) ? user?.name : nil
             ),

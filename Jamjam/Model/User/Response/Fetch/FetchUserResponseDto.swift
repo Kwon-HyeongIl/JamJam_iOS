@@ -26,7 +26,7 @@ struct FetchUserResponseDto: Decodable {
         
         struct Account: Decodable {
             let bankCode: String
-            let backName: String
+            let bankName: String
             let accountNumber: String
             let depositor: String
         }

@@ -69,7 +69,7 @@ struct ProfileView: View {
                                 
                                 HStack {
                                     Text(viewModel.user?.role == .provider ? "전문가" : "고객")
-                                        .font(.pretendard(Pretendard.medium, size: 14))
+                                        .font(.pretendard(Pretendard.medium, size: 13))
                                         .foregroundStyle(.white)
                                 }
                                 .padding(.horizontal, 8)
@@ -100,7 +100,7 @@ struct ProfileView: View {
                             }
                         }
                         .frame(maxWidth:. infinity)
-                        .frame(height: 50)
+                        .frame(height: 45)
                         .background(Color.JJTitle)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding(.horizontal)
@@ -114,9 +114,9 @@ struct ProfileView: View {
                     .padding(.horizontal, 20)
                     .padding(.bottom)
                     
-                    VStack(spacing: 17) {
+                    VStack(spacing: 20) {
                         Button {
-                            navRouter.navigate(.editUserInfoView(viewModel.user))
+                            navRouter.navigate(.beforeCheckPasswordView(viewModel.user))
                         } label: {
                             HStack {
                                 Image(systemName: "info.circle")
@@ -244,6 +244,7 @@ struct ProfileView: View {
                         Text("로그아웃")
                             .font(.pretendard(size: 12))
                             .foregroundStyle(.gray)
+                            .padding(.top, 50)
                     }
                 }
             }

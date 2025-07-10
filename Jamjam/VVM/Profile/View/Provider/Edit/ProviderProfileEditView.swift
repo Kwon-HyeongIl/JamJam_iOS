@@ -187,7 +187,7 @@ struct ProviderProfileEditView: View {
                                 
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .frame(height: 50)
+                                    .frame(height: 45)
                                     .foregroundStyle(.white)
                                     .padding(.horizontal, 20)
                                     .overlay {
@@ -299,7 +299,7 @@ struct ProviderProfileEditView: View {
                                 
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .frame(height: 50)
+                                    .frame(height: 45)
                                     .foregroundStyle(.white)
                                     .padding(.horizontal, 20)
                                     .overlay {
@@ -519,7 +519,7 @@ struct ProviderProfileEditView: View {
                                                                 //                                                        .focused($focus, equals: .first)
                                                                     .font(.pretendard(size: 14))
                                                                     .padding(.horizontal)
-                                                                    .frame(height: 50)
+                                                                    .frame(height: 45)
                                                                     .background(.white)
                                                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                                                     .overlay {
@@ -544,7 +544,7 @@ struct ProviderProfileEditView: View {
                                                                 //                                                        .focused($focus, equals: .first)
                                                                     .font(.pretendard(size: 14))
                                                                     .padding(.horizontal)
-                                                                    .frame(height: 50)
+                                                                    .frame(height: 45)
                                                                     .background(.white)
                                                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                                                     .overlay {
@@ -693,7 +693,7 @@ struct ProviderProfileEditView: View {
                                                                 //                                                        .focused($focus, equals: .first)
                                                                     .font(.pretendard(size: 14))
                                                                     .padding(.horizontal)
-                                                                    .frame(height: 50)
+                                                                    .frame(height: 45)
                                                                     .background(.white)
                                                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                                                     .overlay {
@@ -718,7 +718,7 @@ struct ProviderProfileEditView: View {
                                                                 //                                                        .focused($focus, equals: .first)
                                                                     .font(.pretendard(size: 14))
                                                                     .padding(.horizontal)
-                                                                    .frame(height: 50)
+                                                                    .frame(height: 45)
                                                                     .background(.white)
                                                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                                                     .overlay {
@@ -759,7 +759,7 @@ struct ProviderProfileEditView: View {
                                                             } label: {
                                                                 HStack {
                                                                     RoundedRectangle(cornerRadius: 10)
-                                                                        .frame(height: 50)
+                                                                        .frame(height: 45)
                                                                         .padding(.horizontal)
                                                                         .foregroundStyle(.white)
                                                                         .overlay {
@@ -894,7 +894,7 @@ struct ProviderProfileEditView: View {
                                                                 //                                                            .focused($focus, equals: .first)
                                                                     .font(.pretendard(size: 14))
                                                                     .padding(.horizontal)
-                                                                    .frame(height: 50)
+                                                                    .frame(height: 45)
                                                                     .background(.white)
                                                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                                                     .overlay {
