@@ -21,6 +21,14 @@ struct FetchUserResponseDto: Decodable {
         let role: String
         let gender: String
         let profileUrl: String
+        let account: Account?
         let credit: Int
+        
+        struct Account: Decodable {
+            let bankCode: String
+            let backName: String
+            let accountNumber: String
+            let depositor: String
+        }
     }
 }

@@ -210,7 +210,6 @@ struct ProviderProfileEditView: View {
                                                 .padding(.trailing, 35)
                                         }
                                     }
-                                
                             }
                         }
                         .padding(.bottom, 30)

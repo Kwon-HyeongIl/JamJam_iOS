@@ -99,6 +99,13 @@
 		CA7DE5B52E1E6CC100086E8B /* ServiceCellDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5B42E1E6CC100086E8B /* ServiceCellDomainModel.swift */; };
 		CA7DE5B92E1E78DF00086E8B /* ServiceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5B82E1E78DF00086E8B /* ServiceCellView.swift */; };
 		CA7DE5BD2E1EBCD100086E8B /* FetchUserResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5BC2E1EBCD100086E8B /* FetchUserResponseDto.swift */; };
+		CA7DE5C02E1ED7A700086E8B /* EditUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5BF2E1ED7A700086E8B /* EditUserInfoView.swift */; };
+		CA7DE5C32E1ED7BE00086E8B /* EditUserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5C22E1ED7BE00086E8B /* EditUserInfoViewModel.swift */; };
+		CA7DE5C52E1ED8D300086E8B /* AccountDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5C42E1ED8D300086E8B /* AccountDomainModel.swift */; };
+		CA7DE5C82E1F866100086E8B /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5C72E1F866100086E8B /* Bank.swift */; };
+		CA7DE5CD2E1FE25300086E8B /* UpdateUserInfoRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5CC2E1FE25300086E8B /* UpdateUserInfoRequestDto.swift */; };
+		CA7DE5CF2E1FE32E00086E8B /* UpdateUserInfoResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5CE2E1FE32E00086E8B /* UpdateUserInfoResponseDto.swift */; };
+		CA7DE5D42E1FE3E300086E8B /* UserManager+Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5D32E1FE3E300086E8B /* UserManager+Update.swift */; };
 		CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E42DFAF788005377E6 /* Color+Hex.swift */; };
 		CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */; };
 		CA870FBE2E1C49260083449B /* GenerateThumbnailRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA870FBD2E1C49260083449B /* GenerateThumbnailRequestDto.swift */; };
@@ -267,6 +274,13 @@
 		CA7DE5B42E1E6CC100086E8B /* ServiceCellDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCellDomainModel.swift; sourceTree = "<group>"; };
 		CA7DE5B82E1E78DF00086E8B /* ServiceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCellView.swift; sourceTree = "<group>"; };
 		CA7DE5BC2E1EBCD100086E8B /* FetchUserResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserResponseDto.swift; sourceTree = "<group>"; };
+		CA7DE5BF2E1ED7A700086E8B /* EditUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoView.swift; sourceTree = "<group>"; };
+		CA7DE5C22E1ED7BE00086E8B /* EditUserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewModel.swift; sourceTree = "<group>"; };
+		CA7DE5C42E1ED8D300086E8B /* AccountDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDomainModel.swift; sourceTree = "<group>"; };
+		CA7DE5C72E1F866100086E8B /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		CA7DE5CC2E1FE25300086E8B /* UpdateUserInfoRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInfoRequestDto.swift; sourceTree = "<group>"; };
+		CA7DE5CE2E1FE32E00086E8B /* UpdateUserInfoResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInfoResponseDto.swift; sourceTree = "<group>"; };
+		CA7DE5D32E1FE3E300086E8B /* UserManager+Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager+Update.swift"; sourceTree = "<group>"; };
 		CA83F6E42DFAF788005377E6 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+MainBackground.swift"; sourceTree = "<group>"; };
 		CA870FBD2E1C49260083449B /* GenerateThumbnailRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateThumbnailRequestDto.swift; sourceTree = "<group>"; };
@@ -446,6 +460,7 @@
 		CA0915612DF12EE800E272F8 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				CA7DE5C62E1F865300086E8B /* Bank */,
 				CA7685442E1C01BC00148204 /* Navigation */,
 				CA4F12342E179DD10061012E /* Profile */,
 				CA5C5E922E09A20E00FB1E22 /* API */,
@@ -633,9 +648,9 @@
 		CA4F125D2E1844FC0061012E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				CA4F125E2E18451C0061012E /* CareerFormDomainModel.swift */,
-				CA4F12602E1858E50061012E /* DegreeFormDomainModel.swift */,
-				CA4F12622E185A030061012E /* CertificateFormDomainModel.swift */,
+				CA7DE5CB2E1FE22900086E8B /* Domain */,
+				CA7DE5C92E1FE21C00086E8B /* Request */,
+				CA7DE5CA2E1FE22200086E8B /* Response */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -687,6 +702,7 @@
 				CA7685382E1BF87F00148204 /* UserManager.swift */,
 				CA76853A2E1BF8A000148204 /* UserManager+SignUp.swift */,
 				CA76853C2E1BF8D200148204 /* UserManager+Login.swift */,
+				CA7DE5D32E1FE3E300086E8B /* UserManager+Update.swift */,
 				CA60FAD12E100BB900150563 /* Keychain */,
 			);
 			path = User;
@@ -696,6 +712,7 @@
 			isa = PBXGroup;
 			children = (
 				CAB6FFFC2E151228004CD644 /* UserDomainModel.swift */,
+				CA7DE5C42E1ED8D300086E8B /* AccountDomainModel.swift */,
 				CA5C5E9A2E09A54E00FB1E22 /* Request */,
 				CA5C5E992E09A54800FB1E22 /* Response */,
 			);
@@ -713,6 +730,7 @@
 		CA5C5E992E09A54800FB1E22 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				CA7DE5D62E1FE5DF00086E8B /* Update */,
 				CA7DE5BB2E1EBCB400086E8B /* Fetch */,
 				CAE914642E13CEB900829D2C /* Token */,
 				CA4927D52E0EE52500D42CD0 /* Login */,
@@ -724,6 +742,7 @@
 		CA5C5E9A2E09A54E00FB1E22 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				CA7DE5D52E1FE5DA00086E8B /* Update */,
 				CAE914632E13CEB100829D2C /* Token */,
 				CA4927D42E0EE52100D42CD0 /* Login */,
 				CA4927D22E0EE4F200D42CD0 /* SignUp */,
@@ -909,6 +928,70 @@
 				CA7DE5BC2E1EBCD100086E8B /* FetchUserResponseDto.swift */,
 			);
 			path = Fetch;
+			sourceTree = "<group>";
+		};
+		CA7DE5BE2E1ED79400086E8B /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				CA7DE5BF2E1ED7A700086E8B /* EditUserInfoView.swift */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		CA7DE5C12E1ED7AE00086E8B /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				CA7DE5C22E1ED7BE00086E8B /* EditUserInfoViewModel.swift */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		CA7DE5C62E1F865300086E8B /* Bank */ = {
+			isa = PBXGroup;
+			children = (
+				CA7DE5C72E1F866100086E8B /* Bank.swift */,
+			);
+			path = Bank;
+			sourceTree = "<group>";
+		};
+		CA7DE5C92E1FE21C00086E8B /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		CA7DE5CA2E1FE22200086E8B /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		CA7DE5CB2E1FE22900086E8B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CA4F12602E1858E50061012E /* DegreeFormDomainModel.swift */,
+				CA4F125E2E18451C0061012E /* CareerFormDomainModel.swift */,
+				CA4F12622E185A030061012E /* CertificateFormDomainModel.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		CA7DE5D52E1FE5DA00086E8B /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				CA7DE5CC2E1FE25300086E8B /* UpdateUserInfoRequestDto.swift */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
+		CA7DE5D62E1FE5DF00086E8B /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				CA7DE5CE2E1FE32E00086E8B /* UpdateUserInfoResponseDto.swift */,
+			);
+			path = Update;
 			sourceTree = "<group>";
 		};
 		CA83F6E32DFAF77D005377E6 /* Color */ = {
@@ -1174,6 +1257,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9609B42DFFD50400B878C6 /* ProfileView.swift */,
+				CA7DE5BE2E1ED79400086E8B /* UserInfo */,
 				CA9BB5222E12B8CA0035F26D /* Provider */,
 			);
 			path = View;
@@ -1183,6 +1267,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9BB5282E12B9000035F26D /* ProfileViewModel.swift */,
+				CA7DE5C12E1ED7AE00086E8B /* UserInfo */,
 				CAB600312E16825C004CD644 /* Provider */,
 			);
 			path = ViewModel;
@@ -1480,6 +1565,7 @@
 				CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */,
 				CAE914682E13CF0700829D2C /* RefreshAccessTokenResponseDto.swift in Sources */,
 				CAB600092E155D29004CD644 /* SocketChatMessageRequestDto.swift in Sources */,
+				CA7DE5CF2E1FE32E00086E8B /* UpdateUserInfoResponseDto.swift in Sources */,
 				CA9BB5242E12B8DD0035F26D /* ProviderProfileView.swift in Sources */,
 				CA4CF9272E0C1E1100F882C4 /* SendSmsRequestDto.swift in Sources */,
 				CA4F12222E177DD00061012E /* ProviderProfileEditViewModel.swift in Sources */,
@@ -1497,11 +1583,13 @@
 				CAB6FFFD2E151228004CD644 /* UserDomainModel.swift in Sources */,
 				CAAB47F62E0ADC4B000197E5 /* CheckNicknameResponseDto.swift in Sources */,
 				CAB6003B2E1693B5004CD644 /* DeleteChatRoomResponseDto.swift in Sources */,
+				CA7DE5C32E1ED7BE00086E8B /* EditUserInfoViewModel.swift in Sources */,
 				CA7DE5AE2E1E5C6200086E8B /* FetchServicesRequestDto.swift in Sources */,
 				CA7685412E1BFA3200148204 /* StompCore.swift in Sources */,
 				CAB6003D2E16B682004CD644 /* ReadLastMessageRequestDto.swift in Sources */,
 				CA7DE5B52E1E6CC100086E8B /* ServiceCellDomainModel.swift in Sources */,
 				CA9609AA2DFFCFFD00B878C6 /* MainTabBarCapsule.swift in Sources */,
+				CA7DE5C82E1F866100086E8B /* Bank.swift in Sources */,
 				CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */,
 				CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */,
 				CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */,
@@ -1534,11 +1622,13 @@
 				CA9F463A2E101EE000028F83 /* ChatListView.swift in Sources */,
 				CA5C5E902E09A0A800FB1E22 /* SignUpWithClientResponseDto.swift in Sources */,
 				CA4CF92D2E0C279D00F882C4 /* VerifySmsResponseDto.swift in Sources */,
+				CA7DE5D42E1FE3E300086E8B /* UserManager+Update.swift in Sources */,
 				CA7D11932E10327100D55CCE /* ChatContentView.swift in Sources */,
 				CA7685392E1BF87F00148204 /* UserManager.swift in Sources */,
 				CA4F12472E17D71E0061012E /* WritingDetail.swift in Sources */,
 				CA7DE5B02E1E610100086E8B /* FetchServicesResponseDto.swift in Sources */,
 				CA7685302E1BE12200148204 /* GenerateServiceRequestDto.swift in Sources */,
+				CA7DE5C02E1ED7A700086E8B /* EditUserInfoView.swift in Sources */,
 				CAB600392E168DD5004CD644 /* NavigationBarBackAndProfileAndEditModifier.swift in Sources */,
 				CA870FBE2E1C49260083449B /* GenerateThumbnailRequestDto.swift in Sources */,
 				CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */,
@@ -1577,6 +1667,7 @@
 				CA9609BB2DFFDA6100B878C6 /* LoginViewModel.swift in Sources */,
 				CA5C5E8E2E09A09C00FB1E22 /* SignUpWithProviderResponseDto.swift in Sources */,
 				CA4F124B2E17D76B0061012E /* MediaDetail.swift in Sources */,
+				CA7DE5CD2E1FE25300086E8B /* UpdateUserInfoRequestDto.swift in Sources */,
 				CA50CB522E1D3FCC0078AC22 /* StompManager.swift in Sources */,
 				CAB6000D2E157B22004CD644 /* ChatManager+ChatRoom.swift in Sources */,
 				CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */,
@@ -1587,6 +1678,7 @@
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
 				CA4F12512E17D7D50061012E /* HobbyLessonDetail.swift in Sources */,
 				CA4F12632E185A030061012E /* CertificateFormDomainModel.swift in Sources */,
+				CA7DE5C52E1ED8D300086E8B /* AccountDomainModel.swift in Sources */,
 				CA7685272E1BDAEE00148204 /* ServiceManager.swift in Sources */,
 				CA4F12412E17D6B60061012E /* MarketingDetail.swift in Sources */,
 				CA4F12362E179DE00061012E /* Region.swift in Sources */,

@@ -16,8 +16,8 @@ struct UserDomainModel: Hashable, Equatable {
     let role: JJUser
     let gender: Gender
     let profileUrl: String
+    let account: AccountDomainModel?
     let credit: Int
-    
     
     let id = UUID() // Hashable, Equatable
     
@@ -28,5 +28,4 @@ struct UserDomainModel: Hashable, Equatable {
     static func == (lhs: UserDomainModel, rhs: UserDomainModel) -> Bool {
         return lhs.id == rhs.id
     }
-    
 }

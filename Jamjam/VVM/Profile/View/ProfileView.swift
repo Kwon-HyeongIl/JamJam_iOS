@@ -69,11 +69,11 @@ struct ProfileView: View {
                                 
                                 HStack {
                                     Text(viewModel.user?.role == .provider ? "전문가" : "고객")
-                                        .font(.pretendard(Pretendard.medium, size: 15))
+                                        .font(.pretendard(Pretendard.medium, size: 14))
                                         .foregroundStyle(.white)
                                 }
-                                .padding(.horizontal, 10)
-                                .padding(.vertical, 5)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
                                 .background(Color.JJTitle)
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                             }
@@ -116,7 +116,7 @@ struct ProfileView: View {
                     
                     VStack(spacing: 17) {
                         Button {
-                            
+                            navRouter.navigate(.editUserInfoView(viewModel.user))
                         } label: {
                             HStack {
                                 Image(systemName: "info.circle")
@@ -237,8 +237,15 @@ struct ProfileView: View {
                             .foregroundStyle(.black)
                         }
                     }
+                    
+                    Button {
+                        viewModel.logout()
+                    } label: {
+                        Text("로그아웃")
+                            .font(.pretendard(size: 12))
+                            .foregroundStyle(.gray)
+                    }
                 }
-
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

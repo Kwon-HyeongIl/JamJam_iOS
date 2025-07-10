@@ -38,12 +38,41 @@ class ProfileViewModel {
                         return
                     }
                     
-                    self?.user = UserDomainModel(name: content.name, nickname: content.nickname, phoneNumber: content.phoneNumber, loginId: content.loginId, birth: content.birth, role: roleEnum, gender: genderEnum, profileUrl: content.profileUrl, credit: content.credit)
+                    let accountModel: AccountDomainModel?
+                    
+                    // 응답으로 온 account가 nil인지 확인
+                    if let account = content.account {
+                        accountModel = AccountDomainModel(
+                            bankCode: account.bankCode,
+                            backName: account.backName,
+                            accountNumber: account.accountNumber,
+                            depositor: account.depositor
+                        )
+                    } else {
+                        accountModel = nil
+                    }
+                    
+                    self?.user = UserDomainModel(
+                        name: content.name,
+                        nickname: content.nickname,
+                        phoneNumber: content.phoneNumber,
+                        loginId: content.loginId,
+                        birth: content.birth,
+                        role: roleEnum,
+                        gender: genderEnum,
+                        profileUrl: content.profileUrl,
+                        account: accountModel,
+                        credit: content.credit
+                    )
                     
                 } else {
                     self?.logger.error("[fetchUser] 응답 처리 실패")
                 }
             }
             .store(in: &self.cancellables)
+    }
+    
+    func logout() {
+        UserManager.logout()
     }
 }

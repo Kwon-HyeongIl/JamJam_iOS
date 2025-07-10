@@ -35,6 +35,7 @@ enum API {
     case verifySms
     case signUpWithProvider
     case signUpWithClient
+    case updateUserInfo
     
     // MARK: Home
     case fetchServices
@@ -76,6 +77,8 @@ enum API {
             return "\(API.baseURL)/api/user/join/provider"
         case .signUpWithClient:
             return "\(API.baseURL)/api/user/join/client"
+        case .updateUserInfo:
+            return "\(API.baseURL)/api/user"
             
             // MARK: Home
         case .fetchServices:
