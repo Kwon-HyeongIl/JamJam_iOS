@@ -1019,6 +1019,7 @@ struct SignUpView: View {
         .onTapGesture {
             focus = nil
         }
+        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {

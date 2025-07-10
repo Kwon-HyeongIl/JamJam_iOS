@@ -765,6 +765,7 @@ struct EditUserInfoView: View {
         .onChange(of: viewModel.isUpdateCompleted) {
             navRouter.back()
         }
+        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {

@@ -126,6 +126,7 @@ struct RegisterServiceLeadView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
+        .toolbarBackground(viewModel.isAiGenerateContentsProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
         .overlay {
             if viewModel.isAiGenerateContentsProgressViewVisible {
                 VStack {

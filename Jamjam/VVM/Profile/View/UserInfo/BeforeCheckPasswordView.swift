@@ -112,6 +112,8 @@ struct BeforeCheckPasswordView: View {
         } message: {
             Text(viewModel.checkPasswordAlertMessage)
         }
+        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
+        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {

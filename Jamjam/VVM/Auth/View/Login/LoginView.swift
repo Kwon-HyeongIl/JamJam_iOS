@@ -146,6 +146,7 @@ struct LoginView: View {
         } message: {
             Text(viewModel.loginAlertMessage)
         }
+        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {
