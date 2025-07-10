@@ -779,7 +779,7 @@ struct EditUserInfoView: View {
 
 #Preview {
     NavigationStack {
-        EditUserInfoView(user: UserDomainModel(name: "test", nickname: "test", phoneNumber: "01050361369", loginId: "llioopv", birth: "2001-02-09", role: .provider, gender: .male, profileUrl: "test", account: AccountDomainModel(bankCode: "test", backName: "test", accountNumber: "test", depositor: "test"), credit: 1000))
+        EditUserInfoView(user: nil)
             .environment(NavigationCore())
     }
 }

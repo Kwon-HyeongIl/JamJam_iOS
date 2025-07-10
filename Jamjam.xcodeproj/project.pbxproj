@@ -106,6 +106,8 @@
 		CA7DE5CD2E1FE25300086E8B /* UpdateUserInfoRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5CC2E1FE25300086E8B /* UpdateUserInfoRequestDto.swift */; };
 		CA7DE5CF2E1FE32E00086E8B /* UpdateUserInfoResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5CE2E1FE32E00086E8B /* UpdateUserInfoResponseDto.swift */; };
 		CA7DE5D42E1FE3E300086E8B /* UserManager+Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5D32E1FE3E300086E8B /* UserManager+Update.swift */; };
+		CA7DE5D82E1FFAD600086E8B /* BeforeCheckPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5D72E1FFAD600086E8B /* BeforeCheckPasswordView.swift */; };
+		CA7DE5DA2E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5D92E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift */; };
 		CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E42DFAF788005377E6 /* Color+Hex.swift */; };
 		CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */; };
 		CA870FBE2E1C49260083449B /* GenerateThumbnailRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA870FBD2E1C49260083449B /* GenerateThumbnailRequestDto.swift */; };
@@ -281,6 +283,8 @@
 		CA7DE5CC2E1FE25300086E8B /* UpdateUserInfoRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInfoRequestDto.swift; sourceTree = "<group>"; };
 		CA7DE5CE2E1FE32E00086E8B /* UpdateUserInfoResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInfoResponseDto.swift; sourceTree = "<group>"; };
 		CA7DE5D32E1FE3E300086E8B /* UserManager+Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager+Update.swift"; sourceTree = "<group>"; };
+		CA7DE5D72E1FFAD600086E8B /* BeforeCheckPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeCheckPasswordView.swift; sourceTree = "<group>"; };
+		CA7DE5D92E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeCheckPasswordViewModel.swift; sourceTree = "<group>"; };
 		CA83F6E42DFAF788005377E6 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+MainBackground.swift"; sourceTree = "<group>"; };
 		CA870FBD2E1C49260083449B /* GenerateThumbnailRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateThumbnailRequestDto.swift; sourceTree = "<group>"; };
@@ -933,6 +937,7 @@
 		CA7DE5BE2E1ED79400086E8B /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				CA7DE5D72E1FFAD600086E8B /* BeforeCheckPasswordView.swift */,
 				CA7DE5BF2E1ED7A700086E8B /* EditUserInfoView.swift */,
 			);
 			path = UserInfo;
@@ -941,6 +946,7 @@
 		CA7DE5C12E1ED7AE00086E8B /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				CA7DE5D92E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift */,
 				CA7DE5C22E1ED7BE00086E8B /* EditUserInfoViewModel.swift */,
 			);
 			path = UserInfo;
@@ -1592,6 +1598,7 @@
 				CA7DE5C82E1F866100086E8B /* Bank.swift in Sources */,
 				CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */,
 				CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */,
+				CA7DE5DA2E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift in Sources */,
 				CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */,
 				CAB600032E15480F004CD644 /* SocketConnectionStatus.swift in Sources */,
 				CA7685292E1BDDB800148204 /* RegisterServiceTailView.swift in Sources */,
@@ -1673,6 +1680,7 @@
 				CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */,
 				CA5C5E862E099CED00FB1E22 /* AuthCore.swift in Sources */,
 				CAB600072E155CF4004CD644 /* ChatSocketEventType.swift in Sources */,
+				CA7DE5D82E1FFAD600086E8B /* BeforeCheckPasswordView.swift in Sources */,
 				CAB6FFF92E150CDF004CD644 /* StartChatRoomRequestDto.swift in Sources */,
 				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponseDto.swift in Sources */,
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,

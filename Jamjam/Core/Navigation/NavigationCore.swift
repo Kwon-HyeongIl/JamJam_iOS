@@ -35,6 +35,8 @@ class NavigationCore {
             ChatContentView(chatRoom: chatRoom)
             
             // MARK: Profile
+        case .beforeCheckPasswordView(let user):
+            BeforeCheckPasswordView(user: user)
         case .editUserInfoView(let user):
             EditUserInfoView(user: user)
         case .providerProfileView:

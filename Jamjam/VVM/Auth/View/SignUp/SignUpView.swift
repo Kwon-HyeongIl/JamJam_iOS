@@ -702,11 +702,10 @@ struct SignUpView: View {
                                             .foregroundStyle(viewModel.isGenderManButtonTapped ? .red.opacity(0.1) : .white)
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
-                                                Image("man_tint")
+                                                Image(viewModel.isGenderManButtonTapped ? "man_tint" : "man")
                                                     .resizable()
                                                     .scaledToFit()
                                                     .frame(width: 20)
-                                                    .opacity(viewModel.isGenderManButtonTapped ? 0.1 : 1)
                                             }
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
@@ -728,11 +727,10 @@ struct SignUpView: View {
                                             .foregroundStyle(viewModel.isGenderWomanButtonTapped ? .red.opacity(0.1) : .white)
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
-                                                Image("woman_tint")
+                                                Image(viewModel.isGenderWomanButtonTapped ? "woman_tint" : "woman")
                                                     .resizable()
                                                     .scaledToFit()
                                                     .frame(width: 20)
-                                                    .opacity(viewModel.isGenderWomanButtonTapped ? 0.1 : 1)
                                             }
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
