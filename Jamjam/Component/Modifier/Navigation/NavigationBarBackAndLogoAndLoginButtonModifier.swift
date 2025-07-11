@@ -65,7 +65,6 @@ struct NavigationBarBackAndLogoAndLoginButtonModifier: ViewModifier {
                                     .font(.pretendard(Pretendard.semiBold, size: 14))
                                     .foregroundStyle(.white)
                             }
-                            .padding(.trailing, 20)
                             .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
                     }
                 }

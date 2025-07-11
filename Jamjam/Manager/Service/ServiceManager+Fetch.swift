@@ -23,4 +23,18 @@ extension ServiceManager {
         .mapError { $0 as Error }
         .eraseToAnyPublisher()
     }
+    
+    static func fetchService(_ request: FetchServiceRequestDto) -> AnyPublisher<FetchServiceResponseDto, Error> {
+        return AF.request(
+            API.fetchService.url,
+            method: .get,
+            parameters: request,
+            encoder: URLEncodedFormParameterEncoder.default,
+            headers: API.headers
+        )
+        .publishDecodable(type: FetchServiceResponseDto.self)
+        .value()
+        .mapError { $0 as Error }
+        .eraseToAnyPublisher()
+    }
 }

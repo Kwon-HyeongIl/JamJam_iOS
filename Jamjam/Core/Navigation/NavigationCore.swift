@@ -25,6 +25,8 @@ class NavigationCore {
             SearchView()
         case .categoryView(let skill):
             CategoryView(skill: skill)
+        case .serviceView(let serviceId):
+            ServiceView(serviceId: serviceId)
             
             // MARK: Write
         case .registerServiceLeadView:

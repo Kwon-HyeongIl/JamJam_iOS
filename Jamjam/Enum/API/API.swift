@@ -40,6 +40,7 @@ enum API {
     
     // MARK: Home
     case fetchServices
+    case fetchService
     
     // MARK: RegisterService
     case generateService
@@ -86,6 +87,8 @@ enum API {
             // MARK: Home
         case .fetchServices:
             return "\(API.baseURL)/api/service/service-list"
+        case .fetchService:
+            return "\(API.baseURL)/api/service/detail"
             
             // MARK: RegisterService
         case .generateService:

@@ -152,6 +152,12 @@
 		CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB52D2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift */; };
 		CA9BB5302E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB52F2E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift */; };
 		CA9BB5322E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BB5312E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift */; };
+		CA9E2A712E21299900962203 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E2A702E21299900962203 /* ServiceView.swift */; };
+		CA9E2A742E2129A900962203 /* ServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E2A732E2129A900962203 /* ServiceViewModel.swift */; };
+		CA9E2A762E2129EA00962203 /* FetchServiceRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E2A752E2129EA00962203 /* FetchServiceRequestDto.swift */; };
+		CA9E2A782E212A0300962203 /* FetchServiceResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E2A772E212A0300962203 /* FetchServiceResponseDto.swift */; };
+		CA9E2A7B2E212B4E00962203 /* ServiceDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E2A7A2E212B4E00962203 /* ServiceDomainModel.swift */; };
+		CA9E2A7D2E212B7B00962203 /* PortfolioImageDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E2A7C2E212B7B00962203 /* PortfolioImageDomainModel.swift */; };
 		CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38D82DFA5D3500AE12DD /* HomeView.swift */; };
 		CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */; };
 		CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */; };
@@ -330,6 +336,12 @@
 		CA9BB52D2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndTitleAndHomeModifier.swift; sourceTree = "<group>"; };
 		CA9BB52F2E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndNameModifier.swift; sourceTree = "<group>"; };
 		CA9BB5312E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndLogoAndLoginButtonModifier.swift; sourceTree = "<group>"; };
+		CA9E2A702E21299900962203 /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
+		CA9E2A732E2129A900962203 /* ServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewModel.swift; sourceTree = "<group>"; };
+		CA9E2A752E2129EA00962203 /* FetchServiceRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchServiceRequestDto.swift; sourceTree = "<group>"; };
+		CA9E2A772E212A0300962203 /* FetchServiceResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchServiceResponseDto.swift; sourceTree = "<group>"; };
+		CA9E2A7A2E212B4E00962203 /* ServiceDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDomainModel.swift; sourceTree = "<group>"; };
+		CA9E2A7C2E212B7B00962203 /* PortfolioImageDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioImageDomainModel.swift; sourceTree = "<group>"; };
 		CA9E38D82DFA5D3500AE12DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA9E38DB2DFA5FD000AE12DD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CA9E38DE2DFA666700AE12DD /* CarouselCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard.swift; sourceTree = "<group>"; };
@@ -474,10 +486,10 @@
 		CA0915612DF12EE800E272F8 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				CA7DE5C62E1F865300086E8B /* Bank */,
-				CA7685442E1C01BC00148204 /* Navigation */,
-				CA4F12342E179DD10061012E /* Profile */,
 				CA5C5E922E09A20E00FB1E22 /* API */,
+				CA7685442E1C01BC00148204 /* Navigation */,
+				CA7DE5C62E1F865300086E8B /* Bank */,
+				CA4F12342E179DD10061012E /* Profile */,
 				CAB600012E1547FD004CD644 /* Stomp */,
 				CA5C5E7A2E09687A00FB1E22 /* Font */,
 				CA87FF792E014C2B00C8C830 /* User */,
@@ -535,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */,
+				CA9E2A722E21299E00962203 /* Service */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -919,6 +932,8 @@
 			isa = PBXGroup;
 			children = (
 				CA7DE5B42E1E6CC100086E8B /* ServiceCellDomainModel.swift */,
+				CA9E2A7A2E212B4E00962203 /* ServiceDomainModel.swift */,
+				CA9E2A7C2E212B7B00962203 /* PortfolioImageDomainModel.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -927,6 +942,7 @@
 			isa = PBXGroup;
 			children = (
 				CA7DE5AD2E1E5C6200086E8B /* FetchServicesRequestDto.swift */,
+				CA9E2A752E2129EA00962203 /* FetchServiceRequestDto.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -935,6 +951,7 @@
 			isa = PBXGroup;
 			children = (
 				CA7DE5AF2E1E610100086E8B /* FetchServicesResponseDto.swift */,
+				CA9E2A772E212A0300962203 /* FetchServiceResponseDto.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1181,6 +1198,22 @@
 			path = Provider;
 			sourceTree = "<group>";
 		};
+		CA9E2A6F2E21298800962203 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CA9E2A702E21299900962203 /* ServiceView.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CA9E2A722E21299E00962203 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CA9E2A732E2129A900962203 /* ServiceViewModel.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		CA9E38D72DFA5D2300AE12DD /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -1315,6 +1348,7 @@
 			children = (
 				CA35935B2E0511C70069FAF8 /* CategoryView.swift */,
 				CA7DE5B82E1E78DF00086E8B /* ServiceCellView.swift */,
+				CA9E2A6F2E21298800962203 /* Service */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1676,6 +1710,7 @@
 				CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */,
 				CA09155B2DF12CF700E272F8 /* NavigationCore.swift in Sources */,
 				CAAB47F42E0ADC1D000197E5 /* CheckNicknameRequestDto.swift in Sources */,
+				CA9E2A762E2129EA00962203 /* FetchServiceRequestDto.swift in Sources */,
 				CA0915542DF12B7E00E272F8 /* NavigationBaseView.swift in Sources */,
 				CAB600292E167A8C004CD644 /* FetchChatMessagesRequestDto.swift in Sources */,
 				CA4CF9312E0C2F0B00F882C4 /* SignUpWithClientRequestDto.swift in Sources */,
@@ -1706,6 +1741,7 @@
 				CA76853D2E1BF8D200148204 /* UserManager+Login.swift in Sources */,
 				CA9609AD2DFFD02300B878C6 /* MainTab.swift in Sources */,
 				CAD2F2452E1A9755007B5BE8 /* DateManager.swift in Sources */,
+				CA9E2A7B2E212B4E00962203 /* ServiceDomainModel.swift in Sources */,
 				CA76853B2E1BF8A000148204 /* UserManager+SignUp.swift in Sources */,
 				CA9609BB2DFFDA6100B878C6 /* LoginViewModel.swift in Sources */,
 				CA5C5E8E2E09A09C00FB1E22 /* SignUpWithProviderResponseDto.swift in Sources */,
@@ -1722,6 +1758,7 @@
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
 				CA4F12512E17D7D50061012E /* HobbyLessonDetail.swift in Sources */,
 				CA4F12632E185A030061012E /* CertificateFormDomainModel.swift in Sources */,
+				CA9E2A7D2E212B7B00962203 /* PortfolioImageDomainModel.swift in Sources */,
 				CA7DE5C52E1ED8D300086E8B /* AccountDomainModel.swift in Sources */,
 				CA7685272E1BDAEE00148204 /* ServiceManager.swift in Sources */,
 				CA4F12412E17D6B60061012E /* MarketingDetail.swift in Sources */,
@@ -1738,12 +1775,15 @@
 				CA4F12492E17D73C0061012E /* TranslationDetail.swift in Sources */,
 				CA9609A22DFBE1E100B878C6 /* NavigationBackGestureEnable.swift in Sources */,
 				CA5C5E942E09A22800FB1E22 /* API.swift in Sources */,
+				CA9E2A782E212A0300962203 /* FetchServiceResponseDto.swift in Sources */,
 				CA4F125F2E18451C0061012E /* CareerFormDomainModel.swift in Sources */,
 				CA9609BE2DFFE36300B878C6 /* SignUpView.swift in Sources */,
+				CA9E2A742E2129A900962203 /* ServiceViewModel.swift in Sources */,
 				CA96099C2DFBE08A00B878C6 /* NavigationBarBackAndHomeModifier.swift in Sources */,
 				CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */,
 				CA5C5E9C2E09A55B00FB1E22 /* SignUpWithProviderRequestDto.swift in Sources */,
 				CA87FF7B2E014C3300C8C830 /* JJUser.swift in Sources */,
+				CA9E2A712E21299900962203 /* ServiceView.swift in Sources */,
 				CAB6FFF42E1508DF004CD644 /* ChatManager.swift in Sources */,
 				CAAB47FA2E0BB1A1000197E5 /* CheckLoginIdRequest.swift in Sources */,
 			);

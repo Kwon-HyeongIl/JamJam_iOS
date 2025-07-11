@@ -63,6 +63,9 @@ struct CategoryView: View {
                                 LazyVGrid(columns: viewModel.columns, spacing: 10) {
                                     ForEach(viewModel.services, id: \.serviceId) { service in
                                         ServiceCellView(service: service, upperWidth: proxy.size.width)
+                                            .onTapGesture {
+                                                navRouter.navigate(.serviceView(service.serviceId))
+                                            }
                                             .onAppear {
                                                 if service.serviceId == viewModel.services.last?.serviceId {
                                                     viewModel.fetchServiceWithCategory()

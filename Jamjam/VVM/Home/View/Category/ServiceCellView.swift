@@ -26,9 +26,8 @@ struct ServiceCellView: View {
                         .resizable()
                     
                 case .failure:
-                    Image(systemName: "photo")
-                        .font(.system(size: 20))
-                        .foregroundStyle(.gray.opacity(0.5))
+                    RoundedRectangle(cornerRadius: 10)
+                        .foregroundStyle(.gray.opacity(0.1))
                     
                 @unknown default:
                     EmptyView()
