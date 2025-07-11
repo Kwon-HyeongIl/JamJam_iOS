@@ -19,6 +19,10 @@ class ServiceViewModel {
     ]
     var isTabBarVisible = false
     
+    // MARK: 채팅
+    var targetRoomId: Int?
+    var isNavigateToChatRoom = false
+    
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ServiceContentViewModel")
     
@@ -66,6 +70,31 @@ class ServiceViewModel {
                     
                 } else {
                     self?.logger.error("[fetchService] 응답 실패: \(response.message)")
+                }
+            }
+            .store(in: &self.cancellables)
+    }
+    
+    func startChatRoom() {
+        guard let targetUserId = service?.userId else { return }
+        
+        ChatManager.startChatRoom(otherId: targetUserId)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[startChatRoom] finished")
+                case .failure(let error):
+                    self?.logger.error("[startChatRoom] failed: \(error)")
+                }
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS", let roomId = response.content?.roomId {
+                    self?.logger.info("[startChatRoom] SUCCESS")
+                    self?.targetRoomId = roomId
+                    self?.isNavigateToChatRoom = true
+                    
+                } else {
+                    self?.logger.error("[startChatRoom] 응답 실패: \(response.message)")
                 }
             }
             .store(in: &self.cancellables)

@@ -348,6 +348,11 @@ struct ServiceView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.mainBackground)
             .modifier(NavigationBarBackAndHomeModifier())
+            .onChange(of: viewModel.isNavigateToChatRoom) { _, isNavigateToChatRoom in
+                if isNavigateToChatRoom {
+                    
+                }
+            }
         }
     }
 }

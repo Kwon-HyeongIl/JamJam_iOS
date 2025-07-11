@@ -10,7 +10,7 @@ import Combine
 import Alamofire
 
 extension ChatManager {
-    static func startChatRoom(otherId: String) -> AnyPublisher<StartChatRoomResponseDto, Error> {
+    static func startChatRoom(otherId: Int) -> AnyPublisher<StartChatRoomResponseDto, Error> {
         let url = API.startChatRoom.url
         let request = StartChatRoomRequestDto(otherId: otherId)
         
