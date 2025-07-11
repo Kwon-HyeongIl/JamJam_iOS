@@ -12,9 +12,11 @@ struct NavigationBarBackAndNameModifier: ViewModifier {
     @Environment(NavigationCore.self) var navRouter
     
     let name: String
+    var isEntireProgressVisible: Binding<Bool>?
     
-    init(name: String) {
+    init(name: String, isEntireProgressVisible: Binding<Bool>? = nil) {
         self.name = name
+        self.isEntireProgressVisible = isEntireProgressVisible
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -30,6 +32,7 @@ struct NavigationBarBackAndNameModifier: ViewModifier {
         content
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground((isEntireProgressVisible?.wrappedValue ?? false) ? .clear : Color.mainBackground, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
@@ -40,6 +43,7 @@ struct NavigationBarBackAndNameModifier: ViewModifier {
                             .frame(width: 24)
                             .fontWeight(.medium)
                             .foregroundStyle(.black)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
                     }
                 }
                 
@@ -51,6 +55,7 @@ struct NavigationBarBackAndNameModifier: ViewModifier {
                         
                         Text(name)
                             .font(.pretendard(Pretendard.semiBold, size: 19))
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
                     }
                 }
             }

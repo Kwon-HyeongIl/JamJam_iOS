@@ -99,7 +99,7 @@ struct BeforeCheckPasswordView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
-        .modifier(NavigationBarBackAndTitleModifier(title: "비밀번호 확인"))
+        .modifier(NavigationBarBackAndTitleModifier(title: "비밀번호 확인", isEntireProgressVisible: $viewModel.isEntireProgressViewVisible))
         .onTapGesture {
             focus = nil
         }
@@ -112,8 +112,7 @@ struct BeforeCheckPasswordView: View {
         } message: {
             Text(viewModel.checkPasswordAlertMessage)
         }
-        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
-        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
+        .blur(radius: viewModel.isEntireProgressViewVisible ? 1 : 0)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {

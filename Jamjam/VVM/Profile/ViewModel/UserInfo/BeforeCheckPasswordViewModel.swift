@@ -20,7 +20,7 @@ class BeforeCheckPasswordViewModel {
     var isCheckPasswordAlertVisible = false
     var checkPasswordAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     
-    var isEntireProgressViewVisible = false
+    var isEntireProgressViewVisible = true
     var isCheckPasswordCompleted = false
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()

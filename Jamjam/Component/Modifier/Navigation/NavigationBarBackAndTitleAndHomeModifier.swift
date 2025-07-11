@@ -13,9 +13,11 @@ struct NavigationBarBackAndTitleAndHomeModifier: ViewModifier {
     @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
     
     let title: String
+    var isEntireProgressVisible: Binding<Bool>?
     
-    init(title: String) {
+    init(title: String, isEntireProgressVisible: Binding<Bool>? = nil) {
         self.title = title
+        self.isEntireProgressVisible = isEntireProgressVisible
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -31,6 +33,7 @@ struct NavigationBarBackAndTitleAndHomeModifier: ViewModifier {
         content
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground((isEntireProgressVisible?.wrappedValue ?? false) ? .clear : Color.mainBackground, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
@@ -41,12 +44,14 @@ struct NavigationBarBackAndTitleAndHomeModifier: ViewModifier {
                             .frame(width: 24)
                             .fontWeight(.medium)
                             .foregroundStyle(.black)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
                     }
                 }
                 
                 ToolbarItem(placement: .principal) {
                     Text(title)
                         .font(.pretendard(Pretendard.semiBold, size: 18))
+                        .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -59,6 +64,7 @@ struct NavigationBarBackAndTitleAndHomeModifier: ViewModifier {
                             .scaledToFit()
                             .frame(width: 24)
                             .foregroundStyle(Color.JJTitle)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
                     }
                 } 
             }

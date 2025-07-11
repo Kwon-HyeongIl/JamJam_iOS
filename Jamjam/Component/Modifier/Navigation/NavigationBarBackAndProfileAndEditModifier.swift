@@ -11,12 +11,13 @@ struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
     @Environment(NavigationCore.self) var navRouter
     
     let nickname: String
-    
     @Binding var isEdditButtonTapped: Bool
+    var isEntireProgressVisible: Binding<Bool>?
     
-    init(nickname: String, isEdditButtonTapped: Binding<Bool>) {
+    init(nickname: String, isEdditButtonTapped: Binding<Bool>, isEntireProgressVisible: Binding<Bool>? = nil) {
         self.nickname = nickname
         self._isEdditButtonTapped = isEdditButtonTapped
+        self.isEntireProgressVisible = isEntireProgressVisible
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -32,6 +33,7 @@ struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
         content
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground((isEntireProgressVisible?.wrappedValue ?? false) ? .clear : Color.mainBackground, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
@@ -42,6 +44,7 @@ struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
                             .frame(width: 24)
                             .fontWeight(.medium)
                             .foregroundStyle(.black)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
                     }
                 }
                 
@@ -54,6 +57,7 @@ struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
                         Text(nickname)
                             .font(.pretendard(Pretendard.semiBold, size: 18))
                     }
+                    .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -67,6 +71,7 @@ struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
                         Image(systemName: "ellipsis")
                             .font(.system(size: 20))
                             .foregroundStyle(.gray)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
                     }
                 }
             }

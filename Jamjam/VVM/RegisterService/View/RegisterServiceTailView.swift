@@ -600,7 +600,7 @@ struct RegisterServiceTailView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
-        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
+        .modifier(NavigationBarTitleAndHomeModifier(title: "서비스 등록", isEntireProgressVisible: $viewModel.isEntireProgressViewVisible))
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {
@@ -613,7 +613,6 @@ struct RegisterServiceTailView: View {
                 .background(.gray.opacity(0.5))
             }
         }
-        .modifier(NavigationBarTitleAndHomeModifier(title: "서비스 등록"))
         .onTapGesture {
             focus = nil
         }

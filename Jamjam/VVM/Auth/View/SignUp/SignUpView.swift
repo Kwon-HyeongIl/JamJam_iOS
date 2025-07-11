@@ -1004,7 +1004,7 @@ struct SignUpView: View {
         .modifierIf(viewModel.pageIndex == 0, then: {
             NavigationBarBackAndTitleModifier(title: "회원 가입")
         }, else: {
-            NavigationBarTitleAndHomeModifier(title: "회원 가입")
+            NavigationBarTitleAndHomeModifier(title: "회원 가입", isEntireProgressVisible: $viewModel.isEntireProgressViewVisible)
         })
         .background(Color.mainBackground)
         .alert("회원가입 실패", isPresented: $viewModel.isSignUpAlertVisible) {
@@ -1019,7 +1019,6 @@ struct SignUpView: View {
         .onTapGesture {
             focus = nil
         }
-        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {

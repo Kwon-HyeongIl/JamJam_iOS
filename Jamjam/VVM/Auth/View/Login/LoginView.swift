@@ -129,7 +129,7 @@ struct LoginView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
-        .modifier(NavigationBarBackAndTitleModifier(title: "로그인"))
+        .modifier(NavigationBarBackAndTitleModifier(title: "로그인", isEntireProgressVisible: $viewModel.isEntireProgressViewVisible))
         .background(Color.mainBackground)
         .onTapGesture {
             focus = nil
@@ -146,7 +146,6 @@ struct LoginView: View {
         } message: {
             Text(viewModel.loginAlertMessage)
         }
-        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {

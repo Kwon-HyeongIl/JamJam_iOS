@@ -11,7 +11,11 @@ import SwiftUI
 struct NavigationBarBackAndLogoAndLoginButtonModifier: ViewModifier {
     @Environment(NavigationCore.self) var navRouter
     
-    init() {
+    var isEntireProgressVisible: Binding<Bool>?
+    
+    init(isEntireProgressVisible: Binding<Bool>? = nil) {
+        self.isEntireProgressVisible = isEntireProgressVisible
+        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(Color.mainBackground)
@@ -26,6 +30,7 @@ struct NavigationBarBackAndLogoAndLoginButtonModifier: ViewModifier {
         content
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground((isEntireProgressVisible?.wrappedValue ?? false) ? .clear : Color.mainBackground, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
@@ -36,6 +41,7 @@ struct NavigationBarBackAndLogoAndLoginButtonModifier: ViewModifier {
                             .frame(width: 24)
                             .fontWeight(.medium)
                             .foregroundStyle(.black)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
                     }
                 }
                 
@@ -44,6 +50,7 @@ struct NavigationBarBackAndLogoAndLoginButtonModifier: ViewModifier {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 45)
+                        .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -59,6 +66,7 @@ struct NavigationBarBackAndLogoAndLoginButtonModifier: ViewModifier {
                                     .foregroundStyle(.white)
                             }
                             .padding(.trailing, 20)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
                     }
                 }
             }

@@ -758,14 +758,13 @@ struct EditUserInfoView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
-        .modifier(NavigationBarBackAndTitleModifier(title: "기본 정보 수정"))
+        .modifier(NavigationBarBackAndTitleModifier(title: "기본 정보 수정", isEntireProgressVisible: $viewModel.isEntireProgressViewVisible))
         .onTapGesture {
             focus = nil
         }
         .onChange(of: viewModel.isUpdateCompleted) {
             navRouter.back()
         }
-        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {

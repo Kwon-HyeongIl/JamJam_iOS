@@ -114,8 +114,7 @@ struct RegisterServiceLeadView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
-        .modifier(NavigationBarRegisterServiceLeadModifier(title: "서비스 등록"))
-        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
+        .modifier(NavigationBarRegisterServiceLeadModifier(title: "서비스 등록", isEntireProgressVisible: $viewModel.isEntireProgressViewVisible))
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {
