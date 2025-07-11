@@ -46,6 +46,8 @@ class AuthCore {
     
     var userId: Int?
     
+    var role: Role?
+    
     var isLogin: Bool {
         if let accessToken = accessToken, !accessToken.isEmpty {
             true
@@ -120,6 +122,10 @@ class AuthCore {
                         self?.logger.info("[refreshAccessToken] 토큰 응답 완료")
                         self?.accessToken = receivedAccessToken
                         
+                        if let role = self?.extractRoleFromJWTAccessToken(receivedAccessToken) {
+                            self?.role = Role(rawValue: role)
+                        }
+                        
                     } else {
                         self?.logger.error("[refreshAccessToken] 토큰 응답 실패: \(response.message)")
                     }
@@ -128,8 +134,8 @@ class AuthCore {
         }
     }
     
-    private func extractUserIdFromJWTAccessToken(_ accessToken: String) -> Int? {
-        let parts = accessToken.split(separator: ".")
+    private func extractUserIdFromJWTAccessToken(_ jwt: String) -> Int? {
+        let parts = jwt.split(separator: ".")
         guard parts.count == 3 else { return nil }
 
         var payload = String(parts[1])
@@ -158,4 +164,20 @@ class AuthCore {
         return nil
     }
 
+    func extractRoleFromJWTAccessToken(_ jwt: String) -> String? {
+        let segments = jwt.split(separator: ".")
+        guard segments.count >= 2 else { return nil }
+        
+        var base64 = String(segments[1])
+            .replacingOccurrences(of: "-", with: "+")
+            .replacingOccurrences(of: "_", with: "/")
+        let padding = 4 - base64.count % 4
+        if padding < 4 { base64 += String(repeating: "=", count: padding) }
+        guard let payloadData = Data(base64Encoded: base64) else { return nil }
+        
+        guard let json = try? JSONSerialization.jsonObject(with: payloadData) as? [String: Any],
+              let role = json["role"] as? String else { return nil }
+        
+        return role.replacingOccurrences(of: "ROLE_", with: "")
+    }
 }

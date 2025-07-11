@@ -11,6 +11,7 @@ import PhotosUI
 
 struct RegisterServiceTailView: View {
     @Environment(NavigationCore.self) var navRouter
+    @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
     @Bindable var viewModel: RegisterServiceViewModel
     
     @FocusState private var focus: TextFieldFocusField?
@@ -619,6 +620,7 @@ struct RegisterServiceTailView: View {
         }
         .onChange(of: viewModel.isRegisterCompleted) { _, newValue in
             if newValue {
+                mainTabBarCapsule.selectedTab = .home
                 navRouter.popToRoot()
             }
         }

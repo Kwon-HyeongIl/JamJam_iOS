@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 class ProviderProfileEditViewModel {
-    var pageIndex = 4
+    var pageIndex = 0
     
     var title: String {
         switch pageIndex {

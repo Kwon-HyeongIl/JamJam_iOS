@@ -14,6 +14,23 @@ import os
 class RegisterServiceViewModel: Hashable, Equatable {
     var pageIndex = 0
     
+    var isEntranceAlertVisible = false
+    var entranceAlertMessage = ""
+    var isLoginAlertType = false
+    var isProviderAlertType = false
+    var isProfileInfoCompletedAlertType = false
+    
+    var isLogin: Bool {
+        AuthCore.shared.isLogin
+    }
+    
+    var role: Role? {
+        AuthCore.shared.role
+    }
+    
+    var isProfileInfoCompleted = false
+    var isCheckProfileInfoCompletionResponseReceived = false
+    
     // MARK: Page Index 0
     var initialDescription = ""
     var isInitialContentsGenerateCompleted = false
@@ -46,6 +63,37 @@ class RegisterServiceViewModel: Hashable, Equatable {
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "RegisterServiceViewModel")
+    
+    init() {
+        checkProfileInfoCompletion()
+    }
+    
+    func checkProfileInfoCompletion() {
+        UserManager.fetchProvider()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[fetchProvider] completion finished")
+                case .failure(let error):
+                    self?.logger.error("[fetchProvider] completion failed: \(error)")
+                }
+                
+                self?.isCheckProfileInfoCompletionResponseReceived = true
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS" {
+                    self?.logger.info("[fetchProvider] SUCCESS")
+                    
+                    if let _ = response.content  {
+                        self?.isProfileInfoCompleted = true
+                    }
+             
+                } else {
+                    self?.logger.error("[fetchProvider] 응답 처리 실패: \(response.message)")
+                }
+            }
+            .store(in: &self.cancellables)
+    }
     
     func generateService() {
         let request = GenerateServiceRequestDto(description: initialDescription)

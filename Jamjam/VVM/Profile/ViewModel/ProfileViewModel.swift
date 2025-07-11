@@ -32,7 +32,7 @@ class ProfileViewModel {
                 if response.code == "SUCCESS", let content = response.content {
                     self?.logger.info("[fetchUser] SUCCESS")
                     
-                    guard let roleEnum = JJUser(rawValue: content.role),
+                    guard let roleEnum = Role(rawValue: content.role),
                           let genderEnum = Gender(rawValue: content.gender) else {
                         self?.logger.error("[fetchUser] roleEnum, genderEnum 변환 실패")
                         return

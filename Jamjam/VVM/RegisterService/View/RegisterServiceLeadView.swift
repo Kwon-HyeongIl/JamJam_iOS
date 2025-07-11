@@ -10,6 +10,7 @@ import Shimmer
 
 struct RegisterServiceLeadView: View {
     @Environment(NavigationCore.self) var navRouter
+    @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
     @State private var viewModel = RegisterServiceViewModel()
     
     @FocusState private var focus: TextFieldFocusField?
@@ -115,6 +116,28 @@ struct RegisterServiceLeadView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
         .modifier(NavigationBarRegisterServiceLeadModifier(title: "서비스 등록", isEntireProgressVisible: $viewModel.isEntireProgressViewVisible))
+        .alert("주의", isPresented: $viewModel.isEntranceAlertVisible) {
+            Button {
+                if viewModel.isLoginAlertType {
+                    mainTabBarCapsule.selectedTab = .home
+                    navRouter.back()
+                    navRouter.navigate(.loginView)
+                    
+                } else if viewModel.isProviderAlertType {
+                    mainTabBarCapsule.selectedTab = .home
+                    navRouter.back()
+                    
+                } else if viewModel.isProfileInfoCompletedAlertType {
+                    mainTabBarCapsule.selectedTab = .home
+                    navRouter.back()
+                    navRouter.navigate(.providerProfileEditView)
+                }
+            } label: {
+                Text("확인")
+            }
+        } message: {
+            Text(viewModel.entranceAlertMessage)
+        }
         .blur(radius: viewModel.isEntireProgressViewVisible ? 1 : 0)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
@@ -139,8 +162,29 @@ struct RegisterServiceLeadView: View {
                 navRouter.navigate(.registerServiceTailView(viewModel))
             }
         }
+        .onChange(of: viewModel.isCheckProfileInfoCompletionResponseReceived) { _, newValue in
+            if newValue {
+                if !viewModel.isProfileInfoCompleted {
+                    viewModel.entranceAlertMessage = "프로필 정보를 먼저 등록해 주세요."
+                    viewModel.isProfileInfoCompletedAlertType = true
+                    viewModel.isEntranceAlertVisible = true
+                }
+            }
+        }
         .onTapGesture {
             focus = nil
+        }
+        .onAppear {
+            if !viewModel.isLogin {
+                viewModel.entranceAlertMessage = "로그인이 필요한 서비스입니다."
+                viewModel.isLoginAlertType = true
+                viewModel.isEntranceAlertVisible = true
+                
+            } else if viewModel.role == .client {
+                viewModel.entranceAlertMessage = "전문가 역할만 이용 가능한 서비스입니다."
+                viewModel.isProviderAlertType = true
+                viewModel.isEntranceAlertVisible = true
+            }
         }
     }
 }
