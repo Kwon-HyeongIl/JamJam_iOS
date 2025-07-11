@@ -31,7 +31,7 @@ struct ChatListView: View {
                         ForEach(viewModel.chatRooms, id: \.roomId) { chatRoom in
                             ChatCellView(chatRoom: chatRoom)
                                 .onTapGesture {
-                                    navRouter.navigate(.chatContentView(chatRoom))
+                                    navRouter.navigate(.chatContentView(chatRoom.roomId, chatRoom.nickname, chatRoom.profileUrl))
                                 }
                         }
                     }
@@ -42,10 +42,7 @@ struct ChatListView: View {
         .background(Color.mainBackground)
         .onAppear {
             viewModel.fetchChatRooms()
-            
-            if viewModel.isStompClientInitPossible {
-                viewModel.initStompClient()
-            }
+            viewModel.connectStompChatRoomList()
         }
     }
 }

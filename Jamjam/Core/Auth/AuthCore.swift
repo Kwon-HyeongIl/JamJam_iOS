@@ -32,6 +32,10 @@ class AuthCore {
                     self.userId = userId
                     logger.info("[accessToken didSet] 로그인 된 userId: \(userId)")
                     
+                    if self.isLogin {
+                        StompCore.shared.initStompClient()
+                    }
+                    
                 } else {
                     logger.error("[accessToken didSet] userId 추출 실패")
                 }
@@ -58,8 +62,6 @@ class AuthCore {
     
     var fcmDeviceToken: String?
     var googleAccessToken: String?
-    
-    var isStompClientInit = false
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "AuthCore")

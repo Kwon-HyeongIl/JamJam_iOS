@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ServiceView: View {
     @Environment(NavigationCore.self) var navRouter
+    @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
     @State private var viewModel: ServiceViewModel
     
     @State private var position = ScrollPosition()
@@ -350,7 +351,8 @@ struct ServiceView: View {
             .modifier(NavigationBarBackAndHomeModifier())
             .onChange(of: viewModel.isNavigateToChatRoom) { _, isNavigateToChatRoom in
                 if isNavigateToChatRoom {
-                    
+                    mainTabBarCapsule.selectedTab = .chat
+                    navRouter.navigate(.chatContentView(viewModel.targetRoomId, viewModel.service?.nickname, viewModel.service?.profileUrl))
                 }
             }
         }

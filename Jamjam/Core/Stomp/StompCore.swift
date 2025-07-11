@@ -18,7 +18,7 @@ class StompCore {
     var client: SwiftStomp?
     
     var socketConnectionStatusRouter = CurrentValueSubject<SocketConnectionStatus, Never>(.disconnected)
-    var chatRoomReceivedRouter = PassthroughSubject<ChatRoomDomainModel, Never>()
+    var chatRoomReceivedRouter = PassthroughSubject<ChatRoomCellDomainModel, Never>()
     var chatMessageReceivedRouter = PassthroughSubject<ChatMessageDomainModel, Never>()
     
     private struct TypeOnly: Decodable { let type: String }
@@ -38,8 +38,6 @@ class StompCore {
         client?.enableLogging = true
         
         bindStompEvents()
-        
-        AuthCore.shared.isStompClientInit = true
     }
     
     private func bindStompEvents() {
@@ -91,7 +89,7 @@ class StompCore {
                 case "CHAT_ROOM_UPDATE":
                     if let dto = try? JSONDecoder().decode(SocketChatRoomResponseDto.self, from: data),
                        let content = dto.content {
-                        let chatRoom = ChatRoomDomainModel(fromChatSocketRoomResponse: content)
+                        let chatRoom = ChatRoomCellDomainModel(fromChatSocketRoomResponse: content)
                         self?.chatRoomReceivedRouter.send(chatRoom)
                         
                     } else {

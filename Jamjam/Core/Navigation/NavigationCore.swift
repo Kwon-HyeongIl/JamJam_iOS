@@ -35,8 +35,8 @@ class NavigationCore {
             RegisterServiceTailView(viewModel: viewModel)
             
             // MARK: Chat
-        case .chatContentView(let chatRoom):
-            ChatContentView(chatRoom: chatRoom)
+        case .chatContentView(let roomId, let nickname, let profileImageUrl):
+            ChatContentView(roomId: roomId, nickname: nickname, profileImageUrl: profileImageUrl)
             
             // MARK: Profile
         case .beforeCheckPasswordView(let user):

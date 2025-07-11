@@ -11,7 +11,9 @@ import os
 
 @Observable
 class ChatContentViewModel {
-    let chatRoom: ChatRoomDomainModel
+    let roomId: Int?
+    let otherNickname: String?
+    let otherProfileImageUrl: String?
     
     var messages: [ChatMessageDomainModel] = []
     
@@ -24,8 +26,10 @@ class ChatContentViewModel {
     @ObservationIgnored private var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ChatContentViewModel")
     
-    init(chatRoom: ChatRoomDomainModel) {
-        self.chatRoom = chatRoom
+    init(roomId: Int?, nickname: String?, profileImageUrl: String?) {
+        self.roomId = roomId
+        self.otherNickname = nickname
+        self.otherProfileImageUrl = profileImageUrl
         
         fetchChatMessages()
         
@@ -48,8 +52,9 @@ class ChatContentViewModel {
                 guard let self else { return }
                 
                 if case .connected = status {
-                    logger.info("[socketConnectionStatusRouter] 연결 상태 확인, 방 구독 시작, target roomId: \(chatRoom.roomId)")
-                    StompManager.subscribeChatRoomMessage(roomId: chatRoom.roomId)
+                    guard let roomId else { return }
+                    logger.info("[socketConnectionStatusRouter] 연결 상태 확인, 방 구독 시작, target roomId: \(roomId)")
+                    StompManager.subscribeChatRoomMessage(roomId: roomId)
                 }
             }
             .store(in: &cancellables)
@@ -72,10 +77,10 @@ class ChatContentViewModel {
     }
     
     private func fetchChatMessages() {
+        guard let roomId else { return }
         let request = FetchChatMessagesRequestDto(page: 0, size: 20, sort: ["lastMessageTime,desc"])
-        let chatRoomId = chatRoom.roomId
         
-        ChatManager.fetchChatMessages(request: request, chatRoomId: chatRoomId)
+        ChatManager.fetchChatMessages(request: request, chatRoomId: roomId)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -106,10 +111,10 @@ class ChatContentViewModel {
     
     func readLastMessage() {
         guard let lastMessageId = messages.last?.messageId else { return }
+        guard let roomId else { return }
         let request = ReadLastMessageRequestDto(lastReadMessageId: lastMessageId)
-        let chatRoomId = chatRoom.roomId
         
-        ChatManager.readLastMessage(request: request, chatRoomId: chatRoomId)
+        ChatManager.readLastMessage(request: request, chatRoomId: roomId)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -130,7 +135,9 @@ class ChatContentViewModel {
     }
     
     func send() {
-        StompManager.sendMessage(roomId: chatRoom.roomId, text: inputMessage)
+        guard let roomId else { return }
+        
+        StompManager.sendMessage(roomId: roomId, text: inputMessage)
         
         DispatchQueue.main.async {
             self.inputMessage = ""
@@ -138,7 +145,9 @@ class ChatContentViewModel {
     }
     
     func deleteChatRoom() {
-        ChatManager.deleteChatRoom(targetChatRoomId: chatRoom.roomId)
+        guard let roomId else { return }
+        
+        ChatManager.deleteChatRoom(targetChatRoomId: roomId)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {

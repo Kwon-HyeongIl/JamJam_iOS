@@ -22,7 +22,7 @@ enum NavigationDestinationPath: Hashable {
     case registerServiceTailView(RegisterServiceViewModel)
     
     // Chat
-    case chatContentView(ChatRoomDomainModel)
+    case chatContentView(Int?, String?, String?)
     
     // Profile
     case beforeCheckPasswordView(UserDomainModel?)

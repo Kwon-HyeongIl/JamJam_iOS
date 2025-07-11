@@ -13,8 +13,8 @@ struct ChatContentView: View {
     
     @FocusState private var focus: TextFieldFocusField?
     
-    init(chatRoom: ChatRoomDomainModel) {
-        viewModel = ChatContentViewModel(chatRoom: chatRoom)
+    init(roomId: Int?, nickname: String?, profileImageUrl: String?) {
+        viewModel = ChatContentViewModel(roomId: roomId, nickname: nickname, profileImageUrl: profileImageUrl)
     }
     
     var body: some View {
@@ -152,7 +152,7 @@ struct ChatContentView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
-        .modifier(NavigationBarBackAndProfileAndEditModifier(nickname: viewModel.chatRoom.nickname, isEdditButtonTapped: $viewModel.isEditButtonTapped))
+        .modifier(NavigationBarBackAndProfileAndEditModifier(nickname: viewModel.otherNickname ?? "", isEdditButtonTapped: $viewModel.isEditButtonTapped))
         .alert("채팅방을 나가시겠습니까?", isPresented: $viewModel.isEditButtonTapped) {
             Button(role: .cancel) {
                 
@@ -184,16 +184,15 @@ struct ChatContentView: View {
             }
         }
         .onDisappear {
-            if viewModel.chatRoom.unreadCount > 0 {
-                viewModel.readLastMessage()
-            }
+            /// 이후에 요청 최적화
+            viewModel.readLastMessage()
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        ChatContentView(chatRoom: ChatRoomDomainModel(fromFetchChatRoomsResponse: .init(id: 0, nickname: "", lastMessage: "", lastMessageTime: "", unreadCount: 0, profileUrl: "")))
+        ChatContentView(roomId: 0, nickname: "", profileImageUrl: "")
             .environment(NavigationCore())
     }
 }

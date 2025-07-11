@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChatRoomDomainModel: Hashable, Equatable {
+struct ChatRoomCellDomainModel {
     let roomId: Int
     let nickname: String
     let lastMessage: String

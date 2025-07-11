@@ -11,18 +11,12 @@ import os
 
 @Observable
 class ChatListViewModel {
-    var chatRooms: [ChatRoomDomainModel] = []
-    
-    var isStompClientInitPossible: Bool {
-        !AuthCore.shared.isStompClientInit && AuthCore.shared.isLogin
-    }
+    var chatRooms: [ChatRoomCellDomainModel] = []
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ChatViewModel")
     
-    func initStompClient() {
-        StompCore.shared.initStompClient()
-        
+    func connectStompChatRoomList() {
         subscribeStompChatRoomList()
         StompManager.connect()
     }
@@ -100,7 +94,7 @@ class ChatListViewModel {
                     
                     if let rooms = response.content?.rooms {
                         let chatRooms = rooms.map {
-                            ChatRoomDomainModel(fromFetchChatRoomsResponse: $0)
+                            ChatRoomCellDomainModel(fromFetchChatRoomsResponse: $0)
                         }
                         self?.chatRooms = chatRooms
                     }
