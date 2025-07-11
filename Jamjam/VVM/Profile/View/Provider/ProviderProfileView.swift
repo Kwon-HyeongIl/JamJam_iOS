@@ -216,7 +216,7 @@ struct ProviderProfileView: View {
                                     }
                                 }
                             }
-                            .padding(.top)
+                            .padding(.top, 10)
                             .background(Color.mainBackground)
                         }
                     }

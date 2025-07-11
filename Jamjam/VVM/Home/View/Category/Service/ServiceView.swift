@@ -125,6 +125,7 @@ struct ServiceView: View {
                         .background(Color.JJTitle)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding(.horizontal)
+                        .padding(.bottom, 5)
                         
                         LazyVStack(pinnedViews: [.sectionHeaders]) {
                             Section {
@@ -271,10 +272,30 @@ struct ServiceView: View {
                                         }
                                     }
                                 }
-                                .padding(.top)
+                                .padding(.top, 10)
                                 .background(Color.mainBackground)
                             }
                         }
+                    }
+                }
+                .scrollPosition($position)
+                .onScrollGeometryChange(for: CGFloat.self) { geometry in
+                    geometry.contentOffset.y
+                } action: { oldY, newY in
+                    if newY <= 0 {
+                        withAnimation(.customAnimation) {
+                            viewModel.isTabBarVisible = true
+                        }
+                        
+                        return
+                    }
+                    
+                    let delta = newY - oldY
+                    
+                    guard abs(delta) > 5 else { return }
+                    
+                    withAnimation(.customAnimation) {
+                        viewModel.isTabBarVisible = delta < 0
                     }
                 }
                 .safeAreaInset(edge: .bottom) {
