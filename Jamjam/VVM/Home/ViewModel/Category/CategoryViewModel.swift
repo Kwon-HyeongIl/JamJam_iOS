@@ -16,7 +16,7 @@ class CategoryViewModel {
     var services: [ServiceCellDomainModel] = []
     
     var currentPage = 0
-    var totalPage = 0
+    var hasNextPage = true
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "CategoryViewModel")
@@ -28,21 +28,18 @@ class CategoryViewModel {
     
     init(skill: Skill) {
         selectedSkill = skill
-        fetchServiceWithCategory()
     }
     
     func restoreServices() {
         services = []
         currentPage = 0
-        totalPage = 0
+        hasNextPage = true
     }
     
     func fetchServiceWithCategory() {
-        guard let category = selectedSkill?.rawValue else { return }
+        guard hasNextPage else { return }
         
-        if currentPage != 0 {
-            guard currentPage < totalPage else { return }
-        }
+        guard let category = selectedSkill?.rawValue else { return }
         
         let request = FetchServicesRequestDto(
             category: category,
@@ -62,22 +59,28 @@ class CategoryViewModel {
                 case .failure(let error):
                     self?.logger.error("[fetchServices] completion failed: \(error)")
                 }
-                
             } receiveValue: { [weak self] response in
-                if response.code == "SUCCESS" {
+                if response.code == "SUCCESS", let content = response.content {
                     self?.logger.info("[fetchServices] SUCCESS")
                     
-                    if let inContent = response.content?.content {
-                        let newServices = inContent.map { service in
-                            ServiceCellDomainModel(thumbnailUrl: service.thumbnailUrl, serviceName: service.serviceName, providerName: service.providerName, salary: service.salary)
+                    if let services = content.services {
+                        let newServices = services.map { service in
+                            ServiceCellDomainModel(
+                                serviceId: service.serviceId,
+                                thumbnailUrl: service.thumbnailUrl,
+                                serviceName: service.serviceName,
+                                providerName: service.providerName,
+                                salary: service.salary
+                            )
                         }
                         
                         self?.services.append(contentsOf: newServices)
+                        
+                    } else {
+                        self?.logger.error("[fetchServices] service nil")
                     }
                     
-                    if let totalPages = response.content?.totalPages {
-                        self?.totalPage = totalPages
-                    }
+                    self?.hasNextPage = content.hasNext
                     
                 } else {
                     self?.logger.error("[fetchServices] 응답 처리 실패: \(response.message)")

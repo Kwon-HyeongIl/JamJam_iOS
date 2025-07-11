@@ -61,10 +61,10 @@ struct CategoryView: View {
                         LazyVStack(pinnedViews: [.sectionHeaders]) {
                             Section {
                                 LazyVGrid(columns: viewModel.columns, spacing: 10) {
-                                    ForEach(viewModel.services, id: \.id) { service in
+                                    ForEach(viewModel.services, id: \.serviceId) { service in
                                         ServiceCellView(service: service, upperWidth: proxy.size.width)
                                             .onAppear {
-                                                if service.id == viewModel.services.last?.id {
+                                                if service.serviceId == viewModel.services.last?.serviceId {
                                                     viewModel.fetchServiceWithCategory()
                                                 }
                                             }
@@ -139,6 +139,9 @@ struct CategoryView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.mainBackground)
             .modifier(NavigationBarBackAndLogoAndLoginButtonModifier())
+            .onAppear {
+                viewModel.fetchServiceWithCategory()
+            }
         }
     }
 }

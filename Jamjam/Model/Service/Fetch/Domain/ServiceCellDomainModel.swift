@@ -7,11 +7,10 @@
 
 import Foundation
 
-struct ServiceCellDomainModel: Identifiable {
+struct ServiceCellDomainModel {
+    let serviceId: Int
     let thumbnailUrl: String
     let serviceName: String
     let providerName: String
     let salary: Int
-    
-    let id = UUID() // Identifiable
 }

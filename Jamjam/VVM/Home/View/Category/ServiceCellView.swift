@@ -66,5 +66,5 @@ struct ServiceCellView: View {
 }
 
 #Preview {
-    ServiceCellView(service: ServiceCellDomainModel(thumbnailUrl: "https://github.com/user-attachments/assets/a3f573b2-1618-4b4f-ac2c-dc50005d6b0a", serviceName: "경제스톡", providerName: "권형일", salary: 10000), upperWidth: 100)
+    ServiceCellView(service: ServiceCellDomainModel(serviceId: 0, thumbnailUrl: "https://github.com/user-attachments/assets/a3f573b2-1618-4b4f-ac2c-dc50005d6b0a", serviceName: "경제스톡", providerName: "권형일", salary: 10000), upperWidth: 100)
 }
