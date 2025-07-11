@@ -16,18 +16,6 @@ struct RegisterServiceLeadView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            VStack {
-                HStack {
-                    Text("서비스 등록")
-                        .font(.pretendard(Pretendard.semiBold, size: 25))
-                        .padding(.leading, 20)
-                    
-                    Spacer()
-                }
-            }
-            .frame(height: 50)
-            .background(Color.mainBackground)
-            
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30) {
                     HStack {
@@ -106,7 +94,7 @@ struct RegisterServiceLeadView: View {
                         Spacer()
                         
                         Button {
-                            viewModel.isAiGenerateContentsProgressViewVisible = true
+                            viewModel.isEntireProgressViewVisible = true
                             viewModel.pageIndex = 1
                             viewModel.generateService()
                         } label: {
@@ -116,7 +104,7 @@ struct RegisterServiceLeadView: View {
                                 .frame(width: 130)
                                 .scaleEffect(1.2)
                                 .padding(.trailing, 7)
-                                .shimmering(active: viewModel.isAiGenerateContentsProgressViewVisible)
+                                .shimmering(active: viewModel.isEntireProgressViewVisible)
                                 .opacity(viewModel.initialDescription.isEmpty ? 0.4 : 1)
                         }
                         .disabled(viewModel.initialDescription.isEmpty)
@@ -126,9 +114,10 @@ struct RegisterServiceLeadView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
-        .toolbarBackground(viewModel.isAiGenerateContentsProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
+        .modifier(NavigationBarRegisterServiceLeadModifier(title: "서비스 등록"))
+        .toolbarBackground(viewModel.isEntireProgressViewVisible ? .clear : Color.mainBackground, for: .navigationBar)
         .overlay {
-            if viewModel.isAiGenerateContentsProgressViewVisible {
+            if viewModel.isEntireProgressViewVisible {
                 VStack {
                     VStack(spacing: 15) {
                         ProgressView()
@@ -157,6 +146,9 @@ struct RegisterServiceLeadView: View {
 }
 
 #Preview {
-    RegisterServiceLeadView()
-        .environment(NavigationCore())
+    NavigationStack {
+        RegisterServiceLeadView()
+            .environment(NavigationCore())
+            .environment(MainTabBarCapsule())
+    }
 }

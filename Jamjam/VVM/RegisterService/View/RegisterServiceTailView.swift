@@ -335,7 +335,7 @@ struct RegisterServiceTailView: View {
                                                 } label: {
                                                     Image(systemName: "xmark.circle.fill")
                                                         .font(.system(size: 20))
-                                                        .foregroundStyle(.gray.opacity(0.7))
+                                                        .foregroundStyle(.gray.opacity(0.8))
                                                         .padding(.trailing, 30)
                                                 }
 
@@ -360,11 +360,11 @@ struct RegisterServiceTailView: View {
                                                 VStack(spacing: 10) {
                                                     Image(systemName: "photo")
                                                         .font(.system(size: 35))
-                                                        .foregroundStyle(.gray.opacity(0.7))
+                                                        .foregroundStyle(.gray.opacity(0.8))
                                                     
                                                     Text("사진 업로드")
                                                         .font(.pretendard(Pretendard.regular, size: 16))
-                                                        .foregroundStyle(.gray.opacity(0.7))
+                                                        .foregroundStyle(.gray.opacity(0.8))
                                                 }
                                                 
                                             } else {
@@ -441,11 +441,11 @@ struct RegisterServiceTailView: View {
                                         VStack(spacing: 10) {
                                             Image(systemName: "photo")
                                                 .font(.system(size: 35))
-                                                .foregroundStyle(.gray.opacity(0.7))
+                                                .foregroundStyle(.gray.opacity(0.8))
                                             
                                             Text("탭하여 사진 불러오기")
                                                 .font(.pretendard(Pretendard.regular, size: 16))
-                                                .foregroundStyle(.gray.opacity(0.7))
+                                                .foregroundStyle(.gray.opacity(0.8))
                                         }
                                     }
                                 }
@@ -469,7 +469,7 @@ struct RegisterServiceTailView: View {
                                                                     } label: {
                                                                         Image(systemName: "xmark.circle.fill")
                                                                             .font(.system(size: 20))
-                                                                            .foregroundStyle(.gray.opacity(0.7))
+                                                                            .foregroundStyle(.gray.opacity(0.8))
                                                                             .padding(.trailing, 5)
                                                                     }
                                                                     

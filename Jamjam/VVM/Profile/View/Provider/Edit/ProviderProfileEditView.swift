@@ -383,7 +383,7 @@ struct ProviderProfileEditView: View {
                                             HStack {
                                                 Text("\(viewModel.selectedDetailSkillIds.count)개 선택됨")
                                                     .font(.pretendard(size: 12))
-                                                    .foregroundStyle(.gray.opacity(0.7))
+                                                    .foregroundStyle(.gray.opacity(0.8))
                                                     .padding(.leading, 20)
                                                     .padding(.bottom, 8)
                                                 
@@ -615,11 +615,11 @@ struct ProviderProfileEditView: View {
                                             HStack {
                                                 Image(systemName: "plus.app")
                                                     .font(.system(size: 16))
-                                                    .foregroundStyle(.gray.opacity(0.7))
+                                                    .foregroundStyle(.gray.opacity(0.8))
                                                 
                                                 Text("경력 추가")
                                                     .font(.pretendard(Pretendard.regular, size: 16))
-                                                    .foregroundStyle(.gray.opacity(0.7))
+                                                    .foregroundStyle(.gray.opacity(0.8))
                                             }
                                         }
                                         .onTapGesture {
@@ -847,11 +847,11 @@ struct ProviderProfileEditView: View {
                                             HStack {
                                                 Image(systemName: "plus.app")
                                                     .font(.system(size: 16))
-                                                    .foregroundStyle(.gray.opacity(0.7))
+                                                    .foregroundStyle(.gray.opacity(0.8))
                                                 
                                                 Text("학력 추가")
                                                     .font(.pretendard(Pretendard.regular, size: 16))
-                                                    .foregroundStyle(.gray.opacity(0.7))
+                                                    .foregroundStyle(.gray.opacity(0.8))
                                             }
                                         }
                                         .onTapGesture {
@@ -965,11 +965,11 @@ struct ProviderProfileEditView: View {
                                             HStack {
                                                 Image(systemName: "plus.app")
                                                     .font(.system(size: 16))
-                                                    .foregroundStyle(.gray.opacity(0.7))
+                                                    .foregroundStyle(.gray.opacity(0.8))
                                                 
                                                 Text("자격증 추가")
                                                     .font(.pretendard(Pretendard.regular, size: 16))
-                                                    .foregroundStyle(.gray.opacity(0.7))
+                                                    .foregroundStyle(.gray.opacity(0.8))
                                             }
                                         }
                                         .onTapGesture {

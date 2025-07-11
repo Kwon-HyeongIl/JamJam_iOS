@@ -27,6 +27,8 @@ class NavigationCore {
             CategoryView(skill: skill)
             
             // MARK: Write
+        case .registerServiceLeadView:
+            RegisterServiceLeadView()
         case .registerServiceTailView(let viewModel):
             RegisterServiceTailView(viewModel: viewModel)
             

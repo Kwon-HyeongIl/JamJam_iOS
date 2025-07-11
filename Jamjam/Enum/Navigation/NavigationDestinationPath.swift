@@ -17,6 +17,7 @@ enum NavigationDestinationPath: Hashable {
     case categoryView(Skill)
     
     // Write
+    case registerServiceLeadView
     case registerServiceTailView(RegisterServiceViewModel)
     
     // Chat

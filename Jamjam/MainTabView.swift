@@ -22,7 +22,7 @@ struct MainTabView: View {
                 HomeView()
                     .tag(MainTab.home)
                 
-                RegisterServiceLeadView()
+                RegisterServiceNavigateView()
                     .tag(MainTab.write)
                 
                 ChatListView()

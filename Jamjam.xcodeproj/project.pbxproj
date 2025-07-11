@@ -111,6 +111,8 @@
 		CA7DE5DC2E2028BE00086E8B /* UserManager+Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5DB2E2028BE00086E8B /* UserManager+Check.swift */; };
 		CA7DE5E02E20293C00086E8B /* CheckPasswordRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5DF2E20293C00086E8B /* CheckPasswordRequestDto.swift */; };
 		CA7DE5E22E20295500086E8B /* CheckPasswordResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5E12E20295500086E8B /* CheckPasswordResponseDto.swift */; };
+		CA7DE5E42E2057CF00086E8B /* RegisterServiceNavigateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5E32E2057CF00086E8B /* RegisterServiceNavigateView.swift */; };
+		CA7DE5E62E205E7500086E8B /* NavigationBarRegisterServiceLeadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DE5E52E205E7500086E8B /* NavigationBarRegisterServiceLeadModifier.swift */; };
 		CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E42DFAF788005377E6 /* Color+Hex.swift */; };
 		CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */; };
 		CA870FBE2E1C49260083449B /* GenerateThumbnailRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA870FBD2E1C49260083449B /* GenerateThumbnailRequestDto.swift */; };
@@ -291,6 +293,8 @@
 		CA7DE5DB2E2028BE00086E8B /* UserManager+Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager+Check.swift"; sourceTree = "<group>"; };
 		CA7DE5DF2E20293C00086E8B /* CheckPasswordRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordRequestDto.swift; sourceTree = "<group>"; };
 		CA7DE5E12E20295500086E8B /* CheckPasswordResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordResponseDto.swift; sourceTree = "<group>"; };
+		CA7DE5E32E2057CF00086E8B /* RegisterServiceNavigateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceNavigateView.swift; sourceTree = "<group>"; };
+		CA7DE5E52E205E7500086E8B /* NavigationBarRegisterServiceLeadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarRegisterServiceLeadModifier.swift; sourceTree = "<group>"; };
 		CA83F6E42DFAF788005377E6 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		CA83F6E62DFAF7DF005377E6 /* Color+MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+MainBackground.swift"; sourceTree = "<group>"; };
 		CA870FBD2E1C49260083449B /* GenerateThumbnailRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateThumbnailRequestDto.swift; sourceTree = "<group>"; };
@@ -1088,6 +1092,7 @@
 				CA9BB52F2E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift */,
 				CA9BB5312E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift */,
 				CAB600382E168DD5004CD644 /* NavigationBarBackAndProfileAndEditModifier.swift */,
+				CA7DE5E52E205E7500086E8B /* NavigationBarRegisterServiceLeadModifier.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -1251,6 +1256,7 @@
 		CAB6001D2E15A669004CD644 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CA7DE5E32E2057CF00086E8B /* RegisterServiceNavigateView.swift */,
 				CA9F46372E101ED600028F83 /* RegisterServiceLeadView.swift */,
 				CA7685282E1BDDB800148204 /* RegisterServiceTailView.swift */,
 			);
@@ -1629,6 +1635,7 @@
 				CAB600032E15480F004CD644 /* SocketConnectionStatus.swift in Sources */,
 				CA7685292E1BDDB800148204 /* RegisterServiceTailView.swift in Sources */,
 				CA7DE5DC2E2028BE00086E8B /* UserManager+Check.swift in Sources */,
+				CA7DE5E62E205E7500086E8B /* NavigationBarRegisterServiceLeadModifier.swift in Sources */,
 				CA35935F2E0514AE0069FAF8 /* CategoryViewModel.swift in Sources */,
 				CA88CEC02E11077800B1116E /* FCMManager.swift in Sources */,
 				CA9F46382E101ED600028F83 /* RegisterServiceLeadView.swift in Sources */,
@@ -1663,6 +1670,7 @@
 				CA7DE5B02E1E610100086E8B /* FetchServicesResponseDto.swift in Sources */,
 				CA7685302E1BE12200148204 /* GenerateServiceRequestDto.swift in Sources */,
 				CA7DE5C02E1ED7A700086E8B /* EditUserInfoView.swift in Sources */,
+				CA7DE5E42E2057CF00086E8B /* RegisterServiceNavigateView.swift in Sources */,
 				CAB600392E168DD5004CD644 /* NavigationBarBackAndProfileAndEditModifier.swift in Sources */,
 				CA870FBE2E1C49260083449B /* GenerateThumbnailRequestDto.swift in Sources */,
 				CA9E38D92DFA5D3500AE12DD /* HomeView.swift in Sources */,

@@ -16,7 +16,6 @@ class RegisterServiceViewModel: Hashable, Equatable {
     
     // MARK: Page Index 0
     var initialDescription = ""
-    var isAiGenerateContentsProgressViewVisible = false
     var isInitialContentsGenerateCompleted = false
     
     // MARK: Page Index 1
@@ -63,7 +62,7 @@ class RegisterServiceViewModel: Hashable, Equatable {
                     self?.logger.error("[generateService] completion failed: \(error)")
                 }
                 
-                self?.isAiGenerateContentsProgressViewVisible = false
+                self?.isEntireProgressViewVisible = false
             } receiveValue: { [weak self] response in
                 if response.code == "SUCCESS", let content = response.content {
                     self?.logger.info("[generateService] SUCCESS")
