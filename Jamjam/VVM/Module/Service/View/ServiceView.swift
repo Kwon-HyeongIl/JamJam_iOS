@@ -84,9 +84,10 @@ struct ServiceView: View {
                                     .font(.pretendard(Pretendard.medium, size: 18))
                                 
                                 HStack(spacing: 5) {
-                                    Image(systemName: "mappin.and.ellipse")
-                                        .font(.system(size: 8))
-                                        .foregroundStyle(.gray)
+                                    Image("location_icon")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 10)
                                     
                                     Text(viewModel.service?.location ?? "")
                                         .font(.pretendard(size: 12))

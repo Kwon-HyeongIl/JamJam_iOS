@@ -53,8 +53,8 @@ struct HomeView: View {
                     VStack(spacing: 0) {
                         // MARK: Main Text
                         HStack {
-                            Text("경험이 있는 손,\n지금 필요한 일에 연결해보세요")
-                                .font(.pretendard(Pretendard.bold, size: 23))
+                            Text("잊혀지는 경력이 아니라,\n이어지는 기회가 되도록")
+                                .font(.pretendard(Pretendard.bold, size: 24))
                                 .multilineTextAlignment(.leading)
                                 .padding(.top)
                                 .padding(.leading, 20)
@@ -71,12 +71,11 @@ struct HomeView: View {
                                 .frame(height: 44)
                                 .padding(.horizontal, 20)
                                 .foregroundStyle(.white)
-                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                 .overlay {
                                     HStack {
                                         Text("필요한 손길을 찾아보세요")
                                             .font(.pretendard(size: 14))
-                                            .foregroundStyle(.gray)
+                                            .foregroundStyle(.gray.opacity(0.8))
                                             .padding(.leading)
                                         
                                         Spacer()
@@ -90,6 +89,7 @@ struct HomeView: View {
                                     }
                                     .padding(.horizontal, 20)
                                 }
+                                .shadow(color: .black.opacity(0.03), radius: 20, x: 0, y: 0)
                         }
                         
                         // MARK: Shuffle Stack
@@ -97,25 +97,27 @@ struct HomeView: View {
                             Image("\(card.image)")
                                 .resizable()
                                 .scaledToFill()
-                                .frame(height: 170)
-                                .frame(maxWidth: UIScreen.main.bounds.width - 130)
+                                .frame(height: 190)
+                                .frame(maxWidth: .infinity)
+                                .frame(maxWidth: UIScreen.main.bounds.width - 95)
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                                 .shadow(color: .gray.opacity(0.3), radius: 5, x: 5, y: 5)
                         }
-                        .shuffleOffset(27)
-                        .shuffleScale(0.1)
+                        .shuffleOffset(30)
+                        .shuffleScale(0)
+                        .shuffleStyle(.rotateOut)
                         .shuffleTrigger(on: viewModel.shufflePublisher)
-                        .padding(.vertical, 32)
+                        .padding(.vertical, 30)
                         
                         // MARK: Category
-                        VStack(spacing: 12) {
+                        VStack(spacing: 15) {
                             HStack(spacing: 15) {
                                 Button {
                                     navRouter.navigate(.categoryView(.management))
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
-                                        .frame(height: 80)
+                                        .frame(height: 95)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -125,7 +127,8 @@ struct HomeView: View {
                                                 Image("business_icon")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 33)
+                                                    .frame(width: 38)
+                                                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 0)
                                                 
                                                 Text(SkillCategory.management.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
@@ -139,7 +142,7 @@ struct HomeView: View {
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
-                                        .frame(height: 80)
+                                        .frame(height: 95)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -149,7 +152,8 @@ struct HomeView: View {
                                                 Image("consulting_icon")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 33)
+                                                    .frame(width: 38)
+                                                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 0)
                                                 
                                                 Text(SkillCategory.consulting.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
@@ -166,7 +170,7 @@ struct HomeView: View {
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
-                                        .frame(height: 80)
+                                        .frame(height: 95)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -176,7 +180,8 @@ struct HomeView: View {
                                                 Image("marketing_icon")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 33)
+                                                    .frame(width: 38)
+                                                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 0)
                                                 
                                                 Text(SkillCategory.marketing.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
@@ -190,7 +195,7 @@ struct HomeView: View {
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
-                                        .frame(height: 80)
+                                        .frame(height: 95)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -200,7 +205,8 @@ struct HomeView: View {
                                                 Image("development_icon")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 33)
+                                                    .frame(width: 38)
+                                                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 0)
                                                 
                                                 Text(SkillCategory.development.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
@@ -217,7 +223,7 @@ struct HomeView: View {
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
-                                        .frame(height: 80)
+                                        .frame(height: 95)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -227,7 +233,8 @@ struct HomeView: View {
                                                 Image("design_icon")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 33)
+                                                    .frame(width: 38)
+                                                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 0)
                                                 
                                                 Text(SkillCategory.design.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
@@ -241,7 +248,7 @@ struct HomeView: View {
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
-                                        .frame(height: 80)
+                                        .frame(height: 95)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -251,7 +258,8 @@ struct HomeView: View {
                                                 Image("write_icon")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 33)
+                                                    .frame(width: 38)
+                                                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 0)
                                                 
                                                 Text(SkillCategory.writing.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
@@ -268,7 +276,7 @@ struct HomeView: View {
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
-                                        .frame(height: 80)
+                                        .frame(height: 95)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -278,7 +286,8 @@ struct HomeView: View {
                                                 Image("translation_icon")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 33)
+                                                    .frame(width: 38)
+                                                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 0)
                                                 
                                                 Text(SkillCategory.translation.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
@@ -292,7 +301,7 @@ struct HomeView: View {
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
-                                        .frame(height: 80)
+                                        .frame(height: 95)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -302,7 +311,8 @@ struct HomeView: View {
                                                 Image("photograph_icon")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 33)
+                                                    .frame(width: 38)
+                                                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 0)
                                                 
                                                 Text(SkillCategory.media.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
@@ -319,7 +329,7 @@ struct HomeView: View {
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
-                                        .frame(height: 80)
+                                        .frame(height: 95)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -329,7 +339,8 @@ struct HomeView: View {
                                                 Image("education_icon")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 33)
+                                                    .frame(width: 38)
+                                                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 0)
                                                 
                                                 Text(SkillCategory.education.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
@@ -343,7 +354,7 @@ struct HomeView: View {
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
-                                        .frame(height: 80)
+                                        .frame(height: 95)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -353,7 +364,8 @@ struct HomeView: View {
                                                 Image("craft_icon")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 33)
+                                                    .frame(width: 38)
+                                                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 0)
                                                 
                                                 Text(SkillCategory.customMade.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
@@ -370,7 +382,7 @@ struct HomeView: View {
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
-                                        .frame(height: 80)
+                                        .frame(height: 95)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -380,7 +392,8 @@ struct HomeView: View {
                                                 Image("hobby_icon")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 33)
+                                                    .frame(width: 38)
+                                                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 0)
                                                 
                                                 Text(SkillCategory.hobbyLesson.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
@@ -394,7 +407,7 @@ struct HomeView: View {
                                 } label: {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
-                                        .frame(height: 80)
+                                        .frame(height: 95)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -404,7 +417,8 @@ struct HomeView: View {
                                                 Image("living_icon")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 33)
+                                                    .frame(width: 38)
+                                                    .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 0)
                                                 
                                                 Text(SkillCategory.lifeService.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
@@ -417,7 +431,7 @@ struct HomeView: View {
                         }
                         
                         VStack {}
-                        .frame(height: 70)
+                            .frame(height: 70)
                     }
                 }
             }

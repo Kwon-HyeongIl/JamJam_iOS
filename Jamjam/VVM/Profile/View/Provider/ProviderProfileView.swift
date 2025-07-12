@@ -80,9 +80,10 @@ struct ProviderProfileView: View {
                                 }
                                 
                                 HStack {
-                                    Image(systemName: "map")
-                                        .font(.pretendard(Pretendard.medium, size: 12))
-                                        .foregroundStyle(.gray)
+                                    Image("location_icon")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 10)
                                     
                                     Text(viewModel.provider?.location ?? "")
                                         .font(.pretendard(Pretendard.medium, size: 12))

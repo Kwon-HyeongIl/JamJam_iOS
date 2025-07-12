@@ -14,7 +14,7 @@ struct MainTabBar: View {
     let isCategoryView: Bool
     
     private var fillImage: String {
-        mainTabBarCapsule.selectedTab.rawValue + ".fill"
+        mainTabBarCapsule.selectedTab.rawValue + "_tint"
     }
     
     var body: some View {
@@ -26,14 +26,13 @@ struct MainTabBar: View {
                     Spacer()
                     
                     VStack {
-                        Image(systemName: mainTabBarCapsule.selectedTab == tab ? fillImage : tab.rawValue)
-                            .scaleEffect(mainTabBarCapsule.selectedTab == tab ? 1.25 : 1.0)
-                            .foregroundStyle(mainTabBarCapsule.selectedTab == tab ? Color.JJTitle : .black)
-                            .frame(width: 15)
-                            .fontWeight(.medium)
-                            .padding(.bottom, 1)
+                        Image(mainTabBarCapsule.selectedTab == tab ? fillImage : tab.rawValue)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 19)
+//                            .scaleEffect(mainTabBarCapsule.selectedTab == tab ? 1.25 : 1.0)
                     }
-                    .padding(.top, 10)
+                    .padding(.top, 15)
                     .onTapGesture {
                         // 햅틱
                         let view = UIView(frame: .zero)
@@ -46,7 +45,6 @@ struct MainTabBar: View {
                             mainTabBarCapsule.selectedTab = tab
                         }
                     }
-                    .padding(.bottom, 5)
                     
                     Spacer()
                 }

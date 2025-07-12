@@ -37,20 +37,20 @@ struct RegisterServiceLeadView: View {
                         VStack(alignment: .leading, spacing: 6) {
                             Text("✨아래 질문을 참고해주시면 더 좋습니다!")
                                 .font(.pretendard(Pretendard.regular, size: 14))
-                                .foregroundStyle(Color.JJTitle.opacity(0.8))
+                                .foregroundStyle(Color.JJTitle)
                                 .padding(.bottom, 10)
                             
                             Text("• 어떤 일을 하시나요?")
                                 .font(.pretendard(Pretendard.regular, size: 14))
-                                .foregroundStyle(.gray.opacity(0.8))
+                                .foregroundStyle(.gray)
                             
                             Text("• 어떤 도움이 필요한 사람에게 이 서비스를 추천하시나요?")
                                 .font(.pretendard(Pretendard.regular, size: 14))
-                                .foregroundStyle(.gray.opacity(0.8))
+                                .foregroundStyle(.gray)
                             
                             Text("• 비슷한 일을 해보신 경험이 있다면 알려주세요!")
                                 .font(.pretendard(Pretendard.regular, size: 14))
-                                .foregroundStyle(.gray.opacity(0.8))
+                                .foregroundStyle(.gray)
                         }
                         
                         Spacer()

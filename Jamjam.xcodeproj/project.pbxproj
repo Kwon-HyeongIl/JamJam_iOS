@@ -518,7 +518,8 @@
 				CA5C5E922E09A20E00FB1E22 /* API */,
 				CA7685442E1C01BC00148204 /* Navigation */,
 				CA7DE5C62E1F865300086E8B /* Bank */,
-				CA4F12342E179DD10061012E /* Profile */,
+				CA4F123A2E17D4DF0061012E /* Region */,
+				CA4F12392E17D4D40061012E /* Skill */,
 				CAB600012E1547FD004CD644 /* Stomp */,
 				CA5C5E7A2E09687A00FB1E22 /* Font */,
 				CA87FF792E014C2B00C8C830 /* User */,
@@ -647,15 +648,6 @@
 				CA4F12212E177DD00061012E /* EditProviderProfileViewModel.swift */,
 			);
 			path = Edit;
-			sourceTree = "<group>";
-		};
-		CA4F12342E179DD10061012E /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				CA4F123A2E17D4DF0061012E /* Region */,
-				CA4F12392E17D4D40061012E /* Skill */,
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		CA4F12392E17D4D40061012E /* Skill */ = {

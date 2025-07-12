@@ -8,8 +8,8 @@
 import Foundation
 
 enum MainTab: String, CaseIterable {
-    case home = "house"
-    case write = "pencil.circle"
-    case chat = "bubble.right"
-    case profile = "person"
+    case home = "home_icon"
+    case write = "register_icon"
+    case chat = "chat_icon"
+    case profile = "profile_icon"
 }
