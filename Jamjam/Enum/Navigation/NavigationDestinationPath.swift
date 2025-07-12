@@ -29,4 +29,5 @@ enum NavigationDestinationPath: Hashable {
     case editUserInfoView(UserDomainModel?)
     case providerProfileView(Int)
     case editProviderProfileView
+    case editNotificationView
 }

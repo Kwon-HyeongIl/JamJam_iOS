@@ -47,6 +47,8 @@ class NavigationCore {
             ProviderProfileView(userId: userId)
         case .editProviderProfileView:
             EditProviderProfileView()
+        case .editNotificationView:
+            EditNotificationView()
         }
     }
     

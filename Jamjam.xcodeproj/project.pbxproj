@@ -59,6 +59,8 @@
 		CA4F12612E1858E50061012E /* DegreeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12602E1858E50061012E /* DegreeForm.swift */; };
 		CA4F12632E185A030061012E /* CertificateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12622E185A030061012E /* CertificateForm.swift */; };
 		CA4FA6A22E22784300DF4AAA /* ServiceContentViewerWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FA6A12E22784300DF4AAA /* ServiceContentViewerWebView.swift */; };
+		CA4FA6A52E22AE3500DF4AAA /* EditNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FA6A42E22AE3500DF4AAA /* EditNotificationView.swift */; };
+		CA4FA6A82E22AE5800DF4AAA /* EditNotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FA6A72E22AE5800DF4AAA /* EditNotificationViewModel.swift */; };
 		CA50CB522E1D3FCC0078AC22 /* StompManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50CB512E1D3FCC0078AC22 /* StompManager.swift */; };
 		CA50CB552E1D46C80078AC22 /* SocketChatRoomResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50CB542E1D46C80078AC22 /* SocketChatRoomResponseDto.swift */; };
 		CA50CB572E1D68C50078AC22 /* RegisterServiceRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50CB562E1D68C50078AC22 /* RegisterServiceRequestDto.swift */; };
@@ -263,6 +265,8 @@
 		CA4F12602E1858E50061012E /* DegreeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreeForm.swift; sourceTree = "<group>"; };
 		CA4F12622E185A030061012E /* CertificateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateForm.swift; sourceTree = "<group>"; };
 		CA4FA6A12E22784300DF4AAA /* ServiceContentViewerWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContentViewerWebView.swift; sourceTree = "<group>"; };
+		CA4FA6A42E22AE3500DF4AAA /* EditNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNotificationView.swift; sourceTree = "<group>"; };
+		CA4FA6A72E22AE5800DF4AAA /* EditNotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNotificationViewModel.swift; sourceTree = "<group>"; };
 		CA50CB512E1D3FCC0078AC22 /* StompManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StompManager.swift; sourceTree = "<group>"; };
 		CA50CB542E1D46C80078AC22 /* SocketChatRoomResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketChatRoomResponseDto.swift; sourceTree = "<group>"; };
 		CA50CB562E1D68C50078AC22 /* RegisterServiceRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceRequestDto.swift; sourceTree = "<group>"; };
@@ -707,6 +711,22 @@
 				CA7DE5CA2E1FE22200086E8B /* Response */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		CA4FA6A32E22AE0F00DF4AAA /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				CA4FA6A42E22AE3500DF4AAA /* EditNotificationView.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		CA4FA6A62E22AE4500DF4AAA /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				CA4FA6A72E22AE5800DF4AAA /* EditNotificationViewModel.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		CA50CB502E1D3F960078AC22 /* Stomp */ = {
@@ -1411,6 +1431,7 @@
 				CA9609B42DFFD50400B878C6 /* ProfileView.swift */,
 				CA7DE5BE2E1ED79400086E8B /* UserInfo */,
 				CA9BB5222E12B8CA0035F26D /* Provider */,
+				CA4FA6A32E22AE0F00DF4AAA /* Notification */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1421,6 +1442,7 @@
 				CA9BB5282E12B9000035F26D /* ProfileViewModel.swift */,
 				CA7DE5C12E1ED7AE00086E8B /* UserInfo */,
 				CAB600312E16825C004CD644 /* Provider */,
+				CA4FA6A62E22AE4500DF4AAA /* Notification */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1719,6 +1741,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4FA6A82E22AE5800DF4AAA /* EditNotificationViewModel.swift in Sources */,
 				CA9BB5322E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift in Sources */,
 				CA7685342E1BE26F00148204 /* ServiceManager+Register.swift in Sources */,
 				CA50CB572E1D68C50078AC22 /* RegisterServiceRequestDto.swift in Sources */,
@@ -1860,6 +1883,7 @@
 				CA4F12512E17D7D50061012E /* HobbyLessonDetail.swift in Sources */,
 				CA4F12632E185A030061012E /* CertificateForm.swift in Sources */,
 				CA9E2A7D2E212B7B00962203 /* PortfolioImageDomainModel.swift in Sources */,
+				CA4FA6A52E22AE3500DF4AAA /* EditNotificationView.swift in Sources */,
 				CA7DE5C52E1ED8D300086E8B /* AccountDomainModel.swift in Sources */,
 				CA7685272E1BDAEE00148204 /* ServiceManager.swift in Sources */,
 				CA4F12412E17D6B60061012E /* MarketingDetail.swift in Sources */,
