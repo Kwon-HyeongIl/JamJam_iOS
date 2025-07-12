@@ -183,10 +183,6 @@ struct ChatContentView: View {
                 navRouter.back()
             }
         }
-        .onDisappear {
-            /// 이후에 요청 최적화
-            viewModel.readLastMessage()
-        }
     }
 }
 

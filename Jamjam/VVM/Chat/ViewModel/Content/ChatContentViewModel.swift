@@ -98,6 +98,9 @@ class ChatContentViewModel {
 
                         self?.messages = chats.map { ChatMessageDomainModel(fromFetchChatMessagesResponse: $0) }
                         
+                        /// 이후에 요청 최적화
+                        self?.readLastMessage()
+                        
                     } else {
                         self?.logger.info("[fetchChatMessages] 이전 메시지 없음")
                     }
@@ -109,7 +112,7 @@ class ChatContentViewModel {
             .store(in: &self.cancellables)
     }
     
-    func readLastMessage() {
+    private func readLastMessage() {
         guard let lastMessageId = messages.last?.messageId else { return }
         guard let roomId else { return }
         let request = ReadLastMessageRequestDto(lastReadMessageId: lastMessageId)

@@ -106,6 +106,9 @@ class StompCore {
                         self?.logger.error("[messagesUpstream] ChatSocketMessageResponseDto 디코딩 실패")
                     }
                     
+                case "MESSAGE_READ":
+                    self?.logger.info("[messagesUpstream] MESSAGE_READ")
+                    
                 default:
                     self?.logger.warning("[messagesUpstream] 미확인 type: \(typeOnly.type)")
                 }
