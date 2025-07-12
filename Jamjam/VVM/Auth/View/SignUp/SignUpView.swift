@@ -1019,7 +1019,7 @@ struct SignUpView: View {
         .onTapGesture {
             focus = nil
         }
-        .blur(radius: viewModel.isEntireProgressViewVisible ? 1 : 0)
+        .blur(radius: viewModel.isEntireProgressViewVisible ? 2.0 : 0)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {

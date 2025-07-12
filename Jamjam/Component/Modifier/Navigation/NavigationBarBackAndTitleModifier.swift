@@ -43,14 +43,14 @@ struct NavigationBarBackAndTitleModifier: ViewModifier {
                             .frame(width: 24)
                             .fontWeight(.medium)
                             .foregroundStyle(.black)
-                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 2.0 : 0)
                     }
                 }
                 
                 ToolbarItem(placement: .principal) {
                     Text(title)
                         .font(.pretendard(Pretendard.semiBold, size: 18))
-                        .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
+                        .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 2.0 : 0)
                 }
             }
     }

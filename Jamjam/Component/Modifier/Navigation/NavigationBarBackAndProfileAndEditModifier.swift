@@ -44,7 +44,7 @@ struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
                             .frame(width: 24)
                             .fontWeight(.medium)
                             .foregroundStyle(.black)
-                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 2.0 : 0)
                     }
                 }
                 
@@ -57,7 +57,7 @@ struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
                         Text(nickname)
                             .font(.pretendard(Pretendard.semiBold, size: 18))
                     }
-                    .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
+                    .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 2.0 : 0)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -71,7 +71,7 @@ struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
                         Image(systemName: "ellipsis")
                             .font(.system(size: 20))
                             .foregroundStyle(.gray)
-                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 2.0 : 0)
                     }
                 }
             }

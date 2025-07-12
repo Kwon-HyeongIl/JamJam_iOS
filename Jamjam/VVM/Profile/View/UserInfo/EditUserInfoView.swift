@@ -765,7 +765,7 @@ struct EditUserInfoView: View {
         .onChange(of: viewModel.isUpdateCompleted) {
             navRouter.back()
         }
-        .blur(radius: viewModel.isEntireProgressViewVisible ? 1 : 0)
+        .blur(radius: viewModel.isEntireProgressViewVisible ? 2.0 : 0)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {

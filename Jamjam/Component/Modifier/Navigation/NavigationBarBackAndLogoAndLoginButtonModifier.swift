@@ -41,7 +41,7 @@ struct NavigationBarBackAndLogoAndLoginButtonModifier: ViewModifier {
                             .frame(width: 24)
                             .fontWeight(.medium)
                             .foregroundStyle(.black)
-                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 2.0 : 0)
                     }
                 }
                 
@@ -50,7 +50,7 @@ struct NavigationBarBackAndLogoAndLoginButtonModifier: ViewModifier {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 45)
-                        .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
+                        .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 2.0 : 0)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -65,7 +65,7 @@ struct NavigationBarBackAndLogoAndLoginButtonModifier: ViewModifier {
                                     .font(.pretendard(Pretendard.semiBold, size: 14))
                                     .foregroundStyle(.white)
                             }
-                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 1.0 : 0)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 2.0 : 0)
                     }
                 }
             }

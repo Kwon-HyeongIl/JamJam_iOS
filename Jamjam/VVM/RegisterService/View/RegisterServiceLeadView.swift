@@ -138,7 +138,7 @@ struct RegisterServiceLeadView: View {
         } message: {
             Text(viewModel.entranceAlertMessage)
         }
-        .blur(radius: viewModel.isEntireProgressViewVisible ? 1 : 0)
+        .blur(radius: viewModel.isEntireProgressViewVisible ? 2.0 : 0)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {

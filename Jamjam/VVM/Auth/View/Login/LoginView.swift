@@ -146,7 +146,7 @@ struct LoginView: View {
         } message: {
             Text(viewModel.loginAlertMessage)
         }
-        .blur(radius: viewModel.isEntireProgressViewVisible ? 1 : 0)
+        .blur(radius: viewModel.isEntireProgressViewVisible ? 2.0 : 0)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
                 VStack {
