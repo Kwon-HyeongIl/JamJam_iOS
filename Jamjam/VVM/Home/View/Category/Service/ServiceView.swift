@@ -68,6 +68,7 @@ struct ServiceView: View {
                                 }
                                 .scaledToFit()
                                 .frame(width: 50)
+                                .clipShape(Circle())
                                 .padding(.leading)
                                 
                             } else {
@@ -78,7 +79,7 @@ struct ServiceView: View {
                                     .padding(.leading)
                             }
                             
-                            VStack(alignment: .leading, spacing: 10) {
+                            VStack(alignment: .leading, spacing: 8) {
                                 Text(viewModel.service?.nickname ?? "")
                                     .font(.pretendard(Pretendard.medium, size: 18))
                                 
@@ -88,7 +89,7 @@ struct ServiceView: View {
                                         .foregroundStyle(.gray)
                                     
                                     Text(viewModel.service?.location ?? "")
-                                        .font(.pretendard(size: 13))
+                                        .font(.pretendard(size: 12))
                                         .foregroundStyle(.gray)
                                 }
                             }
@@ -101,6 +102,11 @@ struct ServiceView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding(.horizontal, 20)
                         .padding(.bottom, 20)
+                        .onTapGesture {
+                            guard let targetUserId = viewModel.service?.userId else { return }
+                            
+                            navRouter.navigate(.providerProfileView(targetUserId))
+                        }
                         
                         HStack {
                             HStack {

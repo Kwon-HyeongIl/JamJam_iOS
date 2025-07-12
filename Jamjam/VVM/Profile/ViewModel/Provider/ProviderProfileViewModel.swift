@@ -11,7 +11,7 @@ import os
 
 @Observable
 class ProviderProfileViewModel {
-    var otherProvider: ProviderDomainModel?
+    var provider: ProviderDomainModel?
     
     var isTabBarVisible = true
     var selectedIndex = 0
@@ -25,34 +25,34 @@ class ProviderProfileViewModel {
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ProviderProfileViewModel")
     
-    init(otherUserId: Int) {
-        fetchOtherProvider(otherUserId: otherUserId)
+    init(userId: Int) {
+        fetchProviderProfile(userId: userId)
     }
     
-    private func fetchOtherProvider(otherUserId: Int) {
-        UserManager.fetchOtherProvider(otherUserId: otherUserId)
+    private func fetchProviderProfile(userId: Int) {
+        UserManager.fetchProviderProfile(otherUserId: userId)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
                 case .finished:
-                    self?.logger.info("[fetchOtherProvider] finished")
+                    self?.logger.info("[fetchProviderProfile] finished")
                 case .failure(let error):
-                    self?.logger.error("[fetchOtherProvider] failed: \(error)")
+                    self?.logger.error("[fetchProviderProfile] failed: \(error)")
                 }
             } receiveValue: { [weak self] response in
                 if response.code == "SUCCESS", let content = response.content {
-                    self?.logger.info("[fetchOtherProvider] SUCCESS")
-                    self?.otherProvider = ProviderDomainModel(fromFetchOtherProviderResponseDtoContent: content, userId: otherUserId)
+                    self?.logger.info("[fetchProviderProfile] SUCCESS")
+                    self?.provider = ProviderDomainModel(fromFetchOtherProviderResponseDtoContent: content, userId: userId)
                     
                 } else {
-                    self?.logger.error("[fetchOtherProvider] 응답 실패: \(response.message)")
+                    self?.logger.error("[fetchProviderProfile] 응답 실패: \(response.message)")
                 }
             }
             .store(in: &self.cancellables)
     }
     
     func startChatRoom() {
-        guard let targetUserId = otherProvider?.userId else { return }
+        guard let targetUserId = provider?.userId else { return }
         
         ChatManager.startChatRoom(otherId: targetUserId)
             .receive(on: DispatchQueue.main)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FetchOtherProviderResponseDto: Decodable {
+struct FetchProviderProfileResponseDto: Decodable {
     let code: String
     let message: String
     let content: Content?

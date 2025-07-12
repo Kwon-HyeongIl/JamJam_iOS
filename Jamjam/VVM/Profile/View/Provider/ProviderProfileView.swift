@@ -17,8 +17,8 @@ struct ProviderProfileView: View {
     
     @Namespace private var tabListUnderline
     
-    init(otherUserId: Int) {
-        viewModel = ProviderProfileViewModel(otherUserId: otherUserId)
+    init(userId: Int) {
+        viewModel = ProviderProfileViewModel(userId: userId)
     }
     
     var body: some View {
@@ -27,25 +27,54 @@ struct ProviderProfileView: View {
                 ScrollView(showsIndicators: false) {
                     VStack {
                         // MARK: Profile Part
-                        HStack(spacing: 10) {
-                            Image(systemName: "person.crop.circle.fill")
-                                .font(.system(size: 60))
-                                .foregroundStyle(.gray.opacity(0.6))
+                        HStack(spacing: 15) {
+                            if let url = viewModel.provider?.profileUrl {
+                                AsyncImage(url: URL(string: url)) { state in
+                                    switch state {
+                                    case .empty:
+                                        Circle()
+                                            .foregroundStyle(.gray.opacity(0.5))
+                                            .shimmering()
+                                        
+                                    case .success(let image):
+                                        image
+                                            .resizable()
+                                        
+                                    case .failure:
+                                        Circle()
+                                            .foregroundStyle(.gray.opacity(0.5))
+                                        
+                                    @unknown default:
+                                        EmptyView()
+                                    }
+                                }
+                                .scaledToFit()
+                                .frame(width: 50)
+                                .clipShape(Circle())
                                 .padding(.leading, 20)
+                                
+                            } else {
+                                Circle()
+                                    .foregroundStyle(.gray.opacity(0.5))
+                                    .scaledToFit()
+                                    .frame(width: 50)
+                                    .padding(.leading)
+                            }
                             
                             VStack(spacing: 8) {
                                 HStack(spacing: 15) {
-                                    Text(viewModel.otherProvider?.nickname ?? "홍길동")
-                                        .font(.pretendard(Pretendard.bold, size: 20))
+                                    Text(viewModel.provider?.nickname ?? "")
+                                        .font(.pretendard(Pretendard.semiBold, size: 20))
                                     
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .foregroundStyle(.red.opacity(0.1))
-                                        .frame(width: 90, height: 25)
-                                        .overlay {
-                                            Text(viewModel.otherProvider?.category?.text ?? "컨설팅멘토링")
-                                                .font(.pretendard(Pretendard.medium, size: 12))
-                                                .foregroundStyle(Color.JJTitle)
-                                        }
+                                    HStack {
+                                        Text(viewModel.provider?.category?.text ?? "")
+                                            .font(.pretendard(Pretendard.medium, size: 10))
+                                            .foregroundStyle(Color.JJTitle)
+                                    }
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 4)
+                                    .background(.red.opacity(0.1))
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
                                     
                                     Spacer()
                                 }
@@ -55,7 +84,7 @@ struct ProviderProfileView: View {
                                         .font(.pretendard(Pretendard.medium, size: 12))
                                         .foregroundStyle(.gray)
                                     
-                                    Text(viewModel.otherProvider?.location ?? "부산광역시 남구")
+                                    Text(viewModel.provider?.location ?? "")
                                         .font(.pretendard(Pretendard.medium, size: 12))
                                         .foregroundStyle(.gray)
                                     
@@ -74,7 +103,7 @@ struct ProviderProfileView: View {
                                     .foregroundStyle(.gray)
                                     .padding(.leading, 20)
                                 
-                                Text("00시~00시")
+                                Text("\(String(viewModel.provider?.contactHours.startHour ?? 0))시~\(String(viewModel.provider?.contactHours.endHour ?? 0))시")
                                     .font(.pretendard(Pretendard.medium, size: 13))
                                     .foregroundStyle(.gray)
                                 
@@ -87,7 +116,7 @@ struct ProviderProfileView: View {
                                     .foregroundStyle(.gray)
                                     .padding(.leading, 20)
                                 
-                                Text("00분")
+                                Text("\(viewModel.provider?.averageResponseTime ?? "0")")
                                     .font(.pretendard(Pretendard.medium, size: 13))
                                     .foregroundStyle(.gray)
                                 
@@ -112,7 +141,7 @@ struct ProviderProfileView: View {
                                         .padding(.top, 10)
                                         
                                         HStack {
-                                            Text(viewModel.otherProvider?.introduction ?? "안녕하세요! 저는 다양한 분야에서 경험을 쌓아온 전문가입니다. 고객의 니즈에 맞는 맞춤형 서비스를 제공하며, 항상 최고의 결과를 위해 노력하고 있습니다.")
+                                            Text(viewModel.provider?.introduction ?? "")
                                                 .font(.pretendard(Pretendard.medium, size: 13))
                                                 .padding(.leading, 20)
                                             
@@ -132,7 +161,7 @@ struct ProviderProfileView: View {
                                         
                                         ScrollView(.horizontal) {
                                             HStack(spacing: 5) {
-                                                ForEach(Array((viewModel.otherProvider?.detailSkills ?? []).enumerated()), id: \.offset) { index, detailSkill in
+                                                ForEach(Array((viewModel.provider?.detailSkills ?? []).enumerated()), id: \.offset) { index, detailSkill in
                                                     HStack {
                                                         Text(detailSkill)
                                                             .font(.pretendard(size: 15))
@@ -144,6 +173,7 @@ struct ProviderProfileView: View {
                                                         RoundedRectangle(cornerRadius: 20)
                                                             .stroke(.gray.opacity(0.3), lineWidth: 1)
                                                     }
+                                                    .clipShape(RoundedRectangle(cornerRadius: 20))
                                                     .padding(.leading, index == 0 ? 20 : 0)
                                                     
                                                 }
@@ -162,7 +192,7 @@ struct ProviderProfileView: View {
                                         }
                                         
                                         VStack {
-                                            ForEach(viewModel.otherProvider?.careers ?? [], id: \.id) { career in
+                                            ForEach(viewModel.provider?.careers ?? [], id: \.id) { career in
                                                 HStack {
                                                     Image(systemName: "bag.fill")
                                                         .font(.system(size: 12))
@@ -175,6 +205,8 @@ struct ProviderProfileView: View {
                                                     
                                                     Text(career.position)
                                                         .font(.pretendard(size: 13))
+                                                    
+                                                    Spacer()
                                                 }
                                             }
                                         }
@@ -191,7 +223,7 @@ struct ProviderProfileView: View {
                                         }
                                         
                                         VStack {
-                                            ForEach(viewModel.otherProvider?.educations ?? [], id: \.id) { education in
+                                            ForEach(viewModel.provider?.educations ?? [], id: \.id) { education in
                                                 HStack {
                                                     Image(systemName: "graduationcap.fill")
                                                         .font(.system(size: 12))
@@ -208,6 +240,8 @@ struct ProviderProfileView: View {
                                                     
                                                     Text(education.degree)
                                                         .font(.pretendard(size: 13))
+                                                    
+                                                    Spacer()
                                                 }
                                             }
                                         }
@@ -224,7 +258,7 @@ struct ProviderProfileView: View {
                                         }
                                         
                                         VStack {
-                                            ForEach(viewModel.otherProvider?.licenses ?? [], id: \.id) { license in
+                                            ForEach(viewModel.provider?.licenses ?? [], id: \.id) { license in
                                                 HStack {
                                                     Image(systemName: "person.crop.square.filled.and.at.rectangle.fill")
                                                         .font(.system(size: 12))
@@ -233,6 +267,8 @@ struct ProviderProfileView: View {
                                                     
                                                     Text(license.name)
                                                         .font(.pretendard(size: 13))
+                                                    
+                                                    Spacer()
                                                 }
                                             }
                                         }
@@ -250,7 +286,7 @@ struct ProviderProfileView: View {
                                         
                                         ScrollView(.horizontal) {
                                             HStack(spacing: 10) {
-                                                ForEach(Array((viewModel.otherProvider?.services ?? []).enumerated()), id: \.element.serviceId) { index, service in
+                                                ForEach(Array((viewModel.provider?.services ?? []).enumerated()), id: \.element.serviceId) { index, service in
                                                     AsyncImage(url: URL(string: service.thumbnailUrl)) { state in
                                                         switch state {
                                                         case .empty:
@@ -376,7 +412,7 @@ struct ProviderProfileView: View {
             .onChange(of: viewModel.isNavigateToChatRoom) { _, isNavigateToChatRoom in
                 if isNavigateToChatRoom {
                     mainTabBarCapsule.selectedTab = .chat
-                    navRouter.navigate(.chatContentView(viewModel.targetRoomId, viewModel.otherProvider?.nickname, viewModel.otherProvider?.profileUrl))
+                    navRouter.navigate(.chatContentView(viewModel.targetRoomId, viewModel.provider?.nickname, viewModel.provider?.profileUrl))
                 }
             }
         }
@@ -385,7 +421,7 @@ struct ProviderProfileView: View {
 
 #Preview {
     NavigationStack {
-        ProviderProfileView(otherUserId: 0)
+        ProviderProfileView(userId: 0)
             .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }

@@ -27,7 +27,7 @@ struct ProviderDomainModel {
         let endHour: Int?
     }
     
-    init(fromFetchOtherProviderResponseDtoContent from: FetchOtherProviderResponseDto.Content, userId: Int) {
+    init(fromFetchOtherProviderResponseDtoContent from: FetchProviderProfileResponseDto.Content, userId: Int) {
         self.userId = userId
         category = SkillCategory(rawValue: from.categoryId)
         location = from.location

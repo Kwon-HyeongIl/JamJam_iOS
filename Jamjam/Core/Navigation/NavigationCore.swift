@@ -43,8 +43,8 @@ class NavigationCore {
             BeforeCheckPasswordView(user: user)
         case .editUserInfoView(let user):
             EditUserInfoView(user: user)
-        case .providerProfileView(let otherUserId):
-            ProviderProfileView(otherUserId: otherUserId)
+        case .providerProfileView(let userId):
+            ProviderProfileView(userId: userId)
         case .editProviderProfileView:
             EditProviderProfileView()
         }

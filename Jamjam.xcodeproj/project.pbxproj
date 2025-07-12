@@ -65,7 +65,7 @@
 		CA53F4842E22172600F5C297 /* CareerDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4832E22172600F5C297 /* CareerDomainModel.swift */; };
 		CA53F4862E22175600F5C297 /* EducationDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4852E22175600F5C297 /* EducationDomainModel.swift */; };
 		CA53F4882E22179D00F5C297 /* LicenseDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4872E22179D00F5C297 /* LicenseDomainModel.swift */; };
-		CA5507792E218E9900E4E936 /* FetchOtherProviderResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5507782E218E9900E4E936 /* FetchOtherProviderResponseDto.swift */; };
+		CA5507792E218E9900E4E936 /* FetchProviderProfileResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5507782E218E9900E4E936 /* FetchProviderProfileResponseDto.swift */; };
 		CA5B62B42E19575A00CA939F /* RangeSlider in Frameworks */ = {isa = PBXBuildFile; productRef = CA5B62B32E19575A00CA939F /* RangeSlider */; };
 		CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7B2E09688700FB1E22 /* FontType.swift */; };
 		CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */; };
@@ -264,7 +264,7 @@
 		CA53F4832E22172600F5C297 /* CareerDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerDomainModel.swift; sourceTree = "<group>"; };
 		CA53F4852E22175600F5C297 /* EducationDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationDomainModel.swift; sourceTree = "<group>"; };
 		CA53F4872E22179D00F5C297 /* LicenseDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseDomainModel.swift; sourceTree = "<group>"; };
-		CA5507782E218E9900E4E936 /* FetchOtherProviderResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchOtherProviderResponseDto.swift; sourceTree = "<group>"; };
+		CA5507782E218E9900E4E936 /* FetchProviderProfileResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProviderProfileResponseDto.swift; sourceTree = "<group>"; };
 		CA5C5E7B2E09688700FB1E22 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretendard.swift; sourceTree = "<group>"; };
 		CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Pretendard.swift"; sourceTree = "<group>"; };
@@ -985,7 +985,7 @@
 			isa = PBXGroup;
 			children = (
 				CA7DE5BC2E1EBCD100086E8B /* FetchUserResponseDto.swift */,
-				CA5507782E218E9900E4E936 /* FetchOtherProviderResponseDto.swift */,
+				CA5507782E218E9900E4E936 /* FetchProviderProfileResponseDto.swift */,
 			);
 			path = Fetch;
 			sourceTree = "<group>";
@@ -1705,7 +1705,7 @@
 				CA7DE5E02E20293C00086E8B /* CheckPasswordRequestDto.swift in Sources */,
 				CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */,
 				CA7DE5DA2E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift in Sources */,
-				CA5507792E218E9900E4E936 /* FetchOtherProviderResponseDto.swift in Sources */,
+				CA5507792E218E9900E4E936 /* FetchProviderProfileResponseDto.swift in Sources */,
 				CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */,
 				CAB600032E15480F004CD644 /* SocketConnectionStatus.swift in Sources */,
 				CA7685292E1BDDB800148204 /* RegisterServiceTailView.swift in Sources */,

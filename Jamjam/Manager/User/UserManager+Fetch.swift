@@ -34,13 +34,13 @@ extension UserManager {
         .eraseToAnyPublisher()
     }
     
-    static func fetchOtherProvider(otherUserId: Int) -> AnyPublisher<FetchOtherProviderResponseDto, Error> {
+    static func fetchProviderProfile(otherUserId: Int) -> AnyPublisher<FetchProviderProfileResponseDto, Error> {
         return AF.request(
             API.fetchOtherProvider(otherUserId).url,
             method: .get,
             headers: API.headers
         )
-        .publishDecodable(type: FetchOtherProviderResponseDto.self)
+        .publishDecodable(type: FetchProviderProfileResponseDto.self)
         .value()
         .mapError { $0 as Error }
         .eraseToAnyPublisher()
