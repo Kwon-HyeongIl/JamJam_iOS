@@ -15,6 +15,8 @@ class ProfileViewModel {
     
     var isUserInit = false
     
+    var isLogoutAlertVisible = false
+    
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ProfileViewModel")
     

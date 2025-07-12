@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @Environment(NavigationCore.self) var navRouter
+    @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
     @State private var viewModel = ProfileViewModel()
     
     var body: some View {
@@ -239,7 +240,7 @@ struct ProfileView: View {
                     }
                     
                     Button {
-                        viewModel.logout()
+                        viewModel.isLogoutAlertVisible = true
                     } label: {
                         Text("로그아웃")
                             .font(.pretendard(size: 12))
@@ -251,6 +252,20 @@ struct ProfileView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
+        .alert("주의", isPresented: $viewModel.isLogoutAlertVisible) {
+            Button(role: .cancel) {} label: {
+                Text("취소")
+            }
+            
+            Button(role: .destructive) {
+                viewModel.logout()
+                mainTabBarCapsule.selectedTab = .home
+            } label: {
+                Text("확인")
+            }
+        } message: {
+            Text("로그아웃 하시겠습니까?")
+        }
         .onAppear {
             if !viewModel.isUserInit {
                 viewModel.fetchUser()
@@ -265,4 +280,5 @@ struct ProfileView: View {
 #Preview {
     ProfileView()
         .environment(NavigationCore())
+        .environment(MainTabBarCapsule())
 }
