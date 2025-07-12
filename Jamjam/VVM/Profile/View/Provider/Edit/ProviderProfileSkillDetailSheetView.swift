@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProviderProfileSkillDetailSheetView: View {
     @Binding var selectedDetailSkillIds: [Int]
-    let targetSkill: Skill?
+    let targetSkill: SkillCategory?
     
     var body: some View {
         VStack(spacing: 0) {
@@ -19,7 +19,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .management:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.management.text)
+                                Text(SkillCategory.management.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -67,7 +67,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .consulting:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.consulting.text)
+                                Text(SkillCategory.consulting.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -115,7 +115,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .marketing:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.marketing.text)
+                                Text(SkillCategory.marketing.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -163,7 +163,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .development:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.development.text)
+                                Text(SkillCategory.development.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -211,7 +211,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .design:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.design.text)
+                                Text(SkillCategory.design.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -259,7 +259,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .writing:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.writing.text)
+                                Text(SkillCategory.writing.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -307,7 +307,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .translation:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.translation.text)
+                                Text(SkillCategory.translation.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -355,7 +355,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .media:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.media.text)
+                                Text(SkillCategory.media.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -403,7 +403,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .education:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.education.text)
+                                Text(SkillCategory.education.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -451,7 +451,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .customMade:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.customMade.text)
+                                Text(SkillCategory.customMade.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -499,7 +499,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .hobbyLesson:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.hobbyLesson.text)
+                                Text(SkillCategory.hobbyLesson.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)
@@ -547,7 +547,7 @@ struct ProviderProfileSkillDetailSheetView: View {
                     case .lifeService:
                         VStack(spacing: 0) {
                             HStack {
-                                Text(Skill.lifeService.text)
+                                Text(SkillCategory.lifeService.text)
                                     .font(.pretendard(Pretendard.semiBold, size: 23))
                                     .padding(.leading, 20)
                                     .padding(.top, 20)

@@ -38,7 +38,7 @@ class RegisterServiceViewModel: Hashable, Equatable {
     // MARK: Page Index 1
     var serviceName = ""
     var aiRecommendServiceNames: [String] = ["fadkfjads", "akdjfakd"]
-    var category: Skill?
+    var category: SkillCategory?
     var description = ""
     var salary = ""
     var isAllValidatedInPageIndex1: Bool {
@@ -116,7 +116,7 @@ class RegisterServiceViewModel: Hashable, Equatable {
                     self?.logger.info("[generateService] SUCCESS")
                     
                     self?.aiRecommendServiceNames = content.serviceNames
-                    self?.category = Skill(rawValue: content.category)
+                    self?.category = SkillCategory(rawValue: content.category)
                     self?.description = content.description
                     self?.pageIndex = 1
                     self?.isInitialContentsGenerateCompleted = true

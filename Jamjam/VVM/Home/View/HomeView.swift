@@ -127,7 +127,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text(Skill.management.text)
+                                                Text(SkillCategory.management.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -151,7 +151,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text(Skill.consulting.text)
+                                                Text(SkillCategory.consulting.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -178,7 +178,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text(Skill.marketing.text)
+                                                Text(SkillCategory.marketing.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -202,7 +202,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text(Skill.development.text)
+                                                Text(SkillCategory.development.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -229,7 +229,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text(Skill.design.text)
+                                                Text(SkillCategory.design.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -253,7 +253,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text(Skill.writing.text)
+                                                Text(SkillCategory.writing.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -280,7 +280,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text(Skill.translation.text)
+                                                Text(SkillCategory.translation.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -304,7 +304,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text(Skill.media.text)
+                                                Text(SkillCategory.media.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -331,7 +331,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text(Skill.education.text)
+                                                Text(SkillCategory.education.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -355,7 +355,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text(Skill.customMade.text)
+                                                Text(SkillCategory.customMade.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -382,7 +382,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text(Skill.hobbyLesson.text)
+                                                Text(SkillCategory.hobbyLesson.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }
@@ -406,7 +406,7 @@ struct HomeView: View {
                                                     .scaledToFit()
                                                     .frame(width: 33)
                                                 
-                                                Text(Skill.lifeService.text)
+                                                Text(SkillCategory.lifeService.text)
                                                     .font(.pretendard(Pretendard.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                             }

@@ -103,73 +103,73 @@ struct RegisterServiceTailView: View {
                                 Button {
                                     viewModel.category = .management
                                 } label: {
-                                    Text(Skill.management.text)
+                                    Text(SkillCategory.management.text)
                                 }
                                 
                                 Button {
                                     viewModel.category = .consulting
                                 } label: {
-                                    Text(Skill.consulting.text)
+                                    Text(SkillCategory.consulting.text)
                                 }
                                 
                                 Button {
                                     viewModel.category = .marketing
                                 } label: {
-                                    Text(Skill.marketing.text)
+                                    Text(SkillCategory.marketing.text)
                                 }
                                 
                                 Button {
                                     viewModel.category = .development
                                 } label: {
-                                    Text(Skill.development.text)
+                                    Text(SkillCategory.development.text)
                                 }
                                 
                                 Button {
                                     viewModel.category = .design
                                 } label: {
-                                    Text(Skill.design.text)
+                                    Text(SkillCategory.design.text)
                                 }
                                 
                                 Button {
                                     viewModel.category = .writing
                                 } label: {
-                                    Text(Skill.writing.text)
+                                    Text(SkillCategory.writing.text)
                                 }
                                 
                                 Button {
                                     viewModel.category = .translation
                                 } label: {
-                                    Text(Skill.translation.text)
+                                    Text(SkillCategory.translation.text)
                                 }
                                 
                                 Button {
                                     viewModel.category = .media
                                 } label: {
-                                    Text(Skill.media.text)
+                                    Text(SkillCategory.media.text)
                                 }
                                 
                                 Button {
                                     viewModel.category = .education
                                 } label: {
-                                    Text(Skill.education.text)
+                                    Text(SkillCategory.education.text)
                                 }
                                 
                                 Button {
                                     viewModel.category = .customMade
                                 } label: {
-                                    Text(Skill.customMade.text)
+                                    Text(SkillCategory.customMade.text)
                                 }
                                 
                                 Button {
                                     viewModel.category = .hobbyLesson
                                 } label: {
-                                    Text(Skill.hobbyLesson.text)
+                                    Text(SkillCategory.hobbyLesson.text)
                                 }
                                 
                                 Button {
                                     viewModel.category = .lifeService
                                 } label: {
-                                    Text(Skill.lifeService.text)
+                                    Text(SkillCategory.lifeService.text)
                                 }
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)

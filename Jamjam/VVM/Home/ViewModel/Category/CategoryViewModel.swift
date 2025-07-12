@@ -11,7 +11,7 @@ import os
 
 @Observable
 class CategoryViewModel {
-    var selectedSkill: Skill?
+    var selectedSkill: SkillCategory?
     
     var services: [ServiceCellDomainModel] = []
     
@@ -26,7 +26,7 @@ class CategoryViewModel {
         GridItem(.flexible(), spacing: 0, alignment: .top)
     ]
     
-    init(skill: Skill) {
+    init(skill: SkillCategory) {
         selectedSkill = skill
     }
     

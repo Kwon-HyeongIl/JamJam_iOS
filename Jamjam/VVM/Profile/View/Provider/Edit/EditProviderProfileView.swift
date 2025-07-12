@@ -10,7 +10,7 @@ import RangeSlider
 
 struct EditProviderProfileView: View {
     @Environment(NavigationCore.self) var navRouter
-    @State var viewModel = ProviderProfileEditViewModel()
+    @State var viewModel = EditProviderProfileViewModel()
     
     @FocusState private var focus: TextFieldFocusField?
     
@@ -228,73 +228,73 @@ struct EditProviderProfileView: View {
                                 Button {
                                     viewModel.selectedSkill = .management
                                 } label: {
-                                    Text(Skill.management.text)
+                                    Text(SkillCategory.management.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .consulting
                                 } label: {
-                                    Text(Skill.consulting.text)
+                                    Text(SkillCategory.consulting.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .marketing
                                 } label: {
-                                    Text(Skill.marketing.text)
+                                    Text(SkillCategory.marketing.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .development
                                 } label: {
-                                    Text(Skill.development.text)
+                                    Text(SkillCategory.development.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .design
                                 } label: {
-                                    Text(Skill.design.text)
+                                    Text(SkillCategory.design.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .writing
                                 } label: {
-                                    Text(Skill.writing.text)
+                                    Text(SkillCategory.writing.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .translation
                                 } label: {
-                                    Text(Skill.translation.text)
+                                    Text(SkillCategory.translation.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .media
                                 } label: {
-                                    Text(Skill.media.text)
+                                    Text(SkillCategory.media.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .education
                                 } label: {
-                                    Text(Skill.education.text)
+                                    Text(SkillCategory.education.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .customMade
                                 } label: {
-                                    Text(Skill.customMade.text)
+                                    Text(SkillCategory.customMade.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .hobbyLesson
                                 } label: {
-                                    Text(Skill.hobbyLesson.text)
+                                    Text(SkillCategory.hobbyLesson.text)
                                 }
                                 
                                 Button {
                                     viewModel.selectedSkill = .lifeService
                                 } label: {
-                                    Text(Skill.lifeService.text)
+                                    Text(SkillCategory.lifeService.text)
                                 }
                                 
                             } label: {
@@ -428,7 +428,7 @@ struct EditProviderProfileView: View {
                                 }
                                 
                                 VStack(spacing: 0) {
-                                    ForEach(Array(Skill.allCases.enumerated()), id: \.element) { index, currentSkill in
+                                    ForEach(Array(SkillCategory.allCases.enumerated()), id: \.element) { index, currentSkill in
                                         HStack {
                                             Text(currentSkill.text)
                                                 .font(.pretendard(Pretendard.regular, size: 18))
@@ -624,7 +624,7 @@ struct EditProviderProfileView: View {
                                         }
                                         .onTapGesture {
                                             withAnimation(.customAnimation) {
-                                                viewModel.careerFormList.append(CareerFormDomainModel())
+                                                viewModel.careerFormList.append(CareerForm())
                                             }
                                         }
                                 }
@@ -856,7 +856,7 @@ struct EditProviderProfileView: View {
                                         }
                                         .onTapGesture {
                                             withAnimation(.customAnimation) {
-                                                viewModel.degreeFormList.append(DegreeFormDomainModel())
+                                                viewModel.degreeFormList.append(DegreeForm())
                                             }
                                         }
                                 }
@@ -974,7 +974,7 @@ struct EditProviderProfileView: View {
                                         }
                                         .onTapGesture {
                                             withAnimation(.customAnimation) {
-                                                viewModel.certificateFormList.append(CertificateFormDomainModel())
+                                                viewModel.certificateFormList.append(CertificateForm())
                                             }
                                         }
                                 }

@@ -33,4 +33,16 @@ extension UserManager {
         .mapError { $0 as Error }
         .eraseToAnyPublisher()
     }
+    
+    static func fetchOtherProvider(otherUserId: Int) -> AnyPublisher<FetchOtherProviderResponseDto, Error> {
+        return AF.request(
+            API.fetchOtherProvider(otherUserId).url,
+            method: .get,
+            headers: API.headers
+        )
+        .publishDecodable(type: FetchOtherProviderResponseDto.self)
+        .value()
+        .mapError { $0 as Error }
+        .eraseToAnyPublisher()
+    }
 }

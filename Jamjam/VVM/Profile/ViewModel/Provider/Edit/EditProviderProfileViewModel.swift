@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class ProviderProfileEditViewModel {
+class EditProviderProfileViewModel {
     var pageIndex = 0
     
     var title: String {
@@ -31,7 +31,7 @@ class ProviderProfileEditViewModel {
     // MARK: Page Index 0
     var inputIntroduction = ""
     var selectedRegion: Region?
-    var selectedSkill: Skill?
+    var selectedSkill: SkillCategory?
     
     var isAllValidatedInPageIndex0: Bool {
         !inputIntroduction.isEmpty &&
@@ -41,7 +41,7 @@ class ProviderProfileEditViewModel {
     
     // MARK: Page Index 1
     var selectedDetailSkillIds: [Int] = []
-    var tappedSkill: Skill?
+    var tappedSkill: SkillCategory?
     var isSheetVisible = false
     
     var isAllValidatedInPageIndex1: Bool {
@@ -49,11 +49,11 @@ class ProviderProfileEditViewModel {
     }
     
     // MARK: Page Index 2
-    var careerFormList: [CareerFormDomainModel] = []
+    var careerFormList: [CareerForm] = []
     
     // MARK: Page Index 3
-    var degreeFormList: [DegreeFormDomainModel] = []
-    var certificateFormList: [CertificateFormDomainModel] = []
+    var degreeFormList: [DegreeForm] = []
+    var certificateFormList: [CertificateForm] = []
     
     // MARK: Page Index 4
     var startTime = 6.0 / 24.0
@@ -64,7 +64,7 @@ class ProviderProfileEditViewModel {
         ProfileInfoManager.extractDetailSkillTextWithId(id: id)
     }
     
-    func removeCurrentCareerForm(_ form: CareerFormDomainModel) {
+    func removeCurrentCareerForm(_ form: CareerForm) {
         if let index = careerFormList.firstIndex(where: { $0.id == form.id }) {
             DispatchQueue.main.async {
                 self.careerFormList.remove(at: index)
@@ -72,7 +72,7 @@ class ProviderProfileEditViewModel {
         }
     }
     
-    func removeCurrentDegreeForm(_ form: DegreeFormDomainModel) {
+    func removeCurrentDegreeForm(_ form: DegreeForm) {
         if let index = degreeFormList.firstIndex(where: { $0.id == form.id }) {
             DispatchQueue.main.async {
                 self.degreeFormList.remove(at: index)
@@ -80,7 +80,7 @@ class ProviderProfileEditViewModel {
         }
     }
     
-    func removeCurrentCertificateForm(_ form: CertificateFormDomainModel) {
+    func removeCurrentCertificateForm(_ form: CertificateForm) {
         if let index = certificateFormList.firstIndex(where: { $0.id == form.id }) {
             DispatchQueue.main.async {
                 self.certificateFormList.remove(at: index)

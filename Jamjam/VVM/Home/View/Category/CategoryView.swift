@@ -15,7 +15,7 @@ struct CategoryView: View {
     
     @Namespace private var categoryUnderline
     
-    init(skill: Skill) {
+    init(skill: SkillCategory) {
         viewModel = CategoryViewModel(skill: skill)
     }
     
@@ -77,7 +77,7 @@ struct CategoryView: View {
                             } header: {
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack(spacing: 14) {
-                                        ForEach(Skill.allCases, id: \.self) { skill in
+                                        ForEach(SkillCategory.allCases, id: \.self) { skill in
                                             let isSelected = (skill == viewModel.selectedSkill)
                                             
                                             VStack(spacing: 4) {
@@ -151,7 +151,7 @@ struct CategoryView: View {
 
 #Preview {
     NavigationStack {
-        CategoryView(skill: Skill.management)
+        CategoryView(skill: SkillCategory.management)
             .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }

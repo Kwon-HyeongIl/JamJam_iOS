@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CertificateFormDomainModel: Identifiable {
+struct CertificateForm: Identifiable {
     var certificateName = ""
     var fileData = ""
     

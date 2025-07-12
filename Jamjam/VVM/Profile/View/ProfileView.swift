@@ -141,7 +141,7 @@ struct ProfileView: View {
                             .padding(.horizontal, 20)
                         
                         Button {
-                            navRouter.navigate(.providerProfileEditView)
+                            navRouter.navigate(.editProviderProfileView)
                         } label: {
                             HStack {
                                 Image(systemName: "person.text.rectangle")

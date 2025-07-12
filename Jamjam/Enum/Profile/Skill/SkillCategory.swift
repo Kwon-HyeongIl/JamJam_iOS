@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Skill: Int, CaseIterable, Codable {
+enum SkillCategory: Int, CaseIterable, Codable {
     case management = 1
     case consulting = 2
     case marketing = 3

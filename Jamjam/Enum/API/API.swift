@@ -39,6 +39,7 @@ enum API {
     case checkPassword
     
     case fetchProvider
+    case fetchOtherProvider(Int)
     
     // MARK: Home
     case fetchServices
@@ -88,6 +89,8 @@ enum API {
             
         case .fetchProvider:
             return "\(API.baseURL)/api/providers"
+        case .fetchOtherProvider(let userId):
+            return "\(API.baseURL)/api/providers/page/\(userId)"
             
             // MARK: Home
         case .fetchServices:

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DegreeFormDomainModel: Identifiable {
+struct DegreeForm: Identifiable {
     var schoolName = ""
     var major = ""
     var degree = ""

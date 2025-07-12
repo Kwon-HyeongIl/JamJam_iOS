@@ -130,7 +130,7 @@ struct RegisterServiceLeadView: View {
                 } else if viewModel.isProfileInfoCompletedAlertType {
                     mainTabBarCapsule.selectedTab = .home
                     navRouter.back()
-                    navRouter.navigate(.providerProfileEditView)
+                    navRouter.navigate(.editProviderProfileView)
                 }
             } label: {
                 Text("확인")

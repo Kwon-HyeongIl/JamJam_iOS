@@ -37,9 +37,9 @@
 		CA4CF92B2E0C276B00F882C4 /* VerifySmsRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF92A2E0C276B00F882C4 /* VerifySmsRequestDto.swift */; };
 		CA4CF92D2E0C279D00F882C4 /* VerifySmsResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF92C2E0C279D00F882C4 /* VerifySmsResponseDto.swift */; };
 		CA4CF9312E0C2F0B00F882C4 /* SignUpWithClientRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CF9302E0C2F0B00F882C4 /* SignUpWithClientRequestDto.swift */; };
-		CA4F12222E177DD00061012E /* ProviderProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */; };
+		CA4F12222E177DD00061012E /* EditProviderProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12212E177DD00061012E /* EditProviderProfileViewModel.swift */; };
 		CA4F12362E179DE00061012E /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12352E179DE00061012E /* Region.swift */; };
-		CA4F12382E17CACE0061012E /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12372E17CACE0061012E /* Skill.swift */; };
+		CA4F12382E17CACE0061012E /* SkillCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12372E17CACE0061012E /* SkillCategory.swift */; };
 		CA4F123D2E17D66A0061012E /* ManagementDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F123C2E17D66A0061012E /* ManagementDetail.swift */; };
 		CA4F123F2E17D6920061012E /* ConsultingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F123E2E17D6920061012E /* ConsultingDetail.swift */; };
 		CA4F12412E17D6B60061012E /* MarketingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12402E17D6B60061012E /* MarketingDetail.swift */; };
@@ -52,16 +52,20 @@
 		CA4F124F2E17D7B70061012E /* CustomMadeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F124E2E17D7B70061012E /* CustomMadeDetail.swift */; };
 		CA4F12512E17D7D50061012E /* HobbyLessonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12502E17D7D50061012E /* HobbyLessonDetail.swift */; };
 		CA4F12532E17D7FA0061012E /* LifeServiceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12522E17D7FA0061012E /* LifeServiceDetail.swift */; };
-		CA4F12572E17E11B0061012E /* ProviderProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12562E17E11B0061012E /* ProviderProfileEditView.swift */; };
+		CA4F12572E17E11B0061012E /* EditProviderProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12562E17E11B0061012E /* EditProviderProfileView.swift */; };
 		CA4F12592E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12582E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift */; };
 		CA4F125C2E18243D0061012E /* ProfileInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F125B2E18243D0061012E /* ProfileInfoManager.swift */; };
-		CA4F125F2E18451C0061012E /* CareerFormDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F125E2E18451C0061012E /* CareerFormDomainModel.swift */; };
-		CA4F12612E1858E50061012E /* DegreeFormDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12602E1858E50061012E /* DegreeFormDomainModel.swift */; };
-		CA4F12632E185A030061012E /* CertificateFormDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12622E185A030061012E /* CertificateFormDomainModel.swift */; };
+		CA4F125F2E18451C0061012E /* CareerForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F125E2E18451C0061012E /* CareerForm.swift */; };
+		CA4F12612E1858E50061012E /* DegreeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12602E1858E50061012E /* DegreeForm.swift */; };
+		CA4F12632E185A030061012E /* CertificateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F12622E185A030061012E /* CertificateForm.swift */; };
 		CA50CB522E1D3FCC0078AC22 /* StompManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50CB512E1D3FCC0078AC22 /* StompManager.swift */; };
 		CA50CB552E1D46C80078AC22 /* SocketChatRoomResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50CB542E1D46C80078AC22 /* SocketChatRoomResponseDto.swift */; };
 		CA50CB572E1D68C50078AC22 /* RegisterServiceRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50CB562E1D68C50078AC22 /* RegisterServiceRequestDto.swift */; };
 		CA50CB592E1D78DE0078AC22 /* RegisterServiceResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50CB582E1D78DE0078AC22 /* RegisterServiceResponseDto.swift */; };
+		CA53F4842E22172600F5C297 /* CareerDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4832E22172600F5C297 /* CareerDomainModel.swift */; };
+		CA53F4862E22175600F5C297 /* EducationDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4852E22175600F5C297 /* EducationDomainModel.swift */; };
+		CA53F4882E22179D00F5C297 /* LicenseDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4872E22179D00F5C297 /* LicenseDomainModel.swift */; };
+		CA5507792E218E9900E4E936 /* FetchOtherProviderResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5507782E218E9900E4E936 /* FetchOtherProviderResponseDto.swift */; };
 		CA5B62B42E19575A00CA939F /* RangeSlider in Frameworks */ = {isa = PBXBuildFile; productRef = CA5B62B32E19575A00CA939F /* RangeSlider */; };
 		CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7B2E09688700FB1E22 /* FontType.swift */; };
 		CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */; };
@@ -191,6 +195,7 @@
 		CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponseDto.swift */; };
 		CAB6FFFD2E151228004CD644 /* UserDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFC2E151228004CD644 /* UserDomainModel.swift */; };
 		CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB13BD2DF69261007C9E35 /* SplashView.swift */; };
+		CACB0C702E2198DE00353E31 /* ProviderDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB0C6F2E2198DE00353E31 /* ProviderDomainModel.swift */; };
 		CAD2F2452E1A9755007B5BE8 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2F2442E1A9755007B5BE8 /* DateManager.swift */; };
 		CAD2F2472E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2F2462E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift */; };
 		CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAD3106D2E09B56200A5FAA4 /* Alamofire */; };
@@ -231,9 +236,9 @@
 		CA4CF92A2E0C276B00F882C4 /* VerifySmsRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySmsRequestDto.swift; sourceTree = "<group>"; };
 		CA4CF92C2E0C279D00F882C4 /* VerifySmsResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySmsResponseDto.swift; sourceTree = "<group>"; };
 		CA4CF9302E0C2F0B00F882C4 /* SignUpWithClientRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithClientRequestDto.swift; sourceTree = "<group>"; };
-		CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileEditViewModel.swift; sourceTree = "<group>"; };
+		CA4F12212E177DD00061012E /* EditProviderProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProviderProfileViewModel.swift; sourceTree = "<group>"; };
 		CA4F12352E179DE00061012E /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
-		CA4F12372E17CACE0061012E /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		CA4F12372E17CACE0061012E /* SkillCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCategory.swift; sourceTree = "<group>"; };
 		CA4F123C2E17D66A0061012E /* ManagementDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementDetail.swift; sourceTree = "<group>"; };
 		CA4F123E2E17D6920061012E /* ConsultingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultingDetail.swift; sourceTree = "<group>"; };
 		CA4F12402E17D6B60061012E /* MarketingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketingDetail.swift; sourceTree = "<group>"; };
@@ -246,16 +251,20 @@
 		CA4F124E2E17D7B70061012E /* CustomMadeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMadeDetail.swift; sourceTree = "<group>"; };
 		CA4F12502E17D7D50061012E /* HobbyLessonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyLessonDetail.swift; sourceTree = "<group>"; };
 		CA4F12522E17D7FA0061012E /* LifeServiceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeServiceDetail.swift; sourceTree = "<group>"; };
-		CA4F12562E17E11B0061012E /* ProviderProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileEditView.swift; sourceTree = "<group>"; };
+		CA4F12562E17E11B0061012E /* EditProviderProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProviderProfileView.swift; sourceTree = "<group>"; };
 		CA4F12582E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProfileSkillDetailSheetView.swift; sourceTree = "<group>"; };
 		CA4F125B2E18243D0061012E /* ProfileInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoManager.swift; sourceTree = "<group>"; };
-		CA4F125E2E18451C0061012E /* CareerFormDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerFormDomainModel.swift; sourceTree = "<group>"; };
-		CA4F12602E1858E50061012E /* DegreeFormDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreeFormDomainModel.swift; sourceTree = "<group>"; };
-		CA4F12622E185A030061012E /* CertificateFormDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateFormDomainModel.swift; sourceTree = "<group>"; };
+		CA4F125E2E18451C0061012E /* CareerForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerForm.swift; sourceTree = "<group>"; };
+		CA4F12602E1858E50061012E /* DegreeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreeForm.swift; sourceTree = "<group>"; };
+		CA4F12622E185A030061012E /* CertificateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateForm.swift; sourceTree = "<group>"; };
 		CA50CB512E1D3FCC0078AC22 /* StompManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StompManager.swift; sourceTree = "<group>"; };
 		CA50CB542E1D46C80078AC22 /* SocketChatRoomResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketChatRoomResponseDto.swift; sourceTree = "<group>"; };
 		CA50CB562E1D68C50078AC22 /* RegisterServiceRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceRequestDto.swift; sourceTree = "<group>"; };
 		CA50CB582E1D78DE0078AC22 /* RegisterServiceResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceResponseDto.swift; sourceTree = "<group>"; };
+		CA53F4832E22172600F5C297 /* CareerDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerDomainModel.swift; sourceTree = "<group>"; };
+		CA53F4852E22175600F5C297 /* EducationDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationDomainModel.swift; sourceTree = "<group>"; };
+		CA53F4872E22179D00F5C297 /* LicenseDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseDomainModel.swift; sourceTree = "<group>"; };
+		CA5507782E218E9900E4E936 /* FetchOtherProviderResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchOtherProviderResponseDto.swift; sourceTree = "<group>"; };
 		CA5C5E7B2E09688700FB1E22 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretendard.swift; sourceTree = "<group>"; };
 		CA5C5E802E096AAA00FB1E22 /* Font+Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Pretendard.swift"; sourceTree = "<group>"; };
@@ -376,6 +385,7 @@
 		CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatRoomResponseDto.swift; sourceTree = "<group>"; };
 		CAB6FFFC2E151228004CD644 /* UserDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDomainModel.swift; sourceTree = "<group>"; };
 		CABB13BD2DF69261007C9E35 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		CACB0C6F2E2198DE00353E31 /* ProviderDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderDomainModel.swift; sourceTree = "<group>"; };
 		CAD2F2442E1A9755007B5BE8 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		CAD2F2462E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceViewModel.swift; sourceTree = "<group>"; };
 		CAE914672E13CF0700829D2C /* RefreshAccessTokenResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenResponseDto.swift; sourceTree = "<group>"; };
@@ -609,7 +619,7 @@
 		CA4F12252E1783CD0061012E /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				CA4F12562E17E11B0061012E /* ProviderProfileEditView.swift */,
+				CA4F12562E17E11B0061012E /* EditProviderProfileView.swift */,
 				CA4F12582E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift */,
 			);
 			path = Edit;
@@ -618,7 +628,7 @@
 		CA4F12332E17872E0061012E /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				CA4F12212E177DD00061012E /* ProviderProfileEditViewModel.swift */,
+				CA4F12212E177DD00061012E /* EditProviderProfileViewModel.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -635,7 +645,7 @@
 		CA4F12392E17D4D40061012E /* Skill */ = {
 			isa = PBXGroup;
 			children = (
-				CA4F12372E17CACE0061012E /* Skill.swift */,
+				CA4F12372E17CACE0061012E /* SkillCategory.swift */,
 				CA4F123B2E17D4F40061012E /* Detail */,
 			);
 			path = Skill;
@@ -679,7 +689,8 @@
 		CA4F125D2E1844FC0061012E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				CA7DE5CB2E1FE22900086E8B /* Domain */,
+				CACB0C6E2E2198B900353E31 /* Domain */,
+				CA7DE5CB2E1FE22900086E8B /* Form */,
 				CA7DE5C92E1FE21C00086E8B /* Request */,
 				CA7DE5CA2E1FE22200086E8B /* Response */,
 			);
@@ -699,6 +710,15 @@
 			children = (
 				CA60ED3E2E196A5F00B93A1D /* ChatMessageDomainModel.swift */,
 				CA60ED402E196D2B00B93A1D /* ChatRoomDomainModel.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		CA55077A2E2192B000E4E936 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CAB6FFFC2E151228004CD644 /* UserDomainModel.swift */,
+				CA7DE5C42E1ED8D300086E8B /* AccountDomainModel.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -744,8 +764,7 @@
 		CA5C5E8C2E09A05800FB1E22 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				CAB6FFFC2E151228004CD644 /* UserDomainModel.swift */,
-				CA7DE5C42E1ED8D300086E8B /* AccountDomainModel.swift */,
+				CA55077A2E2192B000E4E936 /* Domain */,
 				CA5C5E9A2E09A54E00FB1E22 /* Request */,
 				CA5C5E992E09A54800FB1E22 /* Response */,
 			);
@@ -966,6 +985,7 @@
 			isa = PBXGroup;
 			children = (
 				CA7DE5BC2E1EBCD100086E8B /* FetchUserResponseDto.swift */,
+				CA5507782E218E9900E4E936 /* FetchOtherProviderResponseDto.swift */,
 			);
 			path = Fetch;
 			sourceTree = "<group>";
@@ -1010,14 +1030,14 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
-		CA7DE5CB2E1FE22900086E8B /* Domain */ = {
+		CA7DE5CB2E1FE22900086E8B /* Form */ = {
 			isa = PBXGroup;
 			children = (
-				CA4F12602E1858E50061012E /* DegreeFormDomainModel.swift */,
-				CA4F125E2E18451C0061012E /* CareerFormDomainModel.swift */,
-				CA4F12622E185A030061012E /* CertificateFormDomainModel.swift */,
+				CA4F125E2E18451C0061012E /* CareerForm.swift */,
+				CA4F12602E1858E50061012E /* DegreeForm.swift */,
+				CA4F12622E185A030061012E /* CertificateForm.swift */,
 			);
-			path = Domain;
+			path = Form;
 			sourceTree = "<group>";
 		};
 		CA7DE5D52E1FE5DA00086E8B /* Update */ = {
@@ -1504,6 +1524,17 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		CACB0C6E2E2198B900353E31 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CACB0C6F2E2198DE00353E31 /* ProviderDomainModel.swift */,
+				CA53F4832E22172600F5C297 /* CareerDomainModel.swift */,
+				CA53F4852E22175600F5C297 /* EducationDomainModel.swift */,
+				CA53F4872E22179D00F5C297 /* LicenseDomainModel.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		CAD2F2432E1A974B007B5BE8 /* Date */ = {
 			isa = PBXGroup;
 			children = (
@@ -1646,16 +1677,18 @@
 				CA9BB5242E12B8DD0035F26D /* ProviderProfileView.swift in Sources */,
 				CA9E2A822E21577700962203 /* FetchProviderResponseDto.swift in Sources */,
 				CA4CF9272E0C1E1100F882C4 /* SendSmsRequestDto.swift in Sources */,
-				CA4F12222E177DD00061012E /* ProviderProfileEditViewModel.swift in Sources */,
+				CA4F12222E177DD00061012E /* EditProviderProfileViewModel.swift in Sources */,
 				CA9609C72E0018D800B878C6 /* TextFieldFocusField.swift in Sources */,
 				CA4F123F2E17D6920061012E /* ConsultingDetail.swift in Sources */,
 				CA83F6E52DFAF788005377E6 /* Color+Hex.swift in Sources */,
 				CA9F463E2E101FD100028F83 /* ChatListViewModel.swift in Sources */,
 				CA09154D2DF128A400E272F8 /* ContentView.swift in Sources */,
+				CA53F4882E22179D00F5C297 /* LicenseDomainModel.swift in Sources */,
 				CA9F46412E10214000028F83 /* ChatCellView.swift in Sources */,
 				CA87FF822E0284EB00C8C830 /* ModifierIf.swift in Sources */,
 				CA4F125C2E18243D0061012E /* ProfileInfoManager.swift in Sources */,
 				CAB6000F2E157C97004CD644 /* FetchChatRoomsRequestDto.swift in Sources */,
+				CA53F4842E22172600F5C297 /* CareerDomainModel.swift in Sources */,
 				CA76854C2E1C183000148204 /* Animation+Custom.swift in Sources */,
 				CA870FC02E1C49710083449B /* GenerateThumbnailResponseDto.swift in Sources */,
 				CAB6FFFD2E151228004CD644 /* UserDomainModel.swift in Sources */,
@@ -1672,9 +1705,11 @@
 				CA7DE5E02E20293C00086E8B /* CheckPasswordRequestDto.swift in Sources */,
 				CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */,
 				CA7DE5DA2E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift in Sources */,
+				CA5507792E218E9900E4E936 /* FetchOtherProviderResponseDto.swift in Sources */,
 				CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */,
 				CAB600032E15480F004CD644 /* SocketConnectionStatus.swift in Sources */,
 				CA7685292E1BDDB800148204 /* RegisterServiceTailView.swift in Sources */,
+				CACB0C702E2198DE00353E31 /* ProviderDomainModel.swift in Sources */,
 				CA7DE5DC2E2028BE00086E8B /* UserManager+Check.swift in Sources */,
 				CA7DE5E62E205E7500086E8B /* NavigationBarRegisterServiceLeadModifier.swift in Sources */,
 				CA35935F2E0514AE0069FAF8 /* CategoryViewModel.swift in Sources */,
@@ -1684,13 +1719,13 @@
 				CA9609A42DFFCD7B00B878C6 /* Color+MainTitle.swift in Sources */,
 				CA9609A72DFFCF8100B878C6 /* MainTabBar.swift in Sources */,
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
-				CA4F12612E1858E50061012E /* DegreeFormDomainModel.swift in Sources */,
+				CA4F12612E1858E50061012E /* DegreeForm.swift in Sources */,
 				CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponseDto.swift in Sources */,
 				CA7685462E1C01CA00148204 /* NavigationDestinationPath.swift in Sources */,
 				CA60ED3F2E196A5F00B93A1D /* ChatMessageDomainModel.swift in Sources */,
 				CA4927D92E0EE5BE00D42CD0 /* LoginResponseDto.swift in Sources */,
 				CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */,
-				CA4F12382E17CACE0061012E /* Skill.swift in Sources */,
+				CA4F12382E17CACE0061012E /* SkillCategory.swift in Sources */,
 				CA4F12432E17D6D40061012E /* DevelopmentDetail.swift in Sources */,
 				CA7DE5BD2E1EBCD100086E8B /* FetchUserResponseDto.swift in Sources */,
 				CA50CB552E1D46C80078AC22 /* SocketChatRoomResponseDto.swift in Sources */,
@@ -1730,7 +1765,7 @@
 				CA87FF7D2E024B5000C8C830 /* Gender.swift in Sources */,
 				CA60FAD32E100BD000150563 /* Keychain.swift in Sources */,
 				CA4F124F2E17D7B70061012E /* CustomMadeDetail.swift in Sources */,
-				CA4F12572E17E11B0061012E /* ProviderProfileEditView.swift in Sources */,
+				CA4F12572E17E11B0061012E /* EditProviderProfileView.swift in Sources */,
 				CA9609B02DFFD17900B878C6 /* CornerRadius.swift in Sources */,
 				CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */,
 				CA7DE5E22E20295500086E8B /* CheckPasswordResponseDto.swift in Sources */,
@@ -1765,7 +1800,7 @@
 				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponseDto.swift in Sources */,
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
 				CA4F12512E17D7D50061012E /* HobbyLessonDetail.swift in Sources */,
-				CA4F12632E185A030061012E /* CertificateFormDomainModel.swift in Sources */,
+				CA4F12632E185A030061012E /* CertificateForm.swift in Sources */,
 				CA9E2A7D2E212B7B00962203 /* PortfolioImageDomainModel.swift in Sources */,
 				CA7DE5C52E1ED8D300086E8B /* AccountDomainModel.swift in Sources */,
 				CA7685272E1BDAEE00148204 /* ServiceManager.swift in Sources */,
@@ -1784,7 +1819,8 @@
 				CA9609A22DFBE1E100B878C6 /* NavigationBackGestureEnable.swift in Sources */,
 				CA5C5E942E09A22800FB1E22 /* API.swift in Sources */,
 				CA9E2A782E212A0300962203 /* FetchServiceResponseDto.swift in Sources */,
-				CA4F125F2E18451C0061012E /* CareerFormDomainModel.swift in Sources */,
+				CA4F125F2E18451C0061012E /* CareerForm.swift in Sources */,
+				CA53F4862E22175600F5C297 /* EducationDomainModel.swift in Sources */,
 				CA9609BE2DFFE36300B878C6 /* SignUpView.swift in Sources */,
 				CA9E2A742E2129A900962203 /* ServiceViewModel.swift in Sources */,
 				CA96099C2DFBE08A00B878C6 /* NavigationBarBackAndHomeModifier.swift in Sources */,

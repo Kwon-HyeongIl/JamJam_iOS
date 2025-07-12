@@ -26,7 +26,7 @@ struct ServiceView: View {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {
                         HStack {
-                            Text(Skill(rawValue: viewModel.service?.category ?? 0)?.text ?? "")
+                            Text(SkillCategory(rawValue: viewModel.service?.category ?? 0)?.text ?? "")
                                 .font(.pretendard(Pretendard.medium, size: 16))
                                 .foregroundStyle(Color.JJTitle)
                                 .padding(.leading, 20)

@@ -9,281 +9,375 @@ import SwiftUI
 
 struct ProviderProfileView: View {
     @Environment(NavigationCore.self) var navRouter
-    @State private var viewModel = ProviderProfileViewModel()
+    @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
+    @State private var viewModel: ProviderProfileViewModel
     
     @State private var position = ScrollPosition()
     @State private var isTabBarVisible = true
     
     @Namespace private var tabListUnderline
     
+    init(otherUserId: Int) {
+        viewModel = ProviderProfileViewModel(otherUserId: otherUserId)
+    }
+    
     var body: some View {
-        VStack(spacing: 0) {
-            ScrollView(showsIndicators: false) {
-                VStack {
-                    // MARK: Profile Part
-                    HStack(spacing: 10) {
-                        Image(systemName: "person.crop.circle.fill")
-                            .font(.system(size: 60))
-                            .foregroundStyle(.gray.opacity(0.6))
-                            .padding(.leading, 20)
-                        
-                        VStack(spacing: 8) {
-                            HStack(spacing: 15) {
-                                Text("홍길동")
-                                    .font(.pretendard(Pretendard.bold, size: 20))
+        GeometryReader { proxy in
+            VStack(spacing: 0) {
+                ScrollView(showsIndicators: false) {
+                    VStack {
+                        // MARK: Profile Part
+                        HStack(spacing: 10) {
+                            Image(systemName: "person.crop.circle.fill")
+                                .font(.system(size: 60))
+                                .foregroundStyle(.gray.opacity(0.6))
+                                .padding(.leading, 20)
+                            
+                            VStack(spacing: 8) {
+                                HStack(spacing: 15) {
+                                    Text(viewModel.otherProvider?.nickname ?? "홍길동")
+                                        .font(.pretendard(Pretendard.bold, size: 20))
+                                    
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .foregroundStyle(.red.opacity(0.1))
+                                        .frame(width: 90, height: 25)
+                                        .overlay {
+                                            Text(viewModel.otherProvider?.category?.text ?? "컨설팅멘토링")
+                                                .font(.pretendard(Pretendard.medium, size: 12))
+                                                .foregroundStyle(Color.JJTitle)
+                                        }
+                                    
+                                    Spacer()
+                                }
                                 
-                                RoundedRectangle(cornerRadius: 20)
-                                    .foregroundStyle(.red.opacity(0.1))
-                                    .frame(width: 90, height: 25)
-                                    .overlay {
-                                        Text("컨설팅•멘토링")
-                                            .font(.pretendard(Pretendard.medium, size: 12))
-                                            .foregroundStyle(Color.JJTitle)
-                                    }
+                                HStack {
+                                    Image(systemName: "map")
+                                        .font(.pretendard(Pretendard.medium, size: 12))
+                                        .foregroundStyle(.gray)
+                                    
+                                    Text(viewModel.otherProvider?.location ?? "부산광역시 남구")
+                                        .font(.pretendard(Pretendard.medium, size: 12))
+                                        .foregroundStyle(.gray)
+                                    
+                                    Spacer()
+                                }
+                            }
+                            
+                            Spacer()
+                        }
+                        .padding(.bottom)
+                        
+                        VStack(spacing: 5) {
+                            HStack(spacing: 15) {
+                                Text("연락 가능 시간 :")
+                                    .font(.pretendard(size: 13))
+                                    .foregroundStyle(.gray)
+                                    .padding(.leading, 20)
+                                
+                                Text("00시~00시")
+                                    .font(.pretendard(Pretendard.medium, size: 13))
+                                    .foregroundStyle(.gray)
                                 
                                 Spacer()
                             }
                             
-                            HStack {
-                                Image(systemName: "map")
-                                    .font(.pretendard(Pretendard.medium, size: 12))
+                            HStack(spacing: 15) {
+                                Text("평균 답변 시간 :")
+                                    .font(.pretendard(size: 13))
                                     .foregroundStyle(.gray)
+                                    .padding(.leading, 20)
                                 
-                                Text("부산광역시 남구")
-                                    .font(.pretendard(Pretendard.medium, size: 12))
+                                Text("00분")
+                                    .font(.pretendard(Pretendard.medium, size: 13))
                                     .foregroundStyle(.gray)
                                 
                                 Spacer()
                             }
                         }
+                        .padding(.bottom, 5)
                         
-                        Spacer()
-                    }
-                    .padding(.bottom)
-                    
-                    // MARK: Tab Selection
-                    LazyVStack(pinnedViews: [.sectionHeaders]) {
-                        Section {
-                            VStack {
-                                // MARK: 자기 소개
-                                VStack {
-                                    HStack {
-                                        Text("자기 소개")
-                                            .font(.pretendard(Pretendard.semiBold, size: 17))
-                                            .padding(.leading, 30)
-                                        
-                                        Spacer()
-                                    }
-                                    .padding(.top, 10)
-                                    .padding(.bottom, 10)
-                                    
-                                    HStack {
-                                        Text("안녕하세요! 저는 다양한 분야에서 경험을 쌓아온 전문가입니다. 고객의 니즈에 맞는 맞춤형 서비스를 제공하며, 항상 최고의 결과를 위해 노력하고 있습니다.")
-                                            .font(.pretendard(Pretendard.medium, size: 13))
-                                            .padding(.leading, 30)
-                                        
-                                        Spacer()
-                                    }
-                                }
-                                .padding(.bottom)
-                                
-                                // MARK: 보유 기술
-                                VStack {
-                                    HStack {
-                                        Text("보유 기술")
-                                            .font(.pretendard(Pretendard.semiBold, size: 17))
-                                            .padding(.leading, 30)
-                                        
-                                        Spacer()
-                                    }
-                                    .padding(.top, 10)
-                                    .padding(.bottom, 10)
-                                    
-                                    HStack {
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .frame(width: 70, height: 30)
-                                            .foregroundStyle(.white)
-                                            .overlay {
-                                                RoundedRectangle(cornerRadius: 20)
-                                                    .stroke(.gray.opacity(0.3), lineWidth: 1)
-                                            }
-                                            .padding(.leading, 30)
-                                        
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .frame(width: 70, height: 30)
-                                            .foregroundStyle(.white)
-                                            .overlay {
-                                                RoundedRectangle(cornerRadius: 20)
-                                                    .stroke(.gray.opacity(0.3), lineWidth: 1)
-                                            }
-                                        
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .frame(width: 70, height: 30)
-                                            .foregroundStyle(.white)
-                                            .overlay {
-                                                RoundedRectangle(cornerRadius: 20)
-                                                    .stroke(.gray.opacity(0.3), lineWidth: 1)
-                                            }
-                                        
-                                        Spacer()
-                                    }
-                                }
-                                .padding(.bottom)
-                                
-                                // MARK: 경력 사항
-                                VStack {
-                                    HStack {
-                                        Text("경력 사항")
-                                            .font(.pretendard(Pretendard.semiBold, size: 17))
-                                            .padding(.leading, 30)
-                                        
-                                        Spacer()
-                                    }
-                                    .padding(.top, 10)
-                                    .padding(.bottom, 10)
-                                    
-                                    HStack {
-                                        Image(systemName: "graduationcap.fill")
-                                            .font(.system(size: 12))
-                                            .foregroundStyle(.gray.opacity(0.2))
-                                            .padding(.leading, 30)
-                                        
-                                        Text("서울대학교 컴퓨터공학과 졸업")
-                                            .font(.pretendard(Pretendard.medium, size: 13))
-                                        
-                                        Spacer()
-                                    }
-                                }
-                                .padding(.bottom)
-                                
-                                Rectangle()
-                                    .frame(width: 50, height: 800)
-                                    .foregroundStyle(.red.opacity(0.1))
-                                
-                                // MARK: 제공 서비스
-                                VStack {
-                                    HStack {
-                                        Text("제공 서비스")
-                                            .font(.pretendard(Pretendard.semiBold, size: 17))
-                                            .padding(.leading, 30)
-                                        
-                                        Spacer()
-                                    }
-                                    .padding(.top, 10)
-                                    .padding(.bottom, 10)
-                                }
-                                
-                                Rectangle()
-                                    .frame(width: 50, height: 500)
-                                    .foregroundStyle(.red.opacity(0.1))
-                            }
-                        } header: {
-                            HStack {
-                                ForEach(Array(viewModel.tabBarList.enumerated()), id: \.offset) { idx, title in
-                                    VStack(spacing: 8) {
-                                        Text(title)
-                                            .font(.system(size: 16))
-                                            .fontWeight(idx == viewModel.selectedIndex ? .semibold : .medium)
-                                            .foregroundStyle(idx == viewModel.selectedIndex ? .black : .gray)
-                                            .animation(nil, value: viewModel.selectedIndex)
-                                        
-                                        if idx == viewModel.selectedIndex {
-                                            Rectangle()
-                                                .fill(Color.JJTitle)
-                                                .frame(height: 2)
-                                                .padding(.horizontal, 25)
-                                                .matchedGeometryEffect(id: "underline", in: tabListUnderline)
-                                        } else {
-                                            Color.clear.frame(height: 2)
-                                        }
-                                    }
-                                    .onTapGesture {
-                                        withAnimation(.customAnimation) {
-                                            viewModel.selectedIndex = idx
-                                        }
-                                    }
-                                    .onChange(of: viewModel.selectedIndex) { _, newIndex in
-                                        if newIndex == 0 {
-                                            withAnimation(.customAnimation) {
-                                                position.scrollTo(edge: .top)
-                                            }
+                        // MARK: Tab Selection
+                        LazyVStack(pinnedViews: [.sectionHeaders]) {
+                            Section {
+                                VStack(spacing: 50) {
+                                    // MARK: 자기 소개
+                                    VStack(spacing: 20) {
+                                        HStack {
+                                            Text("자기 소개")
+                                                .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                .padding(.leading, 20)
                                             
-                                        } else if newIndex == 1 {
-                                            withAnimation(.customAnimation) {
-                                                position.scrollTo(edge: .bottom)
+                                            Spacer()
+                                        }
+                                        .padding(.top, 10)
+                                        
+                                        HStack {
+                                            Text(viewModel.otherProvider?.introduction ?? "안녕하세요! 저는 다양한 분야에서 경험을 쌓아온 전문가입니다. 고객의 니즈에 맞는 맞춤형 서비스를 제공하며, 항상 최고의 결과를 위해 노력하고 있습니다.")
+                                                .font(.pretendard(Pretendard.medium, size: 13))
+                                                .padding(.leading, 20)
+                                            
+                                            Spacer()
+                                        }
+                                    }
+                                    
+                                    // MARK: 보유 기술
+                                    VStack(spacing: 20) {
+                                        HStack {
+                                            Text("보유 기술")
+                                                .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                .padding(.leading, 20)
+                                            
+                                            Spacer()
+                                        }
+                                        
+                                        ScrollView(.horizontal) {
+                                            HStack(spacing: 5) {
+                                                ForEach(Array((viewModel.otherProvider?.detailSkills ?? []).enumerated()), id: \.offset) { index, detailSkill in
+                                                    HStack {
+                                                        Text(detailSkill)
+                                                            .font(.pretendard(size: 15))
+                                                    }
+                                                    .padding(.horizontal, 8)
+                                                    .padding(.vertical, 4)
+                                                    .background(.white)
+                                                    .overlay {
+                                                        RoundedRectangle(cornerRadius: 20)
+                                                            .stroke(.gray.opacity(0.3), lineWidth: 1)
+                                                    }
+                                                    .padding(.leading, index == 0 ? 20 : 0)
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+                                    
+                                    // MARK: 경력 사항
+                                    VStack(spacing: 20) {
+                                        HStack {
+                                            Text("경력 사항")
+                                                .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                .padding(.leading, 20)
+                                            
+                                            Spacer()
+                                        }
+                                        
+                                        VStack {
+                                            ForEach(viewModel.otherProvider?.careers ?? [], id: \.id) { career in
+                                                HStack {
+                                                    Image(systemName: "bag.fill")
+                                                        .font(.system(size: 12))
+                                                        .foregroundStyle(.gray.opacity(0.2))
+                                                        .padding(.leading, 20)
+                                                    
+                                                    Text(career.company)
+                                                        .font(.pretendard(size: 13))
+                                                        .padding(.trailing, 2)
+                                                    
+                                                    Text(career.position)
+                                                        .font(.pretendard(size: 13))
+                                                }
+                                            }
+                                        }
+                                    }
+                                    
+                                    // MARK: 학력
+                                    VStack(spacing: 20) {
+                                        HStack {
+                                            Text("학력")
+                                                .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                .padding(.leading, 20)
+                                            
+                                            Spacer()
+                                        }
+                                        
+                                        VStack {
+                                            ForEach(viewModel.otherProvider?.educations ?? [], id: \.id) { education in
+                                                HStack {
+                                                    Image(systemName: "graduationcap.fill")
+                                                        .font(.system(size: 12))
+                                                        .foregroundStyle(.gray.opacity(0.2))
+                                                        .padding(.leading, 20)
+                                                    
+                                                    Text(education.school)
+                                                        .font(.pretendard(size: 13))
+                                                        .padding(.trailing, 2)
+                                                    
+                                                    Text(education.major)
+                                                        .font(.pretendard(size: 13))
+                                                        .padding(.trailing, 2)
+                                                    
+                                                    Text(education.degree)
+                                                        .font(.pretendard(size: 13))
+                                                }
+                                            }
+                                        }
+                                    }
+                                    
+                                    // MARK: 자격증
+                                    VStack(spacing: 20) {
+                                        HStack {
+                                            Text("자격증")
+                                                .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                .padding(.leading, 20)
+                                            
+                                            Spacer()
+                                        }
+                                        
+                                        VStack {
+                                            ForEach(viewModel.otherProvider?.licenses ?? [], id: \.id) { license in
+                                                HStack {
+                                                    Image(systemName: "person.crop.square.filled.and.at.rectangle.fill")
+                                                        .font(.system(size: 12))
+                                                        .foregroundStyle(.gray.opacity(0.2))
+                                                        .padding(.leading, 20)
+                                                    
+                                                    Text(license.name)
+                                                        .font(.pretendard(size: 13))
+                                                }
+                                            }
+                                        }
+                                    }
+                                    
+                                    // MARK: 제공 서비스
+                                    VStack(spacing: 15) {
+                                        HStack {
+                                            Text("제공 서비스")
+                                                .font(.pretendard(Pretendard.semiBold, size: 17))
+                                                .padding(.leading, 20)
+                                            
+                                            Spacer()
+                                        }
+                                        
+                                        ScrollView(.horizontal) {
+                                            HStack(spacing: 10) {
+                                                ForEach(Array((viewModel.otherProvider?.services ?? []).enumerated()), id: \.element.serviceId) { index, service in
+                                                    AsyncImage(url: URL(string: service.thumbnailUrl)) { state in
+                                                        switch state {
+                                                        case .empty:
+                                                            RoundedRectangle(cornerRadius: 10)
+                                                                .foregroundStyle(.gray.opacity(0.1))
+                                                                .shimmering()
+                                                            
+                                                        case .success(let image):
+                                                            image
+                                                                .resizable()
+                                                            
+                                                        case .failure:
+                                                            RoundedRectangle(cornerRadius: 10)
+                                                                .foregroundStyle(.gray.opacity(0.1))
+                                                            
+                                                        @unknown default:
+                                                            EmptyView()
+                                                        }
+                                                    }
+                                                    .frame(width: proxy.size.width * 0.4, height: proxy.size.width * 0.4)
+                                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                    .padding(.leading, index == 0 ? 20 : 0)
+                                                }
                                             }
                                         }
                                     }
                                 }
+                            } header: {
+                                HStack {
+                                    ForEach(Array(viewModel.tabBarList.enumerated()), id: \.offset) { idx, title in
+                                        VStack(spacing: 8) {
+                                            Text(title)
+                                                .font(.system(size: 16))
+                                                .fontWeight(idx == viewModel.selectedIndex ? .semibold : .medium)
+                                                .foregroundStyle(idx == viewModel.selectedIndex ? .black : .gray)
+                                                .animation(nil, value: viewModel.selectedIndex)
+                                            
+                                            if idx == viewModel.selectedIndex {
+                                                Rectangle()
+                                                    .fill(Color.JJTitle)
+                                                    .frame(height: 2)
+                                                    .padding(.horizontal, 25)
+                                                    .matchedGeometryEffect(id: "underline", in: tabListUnderline)
+                                            } else {
+                                                Color.clear.frame(height: 2)
+                                            }
+                                        }
+                                        .onTapGesture {
+                                            withAnimation(.customAnimation) {
+                                                viewModel.selectedIndex = idx
+                                            }
+                                        }
+                                        .onChange(of: viewModel.selectedIndex) { _, newIndex in
+                                            if newIndex == 0 {
+                                                withAnimation(.customAnimation) {
+                                                    position.scrollTo(edge: .top)
+                                                }
+                                                
+                                            } else if newIndex == 1 {
+                                                withAnimation(.customAnimation) {
+                                                    position.scrollTo(edge: .bottom)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .padding(.top, 10)
+                                .background(Color.mainBackground)
                             }
-                            .padding(.top, 10)
-                            .background(Color.mainBackground)
                         }
                     }
                 }
-            }
-            .scrollPosition($position)
-            .onScrollGeometryChange(for: CGFloat.self) { geometry in
-                geometry.contentOffset.y
-            } action: { oldY, newY in
-                if newY <= 0 {
+                .scrollPosition($position)
+                .onScrollGeometryChange(for: CGFloat.self) { geometry in
+                    geometry.contentOffset.y
+                } action: { oldY, newY in
+                    if newY <= 0 {
+                        withAnimation(.customAnimation) {
+                            isTabBarVisible = true
+                        }
+                        
+                        return
+                    }
+                    
+                    let delta = newY - oldY
+                    
+                    guard abs(delta) > 5 else { return }
+                    
                     withAnimation(.customAnimation) {
-                        isTabBarVisible = true
+                        isTabBarVisible = delta < 0
                     }
-                    
-                    return
                 }
-                
-                let delta = newY - oldY
-                
-                guard abs(delta) > 5 else { return }
-                
-                withAnimation(.customAnimation) {
-                    isTabBarVisible = delta < 0
-                }
-            }
-            .safeAreaInset(edge: .bottom) {
-                VStack(spacing: 0) {
-                    Divider()
-                    
-                    Spacer()
-                    
-                    Button {
-                        viewModel.startChatRoom()
-                    } label: {
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(height: 45)
-                            .foregroundStyle(Color.JJTitle)
-                            .padding(.horizontal, 20)
-                            .overlay {
-                                Text("문의하기")
-                                    .font(.pretendard(Pretendard.semiBold, size: 15))
-                                    .foregroundStyle(.white)
-                            }
+                .safeAreaInset(edge: .bottom) {
+                    VStack(spacing: 0) {
+                        Divider()
+                        
+                        Spacer()
+                        
+                        Button {
+                            viewModel.startChatRoom()
+                        } label: {
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(height: 45)
+                                .foregroundStyle(Color.JJTitle)
+                                .padding(.horizontal, 20)
+                                .overlay {
+                                    Text("문의하기")
+                                        .font(.pretendard(Pretendard.semiBold, size: 15))
+                                        .foregroundStyle(.white)
+                                }
+                        }
+                        
+                        Spacer()
                     }
-                    
-                    Spacer()
+                    .frame(height: 70)
+                    .background(Color.mainBackground)
+                    .offset(y: isTabBarVisible ? 0 : 110)
                 }
-                .frame(height: 70)
-                .background(Color.mainBackground)
-                .offset(y: isTabBarVisible ? 0 : 110)
             }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.mainBackground)
-        .modifier(NavigationBarBackAndTitleAndHomeModifier(title: "전문가"))
-        .alert("채팅 연결 실패", isPresented: $viewModel.isChatAlertVisible) {
-            Button {
-                viewModel.chatAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
-            } label: {
-                Text("확인")
-            }
-        } message: {
-            Text(viewModel.chatAlertMessage)
-        }
-        .onChange(of: viewModel.isNavigateToChatRoom) { _, newValue in
-            if newValue {
-                viewModel.isNavigateToChatRoom = false
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.mainBackground)
+            .modifier(NavigationBarBackAndTitleAndHomeModifier(title: "전문가"))
+            .onChange(of: viewModel.isNavigateToChatRoom) { _, isNavigateToChatRoom in
+                if isNavigateToChatRoom {
+                    mainTabBarCapsule.selectedTab = .chat
+                    navRouter.navigate(.chatContentView(viewModel.targetRoomId, viewModel.otherProvider?.nickname, viewModel.otherProvider?.profileUrl))
+                }
             }
         }
     }
@@ -291,7 +385,7 @@ struct ProviderProfileView: View {
 
 #Preview {
     NavigationStack {
-        ProviderProfileView()
+        ProviderProfileView(otherUserId: 0)
             .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }

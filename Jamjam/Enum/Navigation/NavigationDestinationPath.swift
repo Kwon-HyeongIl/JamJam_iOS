@@ -14,7 +14,7 @@ enum NavigationDestinationPath: Hashable {
     
     // Home
     case searchView
-    case categoryView(Skill)
+    case categoryView(SkillCategory)
     case serviceView(Int)
     
     // Write
@@ -27,6 +27,6 @@ enum NavigationDestinationPath: Hashable {
     // Profile
     case beforeCheckPasswordView(UserDomainModel?)
     case editUserInfoView(UserDomainModel?)
-    case providerProfileView
-    case providerProfileEditView
+    case providerProfileView(Int)
+    case editProviderProfileView
 }
