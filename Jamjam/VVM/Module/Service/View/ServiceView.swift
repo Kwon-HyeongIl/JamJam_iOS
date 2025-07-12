@@ -337,7 +337,7 @@ struct ServiceView: View {
                                     .frame(height: 45)
                                     .foregroundStyle(Color.JJTitle)
                                     .overlay {
-                                        Text("결제하기")
+                                        Text("주문하기")
                                             .font(.pretendard(Pretendard.semiBold, size: 17))
                                             .foregroundStyle(.white)
                                     }

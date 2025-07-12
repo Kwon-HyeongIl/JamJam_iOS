@@ -66,6 +66,8 @@
 		CA53F4862E22175600F5C297 /* EducationDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4852E22175600F5C297 /* EducationDomainModel.swift */; };
 		CA53F4882E22179D00F5C297 /* LicenseDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4872E22179D00F5C297 /* LicenseDomainModel.swift */; };
 		CA53F48A2E222E2300F5C297 /* NavigationBarRegisterServiceTailModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4892E222E2300F5C297 /* NavigationBarRegisterServiceTailModifier.swift */; };
+		CA53F4922E22395100F5C297 /* OrderServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4912E22395100F5C297 /* OrderServiceView.swift */; };
+		CA53F4942E22395900F5C297 /* OrderServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4932E22395900F5C297 /* OrderServiceViewModel.swift */; };
 		CA5507792E218E9900E4E936 /* FetchProviderProfileResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5507782E218E9900E4E936 /* FetchProviderProfileResponseDto.swift */; };
 		CA5B62B42E19575A00CA939F /* RangeSlider in Frameworks */ = {isa = PBXBuildFile; productRef = CA5B62B32E19575A00CA939F /* RangeSlider */; };
 		CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E7B2E09688700FB1E22 /* FontType.swift */; };
@@ -266,6 +268,8 @@
 		CA53F4852E22175600F5C297 /* EducationDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationDomainModel.swift; sourceTree = "<group>"; };
 		CA53F4872E22179D00F5C297 /* LicenseDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseDomainModel.swift; sourceTree = "<group>"; };
 		CA53F4892E222E2300F5C297 /* NavigationBarRegisterServiceTailModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarRegisterServiceTailModifier.swift; sourceTree = "<group>"; };
+		CA53F4912E22395100F5C297 /* OrderServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceView.swift; sourceTree = "<group>"; };
+		CA53F4932E22395900F5C297 /* OrderServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceViewModel.swift; sourceTree = "<group>"; };
 		CA5507782E218E9900E4E936 /* FetchProviderProfileResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProviderProfileResponseDto.swift; sourceTree = "<group>"; };
 		CA5C5E7B2E09688700FB1E22 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		CA5C5E7E2E096A7D00FB1E22 /* Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretendard.swift; sourceTree = "<group>"; };
@@ -447,7 +451,7 @@
 				CAB6FFF12E1508C8004CD644 /* Manager */,
 				CA09155F2DF12EBD00E272F8 /* VVM */,
 				CA09155E2DF12E8600E272F8 /* Model */,
-				CA0915602DF12EDC00E272F8 /* Component */,
+				CA0915602DF12EDC00E272F8 /* Widget */,
 				CA0915612DF12EE800E272F8 /* Enum */,
 				CA0915482DF128A400E272F8 /* Assets.xcassets */,
 				CA09154F2DF129C900E272F8 /* Config.xcconfig */,
@@ -477,11 +481,12 @@
 				CA9F46352E101EB400028F83 /* RegisterService */,
 				CA9F46362E101EC400028F83 /* Chat */,
 				CA9609B32DFFD4F300B878C6 /* Profile */,
+				CA53F48B2E2238E800F5C297 /* Module */,
 			);
 			path = VVM;
 			sourceTree = "<group>";
 		};
-		CA0915602DF12EDC00E272F8 /* Component */ = {
+		CA0915602DF12EDC00E272F8 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
 				CA76854A2E1C182000148204 /* Animation */,
@@ -496,7 +501,7 @@
 				CA83F6E32DFAF77D005377E6 /* Color */,
 				CA9E38DD2DFA664B00AE12DD /* Carousel */,
 			);
-			path = Component;
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		CA0915612DF12EE800E272F8 /* Enum */ = {
@@ -563,7 +568,6 @@
 			isa = PBXGroup;
 			children = (
 				CA35935E2E0514AE0069FAF8 /* CategoryViewModel.swift */,
-				CA9E2A722E21299E00962203 /* Service */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -714,6 +718,56 @@
 				CA60ED402E196D2B00B93A1D /* ChatRoomDomainModel.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		CA53F48B2E2238E800F5C297 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				CA9E2A6F2E21298800962203 /* Service */,
+				CA53F48E2E22392F00F5C297 /* Order */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		CA53F48C2E22390500F5C297 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA9E2A702E21299900962203 /* ServiceView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA53F48D2E22390C00F5C297 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA9E2A732E2129A900962203 /* ServiceViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CA53F48E2E22392F00F5C297 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				CA53F48F2E22393A00F5C297 /* View */,
+				CA53F4902E22393E00F5C297 /* ViewModel */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		CA53F48F2E22393A00F5C297 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA53F4912E22395100F5C297 /* OrderServiceView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA53F4902E22393E00F5C297 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA53F4932E22395900F5C297 /* OrderServiceViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CA55077A2E2192B000E4E936 /* Domain */ = {
@@ -1230,15 +1284,8 @@
 		CA9E2A6F2E21298800962203 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				CA9E2A702E21299900962203 /* ServiceView.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		CA9E2A722E21299E00962203 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				CA9E2A732E2129A900962203 /* ServiceViewModel.swift */,
+				CA53F48C2E22390500F5C297 /* View */,
+				CA53F48D2E22390C00F5C297 /* ViewModel */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1377,7 +1424,6 @@
 			children = (
 				CA35935B2E0511C70069FAF8 /* CategoryView.swift */,
 				CA7DE5B82E1E78DF00086E8B /* ServiceCellView.swift */,
-				CA9E2A6F2E21298800962203 /* Service */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1797,6 +1843,7 @@
 				CA50CB522E1D3FCC0078AC22 /* StompManager.swift in Sources */,
 				CAB6000D2E157B22004CD644 /* ChatManager+ChatRoom.swift in Sources */,
 				CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */,
+				CA53F4942E22395900F5C297 /* OrderServiceViewModel.swift in Sources */,
 				CA5C5E862E099CED00FB1E22 /* AuthCore.swift in Sources */,
 				CAB600072E155CF4004CD644 /* ChatSocketEventType.swift in Sources */,
 				CA7DE5D82E1FFAD600086E8B /* BeforeCheckPasswordView.swift in Sources */,
@@ -1823,6 +1870,7 @@
 				CA9609A22DFBE1E100B878C6 /* NavigationBackGestureEnable.swift in Sources */,
 				CA5C5E942E09A22800FB1E22 /* API.swift in Sources */,
 				CA9E2A782E212A0300962203 /* FetchServiceResponseDto.swift in Sources */,
+				CA53F4922E22395100F5C297 /* OrderServiceView.swift in Sources */,
 				CA4F125F2E18451C0061012E /* CareerForm.swift in Sources */,
 				CA53F4862E22175600F5C297 /* EducationDomainModel.swift in Sources */,
 				CA9609BE2DFFE36300B878C6 /* SignUpView.swift in Sources */,
