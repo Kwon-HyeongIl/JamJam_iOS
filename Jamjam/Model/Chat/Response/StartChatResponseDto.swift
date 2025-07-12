@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StartChatRoomResponseDto: Decodable {
+struct StartChatResponseDto: Decodable {
     let code: String
     let message: String
     let content: Content?

@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct StartChatRoomRequestDto: Encodable {
+struct StartChatRequestDto: Encodable {
     let otherId: Int
 }

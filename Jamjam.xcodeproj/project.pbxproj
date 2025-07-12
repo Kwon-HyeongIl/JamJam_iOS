@@ -192,8 +192,8 @@
 		CAB6003D2E16B682004CD644 /* ReadLastMessageRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6003C2E16B682004CD644 /* ReadLastMessageRequestDto.swift */; };
 		CAB6003F2E16B6A9004CD644 /* ReadLastMessageResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6003E2E16B6A9004CD644 /* ReadLastMessageResponseDto.swift */; };
 		CAB6FFF42E1508DF004CD644 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFF32E1508DF004CD644 /* ChatManager.swift */; };
-		CAB6FFF92E150CDF004CD644 /* StartChatRoomRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFF82E150CDF004CD644 /* StartChatRoomRequestDto.swift */; };
-		CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponseDto.swift */; };
+		CAB6FFF92E150CDF004CD644 /* StartChatRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFF82E150CDF004CD644 /* StartChatRequestDto.swift */; };
+		CAB6FFFB2E150DCA004CD644 /* StartChatResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFA2E150DCA004CD644 /* StartChatResponseDto.swift */; };
 		CAB6FFFD2E151228004CD644 /* UserDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFC2E151228004CD644 /* UserDomainModel.swift */; };
 		CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB13BD2DF69261007C9E35 /* SplashView.swift */; };
 		CACB0C702E2198DE00353E31 /* ProviderDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB0C6F2E2198DE00353E31 /* ProviderDomainModel.swift */; };
@@ -383,8 +383,8 @@
 		CAB6003C2E16B682004CD644 /* ReadLastMessageRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLastMessageRequestDto.swift; sourceTree = "<group>"; };
 		CAB6003E2E16B6A9004CD644 /* ReadLastMessageResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLastMessageResponseDto.swift; sourceTree = "<group>"; };
 		CAB6FFF32E1508DF004CD644 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
-		CAB6FFF82E150CDF004CD644 /* StartChatRoomRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatRoomRequestDto.swift; sourceTree = "<group>"; };
-		CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatRoomResponseDto.swift; sourceTree = "<group>"; };
+		CAB6FFF82E150CDF004CD644 /* StartChatRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatRequestDto.swift; sourceTree = "<group>"; };
+		CAB6FFFA2E150DCA004CD644 /* StartChatResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatResponseDto.swift; sourceTree = "<group>"; };
 		CAB6FFFC2E151228004CD644 /* UserDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDomainModel.swift; sourceTree = "<group>"; };
 		CABB13BD2DF69261007C9E35 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		CACB0C6F2E2198DE00353E31 /* ProviderDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderDomainModel.swift; sourceTree = "<group>"; };
@@ -1496,7 +1496,7 @@
 		CAB6FFF62E150CC6004CD644 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				CAB6FFF82E150CDF004CD644 /* StartChatRoomRequestDto.swift */,
+				CAB6FFF82E150CDF004CD644 /* StartChatRequestDto.swift */,
 				CAB600082E155D29004CD644 /* SocketChatMessageRequestDto.swift */,
 				CAB6000E2E157C97004CD644 /* FetchChatRoomsRequestDto.swift */,
 				CAB600282E167A8C004CD644 /* FetchChatMessagesRequestDto.swift */,
@@ -1508,7 +1508,7 @@
 		CAB6FFF72E150CCD004CD644 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				CAB6FFFA2E150DCA004CD644 /* StartChatRoomResponseDto.swift */,
+				CAB6FFFA2E150DCA004CD644 /* StartChatResponseDto.swift */,
 				CA50CB542E1D46C80078AC22 /* SocketChatRoomResponseDto.swift */,
 				CAB6000A2E155D3C004CD644 /* SocketChatMessageResponseDto.swift */,
 				CAB600102E157CC4004CD644 /* FetchChatRoomsResponseDto.swift */,
@@ -1723,7 +1723,7 @@
 				CA9609A72DFFCF8100B878C6 /* MainTabBar.swift in Sources */,
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
 				CA4F12612E1858E50061012E /* DegreeForm.swift in Sources */,
-				CAB6FFFB2E150DCA004CD644 /* StartChatRoomResponseDto.swift in Sources */,
+				CAB6FFFB2E150DCA004CD644 /* StartChatResponseDto.swift in Sources */,
 				CA7685462E1C01CA00148204 /* NavigationDestinationPath.swift in Sources */,
 				CA60ED3F2E196A5F00B93A1D /* ChatMessageDomainModel.swift in Sources */,
 				CA4927D92E0EE5BE00D42CD0 /* LoginResponseDto.swift in Sources */,
@@ -1800,7 +1800,7 @@
 				CA5C5E862E099CED00FB1E22 /* AuthCore.swift in Sources */,
 				CAB600072E155CF4004CD644 /* ChatSocketEventType.swift in Sources */,
 				CA7DE5D82E1FFAD600086E8B /* BeforeCheckPasswordView.swift in Sources */,
-				CAB6FFF92E150CDF004CD644 /* StartChatRoomRequestDto.swift in Sources */,
+				CAB6FFF92E150CDF004CD644 /* StartChatRequestDto.swift in Sources */,
 				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponseDto.swift in Sources */,
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
 				CA4F12512E17D7D50061012E /* HobbyLessonDetail.swift in Sources */,

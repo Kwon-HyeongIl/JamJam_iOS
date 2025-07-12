@@ -97,7 +97,7 @@ struct ServiceView: View {
                             Spacer()
                         }
                         .frame(maxWidth: .infinity)
-                        .frame(height: 80)
+                        .frame(height: 75)
                         .background(.gray.opacity(0.1))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding(.horizontal, 20)
@@ -313,7 +313,7 @@ struct ServiceView: View {
                         
                         HStack(spacing: 15) {
                             Button {
-                                
+                                viewModel.startChat()
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 45)

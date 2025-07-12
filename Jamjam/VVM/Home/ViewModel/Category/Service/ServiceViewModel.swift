@@ -75,26 +75,26 @@ class ServiceViewModel {
             .store(in: &self.cancellables)
     }
     
-    func startChatRoom() {
+    func startChat() {
         guard let targetUserId = service?.userId else { return }
         
-        ChatManager.startChatRoom(otherId: targetUserId)
+        ChatManager.startChat(otherId: targetUserId)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
                 case .finished:
-                    self?.logger.info("[startChatRoom] finished")
+                    self?.logger.info("[startChat] finished")
                 case .failure(let error):
-                    self?.logger.error("[startChatRoom] failed: \(error)")
+                    self?.logger.error("[startChat] failed: \(error)")
                 }
             } receiveValue: { [weak self] response in
                 if response.code == "SUCCESS", let roomId = response.content?.roomId {
-                    self?.logger.info("[startChatRoom] SUCCESS")
+                    self?.logger.info("[startChat] SUCCESS")
                     self?.targetRoomId = roomId
                     self?.isNavigateToChatRoom = true
                     
                 } else {
-                    self?.logger.error("[startChatRoom] 응답 실패: \(response.message)")
+                    self?.logger.error("[startChat] 응답 실패: \(response.message)")
                 }
             }
             .store(in: &self.cancellables)

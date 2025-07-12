@@ -10,12 +10,12 @@ import Combine
 import Alamofire
 
 extension ChatManager {
-    static func startChatRoom(otherId: Int) -> AnyPublisher<StartChatRoomResponseDto, Error> {
-        let url = API.startChatRoom.url
-        let request = StartChatRoomRequestDto(otherId: otherId)
+    static func startChat(otherId: Int) -> AnyPublisher<StartChatResponseDto, Error> {
+        let url = API.startChat.url
+        let request = StartChatRequestDto(otherId: otherId)
         
         return AF.request(url, method: .post, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
-            .publishDecodable(type: StartChatRoomResponseDto.self)
+            .publishDecodable(type: StartChatResponseDto.self)
             .value()
             .mapError { $0 as Error }
             .eraseToAnyPublisher()

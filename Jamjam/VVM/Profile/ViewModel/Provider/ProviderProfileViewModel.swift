@@ -51,10 +51,10 @@ class ProviderProfileViewModel {
             .store(in: &self.cancellables)
     }
     
-    func startChatRoom() {
+    func startChat() {
         guard let targetUserId = provider?.userId else { return }
         
-        ChatManager.startChatRoom(otherId: targetUserId)
+        ChatManager.startChat(otherId: targetUserId)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {

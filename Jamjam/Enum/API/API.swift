@@ -53,7 +53,7 @@ enum API {
     // MARK: Chat
     case webSocketURL
     
-    case startChatRoom
+    case startChat
     case fetchChatRooms
     case fetchChatMessages(Int)
     case readLastMessage(Int)
@@ -110,7 +110,7 @@ enum API {
         case .webSocketURL:
             return "wss://api.jamx2.store/ws-chat"
             
-        case .startChatRoom:
+        case .startChat:
             return "\(API.baseURL)/api/chat/room"
         case .fetchChatRooms:
             return "\(API.baseURL)/api/chat/rooms"
