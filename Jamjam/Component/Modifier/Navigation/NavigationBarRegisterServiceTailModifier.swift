@@ -1,13 +1,13 @@
 //
-//  NavigationBarRegisterServiceLeadModifier.swift
+//  NavigationBarRegisterServiceTailModifier.swift
 //  Jamjam
 //
-//  Created by 권형일 on 7/11/25.
+//  Created by 권형일 on 7/12/25.
 //
 
 import SwiftUI
 
-struct NavigationBarRegisterServiceLeadModifier: ViewModifier {
+struct NavigationBarRegisterServiceTailModifier: ViewModifier {
     @Environment(NavigationCore.self) var navRouter
     @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
     
@@ -34,20 +34,6 @@ struct NavigationBarRegisterServiceLeadModifier: ViewModifier {
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground((isEntireProgressVisible?.wrappedValue ?? false) ? .clear : Color.mainBackground, for: .navigationBar)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        mainTabBarCapsule.selectedTab = .home
-                        navRouter.back()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .scaledToFit()
-                            .frame(width: 24)
-                            .fontWeight(.medium)
-                            .foregroundStyle(.black)
-                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 2.0 : 0)
-                    }
-                }
-                
                 ToolbarItem(placement: .principal) {
                     HStack {
                         Text(title)
@@ -59,6 +45,20 @@ struct NavigationBarRegisterServiceLeadModifier: ViewModifier {
                             .frame(width: 14)
                     }
                     .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 2.0 : 0)
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        navRouter.popToRoot()
+                        mainTabBarCapsule.selectedTab = .home
+                    } label: {
+                        Image(systemName: "house")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24)
+                            .foregroundStyle(Color.JJTitle)
+                            .blur(radius: (isEntireProgressVisible?.wrappedValue ?? false) ? 2.0 : 0)
+                    }
                 }
             }
     }

@@ -601,7 +601,7 @@ struct RegisterServiceTailView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
-        .modifier(NavigationBarTitleAndHomeModifier(title: "서비스 등록", isEntireProgressVisible: $viewModel.isEntireProgressViewVisible))
+        .modifier(NavigationBarRegisterServiceTailModifier(title: "서비스 등록", isEntireProgressVisible: $viewModel.isEntireProgressViewVisible))
         .blur(radius: viewModel.isEntireProgressViewVisible ? 2.0 : 0)
         .overlay {
             if viewModel.isEntireProgressViewVisible {
