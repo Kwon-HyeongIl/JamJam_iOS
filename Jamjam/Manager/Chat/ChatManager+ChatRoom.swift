@@ -14,7 +14,7 @@ extension ChatManager {
         let url = API.startChat.url
         let request = StartChatRequestDto(otherId: otherId)
         
-        return AF.request(url, method: .post, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
+        return AF.request(url, method: .post, parameters: request, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: API.headers)
             .publishDecodable(type: StartChatResponseDto.self)
             .value()
             .mapError { $0 as Error }
@@ -24,7 +24,7 @@ extension ChatManager {
     static func fetchChatRooms(request: FetchChatRoomsRequestDto) -> AnyPublisher<FetchChatRoomsResponseDto, Error> {
         let url = API.fetchChatRooms.url
         
-        return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
+        return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: API.headers)
             .publishDecodable(type: FetchChatRoomsResponseDto.self)
             .value()
             .mapError { $0 as Error }
@@ -34,7 +34,7 @@ extension ChatManager {
     static func fetchChatMessages(request: FetchChatMessagesRequestDto, chatRoomId: Int) -> AnyPublisher<FetchChatMessagesResponseDto, Error> {
         let url = API.fetchChatMessages(chatRoomId).url
         
-        return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
+        return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: API.headers)
             .publishDecodable(type: FetchChatMessagesResponseDto.self)
             .value()
             .mapError { $0 as Error }

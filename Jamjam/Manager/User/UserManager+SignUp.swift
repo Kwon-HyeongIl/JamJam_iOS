@@ -13,7 +13,7 @@ extension UserManager {
     static func checkNickname(_ request: CheckNicknameRequestDto) -> AnyPublisher<CheckNicknameResponseDto, Error> {
         let url = API.checkNickname.url
         
-        return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
+        return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: API.headers)
             .publishDecodable(type: CheckNicknameResponseDto.self)
             .value()
             .mapError { $0 as Error }
@@ -23,7 +23,7 @@ extension UserManager {
     static func checkLoginId(_ request: CheckLoginIdRequestDto) -> AnyPublisher<CheckLoginIdResponseDto, Error> {
         let url = API.checkLoginId.url
         
-        return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder.default, headers: API.headers)
+        return AF.request(url, method: .get, parameters: request, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: API.headers)
             .publishDecodable(type: CheckLoginIdResponseDto.self)
             .value()
             .mapError { $0 as Error }

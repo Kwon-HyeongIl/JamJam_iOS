@@ -15,7 +15,7 @@ extension ServiceManager {
             API.fetchServices.url,
             method: .get,
             parameters: request,
-            encoder: URLEncodedFormParameterEncoder.default,
+            encoder: URLEncodedFormParameterEncoder(destination: .queryString),
             headers: API.headers
         )
         .publishDecodable(type: FetchServicesResponseDto.self)
@@ -29,7 +29,7 @@ extension ServiceManager {
             API.fetchService.url,
             method: .get,
             parameters: request,
-            encoder: URLEncodedFormParameterEncoder.default,
+            encoder: URLEncodedFormParameterEncoder(destination: .queryString),
             headers: API.headers
         )
         .publishDecodable(type: FetchServiceResponseDto.self)
