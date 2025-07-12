@@ -191,13 +191,9 @@ struct ServiceView: View {
                                             Spacer()
                                         }
                                         
-                                        HStack {
-                                            Text(viewModel.service?.description ?? "")
-                                                .font(.pretendard(Pretendard.medium, size: 13))
-                                                .padding(.horizontal, 20)
-                                            
-                                            Spacer()
-                                        }
+                                        ServiceContentViewerWebView(htmlText: viewModel.service?.description ?? "")
+                                            .frame(height: 400)
+                                            .padding(.horizontal, 20)
                                     }
                                     
                                     // MARK: 포트폴리오

@@ -8,8 +8,8 @@
 import SwiftUI
 import WebKit
 
-struct WebView: UIViewRepresentable {
-    @Binding var markdown: String
+struct ServiceContentEditorWebView: UIViewRepresentable {
+    @Binding var htmlText: String
 
     final class Coordinator: NSObject, WKScriptMessageHandler {
         private let html: Binding<String>
@@ -25,7 +25,6 @@ struct WebView: UIViewRepresentable {
         // JS → Swift
         func userContentController(_ uc: WKUserContentController,
                                    didReceive msg: WKScriptMessage) {
-
             guard let body = msg.body as? [String: Any],
                   let type = body["type"] as? String else { return }
 
@@ -65,7 +64,7 @@ struct WebView: UIViewRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(html: $markdown)
+        Coordinator(html: $htmlText)
     }
 
     func makeUIView(context: Context) -> WKWebView {
@@ -78,7 +77,7 @@ struct WebView: UIViewRepresentable {
         let webView = WKWebView(frame: .zero, configuration: cfg)
         context.coordinator.webView = webView
 
-        if let url = Bundle.main.url(forResource: "serviceContent",
+        if let url = Bundle.main.url(forResource: "service_content_editor",
                                      withExtension: "html") {
             webView.loadFileURL(url,
                                  allowingReadAccessTo: url.deletingLastPathComponent())

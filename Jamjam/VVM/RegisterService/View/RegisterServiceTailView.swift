@@ -85,7 +85,7 @@ struct RegisterServiceTailView: View {
                                 Spacer()
                             }
                             
-                            WebView(markdown: $viewModel.description)
+                            ServiceContentEditorWebView(htmlText: $viewModel.description)
                                 .frame(height: 400)
                                 .padding(.horizontal, 20)
                         }

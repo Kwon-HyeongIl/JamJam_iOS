@@ -107,7 +107,7 @@ class StompCore {
                     }
                     
                 case "MESSAGE_READ":
-                    self?.logger.info("[messagesUpstream] MESSAGE_READ")
+                    self?.logger.info("[messagesUpstream] MESSAGE_READ response received")
                     
                 default:
                     self?.logger.warning("[messagesUpstream] 미확인 type: \(typeOnly.type)")

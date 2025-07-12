@@ -1,0 +1,222 @@
+﻿<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Content Viewer</title>
+    <link
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          'Pretendard Variable',
+          Pretendard,
+          -apple-system,
+          BlinkMacSystemFont,
+          system-ui,
+          sans-serif;
+        background-color: #f7f7fb;
+      }
+
+      .content-container {
+        position: relative;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow: hidden;
+      }
+
+      .content-container h1,
+      .content-container h2,
+      .content-container h3,
+      .content-container h4,
+      .content-container h5,
+      .content-container h6 {
+        font-weight: 600;
+        margin: 16px 0 8px 0;
+      }
+
+      .content-container h1 {
+        font-size: 24px;
+      }
+      .content-container h2 {
+        font-size: 20px;
+      }
+      .content-container h3 {
+        font-size: 18px;
+      }
+      .content-container h4 {
+        font-size: 16px;
+      }
+      .content-container h5 {
+        font-size: 14px;
+      }
+      .content-container h6 {
+        font-size: 13px;
+      }
+
+      .content-container p {
+        line-height: 1.6;
+        margin: 8px 0;
+      }
+
+      .content-container ul,
+      .content-container ol {
+        padding-left: 20px;
+        margin: 8px 0;
+      }
+
+      .content-container ul {
+        list-style-type: disc;
+      }
+      .content-container ol {
+        list-style-type: decimal;
+      }
+      .content-container ul ul {
+        list-style-type: circle;
+      }
+      .content-container ul ul ul {
+        list-style-type: square;
+      }
+      .content-container ol ol {
+        list-style-type: lower-alpha;
+      }
+      .content-container ol ol ol {
+        list-style-type: lower-roman;
+      }
+
+      .content-container li {
+        display: list-item;
+        line-height: 1.5;
+        margin: 4px 0;
+      }
+
+      .content-container strong,
+      .content-container b {
+        font-weight: 600;
+      }
+
+      .content-container em,
+      .content-container i {
+        font-style: italic;
+      }
+
+      .content-container blockquote {
+        background-color: rgb(242, 242, 247);
+        border-left: 3px solid #ff2d55;
+        font-style: normal;
+        margin: 16px 0;
+        padding: 12px 16px;
+      }
+
+      .content-container blockquote p {
+        margin: 0;
+      }
+
+      .content-container a {
+        text-decoration: underline;
+      }
+
+      .content-container a:hover {
+        text-decoration: none;
+      }
+
+      .content-container table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0;
+      }
+
+      .content-container table,
+      .content-container th,
+      .content-container td {
+        border: 1px solid rgb(209, 209, 214);
+      }
+
+      .content-container th,
+      .content-container td {
+        padding: 8px 12px;
+        text-align: left;
+      }
+
+      .content-container th {
+        background-color: rgb(242, 242, 247);
+        font-weight: 600;
+      }
+
+      .content-container code {
+        background-color: rgb(242, 242, 247);
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 13px;
+        padding: 2px 4px;
+        border-radius: 4px;
+      }
+
+      .content-container pre {
+        background-color: rgb(242, 242, 247);
+        border-radius: 8px;
+        overflow-x: auto;
+        padding: 16px;
+        margin: 16px 0;
+      }
+
+      .content-container pre code {
+        background: none;
+        padding: 0;
+      }
+
+      .content-container hr {
+        border: 0.5px solid rgb(229, 229, 234);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="htmlContent" class="content-container"></div>
+
+    <script>
+      function sendMessageToSwift(type, data) {
+        if (
+          window.webkit &&
+          window.webkit.messageHandlers &&
+          window.webkit.messageHandlers.contentHandler
+        ) {
+          window.webkit.messageHandlers.contentHandler.postMessage({
+            type: type,
+            data: data,
+          });
+        }
+      }
+
+      window.setHTMLContent = function (htmlContent) {
+        const contentElement = document.getElementById('htmlContent');
+        if (contentElement) {
+          contentElement.innerHTML = htmlContent;
+        }
+      };
+
+      window.getHTMLContent = function () {
+        const contentElement = document.getElementById('htmlContent');
+        return contentElement ? contentElement.innerHTML : '';
+      };
+
+      window.clearContent = function () {
+        const contentElement = document.getElementById('htmlContent');
+        if (contentElement) {
+          contentElement.innerHTML = '';
+        }
+      };
+
+      document.addEventListener('DOMContentLoaded', function () {
+        sendMessageToSwift('pageLoaded', true);
+      });
+    </script>
+  </body>
+</html>
