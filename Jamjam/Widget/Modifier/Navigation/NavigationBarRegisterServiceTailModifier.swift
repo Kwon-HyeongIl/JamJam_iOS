@@ -14,20 +14,6 @@ struct NavigationBarRegisterServiceTailModifier: ViewModifier {
     let title: String
     var isEntireProgressVisible: Binding<Bool>?
     
-    init(title: String, isEntireProgressVisible: Binding<Bool>? = nil) {
-        self.title = title
-        self.isEntireProgressVisible = isEntireProgressVisible
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(Color.mainBackground)
-        appearance.shadowColor = .clear // 하단 Divider 제거
-        
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
-    }
-    
     func body(content: Content) -> some View {
         content
             .navigationBarBackButtonHidden()

@@ -29,9 +29,9 @@ struct SearchServiceView: View {
                         }
                         .padding(.horizontal, 20)
                     }
-                    .padding(.top, 5)
+                    .padding(.top, 10)
                 }
-                .padding(.top, 10)
+                .padding(.top, 1)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.mainBackground)

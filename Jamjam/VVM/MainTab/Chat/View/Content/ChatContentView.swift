@@ -112,6 +112,7 @@ struct ChatContentView: View {
                     }
                 }
             }
+            .padding(.top, 1)
             .scaleEffect(y: -1)
             .safeAreaInset(edge: .bottom) {
                 VStack(spacing: 0) {

@@ -869,6 +869,7 @@ struct SignUpView: View {
                     }
                 }
             }
+            .padding(.top, 1)
             .scrollPosition($position)
             .safeAreaPadding(.bottom, 30)
             .safeAreaInset(edge: .bottom) {

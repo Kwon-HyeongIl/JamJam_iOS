@@ -112,6 +112,7 @@ struct RegisterServiceLeadView: View {
                     }
                 }
             }
+            .padding(.top, 1)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)

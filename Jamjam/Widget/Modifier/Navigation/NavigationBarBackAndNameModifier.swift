@@ -14,20 +14,6 @@ struct NavigationBarBackAndNameModifier: ViewModifier {
     let name: String
     var isEntireProgressVisible: Binding<Bool>?
     
-    init(name: String, isEntireProgressVisible: Binding<Bool>? = nil) {
-        self.name = name
-        self.isEntireProgressVisible = isEntireProgressVisible
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(Color.mainBackground)
-        appearance.shadowColor = .clear // 하단 Divider 제거
-        
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
-    }
-    
     func body(content: Content) -> some View {
         content
             .navigationBarBackButtonHidden()

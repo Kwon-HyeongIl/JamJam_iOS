@@ -14,21 +14,6 @@ struct NavigationBarSearchServiceViewModifier: ViewModifier {
     @Binding var searchButtonTapped: Bool
     var isEntireProgressVisible: Binding<Bool>?
     
-    init(searchText: Binding<String>, searchButtonTapped: Binding<Bool>,  isEntireProgressVisible: Binding<Bool>? = nil) {
-        self._searchText = searchText
-        self._searchButtonTapped = searchButtonTapped
-        self.isEntireProgressVisible = isEntireProgressVisible
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(Color.mainBackground)
-        appearance.shadowColor = .clear // 하단 Divider 제거
-        
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
-    }
-    
     func body(content: Content) -> some View {
         content
             .navigationBarBackButtonHidden()

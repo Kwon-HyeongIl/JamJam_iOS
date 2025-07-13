@@ -727,6 +727,7 @@ struct EditUserInfoView: View {
                     }
                 }
             }
+            .padding(.top, 1)
             .safeAreaInset(edge: .bottom) {
                 VStack(spacing: 0) {
                     Divider()

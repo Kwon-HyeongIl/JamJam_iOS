@@ -14,21 +14,6 @@ struct NavigationBarBackAndProfileAndEditModifier: ViewModifier {
     @Binding var isEdditButtonTapped: Bool
     var isEntireProgressVisible: Binding<Bool>?
     
-    init(nickname: String, isEdditButtonTapped: Binding<Bool>, isEntireProgressVisible: Binding<Bool>? = nil) {
-        self.nickname = nickname
-        self._isEdditButtonTapped = isEdditButtonTapped
-        self.isEntireProgressVisible = isEntireProgressVisible
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(Color.mainBackground)
-        appearance.shadowColor = .clear // 하단 Divider 제거
-        
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
-    }
-    
     func body(content: Content) -> some View {
         content
             .navigationBarBackButtonHidden()

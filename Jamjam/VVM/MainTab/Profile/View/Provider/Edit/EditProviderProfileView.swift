@@ -1043,6 +1043,7 @@ struct EditProviderProfileView: View {
                 VStack {}
                     .frame(width: 1, height: 90)
             }
+            .padding(.top, 1)
             .safeAreaInset(edge: .bottom) {
                 VStack(spacing: 0) {
                     Divider()

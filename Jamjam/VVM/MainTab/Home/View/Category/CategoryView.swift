@@ -115,6 +115,7 @@ struct CategoryView: View {
                         }
                     }
                 }
+                .padding(.top, 1)
                 .onScrollGeometryChange(for: CGFloat.self) { geometry in
                     geometry.contentOffset.y
                 } action: { oldY, newY in

@@ -282,6 +282,7 @@ struct ServiceView: View {
                         }
                     }
                 }
+                .padding(.top, 1)
                 .scrollPosition($position)
                 .onScrollGeometryChange(for: CGFloat.self) { geometry in
                     geometry.contentOffset.y
