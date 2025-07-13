@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ServiceCellDomainModel {
+struct ServiceCellDomainModel: Hashable, Equatable {
     let serviceId: Int
     let thumbnailUrl: String
     let serviceName: String

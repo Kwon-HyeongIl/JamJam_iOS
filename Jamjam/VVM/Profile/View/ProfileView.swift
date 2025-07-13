@@ -217,7 +217,7 @@ struct ProfileView: View {
                             .padding(.horizontal, 20)
                         
                         Button {
-                            
+                            navRouter.navigate(.editNotificationView)
                         } label: {
                             HStack {
                                 Image(systemName: "bell")

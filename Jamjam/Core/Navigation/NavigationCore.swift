@@ -25,8 +25,6 @@ class NavigationCore {
             SearchView()
         case .categoryView(let skill):
             CategoryView(skill: skill)
-        case .serviceView(let serviceId):
-            ServiceView(serviceId: serviceId)
             
             // MARK: Write
         case .registerServiceLeadView:
@@ -49,6 +47,14 @@ class NavigationCore {
             EditProviderProfileView()
         case .editNotificationView:
             EditNotificationView()
+            
+            // MARK: Service
+        case .serviceView(let serviceId):
+            ServiceView(serviceId: serviceId)
+            
+            // MARK: Order
+        case .orderServiceView(let serviceCell):
+            OrderServiceView(serviceCell: serviceCell)
         }
     }
     

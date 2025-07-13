@@ -118,7 +118,7 @@ struct ServiceView: View {
                                 
                                 Spacer()
                                 
-                                Text("\(String(viewModel.service?.salary ?? 0)) 원")
+                                Text("\(viewModel.service?.salary ?? 0) 원")
                                     .font(.pretendard(Pretendard.semiBold, size: 17))
                                     .foregroundStyle(.white)
                                 
@@ -328,7 +328,16 @@ struct ServiceView: View {
                             }
                             
                             Button {
+                                guard let serviceId = viewModel.service?.serviceId,
+                                      let thumbnailUrl = viewModel.service?.thumbnailUrl,
+                                      let serviceName = viewModel.service?.serviceName,
+                                      let providerName = viewModel.service?.serviceName,
+                                      let salary = viewModel.service?.salary
+                                else { return }
                                 
+                                let serviceCell = ServiceCellDomainModel(serviceId: serviceId, thumbnailUrl: thumbnailUrl, serviceName: serviceName, providerName: providerName, salary: salary)
+                                
+                                navRouter.navigate(.orderServiceView(serviceCell))
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 45)

@@ -15,7 +15,6 @@ enum NavigationDestinationPath: Hashable {
     // Home
     case searchView
     case categoryView(SkillCategory)
-    case serviceView(Int)
     
     // Write
     case registerServiceLeadView
@@ -30,4 +29,10 @@ enum NavigationDestinationPath: Hashable {
     case providerProfileView(Int)
     case editProviderProfileView
     case editNotificationView
+    
+    // Service
+    case serviceView(Int)
+    
+    // Order
+    case orderServiceView(ServiceCellDomainModel)
 }

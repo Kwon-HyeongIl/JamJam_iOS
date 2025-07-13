@@ -751,6 +751,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9E2A702E21299900962203 /* ServiceView.swift */,
+				CA7DE5B82E1E78DF00086E8B /* ServiceCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1443,7 +1444,6 @@
 			isa = PBXGroup;
 			children = (
 				CA35935B2E0511C70069FAF8 /* CategoryView.swift */,
-				CA7DE5B82E1E78DF00086E8B /* ServiceCellView.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
