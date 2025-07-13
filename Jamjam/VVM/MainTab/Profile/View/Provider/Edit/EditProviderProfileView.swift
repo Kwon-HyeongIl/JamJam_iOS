@@ -1200,7 +1200,7 @@ struct EditProviderProfileView: View {
                             }
                             
                             Button {
-                                
+                                viewModel.updateProviderInfo()
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 45)
@@ -1235,6 +1235,11 @@ struct EditProviderProfileView: View {
         })
         .onTapGesture {
             focus = nil
+        }
+        .onChange(of: viewModel.isUpdatePrividerCompleted) { _, isUpdatePrividerCompleted in
+            if isUpdatePrividerCompleted {
+                navRouter.popToRoot()
+            }
         }
     }
 }

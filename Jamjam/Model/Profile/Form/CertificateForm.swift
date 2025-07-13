@@ -5,11 +5,11 @@
 //  Created by 권형일 on 7/5/25.
 //
 
-import Foundation
+import SwiftUI
 
 struct CertificateForm: Identifiable {
     var certificateName = ""
-    var fileData = ""
+    var fileData: [UIImage]?
     
     let id = UUID() // Identifiable
 }

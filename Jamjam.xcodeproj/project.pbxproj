@@ -89,6 +89,8 @@
 		CA62D9982E23C365002C7849 /* SearchServiceResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62D9972E23C365002C7849 /* SearchServiceResponseDto.swift */; };
 		CA62D99B2E23C528002C7849 /* ServiceManager+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62D99A2E23C528002C7849 /* ServiceManager+Search.swift */; };
 		CA62D99D2E23C6B5002C7849 /* NavigationBarSearchServiceViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62D99C2E23C6B5002C7849 /* NavigationBarSearchServiceViewModifier.swift */; };
+		CA62D99F2E23ED5C002C7849 /* UpdateProviderInfoRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62D99E2E23ED5C002C7849 /* UpdateProviderInfoRequestDto.swift */; };
+		CA62D9A12E23F2B6002C7849 /* UpdateProviderInfoResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62D9A02E23F2B6002C7849 /* UpdateProviderInfoResponseDto.swift */; };
 		CA687C2A2E23A86E00085C07 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA687C292E23A86E00085C07 /* OrderManager.swift */; };
 		CA687C302E23A8B400085C07 /* OrderServiceRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA687C2F2E23A8B400085C07 /* OrderServiceRequestDto.swift */; };
 		CA687C322E23A90D00085C07 /* OrderServiceResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA687C312E23A90D00085C07 /* OrderServiceResponseDto.swift */; };
@@ -301,6 +303,8 @@
 		CA62D9972E23C365002C7849 /* SearchServiceResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceResponseDto.swift; sourceTree = "<group>"; };
 		CA62D99A2E23C528002C7849 /* ServiceManager+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServiceManager+Search.swift"; sourceTree = "<group>"; };
 		CA62D99C2E23C6B5002C7849 /* NavigationBarSearchServiceViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarSearchServiceViewModifier.swift; sourceTree = "<group>"; };
+		CA62D99E2E23ED5C002C7849 /* UpdateProviderInfoRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProviderInfoRequestDto.swift; sourceTree = "<group>"; };
+		CA62D9A02E23F2B6002C7849 /* UpdateProviderInfoResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProviderInfoResponseDto.swift; sourceTree = "<group>"; };
 		CA687C292E23A86E00085C07 /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
 		CA687C2F2E23A8B400085C07 /* OrderServiceRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceRequestDto.swift; sourceTree = "<group>"; };
 		CA687C312E23A90D00085C07 /* OrderServiceResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceResponseDto.swift; sourceTree = "<group>"; };
@@ -1161,6 +1165,7 @@
 		CA7DE5C92E1FE21C00086E8B /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				CA62D99E2E23ED5C002C7849 /* UpdateProviderInfoRequestDto.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1168,6 +1173,7 @@
 		CA7DE5CA2E1FE22200086E8B /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				CA62D9A02E23F2B6002C7849 /* UpdateProviderInfoResponseDto.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1811,6 +1817,7 @@
 				CA96099A2DFBE06400B878C6 /* NavigationBarBackModifier.swift in Sources */,
 				CAB600112E157CC4004CD644 /* FetchChatRoomsResponseDto.swift in Sources */,
 				CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */,
+				CA62D99F2E23ED5C002C7849 /* UpdateProviderInfoRequestDto.swift in Sources */,
 				CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */,
 				CAE914682E13CF0700829D2C /* RefreshAccessTokenResponseDto.swift in Sources */,
 				CAB600092E155D29004CD644 /* SocketChatMessageRequestDto.swift in Sources */,
@@ -1947,6 +1954,7 @@
 				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponseDto.swift in Sources */,
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
 				CA4F12512E17D7D50061012E /* HobbyLessonDetail.swift in Sources */,
+				CA62D9A12E23F2B6002C7849 /* UpdateProviderInfoResponseDto.swift in Sources */,
 				CA4F12632E185A030061012E /* CertificateForm.swift in Sources */,
 				CA9E2A7D2E212B7B00962203 /* PortfolioImageDomainModel.swift in Sources */,
 				CA4FA6A52E22AE3500DF4AAA /* EditNotificationView.swift in Sources */,

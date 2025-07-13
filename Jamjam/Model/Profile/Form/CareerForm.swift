@@ -5,12 +5,12 @@
 //  Created by 권형일 on 7/5/25.
 //
 
-import Foundation
+import SwiftUI
 
 struct CareerForm: Identifiable {
     var groupName = ""
     var role = ""
-    var fileData = ""
+    var fileData: [UIImage]?
     
     let id = UUID() // Identifiable
 }

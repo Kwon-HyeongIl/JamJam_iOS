@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Combine
+import os
 
 @Observable
 class EditProviderProfileViewModel {
@@ -60,6 +62,11 @@ class EditProviderProfileViewModel {
     var endTime = 18.0 / 24.0
     let hourStep = 1.0 / 24.0
     
+    var isUpdatePrividerCompleted = false
+    
+    @ObservationIgnored var cancellables = Set<AnyCancellable>()
+    @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "EditProviderProfileViewModel")
+    
     func detailSkillText(id: Int) -> String? {
         ProfileInfoManager.extractDetailSkillTextWithId(id: id)
     }
@@ -91,5 +98,46 @@ class EditProviderProfileViewModel {
     func convertTimeTo24(_ sliderValue: Double) -> String {
         let hour = Int((sliderValue * 24).rounded())
         return String(format: "%02d:00", hour)
+    }
+    
+    func updateProviderInfo() {
+        guard let location = selectedRegion?.text else { return }
+        guard let categoryId = selectedSkill?.rawValue else { return }
+        
+        let request = UpdateProviderInfoRequestDto(
+            deletedSkillIds: nil,
+            deletedCareerIds: nil,
+            skills: selectedDetailSkillIds.map {
+                .init(id: $0, name: "")
+            },
+            deletedEducationIds: nil,
+            educations: nil,
+            contactHours: .init(startHour: String(startTime), endHour: String(endTime)),
+            deletedLicenseIds: nil,
+            licenses: nil,
+            careers: nil,
+            location: location,
+            categoryId: categoryId,
+            introduction: inputIntroduction)
+        
+        UserManager.updateProviderInfo(request)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[updateProviderInfo] finished")
+                case .failure(let error):
+                    self?.logger.error("[updateProviderInfo] failed: \(error)")
+                }
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS" {
+                    self?.logger.info("[updateProviderInfo] SUCCESS")
+                    self?.isUpdatePrividerCompleted = true
+                    
+                } else {
+                    self?.logger.error("[updateProviderInfo] 응답 실패: \(response.message)")
+                }
+            }
+            .store(in: &self.cancellables)
     }
 }
