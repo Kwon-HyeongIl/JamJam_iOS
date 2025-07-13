@@ -491,11 +491,7 @@
 			isa = PBXGroup;
 			children = (
 				CABB13BC2DF6923A007C9E35 /* Splash */,
-				CA9609B62DFFD7EB00B878C6 /* Auth */,
-				CA9E38D72DFA5D2300AE12DD /* Home */,
-				CA9F46352E101EB400028F83 /* RegisterService */,
-				CA9F46362E101EC400028F83 /* Chat */,
-				CA9609B32DFFD4F300B878C6 /* Profile */,
+				CA687C332E23AD9300085C07 /* MainTab */,
 				CA53F48B2E2238E800F5C297 /* Module */,
 			);
 			path = VVM;
@@ -748,6 +744,7 @@
 		CA53F48B2E2238E800F5C297 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				CA9609B62DFFD7EB00B878C6 /* Auth */,
 				CA9E2A6F2E21298800962203 /* Service */,
 				CA53F48E2E22392F00F5C297 /* Order */,
 			);
@@ -933,6 +930,17 @@
 				CA687C2F2E23A8B400085C07 /* OrderServiceRequestDto.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		CA687C332E23AD9300085C07 /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				CA9E38D72DFA5D2300AE12DD /* Home */,
+				CA9F46352E101EB400028F83 /* RegisterService */,
+				CA9F46362E101EC400028F83 /* Chat */,
+				CA9609B32DFFD4F300B878C6 /* Profile */,
+			);
+			path = MainTab;
 			sourceTree = "<group>";
 		};
 		CA7685252E1BDABF00148204 /* Service */ = {
