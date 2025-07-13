@@ -85,6 +85,9 @@
 		CA60ED3F2E196A5F00B93A1D /* ChatMessageDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60ED3E2E196A5F00B93A1D /* ChatMessageDomainModel.swift */; };
 		CA60ED412E196D2B00B93A1D /* ChatRoomDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60ED402E196D2B00B93A1D /* ChatRoomDomainModel.swift */; };
 		CA60FAD32E100BD000150563 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60FAD22E100BD000150563 /* Keychain.swift */; };
+		CA687C2A2E23A86E00085C07 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA687C292E23A86E00085C07 /* OrderManager.swift */; };
+		CA687C302E23A8B400085C07 /* OrderServiceRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA687C2F2E23A8B400085C07 /* OrderServiceRequestDto.swift */; };
+		CA687C322E23A90D00085C07 /* OrderServiceResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA687C312E23A90D00085C07 /* OrderServiceResponseDto.swift */; };
 		CA7685272E1BDAEE00148204 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685262E1BDAEE00148204 /* ServiceManager.swift */; };
 		CA7685292E1BDDB800148204 /* RegisterServiceTailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685282E1BDDB800148204 /* RegisterServiceTailView.swift */; };
 		CA7685302E1BE12200148204 /* GenerateServiceRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA76852F2E1BE12200148204 /* GenerateServiceRequestDto.swift */; };
@@ -290,6 +293,9 @@
 		CA60ED3E2E196A5F00B93A1D /* ChatMessageDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageDomainModel.swift; sourceTree = "<group>"; };
 		CA60ED402E196D2B00B93A1D /* ChatRoomDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomDomainModel.swift; sourceTree = "<group>"; };
 		CA60FAD22E100BD000150563 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		CA687C292E23A86E00085C07 /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
+		CA687C2F2E23A8B400085C07 /* OrderServiceRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceRequestDto.swift; sourceTree = "<group>"; };
+		CA687C312E23A90D00085C07 /* OrderServiceResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceResponseDto.swift; sourceTree = "<group>"; };
 		CA7685262E1BDAEE00148204 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		CA7685282E1BDDB800148204 /* RegisterServiceTailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceTailView.swift; sourceTree = "<group>"; };
 		CA76852F2E1BE12200148204 /* GenerateServiceRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateServiceRequestDto.swift; sourceTree = "<group>"; };
@@ -476,6 +482,7 @@
 				CA7DE5A32E1E4CB100086E8B /* Service */,
 				CAB6FFF52E150CB6004CD644 /* Chat */,
 				CA4F125D2E1844FC0061012E /* Profile */,
+				CA687C2B2E23A88800085C07 /* Order */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -885,6 +892,47 @@
 				CA60FAD22E100BD000150563 /* Keychain.swift */,
 			);
 			path = Keychain;
+			sourceTree = "<group>";
+		};
+		CA687C282E23A85F00085C07 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				CA687C292E23A86E00085C07 /* OrderManager.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		CA687C2B2E23A88800085C07 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				CA687C2C2E23A89000085C07 /* Domain */,
+				CA687C2E2E23A89E00085C07 /* Request */,
+				CA687C2D2E23A89600085C07 /* Response */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		CA687C2C2E23A89000085C07 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		CA687C2D2E23A89600085C07 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				CA687C312E23A90D00085C07 /* OrderServiceResponseDto.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		CA687C2E2E23A89E00085C07 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				CA687C2F2E23A8B400085C07 /* OrderServiceRequestDto.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		CA7685252E1BDABF00148204 /* Service */ = {
@@ -1536,6 +1584,7 @@
 				CAD2F2432E1A974B007B5BE8 /* Date */,
 				CA4F125A2E18242A0061012E /* ProfileInfo */,
 				CAB6FFF22E1508D4004CD644 /* Chat */,
+				CA687C282E23A85F00085C07 /* Order */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1733,6 +1782,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA687C302E23A8B400085C07 /* OrderServiceRequestDto.swift in Sources */,
 				CA4FA6A82E22AE5800DF4AAA /* EditNotificationViewModel.swift in Sources */,
 				CA9BB5322E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift in Sources */,
 				CA7685342E1BE26F00148204 /* ServiceManager+Register.swift in Sources */,
@@ -1793,6 +1843,7 @@
 				CA4F12612E1858E50061012E /* DegreeForm.swift in Sources */,
 				CAB6FFFB2E150DCA004CD644 /* StartChatResponseDto.swift in Sources */,
 				CA7685462E1C01CA00148204 /* NavigationDestinationPath.swift in Sources */,
+				CA687C2A2E23A86E00085C07 /* OrderManager.swift in Sources */,
 				CA60ED3F2E196A5F00B93A1D /* ChatMessageDomainModel.swift in Sources */,
 				CA4927D92E0EE5BE00D42CD0 /* LoginResponseDto.swift in Sources */,
 				CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */,
@@ -1806,6 +1857,7 @@
 				CA96099E2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift in Sources */,
 				CA7DE5B32E1E628800086E8B /* ServiceManager+Fetch.swift in Sources */,
 				CA4F124D2E17D79A0061012E /* EducationDetail.swift in Sources */,
+				CA687C322E23A90D00085C07 /* OrderServiceResponseDto.swift in Sources */,
 				CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */,
 				CA9F463A2E101EE000028F83 /* ChatListView.swift in Sources */,
 				CA5C5E902E09A0A800FB1E22 /* SignUpWithClientResponseDto.swift in Sources */,

@@ -19,9 +19,9 @@ class OrderServiceViewModel {
     var deadlineMonth = ""
     var deadlineDay = ""
     var orderDescription = ""
-    var isPortfolioPhotosPickerVisible = false
-    var selectedPortfolioImages: [PhotosPickerItem] = []
-    var portfolioImages: [UIImage]?
+    var isReferenceImagesPhotosPickerVisible = false
+    var selectedReferenceImages: [PhotosPickerItem] = []
+    var referenceImages: [UIImage]?
     
     var isUsagePolicyInfoButtonTapped = false
     var isAgreeUsagePolicy = false
@@ -44,7 +44,7 @@ class OrderServiceViewModel {
     func convertPortfolioImages() async {
         var uiImages: [UIImage] = []
         
-        for item in selectedPortfolioImages {
+        for item in selectedReferenceImages {
             if let data = try? await item.loadTransferable(type: Data.self),
                let img = UIImage(data: data) {
                 uiImages.append(img)
@@ -53,7 +53,7 @@ class OrderServiceViewModel {
         
         let covertedUiImages = uiImages
         await MainActor.run {
-            self.portfolioImages = covertedUiImages
+            self.referenceImages = covertedUiImages
         }
     }
     
@@ -78,19 +78,76 @@ class OrderServiceViewModel {
     }
     
     func removePortfolioImage(index: Int) {
-        if var images = portfolioImages,
+        if var images = referenceImages,
            images.indices.contains(index) {
             images.remove(at: index)
             
             DispatchQueue.main.async {
-                self.portfolioImages = images
+                self.referenceImages = images
             }
         }
         
-        if selectedPortfolioImages.indices.contains(index) {
+        if selectedReferenceImages.indices.contains(index) {
             DispatchQueue.main.async {
-                self.selectedPortfolioImages.remove(at: index)
+                self.selectedReferenceImages.remove(at: index)
             }
         }
+    }
+    
+    private func convertISO8601Date(year: String, month: String, day: String) -> String? {
+        var dc = DateComponents()
+        dc.calendar = Calendar(identifier: .iso8601)
+        dc.timeZone = TimeZone(secondsFromGMT: 0)
+        dc.year  = Int(year)
+        dc.month = Int(month)
+        dc.day   = Int(day)
+        dc.hour = 0
+        dc.minute = 0
+        dc.second = 0
+        dc.nanosecond = 0
+        
+        guard let date = dc.date else { return nil }
+        
+        let formatter = ISO8601DateFormatter()
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        
+        return formatter.string(from: date)
+    }
+    
+    func orderService() {
+        guard let convertedDeadline = convertISO8601Date(year: deadlineYear, month: deadlineMonth, day: deadlineDay) else { return }
+        guard let price = serviceCell?.salary else { return }
+        guard let serviceId = serviceCell?.serviceId else { return }
+        
+        let request = OrderServiceRequestDto(
+            title: title,
+            deadline: convertedDeadline,
+            description: orderDescription,
+            price: price,
+            serviceId: serviceId
+        )
+        
+        OrderManager.orderService(request, images: referenceImages)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[orderService] finished")
+                case .failure(let error):
+                    self?.logger.error("[orderService] failed: \(error)")
+                }
+                
+                self?.isEntireProgressViewVisible = false
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS" {
+                    self?.logger.info("[orderService] SUCCESS")
+                    //
+                    
+                } else {
+                    self?.logger.error("[orderService] 응답 실패: \(response.message)")
+                }
+            }
+            .store(in: &self.cancellables)
     }
 }

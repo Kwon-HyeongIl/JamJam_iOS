@@ -59,6 +59,9 @@ enum API {
     case readLastMessage(Int)
     case deleteChatRoom(Int)
     
+    // MARK: Order
+    case orderService
+    
     var urlString: String {
         switch self {
             // MARK: Auth
@@ -120,6 +123,10 @@ enum API {
             return "\(API.baseURL)/api/chat/rooms/\(chatRoomId)/read"
         case .deleteChatRoom(let chatRoomId):
             return "\(API.baseURL)/api/chat/rooms/\(chatRoomId)"
+            
+            // MARK: Order
+        case .orderService:
+            return "\(API.baseURL)/api/order/register"
         }
     }
     

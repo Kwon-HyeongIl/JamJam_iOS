@@ -221,10 +221,10 @@ struct OrderServiceView: View {
                                 
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 150)
-                                    .foregroundStyle(viewModel.selectedPortfolioImages.isEmpty ? .gray.opacity(0.1) : .clear)
+                                    .foregroundStyle(viewModel.selectedReferenceImages.isEmpty ? .gray.opacity(0.1) : .clear)
                                     .padding(.horizontal, 20)
                                     .overlay {
-                                        if viewModel.selectedPortfolioImages.isEmpty {
+                                        if viewModel.selectedReferenceImages.isEmpty {
                                             VStack(spacing: 10) {
                                                 Image(systemName: "photo")
                                                     .font(.system(size: 35))
@@ -237,7 +237,7 @@ struct OrderServiceView: View {
                                         }
                                     }
                                     .overlay {
-                                        if let images = viewModel.portfolioImages {
+                                        if let images = viewModel.referenceImages {
                                             ScrollView(.horizontal) {
                                                 HStack(spacing: 5) {
                                                     ForEach(Array(images.enumerated()), id: \.offset) { index, image in
@@ -272,15 +272,15 @@ struct OrderServiceView: View {
                                         }
                                     }
                                     .photosPicker(
-                                        isPresented: $viewModel.isPortfolioPhotosPickerVisible,
-                                        selection: $viewModel.selectedPortfolioImages,
+                                        isPresented: $viewModel.isReferenceImagesPhotosPickerVisible,
+                                        selection: $viewModel.selectedReferenceImages,
                                         matching: .images
                                     )
                                     .padding(.bottom, 12)
                                     .onTapGesture {
-                                        viewModel.isPortfolioPhotosPickerVisible = true
+                                        viewModel.isReferenceImagesPhotosPickerVisible = true
                                     }
-                                    .onChange(of: viewModel.selectedPortfolioImages) {
+                                    .onChange(of: viewModel.selectedReferenceImages) {
                                         Task {
                                             await viewModel.convertPortfolioImages()
                                         }
@@ -393,7 +393,7 @@ struct OrderServiceView: View {
                     Spacer()
                     
                     Button {
-                        
+                        viewModel.isEntireProgressViewVisible = true
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
                             .frame(height: 45)
