@@ -41,9 +41,10 @@ enum API {
     case fetchProvider
     case fetchOtherProvider(Int)
     
-    // MARK: Home
+    // MARK: Service
     case fetchServices
     case fetchService
+    case searchService
     
     // MARK: RegisterService
     case generateService
@@ -95,11 +96,13 @@ enum API {
         case .fetchOtherProvider(let userId):
             return "\(API.baseURL)/api/providers/page/\(userId)"
             
-            // MARK: Home
+            // MARK: Service
         case .fetchServices:
             return "\(API.baseURL)/api/service/service-list"
         case .fetchService:
             return "\(API.baseURL)/api/service/detail"
+        case .searchService:
+            return "\(API.baseURL)/api/search/service"
             
             // MARK: RegisterService
         case .generateService:

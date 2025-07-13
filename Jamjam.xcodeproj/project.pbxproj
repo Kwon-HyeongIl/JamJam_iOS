@@ -85,6 +85,10 @@
 		CA60ED3F2E196A5F00B93A1D /* ChatMessageDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60ED3E2E196A5F00B93A1D /* ChatMessageDomainModel.swift */; };
 		CA60ED412E196D2B00B93A1D /* ChatRoomDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60ED402E196D2B00B93A1D /* ChatRoomDomainModel.swift */; };
 		CA60FAD32E100BD000150563 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60FAD22E100BD000150563 /* Keychain.swift */; };
+		CA62D9962E23C12A002C7849 /* SearchServiceRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62D9952E23C12A002C7849 /* SearchServiceRequestDto.swift */; };
+		CA62D9982E23C365002C7849 /* SearchServiceResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62D9972E23C365002C7849 /* SearchServiceResponseDto.swift */; };
+		CA62D99B2E23C528002C7849 /* ServiceManager+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62D99A2E23C528002C7849 /* ServiceManager+Search.swift */; };
+		CA62D99D2E23C6B5002C7849 /* NavigationBarSearchServiceViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62D99C2E23C6B5002C7849 /* NavigationBarSearchServiceViewModifier.swift */; };
 		CA687C2A2E23A86E00085C07 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA687C292E23A86E00085C07 /* OrderManager.swift */; };
 		CA687C302E23A8B400085C07 /* OrderServiceRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA687C2F2E23A8B400085C07 /* OrderServiceRequestDto.swift */; };
 		CA687C322E23A90D00085C07 /* OrderServiceResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA687C312E23A90D00085C07 /* OrderServiceResponseDto.swift */; };
@@ -143,8 +147,8 @@
 		CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87FF892E02B66600C8C830 /* SignUpViewModel+Validate.swift */; };
 		CA87FF942E040FDE00C8C830 /* SignUpViewModel+Complete.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87FF932E040FDE00C8C830 /* SignUpViewModel+Complete.swift */; };
 		CA88CEC02E11077800B1116E /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88CEBF2E11077800B1116E /* FCMManager.swift */; };
-		CA9609932DFBDE9B00B878C6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609922DFBDE9B00B878C6 /* SearchView.swift */; };
-		CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */; };
+		CA9609932DFBDE9B00B878C6 /* SearchServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609922DFBDE9B00B878C6 /* SearchServiceView.swift */; };
+		CA9609962DFBDF2900B878C6 /* SearchServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609952DFBDF2900B878C6 /* SearchServiceViewModel.swift */; };
 		CA96099A2DFBE06400B878C6 /* NavigationBarBackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9609992DFBE06400B878C6 /* NavigationBarBackModifier.swift */; };
 		CA96099C2DFBE08A00B878C6 /* NavigationBarBackAndHomeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96099B2DFBE08A00B878C6 /* NavigationBarBackAndHomeModifier.swift */; };
 		CA96099E2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96099D2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift */; };
@@ -293,6 +297,10 @@
 		CA60ED3E2E196A5F00B93A1D /* ChatMessageDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageDomainModel.swift; sourceTree = "<group>"; };
 		CA60ED402E196D2B00B93A1D /* ChatRoomDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomDomainModel.swift; sourceTree = "<group>"; };
 		CA60FAD22E100BD000150563 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		CA62D9952E23C12A002C7849 /* SearchServiceRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceRequestDto.swift; sourceTree = "<group>"; };
+		CA62D9972E23C365002C7849 /* SearchServiceResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceResponseDto.swift; sourceTree = "<group>"; };
+		CA62D99A2E23C528002C7849 /* ServiceManager+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServiceManager+Search.swift"; sourceTree = "<group>"; };
+		CA62D99C2E23C6B5002C7849 /* NavigationBarSearchServiceViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarSearchServiceViewModifier.swift; sourceTree = "<group>"; };
 		CA687C292E23A86E00085C07 /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
 		CA687C2F2E23A8B400085C07 /* OrderServiceRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceRequestDto.swift; sourceTree = "<group>"; };
 		CA687C312E23A90D00085C07 /* OrderServiceResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceResponseDto.swift; sourceTree = "<group>"; };
@@ -344,8 +352,8 @@
 		CA87FF892E02B66600C8C830 /* SignUpViewModel+Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Validate.swift"; sourceTree = "<group>"; };
 		CA87FF932E040FDE00C8C830 /* SignUpViewModel+Complete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Complete.swift"; sourceTree = "<group>"; };
 		CA88CEBF2E11077800B1116E /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
-		CA9609922DFBDE9B00B878C6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		CA9609922DFBDE9B00B878C6 /* SearchServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceView.swift; sourceTree = "<group>"; };
+		CA9609952DFBDF2900B878C6 /* SearchServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceViewModel.swift; sourceTree = "<group>"; };
 		CA9609992DFBE06400B878C6 /* NavigationBarBackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackModifier.swift; sourceTree = "<group>"; };
 		CA96099B2DFBE08A00B878C6 /* NavigationBarBackAndHomeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndHomeModifier.swift; sourceTree = "<group>"; };
 		CA96099D2DFBE0F500B878C6 /* NavigationBarBackAndTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackAndTitleModifier.swift; sourceTree = "<group>"; };
@@ -949,6 +957,7 @@
 				CA7685262E1BDAEE00148204 /* ServiceManager.swift */,
 				CA7DE5B22E1E628800086E8B /* ServiceManager+Fetch.swift */,
 				CA7685332E1BE26F00148204 /* ServiceManager+Register.swift */,
+				CA62D99A2E23C528002C7849 /* ServiceManager+Search.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1098,6 +1107,7 @@
 			children = (
 				CA7DE5AD2E1E5C6200086E8B /* FetchServicesRequestDto.swift */,
 				CA9E2A752E2129EA00962203 /* FetchServiceRequestDto.swift */,
+				CA62D9952E23C12A002C7849 /* SearchServiceRequestDto.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1108,6 +1118,7 @@
 				CA7DE5AF2E1E610100086E8B /* FetchServicesResponseDto.swift */,
 				CA9E2A772E212A0300962203 /* FetchServiceResponseDto.swift */,
 				CA9E2A812E21577700962203 /* FetchProviderResponseDto.swift */,
+				CA62D9972E23C365002C7849 /* SearchServiceResponseDto.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1241,7 +1252,7 @@
 		CA9609912DFBDE0100B878C6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				CA9609952DFBDF2900B878C6 /* SearchViewModel.swift */,
+				CA9609952DFBDF2900B878C6 /* SearchServiceViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1268,6 +1279,7 @@
 				CAB600382E168DD5004CD644 /* NavigationBarBackAndProfileAndEditModifier.swift */,
 				CA7DE5E52E205E7500086E8B /* NavigationBarRegisterServiceLeadModifier.swift */,
 				CA53F4892E222E2300F5C297 /* NavigationBarRegisterServiceTailModifier.swift */,
+				CA62D99C2E23C6B5002C7849 /* NavigationBarSearchServiceViewModifier.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -1507,7 +1519,7 @@
 		CAB6002D2E1681D1004CD644 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				CA9609922DFBDE9B00B878C6 /* SearchView.swift */,
+				CA9609922DFBDE9B00B878C6 /* SearchServiceView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1802,6 +1814,7 @@
 				CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */,
 				CAE914682E13CF0700829D2C /* RefreshAccessTokenResponseDto.swift in Sources */,
 				CAB600092E155D29004CD644 /* SocketChatMessageRequestDto.swift in Sources */,
+				CA62D9962E23C12A002C7849 /* SearchServiceRequestDto.swift in Sources */,
 				CA7DE5CF2E1FE32E00086E8B /* UpdateUserInfoResponseDto.swift in Sources */,
 				CA9BB5242E12B8DD0035F26D /* ProviderProfileView.swift in Sources */,
 				CA9E2A822E21577700962203 /* FetchProviderResponseDto.swift in Sources */,
@@ -1832,7 +1845,7 @@
 				CA7DE5C82E1F866100086E8B /* Bank.swift in Sources */,
 				CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */,
 				CA7DE5E02E20293C00086E8B /* CheckPasswordRequestDto.swift in Sources */,
-				CA9609962DFBDF2900B878C6 /* SearchViewModel.swift in Sources */,
+				CA9609962DFBDF2900B878C6 /* SearchServiceViewModel.swift in Sources */,
 				CA7DE5DA2E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift in Sources */,
 				CA5507792E218E9900E4E936 /* FetchProviderProfileResponseDto.swift in Sources */,
 				CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */,
@@ -1850,6 +1863,7 @@
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
 				CA4F12612E1858E50061012E /* DegreeForm.swift in Sources */,
 				CAB6FFFB2E150DCA004CD644 /* StartChatResponseDto.swift in Sources */,
+				CA62D99B2E23C528002C7849 /* ServiceManager+Search.swift in Sources */,
 				CA7685462E1C01CA00148204 /* NavigationDestinationPath.swift in Sources */,
 				CA687C2A2E23A86E00085C07 /* OrderManager.swift in Sources */,
 				CA60ED3F2E196A5F00B93A1D /* ChatMessageDomainModel.swift in Sources */,
@@ -1910,7 +1924,7 @@
 				CA87FF782E014B7A00C8C830 /* SignUpViewModel.swift in Sources */,
 				CA87FF8A2E02B66600C8C830 /* SignUpViewModel+Validate.swift in Sources */,
 				CAAB47F82E0B0975000197E5 /* SignUpViewModel+Restore.swift in Sources */,
-				CA9609932DFBDE9B00B878C6 /* SearchView.swift in Sources */,
+				CA9609932DFBDE9B00B878C6 /* SearchServiceView.swift in Sources */,
 				CA2F85472E19A5BF00848F2E /* ServiceContentEditorWebView.swift in Sources */,
 				CA0915562DF12B9400E272F8 /* AisleView.swift in Sources */,
 				CA76853D2E1BF8D200148204 /* UserManager+Login.swift in Sources */,
@@ -1943,7 +1957,9 @@
 				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,
 				CAB6003F2E16B6A9004CD644 /* ReadLastMessageResponseDto.swift in Sources */,
 				CA4F123D2E17D66A0061012E /* ManagementDetail.swift in Sources */,
+				CA62D9982E23C365002C7849 /* SearchServiceResponseDto.swift in Sources */,
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,
+				CA62D99D2E23C6B5002C7849 /* NavigationBarSearchServiceViewModifier.swift in Sources */,
 				CA4CF9292E0C1E3A00F882C4 /* SendSmsResponseDto.swift in Sources */,
 				CA87FF942E040FDE00C8C830 /* SignUpViewModel+Complete.swift in Sources */,
 				CA4927D72E0EE52D00D42CD0 /* LoginRequestDto.swift in Sources */,

@@ -22,7 +22,7 @@ class NavigationCore {
             
             // MARK: Home
         case .searchView:
-            SearchView()
+            SearchServiceView()
         case .categoryView(let skill):
             CategoryView(skill: skill)
             
