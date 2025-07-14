@@ -25,23 +25,23 @@ class ProfileViewModel {
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ProfileViewModel")
     
-    func fetchUser() {
-        UserManager.fetchUser()
+    func fetchUserInfo() {
+        UserManager.fetchUserInfo()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 switch completion {
                 case .finished:
-                    self?.logger.info("[fetchUser] finished")
+                    self?.logger.info("[fetchUserInfo] finished")
                 case .failure(let error):
-                    self?.logger.error("[fetchUser] failed: \(error)")
+                    self?.logger.error("[fetchUserInfo] failed: \(error)")
                 }
             } receiveValue: { [weak self] response in
                 if response.code == "SUCCESS", let content = response.content {
-                    self?.logger.info("[fetchUser] SUCCESS")
+                    self?.logger.info("[fetchUserInfo] SUCCESS")
                     
                     guard let roleEnum = Role(rawValue: content.role),
                           let genderEnum = Gender(rawValue: content.gender) else {
-                        self?.logger.error("[fetchUser] roleEnum, genderEnum 변환 실패")
+                        self?.logger.error("[fetchUserInfo] roleEnum, genderEnum 변환 실패")
                         return
                     }
                     
@@ -73,7 +73,7 @@ class ProfileViewModel {
                     )
                     
                 } else {
-                    self?.logger.error("[fetchUser] 응답 처리 실패")
+                    self?.logger.error("[fetchUserInfo] 응답 처리 실패")
                 }
             }
             .store(in: &self.cancellables)

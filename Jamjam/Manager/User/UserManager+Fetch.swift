@@ -10,9 +10,9 @@ import Combine
 import Alamofire
 
 extension UserManager {
-    static func fetchUser() -> AnyPublisher<FetchUserResponseDto, Error> {
+    static func fetchUserInfo() -> AnyPublisher<FetchUserResponseDto, Error> {
         return AF.request(
-            API.fetchUser.url,
+            API.fetchUserInfo.url,
             method: .get,
             headers: API.headers
         )

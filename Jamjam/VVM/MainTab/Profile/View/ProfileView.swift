@@ -364,7 +364,7 @@ struct ProfileView: View {
         }
         .onAppear {
             if !viewModel.isUserInit {
-                viewModel.fetchUser()
+                viewModel.fetchUserInfo()
                 viewModel.isUserInit = true
             }
         }

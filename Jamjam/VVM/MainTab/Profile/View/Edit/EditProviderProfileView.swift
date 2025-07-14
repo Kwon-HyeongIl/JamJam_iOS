@@ -439,7 +439,7 @@ struct EditProviderProfileView: View {
                                         .padding(.vertical, 20)
                                         .contentShape(Rectangle())
                                         .onTapGesture {
-                                            viewModel.tappedSkill = currentSkill
+                                            viewModel.tappedSkillForSheet = currentSkill
                                             viewModel.isSheetVisible = true
                                         }
                                         
@@ -451,9 +451,9 @@ struct EditProviderProfileView: View {
                         }
                     }
                     .sheet(isPresented: $viewModel.isSheetVisible) {
-                        viewModel.tappedSkill = nil
+                        viewModel.tappedSkillForSheet = nil
                     } content: {
-                        ProviderProfileSkillDetailSheetView(selectedDetailSkillIds: $viewModel.selectedDetailSkillIds, targetSkill: viewModel.tappedSkill)
+                        ProviderProfileSkillDetailSheetView(selectedDetailSkillIds: $viewModel.selectedDetailSkillIds, targetSkill: viewModel.tappedSkillForSheet)
                             .presentationDragIndicator(.visible)
                             .presentationDetents([.medium, .large])
                     }

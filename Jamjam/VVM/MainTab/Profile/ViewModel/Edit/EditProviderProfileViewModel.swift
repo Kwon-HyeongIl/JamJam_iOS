@@ -45,7 +45,7 @@ class EditProviderProfileViewModel {
     
     // MARK: Page Index 1
     var selectedDetailSkillIds: [Int] = []
-    var tappedSkill: SkillCategory?
+    var tappedSkillForSheet: SkillCategory?
     var isSheetVisible = false
     
     var isAllValidatedInPageIndex1: Bool {

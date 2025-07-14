@@ -757,6 +757,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9609B62DFFD7EB00B878C6 /* Auth */,
+				CA5EDD0C2E25501A000F87D0 /* Profile */,
 				CA9E2A6F2E21298800962203 /* Service */,
 				CA53F48E2E22392F00F5C297 /* Order */,
 			);
@@ -893,6 +894,31 @@
 				CA4927D22E0EE4F200D42CD0 /* SignUp */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		CA5EDD0C2E25501A000F87D0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CA5EDD0D2E25502A000F87D0 /* View */,
+				CA5EDD0E2E25502E000F87D0 /* ViewModel */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CA5EDD0D2E25502A000F87D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA9BB5232E12B8DD0035F26D /* ProviderProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA5EDD0E2E25502E000F87D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CA60FAD12E100BB900150563 /* Keychain */ = {
@@ -1365,15 +1391,6 @@
 			path = FocusField;
 			sourceTree = "<group>";
 		};
-		CA9BB5222E12B8CA0035F26D /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				CA9BB5232E12B8DD0035F26D /* ProviderProfileView.swift */,
-				CA4F12252E1783CD0061012E /* Edit */,
-			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
 		CA9E2A6F2E21298800962203 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -1497,7 +1514,7 @@
 			children = (
 				CA9609B42DFFD50400B878C6 /* ProfileView.swift */,
 				CA7DE5BE2E1ED79400086E8B /* UserInfo */,
-				CA9BB5222E12B8CA0035F26D /* Provider */,
+				CA4F12252E1783CD0061012E /* Edit */,
 				CA4FA6A32E22AE0F00DF4AAA /* Notification */,
 			);
 			path = View;
@@ -1508,7 +1525,7 @@
 			children = (
 				CA9BB5282E12B9000035F26D /* ProfileViewModel.swift */,
 				CA7DE5C12E1ED7AE00086E8B /* UserInfo */,
-				CAB600312E16825C004CD644 /* Provider */,
+				CA4F12332E17872E0061012E /* Edit */,
 				CA4FA6A62E22AE4500DF4AAA /* Notification */,
 			);
 			path = ViewModel;
@@ -1536,15 +1553,6 @@
 				CA7D118D2E1025C100D55CCE /* ChatContentViewModel.swift */,
 			);
 			path = Content;
-			sourceTree = "<group>";
-		};
-		CAB600312E16825C004CD644 /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				CA9BB52B2E12B9160035F26D /* ProviderProfileViewModel.swift */,
-				CA4F12332E17872E0061012E /* Edit */,
-			);
-			path = Provider;
 			sourceTree = "<group>";
 		};
 		CAB600322E16849F004CD644 /* View */ = {

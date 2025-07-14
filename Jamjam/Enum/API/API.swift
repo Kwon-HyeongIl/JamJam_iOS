@@ -27,7 +27,7 @@ enum API {
     case refreshAccessToken
     
     // MARK: User
-    case fetchUser
+    case fetchUserInfo
     case login
     case checkNickname
     case checkLoginId
@@ -71,7 +71,7 @@ enum API {
             return "\(API.baseURL)/api/user/reissue/app"
             
             // MARK: User
-        case .fetchUser:
+        case .fetchUserInfo:
             return "\(API.baseURL)/api/user"
         case .login:
             return "\(API.baseURL)/api/user/login"
