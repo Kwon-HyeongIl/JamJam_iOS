@@ -1203,10 +1203,10 @@ struct EditProviderProfileView: View {
                             Button {
                                 if viewModel.isUpdatePrividerCompleted {
                                     viewModel.updateProviderInfo()
-                                    IsNeedUserInfoLoadCapsule.isNeedUserInfoLoad = true
+                                    isNeedUserInfoLoadCapsule.isNeedUserInfoLoad = true
                                 } else {
                                     viewModel.registerProviderInfo()
-                                    IsNeedUserInfoLoadCapsule.isNeedUserInfoLoad = true
+                                    isNeedUserInfoLoadCapsule.isNeedUserInfoLoad = true
                                 }
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
