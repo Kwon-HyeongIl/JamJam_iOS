@@ -69,6 +69,10 @@ class EditProviderProfileViewModel {
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "EditProviderProfileViewModel")
     
+    init() {
+        checkProfileInfoCompletion()
+    }
+    
     func checkProfileInfoCompletion() {
         UserManager.fetchProvider()
             .receive(on: DispatchQueue.main)
@@ -88,6 +92,7 @@ class EditProviderProfileViewModel {
                         self?.isProfileInfoCompleted = true
                         self?.inputIntroduction = content.introduction
                         self?.selectedRegion = content.location
+                        self?.selectedSkill = SkillCategory(rawValue: content.categoryId)
                         self?.selectedDetailSkillIds = (content.skills ?? []).compactMap(\.id)
                     }
              

@@ -43,7 +43,7 @@ struct EditProviderProfileView: View {
                                 .foregroundStyle(.gray.opacity(0.5))
                         }
                         .padding(.top, 10)
-                        .padding(.bottom, 30)
+                        .padding(.bottom, 20)
                         
                         // MARK: -- 자기 소개
                         VStack {
@@ -357,7 +357,7 @@ struct EditProviderProfileView: View {
                                         .foregroundStyle(.gray.opacity(0.5))
                                 }
                                 .padding(.top, 10)
-                                .padding(.bottom, 30)
+                                .padding(.bottom, 20)
                                 
                                 ZStack {
                                     Rectangle()
@@ -485,7 +485,7 @@ struct EditProviderProfileView: View {
                                         .foregroundStyle(.gray.opacity(0.5))
                                 }
                                 .padding(.top, 10)
-                                .padding(.bottom, 30)
+                                .padding(.bottom, 20)
                                 
                                 // MARK: -- 경력
                                 VStack(spacing: 5) {
@@ -659,7 +659,7 @@ struct EditProviderProfileView: View {
                                         .foregroundStyle(.gray.opacity(0.5))
                                 }
                                 .padding(.top, 10)
-                                .padding(.bottom, 30)
+                                .padding(.bottom, 20)
                                 
                                 // MARK: -- 학력
                                 VStack(spacing: 5) {
@@ -1009,7 +1009,7 @@ struct EditProviderProfileView: View {
                                         .foregroundStyle(Color.JJTitle)
                                 }
                                 .padding(.top, 10)
-                                .padding(.bottom, 30)
+                                .padding(.bottom, 20)
                                 
                                 VStack(spacing: 5) {
                                     HStack {

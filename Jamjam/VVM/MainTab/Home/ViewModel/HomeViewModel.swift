@@ -25,5 +25,5 @@ class HomeViewModel {
     @ObservationIgnored var subscriptions = Set<AnyCancellable>()
     
     @ObservationIgnored let shufflePublisher = PassthroughSubject<ShuffleDirection, Never>()
-    @ObservationIgnored let timer = Timer.publish(every: 114, on: .main, in: .common)
+    @ObservationIgnored let timer = Timer.publish(every: 5, on: .main, in: .common)
 }
