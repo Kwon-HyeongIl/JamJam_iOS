@@ -10,6 +10,7 @@ import SwiftUI
 struct NavigationBaseView: View {
     @State private var navRouter = NavigationCore()
     @State private var tabCapsule = MainTabBarCapsule()
+    @State var isNeedUserInfoLoadCapsule = IsNeedUserInfoLoadCapsule()
     
     var body: some View {
         NavigationStack(path: $navRouter.path) {
@@ -21,5 +22,6 @@ struct NavigationBaseView: View {
         }
         .environment(navRouter)
         .environment(tabCapsule)
+        .environment(isNeedUserInfoLoadCapsule)
     }
 }

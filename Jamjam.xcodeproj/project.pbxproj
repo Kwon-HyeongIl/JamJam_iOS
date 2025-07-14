@@ -82,6 +82,7 @@
 		CA5C5E902E09A0A800FB1E22 /* SignUpWithClientResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E8F2E09A0A800FB1E22 /* SignUpWithClientResponseDto.swift */; };
 		CA5C5E942E09A22800FB1E22 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E932E09A22800FB1E22 /* API.swift */; };
 		CA5C5E9C2E09A55B00FB1E22 /* SignUpWithProviderRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E9B2E09A55B00FB1E22 /* SignUpWithProviderRequestDto.swift */; };
+		CA5EDD102E2565F9000F87D0 /* IsNeedUserInfoLoadCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EDD0F2E2565F9000F87D0 /* IsNeedUserInfoLoadCapsule.swift */; };
 		CA60ED3F2E196A5F00B93A1D /* ChatMessageDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60ED3E2E196A5F00B93A1D /* ChatMessageDomainModel.swift */; };
 		CA60ED412E196D2B00B93A1D /* ChatRoomDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60ED402E196D2B00B93A1D /* ChatRoomDomainModel.swift */; };
 		CA60FAD32E100BD000150563 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60FAD22E100BD000150563 /* Keychain.swift */; };
@@ -296,6 +297,7 @@
 		CA5C5E8F2E09A0A800FB1E22 /* SignUpWithClientResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithClientResponseDto.swift; sourceTree = "<group>"; };
 		CA5C5E932E09A22800FB1E22 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CA5C5E9B2E09A55B00FB1E22 /* SignUpWithProviderRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithProviderRequestDto.swift; sourceTree = "<group>"; };
+		CA5EDD0F2E2565F9000F87D0 /* IsNeedUserInfoLoadCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsNeedUserInfoLoadCapsule.swift; sourceTree = "<group>"; };
 		CA60ED3E2E196A5F00B93A1D /* ChatMessageDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageDomainModel.swift; sourceTree = "<group>"; };
 		CA60ED402E196D2B00B93A1D /* ChatRoomDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomDomainModel.swift; sourceTree = "<group>"; };
 		CA60FAD22E100BD000150563 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -1344,6 +1346,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9609A92DFFCFFD00B878C6 /* MainTabBarCapsule.swift */,
+				CA5EDD0F2E2565F9000F87D0 /* IsNeedUserInfoLoadCapsule.swift */,
 			);
 			path = Capsule;
 			sourceTree = "<group>";
@@ -1859,6 +1862,7 @@
 				CA9609AA2DFFCFFD00B878C6 /* MainTabBarCapsule.swift in Sources */,
 				CA7DE5C82E1F866100086E8B /* Bank.swift in Sources */,
 				CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */,
+				CA5EDD102E2565F9000F87D0 /* IsNeedUserInfoLoadCapsule.swift in Sources */,
 				CA7DE5E02E20293C00086E8B /* CheckPasswordRequestDto.swift in Sources */,
 				CA9609962DFBDF2900B878C6 /* SearchServiceViewModel.swift in Sources */,
 				CA7DE5DA2E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift in Sources */,

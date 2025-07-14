@@ -10,6 +10,7 @@ import RangeSlider
 
 struct EditProviderProfileView: View {
     @Environment(NavigationCore.self) var navRouter
+    @Environment(IsNeedUserInfoLoadCapsule.self) var isNeedUserInfoLoadCapsule
     @State var viewModel = EditProviderProfileViewModel()
     
     @FocusState private var focus: TextFieldFocusField?
@@ -1202,8 +1203,10 @@ struct EditProviderProfileView: View {
                             Button {
                                 if viewModel.isUpdatePrividerCompleted {
                                     viewModel.updateProviderInfo()
+                                    IsNeedUserInfoLoadCapsule.isNeedUserInfoLoad = true
                                 } else {
                                     viewModel.registerProviderInfo()
+                                    IsNeedUserInfoLoadCapsule.isNeedUserInfoLoad = true
                                 }
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)

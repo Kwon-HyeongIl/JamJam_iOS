@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(NavigationCore.self) var navRouter
     @Environment(MainTabBarCapsule.self) var mainTabBarCapsule
+    @Environment(IsNeedUserInfoLoadCapsule.self) var isNeedUserInfoLoadCapsule
     @State private var viewModel = ProfileViewModel()
     
     var body: some View {
@@ -363,9 +364,9 @@ struct ProfileView: View {
             Text("로그아웃 하시겠습니까?")
         }
         .onAppear {
-            if !viewModel.isUserInit {
+            if isNeedUserInfoLoadCapsule.isNeedUserInfoLoad {
                 viewModel.fetchUserInfo()
-                viewModel.isUserInit = true
+                isNeedUserInfoLoadCapsule.isNeedUserInfoLoad = false
             }
         }
     }

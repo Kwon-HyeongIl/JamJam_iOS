@@ -17,8 +17,6 @@ class ProfileViewModel {
     
     var user: UserDomainModel?
     
-    var isUserInit = false
-    
     var isLoginAlertVisible = false
     var isLogoutAlertVisible = false
     
