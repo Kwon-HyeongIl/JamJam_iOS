@@ -378,4 +378,5 @@ struct ProfileView: View {
     ProfileView()
         .environment(NavigationCore())
         .environment(MainTabBarCapsule())
+        .environment(IsNeedUserInfoLoadCapsule())
 }

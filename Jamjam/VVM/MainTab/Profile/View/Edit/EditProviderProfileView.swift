@@ -1256,5 +1256,6 @@ struct EditProviderProfileView: View {
         EditProviderProfileView()
             .environment(NavigationCore())
             .environment(MainTabBarCapsule())
+            .environment(IsNeedUserInfoLoadCapsule())
     }
 }
