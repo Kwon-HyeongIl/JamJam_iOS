@@ -117,7 +117,7 @@ struct RegisterServiceLeadView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
         .modifier(NavigationBarRegisterServiceLeadModifier(title: "서비스 등록", isEntireProgressVisible: $viewModel.isEntireProgressViewVisible))
-        .alert("주의", isPresented: $viewModel.isEntranceAlertVisible) {
+        .alert("알림", isPresented: $viewModel.isEntranceAlertVisible) {
             Button {
                 if viewModel.isLoginAlertType {
                     mainTabBarCapsule.selectedTab = .home

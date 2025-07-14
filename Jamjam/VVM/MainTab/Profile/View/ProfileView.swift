@@ -32,51 +32,96 @@ struct ProfileView: View {
                 VStack {
                     VStack {
                         HStack {
-                            AsyncImage(url: URL(string: viewModel.user?.profileUrl ?? "")) { state in
-                                switch state {
-                                case .empty:
-                                    Circle()
-                                        .scaledToFit()
-                                        .frame(width: 80)
-                                        .foregroundStyle(.gray.opacity(0.5))
-                                        .overlay {
-                                            Image(systemName: "person")
-                                                .font(.system(size: 20))
-                                                .foregroundStyle(.gray)
-                                        }
-                                    
-                                case .success(let image):
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 80)
-                                        .clipShape(Circle())
-                                    
-                                case .failure:
-                                    Circle()
-                                        .scaledToFit()
-                                        .frame(width: 80)
-                                        .foregroundStyle(.gray.opacity(0.5))
-                                    
-                                @unknown default:
-                                    EmptyView()
+                            if viewModel.isLogin {
+                                AsyncImage(url: URL(string: viewModel.user?.profileUrl ?? "")) { state in
+                                    switch state {
+                                    case .empty:
+                                        Circle()
+                                            .scaledToFit()
+                                            .frame(width: 80)
+                                            .foregroundStyle(.gray.opacity(0.5))
+                                            .overlay {
+                                                Image(systemName: "person")
+                                                    .font(.system(size: 20))
+                                                    .foregroundStyle(.gray)
+                                            }
+                                        
+                                    case .success(let image):
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 80)
+                                            .clipShape(Circle())
+                                        
+                                    case .failure:
+                                        Circle()
+                                            .scaledToFit()
+                                            .frame(width: 80)
+                                            .foregroundStyle(.gray.opacity(0.5))
+                                        
+                                    @unknown default:
+                                        EmptyView()
+                                    }
                                 }
-                            }
-                            .padding(.leading)
-                            
-                            VStack(alignment: .leading, spacing: 7) {
-                                Text(viewModel.user?.nickname ?? "닉네임")
-                                    .font(.pretendard(Pretendard.semiBold, size: 20))
+                                .padding(.leading)
                                 
-                                HStack {
-                                    Text(viewModel.user?.role == .provider ? "전문가" : "고객")
-                                        .font(.pretendard(Pretendard.medium, size: 13))
-                                        .foregroundStyle(.white)
+                            } else {
+                                Circle()
+                                    .scaledToFit()
+                                    .frame(width: 80)
+                                    .foregroundStyle(.gray.opacity(0.5))
+                                    .overlay {
+                                        Image(systemName: "person")
+                                            .font(.system(size: 20))
+                                            .foregroundStyle(.gray)
+                                    }
+                                    .padding(.leading)
+                            }
+                            
+                            VStack(alignment: .leading, spacing: 8) {
+                                if viewModel.isLogin {
+                                    Text(viewModel.user?.nickname ?? "닉네임")
+                                        .font(.pretendard(Pretendard.semiBold, size: 18))
+                                    
+                                } else {
+                                    Button {
+                                        navRouter.navigate(.loginView)
+                                    } label: {
+                                        HStack {
+                                            Text("로그인하고 시작하기")
+                                                .font(.pretendard(Pretendard.semiBold, size: 18))
+                                                .foregroundStyle(.black)
+                                            
+                                            Image(systemName: "chevron.forward")
+                                                .font(.system(size: 15))
+                                                .foregroundStyle(.gray)
+                                                .fontWeight(.semibold)
+                                        }
+                                    }
                                 }
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(Color.JJTitle)
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                
+                                if viewModel.isLogin {
+                                    HStack {
+                                        Text(viewModel.user?.role == .provider ? "전문가" : "고객")
+                                            .font(.pretendard(Pretendard.medium, size: 12))
+                                            .foregroundStyle(.white)
+                                    }
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 4)
+                                    .background(Color.JJTitle)
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                                    
+                                } else {
+                                    HStack {
+                                        Text("비회원")
+                                            .font(.pretendard(Pretendard.medium, size: 12))
+                                            .foregroundStyle(.white)
+                                    }
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 4)
+                                    .background(.gray)
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                                }
                             }
                             .padding(.leading)
                             
@@ -94,10 +139,18 @@ struct ProfileView: View {
                                 
                                 Spacer()
                                 
-                                Text("\(viewModel.user?.credit ?? 1000)원")
-                                    .font(.pretendard(Pretendard.semiBold, size: 17))
-                                    .foregroundStyle(.white)
-                                    .padding(.trailing, 40)
+                                if viewModel.isLogin {
+                                    Text("\(viewModel.user?.credit ?? 0)원")
+                                        .font(.pretendard(Pretendard.semiBold, size: 17))
+                                        .foregroundStyle(.white)
+                                        .padding(.trailing, 40)
+                                    
+                                } else {
+                                    Text("0원")
+                                        .font(.pretendard(Pretendard.semiBold, size: 17))
+                                        .foregroundStyle(.white)
+                                        .padding(.trailing, 40)
+                                }
                             }
                         }
                         .frame(maxWidth:. infinity)
@@ -117,7 +170,11 @@ struct ProfileView: View {
                     
                     VStack(spacing: 20) {
                         Button {
-                            navRouter.navigate(.beforeCheckPasswordView(viewModel.user))
+                            if viewModel.isLogin {
+                                navRouter.navigate(.beforeCheckPasswordView(viewModel.user))
+                            } else {
+                                viewModel.isLoginAlertVisible = true
+                            }
                         } label: {
                             HStack {
                                 Image(systemName: "info.circle")
@@ -134,6 +191,7 @@ struct ProfileView: View {
                                 
                                 Image(systemName: "chevron.right")
                                     .padding(.trailing, 20)
+                                    .foregroundStyle(.gray)
                             }
                             .foregroundStyle(.black)
                         }
@@ -142,7 +200,11 @@ struct ProfileView: View {
                             .padding(.horizontal, 20)
                         
                         Button {
-                            navRouter.navigate(.editProviderProfileView)
+                            if viewModel.isLogin {
+                                navRouter.navigate(.editProviderProfileView)
+                            } else {
+                                viewModel.isLoginAlertVisible = true
+                            }
                         } label: {
                             HStack {
                                 Image(systemName: "person.text.rectangle")
@@ -159,6 +221,7 @@ struct ProfileView: View {
                                 
                                 Image(systemName: "chevron.right")
                                     .padding(.trailing, 20)
+                                    .foregroundStyle(.gray)
                             }
                             .foregroundStyle(.black)
                         }
@@ -167,7 +230,11 @@ struct ProfileView: View {
                             .padding(.horizontal, 20)
                         
                         Button {
-                            
+                            if viewModel.isLogin {
+                                
+                            } else {
+                                viewModel.isLoginAlertVisible = true
+                            }
                         } label: {
                             HStack {
                                 Image(systemName: "list.bullet")
@@ -184,6 +251,7 @@ struct ProfileView: View {
                                 
                                 Image(systemName: "chevron.right")
                                     .padding(.trailing, 20)
+                                    .foregroundStyle(.gray)
                             }
                             .foregroundStyle(.black)
                         }
@@ -192,7 +260,11 @@ struct ProfileView: View {
                             .padding(.horizontal, 20)
                         
                         Button {
-                            
+                            if viewModel.isLogin {
+                                
+                            } else {
+                                viewModel.isLoginAlertVisible = true
+                            }
                         } label: {
                             HStack {
                                 Image(systemName: "dollarsign.arrow.trianglehead.counterclockwise.rotate.90")
@@ -209,6 +281,7 @@ struct ProfileView: View {
                                 
                                 Image(systemName: "chevron.right")
                                     .padding(.trailing, 20)
+                                    .foregroundStyle(.gray)
                             }
                             .foregroundStyle(.black)
                         }
@@ -234,25 +307,48 @@ struct ProfileView: View {
                                 
                                 Image(systemName: "chevron.right")
                                     .padding(.trailing, 20)
+                                    .foregroundStyle(.gray)
                             }
                             .foregroundStyle(.black)
                         }
                     }
                     
-                    Button {
-                        viewModel.isLogoutAlertVisible = true
-                    } label: {
-                        Text("로그아웃")
+                    HStack {
+                        Text("v1.0.0")
                             .font(.pretendard(size: 12))
                             .foregroundStyle(.gray)
-                            .padding(.top, 50)
+                        
+                        if viewModel.isLogin {
+                            Text("/")
+                                .font(.pretendard(size: 12))
+                                .foregroundStyle(.gray)
+                            
+                            Button {
+                                viewModel.isLogoutAlertVisible = true
+                            } label: {
+                                Text("로그아웃")
+                                    .font(.pretendard(size: 12))
+                                    .underline()
+                                    .foregroundStyle(.gray)
+                            }
+                        }
                     }
+                    .padding(.top, 50)
                 }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
-        .alert("주의", isPresented: $viewModel.isLogoutAlertVisible) {
+        .alert("알림", isPresented: $viewModel.isLoginAlertVisible) {
+            Button {
+                
+            } label: {
+                Text("확인")
+            }
+        } message: {
+            Text("로그인이 필요한 서비스입니다.")
+        }
+        .alert("알림", isPresented: $viewModel.isLogoutAlertVisible) {
             Button(role: .cancel) {} label: {
                 Text("취소")
             }

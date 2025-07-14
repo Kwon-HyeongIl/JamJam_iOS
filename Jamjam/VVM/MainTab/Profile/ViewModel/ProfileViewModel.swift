@@ -11,10 +11,15 @@ import os
 
 @Observable
 class ProfileViewModel {
+    var isLogin: Bool {
+        AuthCore.shared.isLogin
+    }
+    
     var user: UserDomainModel?
     
     var isUserInit = false
     
+    var isLoginAlertVisible = false
     var isLogoutAlertVisible = false
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
