@@ -84,105 +84,105 @@ struct EditProviderProfileView: View {
                             
                             Menu {
                                 Button {
-                                    viewModel.selectedRegion = .seoul
+                                    viewModel.selectedRegion = Region.seoul.rawValue
                                 } label: {
-                                    Text(Region.seoul.text)
+                                    Text(Region.seoul.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .incheon
+                                    viewModel.selectedRegion = Region.incheon.rawValue
                                 } label: {
-                                    Text(Region.incheon.text)
+                                    Text(Region.incheon.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .gyeonggi
+                                    viewModel.selectedRegion = Region.gyeonggi.rawValue
                                 } label: {
-                                    Text(Region.gyeonggi.text)
+                                    Text(Region.gyeonggi.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .busan
+                                    viewModel.selectedRegion = Region.busan.rawValue
                                 } label: {
-                                    Text(Region.busan.text)
+                                    Text(Region.busan.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .ulsan
+                                    viewModel.selectedRegion = Region.ulsan.rawValue
                                 } label: {
-                                    Text(Region.ulsan.text)
+                                    Text(Region.ulsan.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .gyeongnam
+                                    viewModel.selectedRegion = Region.gyeongnam.rawValue
                                 } label: {
-                                    Text(Region.gyeongnam.text)
+                                    Text(Region.gyeongnam.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .daegu
+                                    viewModel.selectedRegion = Region.daegu.rawValue
                                 } label: {
-                                    Text(Region.daegu.text)
+                                    Text(Region.daegu.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .gyeongbuk
+                                    viewModel.selectedRegion = Region.gyeongbuk.rawValue
                                 } label: {
-                                    Text(Region.gyeongbuk.text)
+                                    Text(Region.gyeongbuk.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .daejeon
+                                    viewModel.selectedRegion = Region.daejeon.rawValue
                                 } label: {
-                                    Text(Region.daejeon.text)
+                                    Text(Region.daejeon.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .sejong
+                                    viewModel.selectedRegion = Region.sejong.rawValue
                                 } label: {
-                                    Text(Region.sejong.text)
+                                    Text(Region.sejong.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .chungnam
+                                    viewModel.selectedRegion = Region.chungnam.rawValue
                                 } label: {
-                                    Text(Region.chungnam.text)
+                                    Text(Region.chungnam.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .chungbuk
+                                    viewModel.selectedRegion = Region.chungbuk.rawValue
                                 } label: {
-                                    Text(Region.chungbuk.text)
+                                    Text(Region.chungbuk.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .gwangju
+                                    viewModel.selectedRegion = Region.gwangju.rawValue
                                 } label: {
-                                    Text(Region.gwangju.text)
+                                    Text(Region.gwangju.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .jeonnam
+                                    viewModel.selectedRegion = Region.jeonnam.rawValue
                                 } label: {
-                                    Text(Region.jeonnam.text)
+                                    Text(Region.jeonnam.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .jeonbuk
+                                    viewModel.selectedRegion = Region.jeonbuk.rawValue
                                 } label: {
-                                    Text(Region.jeonbuk.text)
+                                    Text(Region.jeonbuk.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .gangwon
+                                    viewModel.selectedRegion = Region.gangwon.rawValue
                                 } label: {
-                                    Text(Region.gangwon.text)
+                                    Text(Region.gangwon.rawValue)
                                 }
                                 
                                 Button {
-                                    viewModel.selectedRegion = .jeju
+                                    viewModel.selectedRegion = Region.jeju.rawValue
                                 } label: {
-                                    Text(Region.jeju.text)
+                                    Text(Region.jeju.rawValue)
                                 }
                                 
                             } label: {
@@ -197,9 +197,9 @@ struct EditProviderProfileView: View {
                                     }
                                     .overlay {
                                         HStack {
-                                            Text(viewModel.selectedRegion?.text ?? "지역을 선택해 주세요.")
+                                            Text(viewModel.selectedRegion.isEmpty ? "지역을 선택해 주세요." : viewModel.selectedRegion)
                                                 .font(.pretendard(size: 14))
-                                                .foregroundStyle(viewModel.selectedRegion == nil ? .gray.opacity(0.55) : .black)
+                                                .foregroundStyle(viewModel.selectedRegion.isEmpty ? .gray.opacity(0.55) : .black)
                                                 .padding(.leading, 35)
                                             
                                             Spacer()
@@ -1200,7 +1200,11 @@ struct EditProviderProfileView: View {
                             }
                             
                             Button {
-                                viewModel.updateProviderInfo()
+                                if viewModel.isUpdatePrividerCompleted {
+                                    viewModel.updateProviderInfo()
+                                } else {
+                                    viewModel.registerProviderInfo()
+                                }
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 45)

@@ -32,6 +32,23 @@ extension UserManager {
         .eraseToAnyPublisher()
     }
     
+    static func registerProviderInfo(_ request: UpdateProviderInfoRequestDto) -> AnyPublisher<UpdateProviderInfoResponseDto, Error> {
+        return AF.upload(
+            multipartFormData: { form in
+                if let json = try? JSONEncoder().encode(request) {
+                    form.append(json, withName: "request", mimeType: "application/json")
+                }
+            },
+            to: API.updateProviderInfo.url,
+            method: .patch,
+            headers: API.headers
+        )
+        .publishDecodable(type: UpdateProviderInfoResponseDto.self)
+        .value()
+        .mapError { $0 as Error }
+        .eraseToAnyPublisher()
+    }
+    
     static func updateProviderInfo(_ request: UpdateProviderInfoRequestDto) -> AnyPublisher<UpdateProviderInfoResponseDto, Error> {
         return AF.upload(
             multipartFormData: { form in

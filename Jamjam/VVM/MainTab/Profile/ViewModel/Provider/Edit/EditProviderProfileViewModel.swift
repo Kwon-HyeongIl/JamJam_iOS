@@ -13,6 +13,8 @@ import os
 class EditProviderProfileViewModel {
     var pageIndex = 0
     
+    var isProfileInfoCompleted = false
+    
     var title: String {
         switch pageIndex {
         case 0:
@@ -32,12 +34,12 @@ class EditProviderProfileViewModel {
     
     // MARK: Page Index 0
     var inputIntroduction = ""
-    var selectedRegion: Region?
+    var selectedRegion = ""
     var selectedSkill: SkillCategory?
     
     var isAllValidatedInPageIndex0: Bool {
         !inputIntroduction.isEmpty &&
-        selectedRegion != nil &&
+        !selectedRegion.isEmpty &&
         selectedSkill != nil
     }
     
@@ -66,6 +68,35 @@ class EditProviderProfileViewModel {
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "EditProviderProfileViewModel")
+    
+    func checkProfileInfoCompletion() {
+        UserManager.fetchProvider()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[fetchProvider] completion finished")
+                case .failure(let error):
+                    self?.logger.error("[fetchProvider] completion failed: \(error)")
+                }
+                
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS" {
+                    self?.logger.info("[fetchProvider] SUCCESS")
+                    
+                    if let content = response.content  {
+                        self?.isProfileInfoCompleted = true
+                        self?.inputIntroduction = content.introduction
+                        self?.selectedRegion = content.location
+                        self?.selectedDetailSkillIds = (content.skills ?? []).compactMap(\.id)
+                    }
+             
+                } else {
+                    self?.logger.error("[fetchProvider] 응답 처리 실패: \(response.message)")
+                }
+            }
+            .store(in: &self.cancellables)
+    }
     
     func detailSkillText(id: Int) -> String? {
         ProfileInfoManager.extractDetailSkillTextWithId(id: id)
@@ -100,8 +131,7 @@ class EditProviderProfileViewModel {
         return String(format: "%02d:00", hour)
     }
     
-    func updateProviderInfo() {
-        guard let location = selectedRegion?.text else { return }
+    func registerProviderInfo() {
         guard let categoryId = selectedSkill?.rawValue else { return }
         
         let request = UpdateProviderInfoRequestDto(
@@ -112,11 +142,51 @@ class EditProviderProfileViewModel {
             },
             deletedEducationIds: nil,
             educations: nil,
-            contactHours: .init(startHour: String(startTime), endHour: String(endTime)),
+            contactHours: .init(startHour: "03", endHour: "23"),
             deletedLicenseIds: nil,
             licenses: nil,
             careers: nil,
-            location: location,
+            location: selectedRegion,
+            categoryId: categoryId,
+            introduction: inputIntroduction)
+        
+        UserManager.registerProviderInfo(request)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[updateProviderInfo] finished")
+                case .failure(let error):
+                    self?.logger.error("[updateProviderInfo] failed: \(error)")
+                }
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS" {
+                    self?.logger.info("[updateProviderInfo] SUCCESS")
+                    self?.isUpdatePrividerCompleted = true
+                    
+                } else {
+                    self?.logger.error("[updateProviderInfo] 응답 실패: \(response.message)")
+                }
+            }
+            .store(in: &self.cancellables)
+    }
+    
+    func updateProviderInfo() {
+        guard let categoryId = selectedSkill?.rawValue else { return }
+        
+        let request = UpdateProviderInfoRequestDto(
+            deletedSkillIds: nil,
+            deletedCareerIds: nil,
+            skills: selectedDetailSkillIds.map {
+                .init(id: $0, name: "")
+            },
+            deletedEducationIds: nil,
+            educations: nil,
+            contactHours: .init(startHour: "03", endHour: "23"),
+            deletedLicenseIds: nil,
+            licenses: nil,
+            careers: nil,
+            location: selectedRegion,
             categoryId: categoryId,
             introduction: inputIntroduction)
         
