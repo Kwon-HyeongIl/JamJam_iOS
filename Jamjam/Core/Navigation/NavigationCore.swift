@@ -37,10 +37,10 @@ class NavigationCore {
             ChatContentView(roomId: roomId, nickname: nickname, profileImageUrl: profileImageUrl)
             
             // MARK: Profile
-        case .beforeCheckPasswordView(let user):
-            BeforeCheckPasswordView(user: user)
-        case .editUserInfoView(let user):
-            EditUserInfoView(user: user)
+        case .beforeCheckPasswordView:
+            BeforeCheckPasswordView()
+        case .editUserInfoView:
+            EditUserInfoView()
         case .providerProfileView(let userId):
             ProviderProfileView(userId: userId)
         case .editProviderProfileView:

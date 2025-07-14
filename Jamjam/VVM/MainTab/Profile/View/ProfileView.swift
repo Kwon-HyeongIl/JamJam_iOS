@@ -171,7 +171,7 @@ struct ProfileView: View {
                     VStack(spacing: 20) {
                         Button {
                             if viewModel.isLogin {
-                                navRouter.navigate(.beforeCheckPasswordView(viewModel.user))
+                                navRouter.navigate(.beforeCheckPasswordView)
                             } else {
                                 viewModel.isLoginAlertVisible = true
                             }

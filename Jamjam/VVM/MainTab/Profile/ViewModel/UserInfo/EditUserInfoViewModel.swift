@@ -65,16 +65,61 @@ class EditUserInfoViewModel {
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "EditUserInfoViewModel")
     
-    init(user: UserDomainModel?) {
-        self.user = user
-        self.existedProfileImageUrl = user?.profileUrl ?? ""
-        self.nickname = user?.nickname ?? ""
-        self.phoneNumber = user?.phoneNumber ?? ""
-        
-        if let account = user?.account {
-            self.bankType = Bank(rawValue: account.bankCode)
-            self.bankAccount = account.accountNumber
-        }
+    init() {
+        fetchUserInfo()
+    }
+    
+    private func fetchUserInfo() {
+        UserManager.fetchUserInfo()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[fetchUserInfo] finished")
+                case .failure(let error):
+                    self?.logger.error("[fetchUserInfo] failed: \(error)")
+                }
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS", let content = response.content {
+                    self?.logger.info("[fetchUserInfo] SUCCESS")
+                    
+                    guard let roleEnum = Role(rawValue: content.role),
+                          let genderEnum = Gender(rawValue: content.gender) else {
+                        self?.logger.error("[fetchUserInfo] roleEnum, genderEnum 변환 실패")
+                        return
+                    }
+                    
+                    let accountModel: AccountDomainModel?
+                    
+                    if let account = content.account {
+                        accountModel = AccountDomainModel(
+                            bankCode: account.bankCode,
+                            bankName: account.bankName,
+                            accountNumber: account.accountNumber,
+                            depositor: account.depositor
+                        )
+                    } else {
+                        accountModel = nil
+                    }
+                    
+                    self?.user = UserDomainModel(
+                        name: content.name,
+                        nickname: content.nickname,
+                        phoneNumber: content.phoneNumber,
+                        loginId: content.loginId,
+                        birth: content.birth,
+                        role: roleEnum,
+                        gender: genderEnum,
+                        profileUrl: content.profileUrl,
+                        account: accountModel,
+                        credit: content.credit
+                    )
+                    
+                } else {
+                    self?.logger.error("[fetchUserInfo] 응답 처리 실패")
+                }
+            }
+            .store(in: &self.cancellables)
     }
     
     func convertThumbnailImage() async {

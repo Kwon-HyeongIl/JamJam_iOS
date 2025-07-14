@@ -24,8 +24,8 @@ enum NavigationDestinationPath: Hashable {
     case chatContentView(Int?, String?, String?)
     
     // Profile
-    case beforeCheckPasswordView(UserDomainModel?)
-    case editUserInfoView(UserDomainModel?)
+    case beforeCheckPasswordView
+    case editUserInfoView
     case providerProfileView(Int)
     case editProviderProfileView
     case editNotificationView

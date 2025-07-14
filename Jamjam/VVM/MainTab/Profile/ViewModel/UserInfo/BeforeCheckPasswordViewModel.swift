@@ -11,8 +11,6 @@ import os
 
 @Observable
 class BeforeCheckPasswordViewModel {
-    let user: UserDomainModel?
-    
     var currentPassword = ""
     
     var isCurrentPasswordSecured = true
@@ -25,10 +23,6 @@ class BeforeCheckPasswordViewModel {
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "BeforeCheckPasswordViewModel")
-    
-    init(user: UserDomainModel?) {
-        self.user = user
-    }
     
     func checkPassword() {
         let request = CheckPasswordRequestDto(password: currentPassword)

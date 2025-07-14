@@ -9,13 +9,9 @@ import SwiftUI
 
 struct EditUserInfoView: View {
     @Environment(NavigationCore.self) var navRouter
-    @State private var viewModel: EditUserInfoViewModel
+    @State private var viewModel = EditUserInfoViewModel()
     
     @FocusState private var focus: TextFieldFocusField?
-    
-    init(user: UserDomainModel?) {
-        viewModel = EditUserInfoViewModel(user: user)
-    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -784,7 +780,7 @@ struct EditUserInfoView: View {
 
 #Preview {
     NavigationStack {
-        EditUserInfoView(user: nil)
+        EditUserInfoView()
             .environment(NavigationCore())
     }
 }

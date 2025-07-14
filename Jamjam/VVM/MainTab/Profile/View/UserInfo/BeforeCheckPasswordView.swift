@@ -9,13 +9,9 @@ import SwiftUI
 
 struct BeforeCheckPasswordView: View {
     @Environment(NavigationCore.self) var navRouter
-    @State private var viewModel: BeforeCheckPasswordViewModel
+    @State private var viewModel = BeforeCheckPasswordViewModel()
     
     @FocusState private var focus: TextFieldFocusField?
-    
-    init(user: UserDomainModel?) {
-        viewModel = BeforeCheckPasswordViewModel(user: user)
-    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -129,7 +125,7 @@ struct BeforeCheckPasswordView: View {
         .onChange(of: viewModel.isCheckPasswordCompleted) { _, newValue in
             if newValue {
                 navRouter.back()
-                navRouter.navigate(.editUserInfoView(viewModel.user))
+                navRouter.navigate(.editUserInfoView)
             }
         }
     }
@@ -137,7 +133,7 @@ struct BeforeCheckPasswordView: View {
 
 #Preview {
     NavigationStack {
-        BeforeCheckPasswordView(user: nil)
+        BeforeCheckPasswordView()
             .environment(NavigationCore())
     }
 }
