@@ -229,6 +229,18 @@
 		CAD2F2452E1A9755007B5BE8 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2F2442E1A9755007B5BE8 /* DateManager.swift */; };
 		CAD2F2472E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2F2462E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift */; };
 		CAD3106E2E09B56200A5FAA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAD3106D2E09B56200A5FAA4 /* Alamofire */; };
+		CAD6075F2E26CE89000CD57E /* ProviderRequestedOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD6075E2E26CE89000CD57E /* ProviderRequestedOrderView.swift */; };
+		CAD607612E26CE97000CD57E /* ProviderPreparingOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607602E26CE97000CD57E /* ProviderPreparingOrderView.swift */; };
+		CAD607632E26CEA3000CD57E /* ProviderCompletedOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607622E26CEA3000CD57E /* ProviderCompletedOrderView.swift */; };
+		CAD607652E26CEAE000CD57E /* ProviderCacelledOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607642E26CEAE000CD57E /* ProviderCacelledOrderView.swift */; };
+		CAD6076A2E26CF56000CD57E /* ProviderRequestedOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607692E26CF56000CD57E /* ProviderRequestedOrderViewModel.swift */; };
+		CAD6076C2E26CF6E000CD57E /* ProviderPreparingOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD6076B2E26CF6E000CD57E /* ProviderPreparingOrderViewModel.swift */; };
+		CAD6076E2E26CF92000CD57E /* ProviderCompletedOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD6076D2E26CF92000CD57E /* ProviderCompletedOrderViewModel.swift */; };
+		CAD607702E26CFA8000CD57E /* ProviderCancelledOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD6076F2E26CFA8000CD57E /* ProviderCancelledOrderViewModel.swift */; };
+		CAD607722E26D065000CD57E /* ClientServiceManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607712E26D065000CD57E /* ClientServiceManagementView.swift */; };
+		CAD607752E26D0A9000CD57E /* ClientPreparingOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607742E26D0A9000CD57E /* ClientPreparingOrderView.swift */; };
+		CAD607772E26D0C1000CD57E /* ClientCompletedOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607762E26D0C1000CD57E /* ClientCompletedOrderView.swift */; };
+		CAD607792E26D0D0000CD57E /* ClientCancelledOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607782E26D0D0000CD57E /* ClientCancelledOrderView.swift */; };
 		CAE914682E13CF0700829D2C /* RefreshAccessTokenResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE914672E13CF0700829D2C /* RefreshAccessTokenResponseDto.swift */; };
 /* End PBXBuildFile section */
 
@@ -448,6 +460,18 @@
 		CACB0C6F2E2198DE00353E31 /* ProviderDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderDomainModel.swift; sourceTree = "<group>"; };
 		CAD2F2442E1A9755007B5BE8 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		CAD2F2462E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceViewModel.swift; sourceTree = "<group>"; };
+		CAD6075E2E26CE89000CD57E /* ProviderRequestedOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderRequestedOrderView.swift; sourceTree = "<group>"; };
+		CAD607602E26CE97000CD57E /* ProviderPreparingOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderPreparingOrderView.swift; sourceTree = "<group>"; };
+		CAD607622E26CEA3000CD57E /* ProviderCompletedOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCompletedOrderView.swift; sourceTree = "<group>"; };
+		CAD607642E26CEAE000CD57E /* ProviderCacelledOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCacelledOrderView.swift; sourceTree = "<group>"; };
+		CAD607692E26CF56000CD57E /* ProviderRequestedOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderRequestedOrderViewModel.swift; sourceTree = "<group>"; };
+		CAD6076B2E26CF6E000CD57E /* ProviderPreparingOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderPreparingOrderViewModel.swift; sourceTree = "<group>"; };
+		CAD6076D2E26CF92000CD57E /* ProviderCompletedOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCompletedOrderViewModel.swift; sourceTree = "<group>"; };
+		CAD6076F2E26CFA8000CD57E /* ProviderCancelledOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCancelledOrderViewModel.swift; sourceTree = "<group>"; };
+		CAD607712E26D065000CD57E /* ClientServiceManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientServiceManagementView.swift; sourceTree = "<group>"; };
+		CAD607742E26D0A9000CD57E /* ClientPreparingOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPreparingOrderView.swift; sourceTree = "<group>"; };
+		CAD607762E26D0C1000CD57E /* ClientCompletedOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCompletedOrderView.swift; sourceTree = "<group>"; };
+		CAD607782E26D0D0000CD57E /* ClientCancelledOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCancelledOrderView.swift; sourceTree = "<group>"; };
 		CAE914672E13CF0700829D2C /* RefreshAccessTokenResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenResponseDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -591,22 +615,22 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
-		CA17C6992E269F6B00D4E635 /* Finance */ = {
+		CA17C6992E269F6B00D4E635 /* FinanceManagement */ = {
 			isa = PBXGroup;
 			children = (
 				CA17C69B2E26A02100D4E635 /* ProviderFinanceManagementView.swift */,
 				CA17C69F2E26A5B800D4E635 /* ClientFinanceManagementView.swift */,
 			);
-			path = Finance;
+			path = FinanceManagement;
 			sourceTree = "<group>";
 		};
-		CA17C69A2E269F7500D4E635 /* Finance */ = {
+		CA17C69A2E269F7500D4E635 /* FinanceManagement */ = {
 			isa = PBXGroup;
 			children = (
 				CA17C69D2E26A06200D4E635 /* ProviderFinanceManagementViewModel.swift */,
 				CA17C6A12E26A5C500D4E635 /* ClientFinanceManagementViewModel.swift */,
 			);
-			path = Finance;
+			path = FinanceManagement;
 			sourceTree = "<group>";
 		};
 		CA2F853D2E19970000848F2E /* Frameworks */ = {
@@ -976,21 +1000,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		CA5EDD112E256C6C000F87D0 /* Service */ = {
+		CA5EDD112E256C6C000F87D0 /* ServiceManagement */ = {
 			isa = PBXGroup;
 			children = (
-				CA5EDD132E256D10000F87D0 /* ProviderServiceManagementView.swift */,
+				CAD6075B2E26CE33000CD57E /* Provider */,
+				CAD6075C2E26CE43000CD57E /* Client */,
 				CA17C6972E2680D000D4E635 /* OrderCellView.swift */,
 			);
-			path = Service;
+			path = ServiceManagement;
 			sourceTree = "<group>";
 		};
-		CA5EDD122E256C7F000F87D0 /* Service */ = {
+		CA5EDD122E256C7F000F87D0 /* ServiceManagement */ = {
 			isa = PBXGroup;
 			children = (
-				CA5EDD152E256D1B000F87D0 /* ProviderServiceManagementViewModel.swift */,
+				CAD607662E26CF29000CD57E /* Provider */,
+				CAD607672E26CF30000CD57E /* Client */,
 			);
-			path = Service;
+			path = ServiceManagement;
 			sourceTree = "<group>";
 		};
 		CA60FAD12E100BB900150563 /* Keychain */ = {
@@ -1593,9 +1619,9 @@
 				CA9609B42DFFD50400B878C6 /* ProfileView.swift */,
 				CA7DE5BE2E1ED79400086E8B /* UserInfo */,
 				CA4F12252E1783CD0061012E /* ProviderProfile */,
-				CA5EDD112E256C6C000F87D0 /* Service */,
+				CA5EDD112E256C6C000F87D0 /* ServiceManagement */,
+				CA17C6992E269F6B00D4E635 /* FinanceManagement */,
 				CA4FA6A32E22AE0F00DF4AAA /* Notification */,
-				CA17C6992E269F6B00D4E635 /* Finance */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1606,9 +1632,9 @@
 				CA9BB5282E12B9000035F26D /* ProfileViewModel.swift */,
 				CA7DE5C12E1ED7AE00086E8B /* UserInfo */,
 				CA4F12332E17872E0061012E /* ProviderProfile */,
-				CA5EDD122E256C7F000F87D0 /* Service */,
+				CA5EDD122E256C7F000F87D0 /* ServiceManagement */,
+				CA17C69A2E269F7500D4E635 /* FinanceManagement */,
 				CA4FA6A62E22AE4500DF4AAA /* Notification */,
-				CA17C69A2E269F7500D4E635 /* Finance */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1777,6 +1803,72 @@
 			path = Date;
 			sourceTree = "<group>";
 		};
+		CAD6075B2E26CE33000CD57E /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				CA5EDD132E256D10000F87D0 /* ProviderServiceManagementView.swift */,
+				CAD6075D2E26CE67000CD57E /* OrderDetail */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		CAD6075C2E26CE43000CD57E /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				CAD607712E26D065000CD57E /* ClientServiceManagementView.swift */,
+				CAD607732E26D077000CD57E /* OrderDetail */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		CAD6075D2E26CE67000CD57E /* OrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CAD6075E2E26CE89000CD57E /* ProviderRequestedOrderView.swift */,
+				CAD607602E26CE97000CD57E /* ProviderPreparingOrderView.swift */,
+				CAD607622E26CEA3000CD57E /* ProviderCompletedOrderView.swift */,
+				CAD607642E26CEAE000CD57E /* ProviderCacelledOrderView.swift */,
+			);
+			path = OrderDetail;
+			sourceTree = "<group>";
+		};
+		CAD607662E26CF29000CD57E /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				CA5EDD152E256D1B000F87D0 /* ProviderServiceManagementViewModel.swift */,
+				CAD607682E26CF3B000CD57E /* OrderDetail */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		CAD607672E26CF30000CD57E /* Client */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		CAD607682E26CF3B000CD57E /* OrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CAD607692E26CF56000CD57E /* ProviderRequestedOrderViewModel.swift */,
+				CAD6076B2E26CF6E000CD57E /* ProviderPreparingOrderViewModel.swift */,
+				CAD6076D2E26CF92000CD57E /* ProviderCompletedOrderViewModel.swift */,
+				CAD6076F2E26CFA8000CD57E /* ProviderCancelledOrderViewModel.swift */,
+			);
+			path = OrderDetail;
+			sourceTree = "<group>";
+		};
+		CAD607732E26D077000CD57E /* OrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CAD607742E26D0A9000CD57E /* ClientPreparingOrderView.swift */,
+				CAD607762E26D0C1000CD57E /* ClientCompletedOrderView.swift */,
+				CAD607782E26D0D0000CD57E /* ClientCancelledOrderView.swift */,
+			);
+			path = OrderDetail;
+			sourceTree = "<group>";
+		};
 		CAE914632E13CEB100829D2C /* Token */ = {
 			isa = PBXGroup;
 			children = (
@@ -1905,12 +1997,16 @@
 				CA50CB572E1D68C50078AC22 /* RegisterServiceRequestDto.swift in Sources */,
 				CA87FF7F2E02829D00C8C830 /* NavigationBarTitleAndHomeModifier.swift in Sources */,
 				CA96099A2DFBE06400B878C6 /* NavigationBarBackModifier.swift in Sources */,
+				CAD607772E26D0C1000CD57E /* ClientCompletedOrderView.swift in Sources */,
+				CAD607752E26D0A9000CD57E /* ClientPreparingOrderView.swift in Sources */,
 				CAB600112E157CC4004CD644 /* FetchChatRoomsResponseDto.swift in Sources */,
 				CA5C5E7C2E09688700FB1E22 /* FontType.swift in Sources */,
 				CA62D99F2E23ED5C002C7849 /* UpdateProviderInfoRequestDto.swift in Sources */,
 				CA5C5E812E096AAA00FB1E22 /* Font+Pretendard.swift in Sources */,
 				CAE914682E13CF0700829D2C /* RefreshAccessTokenResponseDto.swift in Sources */,
+				CAD607612E26CE97000CD57E /* ProviderPreparingOrderView.swift in Sources */,
 				CAB600092E155D29004CD644 /* SocketChatMessageRequestDto.swift in Sources */,
+				CAD607702E26CFA8000CD57E /* ProviderCancelledOrderViewModel.swift in Sources */,
 				CA62D9962E23C12A002C7849 /* SearchServiceRequestDto.swift in Sources */,
 				CA7DE5CF2E1FE32E00086E8B /* UpdateUserInfoResponseDto.swift in Sources */,
 				CA9BB5242E12B8DD0035F26D /* ProviderProfileView.swift in Sources */,
@@ -1929,6 +2025,7 @@
 				CAB6000F2E157C97004CD644 /* FetchChatRoomsRequestDto.swift in Sources */,
 				CA53F4842E22172600F5C297 /* CareerDomainModel.swift in Sources */,
 				CA76854C2E1C183000148204 /* Animation+Custom.swift in Sources */,
+				CAD6076A2E26CF56000CD57E /* ProviderRequestedOrderViewModel.swift in Sources */,
 				CA870FC02E1C49710083449B /* GenerateThumbnailResponseDto.swift in Sources */,
 				CAB6FFFD2E151228004CD644 /* UserDomainModel.swift in Sources */,
 				CAAB47F62E0ADC4B000197E5 /* CheckNicknameResponseDto.swift in Sources */,
@@ -1943,6 +2040,7 @@
 				CA9609AA2DFFCFFD00B878C6 /* MainTabBarCapsule.swift in Sources */,
 				CA7DE5C82E1F866100086E8B /* Bank.swift in Sources */,
 				CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */,
+				CAD607632E26CEA3000CD57E /* ProviderCompletedOrderView.swift in Sources */,
 				CA5EDD102E2565F9000F87D0 /* IsNeedUserInfoLoadCapsule.swift in Sources */,
 				CA7DE5E02E20293C00086E8B /* CheckPasswordRequestDto.swift in Sources */,
 				CA9609962DFBDF2900B878C6 /* SearchServiceViewModel.swift in Sources */,
@@ -1961,6 +2059,7 @@
 				CA9F46382E101ED600028F83 /* RegisterServiceLeadView.swift in Sources */,
 				CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */,
 				CA9609A42DFFCD7B00B878C6 /* Color+MainTitle.swift in Sources */,
+				CAD607652E26CEAE000CD57E /* ProviderCacelledOrderView.swift in Sources */,
 				CA9609A72DFFCF8100B878C6 /* MainTabBar.swift in Sources */,
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
 				CA4F12612E1858E50061012E /* DegreeForm.swift in Sources */,
@@ -1987,6 +2086,7 @@
 				CA9F463A2E101EE000028F83 /* ChatListView.swift in Sources */,
 				CA5C5E902E09A0A800FB1E22 /* SignUpWithClientResponseDto.swift in Sources */,
 				CA4CF92D2E0C279D00F882C4 /* VerifySmsResponseDto.swift in Sources */,
+				CAD6075F2E26CE89000CD57E /* ProviderRequestedOrderView.swift in Sources */,
 				CA7DE5D42E1FE3E300086E8B /* UserManager+Update.swift in Sources */,
 				CA7D11932E10327100D55CCE /* ChatContentView.swift in Sources */,
 				CA9E2A802E21574000962203 /* UserManager+Fetch.swift in Sources */,
@@ -2012,11 +2112,13 @@
 				CA50CB592E1D78DE0078AC22 /* RegisterServiceResponseDto.swift in Sources */,
 				CA87FF7D2E024B5000C8C830 /* Gender.swift in Sources */,
 				CA17C6A22E26A5C500D4E635 /* ClientFinanceManagementViewModel.swift in Sources */,
+				CAD6076C2E26CF6E000CD57E /* ProviderPreparingOrderViewModel.swift in Sources */,
 				CA60FAD32E100BD000150563 /* Keychain.swift in Sources */,
 				CA53F48A2E222E2300F5C297 /* NavigationBarRegisterServiceTailModifier.swift in Sources */,
 				CA4F124F2E17D7B70061012E /* CustomMadeDetail.swift in Sources */,
 				CA4F12572E17E11B0061012E /* EditProviderProfileView.swift in Sources */,
 				CA9609B02DFFD17900B878C6 /* CornerRadius.swift in Sources */,
+				CAD607722E26D065000CD57E /* ClientServiceManagementView.swift in Sources */,
 				CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */,
 				CA7DE5E22E20295500086E8B /* CheckPasswordResponseDto.swift in Sources */,
 				CA7DE5B92E1E78DF00086E8B /* ServiceCellView.swift in Sources */,
@@ -2042,6 +2144,7 @@
 				CA4F124B2E17D76B0061012E /* MediaDetail.swift in Sources */,
 				CA7DE5CD2E1FE25300086E8B /* UpdateUserInfoRequestDto.swift in Sources */,
 				CA50CB522E1D3FCC0078AC22 /* StompManager.swift in Sources */,
+				CAD607792E26D0D0000CD57E /* ClientCancelledOrderView.swift in Sources */,
 				CAB6000D2E157B22004CD644 /* ChatManager+ChatRoom.swift in Sources */,
 				CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */,
 				CA53F4942E22395900F5C297 /* OrderServiceViewModel.swift in Sources */,
@@ -2079,6 +2182,7 @@
 				CA4F12492E17D73C0061012E /* TranslationDetail.swift in Sources */,
 				CA9609A22DFBE1E100B878C6 /* NavigationBackGestureEnable.swift in Sources */,
 				CA5C5E942E09A22800FB1E22 /* API.swift in Sources */,
+				CAD6076E2E26CF92000CD57E /* ProviderCompletedOrderViewModel.swift in Sources */,
 				CA9E2A782E212A0300962203 /* FetchServiceResponseDto.swift in Sources */,
 				CA53F4922E22395100F5C297 /* OrderServiceView.swift in Sources */,
 				CA4F125F2E18451C0061012E /* CareerForm.swift in Sources */,

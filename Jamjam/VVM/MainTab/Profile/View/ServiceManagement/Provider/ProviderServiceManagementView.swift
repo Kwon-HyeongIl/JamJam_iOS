@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProviderServiceManagementView: View {
+    @Environment(NavigationCore.self) var navRouter
     @State private var viewModel = ProviderServiceManagementViewModel()
     
     @Namespace private var tabListUnderline
