@@ -34,6 +34,8 @@ class OrderServiceViewModel {
     var isOrderAlertVisible = false
     var orderAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
     
+    var isOrderComplete = false
+    
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "OrderServiceViewModel")
     
@@ -136,16 +138,19 @@ class OrderServiceViewModel {
                     self?.logger.info("[orderService] finished")
                 case .failure(let error):
                     self?.logger.error("[orderService] failed: \(error)")
+                    self?.isOrderAlertVisible = true
                 }
                 
                 self?.isEntireProgressViewVisible = false
             } receiveValue: { [weak self] response in
                 if response.code == "SUCCESS" {
                     self?.logger.info("[orderService] SUCCESS")
-                    //
+                    self?.isOrderComplete = true
                     
                 } else {
                     self?.logger.error("[orderService] 응답 실패: \(response.message)")
+                    self?.orderAlertMessage = response.message
+                    self?.isOrderAlertVisible = true
                 }
             }
             .store(in: &self.cancellables)

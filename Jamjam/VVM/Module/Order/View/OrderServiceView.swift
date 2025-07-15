@@ -395,6 +395,7 @@ struct OrderServiceView: View {
                     
                     Button {
                         viewModel.isEntireProgressViewVisible = true
+                        viewModel.orderService()
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
                             .frame(height: 45)
@@ -431,7 +432,7 @@ struct OrderServiceView: View {
                 .background(.gray.opacity(0.5))
             }
         }
-        .alert("주문 실패", isPresented: $viewModel.isOrderAlertVisible) {
+        .alert("알림", isPresented: $viewModel.isOrderAlertVisible) {
             Button {
                 viewModel.orderAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
             } label: {
@@ -439,6 +440,15 @@ struct OrderServiceView: View {
             }
         } message: {
             Text(viewModel.orderAlertMessage)
+        }
+        .alert("알림", isPresented: $viewModel.isOrderComplete) {
+            Button {
+                navRouter.popToRoot()
+            } label: {
+                Text("확인")
+            }
+        } message: {
+            Text("주문이 성공적으로 완료되었습니다.")
         }
         .onTapGesture {
             focus = nil
