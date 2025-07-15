@@ -36,7 +36,7 @@ struct ProviderPreparingOrderView: View {
                     
                     VStack(spacing: 13) {
                         HStack {
-                            Text("의뢰 마감일")
+                            Text("마감일")
                                 .font(.pretendard(Pretendard.semiBold, size: 17))
                                 .foregroundStyle(.gray)
                                 .padding(.leading, 20)
@@ -172,7 +172,9 @@ struct ProviderPreparingOrderView: View {
 }
 
 #Preview {
-    ProviderPreparingOrderView()
-        .environment(NavigationCore())
-        .environment(MainTabBarCapsule())
+    NavigationStack {
+        ProviderPreparingOrderView()
+            .environment(NavigationCore())
+            .environment(MainTabBarCapsule())
+    }
 }
