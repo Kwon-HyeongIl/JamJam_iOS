@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Role: String, Codable {
+enum UserRole: String, Codable {
     case provider = "PROVIDER"
     case client = "CLIENT"
 }

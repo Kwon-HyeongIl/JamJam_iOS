@@ -14,7 +14,7 @@ class SignUpViewModel {
     var pageIndex = 0
     
     // MARK: Page 1
-    var signUpUserType: Role?
+    var signUpUserType: UserRole?
     
     var isExpertButtonTapped = false
     var isClientButtonTapped = false

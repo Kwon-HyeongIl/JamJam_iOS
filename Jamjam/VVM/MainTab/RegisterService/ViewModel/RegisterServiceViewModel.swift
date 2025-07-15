@@ -24,8 +24,8 @@ class RegisterServiceViewModel: Hashable, Equatable {
         AuthCore.shared.isLogin
     }
     
-    var role: Role? {
-        AuthCore.shared.role
+    var role: UserRole? {
+        AuthCore.shared.userRole
     }
     
     var isProfileInfoCompleted = false

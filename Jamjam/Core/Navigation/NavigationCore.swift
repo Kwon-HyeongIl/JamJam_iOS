@@ -57,6 +57,12 @@ class NavigationCore {
             OrderServiceView(serviceCell: serviceCell)
         case .serviceManagementView:
             ProviderServiceManagementView()
+            
+            // MARK: Finance
+        case .providerFinanceManagementView:
+            ProviderFinanceManagementView()
+        case .clientFinanceManagementView:
+            ClientFinanceManagementView()
         }
     }
     

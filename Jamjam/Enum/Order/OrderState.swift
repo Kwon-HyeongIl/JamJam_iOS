@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum OrderState: String, Encodable {
+enum OrderState: String, Codable {
     case requested = "REQUESTED"
     case waitingConfrim = "WAITING_CONFIRM"
     case preparing = "PREPARING"

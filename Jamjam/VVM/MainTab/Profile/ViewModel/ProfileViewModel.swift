@@ -15,6 +15,10 @@ class ProfileViewModel {
         AuthCore.shared.isLogin
     }
     
+    var userRole: UserRole? {
+        AuthCore.shared.userRole
+    }
+    
     var user: UserDomainModel?
     
     var isLoginAlertVisible = false
@@ -37,7 +41,7 @@ class ProfileViewModel {
                 if response.code == "SUCCESS", let content = response.content {
                     self?.logger.info("[fetchUserInfo] SUCCESS")
                     
-                    guard let roleEnum = Role(rawValue: content.role),
+                    guard let roleEnum = UserRole(rawValue: content.role),
                           let genderEnum = Gender(rawValue: content.gender) else {
                         self?.logger.error("[fetchUserInfo] roleEnum, genderEnum 변환 실패")
                         return

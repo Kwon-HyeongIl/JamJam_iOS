@@ -13,7 +13,7 @@ struct UserDomainModel: Hashable, Equatable {
     let phoneNumber: String
     let loginId: String
     let birth: String
-    let role: Role
+    let role: UserRole
     let gender: Gender
     let profileUrl: String
     let account: AccountDomainModel?

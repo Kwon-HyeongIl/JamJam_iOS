@@ -36,4 +36,8 @@ enum NavigationDestinationPath: Hashable {
     // Order
     case orderServiceView(ServiceCellDomainModel)
     case serviceManagementView
+    
+    // Finance
+    case providerFinanceManagementView
+    case clientFinanceManagementView
 }

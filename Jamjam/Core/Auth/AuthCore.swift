@@ -50,7 +50,7 @@ class AuthCore {
     
     var userId: Int?
     
-    var role: Role?
+    var userRole: UserRole?
     
     var isLogin: Bool {
         if let accessToken = accessToken, !accessToken.isEmpty {
@@ -125,7 +125,7 @@ class AuthCore {
                         self?.accessToken = receivedAccessToken
                         
                         if let role = self?.extractRoleFromJWTAccessToken(receivedAccessToken) {
-                            self?.role = Role(rawValue: role)
+                            self?.userRole = UserRole(rawValue: role)
                         }
                         
                     } else {
