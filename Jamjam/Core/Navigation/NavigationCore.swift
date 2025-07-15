@@ -55,6 +55,8 @@ class NavigationCore {
             // MARK: Order
         case .orderServiceView(let serviceCell):
             OrderServiceView(serviceCell: serviceCell)
+        case .serviceManagementView:
+            ServiceManagementView()
         }
     }
     

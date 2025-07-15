@@ -78,19 +78,33 @@ struct ServiceManagementView: View {
                         .onTapGesture {
                             withAnimation(.customAnimation) {
                                 viewModel.segmentedControlIndex = idx
+                                viewModel.restoreOrders()
+                                viewModel.fetchOrders()
                             }
                         }
                     }
                 }
             }
             
-            ScrollView(showsIndicators: false) {
-                
+            ScrollView {
+                VStack(spacing: 5) {
+                    ForEach(viewModel.orders, id: \.orderId) { order in
+                        OrderCellView(orderCell: order)
+                            .onAppear {
+                                if order.orderId == viewModel.orders.last?.orderId {
+                                    viewModel.fetchOrders()
+                                }
+                            }
+                    }
+                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.mainBackground)
         .modifier(NavigationBarBackAndTitleAndHomeModifier(title: "서비스 관리"))
+        .onAppear {
+            viewModel.fetchOrders()
+        }
     }
 }
 

@@ -27,6 +27,10 @@
 		CA17C68B2E261F3000D4E635 /* FetchOrderStateCountsResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C68A2E261F3000D4E635 /* FetchOrderStateCountsResponseDto.swift */; };
 		CA17C68D2E261FBC00D4E635 /* OrderManager+Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C68C2E261FBB00D4E635 /* OrderManager+Fetch.swift */; };
 		CA17C6902E2655D900D4E635 /* OrderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C68F2E2655D900D4E635 /* OrderState.swift */; };
+		CA17C6922E267BE300D4E635 /* FetchOrderListRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C6912E267BE300D4E635 /* FetchOrderListRequestDto.swift */; };
+		CA17C6942E267C5D00D4E635 /* FetchOrderListResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C6932E267C5D00D4E635 /* FetchOrderListResponseDto.swift */; };
+		CA17C6962E267DEE00D4E635 /* OrderCellDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C6952E267DEE00D4E635 /* OrderCellDomainModel.swift */; };
+		CA17C6982E2680D000D4E635 /* OrderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C6972E2680D000D4E635 /* OrderCellView.swift */; };
 		CA2F853F2E19970100848F2E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2F853E2E19970100848F2E /* WebKit.framework */; };
 		CA2F85472E19A5BF00848F2E /* ServiceContentEditorWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F85462E19A5BF00848F2E /* ServiceContentEditorWebView.swift */; };
 		CA2F85502E19A8D000848F2E /* hugerte-lang-kr.js in Resources */ = {isa = PBXBuildFile; fileRef = CA2F854F2E19A8D000848F2E /* hugerte-lang-kr.js */; };
@@ -248,6 +252,10 @@
 		CA17C68A2E261F3000D4E635 /* FetchOrderStateCountsResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchOrderStateCountsResponseDto.swift; sourceTree = "<group>"; };
 		CA17C68C2E261FBB00D4E635 /* OrderManager+Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderManager+Fetch.swift"; sourceTree = "<group>"; };
 		CA17C68F2E2655D900D4E635 /* OrderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderState.swift; sourceTree = "<group>"; };
+		CA17C6912E267BE300D4E635 /* FetchOrderListRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchOrderListRequestDto.swift; sourceTree = "<group>"; };
+		CA17C6932E267C5D00D4E635 /* FetchOrderListResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchOrderListResponseDto.swift; sourceTree = "<group>"; };
+		CA17C6952E267DEE00D4E635 /* OrderCellDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellDomainModel.swift; sourceTree = "<group>"; };
+		CA17C6972E2680D000D4E635 /* OrderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellView.swift; sourceTree = "<group>"; };
 		CA2F853E2E19970100848F2E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		CA2F85462E19A5BF00848F2E /* ServiceContentEditorWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContentEditorWebView.swift; sourceTree = "<group>"; };
 		CA2F854F2E19A8D000848F2E /* hugerte-lang-kr.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "hugerte-lang-kr.js"; sourceTree = "<group>"; };
@@ -946,6 +954,7 @@
 			isa = PBXGroup;
 			children = (
 				CA5EDD132E256D10000F87D0 /* ServiceManagementView.swift */,
+				CA17C6972E2680D000D4E635 /* OrderCellView.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -988,6 +997,7 @@
 		CA687C2C2E23A89000085C07 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				CA17C6952E267DEE00D4E635 /* OrderCellDomainModel.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -997,6 +1007,7 @@
 			children = (
 				CA687C312E23A90D00085C07 /* OrderServiceResponseDto.swift */,
 				CA17C68A2E261F3000D4E635 /* FetchOrderStateCountsResponseDto.swift */,
+				CA17C6932E267C5D00D4E635 /* FetchOrderListResponseDto.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1005,6 +1016,7 @@
 			isa = PBXGroup;
 			children = (
 				CA687C2F2E23A8B400085C07 /* OrderServiceRequestDto.swift */,
+				CA17C6912E267BE300D4E635 /* FetchOrderListRequestDto.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1898,14 +1910,17 @@
 				CA7685412E1BFA3200148204 /* StompCore.swift in Sources */,
 				CAB6003D2E16B682004CD644 /* ReadLastMessageRequestDto.swift in Sources */,
 				CA7DE5B52E1E6CC100086E8B /* ServiceCellDomainModel.swift in Sources */,
+				CA17C6962E267DEE00D4E635 /* OrderCellDomainModel.swift in Sources */,
 				CA9609AA2DFFCFFD00B878C6 /* MainTabBarCapsule.swift in Sources */,
 				CA7DE5C82E1F866100086E8B /* Bank.swift in Sources */,
 				CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */,
 				CA5EDD102E2565F9000F87D0 /* IsNeedUserInfoLoadCapsule.swift in Sources */,
 				CA7DE5E02E20293C00086E8B /* CheckPasswordRequestDto.swift in Sources */,
 				CA9609962DFBDF2900B878C6 /* SearchServiceViewModel.swift in Sources */,
+				CA17C6942E267C5D00D4E635 /* FetchOrderListResponseDto.swift in Sources */,
 				CA7DE5DA2E1FFB2500086E8B /* BeforeCheckPasswordViewModel.swift in Sources */,
 				CA5507792E218E9900E4E936 /* FetchProviderProfileResponseDto.swift in Sources */,
+				CA17C6982E2680D000D4E635 /* OrderCellView.swift in Sources */,
 				CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */,
 				CAB600032E15480F004CD644 /* SocketConnectionStatus.swift in Sources */,
 				CA7685292E1BDDB800148204 /* RegisterServiceTailView.swift in Sources */,
@@ -2024,6 +2039,7 @@
 				CA62D99D2E23C6B5002C7849 /* NavigationBarSearchServiceViewModifier.swift in Sources */,
 				CA4CF9292E0C1E3A00F882C4 /* SendSmsResponseDto.swift in Sources */,
 				CA87FF942E040FDE00C8C830 /* SignUpViewModel+Complete.swift in Sources */,
+				CA17C6922E267BE300D4E635 /* FetchOrderListRequestDto.swift in Sources */,
 				CA4927D72E0EE52D00D42CD0 /* LoginRequestDto.swift in Sources */,
 				CA4FA6A22E22784300DF4AAA /* ServiceContentViewerWebView.swift in Sources */,
 				CA9BB5302E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift in Sources */,

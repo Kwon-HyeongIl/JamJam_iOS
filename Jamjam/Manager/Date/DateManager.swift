@@ -48,6 +48,27 @@ class DateManager {
         return formatter.string(from: date)
     }
     
+    static func isoToMonthDay(_ isoString: String) -> String {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [
+            .withFullDate,
+            .withTime,
+            .withDashSeparatorInDate,
+            .withColonSeparatorInTime,
+            .withFractionalSeconds
+        ]
+        isoFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+
+        let date = isoFormatter.date(from: isoString) ?? Date()
+
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "M월 d일"
+
+        return formatter.string(from: date)
+    }
+
+    
     static func isoToRelativeTime(_ isoString: String?) -> String {
         guard let isoString else { return "" }
         
