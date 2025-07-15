@@ -9,6 +9,10 @@ import Foundation
 
 @Observable
 class EditNotificationViewModel {
+    var isLogin: Bool {
+        AuthCore.shared.isLogin
+    }
+    
     var eventNotification = true
     var orderNotification = true
     var chatNotification = true

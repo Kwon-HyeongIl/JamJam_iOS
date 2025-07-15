@@ -31,6 +31,10 @@
 		CA17C6942E267C5D00D4E635 /* FetchOrderListResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C6932E267C5D00D4E635 /* FetchOrderListResponseDto.swift */; };
 		CA17C6962E267DEE00D4E635 /* OrderCellDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C6952E267DEE00D4E635 /* OrderCellDomainModel.swift */; };
 		CA17C6982E2680D000D4E635 /* OrderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C6972E2680D000D4E635 /* OrderCellView.swift */; };
+		CA17C69C2E26A02100D4E635 /* ProviderFinanceManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C69B2E26A02100D4E635 /* ProviderFinanceManagementView.swift */; };
+		CA17C69E2E26A06200D4E635 /* ProviderFinanceManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C69D2E26A06200D4E635 /* ProviderFinanceManagementViewModel.swift */; };
+		CA17C6A02E26A5B800D4E635 /* ClientFinanceManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C69F2E26A5B800D4E635 /* ClientFinanceManagementView.swift */; };
+		CA17C6A22E26A5C500D4E635 /* ClientFinanceManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17C6A12E26A5C500D4E635 /* ClientFinanceManagementViewModel.swift */; };
 		CA2F853F2E19970100848F2E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2F853E2E19970100848F2E /* WebKit.framework */; };
 		CA2F85472E19A5BF00848F2E /* ServiceContentEditorWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F85462E19A5BF00848F2E /* ServiceContentEditorWebView.swift */; };
 		CA2F85502E19A8D000848F2E /* hugerte-lang-kr.js in Resources */ = {isa = PBXBuildFile; fileRef = CA2F854F2E19A8D000848F2E /* hugerte-lang-kr.js */; };
@@ -90,8 +94,8 @@
 		CA5C5E942E09A22800FB1E22 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E932E09A22800FB1E22 /* API.swift */; };
 		CA5C5E9C2E09A55B00FB1E22 /* SignUpWithProviderRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5C5E9B2E09A55B00FB1E22 /* SignUpWithProviderRequestDto.swift */; };
 		CA5EDD102E2565F9000F87D0 /* IsNeedUserInfoLoadCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EDD0F2E2565F9000F87D0 /* IsNeedUserInfoLoadCapsule.swift */; };
-		CA5EDD142E256D10000F87D0 /* ServiceManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EDD132E256D10000F87D0 /* ServiceManagementView.swift */; };
-		CA5EDD162E256D1B000F87D0 /* ServiceManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EDD152E256D1B000F87D0 /* ServiceManagementViewModel.swift */; };
+		CA5EDD142E256D10000F87D0 /* ProviderServiceManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EDD132E256D10000F87D0 /* ProviderServiceManagementView.swift */; };
+		CA5EDD162E256D1B000F87D0 /* ProviderServiceManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EDD152E256D1B000F87D0 /* ProviderServiceManagementViewModel.swift */; };
 		CA60ED3F2E196A5F00B93A1D /* ChatMessageDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60ED3E2E196A5F00B93A1D /* ChatMessageDomainModel.swift */; };
 		CA60ED412E196D2B00B93A1D /* ChatRoomDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60ED402E196D2B00B93A1D /* ChatRoomDomainModel.swift */; };
 		CA60FAD32E100BD000150563 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60FAD22E100BD000150563 /* Keychain.swift */; };
@@ -256,6 +260,10 @@
 		CA17C6932E267C5D00D4E635 /* FetchOrderListResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchOrderListResponseDto.swift; sourceTree = "<group>"; };
 		CA17C6952E267DEE00D4E635 /* OrderCellDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellDomainModel.swift; sourceTree = "<group>"; };
 		CA17C6972E2680D000D4E635 /* OrderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellView.swift; sourceTree = "<group>"; };
+		CA17C69B2E26A02100D4E635 /* ProviderFinanceManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderFinanceManagementView.swift; sourceTree = "<group>"; };
+		CA17C69D2E26A06200D4E635 /* ProviderFinanceManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderFinanceManagementViewModel.swift; sourceTree = "<group>"; };
+		CA17C69F2E26A5B800D4E635 /* ClientFinanceManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientFinanceManagementView.swift; sourceTree = "<group>"; };
+		CA17C6A12E26A5C500D4E635 /* ClientFinanceManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientFinanceManagementViewModel.swift; sourceTree = "<group>"; };
 		CA2F853E2E19970100848F2E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		CA2F85462E19A5BF00848F2E /* ServiceContentEditorWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContentEditorWebView.swift; sourceTree = "<group>"; };
 		CA2F854F2E19A8D000848F2E /* hugerte-lang-kr.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "hugerte-lang-kr.js"; sourceTree = "<group>"; };
@@ -314,8 +322,8 @@
 		CA5C5E932E09A22800FB1E22 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CA5C5E9B2E09A55B00FB1E22 /* SignUpWithProviderRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithProviderRequestDto.swift; sourceTree = "<group>"; };
 		CA5EDD0F2E2565F9000F87D0 /* IsNeedUserInfoLoadCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsNeedUserInfoLoadCapsule.swift; sourceTree = "<group>"; };
-		CA5EDD132E256D10000F87D0 /* ServiceManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagementView.swift; sourceTree = "<group>"; };
-		CA5EDD152E256D1B000F87D0 /* ServiceManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagementViewModel.swift; sourceTree = "<group>"; };
+		CA5EDD132E256D10000F87D0 /* ProviderServiceManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderServiceManagementView.swift; sourceTree = "<group>"; };
+		CA5EDD152E256D1B000F87D0 /* ProviderServiceManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderServiceManagementViewModel.swift; sourceTree = "<group>"; };
 		CA60ED3E2E196A5F00B93A1D /* ChatMessageDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageDomainModel.swift; sourceTree = "<group>"; };
 		CA60ED402E196D2B00B93A1D /* ChatRoomDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomDomainModel.swift; sourceTree = "<group>"; };
 		CA60FAD22E100BD000150563 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -581,6 +589,24 @@
 				CA17C68F2E2655D900D4E635 /* OrderState.swift */,
 			);
 			path = Order;
+			sourceTree = "<group>";
+		};
+		CA17C6992E269F6B00D4E635 /* Finance */ = {
+			isa = PBXGroup;
+			children = (
+				CA17C69B2E26A02100D4E635 /* ProviderFinanceManagementView.swift */,
+				CA17C69F2E26A5B800D4E635 /* ClientFinanceManagementView.swift */,
+			);
+			path = Finance;
+			sourceTree = "<group>";
+		};
+		CA17C69A2E269F7500D4E635 /* Finance */ = {
+			isa = PBXGroup;
+			children = (
+				CA17C69D2E26A06200D4E635 /* ProviderFinanceManagementViewModel.swift */,
+				CA17C6A12E26A5C500D4E635 /* ClientFinanceManagementViewModel.swift */,
+			);
+			path = Finance;
 			sourceTree = "<group>";
 		};
 		CA2F853D2E19970000848F2E /* Frameworks */ = {
@@ -953,7 +979,7 @@
 		CA5EDD112E256C6C000F87D0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				CA5EDD132E256D10000F87D0 /* ServiceManagementView.swift */,
+				CA5EDD132E256D10000F87D0 /* ProviderServiceManagementView.swift */,
 				CA17C6972E2680D000D4E635 /* OrderCellView.swift */,
 			);
 			path = Service;
@@ -962,7 +988,7 @@
 		CA5EDD122E256C7F000F87D0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				CA5EDD152E256D1B000F87D0 /* ServiceManagementViewModel.swift */,
+				CA5EDD152E256D1B000F87D0 /* ProviderServiceManagementViewModel.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1569,6 +1595,7 @@
 				CA4F12252E1783CD0061012E /* ProviderProfile */,
 				CA5EDD112E256C6C000F87D0 /* Service */,
 				CA4FA6A32E22AE0F00DF4AAA /* Notification */,
+				CA17C6992E269F6B00D4E635 /* Finance */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1581,6 +1608,7 @@
 				CA4F12332E17872E0061012E /* ProviderProfile */,
 				CA5EDD122E256C7F000F87D0 /* Service */,
 				CA4FA6A62E22AE4500DF4AAA /* Notification */,
+				CA17C69A2E269F7500D4E635 /* Finance */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1905,6 +1933,7 @@
 				CAB6FFFD2E151228004CD644 /* UserDomainModel.swift in Sources */,
 				CAAB47F62E0ADC4B000197E5 /* CheckNicknameResponseDto.swift in Sources */,
 				CAB6003B2E1693B5004CD644 /* DeleteChatRoomResponseDto.swift in Sources */,
+				CA17C6A02E26A5B800D4E635 /* ClientFinanceManagementView.swift in Sources */,
 				CA7DE5C32E1ED7BE00086E8B /* EditUserInfoViewModel.swift in Sources */,
 				CA7DE5AE2E1E5C6200086E8B /* FetchServicesRequestDto.swift in Sources */,
 				CA7685412E1BFA3200148204 /* StompCore.swift in Sources */,
@@ -1982,6 +2011,7 @@
 				CA4F12532E17D7FA0061012E /* LifeServiceDetail.swift in Sources */,
 				CA50CB592E1D78DE0078AC22 /* RegisterServiceResponseDto.swift in Sources */,
 				CA87FF7D2E024B5000C8C830 /* Gender.swift in Sources */,
+				CA17C6A22E26A5C500D4E635 /* ClientFinanceManagementViewModel.swift in Sources */,
 				CA60FAD32E100BD000150563 /* Keychain.swift in Sources */,
 				CA53F48A2E222E2300F5C297 /* NavigationBarRegisterServiceTailModifier.swift in Sources */,
 				CA4F124F2E17D7B70061012E /* CustomMadeDetail.swift in Sources */,
@@ -2030,9 +2060,10 @@
 				CA7685272E1BDAEE00148204 /* ServiceManager.swift in Sources */,
 				CA4F12412E17D6B60061012E /* MarketingDetail.swift in Sources */,
 				CA4F12362E179DE00061012E /* Region.swift in Sources */,
+				CA17C69C2E26A02100D4E635 /* ProviderFinanceManagementView.swift in Sources */,
 				CA9609B82DFFD85D00B878C6 /* LoginView.swift in Sources */,
 				CAB6003F2E16B6A9004CD644 /* ReadLastMessageResponseDto.swift in Sources */,
-				CA5EDD162E256D1B000F87D0 /* ServiceManagementViewModel.swift in Sources */,
+				CA5EDD162E256D1B000F87D0 /* ProviderServiceManagementViewModel.swift in Sources */,
 				CA4F123D2E17D66A0061012E /* ManagementDetail.swift in Sources */,
 				CA62D9982E23C365002C7849 /* SearchServiceResponseDto.swift in Sources */,
 				CA0915582DF12BBF00E272F8 /* MainTabView.swift in Sources */,
@@ -2058,10 +2089,11 @@
 				CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */,
 				CA5C5E9C2E09A55B00FB1E22 /* SignUpWithProviderRequestDto.swift in Sources */,
 				CA87FF7B2E014C3300C8C830 /* Role.swift in Sources */,
+				CA17C69E2E26A06200D4E635 /* ProviderFinanceManagementViewModel.swift in Sources */,
 				CA9E2A712E21299900962203 /* ServiceView.swift in Sources */,
 				CAB6FFF42E1508DF004CD644 /* ChatManager.swift in Sources */,
 				CAAB47FA2E0BB1A1000197E5 /* CheckLoginIdRequest.swift in Sources */,
-				CA5EDD142E256D10000F87D0 /* ServiceManagementView.swift in Sources */,
+				CA5EDD142E256D10000F87D0 /* ProviderServiceManagementView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

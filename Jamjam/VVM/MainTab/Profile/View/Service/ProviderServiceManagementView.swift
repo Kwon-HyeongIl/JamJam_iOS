@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ServiceManagementView: View {
-    @State private var viewModel = ServiceManagementViewModel()
+struct ProviderServiceManagementView: View {
+    @State private var viewModel = ProviderServiceManagementViewModel()
     
     @Namespace private var tabListUnderline
     
@@ -110,7 +110,7 @@ struct ServiceManagementView: View {
 
 #Preview {
     NavigationStack {
-        ServiceManagementView()
+        ProviderServiceManagementView()
             .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }
