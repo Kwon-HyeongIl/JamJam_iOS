@@ -19,7 +19,7 @@ struct OrderServiceView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 VStack(spacing: 40) {
                     VStack {
                         HStack {

@@ -17,7 +17,7 @@ struct SignUpView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 VStack {
                     Image("jamjam_main_logo")
                         .resizable()

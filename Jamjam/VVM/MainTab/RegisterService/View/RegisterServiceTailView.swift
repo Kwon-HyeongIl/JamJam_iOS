@@ -18,7 +18,7 @@ struct RegisterServiceTailView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 switch viewModel.pageIndex {
                 case 1:
                     VStack(spacing: 30) {

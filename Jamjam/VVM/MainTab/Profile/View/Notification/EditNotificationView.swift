@@ -13,7 +13,7 @@ struct EditNotificationView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 VStack(spacing: 18) {
                     VStack(alignment: .leading, spacing: 8) {
                         Toggle("공지사항 및 이벤트", isOn: $viewModel.eventNotification)

@@ -22,7 +22,7 @@ struct CategoryView: View {
     var body: some View {
         GeometryReader { proxy in
             VStack(spacing: 0) {
-                ScrollView(showsIndicators: false) {
+                ScrollView {
                     VStack(spacing: 0) {
                         Button {
                             navRouter.navigate(.searchView)

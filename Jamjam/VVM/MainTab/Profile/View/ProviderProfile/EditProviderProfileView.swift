@@ -17,7 +17,7 @@ struct EditProviderProfileView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 switch viewModel.pageIndex {
                     // MARK: Page Index 0
                 case 0:
@@ -462,7 +462,7 @@ struct EditProviderProfileView: View {
                     // MARK: Page Index 2
                 case 2:
                     VStack(spacing: 0) {
-                        ScrollView(showsIndicators: false) {
+                        ScrollView {
                             VStack(spacing: 0) {
                                 HStack {
                                     RoundedRectangle(cornerRadius: 10)
@@ -636,7 +636,7 @@ struct EditProviderProfileView: View {
                     // MARK: Page Index 3
                 case 3:
                     VStack(spacing: 0) {
-                        ScrollView(showsIndicators: false) {
+                        ScrollView {
                             VStack(spacing: 0) {
                                 HStack {
                                     RoundedRectangle(cornerRadius: 10)
@@ -986,7 +986,7 @@ struct EditProviderProfileView: View {
                     // MARK: Page Index 4
                 case 4:
                     VStack(spacing: 0) {
-                        ScrollView(showsIndicators: false) {
+                        ScrollView {
                             VStack(spacing: 0) {
                                 HStack {
                                     RoundedRectangle(cornerRadius: 10)

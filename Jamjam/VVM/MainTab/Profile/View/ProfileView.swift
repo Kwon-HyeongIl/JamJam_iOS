@@ -29,7 +29,7 @@ struct ProfileView: View {
                 .background(Color.mainBackground)
             }
             
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 VStack {
                     VStack {
                         HStack {

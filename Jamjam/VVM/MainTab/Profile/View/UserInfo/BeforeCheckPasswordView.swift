@@ -15,7 +15,7 @@ struct BeforeCheckPasswordView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 VStack(spacing: 20) {
                     Image("check_password_icon")
                         .resizable()

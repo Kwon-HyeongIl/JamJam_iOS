@@ -14,7 +14,7 @@ struct SearchServiceView: View {
     var body: some View {
         GeometryReader { proxy in
             VStack(spacing: 0) {
-                ScrollView(showsIndicators: false) {
+                ScrollView {
                     LazyVGrid(columns: viewModel.columns, spacing: 10) {
                         ForEach(viewModel.services, id: \.serviceId) { service in
                             ServiceCellView(service: service, upperWidth: proxy.size.width)

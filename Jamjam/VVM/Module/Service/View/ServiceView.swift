@@ -23,7 +23,7 @@ struct ServiceView: View {
     var body: some View {
         GeometryReader { proxy in
             VStack(spacing: 0) {
-                ScrollView(showsIndicators: false) {
+                ScrollView {
                     VStack(spacing: 0) {
                         HStack {
                             Text(SkillCategory(rawValue: viewModel.service?.category ?? 0)?.text ?? "")

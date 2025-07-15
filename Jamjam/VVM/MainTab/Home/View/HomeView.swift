@@ -49,7 +49,7 @@ struct HomeView: View {
                 .frame(height: 100)
                 .background(Color.mainBackground)
                 
-                ScrollView(showsIndicators: false) {
+                ScrollView {
                     VStack(spacing: 0) {
                         // MARK: Main Text
                         HStack {

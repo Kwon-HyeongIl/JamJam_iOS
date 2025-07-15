@@ -15,7 +15,7 @@ struct EditUserInfoView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 VStack(spacing: 30) {
                     VStack(spacing: 10) {
                         VStack {

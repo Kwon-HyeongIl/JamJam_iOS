@@ -19,7 +19,7 @@ struct ChatContentView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 VStack(spacing: 10) {
                     ForEach(Array(viewModel.messages.enumerated()), id: \.element.messageId) { index, message in
                         let isLast = index + 1 >= viewModel.messages.count

@@ -11,7 +11,7 @@ import os
 
 @Observable
 class CategoryViewModel {
-    var selectedSkill: SkillCategory?
+     var selectedSkill: SkillCategory?
     
     var services: [ServiceCellDomainModel] = []
     

@@ -26,7 +26,7 @@ struct ChatListView: View {
                 .frame(height: 50)
                 .background(Color.mainBackground)
                 
-                ScrollView(showsIndicators: false) {
+                ScrollView {
                     LazyVStack(spacing: 0) {
                         ForEach(viewModel.chatRooms, id: \.roomId) { chatRoom in
                             ChatCellView(chatRoom: chatRoom)

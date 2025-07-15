@@ -24,7 +24,7 @@ struct ProviderProfileView: View {
     var body: some View {
         GeometryReader { proxy in
             VStack(spacing: 0) {
-                ScrollView(showsIndicators: false) {
+                ScrollView {
                     VStack {
                         // MARK: Profile Part
                         HStack(spacing: 15) {
