@@ -34,8 +34,18 @@ enum NavigationDestinationPath: Hashable {
     case serviceView(Int)
     
     // Order
-    case orderServiceView(ServiceCellDomainModel)
-    case serviceManagementView
+    case orderServiceRequestView(ServiceCellDomainModel)
+    
+    case providerServiceManagementView
+    case providerRequestedOrderView(Int?)
+    case providerPreparingOrderView(Int?)
+    case providerCompletedOrderView(Int?)
+    case providerCancelledOrderView(Int?)
+    
+    case clientServiceManagementView
+    case clientPreparingOrderView(Int?)
+    case clientCompletedOrderView(Int?)
+    case clientCancelledOrderView(Int?)
     
     // Finance
     case providerFinanceManagementView

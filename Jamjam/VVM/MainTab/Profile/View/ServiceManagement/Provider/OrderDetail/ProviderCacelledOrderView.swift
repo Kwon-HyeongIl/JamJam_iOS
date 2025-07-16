@@ -7,8 +7,13 @@
 
 import SwiftUI
 
-struct ProviderCacelledOrderView: View {
+struct ProviderCancelledOrderView: View {
     @Environment(NavigationCore.self) var navRouter
+    @State private var viewModel: ProviderCancelledOrderViewModel
+    
+    init(orderId: Int?) {
+        viewModel = ProviderCancelledOrderViewModel(orderId: orderId)
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -172,7 +177,7 @@ struct ProviderCacelledOrderView: View {
 
 #Preview {
     NavigationStack {
-        ProviderCacelledOrderView()
+        ProviderCancelledOrderView(orderId: nil)
             .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }

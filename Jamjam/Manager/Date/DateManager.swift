@@ -48,6 +48,31 @@ class DateManager {
         return formatter.string(from: date)
     }
     
+    // ex: "2025년 7월 6일"
+    static func isoToCharDate(_ isoString: String) -> String {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [
+            .withFullDate,
+            .withTime,
+            .withDashSeparatorInDate,
+            .withColonSeparatorInTime,
+            .withFractionalSeconds
+        ]
+        isoFormatter.timeZone = .current
+        guard let date = isoFormatter.date(from: isoString) else {
+            return isoString
+        }
+
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.timeZone = .current
+        formatter.dateFormat = "yyyy년 M월 d일"
+
+        return formatter.string(from: date)
+    }
+
+    
+    // ex: "07월 20일
     static func isoToMonthDay(_ isoString: String) -> String {
         let isoFormatter = ISO8601DateFormatter()
         isoFormatter.formatOptions = [
@@ -66,6 +91,34 @@ class DateManager {
         formatter.dateFormat = "M월 d일"
 
         return formatter.string(from: date)
+    }
+
+    // ex: "D-7"
+    static func isoToDday(_ isoString: String) -> String {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [
+            .withFullDate,
+            .withTime,
+            .withDashSeparatorInDate,
+            .withColonSeparatorInTime,
+            .withFractionalSeconds
+        ]
+        isoFormatter.timeZone = .current
+        
+        guard let targetDate = isoFormatter.date(from: isoString) else {
+            return isoString
+        }
+        
+        let cal = Calendar.current
+        let startOfToday   = cal.startOfDay(for: Date())
+        let startOfTarget  = cal.startOfDay(for: targetDate)
+        let days           = cal.dateComponents([.day], from: startOfToday, to: startOfTarget).day ?? 0
+        
+        switch days {
+        case 0: return "D-Day"
+        case let d where d > 0:  return "D-\(d)"
+        default: return "D+\(-days)"
+        }
     }
 
     

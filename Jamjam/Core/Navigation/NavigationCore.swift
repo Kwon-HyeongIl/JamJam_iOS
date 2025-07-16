@@ -53,10 +53,28 @@ class NavigationCore {
             ServiceView(serviceId: serviceId)
             
             // MARK: Order
-        case .orderServiceView(let serviceCell):
-            OrderServiceView(serviceCell: serviceCell)
-        case .serviceManagementView:
+        case .orderServiceRequestView(let serviceCell):
+            OrderServiceRequestView(serviceCell: serviceCell)
+            
+        case .providerServiceManagementView:
             ProviderServiceManagementView()
+        case .providerRequestedOrderView(let orderId):
+            ProviderRequestedOrderView(orderId: orderId)
+        case .providerPreparingOrderView(let orderId):
+            ProviderPreparingOrderView(orderId: orderId)
+        case .providerCompletedOrderView(let orderId):
+            ProviderCompletedOrderView(orderId: orderId)
+        case .providerCancelledOrderView(let orderId):
+            ProviderCancelledOrderView(orderId: orderId)
+            
+        case .clientServiceManagementView:
+            ClientServiceManagementView()
+        case .clientPreparingOrderView(let orderId):
+            ClientPreparingOrderView(orderId: orderId)
+        case .clientCompletedOrderView(let orderId):
+            ClientCompletedOrderView(orderId: orderId)
+        case .clientCancelledOrderView(let orderId):
+            ClientCancelledOrderView(orderId: orderId)
             
             // MARK: Finance
         case .providerFinanceManagementView:

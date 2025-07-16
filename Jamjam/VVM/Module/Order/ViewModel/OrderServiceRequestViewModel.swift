@@ -11,7 +11,7 @@ import Combine
 import os
 
 @Observable
-class OrderServiceViewModel {
+class OrderServiceRequestViewModel {
     var serviceCell: ServiceCellDomainModel?
     
     var title = ""

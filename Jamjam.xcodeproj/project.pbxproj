@@ -80,8 +80,8 @@
 		CA53F4862E22175600F5C297 /* EducationDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4852E22175600F5C297 /* EducationDomainModel.swift */; };
 		CA53F4882E22179D00F5C297 /* LicenseDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4872E22179D00F5C297 /* LicenseDomainModel.swift */; };
 		CA53F48A2E222E2300F5C297 /* NavigationBarRegisterServiceTailModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4892E222E2300F5C297 /* NavigationBarRegisterServiceTailModifier.swift */; };
-		CA53F4922E22395100F5C297 /* OrderServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4912E22395100F5C297 /* OrderServiceView.swift */; };
-		CA53F4942E22395900F5C297 /* OrderServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4932E22395900F5C297 /* OrderServiceViewModel.swift */; };
+		CA53F4922E22395100F5C297 /* OrderServiceRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4912E22395100F5C297 /* OrderServiceRequestView.swift */; };
+		CA53F4942E22395900F5C297 /* OrderServiceRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53F4932E22395900F5C297 /* OrderServiceRequestViewModel.swift */; };
 		CA53F4962E22775A00F5C297 /* service_content_viewer.html in Resources */ = {isa = PBXBuildFile; fileRef = CA53F4952E22775A00F5C297 /* service_content_viewer.html */; };
 		CA5507792E218E9900E4E936 /* FetchProviderProfileResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5507782E218E9900E4E936 /* FetchProviderProfileResponseDto.swift */; };
 		CA5B62B42E19575A00CA939F /* RangeSlider in Frameworks */ = {isa = PBXBuildFile; productRef = CA5B62B32E19575A00CA939F /* RangeSlider */; };
@@ -120,6 +120,10 @@
 		CA7685462E1C01CA00148204 /* NavigationDestinationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7685452E1C01CA00148204 /* NavigationDestinationPath.swift */; };
 		CA7685492E1C0BF800148204 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = CA7685482E1C0BF800148204 /* Shimmer */; };
 		CA76854C2E1C183000148204 /* Animation+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA76854B2E1C183000148204 /* Animation+Custom.swift */; };
+		CA76C9252E27AB16000098E8 /* FetchOrderDetailRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA76C9242E27AB16000098E8 /* FetchOrderDetailRequestDto.swift */; };
+		CA76C9272E27AB20000098E8 /* FetchOrderDetailResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA76C9262E27AB20000098E8 /* FetchOrderDetailResponseDto.swift */; };
+		CA76C9292E2806AD000098E8 /* OrderDetailDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA76C9282E2806AD000098E8 /* OrderDetailDomainModel.swift */; };
+		CA76C92B2E2806D3000098E8 /* OrderReferenceFileDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA76C92A2E2806D3000098E8 /* OrderReferenceFileDomainModel.swift */; };
 		CA7D118E2E1025C100D55CCE /* ChatContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7D118D2E1025C100D55CCE /* ChatContentViewModel.swift */; };
 		CA7D11932E10327100D55CCE /* ChatContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7D11922E10327100D55CCE /* ChatContentView.swift */; };
 		CA7D11952E10553200D55CCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA7D11942E10553200D55CCE /* GoogleService-Info.plist */; };
@@ -232,7 +236,7 @@
 		CAD6075F2E26CE89000CD57E /* ProviderRequestedOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD6075E2E26CE89000CD57E /* ProviderRequestedOrderView.swift */; };
 		CAD607612E26CE97000CD57E /* ProviderPreparingOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607602E26CE97000CD57E /* ProviderPreparingOrderView.swift */; };
 		CAD607632E26CEA3000CD57E /* ProviderCompletedOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607622E26CEA3000CD57E /* ProviderCompletedOrderView.swift */; };
-		CAD607652E26CEAE000CD57E /* ProviderCacelledOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607642E26CEAE000CD57E /* ProviderCacelledOrderView.swift */; };
+		CAD607652E26CEAE000CD57E /* ProviderCancelledOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607642E26CEAE000CD57E /* ProviderCancelledOrderView.swift */; };
 		CAD6076A2E26CF56000CD57E /* ProviderRequestedOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD607692E26CF56000CD57E /* ProviderRequestedOrderViewModel.swift */; };
 		CAD6076C2E26CF6E000CD57E /* ProviderPreparingOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD6076B2E26CF6E000CD57E /* ProviderPreparingOrderViewModel.swift */; };
 		CAD6076E2E26CF92000CD57E /* ProviderCompletedOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD6076D2E26CF92000CD57E /* ProviderCompletedOrderViewModel.swift */; };
@@ -321,8 +325,8 @@
 		CA53F4852E22175600F5C297 /* EducationDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationDomainModel.swift; sourceTree = "<group>"; };
 		CA53F4872E22179D00F5C297 /* LicenseDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseDomainModel.swift; sourceTree = "<group>"; };
 		CA53F4892E222E2300F5C297 /* NavigationBarRegisterServiceTailModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarRegisterServiceTailModifier.swift; sourceTree = "<group>"; };
-		CA53F4912E22395100F5C297 /* OrderServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceView.swift; sourceTree = "<group>"; };
-		CA53F4932E22395900F5C297 /* OrderServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceViewModel.swift; sourceTree = "<group>"; };
+		CA53F4912E22395100F5C297 /* OrderServiceRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceRequestView.swift; sourceTree = "<group>"; };
+		CA53F4932E22395900F5C297 /* OrderServiceRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceRequestViewModel.swift; sourceTree = "<group>"; };
 		CA53F4952E22775A00F5C297 /* service_content_viewer.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = service_content_viewer.html; sourceTree = "<group>"; };
 		CA5507782E218E9900E4E936 /* FetchProviderProfileResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProviderProfileResponseDto.swift; sourceTree = "<group>"; };
 		CA5C5E7B2E09688700FB1E22 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
@@ -359,6 +363,10 @@
 		CA7685402E1BFA3200148204 /* StompCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StompCore.swift; sourceTree = "<group>"; };
 		CA7685452E1C01CA00148204 /* NavigationDestinationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestinationPath.swift; sourceTree = "<group>"; };
 		CA76854B2E1C183000148204 /* Animation+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation+Custom.swift"; sourceTree = "<group>"; };
+		CA76C9242E27AB16000098E8 /* FetchOrderDetailRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchOrderDetailRequestDto.swift; sourceTree = "<group>"; };
+		CA76C9262E27AB20000098E8 /* FetchOrderDetailResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchOrderDetailResponseDto.swift; sourceTree = "<group>"; };
+		CA76C9282E2806AD000098E8 /* OrderDetailDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailDomainModel.swift; sourceTree = "<group>"; };
+		CA76C92A2E2806D3000098E8 /* OrderReferenceFileDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderReferenceFileDomainModel.swift; sourceTree = "<group>"; };
 		CA7D118D2E1025C100D55CCE /* ChatContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContentViewModel.swift; sourceTree = "<group>"; };
 		CA7D11922E10327100D55CCE /* ChatContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContentView.swift; sourceTree = "<group>"; };
 		CA7D11942E10553200D55CCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -463,7 +471,7 @@
 		CAD6075E2E26CE89000CD57E /* ProviderRequestedOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderRequestedOrderView.swift; sourceTree = "<group>"; };
 		CAD607602E26CE97000CD57E /* ProviderPreparingOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderPreparingOrderView.swift; sourceTree = "<group>"; };
 		CAD607622E26CEA3000CD57E /* ProviderCompletedOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCompletedOrderView.swift; sourceTree = "<group>"; };
-		CAD607642E26CEAE000CD57E /* ProviderCacelledOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCacelledOrderView.swift; sourceTree = "<group>"; };
+		CAD607642E26CEAE000CD57E /* ProviderCancelledOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCancelledOrderView.swift; sourceTree = "<group>"; };
 		CAD607692E26CF56000CD57E /* ProviderRequestedOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderRequestedOrderViewModel.swift; sourceTree = "<group>"; };
 		CAD6076B2E26CF6E000CD57E /* ProviderPreparingOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderPreparingOrderViewModel.swift; sourceTree = "<group>"; };
 		CAD6076D2E26CF92000CD57E /* ProviderCompletedOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCompletedOrderViewModel.swift; sourceTree = "<group>"; };
@@ -872,7 +880,7 @@
 		CA53F48F2E22393A00F5C297 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CA53F4912E22395100F5C297 /* OrderServiceView.swift */,
+				CA53F4912E22395100F5C297 /* OrderServiceRequestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -880,7 +888,7 @@
 		CA53F4902E22393E00F5C297 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CA53F4932E22395900F5C297 /* OrderServiceViewModel.swift */,
+				CA53F4932E22395900F5C297 /* OrderServiceRequestViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1050,6 +1058,8 @@
 			isa = PBXGroup;
 			children = (
 				CA17C6952E267DEE00D4E635 /* OrderCellDomainModel.swift */,
+				CA76C9282E2806AD000098E8 /* OrderDetailDomainModel.swift */,
+				CA76C92A2E2806D3000098E8 /* OrderReferenceFileDomainModel.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -1060,6 +1070,7 @@
 				CA687C312E23A90D00085C07 /* OrderServiceResponseDto.swift */,
 				CA17C68A2E261F3000D4E635 /* FetchOrderStateCountsResponseDto.swift */,
 				CA17C6932E267C5D00D4E635 /* FetchOrderListResponseDto.swift */,
+				CA76C9262E27AB20000098E8 /* FetchOrderDetailResponseDto.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1069,6 +1080,7 @@
 			children = (
 				CA687C2F2E23A8B400085C07 /* OrderServiceRequestDto.swift */,
 				CA17C6912E267BE300D4E635 /* FetchOrderListRequestDto.swift */,
+				CA76C9242E27AB16000098E8 /* FetchOrderDetailRequestDto.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1827,7 +1839,7 @@
 				CAD6075E2E26CE89000CD57E /* ProviderRequestedOrderView.swift */,
 				CAD607602E26CE97000CD57E /* ProviderPreparingOrderView.swift */,
 				CAD607622E26CEA3000CD57E /* ProviderCompletedOrderView.swift */,
-				CAD607642E26CEAE000CD57E /* ProviderCacelledOrderView.swift */,
+				CAD607642E26CEAE000CD57E /* ProviderCancelledOrderView.swift */,
 			);
 			path = OrderDetail;
 			sourceTree = "<group>";
@@ -2049,6 +2061,7 @@
 				CA5507792E218E9900E4E936 /* FetchProviderProfileResponseDto.swift in Sources */,
 				CA17C6982E2680D000D4E635 /* OrderCellView.swift in Sources */,
 				CA5C5E7F2E096A7D00FB1E22 /* Pretendard.swift in Sources */,
+				CA76C9292E2806AD000098E8 /* OrderDetailDomainModel.swift in Sources */,
 				CAB600032E15480F004CD644 /* SocketConnectionStatus.swift in Sources */,
 				CA7685292E1BDDB800148204 /* RegisterServiceTailView.swift in Sources */,
 				CACB0C702E2198DE00353E31 /* ProviderDomainModel.swift in Sources */,
@@ -2057,9 +2070,10 @@
 				CA35935F2E0514AE0069FAF8 /* CategoryViewModel.swift in Sources */,
 				CA88CEC02E11077800B1116E /* FCMManager.swift in Sources */,
 				CA9F46382E101ED600028F83 /* RegisterServiceLeadView.swift in Sources */,
+				CA76C9272E27AB20000098E8 /* FetchOrderDetailResponseDto.swift in Sources */,
 				CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */,
 				CA9609A42DFFCD7B00B878C6 /* Color+MainTitle.swift in Sources */,
-				CAD607652E26CEAE000CD57E /* ProviderCacelledOrderView.swift in Sources */,
+				CAD607652E26CEAE000CD57E /* ProviderCancelledOrderView.swift in Sources */,
 				CA9609A72DFFCF8100B878C6 /* MainTabBar.swift in Sources */,
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
 				CA4F12612E1858E50061012E /* DegreeForm.swift in Sources */,
@@ -2122,6 +2136,7 @@
 				CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */,
 				CA7DE5E22E20295500086E8B /* CheckPasswordResponseDto.swift in Sources */,
 				CA7DE5B92E1E78DF00086E8B /* ServiceCellView.swift in Sources */,
+				CA76C92B2E2806D3000098E8 /* OrderReferenceFileDomainModel.swift in Sources */,
 				CA17C68B2E261F3000D4E635 /* FetchOrderStateCountsResponseDto.swift in Sources */,
 				CA4F12592E17E7890061012E /* ProviderProfileSkillDetailSheetView.swift in Sources */,
 				CA9BB52C2E12B9160035F26D /* ProviderProfileViewModel.swift in Sources */,
@@ -2147,13 +2162,14 @@
 				CAD607792E26D0D0000CD57E /* ClientCancelledOrderView.swift in Sources */,
 				CAB6000D2E157B22004CD644 /* ChatManager+ChatRoom.swift in Sources */,
 				CA9609B22DFFD2BF00B878C6 /* RoundedCorner.swift in Sources */,
-				CA53F4942E22395900F5C297 /* OrderServiceViewModel.swift in Sources */,
+				CA53F4942E22395900F5C297 /* OrderServiceRequestViewModel.swift in Sources */,
 				CA5C5E862E099CED00FB1E22 /* AuthCore.swift in Sources */,
 				CAB600072E155CF4004CD644 /* ChatSocketEventType.swift in Sources */,
 				CA7DE5D82E1FFAD600086E8B /* BeforeCheckPasswordView.swift in Sources */,
 				CAB6FFF92E150CDF004CD644 /* StartChatRequestDto.swift in Sources */,
 				CAAB47FC2E0BB1D5000197E5 /* CheckLoginIdResponseDto.swift in Sources */,
 				CA9BB5292E12B9000035F26D /* ProfileViewModel.swift in Sources */,
+				CA76C9252E27AB16000098E8 /* FetchOrderDetailRequestDto.swift in Sources */,
 				CA4F12512E17D7D50061012E /* HobbyLessonDetail.swift in Sources */,
 				CA62D9A12E23F2B6002C7849 /* UpdateProviderInfoResponseDto.swift in Sources */,
 				CA4F12632E185A030061012E /* CertificateForm.swift in Sources */,
@@ -2184,7 +2200,7 @@
 				CA5C5E942E09A22800FB1E22 /* API.swift in Sources */,
 				CAD6076E2E26CF92000CD57E /* ProviderCompletedOrderViewModel.swift in Sources */,
 				CA9E2A782E212A0300962203 /* FetchServiceResponseDto.swift in Sources */,
-				CA53F4922E22395100F5C297 /* OrderServiceView.swift in Sources */,
+				CA53F4922E22395100F5C297 /* OrderServiceRequestView.swift in Sources */,
 				CA4F125F2E18451C0061012E /* CareerForm.swift in Sources */,
 				CA53F4862E22175600F5C297 /* EducationDomainModel.swift in Sources */,
 				CA9609BE2DFFE36300B878C6 /* SignUpView.swift in Sources */,

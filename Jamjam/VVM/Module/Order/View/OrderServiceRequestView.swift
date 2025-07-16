@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct OrderServiceView: View {
+struct OrderServiceRequestView: View {
     @Environment(NavigationCore.self) var navRouter
-    @State private var viewModel: OrderServiceViewModel
+    @State private var viewModel: OrderServiceRequestViewModel
     
     @FocusState private var focus: TextFieldFocusField?
     
     init(serviceCell: ServiceCellDomainModel?) {
-        viewModel = OrderServiceViewModel(serviceCell: serviceCell)
+        viewModel = OrderServiceRequestViewModel(serviceCell: serviceCell)
     }
     
     var body: some View {
@@ -458,7 +458,7 @@ struct OrderServiceView: View {
 
 #Preview {
     NavigationStack {
-        OrderServiceView(serviceCell: nil)
+        OrderServiceRequestView(serviceCell: nil)
             .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }

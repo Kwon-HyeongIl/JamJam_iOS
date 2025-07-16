@@ -1,5 +1,5 @@
 //
-//  ProviderCompletedOrderView.swift
+//  ProviderCacelledOrderView.swift
 //  Jamjam
 //
 //  Created by 권형일 on 7/16/25.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct ProviderCompletedOrderView: View {
+struct ProviderCancelledOrderView: View {
     @Environment(NavigationCore.self) var navRouter
-    @State private var viewModel: ProviderCompletedOrderViewModel
+    @State private var viewModel: ProviderCancelledOrderViewModel
     
     init(orderId: Int?) {
-        viewModel = ProviderCompletedOrderViewModel(orderId: orderId)
+        viewModel = ProviderCancelledOrderViewModel(orderId: orderId)
     }
     
     var body: some View {
@@ -22,7 +22,7 @@ struct ProviderCompletedOrderView: View {
                     VStack(spacing: 40) {
                         VStack(spacing: 13) {
                             HStack {
-                                Text("작업 완료일")
+                                Text("취소 사유")
                                     .font(.pretendard(Pretendard.semiBold, size: 17))
                                     .foregroundStyle(Color.JJTitle)
                                     .padding(.leading, 20)
@@ -31,7 +31,7 @@ struct ProviderCompletedOrderView: View {
                             }
                             
                             HStack {
-                                Text("")
+                                Text(viewModel.order?.cancelReason ?? "")
                                     .font(.pretendard(Pretendard.bold, size: 20))
                                     .padding(.leading, 20)
                                 
@@ -179,7 +179,7 @@ struct ProviderCompletedOrderView: View {
 
 #Preview {
     NavigationStack {
-        ProviderCompletedOrderView(orderId: nil)
+        ProviderCancelledOrderView(orderId: nil)
             .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }

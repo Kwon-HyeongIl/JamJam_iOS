@@ -19,7 +19,7 @@ struct FetchOrderListResponseDto: Decodable {
         let hasNext: Bool
         
         struct Order: Decodable {
-            let orderId: String
+            let orderId: Int
             let title: String
             let client: String
             let orderedAt: String

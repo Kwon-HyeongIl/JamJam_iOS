@@ -10,6 +10,10 @@ import SwiftUI
 struct ClientCompletedOrderView: View {
     @Environment(NavigationCore.self) var navRouter
     
+    init(orderId: Int?) {
+        
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             ScrollView {
@@ -172,7 +176,7 @@ struct ClientCompletedOrderView: View {
 
 #Preview {
     NavigationStack {
-        ClientCompletedOrderView()
+        ClientCompletedOrderView(orderId: nil)
             .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }

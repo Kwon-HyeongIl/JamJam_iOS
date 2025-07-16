@@ -65,6 +65,7 @@ enum API {
     case orderService
     case fetchOrderStateCounts
     case fetchOrderList
+    case fetchOrderDetail
     
     var urlString: String {
         switch self {
@@ -139,6 +140,8 @@ enum API {
             return "\(API.baseURL)/api/order/count"
         case .fetchOrderList:
             return "\(API.baseURL)/api/order/order-list"
+        case .fetchOrderDetail:
+            return "\(API.baseURL)/api/order/detail"
         }
     }
     

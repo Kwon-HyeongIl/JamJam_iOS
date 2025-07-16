@@ -35,4 +35,18 @@ extension OrderManager {
         .mapError { $0 as Error }
         .eraseToAnyPublisher()
     }
+    
+    static func fetchOrderDatail(_ request: FetchOrderDetailRequestDto) -> AnyPublisher<FetchOrderDetailResponseDto, Error> {
+        return AF.request(
+            API.fetchOrderDetail.url,
+            method: .get,
+            parameters: request,
+            encoder: URLEncodedFormParameterEncoder(destination: .queryString),
+            headers: API.headers
+        )
+        .publishDecodable(type: FetchOrderDetailResponseDto.self)
+        .value()
+        .mapError { $0 as Error }
+        .eraseToAnyPublisher()
+    }
 }

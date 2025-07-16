@@ -232,7 +232,7 @@ struct ProfileView: View {
                         
                         Button {
                             if viewModel.isLogin {
-                                navRouter.navigate(.serviceManagementView)
+                                navRouter.navigate(.providerServiceManagementView)
                             } else {
                                 viewModel.isLoginAlertVisible = true
                             }

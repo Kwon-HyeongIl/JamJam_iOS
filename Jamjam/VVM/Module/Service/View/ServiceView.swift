@@ -338,7 +338,7 @@ struct ServiceView: View {
                                 
                                 let serviceCell = ServiceCellDomainModel(serviceId: serviceId, thumbnailUrl: thumbnailUrl, serviceName: serviceName, providerName: providerName, salary: salary)
                                 
-                                navRouter.navigate(.orderServiceView(serviceCell))
+                                navRouter.navigate(.orderServiceRequestView(serviceCell))
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 45)

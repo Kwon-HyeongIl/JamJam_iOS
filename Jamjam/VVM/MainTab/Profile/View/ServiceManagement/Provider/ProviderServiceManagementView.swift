@@ -96,6 +96,20 @@ struct ProviderServiceManagementView: View {
                                     viewModel.fetchOrders()
                                 }
                             }
+                            .onTapGesture {
+                                switch viewModel.segmentedControlIndex {
+                                case 0:
+                                    navRouter.navigate(.providerRequestedOrderView(order.orderId))
+                                case 1:
+                                    navRouter.navigate(.providerPreparingOrderView(order.orderId))
+                                case 2:
+                                    navRouter.navigate(.providerCompletedOrderView(order.orderId))
+                                case 3:
+                                    navRouter.navigate(.providerCancelledOrderView(order.orderId))
+                                default:
+                                    return
+                                }
+                            }
                     }
                 }
             }

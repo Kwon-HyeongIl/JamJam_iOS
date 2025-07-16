@@ -8,7 +8,7 @@
 import Foundation
 
 struct OrderCellDomainModel {
-    let orderId: String
+    let orderId: Int
     let title: String
     let client: String
     let orderedAt: String
