@@ -1,8 +1,8 @@
 //
-//  ProviderCancelledOrderViewModel.swift
+//  ClientCancelledOrderViewModel.swift
 //  Jamjam
 //
-//  Created by 권형일 on 7/16/25.
+//  Created by 권형일 on 7/17/25.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import Combine
 import os
 
 @Observable
-class ProviderCancelledOrderViewModel {
+class ClientCancelledOrderViewModel {
     var order: OrderDetailDomainModel?
     
     // MARK: 채팅
@@ -18,7 +18,7 @@ class ProviderCancelledOrderViewModel {
     var isNavigateToChatRoom = false
     
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
-    @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ProviderCancelledOrderViewModel")
+    @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ClientCancelledOrderViewModel")
     
     init(orderId: Int?) {
         fetchOrderDetail(orderId: orderId)
@@ -70,7 +70,7 @@ class ProviderCancelledOrderViewModel {
     }
     
     func startChat() {
-        guard let targetUserId = order?.clientId else { return }
+        guard let targetUserId = order?.providerId else { return }
         
         ChatManager.startChat(otherId: targetUserId)
             .receive(on: DispatchQueue.main)

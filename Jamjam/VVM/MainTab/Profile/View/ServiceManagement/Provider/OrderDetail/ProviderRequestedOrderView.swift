@@ -123,7 +123,8 @@ struct ProviderRequestedOrderView: View {
                             Spacer()
                             
                             Button {
-                                
+                                viewModel.isEntireProgressViewVisible = true
+                                viewModel.cancelOrder()
                             } label: {
                                 Text("의뢰 거절하기")
                                     .font(.pretendard(size: 13))
@@ -164,7 +165,8 @@ struct ProviderRequestedOrderView: View {
                             }
                             
                             Button {
-                                
+                                viewModel.isEntireProgressViewVisible = true
+                                viewModel.acceptOrder()
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 45)
@@ -186,7 +188,39 @@ struct ProviderRequestedOrderView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.mainBackground)
-            .modifier(NavigationBarBackAndHomeModifier())
+            .modifier(NavigationBarBackAndHomeModifier(isEntireProgressVisible: $viewModel.isEntireProgressViewVisible))
+            .alert("알림", isPresented: $viewModel.isEntireAlertVisible) {
+                Button {
+                    if viewModel.isCancelOrderCompleted || viewModel.isAcceptOrderCompleted {
+                        navRouter.back()
+                    } else {
+                        viewModel.entireAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
+                    }
+                } label: {
+                    Text("확인")
+                }
+            } message: {
+                if viewModel.isCancelOrderCompleted {
+                    Text("주문이 거절되었습니다.")
+                } else if viewModel.isAcceptOrderCompleted {
+                    Text("주문이 수락되었습니다.")
+                } else {
+                    Text(viewModel.entireAlertMessage)
+                }
+            }
+            .blur(radius: viewModel.isEntireProgressViewVisible ? 2.0 : 0)
+            .overlay {
+                if viewModel.isEntireProgressViewVisible {
+                    VStack {
+                        ProgressView()
+                            .scaleEffect(1.5)
+                            .tint(Color.JJTitle)
+                            .padding(.bottom, 30)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.gray.opacity(0.5))
+                }
+            }
         }
     }
 }

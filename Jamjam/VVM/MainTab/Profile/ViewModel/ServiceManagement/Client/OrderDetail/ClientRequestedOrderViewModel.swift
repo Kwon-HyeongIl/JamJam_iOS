@@ -1,8 +1,8 @@
 //
-//  ProviderCancelledOrderViewModel.swift
+//  ClientRequestedOrderViewModel.swift
 //  Jamjam
 //
-//  Created by 권형일 on 7/16/25.
+//  Created by 권형일 on 7/17/25.
 //
 
 import Foundation
@@ -10,15 +10,21 @@ import Combine
 import os
 
 @Observable
-class ProviderCancelledOrderViewModel {
+class ClientRequestedOrderViewModel {
     var order: OrderDetailDomainModel?
     
     // MARK: 채팅
     var targetRoomId: Int?
     var isNavigateToChatRoom = false
     
+    var isEntireProgressViewVisible = false
+    
+    var isEntireAlertVisible = false
+    var entireAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
+    var isCancelOrderCompleted = false
+    
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
-    @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ProviderCancelledOrderViewModel")
+    @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ClientRequestedOrderViewModel")
     
     init(orderId: Int?) {
         fetchOrderDetail(orderId: orderId)
@@ -70,7 +76,7 @@ class ProviderCancelledOrderViewModel {
     }
     
     func startChat() {
-        guard let targetUserId = order?.clientId else { return }
+        guard let targetUserId = order?.providerId else { return }
         
         ChatManager.startChat(otherId: targetUserId)
             .receive(on: DispatchQueue.main)
@@ -89,6 +95,41 @@ class ProviderCancelledOrderViewModel {
                     
                 } else {
                     self?.logger.error("[startChat] 응답 실패: \(response.message)")
+                }
+            }
+            .store(in: &self.cancellables)
+    }
+    
+    func cancelOrder() {
+        guard let orderId = order?.orderId else { return }
+        
+        let request = CancelOrderRequestDto(
+            orderId: orderId,
+            orderStatus: .cancelled,
+            cancelReason: "")
+        
+        OrderManager.cancelOrder(request)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[cancelOrder] finished")
+                case .failure(let error):
+                    self?.logger.error("[cancelOrder] failed: \(error)")
+                    self?.isEntireAlertVisible = true
+                }
+                
+                self?.isEntireProgressViewVisible = false
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS" {
+                    self?.logger.info("[cancelOrder] SUCCESS")
+                    self?.isCancelOrderCompleted = true
+                    self?.isEntireAlertVisible = true
+                    
+                } else {
+                    self?.logger.error("[cancelOrder] 응답 실패: \(response.message)")
+                    self?.entireAlertMessage = response.message
+                    self?.isEntireAlertVisible = true
                 }
             }
             .store(in: &self.cancellables)

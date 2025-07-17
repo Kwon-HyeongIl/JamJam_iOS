@@ -43,6 +43,7 @@ enum NavigationDestinationPath: Hashable {
     case providerCancelledOrderView(Int?)
     
     case clientServiceManagementView
+    case clientRquestedOrderView(Int?)
     case clientPreparingOrderView(Int?)
     case clientCompletedOrderView(Int?)
     case clientCancelledOrderView(Int?)

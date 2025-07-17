@@ -69,6 +69,8 @@ class NavigationCore {
             
         case .clientServiceManagementView:
             ClientServiceManagementView()
+        case .clientRquestedOrderView(let orderId):
+            ClientRquestedOrderView(orderId: orderId)
         case .clientPreparingOrderView(let orderId):
             ClientPreparingOrderView(orderId: orderId)
         case .clientCompletedOrderView(let orderId):

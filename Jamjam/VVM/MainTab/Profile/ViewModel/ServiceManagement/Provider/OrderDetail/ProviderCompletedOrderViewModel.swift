@@ -13,6 +13,10 @@ import os
 class ProviderCompletedOrderViewModel {
     var order: OrderDetailDomainModel?
     
+    // MARK: 채팅
+    var targetRoomId: Int?
+    var isNavigateToChatRoom = false
+    
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ProviderCompletedOrderViewModel")
     
@@ -45,6 +49,7 @@ class ProviderCompletedOrderViewModel {
                     }
                     
                     let receivedOrderDetail = OrderDetailDomainModel(
+                        orderId: orderId,
                         title: content.title,
                         clientId: content.clientId,
                         providerId: content.providerId,
@@ -59,6 +64,31 @@ class ProviderCompletedOrderViewModel {
                    
                 } else {
                     self?.logger.error("[fetchOrderDatail] 응답 처리 실패: \(response.message)")
+                }
+            }
+            .store(in: &self.cancellables)
+    }
+    
+    func startChat() {
+        guard let targetUserId = order?.clientId else { return }
+        
+        ChatManager.startChat(otherId: targetUserId)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[startChat] finished")
+                case .failure(let error):
+                    self?.logger.error("[startChat] failed: \(error)")
+                }
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS", let roomId = response.content?.roomId {
+                    self?.logger.info("[startChat] SUCCESS")
+                    self?.targetRoomId = roomId
+                    self?.isNavigateToChatRoom = true
+                    
+                } else {
+                    self?.logger.error("[startChat] 응답 실패: \(response.message)")
                 }
             }
             .store(in: &self.cancellables)

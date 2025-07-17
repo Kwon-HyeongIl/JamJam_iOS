@@ -229,6 +229,18 @@
 		CAB6FFFB2E150DCA004CD644 /* StartChatResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFA2E150DCA004CD644 /* StartChatResponseDto.swift */; };
 		CAB6FFFD2E151228004CD644 /* UserDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6FFFC2E151228004CD644 /* UserDomainModel.swift */; };
 		CABB13BE2DF69261007C9E35 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB13BD2DF69261007C9E35 /* SplashView.swift */; };
+		CAC1701B2E28DBE0006B977D /* ClientServiceManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1701A2E28DBE0006B977D /* ClientServiceManagementViewModel.swift */; };
+		CAC1701E2E28DD0E006B977D /* ClientRquestedOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1701D2E28DD0E006B977D /* ClientRquestedOrderView.swift */; };
+		CAC170202E28DEEA006B977D /* ClientRequestedOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1701F2E28DEEA006B977D /* ClientRequestedOrderViewModel.swift */; };
+		CAC170222E28E1CE006B977D /* ClientPreparingOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC170212E28E1CE006B977D /* ClientPreparingOrderViewModel.swift */; };
+		CAC170242E28E1E6006B977D /* ClientCompletedOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC170232E28E1E6006B977D /* ClientCompletedOrderViewModel.swift */; };
+		CAC170262E28E1F9006B977D /* ClientCancelledOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC170252E28E1F9006B977D /* ClientCancelledOrderViewModel.swift */; };
+		CAC170282E28E8EA006B977D /* OrderManager+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC170272E28E8EA006B977D /* OrderManager+State.swift */; };
+		CAC1702A2E28E943006B977D /* AcceptOrderResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC170292E28E943006B977D /* AcceptOrderResponseDto.swift */; };
+		CAC1702C2E28EA11006B977D /* ChangeOrderStateRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1702B2E28EA11006B977D /* ChangeOrderStateRequestDto.swift */; };
+		CAC1702E2E28EA68006B977D /* ChangeOrderStateResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1702D2E28EA68006B977D /* ChangeOrderStateResponseDto.swift */; };
+		CAC170302E28EB22006B977D /* CancelOrderRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1702F2E28EB22006B977D /* CancelOrderRequestDto.swift */; };
+		CAC170322E28EB8E006B977D /* CancelOrderResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC170312E28EB8E006B977D /* CancelOrderResponseDto.swift */; };
 		CACB0C702E2198DE00353E31 /* ProviderDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB0C6F2E2198DE00353E31 /* ProviderDomainModel.swift */; };
 		CAD2F2452E1A9755007B5BE8 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2F2442E1A9755007B5BE8 /* DateManager.swift */; };
 		CAD2F2472E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2F2462E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift */; };
@@ -465,6 +477,18 @@
 		CAB6FFFA2E150DCA004CD644 /* StartChatResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatResponseDto.swift; sourceTree = "<group>"; };
 		CAB6FFFC2E151228004CD644 /* UserDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDomainModel.swift; sourceTree = "<group>"; };
 		CABB13BD2DF69261007C9E35 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		CAC1701A2E28DBE0006B977D /* ClientServiceManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientServiceManagementViewModel.swift; sourceTree = "<group>"; };
+		CAC1701D2E28DD0E006B977D /* ClientRquestedOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRquestedOrderView.swift; sourceTree = "<group>"; };
+		CAC1701F2E28DEEA006B977D /* ClientRequestedOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRequestedOrderViewModel.swift; sourceTree = "<group>"; };
+		CAC170212E28E1CE006B977D /* ClientPreparingOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPreparingOrderViewModel.swift; sourceTree = "<group>"; };
+		CAC170232E28E1E6006B977D /* ClientCompletedOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCompletedOrderViewModel.swift; sourceTree = "<group>"; };
+		CAC170252E28E1F9006B977D /* ClientCancelledOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCancelledOrderViewModel.swift; sourceTree = "<group>"; };
+		CAC170272E28E8EA006B977D /* OrderManager+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderManager+State.swift"; sourceTree = "<group>"; };
+		CAC170292E28E943006B977D /* AcceptOrderResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptOrderResponseDto.swift; sourceTree = "<group>"; };
+		CAC1702B2E28EA11006B977D /* ChangeOrderStateRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeOrderStateRequestDto.swift; sourceTree = "<group>"; };
+		CAC1702D2E28EA68006B977D /* ChangeOrderStateResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeOrderStateResponseDto.swift; sourceTree = "<group>"; };
+		CAC1702F2E28EB22006B977D /* CancelOrderRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderRequestDto.swift; sourceTree = "<group>"; };
+		CAC170312E28EB8E006B977D /* CancelOrderResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderResponseDto.swift; sourceTree = "<group>"; };
 		CACB0C6F2E2198DE00353E31 /* ProviderDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderDomainModel.swift; sourceTree = "<group>"; };
 		CAD2F2442E1A9755007B5BE8 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		CAD2F2462E1AE4ED007B5BE8 /* RegisterServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceViewModel.swift; sourceTree = "<group>"; };
@@ -1040,6 +1064,7 @@
 			children = (
 				CA687C292E23A86E00085C07 /* OrderManager.swift */,
 				CA17C68C2E261FBB00D4E635 /* OrderManager+Fetch.swift */,
+				CAC170272E28E8EA006B977D /* OrderManager+State.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -1071,6 +1096,9 @@
 				CA17C68A2E261F3000D4E635 /* FetchOrderStateCountsResponseDto.swift */,
 				CA17C6932E267C5D00D4E635 /* FetchOrderListResponseDto.swift */,
 				CA76C9262E27AB20000098E8 /* FetchOrderDetailResponseDto.swift */,
+				CAC170292E28E943006B977D /* AcceptOrderResponseDto.swift */,
+				CAC1702D2E28EA68006B977D /* ChangeOrderStateResponseDto.swift */,
+				CAC170312E28EB8E006B977D /* CancelOrderResponseDto.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1081,6 +1109,8 @@
 				CA687C2F2E23A8B400085C07 /* OrderServiceRequestDto.swift */,
 				CA17C6912E267BE300D4E635 /* FetchOrderListRequestDto.swift */,
 				CA76C9242E27AB16000098E8 /* FetchOrderDetailRequestDto.swift */,
+				CAC1702B2E28EA11006B977D /* ChangeOrderStateRequestDto.swift */,
+				CAC1702F2E28EB22006B977D /* CancelOrderRequestDto.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1796,6 +1826,17 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		CAC1701C2E28DCC4006B977D /* OrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CAC1701F2E28DEEA006B977D /* ClientRequestedOrderViewModel.swift */,
+				CAC170212E28E1CE006B977D /* ClientPreparingOrderViewModel.swift */,
+				CAC170232E28E1E6006B977D /* ClientCompletedOrderViewModel.swift */,
+				CAC170252E28E1F9006B977D /* ClientCancelledOrderViewModel.swift */,
+			);
+			path = OrderDetail;
+			sourceTree = "<group>";
+		};
 		CACB0C6E2E2198B900353E31 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -1856,6 +1897,8 @@
 		CAD607672E26CF30000CD57E /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				CAC1701A2E28DBE0006B977D /* ClientServiceManagementViewModel.swift */,
+				CAC1701C2E28DCC4006B977D /* OrderDetail */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -1874,6 +1917,7 @@
 		CAD607732E26D077000CD57E /* OrderDetail */ = {
 			isa = PBXGroup;
 			children = (
+				CAC1701D2E28DD0E006B977D /* ClientRquestedOrderView.swift */,
 				CAD607742E26D0A9000CD57E /* ClientPreparingOrderView.swift */,
 				CAD607762E26D0C1000CD57E /* ClientCompletedOrderView.swift */,
 				CAD607782E26D0D0000CD57E /* ClientCancelledOrderView.swift */,
@@ -2004,6 +2048,7 @@
 			files = (
 				CA687C302E23A8B400085C07 /* OrderServiceRequestDto.swift in Sources */,
 				CA4FA6A82E22AE5800DF4AAA /* EditNotificationViewModel.swift in Sources */,
+				CAC1702C2E28EA11006B977D /* ChangeOrderStateRequestDto.swift in Sources */,
 				CA9BB5322E1300310035F26D /* NavigationBarBackAndLogoAndLoginButtonModifier.swift in Sources */,
 				CA7685342E1BE26F00148204 /* ServiceManager+Register.swift in Sources */,
 				CA50CB572E1D68C50078AC22 /* RegisterServiceRequestDto.swift in Sources */,
@@ -2073,12 +2118,14 @@
 				CA76C9272E27AB20000098E8 /* FetchOrderDetailResponseDto.swift in Sources */,
 				CA9E38DF2DFA666700AE12DD /* CarouselCard.swift in Sources */,
 				CA9609A42DFFCD7B00B878C6 /* Color+MainTitle.swift in Sources */,
+				CAC1701E2E28DD0E006B977D /* ClientRquestedOrderView.swift in Sources */,
 				CAD607652E26CEAE000CD57E /* ProviderCancelledOrderView.swift in Sources */,
 				CA9609A72DFFCF8100B878C6 /* MainTabBar.swift in Sources */,
 				CA9E38DC2DFA5FD000AE12DD /* HomeViewModel.swift in Sources */,
 				CA4F12612E1858E50061012E /* DegreeForm.swift in Sources */,
 				CAB6FFFB2E150DCA004CD644 /* StartChatResponseDto.swift in Sources */,
 				CA62D99B2E23C528002C7849 /* ServiceManager+Search.swift in Sources */,
+				CAC170322E28EB8E006B977D /* CancelOrderResponseDto.swift in Sources */,
 				CA7685462E1C01CA00148204 /* NavigationDestinationPath.swift in Sources */,
 				CA687C2A2E23A86E00085C07 /* OrderManager.swift in Sources */,
 				CA60ED3F2E196A5F00B93A1D /* ChatMessageDomainModel.swift in Sources */,
@@ -2086,6 +2133,7 @@
 				CA9BB52E2E12BBB30035F26D /* NavigationBarBackAndTitleAndHomeModifier.swift in Sources */,
 				CA4F12382E17CACE0061012E /* SkillCategory.swift in Sources */,
 				CA4F12432E17D6D40061012E /* DevelopmentDetail.swift in Sources */,
+				CAC170282E28E8EA006B977D /* OrderManager+State.swift in Sources */,
 				CA7DE5BD2E1EBCD100086E8B /* FetchUserResponseDto.swift in Sources */,
 				CA17C6902E2655D900D4E635 /* OrderState.swift in Sources */,
 				CA50CB552E1D46C80078AC22 /* SocketChatRoomResponseDto.swift in Sources */,
@@ -2098,6 +2146,7 @@
 				CA687C322E23A90D00085C07 /* OrderServiceResponseDto.swift in Sources */,
 				CA35935C2E0511C70069FAF8 /* CategoryView.swift in Sources */,
 				CA9F463A2E101EE000028F83 /* ChatListView.swift in Sources */,
+				CAC170302E28EB22006B977D /* CancelOrderRequestDto.swift in Sources */,
 				CA5C5E902E09A0A800FB1E22 /* SignUpWithClientResponseDto.swift in Sources */,
 				CA4CF92D2E0C279D00F882C4 /* VerifySmsResponseDto.swift in Sources */,
 				CAD6075F2E26CE89000CD57E /* ProviderRequestedOrderView.swift in Sources */,
@@ -2131,6 +2180,8 @@
 				CA53F48A2E222E2300F5C297 /* NavigationBarRegisterServiceTailModifier.swift in Sources */,
 				CA4F124F2E17D7B70061012E /* CustomMadeDetail.swift in Sources */,
 				CA4F12572E17E11B0061012E /* EditProviderProfileView.swift in Sources */,
+				CAC170262E28E1F9006B977D /* ClientCancelledOrderViewModel.swift in Sources */,
+				CAC1702E2E28EA68006B977D /* ChangeOrderStateResponseDto.swift in Sources */,
 				CA9609B02DFFD17900B878C6 /* CornerRadius.swift in Sources */,
 				CAD607722E26D065000CD57E /* ClientServiceManagementView.swift in Sources */,
 				CA83F6E72DFAF7DF005377E6 /* Color+MainBackground.swift in Sources */,
@@ -2150,11 +2201,13 @@
 				CA2F85472E19A5BF00848F2E /* ServiceContentEditorWebView.swift in Sources */,
 				CA0915562DF12B9400E272F8 /* AisleView.swift in Sources */,
 				CA76853D2E1BF8D200148204 /* UserManager+Login.swift in Sources */,
+				CAC170242E28E1E6006B977D /* ClientCompletedOrderViewModel.swift in Sources */,
 				CA9609AD2DFFD02300B878C6 /* MainTab.swift in Sources */,
 				CAD2F2452E1A9755007B5BE8 /* DateManager.swift in Sources */,
 				CA9E2A7B2E212B4E00962203 /* ServiceDomainModel.swift in Sources */,
 				CA76853B2E1BF8A000148204 /* UserManager+SignUp.swift in Sources */,
 				CA9609BB2DFFDA6100B878C6 /* LoginViewModel.swift in Sources */,
+				CAC1702A2E28E943006B977D /* AcceptOrderResponseDto.swift in Sources */,
 				CA5C5E8E2E09A09C00FB1E22 /* SignUpWithProviderResponseDto.swift in Sources */,
 				CA4F124B2E17D76B0061012E /* MediaDetail.swift in Sources */,
 				CA7DE5CD2E1FE25300086E8B /* UpdateUserInfoRequestDto.swift in Sources */,
@@ -2174,6 +2227,7 @@
 				CA62D9A12E23F2B6002C7849 /* UpdateProviderInfoResponseDto.swift in Sources */,
 				CA4F12632E185A030061012E /* CertificateForm.swift in Sources */,
 				CA9E2A7D2E212B7B00962203 /* PortfolioImageDomainModel.swift in Sources */,
+				CAC170222E28E1CE006B977D /* ClientPreparingOrderViewModel.swift in Sources */,
 				CA4FA6A52E22AE3500DF4AAA /* EditNotificationView.swift in Sources */,
 				CA7DE5C52E1ED8D300086E8B /* AccountDomainModel.swift in Sources */,
 				CA7685272E1BDAEE00148204 /* ServiceManager.swift in Sources */,
@@ -2193,6 +2247,7 @@
 				CA4927D72E0EE52D00D42CD0 /* LoginRequestDto.swift in Sources */,
 				CA4FA6A22E22784300DF4AAA /* ServiceContentViewerWebView.swift in Sources */,
 				CA9BB5302E12FEAE0035F26D /* NavigationBarBackAndNameModifier.swift in Sources */,
+				CAC170202E28DEEA006B977D /* ClientRequestedOrderViewModel.swift in Sources */,
 				CA4F12452E17D6F10061012E /* DesignDetail.swift in Sources */,
 				CA17C68D2E261FBC00D4E635 /* OrderManager+Fetch.swift in Sources */,
 				CA4F12492E17D73C0061012E /* TranslationDetail.swift in Sources */,
@@ -2200,6 +2255,7 @@
 				CA5C5E942E09A22800FB1E22 /* API.swift in Sources */,
 				CAD6076E2E26CF92000CD57E /* ProviderCompletedOrderViewModel.swift in Sources */,
 				CA9E2A782E212A0300962203 /* FetchServiceResponseDto.swift in Sources */,
+				CAC1701B2E28DBE0006B977D /* ClientServiceManagementViewModel.swift in Sources */,
 				CA53F4922E22395100F5C297 /* OrderServiceRequestView.swift in Sources */,
 				CA4F125F2E18451C0061012E /* CareerForm.swift in Sources */,
 				CA53F4862E22175600F5C297 /* EducationDomainModel.swift in Sources */,

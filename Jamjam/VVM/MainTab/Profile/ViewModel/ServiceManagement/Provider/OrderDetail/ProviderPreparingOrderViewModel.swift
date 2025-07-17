@@ -13,6 +13,16 @@ import os
 class ProviderPreparingOrderViewModel {
     var order: OrderDetailDomainModel?
     
+    // MARK: 채팅
+    var targetRoomId: Int?
+    var isNavigateToChatRoom = false
+    
+    var isEntireProgressViewVisible = false
+    
+    var isEntireAlertVisible = false
+    var entireAlertMessage = "문제가 발생하였습니다. 다시 시도해 주세요."
+    var isCompleteOrderCompleted = false
+    
     @ObservationIgnored var cancellables = Set<AnyCancellable>()
     @ObservationIgnored let logger = Logger(subsystem: "com.khi.jamjam", category: "ProviderPreparingOrderViewModel")
     
@@ -45,6 +55,7 @@ class ProviderPreparingOrderViewModel {
                     }
                     
                     let receivedOrderDetail = OrderDetailDomainModel(
+                        orderId: orderId,
                         title: content.title,
                         clientId: content.clientId,
                         providerId: content.providerId,
@@ -59,6 +70,67 @@ class ProviderPreparingOrderViewModel {
                    
                 } else {
                     self?.logger.error("[fetchOrderDatail] 응답 처리 실패: \(response.message)")
+                }
+            }
+            .store(in: &self.cancellables)
+    }
+    
+    func startChat() {
+        guard let targetUserId = order?.clientId else { return }
+        
+        ChatManager.startChat(otherId: targetUserId)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[startChat] finished")
+                case .failure(let error):
+                    self?.logger.error("[startChat] failed: \(error)")
+                }
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS", let roomId = response.content?.roomId {
+                    self?.logger.info("[startChat] SUCCESS")
+                    self?.targetRoomId = roomId
+                    self?.isNavigateToChatRoom = true
+                    
+                } else {
+                    self?.logger.error("[startChat] 응답 실패: \(response.message)")
+                }
+            }
+            .store(in: &self.cancellables)
+    }
+    
+    func completeOrder() {
+        guard let orderId = order?.orderId else { return }
+        
+        let reqeust = ChangeOrderStateRequestDto(
+            orderId: orderId,
+            orderStatus: .completed,
+            cancelReason: ""
+        )
+        
+        OrderManager.changeOrderState(reqeust)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    self?.logger.info("[changeOrderState] finished")
+                case .failure(let error):
+                    self?.logger.error("[changeOrderState] failed: \(error)")
+                    self?.isEntireAlertVisible = true
+                }
+                
+                self?.isEntireProgressViewVisible = false
+            } receiveValue: { [weak self] response in
+                if response.code == "SUCCESS" {
+                    self?.logger.info("[changeOrderState] SUCCESS")
+                    self?.isCompleteOrderCompleted = true
+                    self?.isEntireAlertVisible = true
+                    
+                } else {
+                    self?.logger.error("[changeOrderState] 응답 실패: \(response.message)")
+                    self?.entireAlertMessage = response.message
+                    self?.isEntireAlertVisible = true
                 }
             }
             .store(in: &self.cancellables)

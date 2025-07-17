@@ -8,6 +8,7 @@
 import Foundation
 
 struct OrderDetailDomainModel {
+    let orderId: Int
     let title: String
     let clientId: Int
     let providerId: Int

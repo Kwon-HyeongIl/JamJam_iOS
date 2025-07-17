@@ -66,6 +66,9 @@ enum API {
     case fetchOrderStateCounts
     case fetchOrderList
     case fetchOrderDetail
+    case acceptOrder(Int)
+    case changeOrderState
+    case cancelOrder
     
     var urlString: String {
         switch self {
@@ -142,6 +145,12 @@ enum API {
             return "\(API.baseURL)/api/order/order-list"
         case .fetchOrderDetail:
             return "\(API.baseURL)/api/order/detail"
+        case .acceptOrder(let orderId):
+            return "\(API.baseURL)/api/order/client/\(orderId)/confrim"
+        case .changeOrderState:
+            return "\(API.baseURL)/api/order/provider/change-status"
+        case .cancelOrder:
+            return "\(API.baseURL)/api/order/client/cancel"
         }
     }
     
