@@ -22,7 +22,7 @@ struct ChatMessageDomainModel {
         senderNickname = from.senderNickname
         content = from.content
         sentMinuteTime = DateManager.isoToMinuteTime(from.sentAt)
-        sentDate = DateManager.isoToDate(from.sentAt)
+        sentDate = DateManager.isoToNumDate(from.sentAt)
         isOwn = from.isOwn
     }
     
@@ -32,7 +32,7 @@ struct ChatMessageDomainModel {
         senderNickname = from.senderNickname
         content = from.content
         sentMinuteTime = DateManager.isoToMinuteTime(from.sentAt)
-        sentDate = DateManager.isoToDate(from.sentAt)
+        sentDate = DateManager.isoToNumDate(from.sentAt)
         isOwn = String(AuthCore.shared.userId ?? -1) == from.senderId ? true : false
     }
 }

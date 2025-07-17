@@ -15,10 +15,6 @@ class ProfileViewModel {
         AuthCore.shared.isLogin
     }
     
-    var userRole: UserRole? {
-        AuthCore.shared.userRole
-    }
-    
     var user: UserDomainModel?
     
     var isLoginAlertVisible = false

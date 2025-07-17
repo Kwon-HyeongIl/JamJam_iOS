@@ -12,6 +12,9 @@ enum NavigationDestinationPath: Hashable {
     case loginView
     case signUpView
     
+    // Credit
+    case creditManagementView
+    
     // Home
     case searchView
     case categoryView(SkillCategory)
@@ -47,8 +50,4 @@ enum NavigationDestinationPath: Hashable {
     case clientPreparingOrderView(Int?)
     case clientCompletedOrderView(Int?)
     case clientCancelledOrderView(Int?)
-    
-    // Finance
-    case providerFinanceManagementView
-    case clientFinanceManagementView
 }

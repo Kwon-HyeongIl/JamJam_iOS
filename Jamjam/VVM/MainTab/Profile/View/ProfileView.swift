@@ -262,12 +262,7 @@ struct ProfileView: View {
                         
                         Button {
                             if viewModel.isLogin {
-                                if case .provider? = viewModel.userRole {
-                                    navRouter.navigate(.providerFinanceManagementView)
-                                } else if case .client? = viewModel.userRole {
-                                    navRouter.navigate(.clientFinanceManagementView)
-                                }
-                                
+                                navRouter.navigate(.creditManagementView)          
                             } else {
                                 viewModel.isLoginAlertVisible = true
                             }

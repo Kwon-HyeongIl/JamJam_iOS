@@ -38,6 +38,8 @@ enum API {
     case updateUserInfo
     case checkPassword
     
+    case fetchCreditHistorys
+    
     case fetchProvider
     case fetchOtherProvider(Int)
     case updateProviderInfo
@@ -104,6 +106,10 @@ enum API {
             return "\(API.baseURL)/api/providers/page/\(userId)"
         case .updateProviderInfo:
             return "\(API.baseURL)/api/providers"
+            
+            // MARK: Credit
+        case .fetchCreditHistorys:
+            return "\(API.baseURL)/api/user/credit-history"
             
             // MARK: Service
         case .fetchServices:

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProviderFinanceManagementView: View {
+struct CreditManagementView: View {
     @Environment(NavigationCore.self) var navRouter
     @State private var viewModel = ProviderFinanceManagementViewModel()
     
@@ -79,7 +79,7 @@ struct ProviderFinanceManagementView: View {
 
 #Preview {
     NavigationStack {
-        ProviderFinanceManagementView()
+        CreditManagementView()
             .environment(NavigationCore())
             .environment(MainTabBarCapsule())
     }

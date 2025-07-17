@@ -20,6 +20,10 @@ class NavigationCore {
         case .signUpView:
             SignUpView()
             
+            // MARK: Credit
+        case .creditManagementView:
+            CreditManagementView()
+            
             // MARK: Home
         case .searchView:
             SearchServiceView()
@@ -78,11 +82,6 @@ class NavigationCore {
         case .clientCancelledOrderView(let orderId):
             ClientCancelledOrderView(orderId: orderId)
             
-            // MARK: Finance
-        case .providerFinanceManagementView:
-            ProviderFinanceManagementView()
-        case .clientFinanceManagementView:
-            ClientFinanceManagementView()
         }
     }
     
