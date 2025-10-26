@@ -1,4 +1,4 @@
-# 🧓 잼잼 JAMJAM
+# 잼잼 JAMJAM
 
 ![jamjam](https://github.com/user-attachments/assets/a7c78b6f-e0a1-41c8-a3e4-6a44600aa689)
 
